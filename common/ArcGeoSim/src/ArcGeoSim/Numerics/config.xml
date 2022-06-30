@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile> 
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+  <directories>
+    <directory>DiscreteOperator</directory>
+    <directory>Expressions</directory>
+    <directory>GroupCreator</directory>
+    <directory depend="law">DemonstratorTools</directory>
+    <directory>TwoPointsScheme</directory>
+    <directory>Discretization</directory>
+  </directories>
+</makefile>

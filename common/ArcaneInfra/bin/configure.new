@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ROOT=`dirname $0`
+
+mono ${ROOT}/common/ArcaneInfra/tools/ArcaneInfra.Tools/Configurator/bin/Debug/Configurator.exe --base-command=$0 "$@"

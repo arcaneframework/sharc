@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<law name="Random">
+  <output name="out" type="real" dim="scalar" />
+</law>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="c++">
+    <file>TimeStepModifier</file>
+    <file>TimeStepSetter</file>
+    <file>EventBasics</file>
+    <file>Event</file>
+    <file>RecurrentEvent</file>
+  </files>
+  <files language="c++header">
+    <file>EvolutionTypes</file>
+  </files>
+  <files language="service">
+    <file header="false">TimeStepEvolutionPolicy</file>
+  </files>
+</makefile>

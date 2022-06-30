@@ -1,0 +1,54 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="System.Linq" #>
+#
+# Generated file -- DO NOT EDIT --
+#
+
+#
+# axl directory
+#
+
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/axl)
+
+#
+# extra includes
+#
+
+<#
+foreach(var include in Includes) {
+#>include_directories(<#= include #>)
+<#
+}
+#>
+
+#
+# libraries
+#
+<# foreach(var libraries in Libraries) { #>
+
+# libraries <#= libraries.Name #>
+include_directories(<#= libraries.IncludePath #>)
+
+<#   foreach (var library in libraries.library) {
+        var path = LibraryPath(libraries, library); #>
+include(<#= path #>/library.cmake)
+<#   }
+ 
+     foreach (var library in F90Libraries.Where(p => p.Item1.name == libraries.Name)
+                                         .Select(p => p.Item2)) {
+       var path = LibraryF90Path(libraries, library); #>
+       
+# f90 
+include(<#= path #>/library.cmake)
+<#   } 
+ 
+     foreach (var library in DependencyLibraries(libraries)) { #>    
+
+# Dependency library <#= library.Name #>
+include_directories(<#= library.IncludePath #>)
+<#   } 
+   } #>
+
+#
+# End of generated file -- DO NOT EDIT --
+#

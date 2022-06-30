@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A1BB550-4C31-49F8-AEA6-EC6DF2A2B2D8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>LawCompiler</RootNamespace>
+    <AssemblyName>LawCompiler</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="DimensionExtensions.cs" />
+    <Compile Include="Law.cs" />
+    <Compile Include="LawServiceCppT4.cs">
+      <DependentUpon>LawServiceCppT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LawServiceHeaderT4.cs">
+      <DependentUpon>LawServiceHeaderT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LawServiceT4Code.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Mono_Options.cs" />
+    <Compile Include="PropertyCode.cs" />
+    <Compile Include="TypeExtensions.cs" />
+    <Compile Include="Xml.cs" />
+    <Compile Include="StringEnumerableExtensions.cs" />
+    <Compile Include="StringExtensions.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <EmbeddedResource Include="Law.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Law2Axl.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LawServiceCppT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LawServiceCppT4.cs</LastGenOutput>
+    </None>
+    <None Include="LawServiceHeaderT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LawServiceHeaderT4.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+</Project>

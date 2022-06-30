@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+
+  <files language="c++">
+    <file>FunctionGraph</file>
+    <file>FunctionManager</file>
+    <file>FunctionEvaluator</file>
+    <file>EvaluationResults</file>
+    <file>VariableManager</file>
+  </files>
+
+  <files language="c++header"> 
+    <file>BuildInfo</file>
+    <file>ContainerTraits</file>
+    <file>Derivative</file>
+    <file>DerivativeView</file>
+    <file>Dimension</file>
+    <file>Enumerator</file>
+    <file>FunctionManager</file>
+    <file>IFunction</file>
+    <file>IComposedFunction</file>
+    <file>Law</file>
+    <file>Property</file>
+    <file>PropertyMapping</file>
+    <file>PropertyVector</file>
+    <file>State</file>
+    <file>VariableAccessor</file>
+    <file>VariableAllocator</file>
+    <file>VariableDataBase</file>
+    <file>Variable</file>
+    <file>VariableRef</file>
+    <file>VariableResizer</file>
+    <file>FunctionGraphPrinter</file>
+  </files>
+  <directories>
+    <!-- contribution AD GUMP LAW (extracted from geoxim) -->
+    <directory>Contribution</directory>
+  </directories>
+
+</makefile>

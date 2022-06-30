@@ -1,0 +1,6 @@
+# -*- cmake -*-
+# Test SharedService
+ARCANE_ADD_TEST_SEQUENTIAL(AppService 
+  ArcGeoSim
+  common/ArcGeoSim/test/ServiceTests/AppServiceTest 
+  AppServiceTest.arc)

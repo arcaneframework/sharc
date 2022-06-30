@@ -1,0 +1,12 @@
+#ifndef @model@_CC
+#define @model@_CC
+
+#include <iostream>
+
+namespace @model@ {
+
+  std::string name() { return "@model@"; }
+  
+}
+
+#endif

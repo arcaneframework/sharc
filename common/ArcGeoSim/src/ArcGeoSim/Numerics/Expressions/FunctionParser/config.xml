@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+
+  <files language="c++">
+    <file>FunctionParser</file>      
+  </files>
+  
+  <files language="c++header">
+    <file>FunctorUtils/IFunctor</file>
+    <file>FunctorUtils/Inclusion</file> 
+    <file>FunctorUtils/Functions/LogFunc</file>
+    <file>FunctorUtils/Functions/MathFunc</file>
+    <file>FunctorUtils/Type/Array</file>
+    <file>FunctorUtils/Type/Fad</file> 
+    <file>FunctorUtils/Type/Real3</file>
+    <file>FunctorUtils/Type/VarVect</file>
+    <file>FunctorUtils/Utils/BinaryOp</file>
+    <file>FunctorUtils/Utils/Cst</file>
+    <file>FunctorUtils/Utils/Expr</file> 
+    <file>FunctorUtils/Utils/Hat</file>
+    <file>FunctorUtils/Utils/Promote</file>
+  </files>
+  
+</makefile>

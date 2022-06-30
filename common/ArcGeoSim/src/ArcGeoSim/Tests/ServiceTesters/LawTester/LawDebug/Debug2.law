@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<law name="Debug2">
+
+  <input name="in_1" type="real" dim="scalar" />
+  <input name="in_2" type="real" dim="multi-scalar" />
+  
+  <output name="out_1" type="real" dim="scalar" />
+  <output name="out_2" type="real" dim="multi-scalar" />
+  
+  <parameter name="param_1" type="real" dim="scalar" />
+  
+</law>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="c++">
+    <file>ExpressionBuilderR1vR1Core</file>
+    <file>ExpressionBuilderR2vR1Core</file>
+    <file>ExpressionBuilderR3vR1Core</file>
+    <file>ExpressionBuilderR4vR1Core</file>
+    <file>LocalExpressionMng</file>
+  </files>
+  <files language="service">
+    <file header="false">ExpressionBuilderR1vR1</file>
+    <file header="false">ExpressionBuilderR2vR1</file>
+    <file header="false">ExpressionBuilderR3vR1</file>
+    <file header="false">ExpressionBuilderR4vR1</file>
+    <file>ExpressionBuilder</file>
+  </files>
+</makefile>

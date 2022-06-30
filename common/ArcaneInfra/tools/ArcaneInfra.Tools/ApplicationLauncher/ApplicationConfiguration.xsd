@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ags="http://www.ifpen.fr/ArcGeoSim/Common.xsd"
+           elementFormDefault="unqualified">
+
+<!-- Fichier à transformer en objet C# via la commande
+	/soft/irsrvsoft1/expl/Mono/Mono_3.2.8/bin/xsd ApplicationConfiguration.xsd /c /l:CS /n:Application
+-->           
+                      
+  <xs:simpleType name="ConfigLocation" final="restriction" >
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="ApplicationSide" />
+        <xs:enumeration value="Local" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="ApplicationConfiguration">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="ConfigLocation" type="ConfigLocation" />
+      <xs:element name="EnableParallelMode" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="application" type="ApplicationConfiguration" />
+
+</xs:schema>

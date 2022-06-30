@@ -1,0 +1,45 @@
+#!/usr/bin/env perl
+
+unless (@ARGV) {
+  print <<EOF;
+Usage: LOCAL_ENV_VARS=values... $0 package files...
+Example: ARCANE_VERSION=1.20.1 GEOMETRY_KERNEL_VERSION=201308-3d2d-simple_corefinement_algorithm ./make_dependency_package /home/irsrvhome1/R11/havep/work/ArcSim/ArcaneInfra/Packages/Packages-IFP-Linux-x86_64.cmake /home/irsrvshare1/R11/arcdev/Arcane/1.20.1/src/openarcane/configs/Packages.IFP-x86_64.txt    
+EOF
+  exit 1;
+}
+
+my %directory_list;
+
+foreach my $package_file (@ARGV) 
+{
+  open FILE, $package_file or die;
+  while (<FILE>) 
+  { 
+    if (m|(/home/irsrvshare1/[^\s"')]+)| or m|(/soft/irsrvsoft1/[^\s"')]+)|) 
+    { 
+      my ($d,$refd) = ($1,$1);
+      while(my ($k,$v) = each %ENV) { if ($d =~ s/\$\{$k\}/$v/) { print "Substitution of $k in $refd\n"; } }
+      $directory_list{$d} = 1;
+    }
+  }
+  close FILE;
+}
+
+
+my $has_error = 0;
+foreach my $d (keys %directory_list) 
+{
+  if (! -e $d) { print STDERR "Cannot find file or drectory $d\n"; $has_error = 1; }
+}
+
+if ($has_error) { print STDERR "Fix previous error(s) and retry\n"; exit 2; }
+
+my $directory_list = join ' ', keys %directory_list;
+print "Checking size...\n";
+my $size=`du -scm $directory_list`;
+print "Before archiving dependency size is $size\n";
+my $date=`date +%y%m%d-%H%M`; chomp $date;
+my $archfile = "/tmp/ArcGeoSim-dependency-package_$date.tgz";
+print "Building archive $archfile...\n";
+system("tar -czvf $archfile $directory_list");
+print "Archive $archfile done\n";

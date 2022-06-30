@@ -1,0 +1,24 @@
+#ifndef ${PATH}${NAME}_H
+#error "Template implementation has to be used with template declaration"
+#endif 
+
+/*---------------------------------------------------------------------------*/
+
+template<typename T>
+${name}T<T>::
+${name}T()
+{
+  // default constructor code here
+}
+
+/*---------------------------------------------------------------------------*/
+
+template<typename T>
+void
+${name}T<T>::
+method(const bool arg)
+{
+  // your code here
+}
+
+/*---------------------------------------------------------------------------*/

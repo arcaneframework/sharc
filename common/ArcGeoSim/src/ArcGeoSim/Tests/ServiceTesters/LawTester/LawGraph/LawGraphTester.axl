@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="LawGraphTester" version="1.0" type="caseoption">
+	<description>Service Graph Law Tester</description>
+	<interface name="IServiceTester" />
+
+  <options />
+
+</service>

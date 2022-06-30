@@ -1,0 +1,30 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Arcane.Axl.T4/MainAXL2CCT4.cs">
+    <Files>
+      <File FileName="Arcane.Axl.T4/Arcane.Axl/T4.Service/ServiceT4StrongOnly.tt" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.T4/Arcane.Axl/T4.Service/ServiceT4CaseAndStrongCode.cs" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.T4/Arcane.Axl/T4.Service/ServiceT4CaseAndStrong.tt" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.T4/Arcane.Axl/T4.CaseOptions/CaseOptionsT4.tt" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.T4/MainAXL2CCT4.cs" Line="25" Column="30" />
+      <File FileName="Arcane.Axl/MainAXL2CC.cs" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.T4/Arcane.Axl/T4.StrongOptions/StrongOptionsFactoryCode.cs" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.Generator.CSharp/CSharpCaseOptionsGenerator.cs" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.Generator.CSharp/CSharpCodeGenerator.cs" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.Generator.CSharp/CSharpGeneratorVisitor.cs" Line="1" Column="1" />
+      <File FileName="Arcane.Axl.T4/Arcane.Axl/AXLGlobal.cs" Line="1" Column="1" />
+      <File FileName="Arcane.Axl/AXLGlobal.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="axl2ccT4" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

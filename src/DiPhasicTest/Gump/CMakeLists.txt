@@ -1,0 +1,1 @@
+generateGumpModel(DiPhasic.xml)

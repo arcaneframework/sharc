@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+     <package name="boost" />
+  </needed-packages>
+  <directories>
+    <directory depend="law">LawCompiler</directory>
+    <directory depend="law">LawContribution</directory>
+    <directory depend="law">LawGraph</directory>
+    <directory depend="law">LawDebug</directory>
+  </directories>
+</makefile>

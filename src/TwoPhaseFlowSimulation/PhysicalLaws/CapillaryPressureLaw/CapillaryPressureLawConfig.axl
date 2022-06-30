@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="CapillaryPressureLawConfig" version="1.0" type="caseoption">
+  <description>Service CapillaryPressureLawConfig</description>
+  <interface name="ILawConfigurator" />
+
+  <options>
+
+    <simple name="check" type="bool" default="false">
+    </simple>
+
+    <complex name="output" type="Output">
+      <simple name="capillary-pressure" type="string" />
+    </complex>
+
+    <complex name="input" type="Input">
+      <simple name="saturation" type="string" />
+    </complex>
+
+    <complex name="parameters" type="Parameters">
+      <simple name="Pe"  type="real"  default="0"   />
+      <simple name="Sr-ref"    type="real"  default="0"   />
+      <simple name="Sr"    type="real"  default="0"   />
+      <simple name="lambda"  type="real"  default="-1"   />
+    </complex>
+
+  </options>
+
+</service>

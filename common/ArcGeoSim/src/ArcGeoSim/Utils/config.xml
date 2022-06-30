@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+    <package name="mpi" />
+    <package name="hdf5" />
+  </needed-packages>
+  
+  <files language="c++">
+    <file>HdfReader</file>
+    <file>ParallelUtils</file>
+    <file>ItemGroupMap</file>
+    <file>IOBuffer</file>
+    <file header="false">XmlCaseOptionConverter</file>
+    <file>ItemTools</file>
+  </files>
+  
+  <files language="c++header">
+    <file>ArcGeoSim</file>
+    <file>ArrayUtils</file>
+    <file>DataTypeUtils</file>
+    <file>DefineUtils</file>
+    <file>FunctionUtils</file>
+    <file>IVisitor</file>
+    <file>ItemComparator</file>
+    <file>ItemGroupBuilder</file>
+    <file>MakeDelegatedPtr</file>
+    <file>MeshVarExpr</file>
+    <file>MeshVariableArray2RefT</file>
+    <file>MeshVariableViewRefT</file>
+    <file>MixedCollectiveCommunications</file>
+    <file>Optional</file>
+    <file>Spy</file>
+    <file>Table</file>
+    <file>TupleRandomIterator</file>
+    <file>Utils</file>
+    <file>VMap</file>
+  </files>
+</makefile>

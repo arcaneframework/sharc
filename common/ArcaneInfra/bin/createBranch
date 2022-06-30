@@ -1,0 +1,183 @@
+#!/bin/sh
+
+ROOTURL=https://websvn.ifpen.fr/svn/ArcSim
+REVISION=HEAD
+
+exitusage() {
+  if [ -n "$1" ]; then
+    echo "Error: $1" 2>&1
+  fi
+  echo "Usage: $0 [-x] [-y] [-s] [-d] [-v] [-r rev] Application BranchTag"
+  echo "Options:"
+  echo "  -x     : exclude branch for ArcGeoSim"
+  echo "  -y     : include branch for ArcaneInfra"
+  echo "  -s     : standalone mode: copy ArcaneInfra and ArcGeoSim branch in 'common' directory without externals"
+  echo "  -d     : dry mode: only print commands"
+  echo "  -r rev : select source revision; default revision is HEAD"
+  echo "  -v     : verbose mode"
+  echo "  -h     : this help page"
+  echo "example: $0 ArcaneDemo AMR"
+  echo "  will produce an ArcaneDemo-branches/ArcaneDemo-AMR branch for ArcaneDemo"
+  echo "  (with its own ArcGeoSim branch)"
+  exit 1
+}
+
+cleanexit()
+{
+  CODE=0
+  if [ -n "$1" ]; then
+    CODE=-1
+    echo "Error: $1"
+  fi
+  \rm -f $TMPFILE
+  \rm -fr $TMPDIR
+  exit $CODE
+}
+
+OPTIONS=$@
+EXCLUDE_ARCANEINFRA=true
+EXCLUDE_ARCGEOSIM=
+STANDALONE_MODE=
+DRYMODE=false
+VERBOSE=
+set -- $(getopt hxysdvr: "$@")
+while [ $# -gt 0 ]
+do
+    case "$1" in
+    (-x) EXCLUDE_ARCGEOSIM=true;;
+    (-y) EXCLUDE_ARCANEINFRA=;;
+    (-s) STANDALONE_MODE=true;;
+    (-h) exitusage;;
+    (-d) DRYMODE=true;;
+    (-r) REVISION=$2; shift;;
+    (-v) VERBOSE=1;;
+    (--) shift; break;;
+    (-*) echo "$0: internal error - unrecognized option $1" 1>&2; exit 1;;
+    (*)  break;;
+    esac
+    shift
+done
+
+APPLI=$1
+TAG=$2
+
+if [ -z "${TAG}" -o -n "$3" ]; then
+  exitusage "bad syntax"
+fi
+
+if [ "$STANDALONE_MODE" = "true" ]; then
+  EXCLUDE_ARCANEINFRA=true
+  EXCLUDE_ARCGEOSIM=true
+fi
+
+TMPFILE=`mktemp`
+TMPDIR=`mktemp -d`
+
+if [ "$DRYMODE" = "true" ]; then
+  SVNCMD="echo %% svn"
+  echo "Warning: using following commands is under your responsibility"
+else
+  SVNCMD="svn"
+fi
+
+# check existing conflicting directories
+CONFLICT=
+
+echo "You will create a branch $APPLI-branches/$APPLI-$TAG for $APPLI on revision $REVISION"
+if ( ! $DRYMODE && $SVNCMD info $ROOTURL/$APPLI-branches/$APPLI-$TAG >/dev/null 2>&1 ); then
+  echo "   Requested application branch $ROOTURL/$APPLI-branches/$APPLI-$TAG already exists!"
+  CONFLIC=1
+fi
+
+if [ -z "$EXCLUDE_ARCGEOSIM" ]; then
+  echo "This branch will be associated with its own ArcGeoSim branch on revision $REVISION"
+  if ( ! $DRYMODE && $SVNCMD info $ROOTURL/$APPLI-branches/ArcGeoSim/$APPLI-$TAG >/dev/null 2>&1 ); then
+    echo "   Requested ArcGeoSim branch $ROOTURL/$APPLI-branches/ArcGeoSim/$APPLI-$TAG already exists!"
+    CONFLIC=1
+  fi
+else
+  echo "This branch will be associated with ArcGeoSim trunk"
+fi
+if [ -z "$EXCLUDE_ARCANEINFRA" ]; then
+  echo "This branch will be associated with its own ArcaneInfra branch on revision $REVISION"
+  if ( ! $DRYMODE && $SVNCMD info $ROOTURL/$APPLI-branches/ArcaneInfra/$APPLI-$TAG >/dev/null 2>&1 ); then
+    echo "   Requested ArcaneInfra branch $ROOTURL/$APPLI-branches/ArcaneInfra/$APPLI-$TAG already exists!"
+    CONFLIC=1
+  fi
+else
+  echo "This branch will be associated with ArcaneInfra trunk"
+fi
+
+if [ -n "$CONFLIC" ]; then
+  cleanexit "Cannot create branch due to existing conflicting directory in repository"
+fi
+
+echo "Type your one line log message or abort with ^C"
+echo "---------- Your log message -------------"
+read LOG
+echo "-----------------------------------------"
+
+if [ -n "$DRYMODE" ]; then
+  LOG="\"$LOG\""
+else
+  if [ -z "$LOG" ]; then
+    cleanexit "Empty log message is not allowed : exiting"
+  fi
+fi
+
+echo "Copying $APPLI application in $APPLI-branches/$APPLI-$TAG..."
+$SVNCMD copy -r $REVISION -m "$LOG" $ROOTURL/$APPLI $ROOTURL/$APPLI-branches/$APPLI-$TAG || cleanexit "svn command failed"
+
+if [ -z "$EXCLUDE_ARCGEOSIM" ]; then
+  echo "Copying ArcGeoSim-$APPLI-$TAG asociated branch ..."
+  $SVNCMD copy -r $REVISION -m "$LOG" $ROOTURL/ArcGeoSim $ROOTURL/$APPLI-branches/ArcGeoSim/$APPLI-$TAG || cleanexit "svn command failed"
+  cat <<EOF >>$TMPFILE
+^/$APPLI-branches/ArcGeoSim/$APPLI-$TAG ArcGeoSim
+EOF
+else
+  cat <<EOF >>$TMPFILE
+^/ArcGeoSim ArcGeoSim
+EOF
+fi
+
+if [ -z "$EXCLUDE_ARCANEINFRA" ]; then
+  echo "Copying ArcaneInfra-$APPLI-$TAG asociated branch ..."
+  $SVNCMD copy -r $REVISION -m "$LOG" $ROOTURL/ArcaneInfra $ROOTURL/$APPLI-branches/ArcaneInfra/$APPLI-$TAG || cleanexit "svn command failed"
+  cat <<EOF >>$TMPFILE
+^/$APPLI-branches/ArcaneInfra/$APPLI-$TAG ArcaneInfra
+EOF
+else
+  cat <<EOF >>$TMPFILE
+^/ArcaneInfra ArcaneInfra
+EOF
+fi
+
+if [ -z "$STANDALONE_MODE" ]; then
+  if [ -z "$EXCLUDE_ARCGEOSIM" -o -z "$EXCLUDE_ARCANEINFRA" ]; then
+    if [ "$DRYMODE" = "true" -a -z "$VERBOSE" ]; then
+      echo "Setting properties... [use -v option to show properties]"
+    else
+      echo "Setting properties..."
+    fi
+    if [ -n "$VERBOSE" ]; then
+      echo "------------ $TMPFILE --------------"
+      cat $TMPFILE
+      echo "-------- END OF $TMPFILE -----------"
+    fi
+    $SVNCMD checkout -q -N $ROOTURL/$APPLI-branches/$APPLI-$TAG/common $TMPDIR/common || cleanexit "svn command failed"
+    $SVNCMD propset svn:externals -q -F $TMPFILE $TMPDIR/common                       || cleanexit "svn command failed"
+    $SVNCMD commit -m "$LOG" $TMPDIR/common                                           || cleanexit "svn command failed"
+  fi
+else
+    echo "Standalone copy of ArcaneInfra and ArcGeoSim in common"
+    $SVNCMD checkout -q -N $ROOTURL/$APPLI-branches/$APPLI-$TAG/common $TMPDIR/common                    || cleanexit "svn command failed"
+    $SVNCMD propdel svn:externals $TMPDIR/common                                                         || cleanexit "svn command failed"
+    $SVNCMD commit -m "$LOG" $TMPDIR/common                                                              || cleanexit "svn command failed"
+    $SVNCMD copy -r $REVISION -m "$LOG" $ROOTURL/ArcGeoSim $ROOTURL/$APPLI-branches/$APPLI-$TAG/common   || cleanexit "svn command failed"
+    $SVNCMD copy -r $REVISION -m "$LOG" $ROOTURL/ArcaneInfra $ROOTURL/$APPLI-branches/$APPLI-$TAG/common || cleanexit "svn command failed"
+fi
+
+echo "New branch $APPLI-branches/$APPLI-$TAG done!"
+echo "Now you can checkout this branch using"
+echo "  svn co $ROOTURL/$APPLI-branches/$APPLI-$TAG"
+cleanexit

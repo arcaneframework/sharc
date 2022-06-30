@@ -1,0 +1,198 @@
+#include <vector>
+
+#include "DivKGradTwoPointsInnerBoundaryService.h"
+
+#include "Appli/IAppServiceMng.h"
+
+#include "Utils/ItemGroupBuilder.h"
+#include "BCs/IBoundaryCondition.h"
+
+using namespace Arcane;
+
+void DivKGradTwoPointsInnerBoundaryService::init() {
+  if( m_initialized ) return;
+
+  // Retrieve and initialize application service manager
+  IAppServiceMng* app_service_mng = IAppServiceMng::instance(subDomain()->serviceMng());
+  
+  // Retrieve shared geometry service  
+  m_geometry_service = app_service_mng->find<IGeometryService>(true);
+
+  m_cells_group_name = IMPLICIT_UNIQ_NAME;
+  m_faces_group_name = IMPLICIT_UNIQ_NAME;
+
+  m_initialized = true;
+}
+
+////////////////////////////////////////////////////////////
+
+void DivKGradTwoPointsInnerBoundaryService::prepare(const FaceGroup& internal_faces,
+                                       const FaceGroup& boundary_faces,
+                                       FaceGroup& c_internal_faces,
+                                       FaceGroup& cf_internal_faces,
+				       CoefficientArrayT<Cell>* cell_coefficients,
+				       CoefficientArrayT<Face>* face_coefficients) {
+
+  if( !m_initialized )
+    error() << " Numerical service not initialized";
+
+  m_internal_faces = internal_faces;
+  m_boundary_faces = boundary_faces;
+  
+  m_cell_coefficients = cell_coefficients;
+  m_face_coefficients = face_coefficients;
+
+  // Form face and cell groups
+  ItemGroupBuilder<Face> faces_builder(m_internal_faces.mesh(), m_faces_group_name);
+  faces_builder.add(m_internal_faces.enumerator());
+  faces_builder.add(m_boundary_faces.enumerator());
+  m_faces = faces_builder.buildGroup();
+
+  ItemGroupBuilder<Face> c_internal_faces_builder(m_internal_faces.mesh(), 
+                                                  c_internal_faces.name());
+  c_internal_faces_builder.add(m_internal_faces.enumerator());
+  m_c_internal_faces = c_internal_faces_builder.buildGroup();  
+
+  ItemGroupBuilder<Face> cf_internal_faces_builder(m_internal_faces.mesh(),
+                                                   cf_internal_faces.name());
+  m_cf_internal_faces = cf_internal_faces_builder.buildGroup(); // Empty group
+
+  ItemGroupBuilder<Cell> cells_builder(m_internal_faces.mesh(), m_cells_group_name);
+
+  ItemGroupMapT<Face, Integer> cell_stencil_sizes(m_faces);
+  ItemGroupMapT<Face, Integer> face_stencil_sizes(m_faces);
+
+  ENUMERATE_FACE(iF, m_internal_faces) {
+    const Face& F = *iF;
+
+    cells_builder.add(F.cells());
+
+    cell_stencil_sizes[F] = 2;
+  }
+
+  ENUMERATE_FACE(iF, m_boundary_faces) {
+    const Face& F = *iF;
+
+    cells_builder.add(F.cells());
+
+    cell_stencil_sizes[F] = 1;
+    face_stencil_sizes[F] = 1;
+  }
+  m_cells = cells_builder.buildGroup();
+  m_is_interior.init(m_cells,false) ;
+
+  // Compute stencils
+  m_cell_coefficients->init(cell_stencil_sizes);
+  m_face_coefficients->init(face_stencil_sizes);
+
+  ENUMERATE_FACE(iF, m_internal_faces) {
+    const Face& F = *iF;
+
+    ArrayView<Integer> stencil_F = m_cell_coefficients->getStencilLocalId(F);
+    stencil_F[0] = F.backCell().localId();
+    stencil_F[1] = F.frontCell().localId();
+    m_is_interior[F.backCell()] = true ;
+    m_is_interior[F.frontCell()] = true ;
+  }
+  
+  ENUMERATE_FACE(iF, m_boundary_faces) {
+    const Face& F = *iF;
+
+    ArrayView<Integer> c_stencil_F = m_cell_coefficients->getStencilLocalId(F);
+    ArrayView<Integer> f_stencil_F = m_face_coefficients->getStencilLocalId(F);
+
+    c_stencil_F[0] = F.boundaryCell().localId();
+    f_stencil_F[0] = F.localId();
+  }
+
+  m_prepared = true;
+}
+
+////////////////////////////////////////////////////////////
+
+void DivKGradTwoPointsInnerBoundaryService::formDiscreteOperator(const AbsolutePermeabilityType& k) {
+  if(!m_prepared) error() << " Numerical service not prepared";
+  
+  // Retrieve geometrical properties
+  const IGeometryService::Real3GroupMap& f_centers = m_geometry_service->getReal3GroupMapProperty(m_faces, IGeometryProperty::PCenter);
+  const IGeometryService::Real3GroupMap& f_normals = m_geometry_service->getReal3GroupMapProperty(m_faces, IGeometryProperty::PNormal);
+
+  const IGeometryService::Real3GroupMap& c_centers  = m_geometry_service->getReal3GroupMapProperty(m_cells, IGeometryProperty::PCenter);
+
+  ENUMERATE_FACE(iF, m_internal_faces) {
+    const Face& F = *iF;
+
+    // Retrieve information
+    const Cell& T0 = F.backCell();
+    const Cell& T1 = F.frontCell();
+
+    const Real3& nF = f_normals[F];
+
+    const Real3& C0 = c_centers[T0];
+    const Real3& C1 = c_centers[T1];
+    const Real3& CF = f_centers[F];
+
+    Real3 s0F = CF - C0;
+    Real3 s1F = CF - C1;
+    Real3 s01 = C1 - C0;
+
+    Real d0F = math::abs(math::scaMul(s0F, nF));
+    Real d1F = math::abs(math::scaMul(s1F, nF));
+    Real d01 = math::scaMul(s01, s01);
+
+    const Real3x3& k0 = k[T0];
+    const Real3x3& k1 = k[T1];
+
+    Real t0 = math::scaMul(nF, math::prodTensVec(k0, nF)) / d0F;
+    Real t1 = math::scaMul(nF, math::prodTensVec(k1, nF)) / d1F; 
+
+    // Compute transmissivities
+    Real nFnF = math::scaMul(nF, nF);
+    Real cos2 = (d0F+d1F)*(d0F+d1F)/ (d01 * nFnF);
+    Real tau  = math::abs(t0 + t1) ? (t0 * t1 / (t0 + t1)) * cos2 : 0;
+
+    StencilFluxCoeffType tau_F = m_cell_coefficients->getCoefficients(F);
+    tau_F[0] = tau;
+    tau_F[1] = -tau;
+  }
+
+  // Boundary faces
+  ENUMERATE_FACE(iF, m_boundary_faces) {
+  	
+    const Face& F = *iF;
+
+    // Retrieve information
+    const Cell& T0 = ( (F.isSubDomainBoundary()) ? (F.boundaryCell()) :
+                                          (m_is_interior[F.backCell()]?(F.backCell()):
+                                                                       (F.frontCell()) 
+                                          ) 
+                     ) ;
+    //const Cell& T0  = F.boundaryCell();
+
+    const Real3& nF = f_normals[F];
+
+    const Real3& C0 = c_centers[T0];
+    const Real3& CF = f_centers[F];
+    const Real3 s0F = CF - C0;
+
+    Real d0F1 = math::scaMul(s0F, s0F);
+    Real d0F2 = math::abs(math::scaMul(s0F, nF));
+
+    const Real3x3& k0 = k[T0];
+
+    // Compute transmissivities
+    Real nFnF =  math::scaMul(nF, nF);
+    Real cos2 =  (d0F2 * d0F2) / (d0F1 * nFnF)  ;
+    Real tau  =  math::scaMul(nF, math::prodTensVec(k0, nF)) / d0F2;
+    tau  = tau * cos2; 
+
+    StencilFluxCoeffType c_tau_F = m_cell_coefficients->getCoefficients(F);
+    StencilFluxCoeffType f_tau_F = m_face_coefficients->getCoefficients(F);
+
+    c_tau_F[0] = tau;
+    f_tau_F[0] = -tau;
+  }
+}
+
+ARCANE_REGISTER_SERVICE_DIVKGRADTWOPOINTS(DivKGradTwoPointsInnerBoundary,
+                                          DivKGradTwoPointsInnerBoundaryService);

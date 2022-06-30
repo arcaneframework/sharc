@@ -1,0 +1,26 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="XmlToCMake" #>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<cdtprojectproperties>
+  <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+    <language name="C++ Source File">
+<# foreach (var includepath in IncludePathList) { #>
+      <includepath><#= includepath #></includepath>
+<# } #>
+    </language>
+  </section>
+  <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
+    <language name="C++ Source File">
+<# foreach (var macro in MacroList) { #>
+      <macro>
+        <name><#= macro.Key #></name>
+<#     if (String.IsNullOrEmpty(macro.Value)) { #>
+        <value />
+<#     } else { #>
+        <value><#= macro.Value #></value>
+<#     } #>
+      </macro>
+<# } #>
+    </language>
+  </section>
+</cdtprojectproperties>

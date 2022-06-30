@@ -1,0 +1,32 @@
+﻿<#@ template language="C#" #>
+#
+# Generated file -- DO NOT EDIT --
+#
+
+# --------- Library <#= Library.name #>
+
+# include generated makefiles
+
+<#
+foreach (var path in DirectoryPaths) {
+#>include(<#= path #>/makefile.cmake)
+<# } #>
+
+include_directories(${<#= LibraryName.ToUpper() #>_INCLUDE_DIRS})
+
+add_library(<#= LibraryName #> ${<#= LibraryName.ToUpper() #>_SOURCE})
+
+target_link_libraries(<#= LibraryName #> 
+<# foreach (var library in Libraries) {
+#>                      "<#= library #>" 
+<# } #>) 
+ 
+# ATTENTION, bug car dans un mauvais ordre...
+#list(APPEND APPLICATION_LIBRARIES <#= LibraryName #>)
+set(APPLICATION_LIBRARIES <#= LibraryName #> ${APPLICATION_LIBRARIES})
+
+install(TARGETS <#= LibraryName #> DESTINATION lib)
+
+#
+# End of generated file -- DO NOT EDIT --
+#

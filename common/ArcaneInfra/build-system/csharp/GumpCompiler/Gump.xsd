@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="Property">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="dim" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="scalar" />
+          <xs:enumeration value="vectorial" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="int" />
+          <xs:enumeration value="real" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="Supports">
+    <xs:sequence>
+      <xs:element name="property" type="Property" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="EmbeddedEntity">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="unique" type="xs:boolean" default="false" />
+  </xs:complexType>
+  
+  <xs:complexType name="Contains">
+    <xs:sequence>
+      <xs:element name="entity" type="EmbeddedEntity" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element name="contains" type="Contains" minOccurs="0" maxOccurs="1" />
+      <xs:element name="supports" type="Supports" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="base" type="xs:string" />
+  </xs:complexType>
+      
+  <xs:complexType name="Model">
+    <xs:sequence>
+      <xs:element name="entity" type="Entity" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="namespace" type="xs:string" use="required" />
+  </xs:complexType>
+   
+  <xs:element name="gump">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="model" type="Model" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element> 
+
+</xs:schema>

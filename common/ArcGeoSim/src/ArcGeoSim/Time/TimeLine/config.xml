@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="c++">
+    <file>EventCalendar</file>
+    <file>TimeEvolution</file>
+    <!--
+    <file>TimeLineForcedByEvents</file>
+    -->
+  </files>
+  <files language="c++header">
+    <file>SpiedTimeVariables</file>
+  </files>
+  <files language="service">
+    <file header="false">TimeLine</file>
+  </files>
+</makefile>

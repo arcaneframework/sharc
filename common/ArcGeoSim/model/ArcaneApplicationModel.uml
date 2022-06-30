@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_mKAt0KkTEd2JKotjOstIZg" name="CooresArcane" viewpoint="">
+  <packagedElement xmi:type="uml:Package" xmi:id="_mKAt0akTEd2JKotjOstIZg" name="Physics">
+    <packagedElement xmi:type="uml:Package" xmi:id="_7zg68KkVEd2JKotjOstIZg" name="FluidSystem">
+      <packagedElement xmi:type="uml:Class" xmi:id="_fEmT0OvOEd2NiMtacG-4oQ" name="PhasesSystemMng"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jxx0oOvOEd2NiMtacG-4oQ" name="SubstancesMng"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xmAZgOvOEd2NiMtacG-4oQ" name="PhaseEntity"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_0xtggOvOEd2NiMtacG-4oQ" name="SubstanceEntity"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_N2SYQOvPEd2NiMtacG-4oQ" name="ThermoModels"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OWKSkLWrEd6e_oiYDsLuOA" name="BlackOil"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Y5nDMLWrEd6e_oiYDsLuOA" name="WaterComponent">
+        <generalization xmi:id="_MCD3ELWtEd6e_oiYDsLuOA" general="_0xtggOvOEd2NiMtacG-4oQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_b9E0MLWrEd6e_oiYDsLuOA" name="HeavyComponent">
+        <generalization xmi:id="_Mr8hkLWtEd6e_oiYDsLuOA" general="_0xtggOvOEd2NiMtacG-4oQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_e38p4LWrEd6e_oiYDsLuOA" name="VolatilComponent">
+        <generalization xmi:id="_NfmzILWtEd6e_oiYDsLuOA" general="_0xtggOvOEd2NiMtacG-4oQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_QtoY0OvPEd2NiMtacG-4oQ" name="BlackOilModel"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_OcRsMLWsEd6e_oiYDsLuOA" memberEnd="_OcSTQLWsEd6e_oiYDsLuOA _OcThYbWsEd6e_oiYDsLuOA">
+        <ownedEnd xmi:id="_OcSTQLWsEd6e_oiYDsLuOA" name="src" type="_QtoY0OvPEd2NiMtacG-4oQ" association="_OcRsMLWsEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OcThYLWsEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OcS6ULWsEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_OcThYbWsEd6e_oiYDsLuOA" name="dst" type="_Y5nDMLWrEd6e_oiYDsLuOA" association="_OcRsMLWsEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OcUIcLWsEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OcThYrWsEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_PvH0ILWsEd6e_oiYDsLuOA" memberEnd="_PvH0IbWsEd6e_oiYDsLuOA _PvIbMrWsEd6e_oiYDsLuOA">
+        <ownedEnd xmi:id="_PvH0IbWsEd6e_oiYDsLuOA" name="src" type="_QtoY0OvPEd2NiMtacG-4oQ" association="_PvH0ILWsEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PvIbMbWsEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PvIbMLWsEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_PvIbMrWsEd6e_oiYDsLuOA" name="dst" type="_b9E0MLWrEd6e_oiYDsLuOA" association="_PvH0ILWsEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PvJCQbWsEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PvJCQLWsEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Ql5rILWsEd6e_oiYDsLuOA" memberEnd="_Ql5rIbWsEd6e_oiYDsLuOA _Ql6SMbWsEd6e_oiYDsLuOA">
+        <ownedEnd xmi:id="_Ql5rIbWsEd6e_oiYDsLuOA" name="src" type="_QtoY0OvPEd2NiMtacG-4oQ" association="_Ql5rILWsEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ql6SMLWsEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ql5rIrWsEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_Ql6SMbWsEd6e_oiYDsLuOA" name="dst" type="_e38p4LWrEd6e_oiYDsLuOA" association="_Ql5rILWsEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ql65QLWsEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ql6SMrWsEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_RDusELWrEd6e_oiYDsLuOA" name="Compositionel"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_TMUo0OvPEd2NiMtacG-4oQ" name="CompositionelModel"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_pzGI0LWrEd6e_oiYDsLuOA" name="Substance">
+        <generalization xmi:id="_OK3WoLWtEd6e_oiYDsLuOA" general="_0xtggOvOEd2NiMtacG-4oQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_WtI5sLWtEd6e_oiYDsLuOA" name="manage" memberEnd="_WtI5sbWtEd6e_oiYDsLuOA _WtJgwrWtEd6e_oiYDsLuOA">
+        <ownedEnd xmi:id="_WtI5sbWtEd6e_oiYDsLuOA" name="src" type="_jxx0oOvOEd2NiMtacG-4oQ" association="_WtI5sLWtEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WtJgwbWtEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WtJgwLWtEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_WtJgwrWtEd6e_oiYDsLuOA" name="dst" type="_0xtggOvOEd2NiMtacG-4oQ" aggregation="composite" association="_WtI5sLWtEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WtKH0bWtEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WtKH0LWtEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_ie8T0LWtEd6e_oiYDsLuOA" name="compute properties" memberEnd="_ie864LWtEd6e_oiYDsLuOA _ie9h8LWtEd6e_oiYDsLuOA">
+        <ownedEnd xmi:id="_ie864LWtEd6e_oiYDsLuOA" name="src" type="_TMUo0OvPEd2NiMtacG-4oQ" association="_ie8T0LWtEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ie864rWtEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ie864bWtEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_ie9h8LWtEd6e_oiYDsLuOA" name="dst" type="_pzGI0LWrEd6e_oiYDsLuOA" association="_ie8T0LWtEd6e_oiYDsLuOA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ie9h8rWtEd6e_oiYDsLuOA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ie9h8bWtEd6e_oiYDsLuOA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_ELSeMKkWEd2JKotjOstIZg" name="RockSystem">
+      <packagedElement xmi:type="uml:Class" xmi:id="_o8u2kOvOEd2NiMtacG-4oQ" name="SolidPhasesSystemMng"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_456sAOvOEd2NiMtacG-4oQ" name="SolidPhaseEntity"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_ZNqgMOvPEd2NiMtacG-4oQ" name="RockModels"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_MneAUKkWEd2JKotjOstIZg" name="PorousHydroSystem"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_aHbhIOvMEd2c2dsuD1mdfQ" name="GeoChemicalSystem">
+      <packagedElement xmi:type="uml:Class" xmi:id="_8IIUcOvOEd2NiMtacG-4oQ" name="ChemicalSpeciesMng"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_A_P0YOvPEd2NiMtacG-4oQ" name="ChemicalSpecieEntity"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_JRLOUOvPEd2NiMtacG-4oQ" name="GeoChemicalModels"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_c2MGEOvPEd2NiMtacG-4oQ" name="PhysicalEntityProperties">
+      <packagedElement xmi:type="uml:Abstraction" xmi:id="_i2bKMOvPEd2NiMtacG-4oQ" name="PropertyEntity"/>
+      <packagedElement xmi:type="uml:Abstraction" xmi:id="_lozLMOvPEd2NiMtacG-4oQ" name="PropertyHolder"/>
+      <packagedElement xmi:type="uml:Abstraction" xmi:id="_o4dlIOvPEd2NiMtacG-4oQ" name="PropertyMng"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_mKAt0qkTEd2JKotjOstIZg" name="Numerics" clientDependency="_9ADP8KzNEd2-Ns20VJ2U4Q">
+    <packagedElement xmi:type="uml:Package" xmi:id="_mKG0cKkTEd2JKotjOstIZg" name="NumericUtils">
+      <packagedElement xmi:type="uml:Package" xmi:id="_hEP4cKkUEd2JKotjOstIZg" name="LinearSolver"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_mYuCwKkUEd2JKotjOstIZg" name="NonLinearSolver"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_qbJ9cKkUEd2JKotjOstIZg" name="LocalAlgebra"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_74kPgKkUEd2JKotjOstIZg" name="PDEUtils">
+      <packagedElement xmi:type="uml:Package" xmi:id="_GKZrsKkVEd2JKotjOstIZg" name="FiniteVolumeUtils"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_9ADP8KzNEd2-Ns20VJ2U4Q" name="Use to discretize continuous problem" supplier="_mKG0cakTEd2JKotjOstIZg" client="_mKAt0qkTEd2JKotjOstIZg"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Y1-YgKzPEd2-Ns20VJ2U4Q" name="LinearSolver"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_buSpcKzPEd2-Ns20VJ2U4Q" name="NonLinearSolver"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_e4GTAKzPEd2-Ns20VJ2U4Q" name="LinearAlgebra"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_mKG0cakTEd2JKotjOstIZg" name="Mesh">
+    <packagedElement xmi:type="uml:Package" xmi:id="_S_WaUKkUEd2JKotjOstIZg" name="Utils"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_NLrUkKzPEd2-Ns20VJ2U4Q" name="Operator"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_PG0LkKzPEd2-Ns20VJ2U4Q" name="Importers"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_5JG8sLT_Ed6mv4LKudDbBA" name="Exporter"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_9F9MwLT_Ed6mv4LKudDbBA" name="Geometry"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_DNH_ULUAEd6mv4LKudDbBA" name="SurfaceUtil"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_mKG0cqkTEd2JKotjOstIZg" name="Appli">
+    <packagedElement xmi:type="uml:Package" xmi:id="_mKG0c6kTEd2JKotjOstIZg" name="AppliUtils"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_s9THILT_Ed6mv4LKudDbBA" name="TimeUtils"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_yv70ILT_Ed6mv4LKudDbBA" name="PostMng"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_mKG0d6kTEd2JKotjOstIZg" name="Arcane">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_mKG0eKkTEd2JKotjOstIZg" name="IModule"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_mKG0e6kTEd2JKotjOstIZg" name="IService"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_bzy2AKkVEd2JKotjOstIZg" name="NumericalModel" clientDependency="_F-6BUKzOEd2-Ns20VJ2U4Q _IU5oUKzOEd2-Ns20VJ2U4Q">
+    <packagedElement xmi:type="uml:Package" xmi:id="_h52PsLJUEd2bTtKxdQxCuw" name="PDEOperators">
+      <packagedElement xmi:type="uml:Class" xmi:id="_2zG9kLJUEd2bTtKxdQxCuw" name="AccumOp" clientDependency="_mBgLsLgKEd689IAzKxQGuQ"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_71hHgLJUEd2bTtKxdQxCuw" name="DarcyFluxOp" clientDependency="_hzf6MLgKEd689IAzKxQGuQ"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_AjfSgLJVEd2bTtKxdQxCuw" name="DiffFluxOp" clientDependency="_QiS4ILgKEd689IAzKxQGuQ"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_EV8QcLJVEd2bTtKxdQxCuw" name="AdvectionFluxOp" clientDependency="_ofvIsLgKEd689IAzKxQGuQ"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_9WW9QLJWEd2bTtKxdQxCuw" name="Discretization"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_R-51gLgJEd689IAzKxQGuQ" name="INonLinearSystemOperator"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_QhTZoLgKEd689IAzKxQGuQ" name="INonLinearSystemOperator"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_QiS4ILgKEd689IAzKxQGuQ" supplier="_QhTZoLgKEd689IAzKxQGuQ" client="_AjfSgLJVEd2bTtKxdQxCuw"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_hzf6MLgKEd689IAzKxQGuQ" name="implemente" supplier="_QhTZoLgKEd689IAzKxQGuQ" client="_71hHgLJUEd2bTtKxdQxCuw"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_mBgLsLgKEd689IAzKxQGuQ" name="implemente" supplier="_QhTZoLgKEd689IAzKxQGuQ" client="_2zG9kLJUEd2bTtKxdQxCuw"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_ofvIsLgKEd689IAzKxQGuQ" name="implemente" supplier="_QhTZoLgKEd689IAzKxQGuQ" client="_EV8QcLJVEd2bTtKxdQxCuw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ICeeMKnyEd2H7oowcjS18w" memberEnd="_ICeeManyEd2H7oowcjS18w _ICkk0qnyEd2H7oowcjS18w">
+      <ownedEnd xmi:id="_ICeeManyEd2H7oowcjS18w" name="src" type="_V0Qd8KnwEd2H7oowcjS18w" association="_ICeeMKnyEd2H7oowcjS18w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ICkk0anyEd2H7oowcjS18w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ICkk0KnyEd2H7oowcjS18w" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_ICkk0qnyEd2H7oowcjS18w" name="dst" type="_yE1iMKnxEd2H7oowcjS18w" aggregation="shared" association="_ICeeMKnyEd2H7oowcjS18w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ICkk1KnyEd2H7oowcjS18w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ICkk06nyEd2H7oowcjS18w" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_F-6BUKzOEd2-Ns20VJ2U4Q" name="Use to solve problems" supplier="_mKAt0qkTEd2JKotjOstIZg" client="_bzy2AKkVEd2JKotjOstIZg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_IU5oUKzOEd2-Ns20VJ2U4Q" name="Use to build NumericalProblem" supplier="_mKAt0akTEd2JKotjOstIZg" client="_bzy2AKkVEd2JKotjOstIZg"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_K6wZYLUAEd6mv4LKudDbBA" name="Models">
+      <packagedElement xmi:type="uml:Package" xmi:id="_7yMe0LI1Ed2bTtKxdQxCuw" name="MultiPhaseModel" clientDependency="_WLncELJWEd2bTtKxdQxCuw">
+        <packagedElement xmi:type="uml:Class" xmi:id="_V0Qd8KnwEd2H7oowcjS18w" name="MultiPhaseFlowModel" clientDependency="_wCj94KnwEd2H7oowcjS18w _xeDEcKnwEd2H7oowcjS18w _jRJEYKnxEd2H7oowcjS18w _0GraELT-Ed6mv4LKudDbBA">
+          <interfaceRealization xmi:id="_wCj94KnwEd2H7oowcjS18w" supplier="_I1Q38KnwEd2H7oowcjS18w" client="_V0Qd8KnwEd2H7oowcjS18w" contract="_I1Q38KnwEd2H7oowcjS18w"/>
+          <interfaceRealization xmi:id="_xeDEcKnwEd2H7oowcjS18w" supplier="_mKAt06kTEd2JKotjOstIZg" client="_V0Qd8KnwEd2H7oowcjS18w" contract="_mKAt06kTEd2JKotjOstIZg"/>
+          <interfaceRealization xmi:id="_jRJEYKnxEd2H7oowcjS18w" supplier="_a0fBIKnxEd2H7oowcjS18w" client="_V0Qd8KnwEd2H7oowcjS18w" contract="_a0fBIKnxEd2H7oowcjS18w"/>
+          <interfaceRealization xmi:id="_0GraELT-Ed6mv4LKudDbBA" supplier="_oHr4gbT-Ed6mv4LKudDbBA" client="_V0Qd8KnwEd2H7oowcjS18w" contract="_oHr4gbT-Ed6mv4LKudDbBA"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_yE1iMKnxEd2H7oowcjS18w" name="NonLinearSystem" clientDependency="_8i_jIKnxEd2H7oowcjS18w">
+          <ownedAttribute xmi:id="_Gwj-8rI4Ed2bTtKxdQxCuw" name="dst" type="_PUdkkLI2Ed2bTtKxdQxCuw">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gwj-9LI4Ed2bTtKxdQxCuw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gwj-87I4Ed2bTtKxdQxCuw" value="1"/>
+          </ownedAttribute>
+          <interfaceRealization xmi:id="_8i_jIKnxEd2H7oowcjS18w" supplier="_29zcQKnxEd2H7oowcjS18w" client="_yE1iMKnxEd2H7oowcjS18w" contract="_29zcQKnxEd2H7oowcjS18w"/>
+          <nestedClassifier xmi:type="uml:Association" xmi:id="_Xp6-MLI3Ed2bTtKxdQxCuw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_PUdkkLI2Ed2bTtKxdQxCuw" name="EquationSystem"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_SVaNELI2Ed2bTtKxdQxCuw" name="ConservativeEntityEquation"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_glTCILJVEd2bTtKxdQxCuw" name="buidNonLinearSystem" memberEnd="_glTpMLJVEd2bTtKxdQxCuw _glTpM7JVEd2bTtKxdQxCuw">
+          <ownedEnd xmi:id="_glTpMLJVEd2bTtKxdQxCuw" name="src" type="_V0Qd8KnwEd2H7oowcjS18w" association="_glTCILJVEd2bTtKxdQxCuw">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_glTpMrJVEd2bTtKxdQxCuw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_glTpMbJVEd2bTtKxdQxCuw" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:id="_glTpM7JVEd2bTtKxdQxCuw" name="dst" type="_yE1iMKnxEd2H7oowcjS18w" aggregation="shared" association="_glTCILJVEd2bTtKxdQxCuw">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_glUQQbJVEd2bTtKxdQxCuw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_glUQQLJVEd2bTtKxdQxCuw" value="1"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_rGbekLJVEd2bTtKxdQxCuw" name="buildEquationSystem" memberEnd="_rGbekbJVEd2bTtKxdQxCuw _rGcFobJVEd2bTtKxdQxCuw">
+          <ownedEnd xmi:id="_rGbekbJVEd2bTtKxdQxCuw" name="src" type="_yE1iMKnxEd2H7oowcjS18w" association="_rGbekLJVEd2bTtKxdQxCuw">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rGcFoLJVEd2bTtKxdQxCuw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rGbekrJVEd2bTtKxdQxCuw" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:id="_rGcFobJVEd2bTtKxdQxCuw" name="dst" type="_PUdkkLI2Ed2bTtKxdQxCuw" aggregation="shared" association="_rGbekLJVEd2bTtKxdQxCuw">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rGcFo7JVEd2bTtKxdQxCuw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rGcForJVEd2bTtKxdQxCuw" value="1"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_8dU48LJVEd2bTtKxdQxCuw" memberEnd="_8dU48bJVEd2bTtKxdQxCuw _8dVgArJVEd2bTtKxdQxCuw">
+          <ownedEnd xmi:id="_8dU48bJVEd2bTtKxdQxCuw" name="src" type="_PUdkkLI2Ed2bTtKxdQxCuw" association="_8dU48LJVEd2bTtKxdQxCuw">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8dVgAbJVEd2bTtKxdQxCuw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8dVgALJVEd2bTtKxdQxCuw" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:id="_8dVgArJVEd2bTtKxdQxCuw" name="dst" type="_SVaNELI2Ed2bTtKxdQxCuw" aggregation="composite" association="_8dU48LJVEd2bTtKxdQxCuw">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8dVgBLJVEd2bTtKxdQxCuw" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8dVgA7JVEd2bTtKxdQxCuw" value="1"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_WLncELJWEd2bTtKxdQxCuw" name="use to build and Solve NonLinearSystem" supplier="_h52PsLJUEd2bTtKxdQxCuw" client="_7yMe0LI1Ed2bTtKxdQxCuw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_FY0JoLgHEd689IAzKxQGuQ" name="SubDomainModel">
+        <packagedElement xmi:type="uml:Class" xmi:id="_AoVnwLgIEd689IAzKxQGuQ" name="SubDomainModel"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_IB-HwLgIEd689IAzKxQGuQ" name="BoundaryMng"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LrqyULgIEd689IAzKxQGuQ" name="BoundaryConditionMng"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_mKAt06kTEd2JKotjOstIZg" name="INumericalModel" isAbstract="true">
+        <ownedOperation xmi:id="_mKAt1KkTEd2JKotjOstIZg" name="init"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_I1Q38KnwEd2H7oowcjS18w" name="ISubDomainModel"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_a0fBIKnxEd2H7oowcjS18w" name="INonLinearModel">
+        <ownedOperation xmi:id="_a_AZoKnyEd2H7oowcjS18w" name="init"/>
+        <ownedOperation xmi:id="_iJhfkKnyEd2H7oowcjS18w" name="getNonLinearSystem">
+          <ownedParameter xmi:id="_3jiKEKnyEd2H7oowcjS18w" type="_29zcQKnxEd2H7oowcjS18w" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_29zcQKnxEd2H7oowcjS18w" name="INonLinearSystem"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_oHr4gbT-Ed6mv4LKudDbBA" name="IIterativeTimeModel"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_RdYkUKnwEd2H7oowcjS18w" name="ISubDomain"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_X_pMALUAEd6mv4LKudDbBA" name="Algorithms"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_gUC1sLUBEd6mv4LKudDbBA" name="FluxModels">
+      <packagedElement xmi:type="uml:Class" xmi:id="__kW28LUBEd6mv4LKudDbBA" name="DarcyFluxModel"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_FCyOgLUCEd6mv4LKudDbBA" name="FaultFluxModel"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_JNmCELUCEd6mv4LKudDbBA" name="GradientOp"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_AMWlIKzUEd2-Ns20VJ2U4Q" name="DiscreteOperator"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_np820LUCEd6mv4LKudDbBA" name="IDiscreteOperator"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vvoC0LUVEd6tZok9F7d2FQ" name="use DiscreteOperator to compute flux" memberEnd="_vvoC0bUVEd6tZok9F7d2FQ _vvop4LUVEd6tZok9F7d2FQ">
+        <ownedEnd xmi:id="_vvoC0bUVEd6tZok9F7d2FQ" name="src" type="__kW28LUBEd6mv4LKudDbBA" association="_vvoC0LUVEd6tZok9F7d2FQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vvoC07UVEd6tZok9F7d2FQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vvoC0rUVEd6tZok9F7d2FQ" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_vvop4LUVEd6tZok9F7d2FQ" name="dst" type="_np820LUCEd6mv4LKudDbBA" association="_vvoC0LUVEd6tZok9F7d2FQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vvop4rUVEd6tZok9F7d2FQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vvop4bUVEd6tZok9F7d2FQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_1ewv4LUVEd6tZok9F7d2FQ" name="use DiscreteOperator to compute flux" memberEnd="_1ewv4bUVEd6tZok9F7d2FQ _1exW8LUVEd6tZok9F7d2FQ">
+        <ownedEnd xmi:id="_1ewv4bUVEd6tZok9F7d2FQ" name="src" type="_FCyOgLUCEd6mv4LKudDbBA" association="_1ewv4LUVEd6tZok9F7d2FQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1ewv47UVEd6tZok9F7d2FQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1ewv4rUVEd6tZok9F7d2FQ" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_1exW8LUVEd6tZok9F7d2FQ" name="dst" type="_np820LUCEd6mv4LKudDbBA" association="_1ewv4LUVEd6tZok9F7d2FQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1exW8rUVEd6tZok9F7d2FQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1exW8bUVEd6tZok9F7d2FQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_-3WAsbgGEd689IAzKxQGuQ" name="BoundaryConditions">
+      <packagedElement xmi:type="uml:Interface" xmi:id="___61gLgKEd689IAzKxQGuQ" name="IBoundaryCondition"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_GQZVELgLEd689IAzKxQGuQ" name="SurfaceBoundaryCondition"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LYAvILgLEd689IAzKxQGuQ" name="WellBoundaryCondition"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_psI08LgLEd689IAzKxQGuQ" name="NumericalConditionType"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_w3lvALgLEd689IAzKxQGuQ" name="ModeType"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_0kZ_ALgLEd689IAzKxQGuQ" name="TimeCouplingType"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_aSDxcKzOEd2-Ns20VJ2U4Q" name="Business">
+    <packagedElement xmi:type="uml:Package" xmi:id="_KfmR8LUBEd6mv4LKudDbBA" name="Faults"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_PZLQALUBEd6mv4LKudDbBA" name="Wells">
+      <packagedElement xmi:type="uml:Class" xmi:id="_gq_pcKzOEd2-Ns20VJ2U4Q" name="Well"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_p0_64KzOEd2-Ns20VJ2U4Q" name="ProductionTree"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_VqL7ELUBEd6mv4LKudDbBA" name="SurfaceFrontiere">
+      <packagedElement xmi:type="uml:Class" xmi:id="_jWke4KzOEd2-Ns20VJ2U4Q" name="Frontiere"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_C2XtoKzPEd2-Ns20VJ2U4Q" name="Algorithm"/>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_mKG0dqkTEd2JKotjOstIZg" name="Data"/>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_mKG0dakTEd2JKotjOstIZg" name="Model"/>
+</uml:Model>

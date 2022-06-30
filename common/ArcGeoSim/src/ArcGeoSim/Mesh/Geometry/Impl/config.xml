@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+ 
+  <files language="c++">
+    <file>GeometryServiceBase</file>
+    <file>ItemGroupGeometryProperty</file>
+  </files>
+
+  <files language="c++header">
+    <file>GeometryTemplatesT</file>
+    <file>GeometryServiceBaseT</file>
+  </files>
+
+</makefile>

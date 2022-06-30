@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="c++">
+    <file>BackwardManager</file>
+    <file>ModuleMaster</file>
+    <file>TimeLoopSnapshotManager</file>
+    <file>ArcGeoSimMain</file>
+    <file>Delegate</file>
+  </files>
+  <files language="c++header">
+    <file>IExtraEntryPoints</file>
+    <file>INextTimeComputer</file>
+    <file>IIterationInformation</file>
+  </files>
+</makefile>

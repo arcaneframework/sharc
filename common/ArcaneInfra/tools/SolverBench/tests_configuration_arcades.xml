@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<data>
+  <alien-root>/work/irlin362119_1/tuncx/work/Alien.gitlab</alien-root>
+  <packages>
+    <package name="HypreSolver">modules/AlienExternalPackages/src/ALIEN/Kernels/Hypre</package>
+    <package name="PETScSolver">modules/AlienExternalPackages/src/ALIEN/Kernels/PETSc</package>
+    <package name="MTLSolver">modules/AlienExternalPackages/src/ALIEN/Kernels/MTL</package>
+    <package name="IFPSolver">modules/AlienIFPENSolvers/src/ALIEN/Kernels/IFP</package>
+    <package name="TrilinosSolver">modules/AlienTrilinos/src/ALIEN/Kernels/Trilinos</package>
+    <package name="HTSSolver">modules/AlienIFPENSolvers/src/ALIEN/Kernels/HTS</package>
+    <package name="MCGSolver">modules/AlienIFPENSolvers/src/ALIEN/Kernels/MCG</package>
+    <!--
+    <package name="HPDDMSolver">modules/AlienHPDDM/src/ALIEN/Kernels/HPDDM</package> -> no precond, solvers in one option as a string
+    -->
+  </packages>
+  <solvers>
+    <compaction-solvers>compaction-linear-solver</compaction-solvers>
+    <dist-to-shore-solvers>dist-to-shore-linear-solver</dist-to-shore-solvers>
+    <flexure-solvers>flexure-linear-solver</flexure-solvers>
+    <hydrology-solvers>water-flux-linear-solver</hydrology-solvers>
+    <stratigraphy-solvers>stratigraphy-linear-solver</stratigraphy-solvers>
+    <topographic-threshold-solvers>topo-threshold-linear-solver</topographic-threshold-solvers>
+    <waves-height-solvers>waves-height-linear-solver</waves-height-solvers>
+    <waves-phase-solvers>waves-phase-linear-solver</waves-phase-solvers>
+  </solvers>
+  <solver-global-options>
+    <max-it>1000</max-it>
+    <tol>1e-8</tol>
+  </solver-global-options>
+  <app-name>ArcaDES</app-name>
+  <base-path>/work/irlin362119_1/tuncx/work/ArcaDESPerfs/ArcaDES/test</base-path>
+  <input-directory>/work/irlin362119_1/tuncx/work/ArcaDESPerfs/ArcaDES/test/WIP-DG/vagues_plan</input-directory>
+  <input-directory>/work/irlin362119_1/tuncx/work/ArcaDESPerfs/ArcaDES/test/WIP-DG/vagues_toleTriangle</input-directory>
+  <output-directory>/work/irlin362119_1/tuncx/work/ArcaDESPerfs/ArcaDES/test/Generated</output-directory>
+  <binary>/work/irlin362119_1/tuncx/work/ArcaDESPerfs/ArcaDES/build/bin/ArcaDES.exe</binary>
+  <nb-procs-list>
+    <nb_procs>1</nb_procs>
+    <nb_procs>2</nb_procs>
+  </nb-procs-list>
+</data>

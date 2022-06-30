@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+    <package name="vtk" optional="true"/>
+  </needed-packages>
+  <files language="c++">
+    <file>IAppServiceMng</file>
+    <file>ArcGeoSimCodeService</file>
+  </files>
+  <files language="c++header">
+    <file>AppService</file>
+    <file>IInfoModel</file>
+    <file>IPostMng</file>
+    <file>ITimeLoopSnapshotManager</file>
+  </files>
+  <directories>
+    <directory>Architecture</directory>
+  </directories>
+</makefile>

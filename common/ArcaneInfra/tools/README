@@ -1,0 +1,23 @@
+
+Le répertoire 'ArcaneInfra.Tools' contient les outils utilisés par le système de compilation.
+
+
+Pour modifier les sources, il convient d'utiliser l'IDE MonoDevelop. Pour cela :
+
+> acces mono
+
+puis :
+
+> monodevelop
+
+Il faut ensuite "Ouvrir une solution existante" et choisir le fichier :
+
+ArcaneInfra.Tools/ArcaneInfra.Tools.mds
+
+C'est tout!
+
+
+
+
+
+Pour plus d'information sur l'IDE : http://monodevelop.com/

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <directories>
+    <directory>Constant</directory>
+    <directory>Expression</directory>
+  </directories>
+</makefile>

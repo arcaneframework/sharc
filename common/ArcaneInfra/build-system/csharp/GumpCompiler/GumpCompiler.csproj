@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{04654A86-FF59-426F-9677-5C23F92068EA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GumpCompiler</RootNamespace>
+    <AssemblyName>GumpCompiler</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="GumpExtensions.cs" />
+    <Compile Include="EntityKind.cs">
+      <DependentUpon>EntityKindT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProperties.cs">
+      <DependentUpon>AllPropertiesT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllEntities.cs">
+      <DependentUpon>AllEntitiesT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gump.cs" />
+    <Compile Include="Xml.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="PropertyT4.cs">
+      <DependentUpon>PropertyT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyTraitsT4.cs">
+      <DependentUpon>PropertyTraitsT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyKindT4.cs">
+      <DependentUpon>PropertyKindT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryT4.cs">
+      <DependentUpon>FactoryT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityTraitsT4.cs">
+      <DependentUpon>EntityTraitsT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityTagT4.cs">
+      <DependentUpon>EntityTagT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="XPathT4.cs">
+      <DependentUpon>XPathT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseEntityBuilderT4.cs">
+      <DependentUpon>BaseEntityBuilderT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DerivedEntityBuilderT4.cs">
+      <DependentUpon>DerivedEntityBuilderT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseEntityT4.cs">
+      <DependentUpon>BaseEntityT4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DerivedEntityT4.cs">
+      <DependentUpon>DerivedEntityT4.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="PropertyT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PropertyT4.cs</LastGenOutput>
+    </None>
+    <None Include="PropertyTraitsT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PropertyTraitsT4.cs</LastGenOutput>
+    </None>
+    <None Include="PropertyKindT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PropertyKindT4.cs</LastGenOutput>
+    </None>
+    <None Include="FactoryT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FactoryT4.cs</LastGenOutput>
+    </None>
+    <None Include="EntityTraitsT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityTraitsT4.cs</LastGenOutput>
+    </None>
+    <None Include="EntityTagT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityTagT4.cs</LastGenOutput>
+    </None>
+    <None Include="EntityKindT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityKind.cs</LastGenOutput>
+    </None>
+    <None Include="DerivedEntityBuilderT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DerivedEntityBuilderT4.cs</LastGenOutput>
+    </None>
+    <None Include="DerivedEntityT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DerivedEntityT4.cs</LastGenOutput>
+    </None>
+    <None Include="BaseEntityBuilderT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BaseEntityBuilderT4.cs</LastGenOutput>
+    </None>
+    <None Include="BaseEntityT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BaseEntityT4.cs</LastGenOutput>
+    </None>
+    <None Include="AllPropertiesT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AllProperties.cs</LastGenOutput>
+    </None>
+    <None Include="AllEntitiesT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AllEntities.cs</LastGenOutput>
+    </None>
+    <None Include="XPathT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>XPathT4.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gump.xsd">
+      <SubType>Designer</SubType>
+      <LogicalName>Gump.xsd</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

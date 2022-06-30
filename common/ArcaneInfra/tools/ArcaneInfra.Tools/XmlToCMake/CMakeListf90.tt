@@ -1,0 +1,35 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="System.Linq" #>
+#
+# Generated file -- DO NOT EDIT --
+#
+#--- Config file at path : <#= InputPath #>
+#
+<# if (F90Files.Count () > 0) { #>
+#
+# Sources
+#
+set(SOURCE_FILES 
+<# foreach(var file in F90Files) { #>
+                 <#= InputPath #>/<#= file #>.f90
+<# } #>)
+
+set_source_files_properties(${SOURCE_FILES} PROPERTIES COMPILE_FLAGS "<#= CompilationFlags #>")
+
+list(APPEND <#= LibraryName.ToUpper() #>_SOURCE ${SOURCE_FILES})
+<# }
+   if (DirectoryPaths.Count () > 0) { #>
+
+#
+# Sub directories
+#
+<#   foreach (var directory in DirectoryPaths) { #>
+include(<#= OutputPath#>/<#= directory #>/makefile.cmake)
+<#   }
+   } #>
+
+#
+# End of generated file -- DO NOT EDIT --
+#
+
+

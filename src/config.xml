@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+  <directories>
+    <directory>ArcaneDemo</directory>
+    <directory>TwoPhaseFlowSimulation</directory>
+  </directories>
+</makefile>

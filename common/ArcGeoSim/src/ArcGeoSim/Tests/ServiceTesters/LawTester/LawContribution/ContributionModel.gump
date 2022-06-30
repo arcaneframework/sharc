@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gump>
+  <model namespace="ContributionModel">
+    <entity name="System">
+      <contains>
+        <entity name="Species" />
+      </contains>
+      <supports>
+        <property name="In1" dim="scalar" type="real" />
+        <property name="Out1" dim="scalar" type="real" />
+        <property name="Out2" dim="scalar" type="real" />
+      </supports>
+    </entity>
+    <entity name="Species">
+      <supports>
+        <property name="In2" dim="scalar" type="real" />
+        <property name="Out3" dim="scalar" type="real" />
+      </supports>
+    </entity>
+  </model>
+</gump>

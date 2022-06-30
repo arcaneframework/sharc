@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+  <files language="c++header">
+    <file>IEvent</file>
+    <file>IEventCalendar</file>
+    <file>ITimeEvolution</file>
+    <file>ITimeLine</file>
+    <file>ITimeStepComputer</file>
+    <file>OwnershipPolicy</file>
+    <file>TimeVariables</file>
+  </files>
+  <directories>
+    <directory>Activity</directory>
+    <directory>TimeLine</directory>
+    <directory>Observer</directory>
+    <directory>Defaults</directory>
+  </directories>
+</makefile>

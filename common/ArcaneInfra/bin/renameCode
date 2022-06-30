@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+use strict;
+use Getopt::Std;
+our $progname = $0;
+
+# option reader
+our %opts;
+getopts('sihv', \%opts);
+
+usage() if ($opts{h});
+
+my $oldName = shift @ARGV or usage();
+my $newName = shift @ARGV or usage();
+my $oldNAME = uc($oldName);
+my $newNAME = uc($newName);
+
+usage("Conflicting -i and -s options") if ($opts{s} and $opts{i});
+
+foreach my $oldFile (@ARGV) {
+    open OF, "$oldFile" or usage("Cannot open input file '$oldFile'");
+    my @lines = <OF>;
+    close OF;
+
+    my $newFile = $oldFile;
+    if ($opts{i}) {
+        print "Saving $oldFile in $oldFile.bak\n" if ($opts{v});
+        open OF, ">$oldFile.bak" or usage("Cannot open backup file '$oldFile.bak'");
+        print OF foreach (@lines);
+        close OF;
+    } elsif ($opts{s}) {
+        $newFile =~ s/$oldName/$newName/g;
+        if ($newFile ne $oldFile) {
+            print "SVN move $oldFile to $newFile\n" if ($opts{v});
+            system("svn move $oldFile $newFile");
+        } else {
+            print "File name $oldFile not changed : no svn move\n" if ($opts{v});
+        }
+    } else {
+        $newFile =~ s/$oldName/$newName/g;
+        print "Renaming $oldFile to $newFile\n" if ($opts{v});
+        if ($newFile eq $oldFile) { print "Skiping file '$oldFile'; Cannot rename file on itself : use -i if necessary\n"; next; }
+    }
+    
+    open NF, ">$newFile" or usage("Cannot open output file '$newFile'");
+
+    foreach my $line (@lines) {
+        $line =~ s/$oldName/$newName/g;
+        $line =~ s/$oldNAME/$newNAME/g;
+        print NF $line;
+    }
+    close NF;
+}
+
+sub usage {
+    my $msg = shift;
+    if ($msg) {
+        print "Error: $msg\n";
+    }
+
+    print STDERR <<EOF;
+usage: $progname [options] oldName newName files...
+       Rename codes, include guard and files. 
+       Must be used carrefully.
+    -v : verbose mode
+    -h : this help page
+    -i : in place change 
+         do not rename file and use .bak suffix for backup
+    -s : use subversion move
+EOF
+    exit(1);
+}

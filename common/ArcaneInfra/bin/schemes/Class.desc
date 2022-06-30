@@ -1,0 +1,2 @@
+h => ${name}.h : header
+cc => ${name}.cc : implementation

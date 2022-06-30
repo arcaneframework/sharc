@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+  <files language="c++header">
+    <file>IServiceValidator</file>
+  </files>
+  <directories>
+    <directory>ServiceTesters</directory>
+    <directory>ServiceTestMng</directory>
+    <directory>SyntheticServiceValidator</directory>
+    <directory>Utils</directory>
+  </directories>
+</makefile>

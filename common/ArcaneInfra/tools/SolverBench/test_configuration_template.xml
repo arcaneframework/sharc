@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<data>
+  <alien-root>/path/to/alien</alien-root> <!-- Either a local or network installation -->
+  <packages>
+    <package name="MyPackageName">path/to/my/package/starting/from/alien-root</package> <!-- name of the package and its directory -->
+    <!--
+	Currently available packages:
+	<package name="HypreSolver">modules/AlienExternalPackages/src/ALIEN/Kernels/Hypre</package>
+	<package name="PETScSolver">modules/AlienExternalPackages/src/ALIEN/Kernels/PETSc</package>
+	<package name="MTLSolver">modules/AlienExternalPackages/src/ALIEN/Kernels/MTL</package>
+	<package name="IFPSolver">modules/AlienIFPENSolvers/src/ALIEN/Kernels/IFP</package>
+	<package name="TrilinosSolver">modules/AlienTrilinos/src/ALIEN/Kernels/Trilinos</package>
+	<package name="HTSSolver">modules/AlienIFPENSolvers/src/ALIEN/Kernels/HTS</package>
+	<package name="MCGSolver">modules/AlienIFPENSolvers/src/ALIEN/Kernels/MCG</package>
+	<package name="HPDDMSolver">modules/AlienHPDDM/src/ALIEN/Kernels/HPDDM</package>
+    -->
+  </packages>
+  <solvers>
+    <parent-tag-of-linearsolver1>linearsolver1-tag-name<parent-tag-of-linearsolver1> <!-- linear solvers to edit/test -->
+    <parent-tag-of-linearsolver2>linearsolver2-tag-name<parent-tag-of-linearsolver2> <!-- linear solvers to edit/test -->
+  </solvers>
+  <solver-global-options>
+    <max-it>1000</max-it> <!-- Max iteration for all solvers -->
+    <tol>1e-8</tol> <!-- Tolerance for all solvers -->
+  </solver-global-options>
+  <app-name>MyAppName</app-name> <!-- Application name, used to retrieve MyAppName.config -->
+  <base-path>/path/to/the/test/directory</base-path> <!-- A base path, used to reproduce the test tree -->
+  <input-directory>/path/of/one/test</input-directory> <!-- Path of a directory containing .arc files to test -->
+  <input-directory>/path/of/another/test</input-directory> <!-- Another directory. All underneath directory are taken into account !!! -->
+  <output-directory>/path/of/output/directories</output-directory> <!-- Output directory of generated and result files -->
+  <binary>/path/of/my/binary.exe</binary> <!-- Path of the binary -->
+  <nb-procs-list> <!-- List of number of procs on which run the tests -->
+    <nb_procs>1</nb_procs> <!-- Tests will be launched on 1 proc -->
+    <nb_procs>2</nb_procs> <!-- And two procs -->
+  </nb-procs-list>
+</data>

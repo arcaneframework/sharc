@@ -1,0 +1,23 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Extensions.cs">
+    <Files>
+      <File FileName="CMakeList.tt" Line="63" Column="10" />
+      <File FileName="CMakeListCode.cs" Line="54" Column="3" />
+      <File FileName="Extensions.cs" Line="56" Column="19" />
+      <File FileName="Languages.cs" Line="20" Column="42" />
+      <File FileName="Xml.cs" Line="1" Column="1" />
+      <File FileName="XmlToCMakeLibraryParser.cs" Line="1" Column="1" />
+      <File FileName="Common.xsd" Line="1" Column="1" />
+      <File FileName="CommonTools.cs" Line="1" Column="1" />
+      <File FileName="Makefile.xsd" Line="48" Column="40" />
+      <File FileName="Libraries.xsd" Line="1" Column="1" />
+      <File FileName="Mono_Options.cs" Line="1" Column="1" />
+      <File FileName="Common_Libraries_Makefile.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

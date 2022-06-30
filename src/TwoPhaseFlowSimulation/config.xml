@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="eigen3" />
+    <package name="boost" />
+  </needed-packages>
+  <files language="module">
+    <file header='false'>TwoPhaseFlowSimulation</file>
+  </files>
+  <directories>
+    <directory>DataModel</directory>
+    <directory>PhysicalSystem</directory>
+    <directory>PhysicalLaws</directory>
+    <directory>InitialCondition</directory>
+    <directory>BoundaryCondition</directory>
+  </directories>
+</makefile>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ 
+  <xs:simpleType name="Type" final="restriction" >
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="integer" />
+        <xs:enumeration value="real" />
+        <xs:enumeration value="boolean" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Dimension" final="restriction" >
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="scalar" />
+        <xs:enumeration value="vectorial" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="Property">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="type" type="Type" use="required" />
+    <xs:attribute name="dimension" type="Dimension" use="required" />
+  </xs:complexType>
+  
+  <xs:complexType name="Properties">
+    <xs:sequence>
+      <xs:element name="property" type="Property" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Options">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:complexType name="Law">
+    <xs:sequence>
+      <xs:element name="inputs" type="Properties" minOccurs="0" maxOccurs="1" />
+      <xs:element name="outputs" type="Properties" minOccurs="0" maxOccurs="1" />
+      <xs:element name="parameters" type="Properties" minOccurs="0" maxOccurs="1" />
+      <xs:element name="options" type="Options" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="differentiable" type="xs:boolean" default="true" />
+  </xs:complexType>
+
+  <xs:element name="law" type="Law" />
+
+</xs:schema>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<application>
+<libraries name="arc-geo-sim" path="common/ArcGeoSim/src/ArcGeoSim">
+
+  <library name="tools">
+    <directory>Appli</directory>
+  </library>
+  
+  <library name="mesh">
+    <directory>Mesh/Importers</directory>
+    <directory>Mesh/Exporters</directory>
+    <directory>Mesh/Utils</directory>
+    <directory>Mesh/Interpolator</directory>
+    <directory>Mesh/EvolutiveMesh</directory>
+    <directory>Mesh/Geometry</directory>
+    <directory>Mesh/GenericItemExtractor</directory>
+    <directory>Mesh/AMRDataTransfer</directory>
+    <directory>Mesh/Estimator</directory>
+    <directory>Mesh/MeshAdapter</directory>
+    <directory>Mesh/Mapping</directory>
+    <directory>Mesh/AccessorToolsMng</directory>
+    <directory>Mesh/PolylineDiscretisation</directory>
+    <directory>Mesh/IFPPartitioner</directory>
+    <directory>Mesh/SurfaceUtils</directory>
+    <directory>Mesh/PatchGenerator</directory>
+  </library>
+  
+  <library name="numerics">
+  	<directory>Numerics/AuDi</directory>
+    <directory>Numerics/DiscreteOperator</directory>
+    <directory>Numerics/LinearSolver</directory>
+    <directory>Numerics/LinearAlgebra2</directory>
+    <directory>Numerics/NonLinearSolver</directory>
+    <directory>Numerics/Expressions</directory>
+    <directory>Numerics/BCs</directory>
+    <directory depend='linux'>Numerics/ExpressionParser</directory>
+    <directory>Numerics/Discretization</directory>
+    <directory>Numerics/APostErrEstims</directory>
+  </library>
+ 
+  <library name="utils"> 
+    <directory>Utils</directory>
+  </library>
+
+  <library name="time">
+    <directory>Time</directory>
+  </library>
+
+  <library name="physics">
+    <directory>Physics/Units</directory>
+    <directory>Physics/PhysicalConstants</directory>
+    <directory>Physics/PhysicalModels</directory>
+    <directory>Physics/Law2</directory>
+    <directory>Physics/Gump</directory>
+  </library>
+  
+  <library name="test">
+    <directory>ToyProblem</directory>
+    <directory>Tests</directory>
+    <directory>NumericalModel</directory>
+    <directory>Mesh/Operator</directory>
+  </library>
+
+  <library name="business">
+    <directory>Business/Faults</directory>
+  </library>
+  
+</libraries>
+
+<libraries name="application" path="src">
+
+  <library name="ArcaneDemo">
+    <directory>TheseVem</directory>
+    <directory>ArcaneDemo</directory>
+    <directory>ArcaneContainerProxyTest</directory>
+    <directory>UnitManagementTest</directory>
+    <directory>UndoTimeStepTest</directory>
+    <directory>GeometryTest</directory>
+    <directory>ComplexCaseOptionTest</directory>
+    <directory>PartialVariableTest</directory>
+    <directory>ExpressionMngTest</directory>
+    <directory depend="geometry-kernel">SurfaceTest</directory>
+    <directory>ParallelCorefinement</directory>
+    <directory>NotMatchingSurfaceTest</directory>
+    <directory>SubMeshTest</directory>
+    <directory>TimerTest</directory>
+    <directory>Hdf5Test</directory>
+    <directory>DiPhasicTest</directory>
+    <directory>UtilsTest</directory>
+    <directory>DataSyncTest</directory>
+    <directory>IXMWriterTest</directory>
+    <directory>IXMSplitMergeTest</directory>
+    <directory>IXMReaderTest</directory>
+    <!-- <directory depend='linux, extraboost'>BoostTest</directory> -->
+    directory depend='linux'>BoostTest</directory
+    <directory>AMRDemoTest</directory>
+    <directory>ParticleMappingTest</directory>
+    <directory>PolylineDiscretisationTest</directory>
+    <directory depend="eigen3">OptimizedOSchemeTest</directory>
+    <directory>DivKGradSchemes</directory>
+    <directory>TimeTest</directory>
+    <directory>AMRBlockedRefinementsTest</directory>
+    <directory>AMRDegeneratedHexTest</directory>
+    <directory>DoFTest</directory>
+    <directory>DisConnectSchemeTests</directory>
+    <directory>APostErrEstimsTests</directory>
+    <directory>FiniteElements</directory>
+  </library>
+ 
+</libraries>
+</application>

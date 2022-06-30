@@ -1,0 +1,32 @@
+# -*- cmake -*-
+# Test law
+
+if(TARGET law)
+  # Test law
+  ARCANE_ADD_TEST(LawCompiler 
+    ArcGeoSim
+    common/ArcGeoSim/test/ServiceTests/LawTest 
+    LawCompiler.arc)
+endif()
+
+if(TARGET law)
+ARCANE_ADD_TEST(LawGraph
+  ArcGeoSim
+  common/ArcGeoSim/test/ServiceTests/LawTest
+  LawGraph.arc)
+endif()
+
+if(TARGET law)
+ARCANE_ADD_TEST(LawDebug
+  ArcGeoSim
+  common/ArcGeoSim/test/ServiceTests/LawTest
+  LawDebug.arc)
+endif()
+
+if(TARGET law AND TARGET gump)
+  # Test contribution
+  ARCANE_ADD_TEST(LawContribution
+    ArcGeoSim
+    common/ArcGeoSim/test/ServiceTests/LawTest 
+    LawContribution.arc)
+endif()

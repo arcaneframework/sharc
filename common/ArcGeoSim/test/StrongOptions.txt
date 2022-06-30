@@ -1,0 +1,7 @@
+# -*- cmake -*-
+if(TARGET strong_options)
+ARCANE_ADD_TEST_SEQUENTIAL(ComplexStrongOptions
+  ArcGeoSim
+  common/ArcGeoSim/test/ServiceTests/StrongOptions
+  ComplexStrongOptions.arc)
+endif()

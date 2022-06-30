@@ -1,0 +1,2 @@
+axl => ${name}.axl : AXL
+cc => ${name}Module.cc : c++

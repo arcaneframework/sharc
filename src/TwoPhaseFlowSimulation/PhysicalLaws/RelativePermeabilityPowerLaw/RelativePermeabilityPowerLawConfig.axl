@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="RelativePermeabilityPowerLawConfig" version="1.0" type="caseoption">
+  <description>Service RelativePermeabilityPowerLawConfig</description>
+  <interface name="ILawConfigurator" />
+  
+  <options>
+    
+    <simple name="check" type="bool" default="false">
+    </simple>  
+    
+    <complex name="output" type="Output">
+      <simple name="relative-permeability" type="string" />
+    </complex>
+    
+    <complex name="input" type="Input">
+      <simple name="saturation" type="string" />
+    </complex>   
+    
+    <complex name="parameters" type="Parameters">
+      <simple name="Swi"    type="real"  default="0"   />
+      <simple name="Sgc"    type="real"  default="0"   />
+      <simple name="alpha"  type="real"  default="1"   />
+    </complex>
+    
+  </options>
+  
+</service>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="Expression" version="1.0" type="caseoption">
+  <description>Service Expression</description>
+  <interface name="IInitialCondition" />
+  
+  <options>
+    <simple name="property" type="string" />
+    <service-instance name="condition" type="IFunctionR3vR1"/>
+  </options>
+</service>

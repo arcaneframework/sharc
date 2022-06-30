@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="DivKGradTwoPoints" type="caseoption">
+  <description>Two-point finite volume method adapted to CPG meshes</description>
+  <interface name="IDivKGradDiscreteOperator" inherited="false"/>
+
+  <variables>
+  </variables>
+
+  <options>
+  </options>
+
+</service>

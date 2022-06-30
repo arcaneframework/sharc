@@ -1,0 +1,28 @@
+﻿<#@ template language="C#" #>
+#
+# Generated file -- DO NOT EDIT --
+#
+
+< # foreach(var model in GumpModels) {
+		var m = model.generatedfrom;
+#>
+#
+# Gump model : < #= model.name #>
+# file : < #= m.path #>/< #= m.Value #>
+# namespace < #= model.@namespace #>
+#
+
+add_custom_command(OUTPUT  ${CMAKE_BINARY_DIR}/generated/gump/< #= model.name #>.timestamp.h
+                   DEPENDS ${CMAKE_SOURCE_DIR}/< #= m.path #>/< #= m.Value #> ${GUMP_COMPILER} 
+                   COMMAND touch ${CMAKE_BINARY_DIR}/generated/gump/< #= model.name #>.timestamp.h
+                   COMMAND < #= Mono #> ${GUMP_COMPILER}
+                   ARGS    --xml=${CMAKE_SOURCE_DIR}/< #= m.path #>/< #= m.Value #>
+                           --path=${CMAKE_BINARY_DIR}/generated/gump/< #= model.name #>
+                   COMMENT "Generating gump model < #= model.name #> from < #= m.path #>/< #= m.Value #>")
+
+add_custom_target(< #= model.name #> DEPENDS ${CMAKE_BINARY_DIR}/generated/gump/< #= model.name #>.timestamp.h)
+
+< # } #>
+#
+# End of generated file -- DO NOT EDIT --
+#

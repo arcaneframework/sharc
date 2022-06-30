@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gump>
+ 
+  <model namespace="DiPhasic">
+
+    <entity name="System">
+      <contains>
+        <entity name="Fluid" unique="true" />
+        <entity name="Rock"  unique="true" />
+      </contains>
+      <supports>
+        <property name="Pressure" dim="scalar" type="real" />
+        <property name="Temperature" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="Fluid">
+      <contains>
+        <entity name="Water" unique="true" />
+        <entity name="Oil"   unique="true" />
+      </contains>
+    </entity>
+
+    <entity name="Rock">
+      <supports>
+        <property name="Permeability" dim="scalar" type="real" />
+        <property name="Porosity" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="Phase">
+      <supports>
+        <property name="Density" dim="scalar" type="real" />
+        <property name="Saturation" dim="scalar" type="real" />
+        <property name="Viscosity" dim="scalar" type="real" />
+        <property name="RelativePermeability" dim="scalar" type="real" />
+        <property name="CapillaryPressure" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="Water" base="Phase" />
+    <entity name="Oil"   base="Phase" />
+
+  </model>
+
+</gump>

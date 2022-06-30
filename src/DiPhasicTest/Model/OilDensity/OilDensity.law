@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<law name="OilDensity">
+  <input name="press" type="real" dim="scalar" />
+  <input name="temp" type="real" dim="scalar" />
+  <output name="rhoo" type="real" dim="scalar" />
+</law>

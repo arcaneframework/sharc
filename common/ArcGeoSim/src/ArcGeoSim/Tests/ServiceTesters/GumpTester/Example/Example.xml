@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gump>
+ 
+  <model namespace="Example">
+
+    <entity name="System">
+      <contains>
+        <entity name="FluidSubSystem" unique="true" />
+        <entity name="SolidSubSystem" unique="true" />
+      </contains>
+      <supports>
+        <property name="Pressure" dim="scalar" type="real" />
+        <property name="Temperature" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="SubSystem">
+      <contains>
+        <entity name="Phase" />
+      </contains>
+      <supports>
+        <property name="Porosity" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="FluidSubSystem" base="SubSystem">
+      <contains>
+        <entity name="FluidPhase" />
+      </contains>
+      <supports>
+        <property name="Permeability" dim="scalar" type="real" />
+	  </supports>
+    </entity>
+
+    <entity name="SolidSubSystem" base="SubSystem">
+      <contains>
+        <entity name="SolidPhase" />
+      </contains>
+	  <supports>
+        <property name="VolumeFraction" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="Phase">
+      <contains>
+        <entity name="Species" />
+      </contains>
+      <supports>
+        <property name="Density" dim="scalar" type="real" />
+        <property name="Saturation" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="FluidPhase" base="Phase">
+	  <contains />
+      <supports>
+        <property name="Viscosity" dim="scalar" type="real" />
+        <property name="RelativePermeability" dim="scalar" type="real" />
+        <property name="CapillaryPressure" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="SolidPhase" base="Phase">
+	  <contains />
+      <supports>
+        <property name="VolumeFraction" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="Species">
+      <contains>
+        <entity name="Component" />
+      </contains>
+      <supports>
+        <property name="MolarFraction" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+  </model>
+
+</gump>

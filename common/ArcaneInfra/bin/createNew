@@ -1,0 +1,181 @@
+#!/usr/bin/env perl
+
+use strict;
+no strict 'refs'; # pour les interpolations des regex
+use Cwd;
+use Getopt::Std;
+
+# option reader
+our %opts;
+getopts('p:lhfv', \%opts);
+
+# internal config
+our $progname = $0;
+our $progpath;
+our @datapath;
+{
+    my $datapath = Cwd::realpath($progname);
+    $datapath =~ s|(.*)/(.*)|$1|;
+    $progpath = $datapath;
+    $datapath .= '/schemes';
+    unshift @datapath, $datapath;
+    print STDERR "Add $datapath to search path (default)\n" if ($opts{v} and not $opts{h});
+}
+$progname =~ s|^(.*)/||;
+
+foreach my $path (split ':', $ENV{CREATENEW_DATAPATH})
+{
+    unshift @datapath, $path;
+    print STDERR "Add $path to search path\n" if ($opts{v} and not $opts{h});
+}
+
+# check the arguments
+usage() if ($opts{h} or scalar @ARGV == 0 or @ARGV > 2);
+my $type = normalizeName(shift @ARGV) or usage();
+our $name = shift @ARGV;
+our $NAME = uc($name);
+
+# configure PATH for include gards
+our $PATH = '';
+unless ($opts{l}) {
+    if ($opts{p}) {
+        $PATH = $opts{p};
+    } else {
+        $PATH = Cwd::realpath(getcwd());
+    }
+    
+    unless ($PATH =~ s|^(.*/)?([\w-]+)/src/(.*)|\2/\3|) {
+        usage("Path '$PATH' does not look like an compatible path\n\tIf you know what you do, force this path with -l option.");
+    }
+    $PATH =~ s|/|_|g;
+    $PATH .= '_';
+    $PATH =~ s|-||g;
+    $PATH = uc($PATH);
+}
+
+# user/date config
+our $AUTHOR = "$ENV{USER} at ".localtime(time());
+our $CODE = $progname;
+
+my $datapath = undef;
+foreach my $path (@datapath) {
+    if ( -e "${path}/${type}.desc") {
+        $datapath = $path;
+        last;
+    }
+}
+
+usage("Undefined '${type}' scheme; check for defined schemes")
+    unless ($datapath);
+
+my %todo;
+my %description;
+
+open DESC, "${datapath}/${type}.desc" or usage("Undefined '${type}' scheme; check for defined schemes");
+while (<DESC>) {
+    if (/^(.*?)\s*=>\s*(.*?)\s*:\s*(.*?)\s*$/) {
+        my ($source,$target,$txt) = ($1,$2,$3);
+        if ($target =~ /\${name}/) {
+          if ($name eq '') {
+            usage("'name' command line argument is required for this scheme");
+          }
+          $target =~ s/\${name}/${name}/;
+        }
+        $description{$source} = $txt;
+        $todo{$source} = $target;       
+    } else {
+        error("Internal syntax error in ${datapath}/${type}.desc");
+    }
+}
+
+close DESC;
+
+my $flag = 0;
+foreach (values %todo) {
+    /^(.*?)(=(.*))?$/;
+    my $target = $1;
+    if ( -e $target  and ($opts{v} or not $opts{f})) {
+	if ($flag == 0) {
+	    print STDERR "Error:\n";
+	}
+        print STDERR "\tfile '$target' already exists\n";
+        ++$flag;
+    }
+}
+if ($flag and not $opts{f}) {
+    error("Generated file may overwrite existing file, aborting. To force overwrite, use -f option");
+}
+
+while (my ($source,$target) = each %todo) {
+    $target =~ /^(.*?)(=(.*))?$/;
+    $target = $1;
+    my $cmd = $3;
+    if ($cmd) {
+      # external code generation mode
+      $cmd =~ s/\${basepath}/$progpath/g;
+      if ($opts{v}) { print "Exec external command: $cmd\n"; }
+      system($cmd) == 0 or die "Fail to run generation command '$cmd'";
+    } else {
+      open(IN, "${datapath}/${type}.$source") or die "Cannot open internal ${type}.$source";
+      open(OUT,">$target") or die "Cannot create your $target";
+      if ($opts{v}) { print "\tCreate '$target' $description{$source} file\n"; }
+      while(<IN>) {
+          s/\$\{(\w+)\}/${$1}/g;
+          print OUT;
+      }
+      close(IN);
+      close(OUT);
+    }
+}
+
+
+sub normalizeName {
+    my $str = shift or die;
+#    $str = lc($str);
+#    substr($str,0,1) = uc(substr($str,0,1));
+    return $str;
+}
+
+
+sub usage {
+    my $msg = shift;
+    if ($msg) {
+        print "Error: $msg\n";
+    }
+
+    my $schemes = listSchemes();
+    print STDERR <<EOF;
+usage: $progname [options] scheme [name]
+   scheme  : one of $schemes
+   name    : name of your 'creation'
+options:
+   -p path : use 'path' as PATH for include gards
+   -l      : local include gards (no path)
+   -f      : overwrite existing files
+   -v      : verbose mode
+   -h      : this help page (with -v for full help infos)
+   use CREATENEW_DATAPATH environment variable to add datapaths
+EOF
+
+   if ($opts{v} and $opts{h}) {
+       print STDERR "datapath:\n";
+       print STDERR "\t$_\n" foreach (@datapath);
+   }
+
+    exit(1);
+}
+
+sub error {
+    my $msg = shift or die;
+    print STDERR "Error: $msg\n";
+    exit(1);
+}
+
+sub listSchemes {
+    my @schemes;
+    foreach my $path (@datapath)
+    {
+        @schemes = (@schemes, map { s|^${path}/([\w-]+)\.desc$|$1|; $_ } (glob "${path}/*.desc"));
+    }
+    return join("|",@schemes);
+}

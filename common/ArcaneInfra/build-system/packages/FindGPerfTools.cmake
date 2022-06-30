@@ -1,0 +1,97 @@
+#
+# Find the GPERFTOOLS includes and library
+#
+# This module uses
+# GPERFTOOLS_ROOT
+#
+# This module defines
+# GPERFTOOLS_FOUND
+# GPERFTOOLS_INCLUDE_DIRS
+# GPERFTOOLS_LIBRARIES
+#
+# Target googleprof
+
+if(NOT GPERFTOOLS_ROOT)
+  set(GPERFTOOLS_ROOT $ENV{GPERFTOOLS_ROOT})
+endif()
+
+if(GPERFTOOLS_ROOT)
+  set(_GPERFTOOLS_SEARCH_OPTS NO_DEFAULT_PATH)
+else()
+  set(_GPERFTOOLS_SEARCH_OPTS)
+endif()
+
+if(NOT LIBUNWIND_ROOT)
+  set(LIBUNWIND_ROOT $ENV{LIBUNWIND_ROOT})
+endif()
+
+if(LIBUNWIND_ROOT)
+  set(_LIBUNWIND_SEARCH_OPTS NO_DEFAULT_PATH)
+else()
+  set(_LIBUNWIND_SEARCH_OPTS)
+endif()
+
+
+if(NOT GPERFTOOLS_FOUND) 
+ 
+  find_library(LIBUNWIND_LIBRARY 
+    NAMES unwind
+    HINTS ${LIBUNWIND_ROOT}
+	PATH_SUFFIXES lib
+	${_LIBUNWIND_SEARCH_OPTS}
+    )
+  mark_as_advanced(LIBUNWIND_LIBRARY)
+  
+  find_library(GPERFTOOLS_LIBRARY 
+    NAMES profiler
+	HINTS ${GPERFTOOLS_ROOT}
+	PATH_SUFFIXES lib
+	${_GPERFTOOLS_SEARCH_OPTS}
+    )
+  mark_as_advanced(GPERFTOOLS_LIBRARY)
+  
+  find_path(GPERFTOOLS_INCLUDE_DIR google/profiler.h
+    HINTS ${GPERFTOOLS_ROOT} 
+	PATH_SUFFIXES include
+    ${_GPERFTOOLS_SEARCH_OPTS}
+    )
+  mark_as_advanced(GPERFTOOLS_INCLUDE_DIR)
+  
+endif()
+
+# pour limiter le mode verbose
+set(GPERFTOOLS_FIND_QUIETLY ON)
+
+find_package_handle_standard_args(GPERFTOOLS 
+	DEFAULT_MSG 
+	GPERFTOOLS_INCLUDE_DIR
+	GPERFTOOLS_LIBRARY
+	LIBUNWIND_LIBRARY)    
+    
+if(GPERFTOOLS_FOUND AND NOT TARGET googleprof)
+
+  set(GPERFTOOLS_INCLUDE_DIRS ${GPERFTOOLS_INCLUDE_DIR})
+  set(GPERFTOOLS_LIBRARIES ${GPERFTOOLS_LIBRARY} ${LIBUNWIND_LIBRARY})
+  
+  # unwind
+  
+  add_library(unwind UNKNOWN IMPORTED)
+  set_target_properties(unwind PROPERTIES 
+    IMPORTED_LINK_INTERFACE_LANGUAGES "CXX"
+    IMPORTED_LOCATION ${LIBUNWIND_LIBRARY})
+    
+  # googleprof_lib
+  add_library(googleprof_lib UNKNOWN IMPORTED)	  
+  set_target_properties(googleprof_lib PROPERTIES 
+    INTERFACE_INCLUDE_DIRECTORIES "${GPERFTOOLS_INCLUDE_DIRS}"
+    IMPORTED_LINK_INTERFACE_LANGUAGES "CXX"
+    IMPORTED_LOCATION ${GPERFTOOLS_LIBRARY})
+        
+  # googleprof
+  add_library(googleprof INTERFACE IMPORTED)	  
+  set_property(TARGET googleprof APPEND PROPERTY 
+    INTERFACE_LINK_LIBRARIES "unwind")
+  set_property(TARGET googleprof APPEND PROPERTY 
+    INTERFACE_LINK_LIBRARIES "googleprof_lib")
+    
+endif()

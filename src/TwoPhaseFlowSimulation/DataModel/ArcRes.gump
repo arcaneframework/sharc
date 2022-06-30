@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gump>
+  
+  <model namespace="ArcRes">
+
+    <entity name="System">
+      <contains>
+        <entity name="FluidSubSystem" unique="true" />
+        <entity name="SolidSubSystem" unique="true" />
+      </contains>
+      <supports>
+        <property name="XCenter" dim="scalar" type="real" />
+        <property name="YCenter" dim="scalar" type="real" />
+        <property name="ZCenter" dim="scalar" type="real" />
+        
+        <property name="ZTop" dim="scalar" type="real" />
+        <property name="ZBase" dim="scalar" type="real" />
+        <property name="DeltaZ" dim="scalar" type="real" />
+
+        <property name="Volume" dim="scalar" type="real" />
+        <property name="VolumeTn" dim="scalar" type="real" />
+        <property name="VolumeT0" dim="scalar" type="real" />
+
+        <property name="Pressure" dim="scalar" type="real" />
+        <property name="PressureTn" dim="scalar" type="real" />
+        <property name="PressureT0" dim="scalar" type="real" />
+
+        <property name="Temperature" dim="scalar" type="real" />
+        <property name="TemperatureTn" dim="scalar" type="real" />
+        <property name="TemperatureT0" dim="scalar" type="real" />				
+        
+        <property name="PorosityT0" dim="scalar" type="real" />		
+        
+        <property name="OverPressure" dim="scalar" type="real" />        
+        
+        <property name="Context" dim="scalar" type="int" />
+        <property name="WaterOilGasContext" dim="scalar" type="int" />
+        
+        <property name="Salinity" dim="scalar" type="real" />		
+
+        <property name="Energy" dim="scalar" type="real" />
+        <property name="EnergyTn" dim="scalar" type="real" />
+           
+        <property name="EqBalEnergyResidual" dim="scalar" type="real" />
+        <property name="EqBalEnergyResidualTn" dim="scalar" type="real" />                
+        <property name="EqBalEnergyCumulatedResidual" dim="scalar" type="real" />     
+        <property name="EqBalEnergyCumulatedResidualTn" dim="scalar" type="real" />      
+
+        <property name="EqBalErrorNorm" dim="scalar" type="real" />
+        <property name="EqBalErrorNormTn" dim="scalar" type="real" />
+        <property name="EqBalCumulatedErrorNorm" dim="scalar" type="real" />
+        <property name="EqBalCumulatedErrorNormTn" dim="scalar" type="real" />
+
+        <property name="FlowRate" dim="scalar" type="real" />
+        <property name="MassRate" dim="scalar" type="real" />		
+        
+        <property name="HeatConductivity" dim="scalar" type="real" />
+        
+        <property name="XHeatConductivity" dim="scalar" type="real" />
+        <property name="YHeatConductivity" dim="scalar" type="real" />
+        <property name="ZHeatConductivity" dim="scalar" type="real" />
+        
+        <property name="XXHeatConductivity" dim="scalar" type="real" />
+        <property name="XYHeatConductivity" dim="scalar" type="real" />
+        <property name="XZHeatConductivity" dim="scalar" type="real" />
+        <property name="YXHeatConductivity" dim="scalar" type="real" />
+        <property name="YYHeatConductivity" dim="scalar" type="real" />
+        <property name="YZHeatConductivity" dim="scalar" type="real" />
+        <property name="ZXHeatConductivity" dim="scalar" type="real" />
+        <property name="ZYHeatConductivity" dim="scalar" type="real" />
+        <property name="ZZHeatConductivity" dim="scalar" type="real" />
+        
+      </supports>
+    </entity>
+    
+    <entity name="SubSystem">
+      <contains>
+        <entity name="Phase" />
+      </contains>
+      <supports>
+        <property name="VolumeFraction" dim="scalar" type="real" />
+        <property name="VolumeFractionT0" dim="scalar" type="real" />
+        <property name="VolumeFractionTn" dim="scalar" type="real" />
+        
+        <property name="Volume" dim="scalar" type="real" />
+        <property name="VolumeT0" dim="scalar" type="real" />
+
+        <property name="Pressure" dim="scalar" type="real" />
+        <property name="PressureT0" dim="scalar" type="real" />
+
+        <property name="Temperature" dim="scalar" type="real" />					
+        <property name="TemperatureT0" dim="scalar" type="real" />	
+
+        <property name="Porosity" dim="scalar" type="real" />
+        <property name="PorosityT0" dim="scalar" type="real" />	
+
+      </supports>
+    </entity>
+
+    <entity name="FluidSubSystem" base="SubSystem">
+      <contains>
+        <entity name="FluidPhase" />
+      </contains>
+      <supports>
+        <property name="InitialPressure" dim="scalar" type="real" />
+        <property name="InitialPorosity" dim="scalar" type="real" />	
+        
+        <property name="Permeability" dim="scalar" type="real" />
+        <property name="PermeabilityT0" dim="scalar" type="real" />
+        <property name="PermeabilityTn" dim="scalar" type="real" />
+        
+        <property name="XPermeability" dim="scalar" type="real" />
+        <property name="YPermeability" dim="scalar" type="real" />
+        <property name="ZPermeability" dim="scalar" type="real" />
+        
+        <property name="XXPermeability" dim="scalar" type="real" />
+        <property name="XYPermeability" dim="scalar" type="real" />
+        <property name="XZPermeability" dim="scalar" type="real" />
+        <property name="YXPermeability" dim="scalar" type="real" />
+        <property name="YYPermeability" dim="scalar" type="real" />
+        <property name="YZPermeability" dim="scalar" type="real" />
+        <property name="ZXPermeability" dim="scalar" type="real" />
+        <property name="ZYPermeability" dim="scalar" type="real" />
+        <property name="ZZPermeability" dim="scalar" type="real" /> 
+		 
+      </supports>
+    </entity>
+
+    <entity name="SolidSubSystem" base="SubSystem">
+      <contains>
+        <entity name="SolidPhase"/>
+        <entity name="SorbedPhase"/>
+      </contains>
+      <supports>       
+        <property name="XChemicalSolidDensity"    dim="scalar" type="real" />
+        <property name="XChemicalSolidDensityTn"  dim="scalar" type="real" />
+        <property name="XChemicalSolidDensityT0"  dim="scalar" type="real" />
+        
+        <property name="XChemicalSolidRKinTn"    dim="scalar" type="real" />
+        <property name="XChemicalSolidRKin"    dim="scalar" type="real" />
+      </supports>
+    </entity>
+    
+    <entity name="SolidPhase" base="Phase">
+      <supports>
+        <property name="VolumeFraction" dim="scalar" type="real" />
+      </supports>
+    </entity>
+    
+    <entity name="SorbedPhase" base="Phase">
+      <supports>
+        <property name="SurfaceDensity" dim="scalar" type="real" />
+      </supports>
+    </entity>
+
+    <entity name="Phase">
+      <contains>
+        <entity name="Species" />        
+      </contains>
+      <supports>
+        <property name="Density" dim="scalar" type="real" />
+        <property name="MolarMass" dim="scalar" type="real" />
+        <property name="Enthalpy" dim="scalar" type="real" />		
+        
+        <property name="MolarConcentration" dim="scalar" type="real" />
+        
+        <property name="VolumeFraction" dim="scalar" type="real" />
+
+        <property name="CapillaryPressure" dim="scalar" type="real" />
+        <property name="CapillaryPressureTn" dim="scalar" type="real" />
+        <property name="CapillaryPressureT0" dim="scalar" type="real" />
+         
+        <property name="Saturation" dim="scalar" type="real" />  
+        <property name="SaturationTn" dim="scalar" type="real" />
+        <property name="SaturationT0" dim="scalar" type="real" />                
+        
+        <property name="Volume" dim="scalar" type="real" />
+        <property name="VolumeTn" dim="scalar" type="real" />
+        <property name="VolumeT0" dim="scalar" type="real" />
+
+        <property name="Pressure" dim="scalar" type="real" />
+        <property name="PressureTn" dim="scalar" type="real" />
+        <property name="PressureT0" dim="scalar" type="real" />
+
+        <property name="Temperature" dim="scalar" type="real" />	
+        <property name="TemperatureTn" dim="scalar" type="real" />				
+        <property name="TemperatureT0" dim="scalar" type="real" />		
+        
+        <property name="PorosityT0" dim="scalar" type="real" />
+
+      </supports>
+    </entity>
+
+    <entity name="FluidPhase" base="Phase">
+      <supports>
+        
+        <property name="Viscosity" dim="scalar" type="real" />
+        <property name="RelativePermeability" dim="scalar" type="real" />
+        <property name="RelativeTortuosity" dim="scalar" type="real" />
+        <property name="CapillaryPressure" dim="scalar" type="real" />
+        <property name="Diffusivity" dim="scalar" type="real" />
+        <property name="DarcyVelocity" dim="scalar" type="real" />
+                      
+      </supports>
+    </entity>
+      
+    <entity name="Species">
+      <contains>
+        <entity name="Component" />
+      </contains>
+      <supports>
+        <property name="MolarFraction" dim="scalar" type="real" />
+        <property name="MolarFractionTn" dim="scalar" type="real" />
+        <property name="MolarFractionT0" dim="scalar" type="real" />
+
+        <property name="KEquil" dim="scalar" type="real" />
+        <property name="KEquilT0" dim="scalar" type="real" />
+        <property name="KEquilTn" dim="scalar" type="real" />
+
+        <property name="Amount" dim="scalar" type="real" />
+        <property name="AmountTn" dim="scalar" type="real" />
+        <property name="AmountT0" dim="scalar" type="real" />
+
+        <property name="Concentration" dim="scalar" type="real" />
+
+      </supports>
+    </entity>
+
+    <entity name="Component">
+      <supports>
+        <property name="LocalAmountCompo" dim="scalar" type="real" />
+        <property name="AmountCompo" dim="scalar" type="real" />
+        <property name="AmountCompoTn" dim="scalar" type="real" />
+        <property name="MolarConcentration" dim="scalar" type="real" />
+      </supports>
+    </entity>
+    
+  </model>
+  
+</gump>

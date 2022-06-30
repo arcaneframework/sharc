@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="ConstantLawConfig" version="1.0" type="caseoption">
+  <description>Service ConstantLawConfig</description>
+  <interface name="ILawConfigurator" />
+  
+  <options>
+    
+    <simple name="check" type="bool" default="false">
+    </simple> 
+    
+    <complex name="output" type="Output">
+      <simple name="result" type="string" />
+    </complex>
+    
+    <complex name="input" type="Input">      
+    </complex>   
+    
+    <complex name="parameters" type="Parameters">
+      <simple name="value" type="real" default="0" />      
+    </complex>
+    
+  </options>
+  
+</service>

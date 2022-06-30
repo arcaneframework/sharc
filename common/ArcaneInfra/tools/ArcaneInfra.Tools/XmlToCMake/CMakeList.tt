@@ -1,0 +1,100 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="System.Linq" #>
+#
+# Generated file -- DO NOT EDIT --
+#
+#--- Config file at path : <#= InputPath #>
+#
+<#
+   foreach(var file in AxlFiles) {
+#>
+
+# Axl of file <#= file #>
+add_custom_command( OUTPUT  ${CMAKE_BINARY_DIR}/axl/<#= file #>_axl.h
+                    DEPENDS <#= InputPath #>/<#= file #>.axl ${AXL2CC_COMPILER}
+                    COMMAND ${AXL2CC_COMPILER}
+                    ARGS    ${AXL_ARGS} -o ${CMAKE_BINARY_DIR}/axl <#= InputPath #>/<#= file #>.axl)
+
+list(APPEND <#= LibraryName.ToUpper() #>_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/axl)
+
+set_source_files_properties(${CMAKE_BINARY_DIR}/axl/<#= file #>_axl.h PROPERTIES GENERATED true)
+<# }
+
+	 if(   ModuleFiles.Count() > 0 
+      || ServiceFiles.Count() > 0 
+      || CFiles.Count() > 0 
+      || CppFiles.Count() > 0 
+      || CSharpFiles.Count() > 0) {
+#>
+
+#
+# Sources
+#
+set(SOURCE_FILES 
+<#   foreach(var file in ModuleFiles) { #>
+                 <#= InputPath #>/<#= file #>Module.cc
+<#   } 
+     foreach(var file in ServiceFiles) { #>
+                 <#= InputPath #>/<#= file #>Service.cc
+<#   } 
+     foreach(var file in CppFiles) { #>
+                 <#= InputPath #>/<#= file #>.cc
+<#   }
+     foreach(var file in CFiles) { #>
+                 <#= InputPath #>/<#= file #>.c
+<#   }
+     foreach(var file in CSharpFiles) { #>
+                 <#= InputPath #>/<#= file #>.cs
+<#   } #>)
+
+set_source_files_properties(${SOURCE_FILES} PROPERTIES COMPILE_FLAGS "<#= CompilationFlags #>")
+
+list(APPEND <#= LibraryName.ToUpper() #>_SOURCE ${SOURCE_FILES})
+<# }
+
+   if(   ModuleHeaders.Count() > 0 
+      || ServiceHeaders.Count() > 0 
+      || CppHeaders.Count() > 0 
+      || CHeaders.Count() > 0 
+      || AxlFiles.Count() > 0) {
+#>
+
+#
+# Headers
+#
+set(HEADER_FILES
+<#   foreach(var file in ModuleHeaders) { #>
+                 <#= InputPath #>/<#= file #>Module.h
+<#   } 
+     foreach(var file in ServiceHeaders) { #>
+                 <#= InputPath #>/<#= file #>Service.h
+<#   } 
+     foreach(var file in CppHeaders) { #>
+                 <#= InputPath #>/<#= file #>.h
+<#   }
+     foreach(var file in CHeaders) { #>
+                 <#= InputPath #>/<#= file #>.h
+<#   }
+     foreach(var file in AxlFiles) { #>
+                 ${CMAKE_BINARY_DIR}/axl/<#= file #>_axl.h
+<#   } #>)
+
+set_source_files_properties(${HEADER_FILES} PROPERTIES HEADER_FILE_ONLY true)
+
+list(APPEND <#= LibraryName.ToUpper() #>_SOURCE ${HEADER_FILES})
+
+<# }
+
+   if (DirectoryPaths.Count () > 0) { #>
+
+#
+# Sub directories
+#
+<#   foreach (var directory in DirectoryPaths) { #>
+include(<#= directory #>/makefile.cmake)
+<#   }
+   } #>
+
+#
+# End of generated file -- DO NOT EDIT --
+#

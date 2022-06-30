@@ -1,0 +1,7 @@
+# -*- cmake -*-
+# Test (the performance of) the mesh partitioner
+ARCANE_ADD_TEST_SEQUENTIAL(ModuleMaster
+  ArcGeoSim
+  common/ArcGeoSim/test/ServiceTests/ModuleMaster
+  TestModuleMaster.arc
+  )

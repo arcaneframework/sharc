@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="service">
+    <file header="false">LawCompilerTester</file>
+  </files>
+  <files language="law">
+    <file>Example1</file>
+    <file>Example2</file>
+    <file>Example3</file>
+    <file>Example4</file>
+    <file>Example5</file>
+  </files>
+</makefile>

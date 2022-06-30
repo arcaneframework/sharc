@@ -1,0 +1,1 @@
+xml => config.xml=mono ${basepath}/../tools/ArcaneInfra.Tools/ConfigFileCreator/bin/Release/ConfigFileCreator.exe : compilation config file

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <directories>
+    <directory>Units</directory>
+    <directory>Law2</directory>
+    <directory>Gump</directory>
+  </directories>
+</makefile>
