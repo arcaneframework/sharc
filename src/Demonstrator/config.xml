@@ -8,7 +8,7 @@
   </needed-packages>
 
   <files language="module">
-    <file>ArcaneDemo</file>
+    <file>Demonstrator</file>
   </files>
 
 </makefile>

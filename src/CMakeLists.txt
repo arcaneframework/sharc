@@ -1,9 +1,9 @@
-createLibrary(ArcaneDemo)
+createLibrary(Demonstrator)
 
-generateCMakeLists(ArcaneDemo)
+generateCMakeLists(Demonstrator)
 
 # pour windows
-linkLibraries(ArcaneDemo  
+linkLibraries(Demonstrator  
 #  ArcGeoSim_appli
 #  ArcGeoSim_utils
 #  ArcGeoSim_mesh
@@ -12,9 +12,9 @@ linkLibraries(ArcaneDemo
   ArcGeoSim_test
   )
 #if(TARGET ArcGeoSim_alientools)
-#linkLibraries(ArcaneDemo  
+#linkLibraries(Demonstrator  
 #  ArcGeoSim_alientools
 #  )
 #endif()
 
-commit(ArcaneDemo)
+commit(Demonstrator)

@@ -1,9 +1,9 @@
-createExecutable(ArcaneDemo.exe)
+createExecutable(Demonstrator.exe)
 
-addSources(ArcaneDemo.exe main.cc)
+addSources(Demonstrator.exe main.cc)
  
-linkLibraries(ArcaneDemo.exe 
-  ArcaneDemo
+linkLibraries(Demonstrator.exe 
+  Demonstrator
   ArcGeoSim_appli
   ArcGeoSim_utils
   ArcGeoSim_mesh
@@ -13,14 +13,14 @@ linkLibraries(ArcaneDemo.exe
   ArcGeoSim_test
   )
 #if(TARGET ArcGeoSim_alientools)
-#linkLibraries(ArcaneDemo.exe 
+#linkLibraries(Demonstrator.exe 
 #              ArcGeoSim_alientools
 #             )
 #endif()
 if(TARGET intel)
-  linkLibraries(ArcaneDemo.exe 
+  linkLibraries(Demonstrator.exe 
     intel
     )
 endif()
 
-commit(ArcaneDemo.exe)
+commit(Demonstrator.exe)

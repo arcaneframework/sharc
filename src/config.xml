@@ -5,7 +5,7 @@
     <package name="boost" />
   </needed-packages>
   <directories>
-    <directory>ArcaneDemo</directory>
+    <directory>Demonstrator</directory>
     <directory>TwoPhaseFlowSimulation</directory>
   </directories>
 </makefile>

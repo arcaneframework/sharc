@@ -1,4 +1,4 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
+﻿// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
 // Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
@@ -16,7 +16,7 @@
 #include "ArcGeoSim/Numerics/Expressions/IExpressionMng.h"
 #include "ArcGeoSim/Time/ITimeStepComputer.h"
 
-#include "ArcaneDemoModule.h"
+#include "DemonstratorModule.h"
 
 #include <arcane/ITimeLoopMng.h>
 #include <arcane/ITimeLoop.h>
@@ -29,19 +29,19 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-ArcaneDemoModule::ArcaneDemoModule(const Arcane::ModuleBuildInfo& mbi)
-: ArcaneArcaneDemoObject(mbi)
+DemonstratorModule::DemonstratorModule(const Arcane::ModuleBuildInfo& mbi)
+: ArcaneDemonstratorObject(mbi)
 , IAppServiceMng()
 , m_initialized(false)
 , m_forecast_compute(false)
 , m_max_iteration(-1)
 , m_geometry_mng(NULL)
 , m_geometry_policy(NULL)
-, m_post_processing(mbi.m_sub_domain,"ArcaneDemo") {}
+, m_post_processing(mbi.m_sub_domain,"Demonstrator") {}
 
 /*---------------------------------------------------------------------------*/
 
-ArcaneDemoModule::~ArcaneDemoModule()
+DemonstratorModule::~DemonstratorModule()
 {
   delete m_geometry_policy;
 }
@@ -50,11 +50,11 @@ ArcaneDemoModule::~ArcaneDemoModule()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::initializeAppServiceMng()
+DemonstratorModule::initializeAppServiceMng()
 {
   if (m_initialized)
     return;
-  info() << "Initializing ArcaneDemo";
+  info() << "Initializing Demonstrator";
 
   addOptionalService(options()->timeManager,"Time Line");
   addOptionalService(options()->timeStepPolicy,"Time Step Policy");
@@ -70,7 +70,7 @@ ArcaneDemoModule::initializeAppServiceMng()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::build()
+DemonstratorModule::build()
 {
   // For tests using evolutive mesh in parallel
   // prepare mesh distribution with forecast mode
@@ -96,7 +96,7 @@ ArcaneDemoModule::build()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::prepareInit()
+DemonstratorModule::prepareInit()
 {
   initializeAppServiceMng();
 
@@ -113,7 +113,7 @@ ArcaneDemoModule::prepareInit()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::init()
+DemonstratorModule::init()
 {
   initializeAppServiceMng();
 
@@ -135,10 +135,10 @@ ArcaneDemoModule::init()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::
+DemonstratorModule::
 endInit()
 {
-  CaseOptionsArcaneDemo::CaseOptionPostProcessing & post_processing = options()->postProcessing;
+  CaseOptionsDemonstrator::CaseOptionPostProcessing & post_processing = options()->postProcessing;
   if (post_processing.size() == 0) return;
 
   if (post_processing[0].saveInit())
@@ -151,7 +151,7 @@ endInit()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::continueInit()
+DemonstratorModule::continueInit()
 {
   initializeAppServiceMng();
 }
@@ -159,17 +159,17 @@ ArcaneDemoModule::continueInit()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::beginTimeStep()
+DemonstratorModule::beginTimeStep()
 {
-  ARCANE_ASSERT((m_initialized),("ArcaneDemo not initialized"));
+  ARCANE_ASSERT((m_initialized),("Demonstrator not initialized"));
 }
 
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::endTimeStep()
+DemonstratorModule::endTimeStep()
 {
-  ARCANE_ASSERT((m_initialized),("ArcaneDemo not initialized"));
+  ARCANE_ASSERT((m_initialized),("Demonstrator not initialized"));
 
   { // Post-processing
     Real current_time = subDomain()->commonVariables().globalTime();
@@ -196,7 +196,7 @@ ArcaneDemoModule::endTimeStep()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::updateGeometry()
+DemonstratorModule::updateGeometry()
 {
   m_geometry_mng->update(m_geometry_policy);
 }
@@ -205,7 +205,7 @@ ArcaneDemoModule::updateGeometry()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::
+DemonstratorModule::
 endSimulation()
 {
   postProcessingExit();
@@ -216,7 +216,7 @@ endSimulation()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::
+DemonstratorModule::
 _validate()
 {
 	 bool hasError = false;
@@ -225,7 +225,7 @@ _validate()
     for(Integer i=0;i<count;++i) {
       if (options()->validator[i]->validate() != 0) {
         hasError = true;
-        perror() << "ArcaneDemo validator #" << i << " failed";
+        perror() << "Demonstrator validator #" << i << " failed";
       }
     }
 
@@ -247,11 +247,11 @@ _validate()
 /************************ Gestion du post-processing *************************/
 /*---------------------------------------------------------------------------*/
 
-void ArcaneDemoModule::
+void DemonstratorModule::
 postProcessingInit()
 {
   // Initialisation du post-processing
-  CaseOptionsArcaneDemo::CaseOptionPostProcessing & post_processing = options()->postProcessing;
+  CaseOptionsDemonstrator::CaseOptionPostProcessing & post_processing = options()->postProcessing;
   if (post_processing.size() == 0) return;
   // Pas de post-processing si pas de p�riode de sortie
   if (post_processing[0].outputPeriod() <= 0) return;
@@ -268,11 +268,11 @@ postProcessingInit()
   info() << " ";
 
   info() << "Sorties pour les variables:";
-  const CaseOptionsArcaneDemo::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
+  const CaseOptionsDemonstrator::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
   for(Integer ip=0,np=post_processors.size();ip<np;++ip)
     {
-      const CaseOptionsArcaneDemo::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
-      const CaseOptionsArcaneDemo::CaseOptionVariables & variables = post_processor.variables;
+      const CaseOptionsDemonstrator::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
+      const CaseOptionsDemonstrator::CaseOptionVariables & variables = post_processor.variables;
       m_post_processing.addPostProcessing(post_processor.format(), variables.variable);
     }
   m_next_iteration = m_next_iteration() + options()->postProcessing[0].outputPeriod();
@@ -282,7 +282,7 @@ postProcessingInit()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::
+DemonstratorModule::
 postProcessingStartInit()
 {
   m_next_iteration = 0;
@@ -292,7 +292,7 @@ postProcessingStartInit()
 /*---------------------------------------------------------------------------*/
 
 bool
-ArcaneDemoModule::
+DemonstratorModule::
 _hasPostProcessing() const
 {
   return (options()->postProcessing().size() > 0);
@@ -309,7 +309,7 @@ _hasPostProcessing() const
  * reprises effectu�es.
  */
 void
-ArcaneDemoModule::
+DemonstratorModule::
 postProcessingExit()
 {
   Real current_time = subDomain()->commonVariables().globalTime();
@@ -318,12 +318,12 @@ postProcessingExit()
   // Affiche statistiques d'ex�cutions
   m_post_processing.stats();
 
-  CaseOptionsArcaneDemo::CaseOptionPostProcessing & post_processing = options()->postProcessing;
+  CaseOptionsDemonstrator::CaseOptionPostProcessing & post_processing = options()->postProcessing;
   if (post_processing.size() == 0) return;
-  const CaseOptionsArcaneDemo::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
+  const CaseOptionsDemonstrator::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
   for(Integer ip=0,np=post_processors.size();ip<np;++ip)
     {
-      const CaseOptionsArcaneDemo::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
+      const CaseOptionsDemonstrator::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
       IPostProcessorWriter* writer = post_processor.format();
       writer->close();
     }
@@ -333,7 +333,7 @@ postProcessingExit()
 /*---------------------------------------------------------------------------*/
 
 void
-ArcaneDemoModule::
+DemonstratorModule::
 timeStepInformation(Arcane::Integer nb_loop)
 {
   Arcane::Integer precision = FloatInfo<Real>::maxDigit();
@@ -358,4 +358,4 @@ timeStepInformation(Arcane::Integer nb_loop)
 /*---------------------------------------------------------------------------*/
 
 using namespace Arcane;
-ARCANE_REGISTER_MODULE_ARCANEDEMO(ArcaneDemoModule);
+ARCANE_REGISTER_MODULE_DEMONSTRATOR(DemonstratorModule);
