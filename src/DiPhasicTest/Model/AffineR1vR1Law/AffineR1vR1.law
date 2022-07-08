@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<law name="AffineR1vR1">
-  <input name="in" type="real" dim="scalar" />
-  <output name="out" type="real" dim="scalar" />
-</law>

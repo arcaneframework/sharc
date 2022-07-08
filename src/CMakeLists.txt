@@ -16,8 +16,5 @@ linkLibraries(ArcaneDemo
 #  ArcGeoSim_alientools
 #  )
 #endif()
-if(TARGET gump)
-  addDirectory(DiPhasicTest/Gump)
-endif()
 
 commit(ArcaneDemo)
