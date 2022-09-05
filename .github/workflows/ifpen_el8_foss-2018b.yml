@@ -545,7 +545,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ${{ env.SHARC_SOURCE_DIR }}
-          submodules: true
       - name: Download arcane install artifact
         uses: actions/download-artifact@v2
         with:
@@ -814,71 +813,71 @@ jobs:
   #        path: ${{ env.ALIENLEGACY_BUILD_DIR }}/Testing
   #        retention-days: 1
 
-  #sharc-test:
-  #  name: sharc-test
-  #  needs:
-  #    - arccore-install
-  #    - arcane-install
-  #    - alien-install
-  #    - alienlegacy-install
-  #    - sharc-install
-  #  runs-on: ubuntu-18.04
-  #  timeout-minutes: 180
-  #  container:
-  #    image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
-  #  strategy:
-  #    fail-fast: false
-  #  steps:
-  #    - name: Check permissions
-  #      shell: bash
-  #      run: id && ls -lnd /__w && ls -lnR /__w
-  #      continue-on-error: true
-  #    - name: Checkout
-  #      uses: actions/checkout@v2
-  #      with:
-  #        path: ${{ env.SHARC_SOURCE_DIR }}
-  #    - name: Download alienlegacy install artifact
-  #      uses: actions/download-artifact@v2
-  #      with:
-  #        name: alienlegacy-install-artifact
-  #    - name: Untar alienlegacy install artifact
-  #      shell: bash
-  #      run: tar xf alienlegacy-install-artifact.tar -C /
-  #    - name: Download alien install artifact
-  #      uses: actions/download-artifact@v2
-  #      with:
-  #        name: alien-install-artifact
-  #    - name: Untar alien install artifact
-  #      shell: bash
-  #      run: tar xf alien-install-artifact.tar -C /
-  #    - name: Download arcane install artifact
-  #      uses: actions/download-artifact@v2
-  #      with:
-  #        name: arcane-install-artifact
-  #    - name: Untar arcane install artifact
-  #      shell: bash
-  #      run: tar xf arcane-install-artifact.tar -C /
-  #    - name: Download arccore install artifact
-  #      uses: actions/download-artifact@v2
-  #      with:
-  #        name: arccore-install-artifact
-  #    - name: Untar arccore install artifact
-  #      shell: bash
-  #      run: tar xf arccore-install-artifact.tar -C /
-  #    - name: Download sharc build artifact
-  #      uses: actions/download-artifact@v2
-  #      with:
-  #        name: sharc-build-artifact
-  #    - name: Untar sharc build artifact
-  #      shell: bash
-  #      run: tar xf sharc-build-artifact.tar -C /
-  #    - name: Test
-  #      shell: bash
-  #      run: ctest --test-dir ${{ env.SHARC_BUILD_DIR }} ${{ env.CT_OPTS }}
-  #    - name: Upload test artifact
-  #      uses: actions/upload-artifact@v2
-  #      if: failure()
-  #      with:
-  #        name: sharc-test-artifact
-  #        path: ${{ env.SHARC_BUILD_DIR }}/Testing
-  #        retention-days: 1
+  sharc-test:
+    name: sharc-test
+    needs:
+      - arccore-install
+      - arcane-install
+      - alien-install
+      - alienlegacy-install
+      - sharc-install
+    runs-on: ubuntu-18.04
+    timeout-minutes: 180
+    container:
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Check permissions
+        shell: bash
+        run: id && ls -lnd /__w && ls -lnR /__w
+        continue-on-error: true
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.SHARC_SOURCE_DIR }}
+      - name: Download alienlegacy install artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: alienlegacy-install-artifact
+      - name: Untar alienlegacy install artifact
+        shell: bash
+        run: tar xf alienlegacy-install-artifact.tar -C /
+      - name: Download alien install artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: alien-install-artifact
+      - name: Untar alien install artifact
+        shell: bash
+        run: tar xf alien-install-artifact.tar -C /
+      - name: Download arcane install artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: arcane-install-artifact
+      - name: Untar arcane install artifact
+        shell: bash
+        run: tar xf arcane-install-artifact.tar -C /
+      - name: Download arccore install artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: arccore-install-artifact
+      - name: Untar arccore install artifact
+        shell: bash
+        run: tar xf arccore-install-artifact.tar -C /
+      - name: Download sharc build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: sharc-build-artifact
+      - name: Untar sharc build artifact
+        shell: bash
+        run: tar xf sharc-build-artifact.tar -C /
+      - name: Test
+        shell: bash
+        run: ctest --test-dir ${{ env.SHARC_BUILD_DIR }} ${{ env.CT_OPTS }}
+      - name: Upload test artifact
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: sharc-test-artifact
+          path: ${{ env.SHARC_BUILD_DIR }}/Testing
+          retention-days: 1

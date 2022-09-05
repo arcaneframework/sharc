@@ -545,7 +545,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ${{ env.SHARC_SOURCE_DIR }}
-          submodules: true
       - name: Download arcane install artifact
         uses: actions/download-artifact@v2
         with:
