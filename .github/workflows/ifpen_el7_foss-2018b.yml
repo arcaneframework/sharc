@@ -7,37 +7,37 @@ on:
 
 env:
   # Alien
-  ALIEN_BUILD_DIR: /__w/Demonstrator/sharc/alien_build
-  ALIEN_INSTALL_DIR: /__w/Demonstrator/sharc/alien_install
-  ALIEN_SOURCE_DIR: /__w/Demonstrator/sharc/alien
+  ALIEN_BUILD_DIR: /__w/Demonstrator/Demonstrator/alien_build
+  ALIEN_INSTALL_DIR: /__w/Demonstrator/Demonstrator/alien_install
+  ALIEN_SOURCE_DIR: /__w/Demonstrator/Demonstrator/alien
   # AlienLegacy
-  ALIENLEGACY_BUILD_DIR: /__w/Demonstrator/sharc/alienlegacy_build
-  ALIENLEGACY_INSTALL_DIR: /__w/Demonstrator/sharc/alienlegacy_install
-  ALIENLEGACY_SOURCE_DIR: /__w/Demonstrator/sharc/alienlegacy
+  ALIENLEGACY_BUILD_DIR: /__w/Demonstrator/Demonstrator/alienlegacy_build
+  ALIENLEGACY_INSTALL_DIR: /__w/Demonstrator/Demonstrator/alienlegacy_install
+  ALIENLEGACY_SOURCE_DIR: /__w/Demonstrator/Demonstrator/alienlegacy
   # Arcane
-  ARCANE_BUILD_DIR: /__w/Demonstrator/sharc/arcane_build
-  ARCANE_INSTALL_DIR: /__w/Demonstrator/sharc/arcane_install
-  ARCANE_SOURCE_DIR: /__w/Demonstrator/sharc/arcane
+  ARCANE_BUILD_DIR: /__w/Demonstrator/Demonstrator/arcane_build
+  ARCANE_INSTALL_DIR: /__w/Demonstrator/Demonstrator/arcane_install
+  ARCANE_SOURCE_DIR: /__w/Demonstrator/Demonstrator/arcane
   # Arccon
-  ARCCON_BUILD_DIR: /__w/Demonstrator/sharc/arccon_build
-  ARCCON_INSTALL_DIR: /__w/Demonstrator/sharc/arccon_install
-  ARCCON_SOURCE_DIR: /__w/Demonstrator/sharc/arccon
+  ARCCON_BUILD_DIR: /__w/Demonstrator/Demonstrator/arccon_build
+  ARCCON_INSTALL_DIR: /__w/Demonstrator/Demonstrator/arccon_install
+  ARCCON_SOURCE_DIR: /__w/Demonstrator/Demonstrator/arccon
   # Arccore
-  ARCCORE_BUILD_DIR: /__w/Demonstrator/sharc/arccore_build
-  ARCCORE_INSTALL_DIR: /__w/Demonstrator/sharc/arccore_install
-  ARCCORE_SOURCE_DIR: /__w/Demonstrator/sharc/arccore
+  ARCCORE_BUILD_DIR: /__w/Demonstrator/Demonstrator/arccore_build
+  ARCCORE_INSTALL_DIR: /__w/Demonstrator/Demonstrator/arccore_install
+  ARCCORE_SOURCE_DIR: /__w/Demonstrator/Demonstrator/arccore
   # Dependencies
-  DEPENDENCIES_BUILD_DIR: /__w/Demonstrator/sharc/dependencies_build
-  DEPENDENCIES_INSTALL_DIR: /__w/Demonstrator/sharc/dependencies_install
-  DEPENDENCIES_SOURCE_DIR: /__w/Demonstrator/sharc/dependencies
+  DEPENDENCIES_BUILD_DIR: /__w/Demonstrator/Demonstrator/dependencies_build
+  DEPENDENCIES_INSTALL_DIR: /__w/Demonstrator/Demonstrator/dependencies_install
+  DEPENDENCIES_SOURCE_DIR: /__w/Demonstrator/Demonstrator/dependencies
   # Axlstar
-  AXLSTAR_BUILD_DIR: /__w/Demonstrator/sharc/axlstar_build
-  AXLSTAR_INSTALL_DIR: /__w/Demonstrator/sharc/axlstar_install
-  AXLSTAR_SOURCE_DIR: /__w/Demonstrator/sharc/axlstar
+  AXLSTAR_BUILD_DIR: /__w/Demonstrator/Demonstrator/axlstar_build
+  AXLSTAR_INSTALL_DIR: /__w/Demonstrator/Demonstrator/axlstar_install
+  AXLSTAR_SOURCE_DIR: /__w/Demonstrator/Demonstrator/axlstar
   # Sharc
-  SHARC_BUILD_DIR: /__w/Demonstrator/sharc/sharc_build
-  SHARC_INSTALL_DIR: /__w/Demonstrator/sharc/sharc_install
-  SHARC_SOURCE_DIR: /__w/Demonstrator/sharc/sharc
+  SHARC_BUILD_DIR: /__w/Demonstrator/Demonstrator/sharc_build
+  SHARC_INSTALL_DIR: /__w/Demonstrator/Demonstrator/sharc_install
+  SHARC_SOURCE_DIR: /__w/Demonstrator/Demonstrator/sharc
   # ccache
   CC_KEY_PREFIX: ifpen-el7-foss-2018b
   CCACHE_COMPRESS: true
