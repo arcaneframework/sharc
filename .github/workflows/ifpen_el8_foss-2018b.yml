@@ -1,4 +1,4 @@
-name: IFPEN el7 foss/2018b
+name: IFPEN el8 foss/2018b
 
 on:
   push:
@@ -39,7 +39,7 @@ env:
   SHARC_INSTALL_DIR: /__w/Demonstrator/sharc/sharc_install
   SHARC_SOURCE_DIR: /__w/Demonstrator/sharc/sharc
   # ccache
-  CC_KEY_PREFIX: ifpen-el7-foss-2018b
+  CC_KEY_PREFIX: ifpen-el8-foss-2018b
   CCACHE_COMPRESS: true
   CCACHE_COMPRESSLEVEL: 6
   CCACHE_DIR: '/__w/Demonstrator/Demonstrator/ccache'
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -163,7 +163,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -211,7 +211,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -268,7 +268,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -356,7 +356,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -433,7 +433,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -524,7 +524,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -615,7 +615,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     container:
-      image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+      image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
     strategy:
       fail-fast: false
     steps:
@@ -651,7 +651,7 @@ jobs:
   #  runs-on: ubuntu-latest
   #  timeout-minutes: 180
   #  container:
-  #    image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+  #    image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
   #  strategy:
   #    fail-fast: false
   #  steps:
@@ -705,7 +705,7 @@ jobs:
   #  runs-on: ubuntu-latest
   #  timeout-minutes: 180
   #  container:
-  #    image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+  #    image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
   #  strategy:
   #    fail-fast: false
   #  steps:
@@ -754,7 +754,7 @@ jobs:
   #  runs-on: ubuntu-18.04
   #  timeout-minutes: 180
   #  container:
-  #    image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+  #    image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
   #  strategy:
   #    fail-fast: false
   #  steps:
@@ -816,7 +816,7 @@ jobs:
   #  runs-on: ubuntu-18.04
   #  timeout-minutes: 180
   #  container:
-  #    image: ghcr.io/arcaneframework/centos-foss-2018b-alienlegacy:7-latest
+  #    image: ghcr.io/arcaneframework/rockylinux-foss-2018b-alienlegacy:8-latest
   #  strategy:
   #    fail-fast: false
   #  steps:
