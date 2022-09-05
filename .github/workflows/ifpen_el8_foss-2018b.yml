@@ -502,6 +502,15 @@ jobs:
       - name: Install
         shell: bash
         run: cmake --install ${{ env.ALIENLEGACY_BUILD_DIR }}
+      - name: Tar build artifact
+        shell: bash
+        run: tar cf alienlegacy-build-artifact.tar ${{ env.ALIENLEGACY_BUILD_DIR }}
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: alienlegacy-build-artifact
+          path: alienlegacy-build-artifact.tar
+          retention-days: 1
       - name: Tar install artifact
         shell: bash
         run: tar cf alienlegacy-install-artifact.tar ${{ env.ALIENLEGACY_INSTALL_DIR }}
