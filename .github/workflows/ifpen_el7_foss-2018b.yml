@@ -516,7 +516,7 @@ jobs:
     name: sharc-install
     needs:
       - alien-install
-      - alienlegacy_install
+      - alienlegacy-install
       - arcane-install
       - arccon-install
       - arccore-install
