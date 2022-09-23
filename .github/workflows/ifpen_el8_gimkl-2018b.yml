@@ -7,42 +7,42 @@ on:
 
 env:
   # Alien
-  ALIEN_BUILD_DIR: /__w/Demonstrator/Demonstrator/alien_build
-  ALIEN_INSTALL_DIR: /__w/Demonstrator/Demonstrator/alien_install
-  ALIEN_SOURCE_DIR: /__w/Demonstrator/Demonstrator/alien
+  ALIEN_BUILD_DIR: /__w/sharc/sharc/alien_build
+  ALIEN_INSTALL_DIR: /__w/sharc/sharc/alien_install
+  ALIEN_SOURCE_DIR: /__w/sharc/sharc/alien
   # AlienLegacy
-  ALIENLEGACY_BUILD_DIR: /__w/Demonstrator/Demonstrator/alienlegacy_build
-  ALIENLEGACY_INSTALL_DIR: /__w/Demonstrator/Demonstrator/alienlegacy_install
-  ALIENLEGACY_SOURCE_DIR: /__w/Demonstrator/Demonstrator/alienlegacy
+  ALIENLEGACY_BUILD_DIR: /__w/sharc/sharc/alienlegacy_build
+  ALIENLEGACY_INSTALL_DIR: /__w/sharc/sharc/alienlegacy_install
+  ALIENLEGACY_SOURCE_DIR: /__w/sharc/sharc/alienlegacy
   # Arcane
-  ARCANE_BUILD_DIR: /__w/Demonstrator/Demonstrator/arcane_build
-  ARCANE_INSTALL_DIR: /__w/Demonstrator/Demonstrator/arcane_install
-  ARCANE_SOURCE_DIR: /__w/Demonstrator/Demonstrator/arcane
+  ARCANE_BUILD_DIR: /__w/sharc/sharc/arcane_build
+  ARCANE_INSTALL_DIR: /__w/sharc/sharc/arcane_install
+  ARCANE_SOURCE_DIR: /__w/sharc/sharc/arcane
   # Arccon
-  ARCCON_BUILD_DIR: /__w/Demonstrator/Demonstrator/arccon_build
-  ARCCON_INSTALL_DIR: /__w/Demonstrator/Demonstrator/arccon_install
-  ARCCON_SOURCE_DIR: /__w/Demonstrator/Demonstrator/arccon
+  ARCCON_BUILD_DIR: /__w/sharc/sharc/arccon_build
+  ARCCON_INSTALL_DIR: /__w/sharc/sharc/arccon_install
+  ARCCON_SOURCE_DIR: /__w/sharc/sharc/arccon
   # Arccore
-  ARCCORE_BUILD_DIR: /__w/Demonstrator/Demonstrator/arccore_build
-  ARCCORE_INSTALL_DIR: /__w/Demonstrator/Demonstrator/arccore_install
-  ARCCORE_SOURCE_DIR: /__w/Demonstrator/Demonstrator/arccore
+  ARCCORE_BUILD_DIR: /__w/sharc/sharc/arccore_build
+  ARCCORE_INSTALL_DIR: /__w/sharc/sharc/arccore_install
+  ARCCORE_SOURCE_DIR: /__w/sharc/sharc/arccore
   # Dependencies
-  DEPENDENCIES_BUILD_DIR: /__w/Demonstrator/Demonstrator/dependencies_build
-  DEPENDENCIES_INSTALL_DIR: /__w/Demonstrator/Demonstrator/dependencies_install
-  DEPENDENCIES_SOURCE_DIR: /__w/Demonstrator/Demonstrator/dependencies
+  DEPENDENCIES_BUILD_DIR: /__w/sharc/sharc/dependencies_build
+  DEPENDENCIES_INSTALL_DIR: /__w/sharc/sharc/dependencies_install
+  DEPENDENCIES_SOURCE_DIR: /__w/sharc/sharc/dependencies
   # Axlstar
-  AXLSTAR_BUILD_DIR: /__w/Demonstrator/Demonstrator/axlstar_build
-  AXLSTAR_INSTALL_DIR: /__w/Demonstrator/Demonstrator/axlstar_install
-  AXLSTAR_SOURCE_DIR: /__w/Demonstrator/Demonstrator/axlstar
+  AXLSTAR_BUILD_DIR: /__w/sharc/sharc/axlstar_build
+  AXLSTAR_INSTALL_DIR: /__w/sharc/sharc/axlstar_install
+  AXLSTAR_SOURCE_DIR: /__w/sharc/sharc/axlstar
   # Sharc
-  SHARC_BUILD_DIR: /__w/Demonstrator/Demonstrator/sharc_build
-  SHARC_INSTALL_DIR: /__w/Demonstrator/Demonstrator/sharc_install
-  SHARC_SOURCE_DIR: /__w/Demonstrator/Demonstrator/sharc
+  SHARC_BUILD_DIR: /__w/sharc/sharc/sharc_build
+  SHARC_INSTALL_DIR: /__w/sharc/sharc/sharc_install
+  SHARC_SOURCE_DIR: /__w/sharc/sharc/sharc
   # ccache
   CC_KEY_PREFIX: ifpen-el8-gimkl-2018b
   CCACHE_COMPRESS: true
   CCACHE_COMPRESSLEVEL: 6
-  CCACHE_DIR: '/__w/Demonstrator/Demonstrator/ccache'
+  CCACHE_DIR: '/__w/sharc/sharc/ccache'
   CCACHE_MAXSIZE: 5G
   # CMake
   CM_BUILD_OPTS: "-j2"
