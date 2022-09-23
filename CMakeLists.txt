@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2.3)
 
-project(Demonstrator VERSION 0.1)
+project(ShArc VERSION 0.1)
 
 # pour faciliter l'appel de l'outillage
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/common/ArcaneInfra/build-system/arcgeosim)
@@ -35,11 +35,11 @@ add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Numerics)
 add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Physics)
 add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Tests)
 
-logStatus("Loading Demonstrator components...")
+logStatus("Loading ShArc components...")
 
 add_subdirectory(src)
 
-logStatus("Loading Demonstrator.exe...")
+logStatus("Loading ShArc.exe...")
 
 add_subdirectory(src/Main)
 

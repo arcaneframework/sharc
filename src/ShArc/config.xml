@@ -8,7 +8,7 @@
   </needed-packages>
 
   <files language="module">
-    <file>Demonstrator</file>
+    <file>ShArc</file>
   </files>
 
 </makefile>

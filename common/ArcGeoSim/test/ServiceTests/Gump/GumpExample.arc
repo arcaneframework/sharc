@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
-<case codename="Demonstrator" xml:lang="en" codeversion="1.0">
+<case codename="ShArc" xml:lang="en" codeversion="1.0">
   <arcane>
     <title>Test unitaires de Gump</title>
     <timeloop>TestLoop</timeloop>

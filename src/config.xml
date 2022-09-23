@@ -5,7 +5,7 @@
     <package name="boost" />
   </needed-packages>
   <directories>
-    <directory>Demonstrator</directory>
+    <directory>ShArc</directory>
     <directory>TwoPhaseFlowSimulation</directory>
   </directories>
 </makefile>

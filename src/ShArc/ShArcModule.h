@@ -16,7 +16,7 @@
 #include <arcane/Directory.h>
 
 #include "ArcGeoSim/Tests/IServiceValidator.h"
-#include "Demonstrator_axl.h"
+#include "ShArc_axl.h"
 
 #include "ArcGeoSim/Mesh/Exporters/ArcGeoSimPostProcessingBase.h"
 #include "ArcGeoSim/Appli/Architecture/Delegate.h"
@@ -24,16 +24,16 @@
 
 using namespace Arcane;
 
-class DemonstratorModule
-  : public ArcaneDemonstratorObject
+class ShArcModule
+  : public ArcaneShArcObject
   , public IAppServiceMng
   , public ArcGeoSim::Delegate<ArcGeoSim::IIterationInformation>
 {
 public:
 
-  DemonstratorModule(const Arcane::ModuleBuildInfo& mbi);
+  ShArcModule(const Arcane::ModuleBuildInfo& mbi);
 
-  virtual ~DemonstratorModule();
+  virtual ~ShArcModule();
 
 protected:
 
