@@ -1,9 +1,9 @@
-createExecutable(Demonstrator.exe)
+createExecutable(ShArc.exe)
 
-addSources(Demonstrator.exe main.cc)
+addSources(ShArc.exe main.cc)
  
-linkLibraries(Demonstrator.exe 
-  Demonstrator
+linkLibraries(ShArc.exe
+  ShArc
   ArcGeoSim_appli
   ArcGeoSim_utils
   ArcGeoSim_mesh
@@ -13,14 +13,14 @@ linkLibraries(Demonstrator.exe
   ArcGeoSim_test
   )
 #if(TARGET ArcGeoSim_alientools)
-#linkLibraries(Demonstrator.exe 
+#linkLibraries(ShArc.exe
 #              ArcGeoSim_alientools
 #             )
 #endif()
 if(TARGET intel)
-  linkLibraries(Demonstrator.exe 
+  linkLibraries(ShArc.exe
     intel
     )
 endif()
 
-commit(Demonstrator.exe)
+commit(ShArc.exe)

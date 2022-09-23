@@ -1,9 +1,9 @@
-createLibrary(Demonstrator)
+createLibrary(ShArc)
 
-generateCMakeLists(Demonstrator)
+generateCMakeLists(ShArc)
 
 # pour windows
-linkLibraries(Demonstrator  
+linkLibraries(ShArc
 #  ArcGeoSim_appli
 #  ArcGeoSim_utils
 #  ArcGeoSim_mesh
@@ -12,9 +12,9 @@ linkLibraries(Demonstrator
   ArcGeoSim_test
   )
 #if(TARGET ArcGeoSim_alientools)
-#linkLibraries(Demonstrator  
+#linkLibraries(ShArc
 #  ArcGeoSim_alientools
 #  )
 #endif()
 
-commit(Demonstrator)
+commit(ShArc)

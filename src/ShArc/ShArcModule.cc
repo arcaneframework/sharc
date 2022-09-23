@@ -16,7 +16,7 @@
 #include "ArcGeoSim/Numerics/Expressions/IExpressionMng.h"
 #include "ArcGeoSim/Time/ITimeStepComputer.h"
 
-#include "DemonstratorModule.h"
+#include "ShArcModule.h"
 
 #include <arcane/ITimeLoopMng.h>
 #include <arcane/ITimeLoop.h>
@@ -29,19 +29,19 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-DemonstratorModule::DemonstratorModule(const Arcane::ModuleBuildInfo& mbi)
-: ArcaneDemonstratorObject(mbi)
+ShArcModule::ShArcModule(const Arcane::ModuleBuildInfo& mbi)
+: ArcaneShArcObject(mbi)
 , IAppServiceMng()
 , m_initialized(false)
 , m_forecast_compute(false)
 , m_max_iteration(-1)
 , m_geometry_mng(NULL)
 , m_geometry_policy(NULL)
-, m_post_processing(mbi.m_sub_domain,"Demonstrator") {}
+, m_post_processing(mbi.m_sub_domain,"ShArc") {}
 
 /*---------------------------------------------------------------------------*/
 
-DemonstratorModule::~DemonstratorModule()
+ShArcModule::~ShArcModule()
 {
   delete m_geometry_policy;
 }
@@ -50,11 +50,11 @@ DemonstratorModule::~DemonstratorModule()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::initializeAppServiceMng()
+ShArcModule::initializeAppServiceMng()
 {
   if (m_initialized)
     return;
-  info() << "Initializing Demonstrator";
+  info() << "Initializing ShArc";
 
   addOptionalService(options()->timeManager,"Time Line");
   addOptionalService(options()->timeStepPolicy,"Time Step Policy");
@@ -70,7 +70,7 @@ DemonstratorModule::initializeAppServiceMng()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::build()
+ShArcModule::build()
 {
   // For tests using evolutive mesh in parallel
   // prepare mesh distribution with forecast mode
@@ -96,7 +96,7 @@ DemonstratorModule::build()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::prepareInit()
+ShArcModule::prepareInit()
 {
   initializeAppServiceMng();
 
@@ -113,7 +113,7 @@ DemonstratorModule::prepareInit()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::init()
+ShArcModule::init()
 {
   initializeAppServiceMng();
 
@@ -135,10 +135,10 @@ DemonstratorModule::init()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::
+ShArcModule::
 endInit()
 {
-  CaseOptionsDemonstrator::CaseOptionPostProcessing & post_processing = options()->postProcessing;
+  CaseOptionsShArc::CaseOptionPostProcessing & post_processing = options()->postProcessing;
   if (post_processing.size() == 0) return;
 
   if (post_processing[0].saveInit())
@@ -151,7 +151,7 @@ endInit()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::continueInit()
+ShArcModule::continueInit()
 {
   initializeAppServiceMng();
 }
@@ -159,17 +159,17 @@ DemonstratorModule::continueInit()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::beginTimeStep()
+ShArcModule::beginTimeStep()
 {
-  ARCANE_ASSERT((m_initialized),("Demonstrator not initialized"));
+  ARCANE_ASSERT((m_initialized),("ShArc not initialized"));
 }
 
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::endTimeStep()
+ShArcModule::endTimeStep()
 {
-  ARCANE_ASSERT((m_initialized),("Demonstrator not initialized"));
+  ARCANE_ASSERT((m_initialized),("ShArc not initialized"));
 
   { // Post-processing
     Real current_time = subDomain()->commonVariables().globalTime();
@@ -196,7 +196,7 @@ DemonstratorModule::endTimeStep()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::updateGeometry()
+ShArcModule::updateGeometry()
 {
   m_geometry_mng->update(m_geometry_policy);
 }
@@ -205,7 +205,7 @@ DemonstratorModule::updateGeometry()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::
+ShArcModule::
 endSimulation()
 {
   postProcessingExit();
@@ -216,7 +216,7 @@ endSimulation()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::
+ShArcModule::
 _validate()
 {
 	 bool hasError = false;
@@ -225,7 +225,7 @@ _validate()
     for(Integer i=0;i<count;++i) {
       if (options()->validator[i]->validate() != 0) {
         hasError = true;
-        perror() << "Demonstrator validator #" << i << " failed";
+        perror() << "ShArc validator #" << i << " failed";
       }
     }
 
@@ -247,11 +247,11 @@ _validate()
 /************************ Gestion du post-processing *************************/
 /*---------------------------------------------------------------------------*/
 
-void DemonstratorModule::
+void ShArcModule::
 postProcessingInit()
 {
   // Initialisation du post-processing
-  CaseOptionsDemonstrator::CaseOptionPostProcessing & post_processing = options()->postProcessing;
+  CaseOptionsShArc::CaseOptionPostProcessing & post_processing = options()->postProcessing;
   if (post_processing.size() == 0) return;
   // Pas de post-processing si pas de p�riode de sortie
   if (post_processing[0].outputPeriod() <= 0) return;
@@ -268,11 +268,11 @@ postProcessingInit()
   info() << " ";
 
   info() << "Sorties pour les variables:";
-  const CaseOptionsDemonstrator::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
+  const CaseOptionsShArc::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
   for(Integer ip=0,np=post_processors.size();ip<np;++ip)
     {
-      const CaseOptionsDemonstrator::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
-      const CaseOptionsDemonstrator::CaseOptionVariables & variables = post_processor.variables;
+      const CaseOptionsShArc::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
+      const CaseOptionsShArc::CaseOptionVariables & variables = post_processor.variables;
       m_post_processing.addPostProcessing(post_processor.format(), variables.variable);
     }
   m_next_iteration = m_next_iteration() + options()->postProcessing[0].outputPeriod();
@@ -282,7 +282,7 @@ postProcessingInit()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::
+ShArcModule::
 postProcessingStartInit()
 {
   m_next_iteration = 0;
@@ -292,7 +292,7 @@ postProcessingStartInit()
 /*---------------------------------------------------------------------------*/
 
 bool
-DemonstratorModule::
+ShArcModule::
 _hasPostProcessing() const
 {
   return (options()->postProcessing().size() > 0);
@@ -309,7 +309,7 @@ _hasPostProcessing() const
  * reprises effectu�es.
  */
 void
-DemonstratorModule::
+ShArcModule::
 postProcessingExit()
 {
   Real current_time = subDomain()->commonVariables().globalTime();
@@ -318,12 +318,12 @@ postProcessingExit()
   // Affiche statistiques d'ex�cutions
   m_post_processing.stats();
 
-  CaseOptionsDemonstrator::CaseOptionPostProcessing & post_processing = options()->postProcessing;
+  CaseOptionsShArc::CaseOptionPostProcessing & post_processing = options()->postProcessing;
   if (post_processing.size() == 0) return;
-  const CaseOptionsDemonstrator::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
+  const CaseOptionsShArc::CaseOptionPostProcessor & post_processors = post_processing[0].postProcessor;
   for(Integer ip=0,np=post_processors.size();ip<np;++ip)
     {
-      const CaseOptionsDemonstrator::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
+      const CaseOptionsShArc::CaseOptionPostProcessorValue & post_processor = post_processors[ip];
       IPostProcessorWriter* writer = post_processor.format();
       writer->close();
     }
@@ -333,7 +333,7 @@ postProcessingExit()
 /*---------------------------------------------------------------------------*/
 
 void
-DemonstratorModule::
+ShArcModule::
 timeStepInformation(Arcane::Integer nb_loop)
 {
   Arcane::Integer precision = FloatInfo<Real>::maxDigit();
@@ -358,4 +358,4 @@ timeStepInformation(Arcane::Integer nb_loop)
 /*---------------------------------------------------------------------------*/
 
 using namespace Arcane;
-ARCANE_REGISTER_MODULE_DEMONSTRATOR(DemonstratorModule);
+ARCANE_REGISTER_MODULE_SHARC(ShArcModule);
