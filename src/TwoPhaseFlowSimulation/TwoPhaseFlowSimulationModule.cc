@@ -308,6 +308,9 @@ _initDomainVariableMng()
 
   domain().addVariable(ArcRes::Pressure(system()));
   domain().addVariable(ArcRes::Permeability(fluid));
+  domain().addVariable(ArcRes::XPermeability(fluid));
+  domain().addVariable(ArcRes::YPermeability(fluid));
+  domain().addVariable(ArcRes::ZPermeability(fluid));
   domain().addVariable(ArcRes::VolumeFraction(fluid));
 
   ENUMERATE_PHASE(iphase, fluid.phases()) {
@@ -431,13 +434,35 @@ TwoPhaseFlowSimulationModule::
 _initTransmissivity()
 {
   info() << "compute transmissivities ";
+  m_transmissivities.addOperator("T", options()->numerics().twoPointsScheme());
 
   ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  auto T = Law::values<ArcRes::Permeability>(domain(),fluid);
+  auto scalarPerm = options() -> scalarPerm();
 
-  m_transmissivities.addOperator("T", options()->numerics().twoPointsScheme());
-  m_transmissivities.computeOperator( "T", T);
+  if(scalarPerm){
+    auto T = Law::values<ArcRes::Permeability>(domain(),fluid);
+    m_transmissivities.computeOperator( "T", T);
+  }else{
+    auto Kx = Law::values<ArcRes::XPermeability>(domain(),fluid);
+    auto Ky = Law::values<ArcRes::YPermeability>(domain(),fluid);
+    auto Kz = Law::values<ArcRes::ZPermeability>(domain(),fluid);
+    Arcane::VariableCellReal permXInFile(Arcane::VariableBuildInfo(mesh(), options() -> permxVarName())) ;
+    Arcane::VariableCellReal permYInFile(Arcane::VariableBuildInfo(mesh(), options() -> permyVarName())) ;
+    Arcane::VariableCellReal permZInFile(Arcane::VariableBuildInfo(mesh(), options() -> permzVarName())) ;
+    Arcane::VariableCellReal3 K((Arcane::VariableBuildInfo(mesh(), "PermXYZ")));
+    ENUMERATE_CELL(icell, ownCells()) {
+      K[icell][0] = permXInFile[icell]* 1e-14;
+      Kx[icell] = permXInFile[icell]* 1e-14;
+
+      K[icell][1] = permYInFile[icell]* 1e-14;
+      Ky[icell] = permYInFile[icell]* 1e-14;
+
+      K[icell][2] = permZInFile[icell]* 1e-14;
+      Kz[icell] = permZInFile[icell]* 1e-14;
+    }
+    m_transmissivities.computeOperator( "T", K);
+  }
 }
 
 /*---------------------------------------------------------------------------*/

@@ -28,7 +28,7 @@
       <reference-value>10512909.0927261692</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
-      <tolerance>1e-10</tolerance>
+      <tolerance>1e-6</tolerance>
       <verbose>true</verbose>
     </validator>
     <validator name="SyntheticServiceValidator">
@@ -39,7 +39,7 @@
       <reference-value>0.0518475038</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
-      <tolerance>1e-10</tolerance>
+      <tolerance>1e-6</tolerance>
       <verbose>true</verbose>
     </validator>
     <expression-mng name="ExpressionMng"/>
@@ -50,6 +50,7 @@
       <post-processor>
         <variables>
           <variable>Domain_Pressure_System</variable>
+          <variable>Domain_ZPermeability_Fluid</variable>
           <variable>Domain_Saturation_Water</variable>
         </variables>
       </post-processor>
@@ -82,7 +83,14 @@
         <tolerance>1.e-8</tolerance>
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
-        <linear-solver name="PETScSolver">
+        <!--linear-solver name="HypreSolver">
+          <num-iterations-max>1000</num-iterations-max>
+          <stop-criteria-value>1e-3</stop-criteria-value>
+          <solver>BiCGStab</solver>
+          <preconditioner>Euclid</preconditioner>
+          <verbose>true</verbose>
+        </linear-solver-->
+         <linear-solver name="PETScSolver">
 	  <solver name="LU" />
           <verbose>low</verbose>
         </linear-solver>

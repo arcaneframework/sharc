@@ -10,6 +10,7 @@
  */
 
 #include <arcane/ISubDomain.h>
+#include <alien/ref/AlienImportExport.h>
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
@@ -132,18 +133,22 @@ void
 ArcNum::LinearSystem::
 dumpSolution(Arcane::String name)
 {
-  Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
-  dumper.dump(name, *m_alien_solution);
+  //Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
+  //dumper.dump(name, *m_alien_solution);
+  std::cout<<"with the actual system writer use juste dumpMartix fuction to dump the matrix and the rhs";
 }
 
 /*---------------------------------------------------------------------------*/
 
 void
 ArcNum::LinearSystem::
-dumpMatrix(Arcane::String name)
+dumpMatrix(std::string name)
 {
-  Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
-  dumper.dump(name, *m_alien_matrix);
+  //Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
+  //dumper.dump(name, *m_alien_matrix);
+  Alien::SystemWriter writer(name,"ascii",_arcaneGetDefaultSubDomain()->parallelMng()->messagePassingMng()) ;
+  writer.dump(*m_alien_matrix, *m_alien_rhs) ;
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -152,8 +157,10 @@ void
 ArcNum::LinearSystem::
 dumpRhs(Arcane::String name)
 {
-  Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
-  dumper.dump(name, *m_alien_rhs);
+  //Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
+  //dumper.dump(name, *m_alien_rhs);
+  std::cout<<"with the actual system writer use juste dumpMartix(std::string) fuction to dump the matrix and the rhs";
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -162,8 +169,10 @@ void
 ArcNum::LinearSystem::
 dumpSolution()
 {
-  Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
-  dumper.dump(*m_alien_solution);
+  //Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
+  //dumper.dump(*m_alien_solution);
+  std::cout<<"with the actual system writer use juste dumpMartix fuction to dump the matrix and the rhs";
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -172,8 +181,10 @@ void
 ArcNum::LinearSystem::
 dumpMatrix()
 {
-  Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
-  dumper.dump(*m_alien_matrix);
+  //Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
+  //dumper.dump(*m_alien_matrix);
+  std::cout<<"with the actual system writer use juste dumpMartix(std::string) fuction to dump the matrix and the rhs";
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -182,8 +193,10 @@ void
 ArcNum::LinearSystem::
 dumpRhs()
 {
-  Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
-  dumper.dump(*m_alien_rhs);
+  //Alien::AsciiDumper dumper(Alien::AsciiDumper::eMatlabStyle);
+  //dumper.dump(*m_alien_rhs);
+  std::cout<<"with the actual system writer use juste dumpMartix(std::string) fuction to dump the matrix and the rhs";
+
 }
 
 /*---------------------------------------------------------------------------*/
