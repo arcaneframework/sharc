@@ -76,6 +76,7 @@
     </system>
   </physical-model>
   <two-phase-flow-simulation>
+    <scalar-perm>false</scalar-perm>
     <numerics>
       <newton name="ArcNumNewtonSolver">
         <iteration-max>20</iteration-max>
