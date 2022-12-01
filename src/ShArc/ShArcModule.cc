@@ -231,7 +231,7 @@ _validate()
 
     if (hasError)
       {
-        fatal() << "ArcTem validation failure : read details above";
+        fatal() << "ShArc validation failure : read details above";
         info()<<"STOP FAILED";
         subDomain()->timeLoopMng()->stopComputeLoop(false,true);
       }
