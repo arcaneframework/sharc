@@ -12,7 +12,7 @@ For more information regarding authorship of content, please consult the listed 
 ## Compilation
 To compile the application you will need the arcaneframework, alien opensource and alien legacy plugins (check the corresponding repos for prerequisites and compilation).
 
-Here is the list of required (?) softwares to compile sharc:
+Here is the list of required (?) softwares to compile ShArc:
 | Currently            | Loaded                           | Modules                             | :                        |
 | ---------------------|----------------------------------|-------------------------------------|------------------------  |
 |  1) GCCcore/7.3.0    | 15) libunwind/1.2.1              | 29) hwloc/1.11.10                   | 43) Ninja/1.9.0          |
@@ -30,7 +30,7 @@ Here is the list of required (?) softwares to compile sharc:
 | 13) Mono/5.10.0.160  | 27) libxml2/2.9.8                | 41) GLib/2.54.3                     |                          |
 | 14) XZ/5.2.4         | 28) libpciaccess/0.14            | 42) ifort/2018.3.222-GCC-7.3.0-2.30 |                          |
 
-To configure sharc:
+To configure ShArc:
 
     mkdir build && cd build
     cmake -S /my/path/to/sharc -B /my/path/to/sharc/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON -DArccon_DIR=/my/path/to/Arcane.framework/install/share/cmake/Arccon -DAxlstar_DIR=/my/path/to/Arcane.framework/install/share/cmake/Axlstar -DAlienProd_DIR=/my/path/to/Alien.legacy_plugins/install/lib/cmake -DUSE_ALIEN_V20=1 -DUSE_ARCANE_V3=1 -DArcane_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arcane -DAlienPath=/my/path/to/Alien.legacy_plugins/install/ -DArccore_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arccore
