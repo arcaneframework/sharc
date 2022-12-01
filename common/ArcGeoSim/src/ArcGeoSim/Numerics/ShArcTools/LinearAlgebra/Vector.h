@@ -1,4 +1,4 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
+﻿// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
 // Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
@@ -42,12 +42,15 @@ namespace ArcNum {
 	, m_i(-1)
 	, m_equation(-1)
 	, m_alien_block_vector(alien_block_vector)
-	, m_all_indexes(all_indexes) {}
+	, m_all_indexes(all_indexes)
+  , m_block_vw(alien_block_vector)
+      {}
     Arcane::ITraceMng* m_trace;
     Arcane::Integer m_i;
     Arcane::Integer m_equation;
     Alien::BlockVector& m_alien_block_vector;
     Arcane::ConstArray2View<Arcane::Integer> m_all_indexes;
+    Alien::BlockVectorWriter m_block_vw;
   };
   
 public:
@@ -59,38 +62,32 @@ public:
     
     void operator+=(const Arcane::Real& value) 
     {
-      Alien::BlockVectorWriter vw(m_data.m_alien_block_vector);
-      vw[m_data.m_i][m_data.m_equation] = vw[m_data.m_i][m_data.m_equation] + value;
+      m_data.m_block_vw[m_data.m_i][m_data.m_equation] = m_data.m_block_vw[m_data.m_i][m_data.m_equation] + value;
     }
     
     void operator-=(const Arcane::Real& value) 
     {
-      Alien::BlockVectorWriter vw(m_data.m_alien_block_vector);
-      vw[m_data.m_i][m_data.m_equation] = vw[m_data.m_i][m_data.m_equation] - value;
+      m_data.m_block_vw[m_data.m_i][m_data.m_equation] = m_data.m_block_vw[m_data.m_i][m_data.m_equation] - value;
     }
     
     void operator=(const Arcane::Real& value) 
     {
-      Alien::BlockVectorWriter vw(m_data.m_alien_block_vector);
-      vw[m_data.m_i][m_data.m_equation] = value;
+      m_data.m_block_vw[m_data.m_i][m_data.m_equation] = value;
     }
 
     void operator+=(const Law::Contribution& array)
     {
-      Alien::BlockVectorWriter vw(m_data.m_alien_block_vector);
-      vw[m_data.m_i][m_data.m_equation] = vw[m_data.m_i][m_data.m_equation] + array.value();
+      m_data.m_block_vw[m_data.m_i][m_data.m_equation] = m_data.m_block_vw[m_data.m_i][m_data.m_equation] + array.value();
     }
 
     void operator-=(const Law::Contribution& array)
     {
-      Alien::BlockVectorWriter vw(m_data.m_alien_block_vector);
-      vw[m_data.m_i][m_data.m_equation] = vw[m_data.m_i][m_data.m_equation] - array.value();
+      m_data.m_block_vw[m_data.m_i][m_data.m_equation] = m_data.m_block_vw[m_data.m_i][m_data.m_equation] - array.value();
     }
 
     void operator =(const Law::Contribution& array)
     {
-      Alien::BlockVectorWriter vw(m_data.m_alien_block_vector);
-      vw[m_data.m_i][m_data.m_equation] = array.value();
+      m_data.m_block_vw[m_data.m_i][m_data.m_equation] = array.value();
     }
 
     operator const Arcane::Real&() const 
