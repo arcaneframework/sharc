@@ -1,4 +1,4 @@
-<case codename="Demonstrator" xml:lang="en" codeversion="1.0">
+<case codename="ShArc" xml:lang="en" codeversion="1.0">
   <arcane>
     <timeloop>ArcResTimeLoop</timeloop>
   </arcane>
@@ -6,7 +6,7 @@
     <file internal-partition="true">mesh-10x1x1.vt2</file>
   </mesh>
   
-  <demonstrator>
+  <sh-arc>
     <time-manager name="TimeLine">
       <init-time>0.</init-time>
       <end-time>86400e5</end-time>
@@ -55,7 +55,7 @@
         </variables>
       </post-processor>
     </post-processing>
-  </demonstrator>
+  </sh-arc>
   <physical-model>
     <system name="UserSystem">
       <name>System</name>

@@ -1,4 +1,4 @@
-[//]: <> (Comment: -*- coding: utf-8-with-signature -*-)
+﻿[//]: <> (Comment: -*- coding: utf-8-with-signature -*-)
 <img src="https://www.cea.fr/PublishingImages/cea.jpg" height="50" align="right" />
 <img src="https://www.ifpenergiesnouvelles.fr/sites/ifpen.fr/files/logo_ifpen_2.jpg" height="50" align="right"/>
 
@@ -10,9 +10,9 @@ All content is the property of the respective authors or their employers.
 For more information regarding authorship of content, please consult the listed source code repository logs.
 
 ## Compilation
-To compile the Demonstrator you will need the arcaneframework, alien opensource and alien legacy plugins (check the corresponding repos for prerequisites and compilation).
+To compile the application you will need the arcaneframework, alien opensource and alien legacy plugins (check the corresponding repos for prerequisites and compilation).
 
-Here is the list of required (?) softwares to compile the Demonstrator :
+Here is the list of required (?) softwares to compile ShArc:
 | Currently            | Loaded                           | Modules                             | :                        |
 | ---------------------|----------------------------------|-------------------------------------|------------------------  |
 |  1) GCCcore/7.3.0    | 15) libunwind/1.2.1              | 29) hwloc/1.11.10                   | 43) Ninja/1.9.0          |
@@ -30,10 +30,10 @@ Here is the list of required (?) softwares to compile the Demonstrator :
 | 13) Mono/5.10.0.160  | 27) libxml2/2.9.8                | 41) GLib/2.54.3                     |                          |
 | 14) XZ/5.2.4         | 28) libpciaccess/0.14            | 42) ifort/2018.3.222-GCC-7.3.0-2.30 |                          |
 
-To configure the Demonstrator:
+To configure ShArc:
 
     mkdir build && cd build
-    cmake -S /my/path/to/Demonstrator -B /my/path/to/Demonstrator/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON -DArccon_DIR=/my/path/to/Arcane.framework/install/share/cmake/Arccon -DAxlstar_DIR=/my/path/to/Arcane.framework/install/share/cmake/Axlstar -DAlienProd_DIR=/my/path/to/Alien.legacy_plugins/install/lib/cmake -DUSE_ALIEN_V20=1 -DUSE_ARCANE_V3=1 -DArcane_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arcane -DAlienPath=/my/path/to/Alien.legacy_plugins/install/ -DArccore_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arccore
+    cmake -S /my/path/to/sharc -B /my/path/to/sharc/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON -DArccon_DIR=/my/path/to/Arcane.framework/install/share/cmake/Arccon -DAxlstar_DIR=/my/path/to/Arcane.framework/install/share/cmake/Axlstar -DAlienProd_DIR=/my/path/to/Alien.legacy_plugins/install/lib/cmake -DUSE_ALIEN_V20=1 -DUSE_ARCANE_V3=1 -DArcane_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arcane -DAlienPath=/my/path/to/Alien.legacy_plugins/install/ -DArccore_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arccore
 
 To compile it:
 

@@ -33,11 +33,11 @@
 #include "ArcGeoSim/Physics/Law2/Contribution/ContributionAccessor.h"
 #include "ArcGeoSim/Physics/Law2/Contribution/VariableFolderAccessor.h"
 
-#include "ArcGeoSim/Numerics/DemonstratorTools/Solver/INewtonSolver.h"
+#include "ArcGeoSim/Numerics/ShArcTools/Solver/INewtonSolver.h"
 #include "ArcGeoSim/Numerics/TwoPointsScheme/TwoPointsTransmissivity.h"
 #include "ArcGeoSim/Numerics/TwoPointsScheme/TwoPointsStencil.h"
-#include "ArcGeoSim/Numerics/DemonstratorTools/LinearAlgebra/Vector.h"
-#include "ArcGeoSim/Numerics/DemonstratorTools/LinearAlgebra/Matrix.h"
+#include "ArcGeoSim/Numerics/ShArcTools/LinearAlgebra/Vector.h"
+#include "ArcGeoSim/Numerics/ShArcTools/LinearAlgebra/Matrix.h"
 
 #include "ArcGeoSim/Appli/AppService.h"
 #include "ArcGeoSim/Appli/ITimeLoopSnapshotManager.h"
