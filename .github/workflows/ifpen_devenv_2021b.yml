@@ -389,82 +389,82 @@ jobs:
         run: cmake --install ${{ env.SHARC_BUILD_DIR }}
 
       # Arccore tests
-      #- name: Test Arccore
-      #  id: test-arccore
-      #  if: |
-      #    (success() || failure()) &&
-      #    steps.install-arccore.outcome == 'success'
-      #  shell: bash
-      #  run: ctest --test-dir ${{ env.ARCCORE_BUILD_DIR }} ${{ env.CT_OPTS }}
-      #- name: Upload test Arccore artifact
-      #  id: upload-test-arccore-artifact
-      #  uses: actions/upload-artifact@v3
-      #  if: |
-      #    (success() || failure()) &&
-      #    steps.test-arccore.outcome == 'failure'
-      #  with:
-      #    name: arccore-test-artifact
-      #    path: ${{ env.ARCCORE_BUILD_DIR }}/Testing
-      #    retention-days: 1
+      - name: Test Arccore
+        id: test-arccore
+        if: |
+          (success() || failure()) &&
+          steps.install-arccore.outcome == 'success'
+        shell: bash
+        run: ctest --test-dir ${{ env.ARCCORE_BUILD_DIR }} ${{ env.CT_OPTS }}
+      - name: Upload test Arccore artifact
+        id: upload-test-arccore-artifact
+        uses: actions/upload-artifact@v3
+        if: |
+          (success() || failure()) &&
+          steps.test-arccore.outcome == 'failure'
+        with:
+          name: arccore-test-artifact
+          path: ${{ env.ARCCORE_BUILD_DIR }}/Testing
+          retention-days: 1
 
       # Arcane tests
-      #- name: Test Arcane
-      #  id: test-arcane
-      #  if: |
-      #    (success() || failure()) &&
-      #    matrix.config.with_arcane == '1' &&
-      #    steps.install-arcane.outcome == 'success'
-      #  shell: bash
-      #  run: ctest --test-dir ${{ env.ARCANE_BUILD_DIR }} ${{ env.CT_OPTS }} -E '^hydro5_4proc_3sd_4proc$'
-      #- name: Upload test Arcane artifact
-      #  id: upload-test-arcane-artifact
-      #  uses: actions/upload-artifact@v3
-      #  if: |
-      #    (success() || failure()) &&
-      #    matrix.config.with_arcane == '1' &&
-      #    steps.test-arcane.outcome == 'failure'
-      #  with:
-      #    name: arcane-test-artifact
-      #    path: ${{ env.ARCANE_BUILD_DIR }}/Testing
-      #    retention-days: 1
+      - name: Test Arcane
+        id: test-arcane
+        if: |
+          (success() || failure()) &&
+          matrix.config.with_arcane == '1' &&
+          steps.install-arcane.outcome == 'success'
+        shell: bash
+        run: ctest --test-dir ${{ env.ARCANE_BUILD_DIR }} ${{ env.CT_OPTS }} -E '^hydro5_4proc_3sd_4proc$'
+      - name: Upload test Arcane artifact
+        id: upload-test-arcane-artifact
+        uses: actions/upload-artifact@v3
+        if: |
+          (success() || failure()) &&
+          matrix.config.with_arcane == '1' &&
+          steps.test-arcane.outcome == 'failure'
+        with:
+          name: arcane-test-artifact
+          path: ${{ env.ARCANE_BUILD_DIR }}/Testing
+          retention-days: 1
 
       # Alien tests
-      #- name: Test Alien
-      #  id: test-alien
-      #  if: |
-      #    (success() || failure()) &&
-      #    steps.install-alien.outcome == 'success'
-      #  shell: bash
-      #  run: ctest --test-dir ${{ env.ALIEN_BUILD_DIR }} ${{ env.CT_OPTS }}
-      #- name: Upload test Alien artifact
-      #  id: upload-test-alien-artifact
-      #  uses: actions/upload-artifact@v3
-      #  if:
-      #    (success() || failure()) &&
-      #    steps.test-alien.outcome == 'failure'
-      #  with:
-      #    name: alien-test-artifact
-      #    path: ${{ env.ALIEN_BUILD_DIR }}/Testing
-      #    retention-days: 1
+      - name: Test Alien
+        id: test-alien
+        if: |
+          (success() || failure()) &&
+          steps.install-alien.outcome == 'success'
+        shell: bash
+        run: ctest --test-dir ${{ env.ALIEN_BUILD_DIR }} ${{ env.CT_OPTS }}
+      - name: Upload test Alien artifact
+        id: upload-test-alien-artifact
+        uses: actions/upload-artifact@v3
+        if:
+          (success() || failure()) &&
+          steps.test-alien.outcome == 'failure'
+        with:
+          name: alien-test-artifact
+          path: ${{ env.ALIEN_BUILD_DIR }}/Testing
+          retention-days: 1
 
       # AlienLegacyPlugins tests
-      #- name: Test AlienLegacyPlugins
-      #  id: test-alienlegacyplugins
-      #  if: |
-      #    (success() || failure()) &&
-      #    steps.install-alienlegacyplugins.outcome == 'success'
-      #  shell: bash
-      #  run: ctest --test-dir ${{ env.ALIENLEGACYPLUGINS_BUILD_DIR }} ${{ env.CT_OPTS }} -E '^(alien.interface.c.seq.mpi-1|alien.interface.fortran.seq.mpi-1)$'
-      #- name: Upload test AlienLegacyPlugins artifact
-      #  id: upload-test-alienlegacyplugins-artifact
-      #  uses: actions/upload-artifact@v3
-      #  if:
-      #    (success() || failure()) &&
-      #    steps.test-alienlegacyplugins.outcome == 'failure'
-      #  with:
-      #    name: alienlegacyplugins-test-artifact
-      #    path: ${{ env.ALIENLEGACYPLUGINS_BUILD_DIR }}/Testing
-      #    retention-days: 1
+      - name: Test AlienLegacyPlugins
+        id: test-alienlegacyplugins
+        if: |
+          (success() || failure()) &&
+          steps.install-alienlegacyplugins.outcome == 'success'
+        shell: bash
+        run: ctest --test-dir ${{ env.ALIENLEGACYPLUGINS_BUILD_DIR }} ${{ env.CT_OPTS }} -E '^(alien.interface.c.seq.mpi-1|alien.interface.fortran.seq.mpi-1)$'
+      - name: Upload test AlienLegacyPlugins artifact
+        id: upload-test-alienlegacyplugins-artifact
+        uses: actions/upload-artifact@v3
+        if:
+          (success() || failure()) &&
+          steps.test-alienlegacyplugins.outcome == 'failure'
+        with:
+          name: alienlegacyplugins-test-artifact
+          path: ${{ env.ALIENLEGACYPLUGINS_BUILD_DIR }}/Testing
+          retention-days: 1
 
       # Sharc tests
       - name: Test Sharc
