@@ -9,6 +9,10 @@ include(${PROJECT_SOURCE_DIR}/common/ArcGeoSim/test/Gump.txt)
 # ArcaneDemo tests
 message(STATUS " ** Including ${PROJECT_NAME} tests")
 
+# GTest
+message(STATUS " ** Including GTest tests")
+add_subdirectory(gTest)
+
 ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulation
         ArcaneDemo
         test/TwoPhaseFlowSimulation

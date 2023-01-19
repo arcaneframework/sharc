@@ -13,12 +13,14 @@ message(status "Arcane_DIR : ${Arcane_DIR}")
 include(LoadArcGeoSim)
   
 # ici on met les packages, langages, metas, options...
-  
+find_package(GTest REQUIRED)
+
 # activation des strong options (uniquement avec le nouveau systeme de compilation)
 loadMeta(NAME strong_options)
 loadMeta(NAME alien20)
 loadMeta(NAME arcane3)
 add_definitions(-DUSE_ARCANE_V3)
+add_compile_options(-mavx2 -g)
 
 # affichage des informations
 include(PrintArcGeoSimInformations)
