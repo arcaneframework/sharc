@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<law name="PengRobinsonLawType">
+  <input name="pressure" type="real" dim="scalar" />
+  <input name="saturation" type="real" dim="scalar" />
+  <output name="density" type="real" dim="scalar" />
+</law>

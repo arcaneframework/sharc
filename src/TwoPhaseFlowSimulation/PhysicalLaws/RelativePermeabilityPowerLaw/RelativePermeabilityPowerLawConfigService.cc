@@ -60,7 +60,9 @@ configure(Law::FunctionManager& function_mng, ArcRes::System& system)
 
   // Register Law
   function_mng << std::make_shared<RelativePermeabilityPowerLawType::Function>(signature, m_law,
-      &RelativePermeabilityPowerLaw::eval);
+      &RelativePermeabilityPowerLaw::evalVect);
+  //function_mng << std::make_shared<RelativePermeabilityPowerLawType::Function>(signature, m_law,
+  //                                                                             &RelativePermeabilityPowerLaw::eval);
 }
 
 /*---------------------------------------------------------------------------*/

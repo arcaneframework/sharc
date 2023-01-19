@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="PengRobinsonLawConfig" version="1.0" type="caseoption">
+  <description>Service PengRobinsonLawConfig</description>
+  <interface name="ILawConfigurator" />
+
+  <options>
+
+    <simple name="check" type="bool" default="false">
+    </simple>
+
+    <complex name="output" type="Output">
+      <simple name="density" type="string" />
+    </complex>
+
+    <complex name="input" type="Input">
+      <simple name="pressure" type="string" />
+      <simple name="saturation" type="string" />
+    </complex>
+
+  </options>
+
+</service>

@@ -8,5 +8,6 @@
     <directory>ConstantLaw</directory>
     <directory>CapillaryPressureLaw</directory>
     <directory>RelativePermeabilityPowerLaw</directory>
+    <directory>PengRobinsonLaw</directory>
   </directories>
 </makefile>
