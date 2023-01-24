@@ -2,9 +2,6 @@
 #ifndef WELLCONDITIONS_CONDITION_WELL_WELLINDEXCOMPUTER_H
 #define WELLCONDITIONS_CONDITION_WELL_WELLINDEXCOMPUTER_H
 
-//#include "Geoxim/Accessors/PhysicalSystemAccessor.h"
-//#include "Geoxim/Accessors/VariableManagerAccessor.h"
-//#include "Geoxim/Accessors/SubDomainAccessor.h"
 
 // gump
 #include "ArcRes/XPath.h"
@@ -29,9 +26,6 @@
 /*---------------------------------------------------------------------------*/
 
     class WellIndexComputer
-            //: private Geoxim::VariableManagerAccessor
-              //      , private Geoxim::PhysicalSystemAccessor
-              //      , private Geoxim::SubDomainAccessor
     {
     public:
 
