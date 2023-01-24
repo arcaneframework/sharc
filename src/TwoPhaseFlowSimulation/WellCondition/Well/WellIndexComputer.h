@@ -60,32 +60,6 @@
         const Arcane::VariableNodeReal3& m_node_coordinates;
     };
 
-/*---------------------------------------------------------------------------*/
-
-//Arcane::Real
-//WellIndexComputer::
-//_computeWellIndexNew(const Arcane::Real3& cell_dims,
-//                     const Arcane::Real3& cell_perm,
-//                     const Arcane::Real& well_radius,
-//                     const Arcane::Real& well_skin ) const
-//{
-//  const Arcane::Real KX = cell_perm.x;
-//  const Arcane::Real KY = cell_perm.y;
-//
-//  if(Arcane::math::isNearlyZero(KX) || Arcane::math::isNearlyZero(KY))
-//     return 0;
-//
-//  const Arcane::Real DX = cell_dims.x;
-//  const Arcane::Real DY = cell_dims.y;
-//  const Arcane::Real H  = cell_dims.z;
-//
-//  const Arcane::Real N = Arcane::math::sqrt(KY/KX)*DX*DX + Arcane::math::sqrt(KX/KY)*DY*DY ;
-//  const Arcane::Real D = Arcane::math::pow(KY/KX, 0.25)  + Arcane::math::pow(KX/KY, 0.25);
-//  const Arcane::Real R0 = 0.28*N/D;
-//  const Arcane::Real PI = ( 2 * m_pi * Arcane::math::sqrt(KX*KY) * H ) /
-//                        ( Arcane::math::log(R0/well_radius) + well_skin );
-//  return PI;
-//}
 
 /*---------------------------------------------------------------------------*/
 
