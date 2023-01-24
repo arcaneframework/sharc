@@ -18,6 +18,7 @@
 
 #include "BoundaryCondition/IBoundaryManager.h"
 #include "InitialCondition/IInitialCondition.h"
+#include "WellCondition/IWellManager.h"
 
 #include "PhysicalSystem/IPhysicalSystem.h"
 #include "PhysicalSystem/IVariableManager.h"
@@ -54,81 +55,83 @@
 /*---------------------------------------------------------------------------*/
 
 class TwoPhaseFlowSimulationModule
-  : public ArcaneTwoPhaseFlowSimulationObject
-  , public ArcNum::INonLinearSystem
+        : public ArcaneTwoPhaseFlowSimulationObject
+                , public ArcNum::INonLinearSystem
 {
 public:
 
-  TwoPhaseFlowSimulationModule(const Arcane::ModuleBuildInfo & sbi)
-    : ArcaneTwoPhaseFlowSimulationObject(sbi)
+    TwoPhaseFlowSimulationModule(const Arcane::ModuleBuildInfo & sbi)
+            : ArcaneTwoPhaseFlowSimulationObject(sbi)
     {}
 
-  ~TwoPhaseFlowSimulationModule() {}
+    ~TwoPhaseFlowSimulationModule() {}
 
 public:
 
-  // Methode du module
-  void init();
-  void compute();
+    // Methode du module
+    void init();
+    void compute();
 
-  // Interface Systeme non lineaire
-  const Law::PropertyVector& equationSystem() const { return m_unknown_manager; }
-  void build(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
-  void applyConstraintOnSolution(bool &NonPhysicalSolution);
-  const Law::VariableCellFolder& folder() const { return m_folder->domain(); }
-
-private:
-
-  // system gump
-  ArcRes::System& system() { return m_system; }
-  // unknowns as Law::PropertyVector!
-  const Law::PropertyVector& unknownsManager() const { return m_unknown_manager; }
-  // law function manager
-  Law::FunctionManager& functionMng() { return m_funcs; }
-  // domain for contributions
-  Law::VariableCellFolder& domain() { return m_folder->domain(); }
-  Law::VariableCellFolder& domainT0() { return m_folder->domainT0(); }
-  Law::VariableCellFolder& domainTn() { return m_folder->domainTn(); }
-  // init functions
-  void _addTimeVariable(const Gump::ScalarRealProperty& property);
-  void _initPhysicalSystem();
-  void _initGeometry();
-  void _initGroup() ;
-  void _initDomainVariableMng();
-  void _initBoundaryVariableMng();
-  void _initTimeVariableMng();
-  void _initTransmissivity();
-  void _initEquationSystem();
-  void _initRestore();
-  void _initLaws();
-  void _initNewton();
-  // build functions
-  template<typename Folder>
-  void _evaluateLaws(Folder& folder, Law::EvaluationMode derivability);
-  void _buildAccumulation(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
-  void _buildClosure(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
-  void _buildFluxInternal(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
-  void _buildFluxBoundary(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
+    // Interface Systeme non lineaire
+    const Law::PropertyVector& equationSystem() const { return m_unknown_manager; }
+    void build(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
+    void applyConstraintOnSolution(bool &NonPhysicalSolution);
+    const Law::VariableCellFolder& folder() const { return m_folder->domain(); }
 
 private:
 
-  ArcNum::TwoPointsTransmissivity m_transmissivities;
+    // system gump
+    ArcRes::System& system() { return m_system; }
+    // unknowns as Law::PropertyVector!
+    const Law::PropertyVector& unknownsManager() const { return m_unknown_manager; }
+    // law function manager
+    Law::FunctionManager& functionMng() { return m_funcs; }
+    // domain for contributions
+    Law::VariableCellFolder& domain() { return m_folder->domain(); }
+    Law::VariableCellFolder& domainT0() { return m_folder->domainT0(); }
+    Law::VariableCellFolder& domainTn() { return m_folder->domainTn(); }
+    // init functions
+    void _addTimeVariable(const Gump::ScalarRealProperty& property);
+    void _initPhysicalSystem();
+    void _initGeometry();
+    void _initGroup() ;
+    void _initDomainVariableMng();
+    void _initBoundaryVariableMng();
+    void _initWellVariableMng();
+    void _initTimeVariableMng();
+    void _initTransmissivity();
+    void _initEquationSystem();
+    void _initRestore();
+    void _initLaws();
+    void _initNewton();
+    // build functions
+    template<typename Folder>
+    void _evaluateLaws(Folder& folder, Law::EvaluationMode derivability);
+    void _buildAccumulation(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
+    void _buildClosure(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
+    void _buildFluxInternal(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
+    void _buildFluxBoundary(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
+    void _buildFluxWell(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
 
-  // unknowns as Law::PropertyVector!
-  Law::PropertyVector m_unknown_manager;
+private:
 
-  // system instance based on gump
-  ArcRes::System m_system;
+    ArcNum::TwoPointsTransmissivity m_transmissivities;
 
-  // evolutive variable management restart newtown
-  ArcGeoSim::AppService<ArcGeoSim::ITimeLoopSnapshotManager> m_snapshots;
+    // unknowns as Law::PropertyVector!
+    Law::PropertyVector m_unknown_manager;
 
-  // law function manager and evaluator
-  Law::FunctionManager m_funcs;
-  Arcane::SharedArray<Gump::ScalarRealProperty> m_properties_to_evaluate;
+    // system instance based on gump
+    ArcRes::System m_system;
 
-  // acces domain for contributions
-  ArcGeoSim::AppService<IVariableManager> m_folder;
+    // evolutive variable management restart newtown
+    ArcGeoSim::AppService<ArcGeoSim::ITimeLoopSnapshotManager> m_snapshots;
+
+    // law function manager and evaluator
+    Law::FunctionManager m_funcs;
+    Arcane::SharedArray<Gump::ScalarRealProperty> m_properties_to_evaluate;
+
+    // acces domain for contributions
+    ArcGeoSim::AppService<IVariableManager> m_folder;
 };
 
 /*---------------------------------------------------------------------------*/
@@ -139,10 +142,10 @@ void
 TwoPhaseFlowSimulationModule::
 _addTimeVariable(const Gump::ScalarRealProperty& property)
 {
-  domainTn().addVariable(property);
-  auto v   = Law::values(domain(), property);
-  auto vTn = Law::values(domainTn(), property);
-  m_snapshots->snap(v, vTn);
+    domainTn().addVariable(property);
+    auto v   = Law::values(domain(), property);
+    auto vTn = Law::values(domainTn(), property);
+    m_snapshots->snap(v, vTn);
 }
 
 // load system as service
@@ -150,56 +153,59 @@ void
 TwoPhaseFlowSimulationModule::
 _initPhysicalSystem()
 {
-  if(m_system == NULL) {
-    ArcGeoSim::AppService<IPhysicalSystem> physical_system;
-    m_system = physical_system->system();
-  }
+    if(m_system == NULL) {
+        ArcGeoSim::AppService<IPhysicalSystem> physical_system;
+        m_system = physical_system->system();
+    }
 }
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-void 
+void
 TwoPhaseFlowSimulationModule::
 init()
 {
 
-  info() << "create physical solver";
-  _initPhysicalSystem();
+    info() << "create physical solver";
+    _initPhysicalSystem();
 
-  info() << "create function manager";
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    info() << "create function manager";
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  if(fluid.phases().size() != 2)
-    fatal() << "fluid-system should have exactly two phases";
+    if(fluid.phases().size() != 2)
+        fatal() << "fluid-system should have exactly two phases";
 
-  if(system().solidSubSystem().phases().size() != 0)
-    fatal() << "solid-system should not be filled";
+    if(system().solidSubSystem().phases().size() != 0)
+        fatal() << "solid-system should not be filled";
 
-  _initGeometry();
-  _initGroup() ;
-  _initDomainVariableMng();
-  _initBoundaryVariableMng();
-  _initTimeVariableMng();  
-  _initLaws();
-  _initRestore();  
-  _initTransmissivity();
-  _initEquationSystem();
-  _initNewton();
+    _initGeometry();
+    _initGroup() ;
+    _initDomainVariableMng();
+    if(options()->hasBoundaryCondition())
+        _initBoundaryVariableMng();
+    _initTransmissivity();
+    if(options()->hasWellCondition())
+        _initWellVariableMng();
+    _initTimeVariableMng();
+    _initLaws();
+    _initRestore();
+    _initEquationSystem();
+    _initNewton();
 }
 
 /*---------------------------------------------------------------------------*/
 
-void 
+void
 TwoPhaseFlowSimulationModule::
 compute()
 {
-  info() << "solve non linear problem at iteration " << m_global_iteration();
-  bool r = options()->numerics().newton()->solve();
-  if(not r) {
-	// snapped evolutive variables go back to initial time step value
-    throw ArcGeoSim::TimeStep::ReplayException("Error in computation - go backward!");
-  }
+    info() << "solve non linear problem at iteration " << m_global_iteration();
+    bool r = options()->numerics().newton()->solve();
+    if(not r) {
+        // snapped evolutive variables go back to initial time step value
+        throw ArcGeoSim::TimeStep::ReplayException("Error in computation - go backward!");
+    }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -208,15 +214,18 @@ void
 TwoPhaseFlowSimulationModule::
 build(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 {
-  residual = 0.;
+    residual = 0.;
 
-  _evaluateLaws(domain(), Law::eWithDerivative);
+    _evaluateLaws(domain(), Law::eWithDerivative);
 
-  _buildAccumulation(residual, jacobian);
-  _buildFluxInternal(residual, jacobian);
-  _buildFluxBoundary(residual, jacobian);
-  _buildClosure(residual, jacobian);
-} 
+    _buildAccumulation(residual, jacobian);
+    _buildFluxInternal(residual, jacobian);
+    if(options()->hasBoundaryCondition())
+        _buildFluxBoundary(residual, jacobian);
+    if(options()->hasWellCondition())
+        _buildFluxWell(residual, jacobian);
+    _buildClosure(residual, jacobian);
+}
 
 /*---------------------------------------------------------------------------*/
 
@@ -224,24 +233,24 @@ void
 TwoPhaseFlowSimulationModule::
 applyConstraintOnSolution(bool &NonPhysicalSolution)
 {
-  auto pressure = Law::values<ArcRes::Pressure>(domain(),system());
+    auto pressure = Law::values<ArcRes::Pressure>(domain(),system());
 
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
-  auto S = Law::values<ArcRes::Saturation>(domain(),fluid.phases());
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    auto S = Law::values<ArcRes::Saturation>(domain(),fluid.phases());
 
-  ENUMERATE_CELL(icell, allCells()) {
-    Arcane::Real totalS = 0;
+    ENUMERATE_CELL(icell, allCells()) {
+        Arcane::Real totalS = 0;
 
-    ENUMERATE_PHASE(iphase, fluid.phases()) {
-      if (S[iphase][icell] < 0 ) {  S[iphase][icell] = 0; }
-      if (S[iphase][icell] > 1 ) {  S[iphase][icell] = 1; }
-      totalS += S[iphase][icell];
+        ENUMERATE_PHASE(iphase, fluid.phases()) {
+            if (S[iphase][icell] < 0 ) {  S[iphase][icell] = 0; }
+            if (S[iphase][icell] > 1 ) {  S[iphase][icell] = 1; }
+            totalS += S[iphase][icell];
+        }
+
+        ENUMERATE_PHASE(iphase, fluid.phases()) {
+            S[iphase][icell] = S[iphase][icell] / totalS;
+        }
     }
-
-    ENUMERATE_PHASE(iphase, fluid.phases()) {
-      S[iphase][icell] = S[iphase][icell] / totalS;
-    }
-  }
 }
 
 
@@ -251,37 +260,37 @@ void
 TwoPhaseFlowSimulationModule::
 _initGeometry()
 {
-  info() << "register geometric properties";
+    info() << "register geometric properties";
 
-  IAppServiceMng* app_service_mng = IAppServiceMng::instance(subDomain()->serviceMng());
-  IGeometryMng* geometry_mng = app_service_mng->find<IGeometryMng>(true);
-  geometry_mng->setPolicyTolerance(true);
+    IAppServiceMng* app_service_mng = IAppServiceMng::instance(subDomain()->serviceMng());
+    IGeometryMng* geometry_mng = app_service_mng->find<IGeometryMng>(true);
+    geometry_mng->setPolicyTolerance(true);
 
-  geometry_mng->addItemGroupProperty(allCells(),
-                                     IGeometryProperty::PMeasure,
-                                     IGeometryProperty::PVariable);
+    geometry_mng->addItemGroupProperty(allCells(),
+                                       IGeometryProperty::PMeasure,
+                                       IGeometryProperty::PVariable);
 
-  geometry_mng->addItemGroupProperty(allCells(),
-                                     IGeometryProperty::PCenter,
-                                     IGeometryProperty::PVariable);
+    geometry_mng->addItemGroupProperty(allCells(),
+                                       IGeometryProperty::PCenter,
+                                       IGeometryProperty::PVariable);
 
-  geometry_mng->addItemGroupProperty(allFaces(),
-                                     IGeometryProperty::PMeasure,
-                                     IGeometryProperty::PVariable);
+    geometry_mng->addItemGroupProperty(allFaces(),
+                                       IGeometryProperty::PMeasure,
+                                       IGeometryProperty::PVariable);
 
-  geometry_mng->addItemGroupProperty(allFaces(),
-                                     IGeometryProperty::PCenter,
-                                     IGeometryProperty::PVariable);
+    geometry_mng->addItemGroupProperty(allFaces(),
+                                       IGeometryProperty::PCenter,
+                                       IGeometryProperty::PVariable);
 
-  geometry_mng->addItemGroupProperty(allFaces(),
-                                     IGeometryProperty::PNormal,
-                                     IGeometryProperty::PVariable);
+    geometry_mng->addItemGroupProperty(allFaces(),
+                                       IGeometryProperty::PNormal,
+                                       IGeometryProperty::PVariable);
 
-  info() << "force update of geometric properties";
+    info() << "force update of geometric properties";
 
-  IGeometryPolicy* geometry_policy = new ManualUpdateGeometryPolicy;
-  geometry_mng->update(mesh(), geometry_policy);
-  delete geometry_policy;
+    IGeometryPolicy* geometry_policy = new ManualUpdateGeometryPolicy;
+    geometry_mng->update(mesh(), geometry_policy);
+    delete geometry_policy;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -290,10 +299,10 @@ void
 TwoPhaseFlowSimulationModule::
 _initGroup()
 {
-  auto groupCreator(options() -> groupCreator()) ;
-  groupCreator -> init() ;
-  groupCreator -> prepare() ;
-  groupCreator -> apply() ;
+    auto groupCreator(options() -> groupCreator()) ;
+    groupCreator -> init() ;
+    groupCreator -> prepare() ;
+    groupCreator -> apply() ;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -302,31 +311,31 @@ void
 TwoPhaseFlowSimulationModule::
 _initDomainVariableMng()
 {
-  info() << "define domain containers for properties";
+    info() << "define domain containers for properties";
 
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  domain().addVariable(ArcRes::Pressure(system()));
-  domain().addVariable(ArcRes::Permeability(fluid));
-  domain().addVariable(ArcRes::XPermeability(fluid));
-  domain().addVariable(ArcRes::YPermeability(fluid));
-  domain().addVariable(ArcRes::ZPermeability(fluid));
-  domain().addVariable(ArcRes::VolumeFraction(fluid));
+    domain().addVariable(ArcRes::Pressure(system()));
+    domain().addVariable(ArcRes::Permeability(fluid));
+    domain().addVariable(ArcRes::XPermeability(fluid));
+    domain().addVariable(ArcRes::YPermeability(fluid));
+    domain().addVariable(ArcRes::ZPermeability(fluid));
+    domain().addVariable(ArcRes::VolumeFraction(fluid));
 
-  ENUMERATE_PHASE(iphase, fluid.phases()) {
-    domain().addVariable(ArcRes::Density(iphase), Law::WithDerivative);
-    domain().addVariable(ArcRes::Viscosity(iphase), Law::WithDerivative);
-    domain().addVariable(ArcRes::RelativePermeability(iphase), Law::WithDerivative);
-    domain().addVariable(ArcRes::Saturation(iphase));
-    domain().addVariable(ArcRes::CapillaryPressure(iphase), Law::WithDerivative);
+    ENUMERATE_PHASE(iphase, fluid.phases()) {
+        domain().addVariable(ArcRes::Density(iphase), Law::WithDerivative);
+        domain().addVariable(ArcRes::Viscosity(iphase), Law::WithDerivative);
+        domain().addVariable(ArcRes::RelativePermeability(iphase), Law::WithDerivative);
+        domain().addVariable(ArcRes::Saturation(iphase));
+        domain().addVariable(ArcRes::CapillaryPressure(iphase), Law::WithDerivative);
 
     }
 
-  info() << "initialize domain properties";
+    info() << "initialize domain properties";
 
-  for(Arcane::Integer i = 0; i < options()->initialCondition.size(); ++i) {
-    options()->initialCondition[i]->init(system(),domain());
-  }
+    for(Arcane::Integer i = 0; i < options()->initialCondition.size(); ++i) {
+        options()->initialCondition[i]->init(system(),domain());
+    }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -335,23 +344,46 @@ void
 TwoPhaseFlowSimulationModule::
 _initBoundaryVariableMng()
 {
-  info() << "initialize boundary properties";
-  options()->boundaryCondition()->init(system());
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  info() << "define boundary containers for others properties";
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    info() << "initialize boundary properties";
+    options()->boundaryCondition()->init(system());
 
-  ENUMERATE_BOUNDARY(bound,options()->boundaryCondition()->boundaryEnumerator()) {
+    info() << "define boundary containers for others properties";
+    ENUMERATE_BOUNDARY(bound,options()->boundaryCondition()->boundaryEnumerator()) {
 
-    Law::PartialVariableFaceFolder& bound_vars = bound.folder();
+        Law::PartialVariableFaceFolder& bound_vars = bound.folder();
 
-    ENUMERATE_PHASE(iphase,fluid.phases()) {
-      bound_vars.addVariable(ArcRes::Density(iphase));
-      bound_vars.addVariable(ArcRes::Viscosity(iphase));
-      bound_vars.addVariable(ArcRes::RelativePermeability(iphase));
-      bound_vars.addVariable(ArcRes::CapillaryPressure(iphase));
+        ENUMERATE_PHASE(iphase,fluid.phases()) {
+            bound_vars.addVariable(ArcRes::Density(iphase));
+            bound_vars.addVariable(ArcRes::Viscosity(iphase));
+            bound_vars.addVariable(ArcRes::RelativePermeability(iphase));
+            bound_vars.addVariable(ArcRes::CapillaryPressure(iphase));
+        }
     }
-  }
+
+}
+
+/*---------------------------------------------------------------------------*/
+
+void
+TwoPhaseFlowSimulationModule::
+_initWellVariableMng()
+{
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+
+    options()->wellCondition()->init(system(), domain());
+    info() << "define well containers for others properties";
+    ENUMERATE_WELL(well,options()->wellCondition()->enumerator()) {
+        Law::PartialVariableCellFolder& well_vars = well.folder();
+        ENUMERATE_PHASE(iphase,fluid.phases()) {
+            well_vars.addVariable(ArcRes::Density(iphase));
+            well_vars.addVariable(ArcRes::Viscosity(iphase));
+            well_vars.addVariable(ArcRes::RelativePermeability(iphase));
+            well_vars.addVariable(ArcRes::CapillaryPressure(iphase));
+        }
+    }
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -360,71 +392,81 @@ void
 TwoPhaseFlowSimulationModule::
 _initTimeVariableMng()
 {
-  info() << "register containers of property to restore if failure";
-  _addTimeVariable(ArcRes::Pressure(system()));
+    info() << "register containers of property to restore if failure";
+    _addTimeVariable(ArcRes::Pressure(system()));
 
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
-  ENUMERATE_PHASE(iphase, fluid.phases()) {
-    _addTimeVariable(ArcRes::Saturation(iphase));
-    _addTimeVariable(ArcRes::Density(iphase));
-    _addTimeVariable(ArcRes::CapillaryPressure(iphase));
-  }
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    ENUMERATE_PHASE(iphase, fluid.phases()) {
+        _addTimeVariable(ArcRes::Saturation(iphase));
+        _addTimeVariable(ArcRes::Density(iphase));
+        _addTimeVariable(ArcRes::CapillaryPressure(iphase));
+    }
 }
 
 /*---------------------------------------------------------------------------*/
 
 void
 TwoPhaseFlowSimulationModule::
-_initLaws()  
+_initLaws()
 {
-  info() << "prepare laws for evaluations";
+    info() << "prepare laws for evaluations";
 
-  for (Arcane::Integer i = 0; i < options()->law.size(); ++i) {
-    options()->law[i]->configure(m_funcs, system());
-  }
-
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
-  ENUMERATE_PHASE(iphase, fluid.phases()) {
-	m_properties_to_evaluate.add(ArcRes::Density(iphase));
-	m_properties_to_evaluate.add(ArcRes::Viscosity(iphase));
-	m_properties_to_evaluate.add(ArcRes::RelativePermeability(iphase));
-    m_properties_to_evaluate.add(ArcRes::CapillaryPressure(iphase));
+    for (Arcane::Integer i = 0; i < options()->law.size(); ++i) {
+        options()->law[i]->configure(m_funcs, system());
     }
 
-  info() << "evaluate laws on boundary";
-  ENUMERATE_BOUNDARY(bound,options()->boundaryCondition()->boundaryEnumerator())
-  {
-    _evaluateLaws(bound.folder(), Law::eWithoutDerivative);
-  }
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    ENUMERATE_PHASE(iphase, fluid.phases()) {
+        m_properties_to_evaluate.add(ArcRes::Density(iphase));
+        m_properties_to_evaluate.add(ArcRes::Viscosity(iphase));
+        m_properties_to_evaluate.add(ArcRes::RelativePermeability(iphase));
+        m_properties_to_evaluate.add(ArcRes::CapillaryPressure(iphase));
+    }
 
-  info() << "evaluate laws in domain";
-  _evaluateLaws(domain(), Law::eWithoutDerivative);
+    if(options()->hasBoundaryCondition()){
+        info() << "evaluate laws on boundary";
+        ENUMERATE_BOUNDARY(bound,options()->boundaryCondition()->boundaryEnumerator())
+        {
+            _evaluateLaws(bound.folder(), Law::eWithoutDerivative);
+        }
+    }
+
+    if(options()->hasWellCondition()){
+        info() << "evaluate laws on well";
+        ENUMERATE_WELL(well,options()->wellCondition()->enumerator())
+        {
+            _evaluateLaws(well.folder(), Law::eWithoutDerivative);
+        }
+    }
+
+    info() << "evaluate laws in domain";
+    _evaluateLaws(domain(), Law::eWithoutDerivative);
 }
 
 /*---------------------------------------------------------------------------*/
 
 void
 TwoPhaseFlowSimulationModule::
-_initRestore()  
+_initRestore()
 {
-  info() << "compute law containers a first time step ";
+    info() << "compute law containers a first time step ";
 
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  auto Pc = Law::values<ArcRes::CapillaryPressure>(domain(),fluid.phases());
-  auto Pc_tn = Law::values<ArcRes::CapillaryPressure>(domainTn(),fluid.phases());
+    auto Pc = Law::values<ArcRes::CapillaryPressure>(domain(),fluid.phases());
+    auto Pc_tn = Law::values<ArcRes::CapillaryPressure>(domainTn(),fluid.phases());
 
-  auto rho = Law::values<ArcRes::Density>(domain(),fluid.phases());
-  auto rho_tn = Law::values<ArcRes::Density>(domainTn(),fluid.phases());
+    auto rho = Law::values<ArcRes::Density>(domain(),fluid.phases());
+    auto rho_tn = Law::values<ArcRes::Density>(domainTn(),fluid.phases());
 
-  auto S = Law::values<ArcRes::Saturation>(domain(),fluid.phases());
-  auto S_tn = Law::values<ArcRes::Saturation>(domainTn(),fluid.phases());
+    auto S = Law::values<ArcRes::Saturation>(domain(),fluid.phases());
+    auto S_tn = Law::values<ArcRes::Saturation>(domainTn(),fluid.phases());
 
-  ENUMERATE_PHASE(iphase, system().phases()) {
-    rho_tn[iphase].copy(rho[iphase]);
-    S_tn[iphase].copy(S[iphase]);
-    Pc_tn[iphase].copy(Pc[iphase]);
-  }
+    ENUMERATE_PHASE(iphase, system().phases()) {
+        rho_tn[iphase].copy(rho[iphase]);
+        S_tn[iphase].copy(S[iphase]);
+        Pc_tn[iphase].copy(Pc[iphase]);
+    }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -433,36 +475,36 @@ void
 TwoPhaseFlowSimulationModule::
 _initTransmissivity()
 {
-  info() << "compute transmissivities ";
-  m_transmissivities.addOperator("T", options()->numerics().twoPointsScheme());
+    info() << "compute transmissivities ";
+    m_transmissivities.addOperator("T", options()->numerics().twoPointsScheme());
 
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  auto scalarPerm = options() -> scalarPerm();
+    auto scalarPerm = options() -> scalarPerm();
 
-  if(scalarPerm){
-    auto T = Law::values<ArcRes::Permeability>(domain(),fluid);
-    m_transmissivities.computeOperator( "T", T);
-  }else{
-    auto Kx = Law::values<ArcRes::XPermeability>(domain(),fluid);
-    auto Ky = Law::values<ArcRes::YPermeability>(domain(),fluid);
-    auto Kz = Law::values<ArcRes::ZPermeability>(domain(),fluid);
-    Arcane::VariableCellReal permXInFile(Arcane::VariableBuildInfo(mesh(), options() -> permxVarName())) ;
-    Arcane::VariableCellReal permYInFile(Arcane::VariableBuildInfo(mesh(), options() -> permyVarName())) ;
-    Arcane::VariableCellReal permZInFile(Arcane::VariableBuildInfo(mesh(), options() -> permzVarName())) ;
-    Arcane::VariableCellReal3 K((Arcane::VariableBuildInfo(mesh(), "PermXYZ")));
-    ENUMERATE_CELL(icell, ownCells()) {
-      K[icell][0] = permXInFile[icell]* 1e-14;
-      Kx[icell] = permXInFile[icell]* 1e-14;
+    if(scalarPerm){
+        auto T = Law::values<ArcRes::Permeability>(domain(),fluid);
+        m_transmissivities.computeOperator( "T", T);
+    }else{
+        auto Kx = Law::values<ArcRes::XPermeability>(domain(),fluid);
+        auto Ky = Law::values<ArcRes::YPermeability>(domain(),fluid);
+        auto Kz = Law::values<ArcRes::ZPermeability>(domain(),fluid);
+        Arcane::VariableCellReal permXInFile(Arcane::VariableBuildInfo(mesh(), options() -> permxVarName())) ;
+        Arcane::VariableCellReal permYInFile(Arcane::VariableBuildInfo(mesh(), options() -> permyVarName())) ;
+        Arcane::VariableCellReal permZInFile(Arcane::VariableBuildInfo(mesh(), options() -> permzVarName())) ;
+        Arcane::VariableCellReal3 K((Arcane::VariableBuildInfo(mesh(), "PermXYZ")));
+        ENUMERATE_CELL(icell, allCells()) {
+            K[icell][0] = permXInFile[icell]* 1e-14;
+            Kx[icell] = permXInFile[icell]* 1e-14;
 
-      K[icell][1] = permYInFile[icell]* 1e-14;
-      Ky[icell] = permYInFile[icell]* 1e-14;
+            K[icell][1] = permYInFile[icell]* 1e-14;
+            Ky[icell] = permYInFile[icell]* 1e-14;
 
-      K[icell][2] = permZInFile[icell]* 1e-14;
-      Kz[icell] = permZInFile[icell]* 1e-14;
+            K[icell][2] = permZInFile[icell]* 1e-14;
+            Kz[icell] = permZInFile[icell]* 1e-14;
+        }
+        m_transmissivities.computeOperator( "T", K);
     }
-    m_transmissivities.computeOperator( "T", K);
-  }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -471,27 +513,27 @@ void
 TwoPhaseFlowSimulationModule::
 _initEquationSystem()
 {
-  info() << "create equations / unknowns system";
+    info() << "create equations / unknowns system";
 
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
-  ENUMERATE_PHASE(iphase, fluid.phases()) {
-	if(iphase.index() == 0)
-	  m_unknown_manager << ArcRes::Pressure(system());
-	else
-      m_unknown_manager << ArcRes::Saturation(iphase);
-  }
-  m_unknown_manager << ArcRes::Saturation(system().phase(0));
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    ENUMERATE_PHASE(iphase, fluid.phases()) {
+        if(iphase.index() == 0)
+            m_unknown_manager << ArcRes::Pressure(system());
+        else
+            m_unknown_manager << ArcRes::Saturation(iphase);
+    }
+    m_unknown_manager << ArcRes::Saturation(system().phase(0));
 }
 
 /*---------------------------------------------------------------------------*/
 
 void
 TwoPhaseFlowSimulationModule::
-_initNewton()  
+_initNewton()
 {
-  info() << "initialize newton solver";
-  auto problem = ArcGeoSim::makeDelegatedSharedPtr<INonLinearSystem>(this);
-  options()->numerics().newton()->init(problem);
+    info() << "initialize newton solver";
+    auto problem = ArcGeoSim::makeDelegatedSharedPtr<INonLinearSystem>(this);
+    options()->numerics().newton()->init(problem);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -501,12 +543,12 @@ void
 TwoPhaseFlowSimulationModule::
 _evaluateLaws(Folder& folder, Law::EvaluationMode derivability)
 {
-  Arcane::IntegerUniqueArray ids(m_properties_to_evaluate.size());
-  std::transform(m_properties_to_evaluate.begin(), m_properties_to_evaluate.end(),
-		  ids.begin(), [](const Gump::Property& p) { return p.id(); });
-  Law::FunctionEvaluator evaluator(m_funcs,ids);
-  evaluator.evaluate(folder.lawVariableAccessor(),
-		             folder.support(), derivability);
+    Arcane::IntegerUniqueArray ids(m_properties_to_evaluate.size());
+    std::transform(m_properties_to_evaluate.begin(), m_properties_to_evaluate.end(),
+                   ids.begin(), [](const Gump::Property& p) { return p.id(); });
+    Law::FunctionEvaluator evaluator(m_funcs,ids);
+    evaluator.evaluate(folder.lawVariableAccessor(),
+                       folder.support(), derivability);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -514,53 +556,53 @@ _evaluateLaws(Folder& folder, Law::EvaluationMode derivability)
 void TwoPhaseFlowSimulationModule::
 _buildAccumulation(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 {
-   info() << "build accumulation";
-   // Get Geoxim Entities
+    info() << "build accumulation";
+    // Get Geoxim Entities
 
-   ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-   // Get Geometry Variables
-   ArcGeoSim::AppService<IGeometryMng> geometry_mng;
+    // Get Geometry Variables
+    ArcGeoSim::AppService<IGeometryMng> geometry_mng;
 
-   const IGeometryMng::RealVariable& volume =
-     geometry_mng->getRealVariableProperty(allCells(), IGeometryProperty::PMeasure);
+    const IGeometryMng::RealVariable& volume =
+            geometry_mng->getRealVariableProperty(allCells(), IGeometryProperty::PMeasure);
 
-   // Get Geoxim Domain Explicit Variables
+    // Get Geoxim Domain Explicit Variables
 
-   auto phi = Law::values<ArcRes::VolumeFraction>(domain(),fluid);
+    auto phi = Law::values<ArcRes::VolumeFraction>(domain(),fluid);
 
-   // Get Geoxim Domain Implicit Variables at Time Tn
+    // Get Geoxim Domain Implicit Variables at Time Tn
 
-   auto rho_tn = Law::values<ArcRes::Density>(domainTn(),fluid.phases());
-   auto S_tn = Law::values<ArcRes::Saturation>(domainTn(),fluid.phases());
+    auto rho_tn = Law::values<ArcRes::Density>(domainTn(),fluid.phases());
+    auto S_tn = Law::values<ArcRes::Saturation>(domainTn(),fluid.phases());
 
-   // Get Geoxim Domain Implicit Variables
+    // Get Geoxim Domain Implicit Variables
 
-   const auto& um = unknownsManager();
-   auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,fluid.phases());
-   auto S = Law::contribution<ArcRes::Saturation>(domain(),functionMng(),um,fluid.phases());
+    const auto& um = unknownsManager();
+    auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,fluid.phases());
+    auto S = Law::contribution<ArcRes::Saturation>(domain(),functionMng(),um,fluid.phases());
 
-   const Arcane::Real deltat = m_global_deltat();
+    const Arcane::Real deltat = m_global_deltat();
 
-   // Build Term
+    // Build Term
 
-   ENUMERATE_CELL(icell, ownCells()) {
+    ENUMERATE_CELL(icell, ownCells()) {
 
-     const Arcane::Real pore_volume = phi[icell] * volume[icell] ;
-     const Arcane::Real cell_factor = pore_volume / deltat;
+        const Arcane::Real pore_volume = phi[icell] * volume[icell] ;
+        const Arcane::Real cell_factor = pore_volume / deltat;
 
-     ENUMERATE_PHASE(iphase, system().phases()) {
+        ENUMERATE_PHASE(iphase, system().phases()) {
 
-       const Arcane::Integer iequation = iphase.index();
+            const Arcane::Integer iequation = iphase.index();
 
-       const auto C =
-           cell_factor  * (  rho   [iphase][icell] * S   [iphase][icell]
-                             - rho_tn[iphase][icell] * S_tn[iphase][icell] ) ;
+            const auto C =
+                    cell_factor  * (  rho   [iphase][icell] * S   [iphase][icell]
+                                      - rho_tn[iphase][icell] * S_tn[iphase][icell] ) ;
 
-       residual[iequation][icell]        += C;
-       jacobian[iequation][icell][icell] += C;
-     }
-   }
+            residual[iequation][icell]        += C;
+            jacobian[iequation][icell][icell] += C;
+        }
+    }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -568,67 +610,67 @@ _buildAccumulation(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 void TwoPhaseFlowSimulationModule::
 _buildFluxInternal(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 {
-  info() << "build internal flux";
+    info() << "build internal flux";
 
-  // Get Geoxim Entities
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    // Get Geoxim Entities
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  // Get Discrete Operator Transmissibility
-  const Arcane::VariableFaceReal& T = m_transmissivities["T"][ArcNum::Classical];
+    // Get Discrete Operator Transmissibility
+    const Arcane::VariableFaceReal& T = m_transmissivities["T"][ArcNum::Classical];
 
-  const auto& um = unknownsManager();
+    const auto& um = unknownsManager();
 
-  // Get Geoxim Domain Implicit Variables
-  auto P = Law::contribution<ArcRes::Pressure>(domain(),functionMng(),um,um,system());
-  auto Pc = Law::contribution<ArcRes::CapillaryPressure>(domain(),functionMng(),um,um,fluid.phases());
-  auto kr = Law::contribution<ArcRes::RelativePermeability>(domain(),functionMng(),um,um,fluid.phases());
-  auto mu = Law::contribution<ArcRes::Viscosity>(domain(),functionMng(),um,um,fluid.phases());
-  auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,um,fluid.phases());
+    // Get Geoxim Domain Implicit Variables
+    auto P = Law::contribution<ArcRes::Pressure>(domain(),functionMng(),um,um,system());
+    auto Pc = Law::contribution<ArcRes::CapillaryPressure>(domain(),functionMng(),um,um,fluid.phases());
+    auto kr = Law::contribution<ArcRes::RelativePermeability>(domain(),functionMng(),um,um,fluid.phases());
+    auto mu = Law::contribution<ArcRes::Viscosity>(domain(),functionMng(),um,um,fluid.phases());
+    auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,um,fluid.phases());
 
-  // Build Term
+    // Build Term
 
-  Arcane::FaceGroup inner_faces = mesh()->allCells().innerFaceGroup();
+    Arcane::FaceGroup inner_faces = mesh()->allCells().innerFaceGroup();
 
-  ENUMERATE_FACE(iface,inner_faces) {
+    ENUMERATE_FACE(iface,inner_faces) {
 
-    ArcNum::TwoPointsStencil stencil(iface);
+        ArcNum::TwoPointsStencil stencil(iface);
 
-    const Law::Cell& cell_k = stencil.back();
-    const Law::Cell& cell_l = stencil.front();
+        const Law::Cell& cell_k = stencil.back();
+        const Law::Cell& cell_l = stencil.front();
 
-    ENUMERATE_PHASE(iphase, fluid.phases()) {
+        ENUMERATE_PHASE(iphase, fluid.phases()) {
 
-      const auto grad_kl = T[iface] * (P[cell_k] + Pc[iphase][cell_k]  - P[cell_l] - Pc[iphase][cell_l] );
+            const auto grad_kl = T[iface] * (P[cell_k] + Pc[iphase][cell_k]  - P[cell_l] - Pc[iphase][cell_l] );
 
-      const auto mobility_k =
-          rho[iphase][cell_k] * kr[iphase][cell_k] / mu[iphase][cell_k];
+            const auto mobility_k =
+                    rho[iphase][cell_k] * kr[iphase][cell_k] / mu[iphase][cell_k];
 
-      const auto mobility_l =
-          rho[iphase][cell_l] * kr[iphase][cell_l] / mu[iphase][cell_l];
+            const auto mobility_l =
+                    rho[iphase][cell_l] * kr[iphase][cell_l] / mu[iphase][cell_l];
 
 #ifdef SPARSE_AUDI
-      const auto flux_kl = (audi::value(grad_kl)>=0) ?
+            const auto flux_kl = (audi::value(grad_kl)>=0) ?
     		        mobility_k*grad_kl :
 			mobility_l*grad_kl ;
 #else
-      const Law::Contribution flux_kl =
-          (   audi::one(grad_kl >= 0) * mobility_k
-            + audi::one(grad_kl <  0) * mobility_l ) * grad_kl;
+            const Law::Contribution flux_kl =
+                    (   audi::one(grad_kl >= 0) * mobility_k
+                        + audi::one(grad_kl <  0) * mobility_l ) * grad_kl;
 #endif
 
-      const Arcane::Integer iequation = iphase.index();
+            const Arcane::Integer iequation = iphase.index();
 
-      if (cell_k.isOwn()) {
-        residual[iequation][cell_k]          += flux_kl;
-        jacobian[iequation][cell_k][stencil] += flux_kl;
-      }
+            if (cell_k.isOwn()) {
+                residual[iequation][cell_k]          += flux_kl;
+                jacobian[iequation][cell_k][stencil] += flux_kl;
+            }
 
-      if (cell_l.isOwn()) {
-        residual[iequation][cell_l]          -= flux_kl;
-        jacobian[iequation][cell_l][stencil] -= flux_kl;
-      }
+            if (cell_l.isOwn()) {
+                residual[iequation][cell_l]          -= flux_kl;
+                jacobian[iequation][cell_l][stencil] -= flux_kl;
+            }
+        }
     }
-  }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -636,102 +678,171 @@ _buildFluxInternal(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 void TwoPhaseFlowSimulationModule::
 _buildFluxBoundary(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 {
-  info() << "build boundary flux";
+    info() << "build boundary flux";
 
-  // Get Geoxim Entities
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    // Get Geoxim Entities
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  // Get Discrete Operator Transmissibility
-  const Arcane::VariableFaceReal& T = m_transmissivities["T"][ArcNum::Classical];
+    // Get Discrete Operator Transmissibility
+    const Arcane::VariableFaceReal& T = m_transmissivities["T"][ArcNum::Classical];
 
-  const auto& um = unknownsManager();
+    const auto& um = unknownsManager();
 
-  // Get Geoxim Domain Implicit Variables
-  auto P = Law::contribution<ArcRes::Pressure>(domain(),functionMng(),um,system());
-  auto Pc = Law::contribution<ArcRes::CapillaryPressure>(domain(),functionMng(),um,fluid.phases());
-  auto kr = Law::contribution<ArcRes::RelativePermeability>(domain(),functionMng(),um,fluid.phases());
-  auto mu = Law::contribution<ArcRes::Viscosity>(domain(),functionMng(),um,fluid.phases());
-  auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,fluid.phases());
+    // Get Geoxim Domain Implicit Variables
+    auto P = Law::contribution<ArcRes::Pressure>(domain(),functionMng(),um,system());
+    auto Pc = Law::contribution<ArcRes::CapillaryPressure>(domain(),functionMng(),um,fluid.phases());
+    auto kr = Law::contribution<ArcRes::RelativePermeability>(domain(),functionMng(),um,fluid.phases());
+    auto mu = Law::contribution<ArcRes::Viscosity>(domain(),functionMng(),um,fluid.phases());
+    auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,fluid.phases());
 
-  ENUMERATE_BOUNDARY(bound,options()->boundaryCondition()->boundaryEnumerator()) {
+    ENUMERATE_BOUNDARY(bound,options()->boundaryCondition()->boundaryEnumerator()) {
 
-    Law::PartialVariableFaceFolder& bound_folder = bound.folder();
+        Law::PartialVariableFaceFolder& bound_folder = bound.folder();
 
-    // Get Geoxim Boundary Variables
-    auto b_P = Law::values<ArcRes::Pressure>(bound_folder,system());
-    auto b_Pc = Law::values<ArcRes::CapillaryPressure>(bound_folder,fluid.phases());
-    auto b_kr = Law::values<ArcRes::RelativePermeability>(bound_folder,fluid.phases());
-    auto b_mu = Law::values<ArcRes::Viscosity>(bound_folder,fluid.phases());
-    auto b_rho = Law::values<ArcRes::Density>(bound_folder,fluid.phases());
+        // Get Geoxim Boundary Variables
+        auto b_P = Law::values<ArcRes::Pressure>(bound_folder,system());
+        auto b_Pc = Law::values<ArcRes::CapillaryPressure>(bound_folder,fluid.phases());
+        auto b_kr = Law::values<ArcRes::RelativePermeability>(bound_folder,fluid.phases());
+        auto b_mu = Law::values<ArcRes::Viscosity>(bound_folder,fluid.phases());
+        auto b_rho = Law::values<ArcRes::Density>(bound_folder,fluid.phases());
 
-    // Build Term
+        // Build Term
 
-    Arcane::FaceGroup boundary_faces = bound_folder.support();
+        Arcane::FaceGroup boundary_faces = bound_folder.support();
 
-    ENUMERATE_FACE(iFace, boundary_faces) {
+        ENUMERATE_FACE(iFace, boundary_faces) {
 
-      const Arcane::Cell& cell_k = iFace->boundaryCell();
+            const Arcane::Cell& cell_k = iFace->boundaryCell();
 
-      ENUMERATE_PHASE(iphase, fluid.phases()) {
+            ENUMERATE_PHASE(iphase, fluid.phases()) {
 
-        const auto grad_kb = T[iFace] * (P[cell_k] + Pc[iphase][cell_k] - b_P[iFace] - b_Pc[iphase][iFace]);
+                const auto grad_kb = T[iFace] * (P[cell_k] + Pc[iphase][cell_k] - b_P[iFace] - b_Pc[iphase][iFace]);
 
-        const auto mobility_k =
-          rho[iphase][cell_k] * kr[iphase][cell_k] / mu[iphase][cell_k];
+                const auto mobility_k =
+                        rho[iphase][cell_k] * kr[iphase][cell_k] / mu[iphase][cell_k];
 
-        const Arcane::Real mobility_b =
-          b_rho[iphase][iFace] * b_kr[iphase][iFace] / b_mu[iphase][iFace];
+                const Arcane::Real mobility_b =
+                        b_rho[iphase][iFace] * b_kr[iphase][iFace] / b_mu[iphase][iFace];
 
 #ifdef SPARSE_AUDI
-        const auto flux_kb = (audi::value(grad_kb)>=0) ?
+                const auto flux_kb = (audi::value(grad_kb)>=0) ?
     		        mobility_k*grad_kb :
 			mobility_b*grad_kb ;
 #else
-        const Law::Contribution flux_kb =
-          (   audi::one(grad_kb >= 0) * mobility_k
-            + audi::one(grad_kb <  0) * mobility_b ) * grad_kb;
+                const Law::Contribution flux_kb =
+                        (   audi::one(grad_kb >= 0) * mobility_k
+                            + audi::one(grad_kb <  0) * mobility_b ) * grad_kb;
 #endif
 
-        const Arcane::Integer iequation = iphase.index();
+                const Arcane::Integer iequation = iphase.index();
 
-        if(cell_k.isOwn()) {
-          residual[iequation][cell_k]         += flux_kb;
-          jacobian[iequation][cell_k][cell_k] += flux_kb;
+                if(cell_k.isOwn()) {
+                    residual[iequation][cell_k]         += flux_kb;
+                    jacobian[iequation][cell_k][cell_k] += flux_kb;
+                }
+            }
         }
-      }
     }
-  }
 }
+
+/*---------------------------------------------------------------------------*/
+
+void TwoPhaseFlowSimulationModule::
+_buildFluxWell(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
+{
+
+    info() << "build well flux";
+
+    // Get Entities
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+
+    // Get Domain Implicit Variables
+    const auto& um = unknownsManager();
+
+    auto P = Law::contribution<ArcRes::Pressure>(domain(),functionMng(),um,system());
+    auto Pc = Law::contribution<ArcRes::CapillaryPressure>(domain(),functionMng(),um,fluid.phases());
+    auto kr = Law::contribution<ArcRes::RelativePermeability>(domain(),functionMng(),um,fluid.phases());
+    auto mu = Law::contribution<ArcRes::Viscosity>(domain(),functionMng(),um,fluid.phases());
+    auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,fluid.phases());
+
+    ENUMERATE_WELL(well,options()->wellCondition()->enumerator()) {
+
+        Law::PartialVariableCellFolder& well_folder = well.folder();
+
+        // Get well Variables
+        Arcane::PartialVariableCellReal b_IP(well.wellIndex());
+
+        auto b_P = Law::values<ArcRes::Pressure>(well_folder,system());
+        auto b_Pc = Law::values<ArcRes::CapillaryPressure>(well_folder,fluid.phases());
+        auto b_kr = Law::values<ArcRes::RelativePermeability>(well_folder,fluid.phases());
+        auto b_mu = Law::values<ArcRes::Viscosity>(well_folder,fluid.phases());
+        auto b_rho = Law::values<ArcRes::Density>(well_folder,fluid.phases());
+
+        // Build Term
+
+        auto cells = well_folder.support();
+
+        ENUMERATE_CELL(icell, cells) {
+
+            ENUMERATE_PHASE(iphase, fluid.phases()) {
+
+                const auto grad_kw = b_IP[icell] * (P[icell] + Pc[iphase][icell]  - b_P[icell] + b_Pc[iphase][icell] );
+
+                auto mobility_k =
+                        rho[iphase][icell] * kr[iphase][icell] / mu[iphase][icell];
+
+                auto mobility_w =
+                        b_rho[iphase][icell] * b_kr[iphase][icell] / b_mu[iphase][icell];
+
+#ifdef SPARSE_AUDI
+                const auto flux_kw = (audi::value(grad_kw)>=0) ?
+    		        mobility_k*grad_kw :
+			mobility_w*grad_kw ;
+#else
+                const Law::Contribution flux_kw =
+                        (   audi::one(grad_kw >= 0) * mobility_k
+                            + audi::one(grad_kw <  0) * mobility_w ) * grad_kw;
+#endif
+
+                auto iequation = iphase.index();
+
+                residual[iequation][icell]        += flux_kw;
+                jacobian[iequation][icell][icell] += flux_kw;
+            }
+        }
+    }
+}
+
 
 /*---------------------------------------------------------------------------*/
 
 void TwoPhaseFlowSimulationModule::
 _buildClosure(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 {
-  // Get Geoxim Entities
-  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
+    // Get Geoxim Entities
+    ArcRes::FluidSubSystem fluid = system().fluidSubSystem();
 
-  const auto& um = unknownsManager();
+    const auto& um = unknownsManager();
 
-  // Get Geoxim Domain Implicit Variables
-  auto S = Law::contribution<ArcRes::Saturation>(domain(),functionMng(),um,fluid.phases());
+    // Get Geoxim Domain Implicit Variables
+    auto S = Law::contribution<ArcRes::Saturation>(domain(),functionMng(),um,fluid.phases());
 
-  // Build Term
+    // Build Term
 
-  const Arcane::Integer iequation = fluid.phases().size();
+    const Arcane::Integer iequation = fluid.phases().size();
 
-  ENUMERATE_CELL(icell, ownCells()) {
+    ENUMERATE_CELL(icell, ownCells()) {
 
-    ENUMERATE_PHASE(iphase, system().phases()) {
+        ENUMERATE_PHASE(iphase, system().phases()) {
 
-      const auto C = S[iphase][icell];
+            const auto C = S[iphase][icell];
 
-      residual[iequation][icell]        += C;
-      jacobian[iequation][icell][icell] += C;
+            residual[iequation][icell]        += C;
+            jacobian[iequation][icell][icell] += C;
+        }
+
+        residual[iequation][icell] -= 1.;
     }
-
-    residual[iequation][icell] -= 1.;
-  }
 }
 
 /*---------------------------------------------------------------------------*/

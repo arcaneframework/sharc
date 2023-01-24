@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="WellManager" version="1.0" type="caseoption">
+  <description>Service WellManager</description>
+  <interface name="IWellManager" />
+
+  <options>
+
+    <complex name="well" type="Source" minOccurs="0" maxOccurs="unbounded">
+
+      <simple name="name" type="string" optional="true" />
+
+      <!--simple name="zone" type="string"/ -->
+      <simple name="cell-group" type="string"/>
+
+      <simple name="radius" type="real" />
+
+      <simple name="skin" type="real" default="0" />
+
+      <complex name="limit-condition" type="LimitCondition" minOccurs="0" maxOccurs="unbounded">
+        <simple name="property" type="string"/>
+        <simple name="value" type="string"/>
+      </complex>
+
+      <complex name="multi-limit-condition" type="MultiLimitCondition" minOccurs="0" maxOccurs="unbounded">
+        <simple name="property" type="string" minOccurs="0" maxOccurs="unbounded"/>
+        <simple name="value" type="string" minOccurs="0" maxOccurs="unbounded"/>
+      </complex>
+
+      <complex name="flow-rate" type="FlowRate" minOccurs="0" maxOccurs="1">
+        <simple name="value" type="string"/>
+      </complex>
+
+    </complex>
+
+  </options>
+</service>
