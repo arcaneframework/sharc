@@ -37,7 +37,7 @@ ShArcModule::ShArcModule(const Arcane::ModuleBuildInfo& mbi)
 , m_max_iteration(-1)
 , m_geometry_mng(NULL)
 , m_geometry_policy(NULL)
-, m_post_processing(mbi.m_sub_domain,"ShArc") {}
+, m_post_processing(mbi.subDomain(),"ShArc") {}
 
 /*---------------------------------------------------------------------------*/
 
