@@ -3,16 +3,16 @@
     <timeloop>ArcResTimeLoop</timeloop>
   </arcane>
   <mesh>
-    <file internal-partition="true">mesh-10x1x1.vt2</file>
+    <file internal-partition="true">SPE10-mesh-level0-well.vt2</file>
   </mesh>
   
   <sh-arc>
     <time-manager name="TimeLine">
       <init-time>0.</init-time>
-      <end-time>86400e5</end-time>
-      <init-time-step>86400e3</init-time-step>
-      <min-time-step>86400</min-time-step>
-      <max-time-step>86400e5</max-time-step>
+      <end-time>864000</end-time>
+      <init-time-step>8640</init-time-step>
+      <min-time-step>8640</min-time-step>
+      <max-time-step>864000</max-time-step>
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
@@ -25,7 +25,7 @@
         <name>Domain_Pressure_System</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>10512909.0927261692</reference-value>
+      <reference-value>35592057.5260409564</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
@@ -36,7 +36,7 @@
         <name>Domain_Saturation_Water</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>0.0518475038</reference-value>
+      <reference-value>0.9962417904</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
@@ -50,7 +50,7 @@
       <post-processor>
         <variables>
           <variable>Domain_Pressure_System</variable>
-          <variable>Domain_ZPermeability_Fluid</variable>
+          <variable>Domain_XPermeability_Fluid</variable>
           <variable>Domain_Saturation_Water</variable>
         </variables>
       </post-processor>
@@ -76,6 +76,7 @@
     </system>
   </physical-model>
   <two-phase-flow-simulation>
+    <scalar-perm>false</scalar-perm>
     <numerics>
       <newton name="ArcNumNewtonSolver">
         <iteration-max>20</iteration-max>
@@ -96,27 +97,15 @@
         </linear-solver>
       </newton>
     </numerics>
-    <boundary-condition name="DirichletManager">
-        <boundary>
-          <face-group>XMIN</face-group>
+
+    <well-condition name="WellManager">
+      <well>
+       <name>ProductorWell1</name>
+       <cell-group>Productor1</cell-group>
+       <radius>0.1</radius>
           <limit-condition>
-            <property>[System]System::Pressure</property>
-            <value>110.e5</value>
-          </limit-condition>
-          <limit-condition>
-            <property>[Phase]Water::Saturation</property>
-            <value>0.</value>
-          </limit-condition>
-          <limit-condition>
-            <property>[Phase]Gas::Saturation</property>
-            <value>1.</value>
-          </limit-condition>
-        </boundary>
-        <boundary>
-          <face-group>XMAX</face-group>
-          <limit-condition>
-            <property>[System]System::Pressure</property>
-            <value>100.e5</value>
+          <property>[System]System::Pressure</property>
+            <value>27579029.2</value>
           </limit-condition>
           <limit-condition>
             <property>[Phase]Water::Saturation</property>
@@ -126,12 +115,80 @@
             <property>[Phase]Gas::Saturation</property>
             <value>0.</value>
           </limit-condition>
-        </boundary>
-    </boundary-condition>
+      </well>
+      <well>
+       <name>ProductorWell2</name>
+       <cell-group>Productor2</cell-group>
+       <radius>0.1</radius>
+          <limit-condition>
+          <property>[System]System::Pressure</property>
+            <value>27579029.2</value>
+          </limit-condition>
+          <limit-condition>
+            <property>[Phase]Water::Saturation</property>
+            <value>1.</value>
+          </limit-condition>
+          <limit-condition>
+            <property>[Phase]Gas::Saturation</property>
+            <value>0.</value>
+          </limit-condition>
+      </well>
+      <well>
+       <name>ProductorWell3</name>
+       <cell-group>Productor3</cell-group>
+       <radius>0.1</radius>
+          <limit-condition>
+          <property>[System]System::Pressure</property>
+            <value>27579029.2</value>
+          </limit-condition>
+          <limit-condition>
+            <property>[Phase]Water::Saturation</property>
+            <value>1.</value>
+          </limit-condition>
+          <limit-condition>
+            <property>[Phase]Gas::Saturation</property>
+            <value>0.</value>
+          </limit-condition>
+      </well>
+      <well>
+       <name>ProductorWell4</name>
+       <cell-group>Productor4</cell-group>
+       <radius>0.1</radius>
+          <limit-condition>
+          <property>[System]System::Pressure</property>
+            <value>27579029.2</value>
+          </limit-condition>
+          <limit-condition>
+            <property>[Phase]Water::Saturation</property>
+            <value>1.</value>
+          </limit-condition>
+          <limit-condition>
+            <property>[Phase]Gas::Saturation</property>
+            <value>0.</value>
+          </limit-condition>
+      </well>
+      <well>
+       <name>InjectorWell</name>
+       <cell-group>Injector</cell-group>
+       <radius>0.1</radius>
+          <limit-condition>
+          <property>[System]System::Pressure</property>
+            <value>55158058.4</value>
+          </limit-condition>
+         <limit-condition>
+            <property>[Phase]Water::Saturation</property>
+            <value>0.</value>
+          </limit-condition>
+          <limit-condition>
+            <property>[Phase]Gas::Saturation</property>
+            <value>1.</value>
+          </limit-condition>
+       </well>
+    </well-condition>
     <initial-condition name="Constant">
       <property>[System]System::Pressure</property>
       <condition>
-        <value>105.e5</value>
+        <value>1.38E+7</value>
       </condition>
     </initial-condition>
     <initial-condition name="Constant">
@@ -164,7 +221,7 @@
       </output>
       <input />
       <parameters>
-        <value>1000</value>
+        <value>1025</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -173,7 +230,7 @@
       </output>
       <input />
       <parameters>
-        <value>1000</value>
+        <value>849</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -182,7 +239,7 @@
       </output>
       <input />
       <parameters>
-        <value>1.e-3</value>
+        <value>0.003</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -191,7 +248,7 @@
       </output>
       <input />
       <parameters>
-        <value>1.e-3</value>
+        <value>0.03</value>
       </parameters>
     </law>
     <law name="RelativePermeabilityPowerLawConfig">

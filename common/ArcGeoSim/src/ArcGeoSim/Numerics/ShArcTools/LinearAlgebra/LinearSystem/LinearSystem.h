@@ -97,7 +97,7 @@ public:
   bool solve(Alien::ILinearSolver* solver);
 
   void dumpSolution(Arcane::String name);
-  void dumpMatrix(Arcane::String name);
+  void dumpMatrix(std::string name);
   void dumpRhs(Arcane::String name);
 
   void dumpSolution();

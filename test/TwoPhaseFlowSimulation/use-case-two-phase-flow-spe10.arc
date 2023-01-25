@@ -1,18 +1,18 @@
-<case codename="ShArc" xml:lang="en" codeversion="1.0">
+<case codename="Demonstrator" xml:lang="en" codeversion="1.0">
   <arcane>
     <timeloop>ArcResTimeLoop</timeloop>
   </arcane>
   <mesh>
-    <file internal-partition="true">mesh-10x1x1.vt2</file>
+    <file internal-partition="true">SPE10-mesh-level0.vt2</file>
   </mesh>
   
-  <sh-arc>
+  <demonstrator>
     <time-manager name="TimeLine">
       <init-time>0.</init-time>
       <end-time>86400e5</end-time>
-      <init-time-step>86400e3</init-time-step>
-      <min-time-step>86400</min-time-step>
-      <max-time-step>86400e5</max-time-step>
+      <init-time-step>8640</init-time-step>
+      <min-time-step>8640</min-time-step>
+      <max-time-step>864000</max-time-step>
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
@@ -50,12 +50,12 @@
       <post-processor>
         <variables>
           <variable>Domain_Pressure_System</variable>
-          <variable>Domain_ZPermeability_Fluid</variable>
+          <variable>Domain_XPermeability_Fluid</variable>
           <variable>Domain_Saturation_Water</variable>
         </variables>
       </post-processor>
     </post-processing>
-  </sh-arc>
+  </demonstrator>
   <physical-model>
     <system name="UserSystem">
       <name>System</name>
@@ -76,6 +76,7 @@
     </system>
   </physical-model>
   <two-phase-flow-simulation>
+    <scalar-perm>false</scalar-perm>
     <numerics>
       <newton name="ArcNumNewtonSolver">
         <iteration-max>20</iteration-max>
@@ -98,10 +99,10 @@
     </numerics>
     <boundary-condition name="DirichletManager">
         <boundary>
-          <face-group>XMIN</face-group>
+          <face-group>YMIN</face-group>
           <limit-condition>
             <property>[System]System::Pressure</property>
-            <value>110.e5</value>
+            <value>1.38E+7</value>
           </limit-condition>
           <limit-condition>
             <property>[Phase]Water::Saturation</property>
@@ -113,10 +114,10 @@
           </limit-condition>
         </boundary>
         <boundary>
-          <face-group>XMAX</face-group>
+          <face-group>YMAX</face-group>
           <limit-condition>
             <property>[System]System::Pressure</property>
-            <value>100.e5</value>
+            <value>3.45E+6</value>
           </limit-condition>
           <limit-condition>
             <property>[Phase]Water::Saturation</property>
@@ -131,7 +132,7 @@
     <initial-condition name="Constant">
       <property>[System]System::Pressure</property>
       <condition>
-        <value>105.e5</value>
+        <value>1.38E+7</value>
       </condition>
     </initial-condition>
     <initial-condition name="Constant">
@@ -164,7 +165,7 @@
       </output>
       <input />
       <parameters>
-        <value>1000</value>
+        <value>1025</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -173,7 +174,7 @@
       </output>
       <input />
       <parameters>
-        <value>1000</value>
+        <value>849</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -182,7 +183,7 @@
       </output>
       <input />
       <parameters>
-        <value>1.e-3</value>
+        <value>0.003</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -191,7 +192,7 @@
       </output>
       <input />
       <parameters>
-        <value>1.e-3</value>
+        <value>0.03</value>
       </parameters>
     </law>
     <law name="RelativePermeabilityPowerLawConfig">

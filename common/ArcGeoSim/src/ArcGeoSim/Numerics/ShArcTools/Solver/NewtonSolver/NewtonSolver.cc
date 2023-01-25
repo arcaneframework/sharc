@@ -313,10 +313,14 @@ newtonBeforeSolve(Arcane::Integer iteration)
 
   if(m_debug_dump_matlab) {
     info()<<"write files DebugNewton Vector and Matrix "<<m_nb_call<<"_"<<iteration<<".txt";
-    m_linear_system.dumpMatrix(Arcane::String::format("DebugNewtonMatrix_{0}_{1}.txt",
-						      m_nb_call, iteration));
-    m_linear_system.dumpRhs(Arcane::String::format("DebugNewtonVector_{0}_{1}.txt",
-						   m_nb_call, iteration));
+    std::ostringstream oss;
+    oss << "DebugNewtonMatrix_{" << m_nb_call << "}_{" << iteration << "}.txt";
+    std::string var = oss.str();
+    m_linear_system.dumpMatrix(var);
+    //m_linear_system.dumpMatrix(std::string::fo("DebugNewtonMatrix_{0}_{1}.txt",
+	//					      m_nb_call, iteration));
+    //m_linear_system.dumpRhs(Arcane::String::format("DebugNewtonVector_{0}_{1}.txt",
+	//					   m_nb_call, iteration));
   }
 }
 
@@ -348,8 +352,12 @@ newtonAfterSolve(Arcane::Integer iteration)
 
   if(m_save_and_fatal_at_iteration == iteration)
   {
-    m_linear_system.dumpMatrix(Arcane::String::format("Matrix{0}_{1}.txt",
-						      m_nb_call, iteration));
+    std::ostringstream oss;
+    oss << "DebugNewtonMatrix_{" << m_nb_call << "}_{" << iteration << "}.txt";
+    std::string var = oss.str();
+    m_linear_system.dumpMatrix(var);
+    //m_linear_system.dumpMatrix(Arcane::String::format("Matrix{0}_{1}.txt",
+	//					      m_nb_call, iteration));
     m_linear_system.dumpRhs(Arcane::String::format("Residual{0}_{1}.txt",
 						   m_nb_call, iteration));
     m_linear_system.dumpSolution(Arcane::String::format("Delta{0}_{1}.txt",

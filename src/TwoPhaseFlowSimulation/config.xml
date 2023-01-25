@@ -14,5 +14,6 @@
     <directory>PhysicalLaws</directory>
     <directory>InitialCondition</directory>
     <directory>BoundaryCondition</directory>
+    <directory>WellCondition</directory>
   </directories>
 </makefile>

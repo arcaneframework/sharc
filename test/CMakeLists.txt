@@ -19,3 +19,15 @@ ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationWPC
         test/TwoPhaseFlowSimulation
         use-case-two-phase-flow-with-capillary-pressure.arc)
 
+ARCANE_ADD_TEST_PARALLEL(TwoPhaseFlowSimulation
+        ArcaneDemo
+        test/TwoPhaseFlowSimulation
+        use-case-two-phase-flow.arc
+        2)
+
+ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10
+        ArcaneDemo
+        test/TwoPhaseFlowSimulation
+        use-case-two-phase-flow-spe10.arc)
+
+

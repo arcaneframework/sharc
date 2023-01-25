@@ -36,6 +36,10 @@
   </entry-points>
   
   <options>
+    <simple name="permx-var-name" type="string" default="PERMX"/>
+    <simple name="permy-var-name" type="string" default="PERMY"/>
+    <simple name="permz-var-name" type="string" default="PERMZ"/>
+    <simple name="scalar-perm" type="bool" default="true"/>
 
     <service-instance name="group-creator" type="IGroupCreator" default="StandardGroupCreator" />
 
@@ -53,8 +57,10 @@
     
     <service-instance name="law" type="ILawConfigurator" minOccurs="0" maxOccurs="unbounded" />
    
-    <service-instance name="boundary-condition" type="IBoundaryManager" />
-    
+    <service-instance name="boundary-condition" type="IBoundaryManager" optional="true"/>
+
+    <service-instance name="well-condition" type="IWellManager" optional="true" />
+
   </options>
   
 </module>

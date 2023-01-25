@@ -3,13 +3,13 @@
     <timeloop>ArcResTimeLoop</timeloop>
   </arcane>
   <mesh>
-    <file internal-partition="true">mesh-10x1x1.vt2</file>
+    <file internal-partition="true">mesh-20x20x1.vt2</file>
   </mesh>
   
   <sh-arc>
     <time-manager name="TimeLine">
       <init-time>0.</init-time>
-      <end-time>86400e5</end-time>
+      <end-time>86400</end-time>
       <init-time-step>86400e3</init-time-step>
       <min-time-step>86400</min-time-step>
       <max-time-step>86400e5</max-time-step>
