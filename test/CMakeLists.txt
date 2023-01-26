@@ -30,4 +30,8 @@ ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10
         test/TwoPhaseFlowSimulation
         use-case-two-phase-flow-spe10.arc)
 
+ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10Well
+        ArcaneDemo
+        test/TwoPhaseFlowSimulation
+        use-case-two-phase-flow-spe10-well.arc)
 
