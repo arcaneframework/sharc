@@ -1,4 +1,4 @@
-<case codename="Demonstrator" xml:lang="en" codeversion="1.0">
+<case codename="ShArc" xml:lang="en" codeversion="1.0">
   <arcane>
     <timeloop>ArcResTimeLoop</timeloop>
   </arcane>
@@ -6,10 +6,10 @@
     <file internal-partition="true">SPE10-mesh-level0.vt2</file>
   </mesh>
   
-  <demonstrator>
+  <sh-arc>
     <time-manager name="TimeLine">
       <init-time>0.</init-time>
-      <end-time>86400e5</end-time>
+      <end-time>86400</end-time>
       <init-time-step>8640</init-time-step>
       <min-time-step>8640</min-time-step>
       <max-time-step>864000</max-time-step>
@@ -25,7 +25,7 @@
         <name>Domain_Pressure_System</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>10512909.0927261692</reference-value>
+      <reference-value>8593410.2664998025</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
@@ -36,7 +36,7 @@
         <name>Domain_Saturation_Water</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>0.0518475038</reference-value>
+      <reference-value>0.9968946892</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
@@ -55,7 +55,7 @@
         </variables>
       </post-processor>
     </post-processing>
-  </demonstrator>
+  </sh-arc>
   <physical-model>
     <system name="UserSystem">
       <name>System</name>
