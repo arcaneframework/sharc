@@ -9,7 +9,7 @@
   <sh-arc>
     <time-manager name="TimeLine">
       <init-time>0.</init-time>
-      <end-time>864000</end-time>
+      <end-time>86400</end-time>
       <init-time-step>8640</init-time-step>
       <min-time-step>8640</min-time-step>
       <max-time-step>864000</max-time-step>

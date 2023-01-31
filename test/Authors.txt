@@ -2,3 +2,5 @@ Gump::raphael.gayno
 GumpExample::raphael.gayno
 TwoPhaseFlowSimulation::raphael.gayno
 TwoPhaseFlowSimulationWPC::raphael.gayno
+TwoPhaseFlowSimulationSPE10::soleiman.yousef
+TwoPhaseFlowSimulationSPE10Well::soleiman.yousef
