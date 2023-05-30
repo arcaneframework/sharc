@@ -6,41 +6,39 @@
 //-----------------------------------------------------------------------------
 
 /*
- * CapillaryPressureLaw.cc
+ * FluidDensityLaw.cc
  *  Lois Physiques
  */
 
 //-----------------------------------------------------------
-// Loi de la pression capillaire
-// Pc = Pe (Sw)^(-1/lambda)
+// Loi de la densité
+//
 //-----------------------------------------------------------
 
 #include "FluidDensityLaw.h"
 
 //=====================================================
 
-void CapillaryPressureLaw::eval( const Real S, Real& Pc, Real& dPc_dS ) const
+void FluidDensityLaw::eval( const Real T, const Real C, Real& rho, Real& drho_dt, Real& drho_dc ) const
 {
     // Compute results
-
-    Real dSe_dS;
-    const Real Se   = computeSe( S, dSe_dS );
-    Real alpha = - 1./m_lambda;
-    if(Se)
+    Real factor = (1.0 - m_betat*(T - m_t0) + m_betac*(C - m_c0));
+    if(factor > 0)
     {
-        Pc = m_Pe * pow(Se, alpha);
-        dPc_dS = alpha * m_Pe * dSe_dS * pow(Se, alpha - 1);
+        rho = m_rho0 * factor;
+        drho_dt = -1.0 * m_betat*m_rho0;
+        drho_dc =  m_betac*m_rho0;
     }
     else {
-        Pc = 0.;        // infinity
-        dPc_dS = 0.;    // -infinity
-        // Se == 0    warning() <<"Sw is out of bounds in the evaluation of the capillary pressure law !";
+        rho = m_rho0;
+        drho_dt = 0.;    // A verifier
+        drho_dc = 0.;    // A verifier
     }
 }
 
 //=====================================================
-
-Real CapillaryPressureLaw::computeSe( const Real S, Real& dSe_dS ) const
+/*
+Real FluidDensityLaw::computeSe( const Real S, Real& dSe_dS ) const
 {
 
     Real Se = Arcane::math::min(1 - (S - m_Sr)/(1 - m_Sr_ref -m_Sr), 1.0);
@@ -49,30 +47,33 @@ Real CapillaryPressureLaw::computeSe( const Real S, Real& dSe_dS ) const
     return Arcane::math::max(Se, 0.);
 
 }
-
+*/
 //=====================================================
 
-void CapillaryPressureLaw::setParameters( const Real Pe, const Real Sr_ref, const Real Sr, const Real lambda  )
+void FluidDensityLaw::setParameters( const Real rho0, const Real betat, const Real betac, const Real t0, const Real c0  )
 {
     // Set Parameters
 
-    m_Pe = Pe;
-    m_Sr_ref = Sr_ref;
-    m_Sr = Sr;
-    m_lambda = lambda;
+    m_rho0 = rho0;
+    m_betat = betat;
+    m_betac = betac;
+    m_t0 = t0;
+    m_c0 = c0;
+
 }
 
 //=====================================================
 
-void CapillaryPressureLaw::initParameters()
+void FluidDensityLaw::initParameters()
 {
     // Init Parameters
     // Standard End Points
-    const Real Pe    = 0;
-    const Real Sr_ref   = 0;
-    const Real Sr   = 0;
-    const Real lambda = 1;
+    const Real rho0    = 0;
+    const Real betat   = 0;
+    const Real betac   = 0;
+    const Real t0 = 0;
+    const Real c0 = 0;
 
     // Set Parameters
-    setParameters( Pe, Sr_ref, Sr, lambda );
+    setParameters( rho0, betat, betac, t0, c0 );
 }

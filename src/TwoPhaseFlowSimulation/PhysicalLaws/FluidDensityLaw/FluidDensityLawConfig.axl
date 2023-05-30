@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="FluidDensityLawConfig" version="1.0" type="caseoption">
+  <description>Service FluidDensityLawConfig</description>
+  <interface name="ILawConfigurator" />
+
+  <options>
+
+    <simple name="check" type="bool" default="false">
+    </simple>
+
+    <complex name="output" type="Output">
+      <simple name="fluid-density" type="string" />
+    </complex>
+
+    <complex name="input" type="Input">
+      <simple name="concentration" type="string" />
+      <simple name="temperature" type="string" />
+    </complex>
+
+    <complex name="parameters" type="Parameters">
+      <simple name="rho0"  type="real"  default="0"   />
+      <simple name="betat"    type="real"  default="0"   />
+      <simple name="betac"    type="real"  default="0"   />
+      <simple name="t0"  type="real"  default="0"   />
+      <simple name="c0"  type="real"  default="0"   />
+    </complex>
+
+  </options>
+
+</service>

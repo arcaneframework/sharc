@@ -6,6 +6,7 @@
   </needed-packages>
   <directories>
     <directory>ConstantLaw</directory>
+    <directory>FluidDensityLaw</directory>
     <directory>CapillaryPressureLaw</directory>
     <directory>RelativePermeabilityPowerLaw</directory>
   </directories>

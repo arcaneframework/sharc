@@ -19,7 +19,7 @@
 #include "ArcRes/XPath.h"
 
 #include "CapillaryPressureLawType_law.h"
-#include "CapillaryPressureLaw.h"
+#include "FluidDensityLaw.h"
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/

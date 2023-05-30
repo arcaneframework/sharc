@@ -7,6 +7,7 @@
   </needed-packages>
   <files language="module">
     <file header='false'>TwoPhaseFlowSimulation</file>
+    <file header='false'>ThermoChemicalConvection</file>
   </files>
   <directories>
     <directory>DataModel</directory>

@@ -29,7 +29,11 @@
         <property name="TemperatureTn" dim="scalar" type="real" />
         <property name="TemperatureT0" dim="scalar" type="real" />				
         
-        <property name="PorosityT0" dim="scalar" type="real" />		
+        <property name="Concentration" dim="scalar" type="real" />
+        <property name="ConcentrationTn" dim="scalar" type="real" />
+        <property name="ConcentrationT0" dim="scalar" type="real" />
+
+        <property name="PorosityT0" dim="scalar" type="real" />
         
         <property name="OverPressure" dim="scalar" type="real" />        
         
@@ -131,7 +135,9 @@
         <entity name="SolidPhase"/>
         <entity name="SorbedPhase"/>
       </contains>
-      <supports>       
+      <supports>
+        <property name="MolecularDiffusivity"    dim="scalar" type="real" />
+
         <property name="XChemicalSolidDensity"    dim="scalar" type="real" />
         <property name="XChemicalSolidDensityTn"  dim="scalar" type="real" />
         <property name="XChemicalSolidDensityT0"  dim="scalar" type="real" />
@@ -143,7 +149,10 @@
     
     <entity name="SolidPhase" base="Phase">
       <supports>
-        <property name="VolumeFraction" dim="scalar" type="real" />
+        <property name="Density" dim="scalar" type="real" />
+        <property name="HeatCapacity" dim="scalar" type="real" />
+        <property name="HeatConductivity" dim="scalar" type="real" />
+       <property name="VolumeFraction" dim="scalar" type="real" />
       </supports>
     </entity>
     
@@ -159,6 +168,7 @@
       </contains>
       <supports>
         <property name="Density" dim="scalar" type="real" />
+        <property name="FluidDensity" dim="scalar" type="real" />
         <property name="MolarMass" dim="scalar" type="real" />
         <property name="Enthalpy" dim="scalar" type="real" />		
         
@@ -200,7 +210,9 @@
         <property name="CapillaryPressure" dim="scalar" type="real" />
         <property name="Diffusivity" dim="scalar" type="real" />
         <property name="DarcyVelocity" dim="scalar" type="real" />
-                      
+        <property name="HeatCapacity" dim="scalar" type="real" />
+        <property name="HeatConductivity" dim="scalar" type="real" />
+
       </supports>
     </entity>
       
