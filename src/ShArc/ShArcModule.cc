@@ -12,6 +12,7 @@
 #include "ArcGeoSim/Appli/AppService.h"
 #include "ArcGeoSim/Physics/Units/IUnitsSystem.h"
 #include "ArcGeoSim/Time/ITimeLine.h"
+#include "ArcGeoSim/Time/TimeLine/TimeEvolution.h"
 #include "ArcGeoSim/Mesh/Geometry/IGeometryMng.h"
 #include "ArcGeoSim/Numerics/Expressions/IExpressionMng.h"
 #include "ArcGeoSim/Time/ITimeStepComputer.h"
@@ -116,6 +117,16 @@ void
 ShArcModule::init()
 {
   initializeAppServiceMng();
+
+  // Initialize TimeStep policy
+  if (options()->timeStepPolicy.size()==1) {
+	  ArcGeoSim::TimeStep::IComputer* policy = options()->timeStepPolicy()[0];
+	  policy->init();
+	  if(options()->timeManager().size()==1) {
+		  ArcGeoSim::ITimeLine* time_mng = options()->timeManager()[0];
+		  time_mng->evolution().registerTimeStepComputer(policy);
+	  }
+  }
 
   // Initial geometry update
   if (m_geometry_mng != NULL)

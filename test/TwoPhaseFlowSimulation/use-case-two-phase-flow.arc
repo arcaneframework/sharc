@@ -8,11 +8,12 @@
   
   <sh-arc>
     <time-manager name="TimeLine">
+      <verbose>true</verbose>
       <init-time>0.</init-time>
       <end-time>86400e5</end-time>
-      <init-time-step>86400e3</init-time-step>
-      <min-time-step>86400</min-time-step>
-      <max-time-step>86400e5</max-time-step>
+      <init-time-step>86400e2</init-time-step>
+      <min-time-step>86400e2</min-time-step>
+      <max-time-step>86400e3</max-time-step>
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
@@ -25,7 +26,7 @@
         <name>Domain_Pressure_System</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>10512909.0927261692</reference-value>
+      <reference-value>10512859.6282460578</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
@@ -36,7 +37,7 @@
         <name>Domain_Saturation_Water</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>0.0518475038</reference-value>
+      <reference-value>0.0516165805</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>

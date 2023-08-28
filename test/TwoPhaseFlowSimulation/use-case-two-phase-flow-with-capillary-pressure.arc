@@ -10,9 +10,9 @@
     <time-manager name="TimeLine">
       <init-time>0.</init-time>
       <end-time>86400e5</end-time>
-      <init-time-step>86400e3</init-time-step>
-      <min-time-step>86400</min-time-step>
-      <max-time-step>86400e5</max-time-step>
+      <init-time-step>86400e2</init-time-step>
+      <min-time-step>86400e2</min-time-step>
+      <max-time-step>86400e3</max-time-step>
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
@@ -25,7 +25,7 @@
         <name>Domain_Pressure_System</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>10004684.1932478733</reference-value>
+      <reference-value>10004683.0158108640</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-10</tolerance>
@@ -36,7 +36,7 @@
         <name>Domain_Saturation_Water</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>0.8286555938</reference-value>
+      <reference-value>0.8286326609</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-10</tolerance>

@@ -12,7 +12,7 @@
       <end-time>86400</end-time>
       <init-time-step>8640</init-time-step>
       <min-time-step>8640</min-time-step>
-      <max-time-step>864000</max-time-step>
+      <max-time-step>8640</max-time-step>
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
