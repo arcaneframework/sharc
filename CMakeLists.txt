@@ -6,9 +6,9 @@ project(ShArc VERSION 0.1)
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/common/ArcaneInfra/build-system/arcgeosim)
 set(USE_LANGUAGE_GUMP ON)
 set(USE_LANGUAGE_LAW ON)
+set(ARCGEOSIM_FRAMEWORK_ROOT ${PROJECT_SOURCE_DIR}/common)
+set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR}/common)
 
-message(status "Arcane_DIR : ${Arcane_DIR}")
-  
 # chargement du système de compilation
 include(LoadArcGeoSim)
   
