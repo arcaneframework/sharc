@@ -1,0 +1,3 @@
+[submodule "common/ArcaneInfra/build-system"]
+	path = common/ArcaneInfra/build-system
+	url = https://github.com/arcaneframework/app_buildsystem_tools.git
