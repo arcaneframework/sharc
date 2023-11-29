@@ -31,10 +31,12 @@ Here is the list of required (?) softwares to compile ShArc:
 | 14) XZ/5.2.4         | 28) libpciaccess/0.14            | 42) ifort/2018.3.222-GCC-7.3.0-2.30 |                          |
 
 To configure ShArc:
-
+```shell
     mkdir build && cd build
-    cmake -S /my/path/to/sharc -B /my/path/to/sharc/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON -DArccon_DIR=/my/path/to/Arcane.framework/install/share/cmake/Arccon -DAxlstar_DIR=/my/path/to/Arcane.framework/install/share/cmake/Axlstar -DAlienProd_DIR=/my/path/to/Alien.legacy_plugins/install/lib/cmake -DUSE_ALIEN_V20=1 -DUSE_ARCANE_V3=1 -DArcane_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arcane -DAlienPath=/my/path/to/Alien.legacy_plugins/install/ -DArccore_DIR=/my/path/to/Arcane.framework/install/lib/cmake/Arccore
-
+    cmake -S /my/path/to/sharc -B /my/path/to/sharc/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON -DARCANEFRAMEWORK_ROOT=/my/path/to/Arcane.framework/install
+```
 To compile it:
 
+```shell
     make -j 8
+```
