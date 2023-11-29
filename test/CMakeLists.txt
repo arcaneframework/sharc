@@ -3,10 +3,10 @@
 #-----------------------------------------------------------
 
 # ArcGeoSim tests
-message(STATUS " ** Including ArcGeoSim tests")
-include(${PROJECT_SOURCE_DIR}/common/ArcGeoSim/test/Gump.txt)
+#message(STATUS " ** Including ArcGeoSim tests")
+#include(${PROJECT_SOURCE_DIR}/common/ArcGeoSim/test/Gump.txt)
 
-# ArcaneDemo tests
+# ShArc tests
 message(STATUS " ** Including ${PROJECT_NAME} tests")
 
 ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulation
