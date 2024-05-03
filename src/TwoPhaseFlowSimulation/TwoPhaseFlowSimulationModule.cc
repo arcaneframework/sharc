@@ -104,6 +104,8 @@ private:
     void _initRestore();
     void _initLaws();
     void _initNewton();
+    // update function
+    void _updateGeometry();
     // build functions
     template<typename Folder>
     void _evaluateLaws(Folder& folder, Law::EvaluationMode derivability);
@@ -288,11 +290,21 @@ _initGeometry()
 
     info() << "force update of geometric properties";
 
+    _updateGeometry();
+
+}
+
+/*---------------------------------------------------------------------------*/
+
+void
+TwoPhaseFlowSimulationModule::
+_updateGeometry(){
     IGeometryPolicy* geometry_policy = new ManualUpdateGeometryPolicy;
+    IAppServiceMng* app_service_mng = IAppServiceMng::instance(subDomain()->serviceMng());
+    IGeometryMng* geometry_mng = app_service_mng->find<IGeometryMng>(true);
     geometry_mng->update(mesh(), geometry_policy);
     delete geometry_policy;
 }
-
 /*---------------------------------------------------------------------------*/
 
 void
@@ -303,6 +315,8 @@ _initGroup()
     groupCreator -> init() ;
     groupCreator -> prepare() ;
     groupCreator -> apply() ;
+    // Group creation add new Geometry properties: need to update GeometryMng
+    _updateGeometry();
 }
 
 /*---------------------------------------------------------------------------*/
