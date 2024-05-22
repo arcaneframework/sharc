@@ -314,9 +314,9 @@ _initGroup()
     auto groupCreator(options() -> groupCreator()) ;
     groupCreator -> init() ;
     groupCreator -> prepare() ;
-    groupCreator -> apply() ;
     // Group creation add new Geometry properties: need to update GeometryMng
     _updateGeometry();
+    groupCreator -> apply() ;
 }
 
 /*---------------------------------------------------------------------------*/
