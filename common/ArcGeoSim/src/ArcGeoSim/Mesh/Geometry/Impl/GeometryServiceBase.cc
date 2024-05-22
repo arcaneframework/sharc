@@ -304,7 +304,7 @@ update(IMesh * mesh, IGeometryPolicy * policy)
     traceMng()->fatal() << "IGeometryMng::update called without defined policy tolerance";
   if (policy == NULL) {
     if (m_policy_tolerance == eLazy)
-      traceMng()->warning() << "IGeometryMng::update called with null policy : disables optimizations";
+      traceMng()->debug() << "IGeometryMng::update called with null policy : disables optimizations";
     else
       traceMng()->fatal() << "IGeometryMng::update called with illegal policy";
   }
@@ -647,7 +647,7 @@ _checkItemGroupPropertyUsage(ItemGroup group, IGeometryProperty::eProperty prope
   if ((externStorage & storage) == 0 && (storageType & storage) != 0) 
     {
       if (count == 0 && not m_first_update)
-        traceMng()->warning() << "Geometric property " << IGeometryProperty::name(property) << " on group " << group.name() << " / " << group.mesh()->name() << " with " << IGeometryProperty::name(storage) << " storage never used since last update";
+        traceMng()->debug() << "Geometric property " << IGeometryProperty::name(property) << " on group " << group.name() << " / " << group.mesh()->name() << " with " << IGeometryProperty::name(storage) << " storage never used since last update";
       traceMng()->debug(Trace::High) << "Geometric property " << IGeometryProperty::name(property) << " on group " << group.name() << " / " << group.mesh()->name() << " with " << IGeometryProperty::name(storage) << " storage has been used " << count << " times since last update";
     }
 }
