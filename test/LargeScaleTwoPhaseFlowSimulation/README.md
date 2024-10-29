@@ -21,3 +21,34 @@ with inside:
 ```
 <nsd>24 30 1</nsd>
 ```
+
+## Test case dimensions
+The grid dimension is 2048x2048x10 so the test uses ~4,19e6 cells. You can increase or decrease the number of cells 
+in z dimension as you need. To change number of cells in z dimension change
+```
+<origine>0 0 -100</origine>
+```
+to
+```
+<origine>0 0 -1000</origine>
+```
+and
+```
+<lz nz="10">100</lz>
+```
+to
+```
+<lz nz="100">1000</lz>
+```
+the second number is the dimension in meters.
+
+The case has been tested up to 2048x2048x170 which correspond to 7.13e6 cells.
+This grid size generates a linear system which number of equations is closed 
+to the maximum supported by Alien and used Linear solver libraries.
+
+For benchmarking purpose you can reduce the physical simulation time.
+In the .arc file the "end" time is given in seconds by
+```
+<end-time>1728000e3</end-time>
+```
+which correspond to 20000 days.
