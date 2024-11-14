@@ -184,8 +184,9 @@ namespace Algorithm {
       if(NonPhysicalSolution){
 	    if(m_verbose)
 	      info() << " *** Newton error : non physical solution";
-	  //return m_results.failed(Results::NonPhysicalSolution);
-	  return false;
+
+      //return m_results.failed(Results::NonPhysicalSolution);
+      return false;
       }
 
       m_object.newtonLinearize();
@@ -213,16 +214,19 @@ namespace Algorithm {
       }
     }
 
-    if(m_iteration == m_iteration_max) {
-      if(m_verbose)
-        info() << " *** Newton diverged : max iteration reached";
-      return false;
+    if(rel_err_k < m_relative_tolerance ) {
+      if (m_verbose) {
+        info() << " *** Newton converged with RelativeTolerance Criteria [ ||err_k|| = " << err_k << " ||err_0|| = "
+               << err_0 << " ||err_k||/||err_0|| = " << rel_err_k << " < " << m_relative_tolerance << "]";
+      }
+      return true;
     }
 
     if(m_verbose) {
-      info() << " *** Newton converged with RelativeTolerance Criteria [ ||err_k|| = " << err_k << " ||err_0|| = " << err_0 << " ||err_k||/||err_0|| = " << rel_err_k << " < " << m_relative_tolerance << "]";
+      info() << " *** Newton diverged : max iteration reached";
     }
-    return true;
+
+    return false;
   }
 
 /*---------------------------------------------------------------------------*/
