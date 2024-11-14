@@ -275,7 +275,7 @@ newtonLinearize()
     {
       ArrayView<Real> values = vw[i];
       for(Integer j=0; j < blockSize;++j)
-	values[j] = 0.;
+        values[j] = 0.;
     }
   }
 
@@ -298,7 +298,7 @@ newtonLinearize()
     {
       ArrayView<Real> values = vw[i];
       for(Integer j=0; j < blockSize;++j)
-	values[j] = -values[j];
+        values[j] = -values[j];
     }
   }
 }
@@ -364,6 +364,7 @@ newtonAfterSolve(Arcane::Integer iteration)
 							m_nb_call, iteration));
     fatal() << "User stop Newton at iteration " << iteration;
   }
+
   if(m_dump_and_fatal_at_iteration == iteration)
   {
     m_linear_system.dumpMatrix();

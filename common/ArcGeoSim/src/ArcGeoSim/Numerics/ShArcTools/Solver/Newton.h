@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2024 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -66,15 +66,7 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-namespace ArcNum {
-
-/*---------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------*/
-
-namespace Algorithm {
-
-/*---------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------*/
+namespace ArcNum::Algorithm {
 
   template<typename TemplateObject>
   class Newton
@@ -182,10 +174,10 @@ namespace Algorithm {
       bool NonPhysicalSolution = false;
       m_object.newtonUpdate(NonPhysicalSolution);
       if(NonPhysicalSolution){
-	    if(m_verbose)
-	      info() << " *** Newton error : non physical solution";
-	  //return m_results.failed(Results::NonPhysicalSolution);
-	  return false;
+        if(m_verbose)
+          info() << " *** Newton error : non physical solution";
+        //return m_results.failed(Results::NonPhysicalSolution);
+        return false;
       }
 
       m_object.newtonLinearize();
@@ -213,25 +205,20 @@ namespace Algorithm {
       }
     }
 
-    if(m_iteration == m_iteration_max) {
-      if(m_verbose)
-        info() << " *** Newton diverged : max iteration reached";
-      return false;
+    if(rel_err_k < m_relative_tolerance ) {
+      if (m_verbose) {
+        info() << " *** Newton converged with RelativeTolerance Criteria [ ||err_k|| = " << err_k << " ||err_0|| = "
+               << err_0 << " ||err_k||/||err_0|| = " << rel_err_k << " < " << m_relative_tolerance << "]";
+      }
+      return true;
     }
 
     if(m_verbose) {
-      info() << " *** Newton converged with RelativeTolerance Criteria [ ||err_k|| = " << err_k << " ||err_0|| = " << err_0 << " ||err_k||/||err_0|| = " << rel_err_k << " < " << m_relative_tolerance << "]";
+      info() << " *** Newton diverged : max iteration reached";
     }
-    return true;
+
+    return false;
   }
-
-/*---------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------*/
-
-}
-
-/*---------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------*/
 
 }
 
