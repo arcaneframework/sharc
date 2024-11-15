@@ -40,8 +40,8 @@ concurrency:
 
 jobs:
 
-  build:
-    name: build
+  build-arcane:
+    name: Build Arcane
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
