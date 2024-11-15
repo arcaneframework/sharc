@@ -40,8 +40,8 @@ concurrency:
 
 jobs:
 
-  build-arcane:
-    name: Build Arcane
+  Install-arcane:
+    name: Install Arcane
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
@@ -120,18 +120,18 @@ jobs:
         shell: bash
         run: cmake --install ${{ env.ARCANE_BUILD_DIR }}
 
-      - name: Copy external libraries
-        id: copy-external-libraries
-        if: |
-          (success() || failure()) &&
-          steps.install.outcome == 'success'
-        shell: bash
-        run: |
-          cd ${{ env.ARCANE_BUILD_DIR }}
-          echo '--'
-          cat /scripts/copyextlib_github.sh
-          echo '--'
-          bash /scripts/copyextlib_github.sh
+      #- name: Copy external libraries
+      #  id: copy-external-libraries
+      #  if: |
+      #    (success() || failure()) &&
+      #    steps.install.outcome == 'success'
+      #  shell: bash
+      #  run: |
+      #    cd ${{ env.ARCANE_BUILD_DIR }}
+      #    echo '--'
+      #    cat /scripts/copyextlib_github.sh
+      #    echo '--'
+      #    bash /scripts/copyextlib_github.sh
 
       #- name: Tar build artifact for Arcane
       #  shell: bash
