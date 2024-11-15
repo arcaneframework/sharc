@@ -75,7 +75,7 @@ jobs:
           (success() || failure())
         uses: actions/checkout@v4
         with:
-          path: ${{ env.ARCANE_ARCANE_SOURCE_DIR }}
+          path: ${{ env.ARCANE_SOURCE_DIR }}
           submodules: true
           ref: main
 
