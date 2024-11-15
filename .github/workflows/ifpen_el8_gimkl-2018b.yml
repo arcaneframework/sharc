@@ -17,18 +17,18 @@ env:
   ARCANE_BUILD_DIR: /__w/sharc/sharc/arcane_build
   ARCANE_INSTALL_DIR: /__w/sharc/sharc/arcane_install
   ARCANE_SOURCE_DIR: /__w/sharc/sharc/arcane_source
+  ARCANE_CCACHE_DIR: /__w/sharc/sharc/arcane_ccache
   ARCANE_EXT_LIB_SUBDIR: extlib # /__w/sharc/shark/arcane_build/extlib
   # ccache
   CCACHE_COMPRESS: true
   CCACHE_COMPRESSLEVEL: 6
-  CCACHE_DIR: '/__w/framework/framework/ccache'
   CCACHE_MAXSIZE: 5G
   # CMake
   CM_BUILD_OPTS: "-j4"
   CM_BUILD_TYPE: Release
   CM_CCACHE_OPTS: "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"
   # CTest
-  CT_OPTS: "--timeout 300 --output-on-failure --exclude-regex '(^hydro5_4proc_3sd_4proc$|^alien.interface.c.seq.mpi-1$|^alien.interface.fortran.seq.mpi-1$|.petsc.mumps|^vtk_vtu$|^ios_vtu$|^ios_xmf$)' ${{ github.event.inputs.ctest_options }}"
+  CT_OPTS: "--timeout 300 --output-on-failure ${{ github.event.inputs.ctest_options }}"
   # For intel MPI to fix errors appearing in July 2023
   I_MPI_SHM_LMT: shm
   # To remove test output directory to reduce disk usage
@@ -63,9 +63,9 @@ jobs:
         id: restore-cache
         uses: actions/cache/restore@v4
         with:
-          path: ${{ env.CCACHE_DIR }}
-          key: ifpen-el8-gimkl-2018b-${{ env.CM_BUILD_TYPE }}-${{ env.NOW }}-${{ github.run_number }}
-          restore-keys: ifpen-el8-gimkl-2018b-${{ env.CM_BUILD_TYPE }}-
+          path: ${{ env.ARCANE_CCACHE_DIR }}
+          key: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-${{ env.NOW }}-${{ github.run_number }}
+          restore-keys: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-
 
       # Installation
 
@@ -151,7 +151,7 @@ jobs:
           steps.build.outcome == 'success'
         uses: actions/cache/save@v4
         with:
-          path: ${{ env.CCACHE_DIR }}
+          path: ${{ env.ARCANE_CCACHE_DIR }}
           key:  ${{ steps.restore-cache.outputs.cache-primary-key }}
 
   #test:
