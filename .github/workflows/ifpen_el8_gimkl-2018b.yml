@@ -69,8 +69,8 @@ jobs:
 
       # Installation
 
-      - name: Arcane Checkout
-        id: arcane-checkout
+      - name: Checkout
+        id: checkout
         if: |
           (success() || failure())
         uses: actions/checkout@v4
@@ -79,7 +79,7 @@ jobs:
           submodules: true
           ref: main
 
-      - name: Arcane Modules information
+      - name: Modules information
         id: arcane_modules_information
         if: |
           (success() || failure()) &&
@@ -87,40 +87,40 @@ jobs:
         shell: bash
         run: module --terse list 2>&1 | sort
 
-      - name: Arcane Configure
-        id: arcane-configure
+      - name: Configure
+        id: configure
         if: |
           (success() || failure()) &&
           steps.checkout.outcome == 'success'
         shell: bash
         run: cmake -S ${{ env.ARCANE_SOURCE_DIR }} -B ${{ env.ARCANE_BUILD_DIR }} -DCMAKE_INSTALL_PREFIX=${{ env.ARCANE_INSTALL_DIR }} ${{ env.CM_CCACHE_OPTS }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} -DARCCORE_BUILD_MODE=Check -DREMOVE_UID_ON_DETACH=ON -DUSE_GTEST_DEATH_TEST=ON -DCMAKE_DISABLE_FIND_PACKAGE_Papi=ON -DALIEN_BUILD_COMPONENT=all -DALIEN_PLUGIN_HYPRE=ON -DALIEN_PLUGIN_PETSC=ON -DUSE_GRAPH_CONNECTIVITY_POLICY=ON
 
-      - name: Arcane Build
-        id: arcane-build
+      - name: Build
+        id: build
         if: |
           (success() || failure()) &&
           steps.configure.outcome == 'success'
         shell: bash
         run: cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }}
 
-      - name: Arcane Clean
-        id: arcane-clean
+      - name: Clean
+        id: clean
         if: |
           (success() || failure()) &&
           steps.build.outcome == 'success'
         shell: bash
         run: find ${{ env.ARCANE_BUILD_DIR }} -type f -name '*.o' -exec rm -f '{}' \;
 
-      - name: Arcane Install
-        id: arcane-install
+      - name: Install
+        id: install
         if: |
           (success() || failure()) &&
           steps.build.outcome == 'success'
         shell: bash
         run: cmake --install ${{ env.ARCANE_BUILD_DIR }}
 
-      - name: Arcane Copy external libraries
-        id: arcane-copy-external-libraries
+      - name: Copy external libraries
+        id: copy-external-libraries
         if: |
           (success() || failure()) &&
           steps.install.outcome == 'success'
@@ -132,19 +132,19 @@ jobs:
           echo '--'
           bash /scripts/copyextlib_github.sh
 
-      #- name: Arcane Tar build artifact for Arcane
+      #- name: Tar build artifact for Arcane
       #  shell: bash
       #  run: tar czf build-artifact.tar.gz ${{ env.ARCANE_BUILD_DIR }}
 
-      #- name: Arcane Upload build artifact
+      #- name: Upload build artifact
       #  uses: actions/upload-artifact@v4
       #  with:
       #    name: build-artifact
       #    path: build-artifact.tar.gz
       #    retention-days: 1
 
-      - name: Arcane Save cache
-        id: arcane-save-cache
+      - name: Save cache
+        id: save-cache
         if: |
           (success() || failure()) &&
           steps.build.outcome == 'success'
