@@ -75,6 +75,7 @@ jobs:
           (success() || failure())
         uses: actions/checkout@v4
         with:
+          repository: arcaneframework/framework
           path: ${{ env.ARCANE_SOURCE_DIR }}
           submodules: true
           ref: main
