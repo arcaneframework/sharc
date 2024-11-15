@@ -69,7 +69,7 @@ jobs:
 
       # Installation
 
-      - name: Arcane : Checkout
+      - name: Arcane Checkout
         id: arcane-checkout
         if: |
           (success() || failure())
@@ -79,7 +79,7 @@ jobs:
           submodules: true
           ref: main
 
-      - name: Arcane: Modules information
+      - name: Arcane Modules information
         id: arcane_modules_information
         if: |
           (success() || failure()) &&
@@ -87,7 +87,7 @@ jobs:
         shell: bash
         run: module --terse list 2>&1 | sort
 
-      - name: Arcane: Configure
+      - name: Arcane Configure
         id: arcane-configure
         if: |
           (success() || failure()) &&
@@ -95,7 +95,7 @@ jobs:
         shell: bash
         run: cmake -S ${{ env.ARCANE_SOURCE_DIR }} -B ${{ env.ARCANE_BUILD_DIR }} -DCMAKE_INSTALL_PREFIX=${{ env.ARCANE_INSTALL_DIR }} ${{ env.CM_CCACHE_OPTS }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} -DARCCORE_BUILD_MODE=Check -DREMOVE_UID_ON_DETACH=ON -DUSE_GTEST_DEATH_TEST=ON -DCMAKE_DISABLE_FIND_PACKAGE_Papi=ON -DALIEN_BUILD_COMPONENT=all -DALIEN_PLUGIN_HYPRE=ON -DALIEN_PLUGIN_PETSC=ON -DUSE_GRAPH_CONNECTIVITY_POLICY=ON
 
-      - name: Arcane: Build
+      - name: Arcane Build
         id: arcane-build
         if: |
           (success() || failure()) &&
@@ -103,7 +103,7 @@ jobs:
         shell: bash
         run: cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }}
 
-      - name: Arcane: Clean
+      - name: Arcane Clean
         id: arcane-clean
         if: |
           (success() || failure()) &&
@@ -111,7 +111,7 @@ jobs:
         shell: bash
         run: find ${{ env.ARCANE_BUILD_DIR }} -type f -name '*.o' -exec rm -f '{}' \;
 
-      - name: Arcane: Install
+      - name: Arcane Install
         id: arcane-install
         if: |
           (success() || failure()) &&
@@ -119,7 +119,7 @@ jobs:
         shell: bash
         run: cmake --install ${{ env.ARCANE_BUILD_DIR }}
 
-      - name: Arcane: Copy external libraries
+      - name: Arcane Copy external libraries
         id: arcane-copy-external-libraries
         if: |
           (success() || failure()) &&
@@ -132,18 +132,18 @@ jobs:
           echo '--'
           bash /scripts/copyextlib_github.sh
 
-      #- name: Arcane: Tar build artifact for Arcane
+      #- name: Arcane Tar build artifact for Arcane
       #  shell: bash
       #  run: tar czf build-artifact.tar.gz ${{ env.ARCANE_BUILD_DIR }}
 
-      #- name: Arcane: Upload build artifact
+      #- name: Arcane Upload build artifact
       #  uses: actions/upload-artifact@v4
       #  with:
       #    name: build-artifact
       #    path: build-artifact.tar.gz
       #    retention-days: 1
 
-      - name: Arcane: Save cache
+      - name: Arcane Save cache
         id: arcane-save-cache
         if: |
           (success() || failure()) &&
