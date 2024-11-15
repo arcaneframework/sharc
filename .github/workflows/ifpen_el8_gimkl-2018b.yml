@@ -69,7 +69,7 @@ jobs:
 
       # Installation
 
-      - name: Arcane: Checkout
+      - name: Arcane : Checkout
         id: arcane-checkout
         if: |
           (success() || failure())
