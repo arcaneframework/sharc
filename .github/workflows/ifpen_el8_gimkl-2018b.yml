@@ -17,7 +17,10 @@ env:
   ARCANE_BUILD_DIR: /__w/sharc/sharc/arcane_build
   ARCANE_INSTALL_DIR: /__w/sharc/sharc/arcane_install
   ARCANE_SOURCE_DIR: /__w/sharc/sharc/arcane_source
-  ARCANE_EXT_LIB_SUBDIR: extlib # /__w/sharc/shark/arcane_build/extlib
+  # Sharc
+  SHARC_BUILD_DIR: /__w/sharc/sharc/sharc_build
+  SHARC_INSTALL_DIR: /__w/sharc/sharc/sharc_install
+  SHARC_SOURCE_DIR: /__w/sharc/sharc/sharc_source
   # ccache
   CCACHE_COMPRESS: true
   CCACHE_COMPRESSLEVEL: 6
@@ -39,7 +42,7 @@ concurrency:
 
 jobs:
 
-  Install-arcane:
+  arcane-install:
     name: Install Arcane
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -95,9 +98,7 @@ jobs:
           (success() || failure()) &&
           steps.checkout.outcome == 'success'
         shell: bash
-        run: |
-           export CCACHE_DIR=${{ env.CCACHE_DIR }}
-           cmake -S ${{ env.ARCANE_SOURCE_DIR }} -B ${{ env.ARCANE_BUILD_DIR }} -DCMAKE_INSTALL_PREFIX=${{ env.ARCANE_INSTALL_DIR }} ${{ env.CM_CCACHE_OPTS }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} -DARCCORE_BUILD_MODE=Check -DREMOVE_UID_ON_DETACH=ON -DUSE_GTEST_DEATH_TEST=ON -DCMAKE_DISABLE_FIND_PACKAGE_Papi=ON -DALIEN_BUILD_COMPONENT=all -DALIEN_PLUGIN_HYPRE=ON -DALIEN_PLUGIN_PETSC=ON -DUSE_GRAPH_CONNECTIVITY_POLICY=ON
+        run: cmake -S ${{ env.ARCANE_SOURCE_DIR }} -B ${{ env.ARCANE_BUILD_DIR }} -DCMAKE_INSTALL_PREFIX=${{ env.ARCANE_INSTALL_DIR }} ${{ env.CM_CCACHE_OPTS }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} -DARCCORE_BUILD_MODE=Check -DREMOVE_UID_ON_DETACH=ON -DUSE_GTEST_DEATH_TEST=ON -DCMAKE_DISABLE_FIND_PACKAGE_Papi=ON -DALIEN_BUILD_COMPONENT=all -DALIEN_PLUGIN_HYPRE=ON -DALIEN_PLUGIN_PETSC=ON -DUSE_GRAPH_CONNECTIVITY_POLICY=ON
 
       - name: Build
         id: build
@@ -107,13 +108,13 @@ jobs:
         shell: bash
         run: cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }}
 
-      #- name: Clean
-      #  id: clean
-      #  if: |
-      #    (success() || failure()) &&
-      #    steps.build.outcome == 'success'
-      #  shell: bash
-      #  run: find ${{ env.ARCANE_BUILD_DIR }} -type f -name '*.o' -exec rm -f '{}' \;
+      - name: Clean
+        id: clean
+        if: |
+          (success() || failure()) &&
+          steps.build.outcome == 'success'
+        shell: bash
+        run: find ${{ env.ARCANE_BUILD_DIR }} -type f -name '*.o' -exec rm -f '{}' \;
 
       - name: Install
         id: install
@@ -123,29 +124,16 @@ jobs:
         shell: bash
         run: cmake --install ${{ env.ARCANE_BUILD_DIR }}
 
-      #- name: Copy external libraries
-      #  id: copy-external-libraries
-      #  if: |
-      #    (success() || failure()) &&
-      #    steps.install.outcome == 'success'
-      #  shell: bash
-      #  run: |
-      #    cd ${{ env.ARCANE_BUILD_DIR }}
-      #    echo '--'
-      #    cat /scripts/copyextlib_github.sh
-      #    echo '--'
-      #    bash /scripts/copyextlib_github.sh
+      - name: Tar install artifact
+        shell: bash
+        run: tar czf arcane-install-artifact.tar.gz ${{ env.ARCANE_INSTALL_DIR }}
 
-      #- name: Tar build artifact for Arcane
-      #  shell: bash
-      #  run: tar czf build-artifact.tar.gz ${{ env.ARCANE_BUILD_DIR }}
-
-      #- name: Upload build artifact
-      #  uses: actions/upload-artifact@v4
-      #  with:
-      #    name: build-artifact
-      #    path: build-artifact.tar.gz
-      #    retention-days: 1
+      - name: Upload install artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: arcane-install-artifact
+          path: arcane-install-artifact.tar.gz
+          retention-days: 1
 
       - name: Save cache
         id: save-cache
@@ -157,54 +145,112 @@ jobs:
           path: ${{ env.CCACHE_DIR }}
           key:  ${{ steps.restore-cache.outputs.cache-primary-key }}
 
-  #test:
-  #  name: test
-  #  needs:
-  #    - build
-  #  runs-on: ubuntu-latest
-  #  timeout-minutes: 120
-  #  container:
-  #    image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b-rt:el8
-  #    #options: --user root  # Avoid to match github UID in container.
-  #  strategy:
-  #    fail-fast: false
+  sharc-install:
+    name: Install Sharc
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    container:
+      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b:el8
+      #options: --user root  # Avoid to match github UID in container.
+    strategy:
+      fail-fast: false
+    env:
+      CCACHE_DIR: /__w/sharc/sharc/sharc_ccache
 
-  #  steps:
+    steps:
 
-  #    - name: Checkout
-  #      id: checkout
-  #      if: |
-  #        (success() || failure())
-  #      uses: actions/checkout@v4
-  #      with:
-  #        path: ${{ env.ARCANE_SOURCE_DIR }}
-  #        submodules: true
+      # ccache
 
-  #    - name: Download build artifact
-  #      uses: actions/download-artifact@v4
-  #      with:
-  #        name: build-artifact
+      - name: Get date
+        id: get-date
+        shell: bash
+        run: echo "NOW=$(/bin/date -u '+%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
-  #    - name: Untar build artifact
-  #      shell: bash
-  #      run: tar xf build-artifact.tar.gz -C /
+      - name: Restore cache
+        id: restore-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-${{ env.NOW }}-${{ github.run_number }}
+          restore-keys: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-
 
-  #    - name: Remove build artifact tar
-  #      shell: bash
-  #      run: rm -f build-artifact.tar.gz
+      # Installation
 
-  #    - name: Test
-  #      id: test
-  #      shell: bash
-  #      run: env LD_LIBRARY_PATH=${{ env.ARCANE_BUILD_DIR }}/${{ env.EXT_LIB_SUBDIR }}:${LD_LIBRARY_PATH} ctest --test-dir ${{ env.ARCANE_BUILD_DIR }} ${{ env.CT_OPTS }}
+      - name: Checkout
+        id: checkout
+        if: |
+          (success() || failure())
+        uses: actions/checkout@v4
+        with:
+          path: ${{ env.SHARC_SOURCE_DIR }}
+          submodules: true
 
-  #    - name: Upload test artifact
-  #      id: upload-test-artifact
-  #      uses: actions/upload-artifact@v4
-  #      if: |
-  #        (success() || failure()) &&
-  #        steps.test.outcome == 'failure'
-  #      with:
-  #        name: test-artifact
-  #        path: ${{ env.ARCANE_BUILD_DIR }}/Testing
-  #        retention-days: 1
+      - name: Download Arcane artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: arcane-install-artifact
+
+      - name: Untar Arcane artifact
+        shell: bash
+        run: tar xf arcane-install-artifact.tar -C /
+
+      - name: Modules information
+        id: sharc_modules_information
+        if: |
+          (success() || failure()) &&
+          steps.checkout.outcome == 'success'
+        shell: bash
+        run: module --terse list 2>&1 | sort
+
+      - name: Configure
+        id: configure
+        if: |
+          (success() || failure()) &&
+          steps.checkout.outcome == 'success'
+        shell: bash
+        run: cmake -S ${{ env.SHARC_SOURCE_DIR }} -B ${{ env.SHARC_BUILD_DIR }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} -DBUILD_SHARED_LIBS=ON -DARCANEFRAMEWORK_ROOT=${{ env.ARCANE_INSTALL_DIR }}
+
+      - name: Build
+        id: build
+        if: |
+          (success() || failure()) &&
+          steps.configure.outcome == 'success'
+        shell: bash
+        run: cmake --build ${{ env.SHARC_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }}
+
+      - name: Clean
+        id: clean
+        if: |
+          (success() || failure()) &&
+          steps.build.outcome == 'success'
+        shell: bash
+        run: find ${{ env.SHARC_BUILD_DIR }} -type f -name '*.o' -exec rm -f '{}' \;
+
+      - name: Install
+        id: install
+        if: |
+          (success() || failure()) &&
+          steps.build.outcome == 'success'
+        shell: bash
+        run: cmake --install ${{ env.SHARC_BUILD_DIR }}
+
+      - name: Tar build artifact
+        shell: bash
+        run: tar czf sharc-build-artifact.tar.gz ${{ env.SHARC_BUILD_DIR }}
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sharc-build-artifact
+          path: sharc-build-artifact.tar.gz
+          retention-days: 1
+
+      - name: Save cache
+        id: save-cache
+        if: |
+          (success() || failure()) &&
+          steps.build.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key:  ${{ steps.restore-cache.outputs.cache-primary-key }}
