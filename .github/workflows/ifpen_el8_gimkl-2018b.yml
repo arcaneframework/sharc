@@ -196,6 +196,10 @@ jobs:
         shell: bash
         run: tar xf arcane-install-artifact.tar.gz -C /
 
+      - name: Remove Arcane install artifact tar
+        shell: bash
+        run: rm -f arcane-install-artifact.tar.gz
+
       - name: Modules information
         id: sharc_modules_information
         if: |
@@ -257,3 +261,85 @@ jobs:
         with:
           path: ${{ env.CCACHE_DIR }}
           key:  ${{ steps.restore-cache.outputs.cache-primary-key }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  sharc-test:
+    name: Test Sharc
+    needs:
+      - arcane-install
+      - sharc-install
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    container:
+      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b-rt:el8
+      #options: --user root  # Avoid to match github UID in container.
+    strategy:
+      fail-fast: false
+
+    steps:
+
+      - name: Checkout
+        id: checkout
+        if: |
+          (success() || failure())
+        uses: actions/checkout@v4
+        with:
+          path: ${{ env.SHARC_SOURCE_DIR }}
+          submodules: true
+
+      - name: Download Arcane install artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: arcane-install-artifact
+
+      - name: Untar Arcane install artifact
+        shell: bash
+        run: tar xf arcane-install-artifact.tar.gz -C /
+
+      - name: Remove Arcane install artifact tar
+        shell: bash
+        run: rm -f arcane-install-artifact.tar.gz
+
+      - name: Download Sharc build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sharc-build-artifact
+
+      - name: Untar Sharc build artifact
+        shell: bash
+        run: tar xf sharc-build-artifact.tar.gz -C /
+
+      - name: Remove Sharc build artifact tar
+        shell: bash
+        run: rm -f sharc-bulid-artifact.tar.gz
+
+      - name: Test
+        id: test
+        shell: bash
+        run: ctest --test-dir ${{ env.SHARC_BUILD_DIR }} ${{ env.CT_OPTS }}
+
+      - name: Upload test artifact
+        id: upload-test-artifact
+        uses: actions/upload-artifact@v4
+        if: |
+          (success() || failure()) &&
+          steps.test.outcome == 'failure'
+        with:
+          name: test-artifact
+          path: ${{ env.BUILD_DIR }}/Testing
+          retention-days: 1
