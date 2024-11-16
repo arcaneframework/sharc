@@ -341,5 +341,7 @@ jobs:
           steps.test.outcome == 'failure'
         with:
           name: test-artifact
-          path: ${{ env.SHARC_BUILD_DIR }}/Testing
+          path: |
+            ${{ env.SHARC_BUILD_DIR }}/Testing
+            ${{ env.SHARC_BUILD_DIR }}/test
           retention-days: 1
