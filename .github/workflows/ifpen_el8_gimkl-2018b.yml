@@ -262,22 +262,6 @@ jobs:
           path: ${{ env.CCACHE_DIR }}
           key:  ${{ steps.restore-cache.outputs.cache-primary-key }}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   sharc-test:
     name: Test Sharc
     needs:
@@ -286,7 +270,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
-      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b-rt:el8
+      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b:el8
       #options: --user root  # Avoid to match github UID in container.
     strategy:
       fail-fast: false
