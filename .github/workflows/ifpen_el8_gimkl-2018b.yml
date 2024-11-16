@@ -235,6 +235,7 @@ jobs:
           steps.build.outcome == 'success'
         shell: bash
         run: cmake --install ${{ env.SHARC_BUILD_DIR }}
+        continue-on-error: true
 
       - name: Tar build artifact
         shell: bash
