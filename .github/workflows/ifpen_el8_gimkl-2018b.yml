@@ -97,6 +97,7 @@ jobs:
         run: |
            export CCACHE_DIR=${{ env.ARCANE_CCACHE_DIR }}
            cmake -S ${{ env.ARCANE_SOURCE_DIR }} -B ${{ env.ARCANE_BUILD_DIR }} -DCMAKE_INSTALL_PREFIX=${{ env.ARCANE_INSTALL_DIR }} ${{ env.CM_CCACHE_OPTS }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} -DARCCORE_BUILD_MODE=Check -DREMOVE_UID_ON_DETACH=ON -DUSE_GTEST_DEATH_TEST=ON -DCMAKE_DISABLE_FIND_PACKAGE_Papi=ON -DALIEN_BUILD_COMPONENT=all -DALIEN_PLUGIN_HYPRE=ON -DALIEN_PLUGIN_PETSC=ON -DUSE_GRAPH_CONNECTIVITY_POLICY=ON
+           cat ${{ env.ARCANE_BUILD_DIR }}/CMakeCache.txt
 
       - name: Build
         id: build
@@ -104,7 +105,7 @@ jobs:
           (success() || failure()) &&
           steps.configure.outcome == 'success'
         shell: bash
-        run: cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }}
+        run: cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }} --verbose
 
       #- name: Clean
       #  id: clean
