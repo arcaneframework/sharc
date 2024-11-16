@@ -187,14 +187,14 @@ jobs:
           path: ${{ env.SHARC_SOURCE_DIR }}
           submodules: true
 
-      - name: Download Arcane artifact
+      - name: Download Arcane install artifact
         uses: actions/download-artifact@v4
         with:
           name: arcane-install-artifact
 
-      - name: Untar Arcane artifact
+      - name: Untar Arcane install artifact
         shell: bash
-        run: tar xf arcane-install-artifact.tar -C /
+        run: tar xf arcane-install-artifact.tar.gz -C /
 
       - name: Modules information
         id: sharc_modules_information
