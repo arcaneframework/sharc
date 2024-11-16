@@ -147,6 +147,8 @@ jobs:
 
   sharc-install:
     name: Install Sharc
+    needs:
+      - arcane-install
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
