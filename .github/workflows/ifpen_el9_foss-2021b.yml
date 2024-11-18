@@ -1,10 +1,10 @@
-name: IFPEN el8 gimkl/2018b
+name: IFPEN el9 foss/2021b
 
 on:
-  push:
-    branches: [ main, dev/cea, dev/ifpen, dev/ci_ifpen ]
-  pull_request:
-    branches: [ main, dev/cea, dev/ifpen, dev/ci_ifpen ]
+  #push:
+  #  branches: [ main, dev/cea, dev/ifpen, dev/ci_ifpen ]
+  #pull_request:
+  #  branches: [ main, dev/cea, dev/ifpen, dev/ci_ifpen ]
   workflow_dispatch:
     inputs:
       ctest_options:
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
-      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b:el8
+      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-foss-2021b:el9
       #options: --user root  # Avoid to match github UID in container.
     strategy:
       fail-fast: false
@@ -68,8 +68,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-${{ env.NOW }}-${{ github.run_number }}
-          restore-keys: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-
+          key: ifpen-el9-foss-2021b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-${{ env.NOW }}-${{ github.run_number }}
+          restore-keys: ifpen-el9-foss-2021b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-
 
       # Installation
 
@@ -152,7 +152,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
-      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b:el8
+      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-foss-2021b:el9
       #options: --user root  # Avoid to match github UID in container.
     strategy:
       fail-fast: false
@@ -173,8 +173,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.CCACHE_DIR }}
-          key: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-${{ env.NOW }}-${{ github.run_number }}
-          restore-keys: ifpen-el8-gimkl-2018b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-
+          key: ifpen-el9-foss-2021b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-${{ env.NOW }}-${{ github.run_number }}
+          restore-keys: ifpen-el9-foss-2021b-${{ github.job }}-${{ env.CM_BUILD_TYPE }}-
 
       # Installation
 
@@ -270,7 +270,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
-      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-gimkl-2018b:el8
+      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-foss-2021b:el9
       #options: --user root  # Avoid to match github UID in container.
     strategy:
       fail-fast: false
