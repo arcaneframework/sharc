@@ -94,7 +94,7 @@ public:
   const Alien::ArcaneTools::IIndexManager::VectorIndexSet indexSet() const { return m_alien_vector_index_set; }
   Arcane::ConstArray2View<Arcane::Integer> indexes() const { return m_alien_vector_indexes; }
 
-  bool solve(Alien::ILinearSolver* solver);
+  Alien::SolverStatus solve(Alien::ILinearSolver* solver);
 
   void dumpSolution(Arcane::String name);
   void dumpMatrix(std::string name);

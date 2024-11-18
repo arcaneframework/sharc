@@ -234,7 +234,7 @@ newtonAssemble()
 
 /*---------------------------------------------------------------------------*/
 
-bool
+Alien::SolverStatus
 ArcNum::NewtonSolver::
 newtonSolve()
 {
@@ -385,17 +385,16 @@ solve()
 
   ARCANE_ASSERT((m_initialized),("Newton solver not initialized"));
 
-  m_nb_call ++;
+  m_nb_call++;
 
-  bool r = m_newton.solve();
-
+  auto r = m_newton.solve();
 
   // Mise a jour (pour politique de pas de temps)
   m_newton_iteration = m_newton.lastIteration();
 
   m_is_solving = false;
 
-  return r;
+  return r.m_solve;
 }
 
 /*---------------------------------------------------------------------------*/

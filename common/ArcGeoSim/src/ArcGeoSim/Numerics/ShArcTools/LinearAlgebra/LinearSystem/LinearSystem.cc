@@ -102,7 +102,7 @@ _prepareAlien()
 
 /*---------------------------------------------------------------------------*/
 
-bool
+Alien::SolverStatus
 ArcNum::LinearSystem::
 solve(Alien::ILinearSolver* solver)
 {
@@ -114,16 +114,13 @@ solve(Alien::ILinearSolver* solver)
 
     const auto& status = solver->getStatus();
 
-    Arcane::Integer iteration = status.iteration_count;
+    assert(succeed==status.succeeded);
 
-    if(succeed)
-      return true;
-    else
-      return false;
+    return status;
   }
   catch(...)
   {
-    return false;
+    return solver->getStatus();
   }
 }
 

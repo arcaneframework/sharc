@@ -73,6 +73,12 @@ namespace ArcNum::Algorithm {
     : public Arcane::TraceAccessor
   {
   public:
+    struct Status
+    {
+      bool m_solve = false;
+      int m_it = 0;
+      int m_lin_it = 0;
+    };
 
     Newton(TemplateObject& object, Arcane::ITraceMng* trace)
       : Arcane::TraceAccessor(trace)
@@ -102,7 +108,7 @@ namespace ArcNum::Algorithm {
 
     Arcane::Integer lastIteration() const { return m_iteration; }
 
-    bool solve();
+    Status solve();
 
   private:
 
@@ -123,9 +129,8 @@ namespace ArcNum::Algorithm {
 /*---------------------------------------------------------------------------*/
 
   template<typename TemplateObject>
-  bool
-  Newton<TemplateObject>::
-  solve()
+  Newton<TemplateObject>::Status
+  Newton<TemplateObject>::solve()
   {
     //m_results.reset();
 
@@ -151,6 +156,8 @@ namespace ArcNum::Algorithm {
       std::cout.flags(f);
     }
 
+    int linear_it = 0;
+
     while( (rel_err_k > m_relative_tolerance) && (m_iteration < m_iteration_max) ) {
 
       m_iteration ++;
@@ -159,14 +166,15 @@ namespace ArcNum::Algorithm {
 
       m_object.newtonBeforeSolve(m_iteration);
 
-      const bool r = m_object.newtonSolve();
+      const auto r = m_object.newtonSolve();
+      linear_it += r.iteration_count;
 
-      if(!r) {
+      if(!r.succeeded) {
         if(m_verbose) {
           info() << " *** Newton error : non linear solver failed because linear solver didn't converge";
           //info() << " *** Newton error : status=" << r.status() << ", reason=" << r.errorReason();
         }
-        return r;
+        return {false,m_iteration+1,linear_it};
       }
 
       m_object.newtonAfterSolve(m_iteration);
@@ -177,7 +185,7 @@ namespace ArcNum::Algorithm {
         if(m_verbose)
           info() << " *** Newton error : non physical solution";
         //return m_results.failed(Results::NonPhysicalSolution);
-        return false;
+        return {false,m_iteration+1,0};
       }
 
       m_object.newtonLinearize();
@@ -201,7 +209,7 @@ namespace ArcNum::Algorithm {
         if(m_verbose) {
           info() << " *** Newton converged with Tolerance Criteria [ ||err_k|| = " << err_k << " < " << m_tolerance << " ]";
         }
-        return true;
+        return {true,m_iteration+1,linear_it};
       }
     }
 
@@ -210,14 +218,14 @@ namespace ArcNum::Algorithm {
         info() << " *** Newton converged with RelativeTolerance Criteria [ ||err_k|| = " << err_k << " ||err_0|| = "
                << err_0 << " ||err_k||/||err_0|| = " << rel_err_k << " < " << m_relative_tolerance << "]";
       }
-      return true;
+      return {true,m_iteration+1,linear_it};
     }
 
     if(m_verbose) {
       info() << " *** Newton diverged : max iteration reached";
     }
 
-    return false;
+    return {false,m_iteration+1,linear_it};
   }
 
 }

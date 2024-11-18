@@ -69,7 +69,7 @@ public:
   void newtonLinearize();
   Arcane::Real newtonError();
   void newtonAssemble();
-  bool newtonSolve();
+  Alien::SolverStatus newtonSolve();
   void newtonBeforeSolve(Arcane::Integer i);
   void newtonAfterSolve(Arcane::Integer i);
   void newtonUpdate(bool &NonPhysicalSolution);
