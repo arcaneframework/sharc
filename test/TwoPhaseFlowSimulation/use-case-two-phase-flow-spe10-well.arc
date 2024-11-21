@@ -92,7 +92,7 @@
           <verbose>true</verbose>
         </linear-solver-->
          <linear-solver name="PETScSolver">
-	  <solver name="LU" />
+             <solver name="SuperLU" />
           <verbose>low</verbose>
         </linear-solver>
       </newton>
