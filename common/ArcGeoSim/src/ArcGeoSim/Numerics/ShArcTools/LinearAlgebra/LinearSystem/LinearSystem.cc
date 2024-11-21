@@ -121,6 +121,10 @@ solve(Alien::ILinearSolver* solver)
     else
       return false;
   }
+  catch(Arccore::FatalErrorException& e)
+  {
+    throw e;
+  }
   catch(...)
   {
     return false;
