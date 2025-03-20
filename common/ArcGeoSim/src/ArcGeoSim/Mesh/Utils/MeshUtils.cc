@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -8,13 +8,69 @@
 
 #include "ArcGeoSim/Mesh/Utils/MeshUtils.h"
 
+#if (ARCANE_VERSION >= 30003)
+#include "arcane/utils/AutoDestroyUserData.h"
+#include "arcane/utils/IUserDataList.h"
+#endif
+
 using namespace Arcane ;
 
 BEGIN_ARCGEOSIM_NAMESPACE
 
 BEGIN_MESH_NAMESPACE
 
-#ifndef USE_ARCANE_V3
+#if (ARCANE_VERSION >= 30003)
+
+Arcane::IGraph2*
+GraphMng::graph(Arcane::IMesh * mesh,bool create_if_required)
+{
+  const char* name = "DefaultDualGraph";
+  IUserDataList* udlist = mesh->userDataList();
+
+  IUserData* ud = udlist->data(name,true);
+  if (ud){
+      AutoDestroyUserData<Arcane::IGraph2>* adud = dynamic_cast<AutoDestroyUserData<Arcane::IGraph2>*>(ud);
+      if (!adud)
+        ARCANE_FATAL("Can not cast to IGraph2*");
+      return adud->data();
+  }
+  else {
+    if (!create_if_required)
+      return nullptr;
+   auto graph = Arcane::mesh::GraphBuilder::createGraph(mesh) ;
+   udlist->setData(name,new AutoDestroyUserData<Arcane::IGraph2>(graph));
+   return graph;
+  }
+}
+
+const Arcane::IGraphConnectivity*
+GraphMng::graphConnectivity(Arcane::IMesh * mesh)
+{
+  auto g = graph(mesh) ;
+  if(g)
+    return g->connectivity() ;
+  else
+    return nullptr ;
+}
+
+template<>
+Cell dualToItem<Cell>(Arcane::IGraphConnectivity const* connectivity,ItemEnumeratorT<DualNode>& inode)
+{
+  return connectivity->dualItem(*inode).toCell() ;
+}
+
+template<>
+Face dualToItem<Face>(Arcane::IGraphConnectivity const* connectivity,ItemEnumeratorT<DualNode>& inode)
+{
+  return connectivity->dualItem(*inode).toFace() ;
+}
+
+template<>
+Particle dualToItem<Particle>(Arcane::IGraphConnectivity const* connectivity,ItemEnumeratorT<DualNode>& inode)
+{
+  return connectivity->dualItem(*inode).toParticle() ;
+}
+#else
 template<>
 Cell dualToItem<Cell>(ItemEnumeratorT<DualNode>& inode) 
 {

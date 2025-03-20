@@ -11,6 +11,11 @@
   </files>
 
   <directories>
+    <directory>AnalyticAccessor</directory>
+    <directory>ArrayVariableAccessor</directory>
+    <directory>ReducedArrayVariableAccessor</directory>
+    <directory>FileAccessor</directory>
     <directory>VariableAccessor</directory>
   </directories>
+
 </makefile>

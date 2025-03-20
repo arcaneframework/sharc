@@ -5,11 +5,21 @@
   <needed-packages>
     <package name="arcane" />
     <package name="eigen3" optional='true'/>
-    <package name="c++11" />
   </needed-packages>
 
   <files language="c++header">
     <file>Discretization</file>
+    <file>DiscretizationConnectivityUtils</file>
   </files>
 
+  <files language="c++">
+    <file>ExtendedDoFConnectivity</file>
+    <file>DiscretizationConnectivity</file>
+    <file>DiscretizationGeometry</file>
+  </files>
+
+  <directories>
+    <directory>Tools</directory>
+    <directory>Schemes</directory>
+  </directories>
 </makefile>

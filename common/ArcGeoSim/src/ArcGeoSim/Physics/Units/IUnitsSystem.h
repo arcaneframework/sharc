@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -14,7 +14,7 @@
 using namespace Arcane;
 
 /**
- * Interface du service de gestion des unites
+ * Interface du service de gestion des unit�s
  * Suppose pour l'instant que les conversions sont affines
  */
 typedef std::pair<String,String> UnitNames ;
@@ -41,16 +41,16 @@ si_unit_name[] = {
   UnitNames("Porosity unit", "Porosity unit"),
   UnitNames("Porous Volume unit", "Porous Volume unit"),
   UnitNames("Permeability unit", "Permeability unit"),
-  UnitNames("Dispertion", "Dispertion unit"),
-  UnitNames("Tortuosity", "Tortuosity unit"),
+  UnitNames("m2", "Dispertion unit"),
+  UnitNames("m2/s", "Diffusion unit"),
   UnitNames("u.s-1", "Flow unit"),
   UnitNames("Kg/s", "MassFlow unit"),
   UnitNames("m3/s", "LiqVolFlow unit"),
   UnitNames("m3/s", "GasVolFlow unit"),
   UnitNames("Kg/m3", "Kilogramme per cubic meters"),
-  UnitNames("Viscosity unit", "Viscosity unit"),
-  UnitNames("Compressibility", "Compressibility unit"),
-  UnitNames("Weight", "Weight unit"),
+  UnitNames("Pa.s", "Viscosity unit"),
+  UnitNames("1/Pa", "Compressibility unit"),
+  UnitNames("Kg", "Weight unit"),
   UnitNames("Kg", "Kilogramme"),
   UnitNames("Kg/mol", "Kilogramme per mole"),
   UnitNames("Kg/m3", "Kilogramme per cubic meters"),
@@ -106,7 +106,7 @@ public:
                  PorousVolume,
                  Permeability,
                  Dispertion,
-                 Tortuosity,
+                 Diffusion,
                  Flow,
                  MassFlow,
                  LiqVolFlow,
@@ -160,46 +160,46 @@ public:
   //! Initialisation
   virtual void init() = 0 ;
 
-  //! Rappel du type d'unite
+  //! Rappel du type d'unit�
   typedef IUnitsSystemProperty::eProperty UnitType ;
 
-  //! Existence d'un facteur pour passer en unite standart (local->SI)
+  //! Existence d'un facteur pour passer en unit� standart (local->SI)
   virtual bool hasMultFactor(UnitType unit) = 0 ;
-  //! Facteur pour passer en unite standart (local->SI)
+  //! Facteur pour passer en unit� standart (local->SI)
   virtual Real getMultFactor(UnitType unit) = 0 ;
-  //! Existence d'un terme pour passer en unite standart (local->SI)
+  //! Existence d'un terme pour passer en unit� standart (local->SI)
   virtual bool hasConstFactor(UnitType unit) = 0 ;
-  //! Terme pour passer en unite standart (local->SI)
+  //! Terme pour passer en unit� standart (local->SI)
   virtual Real getConstFactor(UnitType unit) = 0 ;
 
-  //! Existence d'un facteur pour passer dans un autre systeme (local->system)
+  //! Existence d'un facteur pour passer dans un autre syst�me (local->system)
   virtual bool hasMultFactorTo(IUnitsSystem* system, UnitType unit) = 0 ;
-  //! Facteur pour passer dans un autre systeme (local->system)
+  //! Facteur pour passer dans un autre syst�me (local->system)
   virtual Real getMultFactorTo(IUnitsSystem* system, UnitType unit) = 0 ;
-  //! Existence d'un terme pour passer dans un autre systeme (local->system)
+  //! Existence d'un terme pour passer dans un autre syst�me (local->system)
   virtual bool hasConstFactorTo(IUnitsSystem* system, UnitType unit) = 0 ;
-  //! Terme pour passer dans un autre systeme (local->system)
+  //! Terme pour passer dans un autre syst�me (local->system)
   virtual Real getConstFactorTo(IUnitsSystem* system, UnitType unit) = 0 ;
 
   //! Conversion en SI
-  /*! \param val est suppose en unite locale */
+  /*! \param val est suppos� en unit� locale */
   virtual Real convert(UnitType unit,Real val) = 0 ;
   //! inverse de convert
-  //! Conversion en locale a partir de SI
-  /*! \param val est suppose en unite SI */
+  //! Conversion en locale � partir de SI
+  /*! \param val est suppos� en unit� SI */
   virtual Real unconvert(UnitType unit,Real val) = 0 ;
-  //! Conversion dans un systeme d'unite donne
-  /*! \param val est suppose en unite locale */
+  //! Conversion dans un syst�me d'unit� donn�
+  /*! \param val est suppos� en unit� locale */
   virtual Real convertTo(IUnitsSystem* system,UnitType unit,Real val) = 0 ;
   //! Conversion en SI
-  /*! \param val est suppose en unite locale */
+  /*! \param val est suppos� en unit� locale */
   virtual void convert(UnitType unit,ArrayView<Real> buf) = 0 ;
   //! inverse de convert
-  //! Conversion en locale a partir de SI
-  /*! \param val est suppose en unite SI */
+  //! Conversion en locale � partir de SI
+  /*! \param val est suppos� en unit� SI */
   virtual void unconvert(UnitType unit,ArrayView<Real> buf) = 0 ;
-  //! Conversion dans un systeme d'unite donne
-  /*! \param val est suppose en unite locale */
+  //! Conversion dans un syst�me d'unit� donn�
+  /*! \param val est suppos� en unit� locale */
   virtual void convertTo(IUnitsSystem* system,UnitType unit,ArrayView<Real> buf) = 0 ;
 
   static String getSIUnitShortName(UnitType unit)

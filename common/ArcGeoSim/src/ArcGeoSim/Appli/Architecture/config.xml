@@ -8,7 +8,7 @@
     <file>ModuleMaster</file>
     <file>TimeLoopSnapshotManager</file>
     <file>ArcGeoSimMain</file>
-    <file>Delegate</file>
+	<file>Delegate</file>
   </files>
   <files language="c++header">
     <file>IExtraEntryPoints</file>

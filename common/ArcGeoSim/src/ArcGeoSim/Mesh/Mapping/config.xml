@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  
+  <files language="c++header">
+    <file>IParticleMapping</file>
+  </files>
+  <files language="service">
+    <file header='false'>ParticleMapping</file>
+  </files>
+  
+  <directories>
+    <directory>ParticleToMeshMappingImpl</directory>
+  </directories>
+  
+</makefile>

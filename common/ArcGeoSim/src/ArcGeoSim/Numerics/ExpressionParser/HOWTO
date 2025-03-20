@@ -1,0 +1,18 @@
+== How to add a new function ==
+An example with a function my_function
+
+1- In expression_scanner.ll
+   - add my_function in the 'functions' section
+2- In expression.h
+   - declare a new class MyFunction in 'Functions' section
+   - add the corresponding FUNCTION_NAME macro in 
+     'Operator and function headers' section
+3- In expression.cc
+   - register the association my_function and MyFunction
+4- In ExpressionDriver.cc
+   - register the name "my_function" as the corresponding function 
+     &expression_parser::_my_function (with a leading _)
+5- In this directory
+   make clean && make
+   You MUST use bison version 2.3 at least
+   ( acces bison23 )

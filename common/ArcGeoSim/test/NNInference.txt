@@ -1,0 +1,9 @@
+# -*- cmake -*-
+# Test Neural Network Inference
+if(TARGET onnx)
+  # Test Inference with ONNX
+  ARCANE_ADD_TEST_SEQUENTIAL(ONNXInference
+    ArcGeoSim
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/NNInference 
+    ONNXInference.arc)
+endif()

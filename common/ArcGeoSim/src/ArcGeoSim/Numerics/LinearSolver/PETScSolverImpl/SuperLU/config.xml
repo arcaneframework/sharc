@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="mpi" />
+    <package name="petsc" />
+    <package name="superlu" />
+    <!--package name="superlu_dist" /-->
+  </needed-packages>
+
+  <files language="service">
+    <file header='false'>PETScSolverConfigSuperLU</file>
+    <file header='false'>PETScPrecConfigSuperLU</file>
+  </files>
+
+</makefile>

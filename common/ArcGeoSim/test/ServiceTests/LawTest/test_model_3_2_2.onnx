@@ -1,0 +1,27 @@
+pytorch1.12.1:Ï
+S
+!{input_1_1, input_1_2, input_1_3}
+onnx::MatMul_12onnx::Add_6MatMul_0"MatMul
+4
+Dense1.bias
+onnx::Add_6onnx::Relu_7Add_1"Add
+$
+onnx::Relu_7resultRelu_2"Relu
+9
+result
+onnx::MatMul_13onnx::Add_10MatMul_3"MatMul
+A
+Dense2.bias
+onnx::Add_10{output_1_1, output_1_2}Add_4"Add	torch_jit*BDense1.biasJÍÌÌ=Œ.º=*BDense2.biasJÍÌL>Œ.:>*1Bonnx::MatMul_12JÍÌÌ=ÍÌL>Œ.º=Œ.:>«ªª=«ª*>*)Bonnx::MatMul_13JÍÌL>ÍÌÌ>Œ.:>Œ.º>ZA
+!{input_1_1, input_1_2, input_1_3}
+
+
+batch_size
+
+b8
+{output_1_1, output_1_2}
+
+
+batch_size
+
+B

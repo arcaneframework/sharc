@@ -4,8 +4,13 @@
     <package name="arcane" />
   </needed-packages>
   <files language="c++header">
+    <file>IFunctor</file>
     <file>NewtonSolver</file>
     <file>lapackUtils</file>
+    <file>Norme</file>
     <file>InterpolationUtils</file>
   </files>
+  <directories>
+    <directory>Tools</directory>
+  </directories>
 </makefile>

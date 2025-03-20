@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="ShakeMesh" type="caseoption" version="1.0">
+	<description>Randomly perturbate the mesh</description>
+	<interface name="IMeshOperator"/>
+  <options>
+    <simple name = "size_noise" type = "real" default = "1."/>
+      <service-instance name="shake_function_x" type="IFunctionR4vR1"/>
+      <service-instance name="shake_function_y" type="IFunctionR4vR1"/>
+      <service-instance name="shake_function_z" type="IFunctionR4vR1"/>
+  </options>
+</service>

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<Xdmf Version="2.0">
+<Domain>
+<Grid>
+<Topology TopologyType="1DMesh"
+                 Dimensions="2">
+</Topology>
+<Geometry Type="VZ">
+ <!-- VZ -->
+ <DataItem Format="HDF" Dimensions="2">grid_z.h5:/VZ/values</DataItem>
+</Geometry>
+<Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="HDF" Dimensions="2">grid_z.h5:/Property/values</DataItem>
+</Attribute>
+</Grid>
+</Domain>
+</Xdmf>

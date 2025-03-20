@@ -5,19 +5,40 @@
   <needed-packages>
     <package name="arcane" />
   </needed-packages>
-  <files language="c++header">
-    <file>CoefficientArray</file>
-    <file>DiscreteOperatorProperty</file>
-    <file>IDivKGradDiscreteOperator</file>
-    <file>IDiscreteOperator</file>
-  </files>
 
   <files language="c++">
+    <file>StencilBuilder</file>
     <file>TensorAlgebra</file>
   </files>
 
+  <files language="c++header">
+    <file>IGraphBuilder</file>
+    <file>TwoPointInterpolator</file>
+    <file>LinearSearch</file>
+    <file>CombinedSearch</file>
+    <file>IDivKGradDiscreteOperator</file>
+    <file>Comparator</file>
+    <file>CoefficientArray</file>
+    <file>CoefficientArrayBuilder</file>
+    <file>DiscreteOperatorProperty</file>
+    <file>IDivKGradFaultScheme</file>
+    <file>BinarySearch</file>
+    <file>TypesDivKGradOLGSchemes</file>
+    <file>IDiscreteOperator</file>
+    <file>OperatorImplementation</file>
+    <file>IDivKGradOLGSchemes</file>
+    <file>OLGSchemesTypedefs</file>
+    <file>IAdvectionOperator</file>
+    <file>Filters</file>
+    <file>GradMSchemeTypedefs</file>
+  </files>
+
   <directories>
+    <directory>AdvectionUpwind</directory>
+    <directory>DivKGradGradMImpl</directory>
+    <directory>DivKGradOLGSchemesImpl</directory>
     <directory>DivKGradTwoPointsImpl</directory>
+    <directory depend="eigen3">OptimizedDivKGradOSchemeImpl</directory>
   </directories>
 
 </makefile>

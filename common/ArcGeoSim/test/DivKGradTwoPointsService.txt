@@ -1,0 +1,7 @@
+# -*- cmake -*-
+# Test (the performance of) the two points scheme
+ARCANE_ADD_TEST(DivKGradTwoPointsService 
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/DivKGradTwoPointsService 
+  DivKGradTwoPointsService.arc
+  )

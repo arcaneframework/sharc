@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:output method="xml" omit-xml-declaration="no" version="1.1" encoding="utf-16"  indent="yes"/>
+
+       
+<xsl:template match="/"  xml:space="preserve">
+
+<xsl:variable name="type" select="RegularGrid/@type"/>
+
+<xsl:variable name="seqX" select="normalize-space(RegularGrid/x-value)"/>
+
+<xsl:variable name="dimX"  select="string-length($seqX) - string-length(translate($seqX, ' ', ''))+1"/>
+
+<xsl:variable name="seqY" select="normalize-space(RegularGrid/y-value)"/>
+
+<xsl:variable name="dimY"  select="string-length($seqY) - string-length(translate($seqY, ' ', ''))+1"/>
+
+<xsl:variable name="seqZ" select="normalize-space(RegularGrid/z-value)"/>
+
+<xsl:variable name="dimZ"  select="string-length($seqZ) - string-length(translate($seqZ, ' ', ''))+1"/>
+
+<xsl:variable name="timesteps" select="normalize-space(RegularGrid/t-value)"/>
+
+<xsl:variable name="nbTimes"  select="string-length($timesteps) - string-length(translate($timesteps, ' ', ''))+1"/>
+
+
+<Xdmf Version="2.0">
+
+ <xsl:if test="$type != 'non-uniform'">
+ <xsl:message terminate="yes">
+ ERROR: The grid must be non-uniform !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$dimX != 1">
+ <xsl:message terminate="yes">
+ ERROR: The X dimension of the grid must be 1 !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$dimY != 1">
+ <xsl:message terminate="yes">
+ ERROR: The Y dimension of the grid must be 1 !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$dimZ  &lt;= 1">
+ <xsl:message terminate="yes">
+ ERROR: The Z dimension of the grid must be more than 1 !
+ </xsl:message>
+ </xsl:if>
+
+ <xsl:if test="$nbTimes != 1">
+ <xsl:message terminate="yes">
+ ERROR: There must be only one time step !
+ </xsl:message>
+ </xsl:if>
+ 
+ 
+<Domain>
+<Grid>
+<Topology TopologyType="1DMesh" Dimensions="{$dimZ}">	 
+
+</Topology>
+ <Geometry Type="VZ">
+ <!-- VZ -->
+ <DataItem Format="XML" Dimensions="{$dimZ}">
+     <xsl:value-of select='$seqZ'/> 
+        </DataItem>
+ </Geometry>
+ <Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="XML" Dimensions="{$dimZ}"><xsl:value-of select="RegularGrid/property-value"/>        </DataItem>
+ </Attribute>
+
+  
+</Grid>
+</Domain>
+</Xdmf>
+
+</xsl:template>
+
+</xsl:stylesheet>

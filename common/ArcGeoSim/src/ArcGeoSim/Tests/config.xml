@@ -8,9 +8,10 @@
     <file>IServiceValidator</file>
   </files>
   <directories>
-    <directory>ServiceTesters</directory>
+    <directory>Utils</directory>
     <directory>ServiceTestMng</directory>
     <directory>SyntheticServiceValidator</directory>
-    <directory>Utils</directory>
+    <directory>FieldServiceValidator</directory>
+    <!--directory>ServiceTesters</directory-->
   </directories>
 </makefile>

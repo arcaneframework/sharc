@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<law name="NNInferenceMultiScalar">
+  <input name="input" type="real" dim="multi-scalar" />
+  <output name="output" type="real" dim="multi-scalar" />
+</law>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="mpi" />
+    <package name="hypre" />
+  </needed-packages>
+
+  <files language="c++">
+    <file>HypreLinearSolver</file>
+  </files>
+
+  <files language="c++header">
+    <file>HypreOptionTypes</file>
+  </files>
+
+  <files language="axl">
+    <file>HypreSolver</file>
+  </files>
+</makefile>

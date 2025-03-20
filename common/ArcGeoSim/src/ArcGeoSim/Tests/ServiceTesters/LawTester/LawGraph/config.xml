@@ -10,5 +10,7 @@
   <files language="law">
     <file>ThreeInTwoOut</file>
     <file>TwoInOneOut</file>
+    <file>ThreeInTwoOutWithMulti</file>
+    <file>TwoInOneOutWithMulti</file>
   </files>
 </makefile>

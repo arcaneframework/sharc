@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef LAW_VARIABLE_ACCESSOR_VARIABLEACCESSOR_H
 #define LAW_VARIABLE_ACCESSOR_VARIABLEACCESSOR_H
@@ -64,13 +58,13 @@ public:
   template<Gump::Dimension D, typename T>
   ValueType<Gump::PropertyT<D,T>>& getValues(const Gump::PropertyT<D,T>& p) const
   {
-    return m_accessor.values(p.cast());
+    return m_accessor.values(cast(p));
   }
   
   template<Gump::Dimension D, typename T>
   DerivType<Gump::PropertyT<D,T>>& getDerivatives(const Gump::PropertyT<D,T>& p) const
   {
-    return m_accessor.derivatives(p.cast());
+    return m_accessor.derivatives(cast(p));
   }
 
   template<Dimension D, typename T>
@@ -109,13 +103,13 @@ public:
   template<typename E>
   ValueType<Gump::ScalarRealProperty>& getValues(const Gump::UserProperty<E>& p) const
   {
-    return getValues(p.cast());
+    return getValues(cast(p));
   }
 
   template<typename E>
   DerivType<Gump::ScalarRealProperty>& getDerivatives(const Gump::UserProperty<E>& p) const
   {
-    return getDerivatives(p.cast());
+    return getDerivatives(cast(p));
   }
 
   template<typename E>

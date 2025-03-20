@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef LAW_CONTRIBUTION_VARIABLEARRAY_H
 #define LAW_CONTRIBUTION_VARIABLEARRAY_H
@@ -14,7 +8,7 @@
 #include "ArcGeoSim/Physics/Law2/Variable.h"
 #include "ArcGeoSim/Physics/Law2/VariableRef.h"
 
-#include "ArcGeoSim/Physics/Law2/Contribution/Variable/BaseVariable.h"
+#include "ArcGeoSim/Numerics/Contribution/Variable/VariableArray.h"
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
@@ -24,105 +18,49 @@ BEGIN_AUDI_NAMESPACE
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
-#ifdef SPARSE_AUDI
+
 class VariableArray
     : public Law::VariableT< Law::ArrayRefT<Law::ScalarRealProperty> >
-    , private BaseVariable
+    , private ArcNum::audi::VariableArray
 {
 public:
 
   typedef Law::VariableT< Law::ArrayRefT<Law::ScalarRealProperty> > Base;
+  typedef ArcNum::audi::VariableArray                               AuDiBase ;
 
   VariableArray() {}
 
   VariableArray(const VariableArray& rhs)
   : Base(rhs)
-  , BaseVariable(rhs) {}
+  , AuDiBase(rhs) {}
 
   VariableArray(const Law::BuildInfo<Law::ScalarRealProperty>& bi)
   : Base(bi.property(), bi.offsets(), bi.variableMng().arrays())
-  , BaseVariable(bi.offsets()) {}
+  , AuDiBase(bi.offsets().constView())
+  {
+    auto const& property = bi.property() ;
+    auto const& accessor = bi.variableMng().arrays() ;
+    AuDiBase::setValues(&(accessor.values(property))) ;
+    if(accessor.hasDerivatives(property))
+      AuDiBase::setDerivValues(&(accessor.derivatives(property))) ;
+  }
 
   virtual ~VariableArray() {}
 
 public:
-
-  inline const RootContribution& operator[](Arcane::Integer item) const
+  
+  inline const ArcNum::RootContribution& operator[](Arcane::Integer item) const
   {
-    ARCANE_ASSERT((m_ad_value.size() == 1),("error, using Arcane::Item instead of Geoxim::Item"));
-    RootContribution& ad_value = m_ad_value[0];
-    /*ad_value = 0.;
-    ad_value.value() = Base::operator[](item);
-    Arcane::RealArrayView d(ad_value.size(), ad_value.derivatives());
-    Base::derivatives(item,0,d);*/
-    return ad_value;
+    return AuDiBase::operator[](item) ;
   }
 
-  inline const RootContribution& operator[](const IntegerIndex& item) const
+  inline const ArcNum::RootContribution& operator[](const ArcNum::Stencil::IntegerIndex& item) const
   {
-    ARCANE_ASSERT((m_ad_value.size() == item.size()),("error, Geoxim::Item size not suitable"));
-    Arcane::Integer index = item.index();
-    RootContribution& ad_value = m_ad_value[index];
-    /*ad_value = 0.;
-    ad_value.value() = Base::operator[](item);
-    const Arcane::Integer offset = m_unknowns_offsets[index];
-    const Arcane::Integer size = m_unknowns_offsets[index+1] - offset;
-    Arcane::RealArrayView d(size, ad_value.derivatives() + offset);// = ad_value.derivatives().subView(offset, size);
-    Base::derivatives(item,index,d);*/
-    return ad_value;
+    return AuDiBase::operator[](item) ;
   }
 
+private:
 };
-#else
-class VariableArray
-    : public Law::VariableT< Law::ArrayRefT<Law::ScalarRealProperty> >
-    , private BaseVariable
-{
-public:
-
-  typedef Law::VariableT< Law::ArrayRefT<Law::ScalarRealProperty> > Base;
-
-  VariableArray() {}
-
-  VariableArray(const VariableArray& rhs)
-  : Base(rhs)
-  , BaseVariable(rhs) {}
-
-  VariableArray(const Law::BuildInfo<Law::ScalarRealProperty>& bi)
-  : Base(bi.property(), bi.offsets(), bi.variableMng().arrays())
-  , BaseVariable(bi.offsets()) {}
-
-  virtual ~VariableArray() {}
-
-public:
-
-  inline const Contribution& operator[](Arcane::Integer item) const
-  {
-    ARCANE_ASSERT((m_ad_value.size() == 1),("error, using Arcane::Item instead of Geoxim::Item"));
-    Contribution& ad_value = m_ad_value[0];
-    ad_value = 0.;
-    ad_value.value() = Base::operator[](item);
-    Arcane::RealArrayView d(ad_value.size(), ad_value.derivatives());
-    Base::derivatives(item,0,d);
-    return ad_value;
-  }
-
-  inline const Contribution& operator[](const IntegerIndex& item) const
-  {
-    ARCANE_ASSERT((m_ad_value.size() == item.size()),("error, Geoxim::Item size not suitable"));
-    Arcane::Integer index = item.index();
-    Contribution& ad_value = m_ad_value[index];
-    ad_value = 0.;
-    ad_value.value() = Base::operator[](item);
-    const Arcane::Integer offset = m_unknowns_offsets[index];
-    const Arcane::Integer size = m_unknowns_offsets[index+1] - offset;
-    Arcane::RealArrayView d(size, ad_value.derivatives() + offset);// = ad_value.derivatives().subView(offset, size);
-    Base::derivatives(item,index,d);
-    return ad_value;
-  }
-
-};
-#endif
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

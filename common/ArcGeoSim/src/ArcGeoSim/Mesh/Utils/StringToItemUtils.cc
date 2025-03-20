@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ stringToItemKind(const Arcane::String & string)
   if (string == "edge") return IK_Edge;
   if (string == "node") return IK_Node;
   if (string == "particle") return IK_Particle;
-#ifndef USE_ARCANE_V3
+#if (ARCANE_VERSION < 30003)
   if (string == "dual_node") return IK_DualNode;
   if (string == "link") return IK_Link;
 #endif
@@ -88,7 +88,7 @@ itemKindToString(const Arcane::eItemKind & item_kind)
     return "node";
   case IK_Particle:
     return "particle";
-#ifndef USE_ARCANE_V3    
+#if (ARCANE_VERSION < 30003)
   case IK_DualNode:
     return "dual_node";
   case IK_Link:

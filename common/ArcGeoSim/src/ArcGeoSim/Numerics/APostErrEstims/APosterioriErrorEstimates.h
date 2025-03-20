@@ -1,0 +1,2859 @@
+// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
+//-----------------------------------------------------------------------------
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// See the top-level COPYRIGHT file for details.
+// SPDX-License-Identifier: Apache-2.0
+//-----------------------------------------------------------------------------
+/*
+ * APosterioriErrorEstimates.h
+ *
+ *  Created on: Mar 6, 2017
+ *      Author: yousefs
+ */
+
+#ifndef SRC_ERRORESTIMATES_APOSTERIORIERRORESTIMATES_H_
+#define SRC_ERRORESTIMATES_APOSTERIORIERRORESTIMATES_H_
+
+#include <arcane/ArcaneVersion.h>
+#include <boost/version.hpp>
+#if BOOST_VERSION >= 106400
+#include <boost/serialization/array_wrapper.hpp>
+#endif
+#include <boost/multi_array.hpp>
+#include <boost/numeric/ublas/vector.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/matrix_proxy.hpp>
+#include <boost/numeric/ublas/io.hpp>
+#include <boost/shared_ptr.hpp>
+
+#include <arcane/IMesh.h>
+
+#include <arcane/IItemFamily.h>
+#include <arcane/mesh/NodeFamily.h>
+#include <arcane/mesh/FaceFamily.h>
+
+#include "ArcGeoSim/Numerics/Discretization/DiscretizationGeometry.h"
+
+#include "ArcGeoSim/Numerics/DiscreteOperator/DiscreteOperatorProperty.h"
+#include "ArcGeoSim/Numerics/DiscreteOperator/TensorAlgebra.h"
+
+#include "ArcGeoSim/Utils/ItemGroupBuilder.h"
+#include "ArcGeoSim/Numerics/Utils/Algorithms/LUSolver.h"
+
+#include "Tools/CartesianTools/BilinearMap.h"
+#include "Tools/CartesianTools/QuadraticMap.h"
+#include "Tools/CartesianTools/RtnSpace.h"
+#include "Tools/CartesianTools/RtnSpace2D.h"
+#include "Tools/CartesianTools/BilinearMap2D.h"
+#include "Tools/CartesianTools/QuadraticMap2D.h"
+#include "IStopCriteriaEstimator.h"
+
+#ifdef USE_EIGEN3
+#include <Eigen/Core>
+#include <Eigen/LU>
+#endif
+
+/*----------------------------------------------------------------------------*/
+
+namespace APosterioriErrorEstimatesUtils {
+  template<typename T>
+  struct AssignRealT {} ;
+
+  template<>
+  struct AssignRealT<Arcane::Real> {
+    static void apply(Arcane::Real3x3& var, Real& val) {
+      const Arcane::Real3 row1(val, 0., 0.) ;
+      const Arcane::Real3 row2(0., val, 0.) ;
+      const Arcane::Real3 row3(0., 0., val) ;
+      var = Arcane::Real3x3(row1, row2, row3) ;
+    }
+  } ;
+
+  template<>
+  struct AssignRealT<Arcane::Real3> {
+    static void apply(Arcane::Real3x3& var, Real3& val) {
+      const Arcane::Real3 row1(val.x, 0., 0.) ;
+      const Arcane::Real3 row2(0., val.y, 0.) ;
+      const Arcane::Real3 row3(0., 0., val.z) ;
+      var = Arcane::Real3x3(row1, row2, row3) ;
+    }
+  } ;
+
+  template<>
+  struct AssignRealT<Arcane::Real3x3> {
+    static void apply(Arcane::Real3x3& var, Real3x3& val) {
+      var = val ;
+    }
+  } ;
+
+  template<typename V>
+  void assign(Arcane::Real3x3& var, V val) { AssignRealT<V>::apply(var, val) ;}
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+class APosterioriErrorEstimates
+: public IStopCriteriaEstimator
+{
+public:
+
+  static Discretization::ItemKindPairList connectivity() {
+    Discretization::ItemKindPairList ikpl(6) ;
+    ikpl[0] = {Discretization::ItemKind::Cell, Discretization::ItemKind::Face} ;
+    ikpl[1] = {Discretization::ItemKind::Face, Discretization::ItemKind::Cell} ;
+    ikpl[2] = {Discretization::ItemKind::Node,Discretization::ItemKind::Cell} ;
+    ikpl[3] = {Discretization::ItemKind::Node,Discretization::ItemKind::Face} ;
+    ikpl[4] = {Discretization::ItemKind::Cell,Discretization::ItemKind::Node} ;
+    ikpl[5] = {Discretization::ItemKind::Face,Discretization::ItemKind::Node} ;
+    return ikpl ;
+  }
+
+  static Arcane::Integer cellProperties() {return IGeometryProperty::PCenter | IGeometryProperty::PMeasure ;}
+
+  static Arcane::Integer faceProperties() {return IGeometryProperty::PCenter | IGeometryProperty::PNormal | IGeometryProperty::PMeasure ;}
+
+  static Arcane::Integer contactProperties(const bool simpleCorefinement=false) {
+    if(simpleCorefinement)
+      return  NotMatchingSurfaceProperty::PSimpleCorefinementCenter |
+              NotMatchingSurfaceProperty::PSimpleCorefinementNormal |
+              NotMatchingSurfaceProperty::PSimpleCorefinementArea ;
+    else
+      return  NotMatchingSurfaceProperty::PDoubleCorefinementCenter |
+              NotMatchingSurfaceProperty::PDoubleCorefinementNormal |
+              NotMatchingSurfaceProperty::PDoubleCorefinementArea ;
+  }
+
+  static Arcane::Integer nodeProperties() {return IGeometryProperty::PNone ;}
+
+
+
+  APosterioriErrorEstimates(DiscretizationGeometry*       dg,
+                            IParallelMng*                 parallelMng) :
+  m_dg(dg),
+  m_dc(m_dg->discretizationConnectivity()),
+  m_parallelMng(parallelMng),
+  m_cell_pressure(nullptr),
+  m_face_flux(nullptr),
+  m_dual_cell_pressure(nullptr),
+  m_dual_face_flux(nullptr),
+  m_arc_face_pressure(nullptr),
+  m_arc_cont_cell_pressure(nullptr),
+  m_arc_node_pressure(nullptr),
+  m_nb_phase(0),
+  m_nb_component(0),
+#ifdef USE_ARCANE_V3
+  m_cellFamily(m_dc->cellFamily()->itemFamily())
+#else
+  m_cellFamily(m_dc->cellFamily())
+#endif
+  {
+  m_isNodeDirichletBoundary = false;
+  m_cells.clear();
+  m_nodes.clear();
+  m_faces.clear();
+  m_boundary_nodes.clear();
+  m_internal_nodes.clear();
+  m_boundary_faces.clear();
+  m_internal_faces.clear();
+
+  m_cells = ((m_dc)->allCells());
+  m_nodes = (m_dc)->allNodes();
+  m_faces = (m_dc)->allFaces();
+
+  m_internal_nodes = (m_dc)->innerNodes();
+  m_boundary_nodes = (m_dc)->outerNodes();
+
+  m_internal_faces = (m_dc)->innerFaces();
+  m_boundary_faces = (m_dc)->outerFaces();
+
+#ifdef USE_ARCANE_V3
+  Arcane::IItemFamily* cellFamily = m_dc->cellFamily()->itemFamily();
+  Arcane::IItemFamily* faceFamily = m_dc->faceFamily()->itemFamily();
+  Arcane::IItemFamily* nodeFamily = m_dc->nodeFamily()->itemFamily();
+#else
+  Arcane::IItemFamily* cellFamily = m_dc->cellFamily();
+  Arcane::IItemFamily* faceFamily = m_dc->faceFamily();
+  Arcane::IItemFamily* nodeFamily = m_dc->nodeFamily();
+#endif
+
+  m_cell_size = cellFamily->maxLocalId();
+  m_face_size = faceFamily->maxLocalId();
+  m_node_size = nodeFamily->maxLocalId();
+
+  m_face_flux_up.resize(m_face_size);
+  m_face_flux_up.fill(0.);
+
+  m_outer_face_error.resize(m_face_size);
+  m_outer_face_error.fill(0.);
+
+  m_kappa.resize(m_cell_size);
+
+
+
+  m_arcane_cells             = m_dc->mesh()->allCells();
+  m_arcane_faces             = m_dc->mesh()->allFaces();
+  m_arcane_internal_faces    = m_arcane_cells.innerFaceGroup();
+  m_arcane_boundary_faces    = m_arcane_cells.outerFaceGroup();
+
+  m_arc_face_pressure.reset(new Arcane::VariableFaceReal(Arcane::VariableBuildInfo(m_dc->mesh(), "APFacePressure"))) ;
+  m_arc_cont_cell_pressure.reset(new Arcane::VariableCellReal(Arcane::VariableBuildInfo(m_dc->mesh(), "APContCellPressure"))) ;
+  m_arc_node_pressure.reset(new Arcane::VariableNodeReal(Arcane::VariableBuildInfo(m_dc->mesh(), "APNodePressure"))) ;
+
+  m_dual_arc_face_pressure.reset(new Arcane::VariableFaceReal(Arcane::VariableBuildInfo(m_dc->mesh(), "APDualFacePressure"))) ;
+  m_dual_arc_cont_cell_pressure.reset(new Arcane::VariableCellReal(Arcane::VariableBuildInfo(m_dc->mesh(), "APDualContCellPressure"))) ;
+  m_dual_arc_node_pressure.reset(new Arcane::VariableNodeReal(Arcane::VariableBuildInfo(m_dc->mesh(), "APDualNodePressure"))) ;
+
+  ENUMERATE_NODE(inode,m_dc->mesh()->allNodes()){
+      const Arcane::Node& arcNode     = *inode;
+      (*m_dual_arc_node_pressure)[arcNode] = (*m_arc_node_pressure)[arcNode] = 0.;
+  }
+  ENUMERATE_FACE(iface,m_dc->mesh()->allFaces()){
+      const Arcane::Face& arcFace     = *iface;
+      (*m_dual_arc_face_pressure)[arcFace] = (*m_arc_face_pressure)[arcFace] = 0.;
+  }
+  ENUMERATE_CELL(icell,m_dc->mesh()->allCells()){
+      const Arcane::Cell& arcCell     = *icell;
+      (*m_dual_arc_cont_cell_pressure)[arcCell] = (*m_arc_cont_cell_pressure)[arcCell] = 0.;
+  }
+  (*m_arc_face_pressure).synchronize() ;
+  (*m_arc_node_pressure).synchronize() ;
+}
+
+  virtual ~APosterioriErrorEstimates() {}
+
+  void computeMonoPhaseDarcyEstimates(MeshVariableScalarRefT<TCell,Real>& error_estimate);
+
+  void setDirichletBoundary(MeshVariableScalarRefT<TNode,Real>* boundary_node_pressure)
+  {
+     m_isNodeDirichletBoundary = true;
+     ENUMERATE_FACE(iface, m_arcane_boundary_faces){
+       const Arcane::Face& arcFace         = *iface;
+       const NodeVectorView& nodes = iface->nodes();
+       Integer node_f_size=nodes.size();
+       Real face_pressure = 0.;
+       ENUMERATE_NODE(inode,nodes){
+         const Arcane::Node& arcNode         = *inode;
+         (*m_arc_node_pressure)[arcNode] = (*boundary_node_pressure)[arcNode];
+         face_pressure +=  (*boundary_node_pressure)[arcNode]/node_f_size;
+       }
+       (*m_arc_face_pressure)[arcFace] = face_pressure;
+     }
+     (*m_arc_face_pressure).synchronize() ;
+     (*m_arc_node_pressure).synchronize() ;
+
+  }
+
+  void setFaceDarcyDirichletBoundary(Arcane::FaceGroup& dirichlet_faces,
+                                     MeshVariableScalarRefT<TFace,Real>* boundary_face_pressure)
+   {
+     ENUMERATE_FACE(iface,dirichlet_faces){
+       const Arcane::Face& arcFace         = *iface;
+       (*m_arc_face_pressure)[arcFace] = (*boundary_face_pressure)[*iface];
+     }
+   }
+
+  void setFaceDirichletBoundary(Arcane::FaceGroup& dirichlet_faces,
+                                PartialVariableFaceReal& boundary_face_pressure)
+  {
+    ENUMERATE_FACE(iface,dirichlet_faces){
+        const Arcane::Face& arcFace         = *iface;
+        (*m_arc_face_pressure)[arcFace] = (boundary_face_pressure)[*iface];
+    }
+  }
+
+  void setFaceDarcyDualDirichletBoundary(Arcane::FaceGroup& dirichlet_faces,
+                                         MeshVariableScalarRefT<TFace,Real>* boundary_face_pressure)
+   {
+     ENUMERATE_FACE(iface,dirichlet_faces){
+       const Arcane::Face& arcFace         = *iface;
+       (*m_dual_arc_face_pressure)[arcFace] = (*boundary_face_pressure)[*iface];
+     }
+   }
+  template<typename VariableTypeT>
+  void init(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type, VariableTypeT> & kappa)
+  {
+    _computeCoeffElementMatrix(kappa);
+  }
+
+  template<typename VariableTypeT>
+  void initFace(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type, VariableTypeT> & kappa)
+  {
+    _computeCoeffElementFaceMatrix(kappa);
+  }
+
+  void initMonoPhaseDarcyData(MeshVariableScalarRefT<TCell,Real>* cell_pressure,
+                              MeshVariableScalarRefT<TFace,Real>* face_flux)
+  {
+    m_cell_pressure = cell_pressure;
+    m_face_flux     = face_flux;
+    //postProcessDataAv(cell_pressure);
+    postProcessData(m_cell_pressure, m_face_flux, m_arc_cont_cell_pressure.get(), m_arc_face_pressure.get());
+  }
+
+  void initMonoPhaseDarcyDualData(MeshVariableScalarRefT<TCell,Real>* dual_cell_pressure,
+                                  MeshVariableScalarRefT<TFace,Real>* dual_face_flux)
+  {
+    m_dual_cell_pressure = dual_cell_pressure;
+    m_dual_face_flux     = dual_face_flux;
+    //postProcessDualDataAv(dual_cell_pressure);
+    postProcessData(m_dual_cell_pressure, m_dual_face_flux, m_dual_arc_cont_cell_pressure.get(), m_dual_arc_face_pressure.get());
+  }
+
+  void postProcessData(MeshVariableScalarRefT<TCell,Real>* a_cell_pressure,
+                       MeshVariableScalarRefT<TFace,Real>* a_face_flux,
+                       MeshVariableScalarRefT<TCell,Real>* a_cont_cell_pressure,
+                       MeshVariableScalarRefT<TFace,Real>* a_face_pressure);
+
+  void postProcessDataAv(MeshVariableScalarRefT<TCell,Real>* cell_pressure);
+
+  void postProcessDualDataAv(MeshVariableScalarRefT<TCell,Real>* dual_cell_pressure);
+
+  void computeMonoPhaseDarcyDualEstimates(MeshVariableScalarRefT<TCell,Real>& dual_error_estimate);
+
+  void computeMonoPhaseDarcyCorrectionTerm(MeshVariableScalarRefT<TCell,Real>& correction_term);
+
+  void computeGoalFluxError(Arcane::FaceGroup& goal_faces, Real& goal_flux_error){
+     Real error = 0.;
+     Measures<Discretization::Face> faceMeasures(m_dg) ;
+     ENUMERATE_FACE(iface,goal_faces){
+       const Arcane::Face& arcFace         = *iface;
+       const Discretization::Face& disFace = m_dc->face(arcFace);
+       error += faceMeasures(disFace) * m_outer_face_error[disFace.localId()] - (*m_face_flux)[arcFace];
+     }
+     goal_flux_error = error;
+  }
+
+  void computeMultiPhaseDarcyRefPhaseEstimate(MeshVariableScalarRefT<TCell,Real>* cell_phase_pressure,
+                                              MeshVariableScalarRefT<TCell,Real>* cell_phase_mobility,
+                                              MeshVariableScalarRefT<TFace,Real>* face_phase_velocity_no_gravity,
+                                              MeshVariableScalarRefT<TFace,Real>* face_phase_velocity,
+                                              MeshVariableScalarRefT<TCell,Real>* cell_phase_residual,
+                                              MeshVariableScalarRefT<TCell,Real>& error_estimate);
+
+  void computeMultiPhaseDarcyRefPhaseEstFaces(MeshVariableScalarRefT<TCell,Real>* cell_phase_pressure,
+                                              MeshVariableScalarRefT<TCell,Real>* cell_phase_mobility,
+                                              MeshVariableScalarRefT<TFace,Real>* face_phase_velocity_no_gravity,
+                                              MeshVariableScalarRefT<TFace,Real>* face_phase_velocity,
+                                              MeshVariableScalarRefT<TCell,Real>* cell_phase_residual,
+                                              MeshVariableScalarRefT<TCell,Real>& error_estimate){
+
+    //postProcessDataAv(cell_phase_pressure);
+    postProcessData(cell_phase_pressure, face_phase_velocity_no_gravity, m_arc_cont_cell_pressure.get(), m_arc_face_pressure.get());
+    //postProcessData(cell_phase_pressure, face_phase_velocity_no_gravity, m_cont_cell_pressure, m_face_pressure);
+
+    _computeMultiPhaseDarcyRefPhaseEstimate(cell_phase_pressure, cell_phase_mobility,
+                                            face_phase_velocity_no_gravity, face_phase_velocity,
+                                            cell_phase_residual, error_estimate);
+  }
+
+  void computeMultiPhaseDarcyRefPhaseEstimateAv(MeshVariableScalarRefT<TCell,Real>* cell_phase_pressure,
+                                                MeshVariableScalarRefT<TCell,Real>* cell_phase_mobility,
+                                                MeshVariableScalarRefT<TFace,Real>* face_phase_velocity_no_gravity,
+                                                MeshVariableScalarRefT<TFace,Real>* face_phase_velocity,
+                                                MeshVariableScalarRefT<TCell,Real>* cell_phase_residual,
+                                                MeshVariableScalarRefT<TCell,Real>& error_estimate){
+
+    postProcessDataAv(cell_phase_pressure);
+
+    _computeMultiPhaseDarcyRefPhaseEstimate(cell_phase_pressure, cell_phase_mobility,
+                                            face_phase_velocity_no_gravity, face_phase_velocity,
+                                            cell_phase_residual, error_estimate);
+
+  }
+
+  void fillTestEstimators(MeshVariableScalarRefT<TCell,Real>& cell_error_flux,
+                          MeshVariableScalarRefT<TCell,Real>& cell_error_nc,
+                          MeshVariableScalarRefT<TCell,Real>& cell_error_res)
+  {
+    ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    //  const Integer idCell = icell->localId();
+     // const TCell& cell_support = m_dc->cell(icell);
+      //cell_error_flux[cell_support] = m_cell_error_flux[idCell];
+      //cell_error_nc[cell_support] = m_cell_error_nc[idCell];
+      //cell_error_res[cell_support] = m_cell_error_res[idCell];
+    }
+  }
+
+  template<typename VariableTypeT>
+  void computeCartesianDual(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                              VariableTypeT> & kappa,
+                          MeshVariableScalarRefT<TCell,Real>& error_estimate,
+                          MeshVariableScalarRefT<TCell,Real>& correction_term);
+
+  template<typename VariableTypeT>
+  void computeCartesian(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                              VariableTypeT> & kappa,
+                          MeshVariableScalarRefT<TFace,Real>* ref_face_flux,
+                          MeshVariableScalarRefT<TCell,Real>& error_estimate,
+                          MeshVariableScalarRefT<TCell,Real>& error);
+
+  template<typename VariableTypeT>
+  void compute2DCartesian(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                              VariableTypeT> & kappa,
+                          MeshVariableScalarRefT<TFace,Real>* ref_face_flux,
+                          MeshVariableScalarRefT<TCell,Real>& error_estimate,
+                          MeshVariableScalarRefT<TCell,Real>& error);
+
+  template<typename VariableTypeT>
+  void compute2DCartesianDual(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                              VariableTypeT> & kappa,
+                          MeshVariableScalarRefT<TCell,Real>& error_estimate,
+                          MeshVariableScalarRefT<TCell,Real>& correction_term);
+
+  template<typename VariableTypeT>
+  void initCartesianPressure(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                                  VariableTypeT> & kappa);
+
+  Real GetGlobalSpatialEstimator(){
+    return 0.;
+  }
+
+  void GetLocalSpatialEstimator(MeshVariableScalarRefT<TCell,Real>& spatial_estimate){
+  }
+
+  void computeError(MeshVariableScalarRefT<TFace,Real>* ref_face_flux,
+                    MeshVariableScalarRefT<TFace,Real>* face_flux,
+                    MeshVariableScalarRefT<TCell,Real>& error);
+
+  void GetContPressure(MeshVariableScalarRefT<TCell,Real>& cont_cell_pressure){
+    ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+      Arcane::Cell arcCell(m_dc -> cell(icell)) ;
+      cont_cell_pressure[arcCell] = (*m_arc_cont_cell_pressure)[arcCell];
+    }
+  }
+
+  template<typename VariableTypeT>
+  void initEx(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type, VariableTypeT> & kappa)
+  {
+    _initEx();
+    _computeCoeffElementaryMatrix(kappa);
+  }
+
+  void computeExEstimates(RealSharedArray& error_estimate);
+
+private:
+
+  // Variables
+  DiscretizationGeometry* m_dg ;
+  DiscretizationConnectivity* m_dc ;
+
+  IParallelMng* m_parallelMng ;
+  //Arcane::Integer m_spatialDimension ;
+  Real3x3SharedArray m_kappa ;
+
+  MeshVariableScalarRefT<TCell,Real>*    m_cell_pressure;
+  MeshVariableScalarRefT<TFace,Real>*    m_face_flux;
+
+  MeshVariableScalarRefT<TCell,Real>*    m_dual_cell_pressure;
+  MeshVariableScalarRefT<TFace,Real>*    m_dual_face_flux;
+
+  std::unique_ptr<VariableFaceReal>      m_arc_face_pressure;
+  std::unique_ptr<VariableCellReal>      m_arc_cont_cell_pressure;
+  std::unique_ptr<VariableNodeReal>      m_arc_node_pressure;
+  std::unique_ptr<VariableFaceReal>      m_dual_arc_face_pressure;
+  std::unique_ptr<VariableCellReal>      m_dual_arc_cont_cell_pressure;
+  std::unique_ptr<VariableNodeReal>      m_dual_arc_node_pressure;
+
+
+  RealSharedArray                  m_cont_cell_pressure;
+  RealSharedArray                  m_node_pressure;
+  RealSharedArray                  m_face_pressure;
+
+  RealSharedArray                  m_face_flux_up;
+  RealSharedArray                  m_outer_face_error;
+
+  Real3SharedArray                  m_primal_correction;
+
+  RealSharedArray2                 m_mat_on_subFace;
+  RealSharedArray2                 m_mat_on_subNodes;
+  RealSharedArray2                 m_mass_mat_on_subNodes;
+  RealSharedArray2                 m_scalar_kappa;
+
+  bool m_isNodeDirichletBoundary;
+
+  typedef Discretization::ItemGroup FacesGroup;
+  typedef Discretization::ItemGroup CellsGroup;
+  typedef Discretization::ItemGroup NodesGroup;
+  FacesGroup m_faces;
+  CellsGroup m_cells;
+  NodesGroup m_nodes;
+
+  CellGroup m_arcane_cells;
+  FaceGroup m_arcane_faces;
+  FaceGroup m_arcane_internal_faces;
+  FaceGroup m_arcane_boundary_faces;
+
+  NodesGroup m_boundary_nodes;
+  NodesGroup m_internal_nodes;
+
+  FacesGroup m_boundary_faces;
+  FacesGroup m_internal_faces;
+
+  Integer m_cell_size;
+  Integer m_face_size;
+  Integer m_node_size;
+
+  Integer m_nb_phase;
+  Integer m_nb_component;
+
+  Arcane::IItemFamily* m_cellFamily = nullptr;
+protected:
+
+  void _initEx();
+
+  Real3 _dBaseFunction(const Real3& X, const Integer& index);
+
+  Real  _baseFunction(const Real3& X, const Integer& index);
+
+  Real  _detJacobianPyramid(const Discretization::Cell& cell, const Discretization::Face& face, const Real3& X);
+
+  Integer localInCellIndex(const Discretization::Cell& cell, const Discretization::Node& localNode);
+
+  Discretization::Cell upwind(const Real& flux, const Discretization::Face& face)
+  {
+
+    Discretization::Cell ret_cell;
+    if(m_dc->isCellGroupBoundary(face))
+      ret_cell = m_dc->boundaryCell(face);
+    else
+      if(flux >= 0.)
+        ret_cell = m_dc->backCell(face);
+      else
+        ret_cell = m_dc->frontCell(face);
+
+    return ret_cell;
+  }
+
+  template<typename VariableTypeT>
+  void _computeCoeffElementaryMatrix(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                                          VariableTypeT> & kappa);
+
+  template<typename VariableTypeT>
+  void _computeCoeffElementMatrix(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                                          VariableTypeT> & kappa);
+
+  template<typename VariableTypeT>
+  void _computeCoeffElementFaceMatrix(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                                          VariableTypeT> & kappa);
+
+  void _computeMultiPhaseDarcyRefPhaseEstimate(MeshVariableScalarRefT<TCell,Real>* cell_phase_pressure,
+                                               MeshVariableScalarRefT<TCell,Real>* cell_phase_mobility,
+                                               MeshVariableScalarRefT<TFace,Real>* face_phase_velocity_no_gravity,
+                                               MeshVariableScalarRefT<TFace,Real>* face_phase_velocity,
+                                               MeshVariableScalarRefT<TCell,Real>* cell_phase_residual,
+                                               MeshVariableScalarRefT<TCell,Real>& error_estimate);
+
+};
+
+/*----------------------------------------------------------------------------*/
+
+typedef APosterioriErrorEstimates<Arcane::Cell, Arcane::Face, Arcane::Node> APosterioriErrorEstimate;
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+  void APosterioriErrorEstimates<TCell, TFace, TNode>::
+postProcessData(MeshVariableScalarRefT<TCell,Real>* a_cell_pressure,
+                MeshVariableScalarRefT<TFace,Real>* a_face_flux,
+                MeshVariableScalarRefT<TCell,Real>* a_cont_cell_pressure,
+                MeshVariableScalarRefT<TFace,Real>* a_face_pressure){
+
+  using TensorVectorProduct = DiscreteOperator::tensor_vector_prod<Real3x3>  ;
+
+  boost::shared_ptr<VariableDoFReal3x3> m_perm_cell(NULL);
+
+  VariableBuildInfo perm_cell_vb(m_cellFamily,
+                                 IMPLICIT_UNIQ_NAME,
+                                 IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo bilinear_coef_vb(m_cellFamily,
+                                     IMPLICIT_UNIQ_NAME,
+                                     IVariable::PPrivate | IVariable::PTemporary);
+
+  VariableDoFReal3x3 perm_cell = VariableDoFReal3x3(perm_cell_vb);
+
+  m_perm_cell.reset( new VariableDoFReal3x3(perm_cell_vb));
+  //m_bilinear_coef.reset( new VariableDoFArrayReal(bilinear_coef_vb));
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  Measures<Discretization::Face> faceMeasures(m_dg) ;
+  Centers<Discretization::Face> faceCenters(m_dg) ;
+  Centers<Discretization::Node> nodeCenters(m_dg) ;
+
+
+  RealSharedArray face_flux(m_face_size);
+  face_flux.fill(0.);
+  RealSharedArray cell_pressure(m_cell_size);
+  cell_pressure.fill(0.);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    const Integer idCell = icell->localId();
+    const TCell& cell_support = m_dc->cell(icell);
+    cell_pressure[idCell] = (*a_cell_pressure)[cell_support];
+
+  }
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces){
+    const Integer idFace = iface->localId();
+    const TFace& face_support = m_dc->face(iface);
+    face_flux[idFace] = (*a_face_flux)[face_support];
+  }
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells) {
+    const Discretization::Cell& cell = *icell;
+    perm_cell[cell]= m_kappa[cell.localId()];
+
+  }
+
+  QuadraticMap QuadraticPressure(m_dg);
+  QuadraticPressure.compute(cell_pressure,face_flux, perm_cell, m_cells);
+
+  // Get the nodal pressure to construct the continuous pressure
+  RealSharedArray node_pressure(m_node_size);
+  node_pressure.fill(0);
+  ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes.own())
+  {
+    const Discretization::Node& node = *inode;
+    const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+    const Real3 point_node = (nodeCenters)(node);
+    Real measCells=0.;
+    ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+      const Discretization::Cell& cell = *icell;
+      Real QuadP = QuadraticPressure.eval(point_node, cell);
+      node_pressure[node.localId()] += QuadP*cellMeasures(icell);
+      measCells += cellMeasures(icell);
+    }
+    if(measCells)
+      node_pressure[node.localId()] /=  measCells;
+
+  }
+  //node_pressure.synchronize();
+  BilinearMap BilinearPressure(m_dg);
+  BilinearPressure.compute(node_pressure, m_cells);
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+    const Discretization::Cell& cell = *icell;
+    const Real3 xCell = (cellCenters)(cell);
+    const TCell& arcCell = m_dc->cell(icell);
+
+    (*a_cont_cell_pressure)[arcCell] = BilinearPressure.eval(xCell, cell);
+    //std::cout<<"BilinearPressure.eval(xCell, cell) " <<BilinearPressure.eval(xCell, cell)<<"\n";
+    const FaceVectorView& faces = arcCell.faces();
+    ENUMERATE_FACE(iface,faces){
+      const Arcane::Face& arcFace = *iface;
+      const Discretization::Face& face = m_dc->face(arcFace);
+      const Real3 xFace = (faceCenters)(face);
+      (*a_face_pressure)[arcFace] = BilinearPressure.eval(xFace, cell);
+      const Real3 iFaceOutwardUnitNormal = faceNormals(face);
+      m_outer_face_error[face.localId()] = math::scaMul(TensorVectorProduct::eval(perm_cell[cell],BilinearPressure.gradient(xFace, cell))
+                                                        ,iFaceOutwardUnitNormal);
+    }
+  }
+  (*a_cont_cell_pressure).synchronize();
+  (*a_face_pressure).synchronize();
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeMonoPhaseDarcyEstimates(MeshVariableScalarRefT<TCell,Real>& error_estimate)
+{
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+  const Integer maxFaceNumber = 20;
+
+  using namespace Eigen ;
+  typedef Eigen::Matrix<Real,Dynamic,Dynamic,RowMajor> MatrixType ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Map<MatrixType,0,outer_stride> eigen_matrix;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  RealSharedArray dof_by_subFace(maxFaceNumber);
+  RealSharedArray cell_face_flux(maxFaceNumber);
+  RealSharedArray cell_face_pressure(maxFaceNumber);
+  Real face_flux, u_cell, res_eng, norm_eng, res_scal, scal_mass;
+  //Real max_flux_err(1e-14),max_nc_err(1e-14),max_err(1e-14);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Integer idCell = icell->localId();
+    cell_face_pressure.fill(0.);
+    cell_face_flux.fill(0.);
+    dof_by_subFace.fill(0.);
+    u_cell = res_eng = norm_eng = res_scal = scal_mass = 0.;
+    
+    const Arcane::Cell& arcCell = m_dc->cell(icell);
+    const FaceVectorView& faces = arcCell.faces();
+    ENUMERATE_FACE(iface,faces) {
+        const Arcane::Face &arcFace = *iface;
+        const Discretization::Face &face = m_dc->face(arcFace);
+
+        face_flux = 0.;
+        if ((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+            (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive() && arcFace.frontCell().isActive())) {
+            const Discretization::Cell &up = m_dc->backCell(face);
+            Integer sign_up = (idCell == up.localId() ? 1 : -1);
+            face_flux = sign_up * (*m_face_flux)[arcFace];
+        } else {
+            const Real3 iFaceOutwardUnitNormal = faceNormals(face);
+            mesh::FaceFamily *face_family = dynamic_cast<mesh::FaceFamily *> (m_dc->mesh()->faceFamily());
+            SharedArray<ItemInternal *> subfaces;
+            face_family->subFaces(arcFace.internal(), subfaces);
+            for (Integer j = 0; j < subfaces.size(); j++) {
+                const Arcane::Face &jArcFace = subfaces[j];
+                const Discretization::Face &j_face = m_dc->face(jArcFace);
+                if ((jArcFace.isSubDomainBoundary() && jArcFace.boundaryCell().isActive()) ||
+                    (not jArcFace.isSubDomainBoundary() && jArcFace.backCell().isActive() &&
+                     jArcFace.frontCell().isActive())) {
+                    const Real3 jFaceOutwardUnitNormal = faceNormals(j_face);
+                    Real sign = math::scaMul(iFaceOutwardUnitNormal, jFaceOutwardUnitNormal);
+                    face_flux += sign * (*m_face_flux)[jArcFace];
+                }
+            }
+            if ((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+                (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive()))
+                face_flux *= 1.;
+            else
+                face_flux *= -1.;
+        }
+
+        dof_by_subFace[iface.index()] = face_flux / std::sqrt(m_scalar_kappa[idCell][iface.index()]);
+        u_cell += face_flux;// m_scalar_kappa[idCell][iface.index()] * face_flux;
+        cell_face_flux[iface.index()] = face_flux;//m_scalar_kappa[idCell][iface.index()] * face_flux;
+
+        cell_face_pressure[iface.index()] = (*m_arc_face_pressure)[arcFace];
+    }
+    Integer face_c_size = faces.size();
+#if (ARCANE_VERSION >= 22200)
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).data(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng  = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+
+    eigen_vector SExt(cell_face_flux.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_pressure.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    res_scal = (UExtLine*SExt)[0];
+    scal_mass = 2*(res_scal - u_cell*(*m_arc_cont_cell_pressure)[arcCell]);
+#else
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).begin(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng  = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+    eigen_vector SExt(cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    res_scal = (UExtLine*SExt)[0];
+    scal_mass = 2*(res_scal - u_cell*(*m_arc_cont_cell_pressure)[arcCell]);
+#endif
+
+    Real cell_error_estimate =  std::abs(std::sqrt(norm_eng ) - std::sqrt(std::abs(norm_eng + scal_mass)));
+    //std::sqrt(std::abs(2*norm_eng + scal_mass));
+
+    error_estimate[arcCell]  = cell_error_estimate;
+  }
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeMonoPhaseDarcyDualEstimates(MeshVariableScalarRefT<TCell,Real>& dual_error_estimate)
+{
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+  const Integer maxFaceNumber = 20;
+
+  using namespace Eigen ;
+  typedef Eigen::Matrix<Real,Dynamic,Dynamic,RowMajor> MatrixType ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Map<MatrixType,0,outer_stride> eigen_matrix;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  RealSharedArray dof_by_subFace(maxFaceNumber);
+  RealSharedArray cell_face_flux(maxFaceNumber);
+  RealSharedArray cell_face_pressure(maxFaceNumber);
+  Real face_flux, u_cell, res_eng, norm_eng, res_scal, scal_mass;
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Integer idCell = icell->localId();
+    cell_face_pressure.fill(0.);
+    cell_face_flux.fill(0.);
+    dof_by_subFace.fill(0.);
+    u_cell = res_eng = norm_eng = res_scal = scal_mass = 0.;
+    const Arcane::Cell& arcCell = m_dc->cell(icell);
+    const FaceVectorView& faces = arcCell.faces();
+    ENUMERATE_FACE(iface,faces){
+      const Arcane::Face& arcFace = *iface;
+      const Discretization::Face& face = m_dc->face(arcFace);
+
+      face_flux = 0.;
+      if ((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+            (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive() && arcFace.frontCell().isActive())){
+        const Discretization::Cell & up = m_dc->backCell(face);
+        Integer sign_up = (idCell == up.localId() ? 1 : -1);
+        face_flux = sign_up * (*m_dual_face_flux)[arcFace];
+      }else{
+        const Real3 iFaceOutwardUnitNormal = faceNormals(face);
+        mesh::FaceFamily* face_family = dynamic_cast<mesh::FaceFamily *> (m_dc->mesh()->faceFamily());
+        SharedArray<ItemInternal*> subfaces;
+        face_family->subFaces(arcFace.internal(),subfaces);
+        for(Integer j = 0; j < subfaces.size(); j++){
+            const Arcane::Face& jArcFace = subfaces[j];
+            const Discretization::Face& j_face = m_dc->face(jArcFace);
+            if((jArcFace.isSubDomainBoundary() && jArcFace.boundaryCell().isActive()) ||
+                    (not jArcFace.isSubDomainBoundary() && jArcFace.backCell().isActive() && jArcFace.frontCell().isActive()))
+            {
+            const Real3 jFaceOutwardUnitNormal = faceNormals(j_face);
+            Real sign = math::scaMul(iFaceOutwardUnitNormal,jFaceOutwardUnitNormal);
+            face_flux += sign * (*m_dual_face_flux)[jArcFace];
+            }
+        }
+        if((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+                (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive()))
+          face_flux *=  1.;
+        else
+          face_flux *= -1.;
+      }
+
+      dof_by_subFace[iface.index()] = face_flux/std::sqrt(m_scalar_kappa[idCell][iface.index()]) ;
+      u_cell += face_flux;//m_scalar_kappa[idCell][iface.index()] * face_flux;
+      cell_face_flux[iface.index()]= face_flux;//m_scalar_kappa[idCell][iface.index()] * face_flux;
+
+      cell_face_pressure[iface.index()] =  (*m_dual_arc_face_pressure)[arcFace];
+    }
+
+    Integer face_c_size=faces.size();
+#if (ARCANE_VERSION >= 22200)
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).data(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+
+    eigen_vector SExt(cell_face_pressure.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+#else
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).begin(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+
+    eigen_vector SExt(cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+#endif
+    res_scal = (UExtLine*SExt)[0];
+    scal_mass = 2*(res_scal - u_cell*(*m_dual_arc_cont_cell_pressure)[arcCell]);
+
+    Real cell_dual_error_estimate = std::abs(std::sqrt(norm_eng) - std::sqrt(std::abs(norm_eng + scal_mass)));
+
+    dual_error_estimate[arcCell] = cell_dual_error_estimate;
+  }
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeMonoPhaseDarcyCorrectionTerm(MeshVariableScalarRefT<TCell,Real>& correction_term)
+{
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+  const Integer maxFaceNumber = 20;
+
+  using namespace Eigen ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  RealSharedArray cell_face_flux(maxFaceNumber);
+  RealSharedArray cell_face_pressure(maxFaceNumber);
+  RealSharedArray dual_cell_face_flux(maxFaceNumber);
+  RealSharedArray dual_cell_face_pressure(maxFaceNumber);
+  Real face_flux, dual_face_flux, u_cell, dual_u_cell, res_scal, scal_mass, res_scal_bis, scal_mass_bis;
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Integer idCell = icell->localId();
+    cell_face_pressure.fill(0.);
+    cell_face_flux.fill(0.);
+    dual_cell_face_pressure.fill(0.);
+    dual_cell_face_flux.fill(0.);
+    u_cell = dual_u_cell = res_scal = scal_mass = res_scal_bis = scal_mass_bis = 0.;
+
+    const Arcane::Cell& arcCell = m_dc->cell(icell);
+    const FaceVectorView& faces = arcCell.faces();
+    ENUMERATE_FACE(iface,faces){
+      const Arcane::Face& arcFace = *iface;
+      const Discretization::Face& face = m_dc->face(arcFace);
+
+      face_flux = dual_face_flux = 0.;
+      if ((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+            (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive() && arcFace.frontCell().isActive())){
+        const Discretization::Cell & up = m_dc->backCell(face);
+        Integer sign_up = (idCell == up.localId() ? 1 : -1);
+        face_flux      = sign_up * (*m_face_flux)[arcFace];
+        dual_face_flux = sign_up * (*m_dual_face_flux)[arcFace];
+      }else{
+        const Real3 iFaceOutwardUnitNormal = faceNormals(face);
+        mesh::FaceFamily* face_family = dynamic_cast<mesh::FaceFamily *> (m_dc->mesh()->faceFamily());
+        SharedArray<ItemInternal*> subfaces;
+        face_family->subFaces(arcFace.internal(),subfaces);
+        for(Integer j = 0; j < subfaces.size(); j++){
+            const Arcane::Face& jArcFace = subfaces[j];
+            const Discretization::Face& j_face = m_dc->face(jArcFace);
+            if((jArcFace.isSubDomainBoundary() && jArcFace.boundaryCell().isActive()) ||
+                    (not jArcFace.isSubDomainBoundary() && jArcFace.backCell().isActive() && jArcFace.frontCell().isActive()))
+            {
+            const Real3 jFaceOutwardUnitNormal = faceNormals(j_face);
+            Real sign = math::scaMul(iFaceOutwardUnitNormal,jFaceOutwardUnitNormal);
+            face_flux      += sign * (*m_face_flux)[jArcFace];
+            dual_face_flux += sign * (*m_dual_face_flux)[jArcFace];
+            }
+        }
+        if((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+                (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive())){
+          face_flux *=  1.;
+          dual_face_flux *=  1.;
+        }
+        else{
+          face_flux *= -1.;
+          dual_face_flux *=  -1.;
+        }
+      }
+
+      u_cell += face_flux;
+      dual_u_cell += dual_face_flux;
+      cell_face_flux[iface.index()]= face_flux;
+      dual_cell_face_flux[iface.index()]= dual_face_flux; //m_scalar_kappa[idCell][iface.index()] *
+
+      cell_face_pressure[iface.index()] =  (*m_arc_face_pressure)[arcFace];
+      dual_cell_face_pressure[iface.index()] =  (*m_dual_arc_face_pressure)[arcFace];
+
+    }
+
+    Integer face_c_size=faces.size();
+#if (ARCANE_VERSION >= 22200)
+    eigen_vector dual_S_ext(dual_cell_face_pressure.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine dual_U_ext_line(dual_cell_face_flux.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vector S_ext(cell_face_pressure.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine U_ext_line(cell_face_flux.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+#else
+    eigen_vector dual_S_ext(dual_cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine dual_U_ext_line(dual_cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vector S_ext(cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine U_ext_line(cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+#endif
+    res_scal = (dual_U_ext_line*S_ext)[0];
+    scal_mass = res_scal - dual_u_cell*(*m_arc_cont_cell_pressure)[arcCell];
+
+    res_scal_bis = (U_ext_line*dual_S_ext)[0];
+    scal_mass_bis = res_scal_bis - u_cell*(*m_dual_arc_cont_cell_pressure)[arcCell];
+
+    correction_term[arcCell]= -(scal_mass_bis - scal_mass)/2.;
+
+  }
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeError(MeshVariableScalarRefT<TFace,Real>* a_ref_face_flux,
+             MeshVariableScalarRefT<TFace,Real>* a_face_flux,
+             MeshVariableScalarRefT<TCell,Real>& error)
+{
+
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+  const Integer maxFaceNumber = 20;
+
+  using namespace Eigen ;
+  typedef Eigen::Matrix<Real,Dynamic,Dynamic,RowMajor> MatrixType ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Map<MatrixType,0,outer_stride> eigen_matrix;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  RealSharedArray dof_by_subFace(maxFaceNumber);
+  Real face_flux, ref_face_flux, res_eng, norm_eng;
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    const Integer idCell = icell->localId();
+    dof_by_subFace.fill(0.);
+    res_eng = norm_eng = 0.;
+    const Arcane::Cell& arcCell = m_dc->cell(icell);
+    const FaceVectorView& faces = arcCell.faces();
+    ENUMERATE_FACE(iface,faces){
+      const Arcane::Face& arcFace = *iface;
+      const Discretization::Face& face = m_dc->face(arcFace);
+
+      face_flux = ref_face_flux = 0.;
+      if ((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+            (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive() && arcFace.frontCell().isActive())){
+        const Discretization::Cell& up = m_dc->backCell(face);
+        Integer sign_up = (idCell == up.localId() ? 1 : -1);
+        face_flux      = sign_up * (*a_face_flux)[arcFace];
+        ref_face_flux  = sign_up * (*a_ref_face_flux)[arcFace];
+      }else{
+        const Real3 iFaceOutwardUnitNormal = faceNormals(face);
+        mesh::FaceFamily* face_family = dynamic_cast<mesh::FaceFamily *> (m_dc->mesh()->faceFamily());
+        SharedArray<ItemInternal*> subfaces;
+        face_family->subFaces(arcFace.internal(),subfaces);
+        for(Integer j = 0; j < subfaces.size(); j++){
+            const Arcane::Face& jArcFace = subfaces[j];
+            const Discretization::Face& j_face = m_dc->face(jArcFace);
+            if((jArcFace.isSubDomainBoundary() && jArcFace.boundaryCell().isActive()) ||
+                    (not jArcFace.isSubDomainBoundary() && jArcFace.backCell().isActive() && jArcFace.frontCell().isActive()))
+            {
+            const Real3 jFaceOutwardUnitNormal = faceNormals(j_face);
+            Real sign = math::scaMul(iFaceOutwardUnitNormal,jFaceOutwardUnitNormal);
+
+            face_flux      += sign * (*a_face_flux)[jArcFace];
+            ref_face_flux  += sign * (*a_ref_face_flux)[jArcFace];
+            }
+        }
+        Integer global_sign = 1.;
+        if((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+                (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive()))
+          global_sign = 1;
+        else
+          global_sign = -1;
+        face_flux     *= global_sign;
+        ref_face_flux *= global_sign;
+      }
+
+
+      dof_by_subFace[iface.index()] = (ref_face_flux - face_flux)/m_scalar_kappa[idCell][iface.index()];
+
+    }
+
+    Integer face_c_size=faces.size();
+#if (ARCANE_VERSION >= 22200)
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).data(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+#else
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).begin(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+#endif
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+
+    error[arcCell]=  std::sqrt(norm_eng);
+
+  }
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+  void APosterioriErrorEstimates<TCell, TFace, TNode>::
+postProcessDataAv(MeshVariableScalarRefT<TCell,Real>* cell_pressure){
+
+
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes.own()){
+    const Discretization::Node& node = *inode;
+    const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+    Real measCells=0., node_pressure = 0.;
+    ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+      const TCell& cell_support = m_dc->cell(icell);
+      node_pressure += (*cell_pressure)[cell_support]*cellMeasures(icell);
+      measCells += cellMeasures(icell);
+    }
+    if(measCells)
+      node_pressure /=  measCells;
+
+    const Arcane::Node& arcNode = m_dc->node(node);
+    (*m_arc_node_pressure)[arcNode] = node_pressure;
+  }
+
+  (*m_arc_node_pressure).synchronize() ;
+
+  ENUMERATE_CELL(icell, m_arcane_cells.own()){
+    const NodeVectorView& nodes = icell->nodes();
+    Integer nodes_size=nodes.size();
+    Real real_cell_pressure = 0.;
+    ENUMERATE_NODE(inode,nodes){
+        const Arcane::Node& arcNode = *inode;
+      real_cell_pressure  += (*m_arc_node_pressure)[arcNode]/nodes_size;
+    }
+    (*m_arc_cont_cell_pressure)[*icell] = real_cell_pressure;
+  }
+
+  ENUMERATE_FACE(iface, m_arcane_internal_faces){
+    const Arcane::Face& arcFace = *iface;
+    const NodeVectorView& nodes = iface->nodes();
+    Integer node_f_size=nodes.size();
+    Real real_face_pressure = 0.;
+    ENUMERATE_NODE(inode,nodes){
+        const Arcane::Node& arcNode = *inode;
+      real_face_pressure += (*m_arc_node_pressure)[arcNode]/node_f_size;
+    }
+    (*m_arc_face_pressure)[arcFace] = real_face_pressure;
+  }
+
+  ENUMERATE_FACE(iface, m_arcane_boundary_faces){
+    const Arcane::Face& arcFace = *iface;
+    if(not (*m_arc_face_pressure)[arcFace])
+    {
+      const NodeVectorView& nodes = iface->nodes();
+      Integer node_f_size=nodes.size();
+      Real real_face_pressure = 0.;
+      ENUMERATE_NODE(inode,nodes){
+          const Arcane::Node& arcNode = *inode;
+       real_face_pressure += (*m_arc_node_pressure)[arcNode]/node_f_size;
+      }
+      (*m_arc_face_pressure)[arcFace] = real_face_pressure;
+    }
+  }
+  (*m_arc_face_pressure).synchronize() ;
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+postProcessDualDataAv(MeshVariableScalarRefT<TCell,Real>* dual_cell_pressure){
+
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  /* Dual pb always with Dirichlet */
+  ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes){
+    const Discretization::Node& node = *inode;
+    const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+    Real measCells=0., node_pressure = 0.;
+    ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+      const TCell& cell_support = m_dc->cell(icell);
+      node_pressure += (*m_dual_cell_pressure)[cell_support]*cellMeasures(icell);
+      measCells += cellMeasures(icell);
+    }
+    if(measCells)
+      node_pressure /=  measCells;
+
+    const Arcane::Node& arcNode = m_dc->node(node);
+    (*m_dual_arc_node_pressure)[arcNode] = node_pressure;
+  }
+
+  ENUMERATE_CELL(icell, m_arcane_cells.own()){
+    const NodeVectorView& nodes = icell->nodes();
+    Integer nodes_size=nodes.size();
+    Real real_cell_pressure = 0.;
+    ENUMERATE_NODE(inode,nodes){
+      const Arcane::Node& arcNode = *inode;
+      real_cell_pressure  += (*m_dual_arc_node_pressure)[arcNode]/nodes_size;
+    }
+    (*m_dual_arc_cont_cell_pressure)[*icell] = real_cell_pressure;
+  }
+
+  ENUMERATE_FACE(iface, m_arcane_internal_faces){
+    const Arcane::Face& arcFace = *iface;
+    const NodeVectorView& nodes = iface->nodes();
+    Integer node_f_size=nodes.size();
+    Real real_face_pressure = 0.;
+    ENUMERATE_NODE(inode,nodes){
+        const Arcane::Node& arcNode = *inode;
+      real_face_pressure += (*m_dual_arc_node_pressure)[arcNode]/node_f_size;
+    }
+    (*m_dual_arc_face_pressure)[arcFace] = real_face_pressure;
+  }
+  ENUMERATE_FACE(iface, m_arcane_boundary_faces){
+    const Arcane::Face& arcFace = *iface;
+    if(not (*m_dual_arc_face_pressure)[arcFace])
+    {
+      const NodeVectorView& nodes = iface->nodes();
+      Integer node_f_size=nodes.size();
+      Real real_face_pressure = 0.;
+      ENUMERATE_NODE(inode,nodes){
+          const Arcane::Node& arcNode = *inode;
+       real_face_pressure += (*m_dual_arc_node_pressure)[arcNode]/node_f_size;
+      }
+      (*m_dual_arc_face_pressure)[arcFace] = real_face_pressure;
+    }
+  }
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeMultiPhaseDarcyRefPhaseEstimate(MeshVariableScalarRefT<TCell,Real>* cell_phase_pressure,
+                                       MeshVariableScalarRefT<TCell,Real>* cell_phase_mobility,
+                                       MeshVariableScalarRefT<TFace,Real>* face_phase_velocity_no_gravity,
+                                       MeshVariableScalarRefT<TFace,Real>* face_phase_velocity,
+                                       MeshVariableScalarRefT<TCell,Real>* cell_phase_residual,
+                                       MeshVariableScalarRefT<TCell,Real>& error_estimate)
+{
+  RealSharedArray m_face_flux_up;
+  m_face_flux_up.resize(m_face_size);
+  m_face_flux_up.fill(0);
+
+  m_cont_cell_pressure.resize(m_cell_size);
+  m_cont_cell_pressure.fill(0);
+
+  m_node_pressure.resize(m_node_size);
+  m_node_pressure.fill(0);
+
+  m_face_pressure.resize(m_face_size);
+  m_face_pressure.fill(0);
+
+
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  {
+    ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes.own()){
+      const Discretization::Node& node = *inode;
+      const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+      Real measCells=0.;
+      ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+        const Discretization::Cell& cell = *icell;
+        Real c_measure= cellMeasures(cell);
+        const TCell& cell_support = m_dc->cell(icell);
+        m_node_pressure[node.localId()] += (*cell_phase_pressure)[cell_support]*c_measure;
+        measCells += c_measure;
+      }
+      if(measCells){
+          m_node_pressure[node.localId()] /=  measCells;
+      }
+    }
+  }
+
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Discretization::ConnectedItems nodes((m_dc)->nodes(icell)) ;
+    Integer nbNodes=nodes.size();
+    ENUMERATE_DISCRETIZATION_NODE(inode, nodes)
+        m_cont_cell_pressure[icell.localId()] += m_node_pressure[inode->localId()]/(nbNodes);
+  }
+
+  if(m_isNodeDirichletBoundary){
+    ENUMERATE_DISCRETIZATION_FACE(iface, m_internal_faces){
+        const Discretization::ConnectedItems nodes((m_dc)->nodes(iface));
+        Integer node_f_size=nodes.size();
+        ENUMERATE_DISCRETIZATION_NODE(inode,nodes)
+          m_face_pressure[iface->localId()] += m_node_pressure[inode->localId()]/node_f_size;
+    }
+    //ENUMERATE_DISCRETIZATION_FACE(iface, m_boundary_faces){
+    //    const TFace& arcFace = m_dc->face(iface);
+        // m_face_pressure[iface->localId()]=(*m_arc_face_pressure)[arcFace];
+    //}
+  }else
+    ENUMERATE_DISCRETIZATION_FACE(iface, m_faces.own()){
+    const Discretization::ConnectedItems nodes((m_dc)->nodes(iface));
+    Integer node_f_size=nodes.size();
+
+    ENUMERATE_DISCRETIZATION_NODE(inode,nodes)
+        m_face_pressure[iface->localId()] += m_node_pressure[inode->localId()]/node_f_size;
+
+  }
+
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces.own()){
+    const Integer idFace = iface->localId();
+    const TFace& face_support = m_dc->face(iface);
+    Discretization::Cell up_cell=upwind((*face_phase_velocity)[face_support],*iface);
+    const TCell& up_cell_support = m_dc->cell(up_cell);
+    m_face_flux_up[idFace] = (*cell_phase_mobility)[up_cell_support]*(*face_phase_velocity)[face_support];
+  }
+
+//----------------------------------------------------------------------------
+
+// APosterioriErrorEstimates:: computeEstimates................................
+
+//----------------------------------------------------------------------------
+
+  using namespace Eigen ;
+  typedef Eigen::Matrix<Real,Dynamic,Dynamic,RowMajor> MatrixType ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Map<MatrixType,0,outer_stride> eigen_matrix;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  const Integer maxFaceNumber = 40;
+  //const Real ct_pi  = 1. / 3.14;
+  RealSharedArray dof_by_subFace(maxFaceNumber);
+  RealSharedArray diff_dof_by_subFace(maxFaceNumber);
+  RealSharedArray cell_face_flux(maxFaceNumber);
+  RealSharedArray cell_face_pressure(maxFaceNumber);
+  Real u_cell, res_eng, norm_eng, res_scal, scal_mass, res_flux, norm_flux; // cell_div
+  //Real max_flux_err(1e-14),max_nc_err(1e-14),max_err(1e-14);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Integer idCell = icell->localId();
+    const TCell& cell_support = m_dc->cell(icell);
+    const Discretization::ConnectedItems faces((m_dc)->faces(icell)) ;
+    Integer face_c_size=faces.size();
+    cell_face_pressure.fill(0.);
+    cell_face_flux.fill(0.);
+    dof_by_subFace.fill(0.);
+    diff_dof_by_subFace.fill(0.);
+    u_cell = res_eng = norm_eng = res_scal = scal_mass = res_flux = norm_flux = 0.;//cell_div =
+    ENUMERATE_DISCRETIZATION_FACE(iface,faces){
+      const Integer idFace = iface->localId();
+      const TFace& face_support = m_dc->face(iface);
+      const Discretization::Cell & up = m_dc->backCell(iface);
+      Integer sign = (idCell == up.localId() ? 1 : -1);
+
+      diff_dof_by_subFace[iface.index()] = m_face_flux_up[idFace]- (*cell_phase_mobility)[cell_support]*(*face_phase_velocity)[face_support];
+      //diff_dof_by_subFace[iface.index()] = (*cell_phase_mobility)[cell_support]*(*face_phase_velocity)[face_support];
+      dof_by_subFace[iface.index()] = sign * (*cell_phase_mobility)[cell_support]*(*face_phase_velocity_no_gravity)[face_support];
+      u_cell += sign * m_scalar_kappa[idCell][iface.index()] * (*cell_phase_mobility)[cell_support]*(*face_phase_velocity_no_gravity)[face_support];
+      cell_face_flux[iface.index()]= sign * m_scalar_kappa[idCell][iface.index()] * (*cell_phase_mobility)[cell_support]*(*face_phase_velocity_no_gravity)[face_support];
+
+      cell_face_pressure[iface.index()] =  m_face_pressure[iface->localId()];
+
+      //cell_div += sign *  m_face_flux_up[idFace]; //m_cell_div[idCell]
+    }
+#if (ARCANE_VERSION >= 22200)
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).data(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+    eigen_vector diff_U(diff_dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine diff_ULine(diff_dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_flux = (diff_ULine*MEng*diff_U)[0];
+    norm_flux = std::abs(res_flux);
+
+    eigen_vector SExt(cell_face_pressure.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+#else
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).begin(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+    eigen_vector diff_U(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine diff_ULine(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_flux = (diff_ULine*MEng*diff_U)[0];
+    norm_flux = std::abs(res_flux);
+
+    eigen_vector SExt(cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+#endif
+    res_scal  = (UExtLine*SExt)[0];
+    scal_mass = 2*(*cell_phase_mobility)[cell_support]*(res_scal-u_cell*m_cont_cell_pressure[idCell]);
+
+    //const Real residu   = cellMeasures(icell)*std::pow((*cell_phase_residual)[cell_support],2);
+    /*
+    m_cell_error_flux[idCell]     = std::sqrt(norm_flux);
+    m_cell_error_nc[idCell]       = std::abs(std::sqrt(norm_eng )- std::sqrt(std::abs(norm_eng + scal_mass)));
+    m_cell_error_res[idCell]      = ct_pi*std::pow(cellMeasures(icell),1/3.)*std::sqrt(residu);
+    */
+    error_estimate[cell_support]  =  std::sqrt(norm_flux);
+    //error_estimate[cell_support]  = m_cell_error_nc[idCell]+m_cell_error_flux[idCell]+m_cell_error_res[idCell];
+
+  }
+
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+_computeMultiPhaseDarcyRefPhaseEstimate(MeshVariableScalarRefT<TCell,Real>* cell_phase_pressure,
+                                        MeshVariableScalarRefT<TCell,Real>* cell_phase_mobility,
+                                        MeshVariableScalarRefT<TFace,Real>* face_phase_velocity_no_gravity,
+                                        MeshVariableScalarRefT<TFace,Real>* face_phase_velocity,
+                                        MeshVariableScalarRefT<TCell,Real>* cell_phase_residual,
+                                        MeshVariableScalarRefT<TCell,Real>& error_estimate)
+{
+
+
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces){
+    const TFace& face_support = m_dc->face(*iface);
+    Real flux = (*face_phase_velocity)[face_support];
+    Discretization::Cell up_cell = upwind(flux,*iface);
+    const TCell& up_cell_support = m_dc->cell(up_cell);
+    Real flux_up = (*cell_phase_mobility)[up_cell_support] * flux;
+    m_face_flux_up[iface->localId()] = flux_up;
+  }
+
+//----------------------------------------------------------------------------
+
+// APosterioriErrorEstimates:: computeEstimates................................
+
+//----------------------------------------------------------------------------
+
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  using namespace Eigen ;
+  typedef Eigen::Matrix<Real,Dynamic,Dynamic,RowMajor> MatrixType ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Map<MatrixType,0,outer_stride> eigen_matrix;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  //const Real ct_pi  = 1. / 3.14;
+  const Integer maxFaceNumber = 20;
+  RealSharedArray dof_by_subFace(maxFaceNumber);
+  RealSharedArray diff_dof_by_subFace(maxFaceNumber);
+  RealSharedArray cell_face_flux(maxFaceNumber);
+  RealSharedArray cell_face_pressure(maxFaceNumber);
+  Real face_flux, face_flux_noG, face_flux_up, u_cell, res_eng, norm_eng, res_scal, scal_mass, res_flux, norm_flux; // cell_div
+  //Real max_flux_err(1e-14),max_nc_err(1e-14),max_err(1e-14);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    const Integer idCell = icell->localId();
+    cell_face_pressure.fill(0.);
+    cell_face_flux.fill(0.);
+    dof_by_subFace.fill(0.);
+    diff_dof_by_subFace.fill(0.);
+    u_cell = res_eng = norm_eng = res_scal = scal_mass = res_flux = norm_flux = 0.;//cell_div =
+
+    const Arcane::Cell& arcCell = m_dc->cell(icell);
+    const FaceVectorView& faces = arcCell.faces();
+    ENUMERATE_FACE(iface,faces){
+      const Arcane::Face& arcFace = *iface;
+      const Discretization::Face& face = m_dc->face(arcFace);
+
+      face_flux = face_flux_up = face_flux_noG = 0.;
+      if ((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+            (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive() && arcFace.frontCell().isActive())){
+        const Discretization::Cell& up = m_dc->backCell(face);
+        Integer sign_up = (idCell == up.localId() ? 1 : -1);
+        face_flux      = (*face_phase_velocity)[arcFace];
+        face_flux_up   = m_face_flux_up[face.localId()];
+        face_flux_noG  = sign_up * (*face_phase_velocity_no_gravity)[arcFace];
+      }else{
+        const Real3 iFaceOutwardUnitNormal = faceNormals(face);
+        mesh::FaceFamily* face_family = dynamic_cast<mesh::FaceFamily *> (m_dc->mesh()->faceFamily());
+        SharedArray<ItemInternal*> subfaces;
+        face_family->subFaces(arcFace.internal(),subfaces);
+        for(Integer j = 0; j < subfaces.size(); j++){
+            const Arcane::Face& jArcFace = subfaces[j];
+            const Discretization::Face& j_face = m_dc->face(jArcFace);
+            if((jArcFace.isSubDomainBoundary() && jArcFace.boundaryCell().isActive()) ||
+                    (not jArcFace.isSubDomainBoundary() && jArcFace.backCell().isActive() && jArcFace.frontCell().isActive()))
+            {
+            const Real3 jFaceOutwardUnitNormal = faceNormals(j_face);
+            Real sign = math::scaMul(iFaceOutwardUnitNormal,jFaceOutwardUnitNormal);
+            face_flux      += sign * (*face_phase_velocity)[arcFace];
+            face_flux_noG  += sign * (*face_phase_velocity_no_gravity)[arcFace];
+            face_flux_up   += sign * m_face_flux_up[j_face.localId()];
+            }
+        }
+        if((arcFace.isSubDomainBoundary() && arcFace.boundaryCell().isActive()) ||
+                (not arcFace.isSubDomainBoundary() && arcFace.backCell().isActive()))
+          face_flux_noG *=  1.;
+        else
+          face_flux_noG *= -1.;
+      }
+
+      diff_dof_by_subFace[iface.index()] = (face_flux_up - (*cell_phase_mobility)[arcCell]*face_flux);// /m_scalar_kappa[idCell][iface.index()];
+
+      dof_by_subFace[iface.index()] = (*cell_phase_mobility)[arcCell]*face_flux_noG; // /m_scalar_kappa[idCell][iface.index()];
+      u_cell += (*cell_phase_mobility)[arcCell]*face_flux_noG * m_scalar_kappa[idCell][iface.index()];
+      cell_face_flux[iface.index()] = (*cell_phase_mobility)[arcCell]*face_flux_noG * m_scalar_kappa[idCell][iface.index()];
+
+      cell_face_pressure[iface.index()] = (*m_arc_face_pressure)[arcFace];
+
+    }
+
+    Integer face_c_size=faces.size();
+#if (ARCANE_VERSION >= 22200)
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).data(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+    eigen_vector diff_U(diff_dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine diff_ULine(diff_dof_by_subFace.data(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_flux = (diff_ULine*MEng*diff_U)[0];
+    norm_flux = std::abs(res_flux);
+
+    eigen_vector SExt(cell_face_pressure.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.data(), face_c_size, outer_stride(maxFaceNumber)) ;
+#else
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).begin(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+    eigen_vector diff_U(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine diff_ULine(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_flux = (diff_ULine*MEng*diff_U)[0];
+    norm_flux = std::abs(res_flux);
+
+    eigen_vector SExt(cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+#endif
+    res_scal  = (UExtLine*SExt)[0];
+    scal_mass = 2*(*cell_phase_mobility)[arcCell]*(res_scal-u_cell*(*m_arc_cont_cell_pressure)[arcCell]);
+
+    //const Real residu   = cellMeasures(icell)*std::pow((*cell_phase_residual)[arcCell],2);
+
+    Real cell_error_flux     = std::sqrt(norm_flux);
+    //Real cell_error_nc       = std::abs(std::sqrt(norm_eng )- std::sqrt(std::abs(norm_eng + scal_mass)));
+    //Real cell_error_res      = ct_pi*std::pow(cellMeasures(icell),1/3.)*std::sqrt(residu);
+
+
+    error_estimate[arcCell]  = cell_error_flux;//cell_error_nc + cell_error_flux + cell_error_res;
+
+  }
+
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+template<typename VariableTypeT>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeCartesian(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type, VariableTypeT> & kappa,
+        MeshVariableScalarRefT<TFace,Real>* ref_face_flux,
+        MeshVariableScalarRefT<TCell,Real>& error_estimate, MeshVariableScalarRefT<TCell,Real>& error)
+{
+
+
+  boost::shared_ptr<VariableDoFReal3x3> m_perm_cell(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_rtn_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_rtn_coef_ref(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_quadratic_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_bilinear_coef(NULL);
+
+  VariableBuildInfo perm_cell_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo rtn_coef_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo rtn_coef_ref_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo quadratic_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo bilinear_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  m_perm_cell.reset( new VariableDoFReal3x3(perm_cell_vb));
+  m_rtn_coef.reset( new VariableDoFArrayReal(rtn_coef_vb));
+  m_rtn_coef_ref.reset( new VariableDoFArrayReal(rtn_coef_ref_vb));
+  m_quadratic_coef.reset( new VariableDoFArrayReal(quadratic_coef_vb));
+  m_bilinear_coef.reset( new VariableDoFArrayReal(bilinear_coef_vb));
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  Measures<Discretization::Face> faceMeasures(m_dg) ;
+  Centers<Discretization::Face> faceCenters(m_dg) ;
+  Centers<Discretization::Node> nodeCenters(m_dg) ;
+
+  RealSharedArray face_flux_ref(m_face_size);
+  face_flux_ref.fill(0.);
+  RealSharedArray face_flux(m_face_size);
+  face_flux.fill(0.);
+  RealSharedArray cell_pressure(m_cell_size);
+  cell_pressure.fill(0.);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    const Integer idCell = icell->localId();
+    const TCell& cell_support = m_dc->cell(icell);
+    cell_pressure[idCell] = (*m_cell_pressure)[cell_support];
+  }
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces){
+    const Integer idFace = iface->localId();
+    const TFace& face_support = m_dc->face(iface);
+    face_flux[idFace] = (*m_face_flux)[face_support];
+    face_flux_ref[idFace] = (*ref_face_flux)[face_support];
+  }
+
+  // construct RTN flux
+  RtnSpace RtnFlux(m_dg,*m_rtn_coef);
+  RtnFlux.compute(face_flux, m_cells);
+  RtnSpace RtnFluxRef(m_dg,*m_rtn_coef_ref);
+  RtnFluxRef.compute(face_flux_ref, m_cells);
+
+
+  Real3x3 perm;
+  // To postporcess the pressure we deal with diagonal permeability
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells) {
+    const Discretization::Cell& cell = *icell;
+    const auto & k0 = kappa[cell];
+    //Real3 un(1,1,1);  DiscreteOperator::tensor_vector_prod<DiffusionType>::eval(k0,un);
+    APosterioriErrorEstimatesUtils::assign(perm,k0);
+    (*m_perm_cell)[cell]=perm;
+  }
+
+  QuadraticMap QuadraticPressure(m_dg,*m_quadratic_coef);
+  QuadraticPressure.compute(cell_pressure,face_flux, *m_perm_cell, m_cells);
+
+/*
+  // Get the nodal pressure to construct the continuous pressure
+  m_node_pressure.resize(m_node_size);
+  m_node_pressure.fill(0);
+  ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes)
+  {
+    const Discretization::Node& node = *inode;
+    const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+    const Real3 point_node = (nodeCenters)(node);
+    Real measCells=0.;
+    ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+      const Discretization::Cell& cell = *icell;
+      Real QuadP = QuadraticPressure.eval(point_node, cell);
+      m_node_pressure[node.localId()] += QuadP*cellMeasures(icell);
+      measCells += cellMeasures(icell);
+    }
+    if(measCells)
+      m_node_pressure[node.localId()] /=  measCells;
+  }
+
+  BilinearMap BilinearPressure(m_dg,*m_bilinear_coef);
+  BilinearPressure.compute(m_node_pressure, m_cells);
+
+  m_primal_correction.resize(m_cell_size);
+  Real3 v_zero(0.,0.,0.);
+  m_primal_correction.fill(v_zero);
+  // compute the different estimators !
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+      const Discretization::Cell& cell = *icell;
+      const Real measureK = (cellMeasures)(cell);
+      const Real3x3 Perm_T = (*m_perm_cell)[cell];
+      const Real3 xCell = (cellCenters)(cell);
+
+      Real3 contRTNFlux = RtnFluxRef.eval(xCell, cell);
+      Real3 disRTNFlux = RtnFlux.eval(xCell, cell);
+      //Real3 D_quadratic_pressure = QuadraticPressure.gradient(xCell, cell);
+      Real3 D_continuous_pressure = BilinearPressure.gradient(xCell, cell);
+      Real3 KGradContP = TensorVectorProduct::eval(Perm_T, D_continuous_pressure);
+
+      Real non_conformity_estimator = measureK*math::scaMul(disRTNFlux + KGradContP,disRTNFlux + KGradContP);
+      Real res_rtn                  = measureK*math::scaMul(disRTNFlux - contRTNFlux, disRTNFlux - contRTNFlux);
+
+      const TCell& arcCell = m_dc->cell(icell);
+      error_estimate[arcCell]  = std::sqrt(non_conformity_estimator);
+      error[arcCell]  = std::sqrt(res_rtn);
+
+
+      Real3 primal_correction = disRTNFlux + D_continuous_pressure;
+      m_primal_correction[cell.localId()] = primal_correction;
+
+      m_cont_cell_pressure[icell.localId()] = BilinearPressure.eval(xCell, cell);
+
+      const FaceVectorView& faces = arcCell.faces();
+      ENUMERATE_FACE(iface,faces){
+        const Arcane::Face& arcFace = *iface;
+        const Discretization::Face& face = m_dc->face(arcFace);
+        const Real3 xFace = (faceCenters)(face);
+        m_face_pressure[arcFace.localId()] = BilinearPressure.eval(xFace, cell);
+      }
+      if(0){
+            term1 = measureK*2*RtnFlux.div(*m_face_flux,cell)*BilinearPressure.eval(xCell, cell);
+            const Discretization::ConnectedItems faces((m_dc)->faces(cell)) ;
+            ENUMERATE_DISCRETIZATION_FACE(iface,faces)
+            {
+                const Discretization::Face& face = *iface;
+                Real face_pressure = 0.;
+                const Discretization::ConnectedItems nodes((m_dc)->nodes(face)) ;
+                ENUMERATE_DISCRETIZATION_NODE(inode,nodes)
+                {
+                  const Discretization::Node& node = *inode;
+                  face_pressure += m_node_pressure[node.localId()]/nodes.size();
+                }
+                const Discretization::Cell & up = m_dc->backCell(iface);
+                Integer sign = (cell.localId() == up.localId() ? 1 : -1);
+                const TFace& face_support = m_dc->face(iface);
+                term2 += sign*2*(*m_face_flux)[face.localId()]*face_pressure;
+            }
+      }
+  }
+*/
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+template<typename VariableTypeT>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeCartesianDual(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type, VariableTypeT> & kappa,
+        MeshVariableScalarRefT<TCell,Real>& error_estimate,
+        MeshVariableScalarRefT<TCell,Real>& correction_term)
+{
+
+
+  boost::shared_ptr<VariableDoFReal3x3> m_perm_cell(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_rtn_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_quadratic_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_bilinear_coef(NULL);
+
+  VariableBuildInfo perm_cell_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo rtn_coef_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo quadratic_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo bilinear_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  m_perm_cell.reset( new VariableDoFReal3x3(perm_cell_vb));
+  m_rtn_coef.reset( new VariableDoFArrayReal(rtn_coef_vb));
+  m_quadratic_coef.reset( new VariableDoFArrayReal(quadratic_coef_vb));
+  m_bilinear_coef.reset( new VariableDoFArrayReal(bilinear_coef_vb));
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  Measures<Discretization::Face> faceMeasures(m_dg) ;
+  Centers<Discretization::Node> nodeCenters(m_dg) ;
+
+  RealSharedArray face_flux_ref(m_face_size);
+  face_flux_ref.fill(0.);
+  RealSharedArray face_flux(m_face_size);
+  face_flux.fill(0.);
+  RealSharedArray cell_pressure(m_cell_size);
+  cell_pressure.fill(0.);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    const Integer idCell = icell->localId();
+    const TCell& cell_support = m_dc->cell(icell);
+    cell_pressure[idCell] = (*m_dual_cell_pressure)[cell_support];
+  }
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces){
+    const Integer idFace = iface->localId();
+    const TFace& face_support = m_dc->face(iface);
+    face_flux[idFace] = (*m_dual_face_flux)[face_support];
+  }
+
+  // construct RTN flux
+  RtnSpace RtnFlux(m_dg,*m_rtn_coef);
+  RtnFlux.compute(face_flux, m_cells);
+
+
+  Real3x3 perm;
+  // To postporcess the pressure we deal with diagonal permeability
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells) {
+    const Discretization::Cell& cell = *icell;
+    const auto & k0 = kappa[cell];
+    //Real3 un(1,1,1);  DiscreteOperator::tensor_vector_prod<DiffusionType>::eval(k0,un);
+    APosterioriErrorEstimatesUtils::assign(perm,k0);
+    (*m_perm_cell)[cell]=perm;
+  }
+
+  QuadraticMap QuadraticPressure(m_dg,*m_quadratic_coef);
+  QuadraticPressure.compute(cell_pressure,face_flux, *m_perm_cell, m_cells);
+
+/*
+  // Get the nodal pressure to construct the continuous pressure
+  m_dual_node_pressure.resize(m_node_size);
+  m_dual_node_pressure.fill(0);
+  ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes)
+  {
+    const Discretization::Node& node = *inode;
+    const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+    const Real3 point_node = (nodeCenters)(node);
+    Real measCells=0.;
+    ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+      const Discretization::Cell& cell = *icell;
+      Real QuadP = QuadraticPressure.eval(point_node, cell);
+      m_dual_node_pressure[node.localId()] += QuadP*cellMeasures(icell);
+      measCells += cellMeasures(icell);
+    }
+    if(measCells)
+      m_dual_node_pressure[node.localId()] /=  measCells;
+  }
+
+  BilinearMap BilinearPressure(m_dg,*m_bilinear_coef);
+  BilinearPressure.compute(m_dual_node_pressure, m_cells);
+
+  // compute the different estimators !
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+      const Discretization::Cell& cell = *icell;
+      const Real measureK = (cellMeasures)(cell);
+      const Real3x3 Perm_T = (*m_perm_cell)[cell];
+      const Real3 xCell = (cellCenters)(cell);
+      Real3 disRTNFlux = RtnFlux.eval(xCell, cell);
+      Real3 D_continuous_pressure = BilinearPressure.gradient(xCell, cell);
+      Real3 KGradContP = TensorVectorProduct::eval(Perm_T, D_continuous_pressure);
+
+      Real non_conformity_estimator = measureK*math::scaMul(disRTNFlux + KGradContP,disRTNFlux + KGradContP);
+
+      const TCell& arcCell = m_dc->cell(icell);
+      error_estimate[arcCell]  = std::sqrt(non_conformity_estimator);
+
+      Real3 dual_correction = D_continuous_pressure - disRTNFlux;
+      Real3 primal_correction = m_primal_correction[cell.localId()];
+      correction_term[arcCell] = -0.5*measureK* math::scaMul(primal_correction, dual_correction);
+  }
+  */
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+template<typename VariableTypeT>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+compute2DCartesian(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type, VariableTypeT> & kappa,
+                   MeshVariableScalarRefT<TFace,Real>* ref_face_flux,
+                   MeshVariableScalarRefT<TCell,Real>& error_estimate, MeshVariableScalarRefT<TCell,Real>& error)
+{
+
+
+  boost::shared_ptr<VariableDoFReal3x3> m_perm_cell(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_rtn_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_rtn_coef_ref(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_quadratic_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_bilinear_coef(NULL);
+
+#ifdef USE_ARCANE_V3
+  Arcane::IItemFamily* cellFamily = m_dc->cellFamily()->itemFamily();
+#else
+  Arcane::IItemFamily* cellFamily = m_dc->cellFamily();
+#endif
+
+  VariableBuildInfo perm_cell_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo rtn_coef_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo rtn_coef_ref_vb(m_cellFamily,
+                                    IMPLICIT_UNIQ_NAME,
+                                    IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo quadratic_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo bilinear_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  m_perm_cell.reset( new VariableDoFReal3x3(perm_cell_vb));
+  m_rtn_coef.reset( new VariableDoFArrayReal(rtn_coef_vb));
+  m_rtn_coef_ref.reset( new VariableDoFArrayReal(rtn_coef_ref_vb));
+  m_quadratic_coef.reset( new VariableDoFArrayReal(quadratic_coef_vb));
+  m_bilinear_coef.reset( new VariableDoFArrayReal(bilinear_coef_vb));
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  Measures<Discretization::Face> faceMeasures(m_dg) ;
+  Centers<Discretization::Face> faceCenters(m_dg) ;
+  Centers<Discretization::Node> nodeCenters(m_dg) ;
+
+  RealSharedArray face_flux_ref(m_face_size);
+  face_flux_ref.fill(0.);
+  RealSharedArray face_flux(m_face_size);
+  face_flux.fill(0.);
+  RealSharedArray cell_pressure(m_cell_size);
+  cell_pressure.fill(0.);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    const Integer idCell = icell->localId();
+    const TCell& cell_support = m_dc->cell(icell);
+    cell_pressure[idCell] = (*m_cell_pressure)[cell_support];
+  }
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces){
+    const Integer idFace = iface->localId();
+    const TFace& face_support = m_dc->face(iface);
+    face_flux[idFace] = (*m_face_flux)[face_support];
+    face_flux_ref[idFace] = (*ref_face_flux)[face_support];
+  }
+  Real3x3 perm;
+  // To postporcess the pressure we deal with diagonal permeability
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells) {
+    const Discretization::Cell& cell = *icell;
+    const auto & k0 = kappa[cell];
+    //Real3 un(1,1,1);  DiscreteOperator::tensor_vector_prod<DiffusionType>::eval(k0,un);
+    APosterioriErrorEstimatesUtils::assign(perm,k0);
+    (*m_perm_cell)[cell]=perm;
+  }
+
+  // construct RTN flux
+  RtnSpace2D RtnFlux(m_dg,*m_rtn_coef);
+  RtnFlux.compute(face_flux, m_cells);
+  RtnSpace2D RtnFluxRef(m_dg,*m_rtn_coef_ref);
+  RtnFluxRef.compute(face_flux_ref, m_cells);
+
+  QuadraticMap2D QuadraticPressure(m_dg,*m_quadratic_coef);
+  QuadraticPressure.compute(cell_pressure,face_flux, *m_perm_cell, m_cells);
+
+/*
+  m_face_pressure.fill(0.);
+  m_cont_cell_pressure.fill(0.);
+  // Get the nodal pressure to construct the continuous pressure
+  RealSharedArray node_pressure(m_node_size);
+  node_pressure.fill(0);
+  ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes)
+  {
+    const Discretization::Node& node = *inode;
+    const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+    const Real3 point_node = (nodeCenters)(node);
+    Real measCells=0.;
+    ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+      const Discretization::Cell& cell = *icell;
+      Real QuadP = QuadraticPressure.eval(point_node, cell);
+      node_pressure[node.localId()] += QuadP*cellMeasures(icell);
+      measCells += cellMeasures(icell);
+    }
+    if(measCells)
+      node_pressure[node.localId()] /=  measCells;
+  }
+
+  BilinearMap2D BilinearPressure(m_dg,*m_bilinear_coef);
+  BilinearPressure.compute(node_pressure, m_cells);
+
+
+  Real3Array quadPoints(4);
+  Real sq = 1./(2*std::sqrt(3));
+  Real y1 = sq, y2 = -sq, z1=sq, z2= -sq;
+  Real3 Q0(0.,y1,z1);  quadPoints[0] = Q0;  Real3 Q1(0.,y1,z2);  quadPoints[1] = Q1;
+  Real3 Q2(0.,y2,z1);  quadPoints[2] = Q2;  Real3 Q3(0.,y2,z2);  quadPoints[3] = Q3;
+  // compute the different estimators !
+  double max_value=1e-12;
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+      Real h=std::sqrt(cellMeasures(icell));
+      const Discretization::Cell& cell = *icell;
+      const Real measureK = (cellMeasures)(cell);
+      const Real3x3 Perm_T = (*m_perm_cell)[cell];
+      Real non_conformity_estimator =0.;
+      Real est = 0.;
+      Integer isQuad = 0;
+      Integer nb_quad = 4;
+      for(Integer k=0; k< nb_quad; k++){
+      const Real3 xCell = (cellCenters)(cell) + h*quadPoints[k];
+
+      Real3 disRTNFlux = RtnFlux.eval(xCell, cell);
+      Real3 contRTNFlux = RtnFluxRef.eval(xCell, cell);
+      Real3 D_quadratic_pressure  = QuadraticPressure.gradient(xCell, cell);
+      Real3 D_continuous_pressure = BilinearPressure.gradient(xCell, cell);
+      Real3 KGradContP = TensorVectorProduct::eval(Perm_T, D_continuous_pressure);
+
+      non_conformity_estimator += measureK*math::scaMul(disRTNFlux + KGradContP,disRTNFlux + KGradContP);
+      est                      += measureK*math::scaMul(contRTNFlux-disRTNFlux,contRTNFlux-disRTNFlux);
+
+         isQuad++;
+      }
+      Real fact = 1.;
+      if(isQuad>1)
+        fact = 1./4.;
+
+      const TCell& arcCell = m_dc->cell(icell);
+      error_estimate[arcCell]  = fact*std::sqrt(non_conformity_estimator);
+      error[arcCell]  = std::sqrt(est);
+
+      const Real3 xCell = (cellCenters)(cell);
+      Real3 disRTNFlux = RtnFlux.eval(xCell, cell);
+      Real3 D_continuous_pressure = BilinearPressure.gradient(xCell, cell);
+      Real3 primal_correction = disRTNFlux + D_continuous_pressure;
+      m_primal_correction[cell.localId()] = primal_correction;
+
+      m_cont_cell_pressure[icell.localId()] = BilinearPressure.eval(xCell, cell);
+  }
+*/
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+template<typename VariableTypeT>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+compute2DCartesianDual(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type, VariableTypeT> & kappa,
+                   MeshVariableScalarRefT<TCell,Real>& error_estimate,
+                   MeshVariableScalarRefT<TCell,Real>& correction_term)
+{
+
+
+  boost::shared_ptr<VariableDoFReal3x3> m_perm_cell(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_rtn_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_rtn_coef_ref(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_quadratic_coef(NULL);
+  boost::shared_ptr<VariableDoFArrayReal> m_bilinear_coef(NULL);
+
+  VariableBuildInfo perm_cell_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo rtn_coef_vb(m_cellFamily,
+                                IMPLICIT_UNIQ_NAME,
+                                IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo rtn_coef_ref_vb(m_cellFamily,
+                                    IMPLICIT_UNIQ_NAME,
+                                    IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo quadratic_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  VariableBuildInfo bilinear_coef_vb(m_cellFamily,
+                                      IMPLICIT_UNIQ_NAME,
+                                      IVariable::PPrivate | IVariable::PTemporary);
+  m_perm_cell.reset( new VariableDoFReal3x3(perm_cell_vb));
+  m_rtn_coef.reset( new VariableDoFArrayReal(rtn_coef_vb));
+  m_rtn_coef_ref.reset( new VariableDoFArrayReal(rtn_coef_ref_vb));
+  m_quadratic_coef.reset( new VariableDoFArrayReal(quadratic_coef_vb));
+  m_bilinear_coef.reset( new VariableDoFArrayReal(bilinear_coef_vb));
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  Measures<Discretization::Face> faceMeasures(m_dg) ;
+  Centers<Discretization::Face> faceCenters(m_dg) ;
+  Centers<Discretization::Node> nodeCenters(m_dg) ;
+
+  RealSharedArray face_flux_ref(m_face_size);
+  face_flux_ref.fill(0.);
+  RealSharedArray face_flux(m_face_size);
+  face_flux.fill(0.);
+  RealSharedArray cell_pressure(m_cell_size);
+  cell_pressure.fill(0.);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells){
+    const Integer idCell = icell->localId();
+    const TCell& cell_support = m_dc->cell(icell);
+    cell_pressure[idCell] = (*m_dual_cell_pressure)[cell_support];
+  }
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces){
+    const Integer idFace = iface->localId();
+    const TFace& face_support = m_dc->face(iface);
+    face_flux[idFace] = (*m_dual_face_flux)[face_support];
+  }
+  Real3x3 perm;
+  // To postporcess the pressure we deal with diagonal permeability
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells) {
+    const Discretization::Cell& cell = *icell;
+    const auto & k0 = kappa[cell];
+    //Real3 un(1,1,1);  DiscreteOperator::tensor_vector_prod<DiffusionType>::eval(k0,un);
+    APosterioriErrorEstimatesUtils::assign(perm,k0);
+    (*m_perm_cell)[cell]=perm;
+  }
+
+  // construct RTN flux
+  RtnSpace2D RtnFlux(m_dg,*m_rtn_coef);
+  RtnFlux.compute(face_flux, m_cells);
+  RtnSpace2D RtnFluxRef(m_dg,*m_rtn_coef_ref);
+  RtnFluxRef.compute(face_flux_ref, m_cells);
+
+  QuadraticMap2D QuadraticPressure(m_dg,*m_quadratic_coef);
+  QuadraticPressure.compute(cell_pressure,face_flux, *m_perm_cell, m_cells);
+
+/*
+  m_dual_face_pressure.fill(0.);
+  m_dual_cont_cell_pressure.fill(0.);
+  // Get the nodal pressure to construct the continuous pressure
+  RealSharedArray node_pressure(m_node_size);
+  node_pressure.fill(0);
+  ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes)
+  {
+    const Discretization::Node& node = *inode;
+    const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+    const Real3 point_node = (nodeCenters)(node);
+    Real measCells=0.;
+    ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+      const Discretization::Cell& cell = *icell;
+      Real QuadP = QuadraticPressure.eval(point_node, cell);
+      node_pressure[node.localId()] += QuadP*cellMeasures(icell);
+      measCells += cellMeasures(icell);
+    }
+    if(measCells)
+      node_pressure[node.localId()] /=  measCells;
+  }
+
+  BilinearMap2D BilinearPressure(m_dg,*m_bilinear_coef);
+  BilinearPressure.compute(node_pressure, m_cells);
+
+
+  Real3Array quadPoints(4);
+  Real sq = 1./(2*std::sqrt(3));
+  Real y1 = sq, y2 = -sq, z1=sq, z2= -sq;
+  Real3 Q0(0.,y1,z1);  quadPoints[0] = Q0;  Real3 Q1(0.,y1,z2);  quadPoints[1] = Q1;
+  Real3 Q2(0.,y2,z1);  quadPoints[2] = Q2;  Real3 Q3(0.,y2,z2);  quadPoints[3] = Q3;
+  // compute the different estimators !
+  double max_value=1e-12;
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+      Real h=std::sqrt(cellMeasures(icell));
+      const Discretization::Cell& cell = *icell;
+      const Real measureK = (cellMeasures)(cell);
+      const Real3x3 Perm_T = (*m_perm_cell)[cell];
+      Real  non_conformity_estimator=0.;
+
+      Integer isQuad = 0;
+      Integer nb_quad = 4;
+      for(Integer k=0; k< nb_quad; k++){
+        const Real3 xCell = (cellCenters)(cell) + h*quadPoints[k];
+
+        Real3 disRTNFlux = RtnFlux.eval(xCell, cell);
+        Real3 contRTNFlux = RtnFluxRef.eval(xCell, cell);
+        Real3 D_quadratic_pressure  = QuadraticPressure.gradient(xCell, cell);
+        Real3 D_continuous_pressure = BilinearPressure.gradient(xCell, cell);
+        Real3 KGradContP = TensorVectorProduct::eval(Perm_T, D_continuous_pressure);
+
+        non_conformity_estimator += measureK*math::scaMul(disRTNFlux + KGradContP,disRTNFlux + KGradContP);
+
+        isQuad++;
+      }
+      Real fact = 1.;
+      if(isQuad>1)
+        fact = 1./4.;
+
+      const TCell& arcCell = m_dc->cell(icell);
+      error_estimate[arcCell]  = fact*std::sqrt(non_conformity_estimator);
+
+      const Real3 xCell = (cellCenters)(cell);
+      Real3 disRTNFlux = RtnFlux.eval(xCell, cell);
+      Real3 D_continuous_pressure = BilinearPressure.gradient(xCell, cell);
+      Real3 dual_correction = D_continuous_pressure - disRTNFlux;
+      Real3 primal_correction = m_primal_correction[cell.localId()];
+      correction_term[arcCell] = -0.5 * measureK * math::scaMul(primal_correction, dual_correction);
+  }
+*/
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+template<typename TCell, typename TFace, typename TNode>
+template<typename VariableTypeT>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+_computeCoeffElementMatrix(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                                VariableTypeT> & kappa)
+{
+  using TensorVectorProduct = DiscreteOperator::tensor_vector_prod<Real3x3>  ;
+  const Integer maxFaceNumber = 40;
+  const Integer maxNodeNumber = 40;
+
+  m_mat_on_subFace.resize(m_cell_size,maxFaceNumber*maxFaceNumber);
+  m_mat_on_subFace.fill(0);
+  m_scalar_kappa.resize(m_cell_size,maxNodeNumber);
+  m_scalar_kappa.fill(0);
+
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+
+  Centers<Discretization::Face> faceCenters(m_dg) ;
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+
+  Real3x3 perm;
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+      const Discretization::Cell& cell = *icell;
+      Real invCellMeasure = 1./(cellMeasures)(cell);
+      Real3 cellCenter = (cellCenters)(cell);
+
+      const auto & cell_perm = kappa[cell];
+      APosterioriErrorEstimatesUtils::assign(perm,cell_perm);
+      m_kappa[cell.localId()] = perm;
+
+      const Discretization::ConnectedItems faces((m_dc)->faces(cell)) ;
+      ENUMERATE_DISCRETIZATION_FACE(iface,faces)
+      {
+        const Discretization::Face& face_i = *iface;
+        Real3 iFaceCenter = faceCenters(face_i);
+        ENUMERATE_DISCRETIZATION_FACE(jface,faces)
+        {
+          const Discretization::Face& face_j = *jface;
+          Real3 jFaceCenter= faceCenters(face_j);
+
+          Real Aij=invCellMeasure*(math::scaMul(iFaceCenter-cellCenter,jFaceCenter-cellCenter));
+
+          m_mat_on_subFace[cell.localId()][iface.index()*maxFaceNumber + jface.index()] = Aij;
+        }
+
+        const Arcane::Integer iBackBoundCellLid = m_dc->isCellGroupBoundary(iface) ? m_dc->boundaryCell(iface).localId() :
+             m_dc->backCell(iface).localId() ;
+         const bool iIsBackBound = (iBackBoundCellLid == icell -> localId()) ;
+         const Discretization::FaceCellInd iFaceCellInd =
+              (iIsBackBound ? Discretization::FaceCellInd::Back : Discretization::FaceCellInd::Front) ;
+         const Real3 iFaceOutwardUnitNormal = faceNormals(iface, iFaceCellInd) ;
+         Real kappaNormalNormal = math::scaMul(TensorVectorProduct::eval(perm,iFaceOutwardUnitNormal),iFaceOutwardUnitNormal);
+         m_scalar_kappa[cell.localId()][iface.index()] = kappaNormalNormal;
+      }
+  }
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+template<typename VariableTypeT>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+_computeCoeffElementFaceMatrix(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                                VariableTypeT> & kappa)
+{
+  using TensorVectorProduct = DiscreteOperator::tensor_vector_prod<Real3x3>  ;
+  const Integer maxFaceNumber = 20;
+  const Integer maxNodeNumber = 30;
+
+  m_mat_on_subFace.resize(m_cell_size,maxFaceNumber*maxFaceNumber);
+  m_mat_on_subFace.fill(0);
+  m_scalar_kappa.resize(m_cell_size,maxNodeNumber);
+  m_scalar_kappa.fill(0);
+
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+
+  Centers<Discretization::Face> faceCenters(m_dg) ;
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+
+  Real3x3 perm;
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+      const Discretization::Cell& cell = *icell;
+      Real invCellMeasure = 1./(cellMeasures)(cell);
+      Real3 cellCenter = (cellCenters)(cell);
+      const auto & cell_perm = kappa[cell];
+      APosterioriErrorEstimatesUtils::assign(perm,cell_perm);
+      m_kappa[cell.localId()] = perm;
+
+      const Arcane::Cell& arcCell = m_dc->cell(cell);
+      const FaceVectorView& faces = arcCell.faces();
+      ENUMERATE_FACE(iface,faces){
+        const Arcane::Face& iArcFace = *iface;
+        const Discretization::Face& iFace = m_dc->face(iArcFace);
+        const Real3 iFaceOutwardUnitNormal = faceNormals(iFace) ;
+        Real3 iFaceCenter = faceCenters(iFace);
+        ENUMERATE_FACE(jface,faces){
+          const Arcane::Face& jArcFace = *jface;
+          const Discretization::Face& jFace = m_dc->face(jArcFace);
+          Real3 jFaceCenter = faceCenters(jFace);
+
+          Real Aij = invCellMeasure*(math::scaMul(iFaceCenter-cellCenter,jFaceCenter-cellCenter));
+          m_mat_on_subFace[cell.localId()][iface.index()*maxFaceNumber + jface.index()] = Aij;
+        }
+        Real kappaNormalNormal = math::scaMul(TensorVectorProduct::eval(perm,iFaceOutwardUnitNormal),iFaceOutwardUnitNormal);
+        m_scalar_kappa[cell.localId()][iface.index()] = kappaNormalNormal;
+      }
+  }
+}
+
+/*----------------------------------------------------------------------------*/
+/*
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+initMultiPhaseDarcyEstimate(const Integer& number_of_phases,
+                                                            const Integer& number_of_components)
+{
+  m_nb_phase     = number_of_phases;
+  m_nb_component = number_of_components;
+  m_node_phase_pressure.resize(m_node_size, m_nb_phase);
+  m_node_phase_pressure.fill(0.);
+  m_cont_cell_phase_pressure.resize(m_cell_size, m_nb_phase);
+  m_cont_cell_phase_pressure.fill(0);
+  m_face_phase_pressure.resize(m_face_size, m_nb_phase);
+  m_face_phase_pressure.fill(0);
+  m_face_phase_flux_up.resize(m_face_size, m_nb_phase);
+  m_face_phase_flux_up.fill(0);
+
+  m_cell_error_flux.resize(m_cell_size);
+  m_cell_error_nc.resize(m_cell_size);
+  m_cell_errorContPres.resize(m_cell_size);
+
+  m_cell_error_flux.fill(0.);
+  m_cell_error_nc.fill(0.);
+  m_cell_errorContPres.fill(0.);
+
+
+}
+
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeMultiPhaseDarcyEstimate(RealSharedArray2* cell_phase_pressure,
+                                                               RealSharedArray2* cell_phase_mobility,
+                                                               RealSharedArray2* face_phase_velocity_no_gravity,
+                                                               RealSharedArray2* face_phase_velocity,
+                                                               RealSharedArray&        error_estimate)
+{
+
+  m_isDirichletBoundary = m_isNodeDirichletBoundary || m_isFaceDirichletBoundary;
+
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  //Integer nb_phase = 1;
+  // Get the nodal pressure to construct the continuous pressure
+  if(m_isDirichletBoundary){
+    ENUMERATE_DISCRETIZATION_NODE(inode, (m_dc)->innerNodes()){
+      const Discretization::Node& node = *inode;
+      const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+      Integer nbCells=cells.size();
+      ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+        const Discretization::Cell& cell = *icell;
+        for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++)
+          m_node_phase_pressure[node.localId()][id_phase] += (*cell_phase_pressure)[cell.localId()][id_phase]/nbCells;
+      }
+    }
+    ENUMERATE_DISCRETIZATION_NODE(inode, (m_dc)->outerNodes()){
+      const Discretization::Node& node = *inode;
+      const Discretization::ConnectedItems faces((m_dc)->faces(node)) ;
+      Integer nb_boundary_faces =0;
+      ENUMERATE_DISCRETIZATION_FACE(iface, faces){
+        const Discretization::Face& face = *iface;
+        const bool iIsOnBoundary = (m_dc)->isCellGroupBoundary(iface) || (m_dc)->isSubDomainBoundary(iface) ;
+        if(iIsOnBoundary){
+          for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++)
+            m_node_phase_pressure[node.localId()][id_phase] += m_boundary_face_phase_pressure[face.localId()][id_phase];
+          nb_boundary_faces++;
+        }
+        if(nb_boundary_faces){
+          for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++)
+            m_node_pressure[node.localId()] /= nb_boundary_faces;
+        }
+      }
+    }
+  }
+  else{
+    ENUMERATE_DISCRETIZATION_NODE(inode, m_nodes){//m_nodes){
+      const Discretization::Node& node = *inode;
+      const Discretization::ConnectedItems cells((m_dc)->cells(node)) ;
+      Real measCells=0.;
+      ENUMERATE_DISCRETIZATION_CELL(icell, cells){
+        const Discretization::Cell& cell = *icell;
+        for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++)
+          m_node_phase_pressure[node.localId()][id_phase] += (*cell_phase_pressure)[cell.localId()][id_phase]*cellMeasures(cell);
+        Real c_measure= cellMeasures(cell);
+        measCells += c_measure;
+      }
+      if(measCells){
+        for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++)
+          m_node_phase_pressure[node.localId()][id_phase] /=  measCells;
+      }
+    }
+  }
+
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()) {
+    const Discretization::ConnectedItems nodes((m_dc)->nodes(icell)) ;
+    Integer nbNodes=nodes.size();
+    ENUMERATE_DISCRETIZATION_NODE(inode, nodes){
+      for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++)
+        m_cont_cell_phase_pressure[icell.localId()][id_phase] += m_node_phase_pressure[inode->localId()][id_phase]/(nbNodes);
+    }
+  }
+
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces.own()){
+    const Discretization::ConnectedItems nodes((m_dc)->nodes(iface));
+    Integer node_f_size=nodes.size();
+
+    ENUMERATE_DISCRETIZATION_NODE(inode,nodes){
+      for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++)
+        m_face_phase_pressure[iface->localId()][id_phase] += m_node_phase_pressure[inode->localId()][id_phase]/node_f_size;
+    }
+  }
+
+  ENUMERATE_DISCRETIZATION_FACE(iface, m_faces.own()){
+    const Integer idFace = iface->localId();
+    for(Integer id_phase = 0; id_phase < m_nb_phase; id_phase++){
+      Discretization::Cell up_cell=upwind((*face_phase_velocity)[idFace][id_phase],*iface);
+      m_face_phase_flux_up[idFace][id_phase] = (*cell_phase_mobility)[up_cell.localId()][id_phase]*(*face_phase_velocity)[idFace][id_phase];
+    }
+  }
+
+//----------------------------------------------------------------------------
+
+// APosterioriErrorEstimates:: computeEstimates................................
+
+//----------------------------------------------------------------------------
+  Integer id_phase = 0;
+
+  using namespace Eigen ;
+  typedef Eigen::Matrix<Real,Dynamic,Dynamic,RowMajor> MatrixType ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Map<MatrixType,0,outer_stride> eigen_matrix;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  RealSharedArray dof_by_subFace(maxFaceNumber);
+  RealSharedArray diff_dof_by_subFace(maxFaceNumber);
+  RealSharedArray cell_face_flux(maxFaceNumber);
+  RealSharedArray cell_face_pressure(maxFaceNumber);
+  Real u_cell, res_eng, norm_eng, res_scal, scal_mass, res_flux, norm_flux;
+  //Real max_flux_err(1e-14),max_nc_err(1e-14),max_err(1e-14);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Integer idCell = icell->localId();
+    const Discretization::ConnectedItems faces((m_dc)->faces(icell)) ;
+    Integer face_c_size=faces.size();
+    cell_face_pressure.fill(0.);
+    cell_face_flux.fill(0.);
+    dof_by_subFace.fill(0.);
+    diff_dof_by_subFace.fill(0.);
+    u_cell = res_eng = norm_eng = res_scal = scal_mass = res_flux = norm_flux = 0.;
+    ENUMERATE_DISCRETIZATION_FACE(iface,faces){
+      const Integer idFace = iface->localId();
+      const Discretization::Cell & up = m_dc->backCell(iface);
+      Integer sign = (idCell == up.localId() ? 1 : -1);
+
+      diff_dof_by_subFace[iface.index()] = m_face_phase_flux_up[idFace][id_phase] -
+                                           (*cell_phase_mobility)[idCell][id_phase]*(*face_phase_velocity)[idFace][id_phase];
+
+      dof_by_subFace[iface.index()] = sign * (*cell_phase_mobility)[idCell][id_phase]*(*face_phase_velocity_no_gravity)[idFace][id_phase];
+      u_cell += sign * m_scalar_kappa[idCell][iface.index()] * (*cell_phase_mobility)[idCell][id_phase]*(*face_phase_velocity_no_gravity)[idFace][id_phase];
+      cell_face_flux[iface.index()]= sign * m_scalar_kappa[idCell][iface.index()] * (*cell_phase_mobility)[idCell][id_phase]*(*face_phase_velocity_no_gravity)[idFace][id_phase];
+
+      cell_face_pressure[iface.index()] =  m_face_phase_pressure[iface->localId()][id_phase];
+
+      m_cell_div[idCell] += sign *  m_face_phase_flux_up[idFace][id_phase]/cellMeasures(icell);
+    }
+
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).begin(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+    eigen_vector diff_U(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine diff_ULine(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_flux = (diff_ULine*MEng*diff_U)[0];
+    norm_flux = std::abs(res_flux);
+
+    eigen_vector SExt(cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    res_scal  = (UExtLine*SExt)[0];
+    scal_mass = 2*(*cell_phase_mobility)[idCell][id_phase]*(res_scal-u_cell*m_cont_cell_phase_pressure[idCell][id_phase]);
+
+    m_cell_error_flux[idCell]    = std::sqrt(norm_flux);
+    m_cell_error_nc[idCell]      = std::abs(std::sqrt(norm_eng )- std::sqrt(std::abs(norm_eng + scal_mass)));
+    m_cell_errorContPres[idCell] = std::sqrt(std::abs(m_cont_cell_phase_pressure[idCell][id_phase]));
+    m_error_estimate[idCell]     =  m_cell_error_nc[idCell]+m_cell_error_flux[idCell];
+
+  }
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+  const Integer id = icell->localId();
+  error_estimate[id] = m_error_estimate[id];
+  }
+
+}
+*/
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+computeExEstimates(RealSharedArray& error_estimate)
+{
+/*
+  using namespace Eigen ;
+  typedef Eigen::Matrix<Real,Dynamic,Dynamic,RowMajor> MatrixType ;
+  typedef Eigen::OuterStride<Dynamic> outer_stride;
+  typedef Eigen::Map<MatrixType,0,outer_stride> eigen_matrix;
+  typedef Eigen::Matrix<Real,Dynamic,1> VectorType ;
+  typedef Eigen::Map<VectorType,0,outer_stride> eigen_vector;
+  typedef Eigen::Matrix<Real,1,Dynamic> VectorTypeLine ;
+  typedef Eigen::Map<VectorTypeLine,0,outer_stride> eigen_vectorLine;
+
+  RealSharedArray dof_by_subFace;
+  RealSharedArray diff_dof_by_subFace;
+  RealSharedArray dof_by_subNode;
+  RealSharedArray ones_by_subNode;
+  RealSharedArray cell_face_flux;
+  RealSharedArray cell_face_pressure;
+  Real u_cell, res_eng, norm_eng, res_s, norm_stiff, res_m, res_scal, scal_mass, res_flux, norm_flux;
+  Real max_flux_err(1e-14),max_nc_err(1e-14);//,max_err(1e-14);
+  dof_by_subFace.resize(maxFaceNumber);
+  diff_dof_by_subFace.resize(maxFaceNumber);
+  dof_by_subNode.resize(maxNodeNumber);
+  ones_by_subNode.resize(maxNodeNumber);
+  dof_by_subNode.fill(0.);
+  ones_by_subNode.fill(1.);
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Integer idCell = icell->localId();
+    const Discretization::ConnectedItems faces((m_dc)->faces(icell)) ;
+    Integer face_c_size=faces.size();
+    cell_face_pressure.resize(face_c_size);
+    cell_face_flux.resize(face_c_size);
+    cell_face_pressure.fill(0.);
+    cell_face_flux.fill(0.);
+    dof_by_subFace.fill(0.);
+    dof_by_subNode.fill(0.);
+    diff_dof_by_subFace.fill(0.);
+    u_cell = res_eng = norm_eng = res_s = norm_stiff = res_m = res_scal = scal_mass = res_flux = norm_flux = 0.;
+    ENUMERATE_DISCRETIZATION_FACE(iface,faces){
+      const Integer idFace = iface->localId();
+      const Discretization::Cell & up = m_dc->backCell(iface);
+      Integer sign = (idCell == up.localId() ? 1 : -1);
+
+      diff_dof_by_subFace[iface.index()] = m_face_flux_up[idFace] - m_cell_mobility[idCell]*m_face_velocity[idFace];
+
+      //Discretization::Cell up_cell=upwind(m_face_velocity_no_gravity[idFace],*iface);
+      //Integer sign2 = (idCell == up_cell.localId() ? 1 : -1);
+
+      dof_by_subFace[iface.index()] = sign * m_cell_mobility[idCell]*m_face_velocity_no_gravity[idFace];
+      {
+      u_cell += sign * m_scalar_kappa[idCell][iface.index()] * m_cell_mobility[idCell]*m_face_velocity_no_gravity[idFace];
+      cell_face_flux[iface.index()]= sign * m_scalar_kappa[idCell][iface.index()] * m_cell_mobility[idCell]*m_face_velocity_no_gravity[idFace];
+
+      const Discretization::ConnectedItems nodes((m_dc)->nodes(iface));
+      Integer node_f_size=nodes.size();
+      ENUMERATE_DISCRETIZATION_NODE(inode,nodes)
+        cell_face_pressure[iface.index()] += m_node_pressure[inode->localId()]/node_f_size;
+      }
+
+    }
+
+    const Discretization::ConnectedItems nodes((m_dc)->nodes(icell));
+    ENUMERATE_DISCRETIZATION_NODE(inode,nodes)
+      dof_by_subNode[inode.index()] = m_node_pressure[inode->localId()];
+
+    Integer node_c_size=nodes.size();
+    dof_by_subNode[node_c_size] = m_cont_cell_pressure[icell->localId()];
+
+    eigen_matrix MEng((m_mat_on_subFace[idCell]).begin(), face_c_size, face_c_size, outer_stride(maxFaceNumber));
+    eigen_vector U(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine ULine(dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_eng = (ULine*MEng*U)[0];
+    norm_eng = std::abs(res_eng);
+    eigen_vector diff_U(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine diff_ULine(diff_dof_by_subFace.begin(),face_c_size, outer_stride(maxFaceNumber)) ;
+    res_flux = (diff_ULine*MEng*diff_U)[0];
+    norm_flux = std::abs(res_flux);
+
+    eigen_matrix Stiffness((m_mat_on_subNodes[idCell]).begin(), node_c_size+1, node_c_size+1, outer_stride(maxNodeNumber));
+    eigen_vector S(dof_by_subNode.begin(), node_c_size+1, outer_stride(maxNodeNumber)) ;
+    eigen_vectorLine SLine(dof_by_subNode.begin(), node_c_size+1, outer_stride(maxNodeNumber)) ;
+    res_s = std::pow(m_cell_mobility[idCell],2)*(SLine*Stiffness*S)[0];
+    norm_stiff=std::abs(res_s);
+
+    eigen_matrix Mass((m_mass_mat_on_subNodes[idCell]).begin(), node_c_size+1, node_c_size+1, outer_stride(maxNodeNumber));
+    eigen_vectorLine onesLine(ones_by_subNode.begin(),node_c_size+1, outer_stride(maxNodeNumber)) ;
+    res_m = (onesLine*Mass*S)[0];
+
+    eigen_vector SExt(cell_face_pressure.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    eigen_vectorLine UExtLine(cell_face_flux.begin(), face_c_size, outer_stride(maxFaceNumber)) ;
+    res_scal = (UExtLine*SExt)[0];
+    scal_mass = 2*m_cell_mobility[idCell]*(res_scal - u_cell*m_cont_cell_pressure[icell->localId()]);
+        //(*m_cell_pressure)[icell->localId()]);// *res_m);
+
+    m_cell_error_flux[idCell]=  std::sqrt(std::abs(norm_flux));
+    m_cell_error_nc[idCell]= std::sqrt(std::abs(norm_eng + norm_stiff + scal_mass));//norm_stiff
+    m_cell_errorContPres[idCell]= std::sqrt(std::abs(norm_eng + norm_eng + scal_mass));
+    m_error_estimate[idCell]= m_cell_error_nc[idCell]+m_cell_error_flux[idCell];//std::sqrt(std::abs(scal_mass));
+
+    max_flux_err = (max_flux_err > m_cell_error_flux[idCell]) ? max_flux_err : m_cell_error_flux[idCell];
+    max_nc_err   = (max_nc_err > m_cell_error_nc[idCell]) ? max_nc_err :m_cell_error_nc[idCell];
+  }
+
+  // Synchronize all the processors
+  m_parallelMng -> barrier() ;
+  max_nc_err = m_parallelMng->reduce(Parallel::ReduceMax,max_nc_err) ;
+  max_flux_err = m_parallelMng->reduce(Parallel::ReduceMax,max_flux_err) ;
+
+
+  // normalize !
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own())
+  {
+    const Integer id = icell->localId();
+    m_cell_error_flux[id]=m_cell_error_flux[id]/max_flux_err;
+    m_cell_error_nc[id]=m_cell_error_nc[id]/max_nc_err;
+    m_cell_errorContPres[id]=(m_cell_error_flux[id]+m_cell_error_nc[id]);
+    max_err = (max_err > m_cell_errorContPres[id]) ? max_err
+                       : m_cell_errorContPres[id];
+  }
+  // Synchronize all the processors
+  m_parallelMng -> barrier() ;
+  max_err = m_parallelMng->reduce(Parallel::ReduceMax,max_err) ;
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+    const Integer id = icell->localId();
+    m_error_estimate[id] = std::pow((m_cell_error_flux[id]+m_cell_error_nc[id])/max_err,2);
+  }
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells.own()){
+  const Integer id = icell->localId();
+  error_estimate[id] = m_error_estimate[id];
+  }
+
+    RealSharedArray dof_by_subNode(maxFaceNumber);
+    dof_by_subNode.resize(maxNodeNumber);
+    dof_by_subNode.fill(0.);
+    const Discretization::ConnectedItems nodes((m_dc)->nodes(icell));
+    Integer node_c_size=nodes.size();
+    ENUMERATE_DISCRETIZATION_NODE(inode,nodes)
+      dof_by_subNode[inode.index()] = m_node_pressure[inode->localId()];
+    dof_by_subNode[node_c_size] = m_cont_cell_pressure[icell->localId()];
+    eigen_matrix Stiffness((m_mat_on_subNodes[idCell]).begin(), node_c_size+1, node_c_size+1, outer_stride(maxNodeNumber));
+    eigen_vector S(dof_by_subNode.begin(), node_c_size+1, outer_stride(maxNodeNumber)) ;
+    eigen_vectorLine SLine(dof_by_subNode.begin(), node_c_size+1, outer_stride(maxNodeNumber)) ;
+    Real res_s = (SLine*Stiffness*S)[0];
+    Real norm_stiff=std::abs(res_s);
+
+*/
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+template<typename VariableTypeT>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+_computeCoeffElementaryMatrix(const Arcane::MeshVariableScalarRefT<typename Discretization::ConvertD2DoF<Discretization::Cell>::Type,
+                                                                   VariableTypeT> & kappa)
+{
+  const Integer maxFaceNumber = 20;
+  const Integer maxNodeNumber = 30;
+
+  using TensorVectorProduct = DiscreteOperator::tensor_vector_prod<Real3x3>  ;
+  Centers<Discretization::Cell>  cellCenters(m_dg) ;
+  Measures<Discretization::Cell> cellMeasures(m_dg) ;
+  Centers<Discretization::Face>  faceCenters(m_dg) ;
+  Measures<Discretization::Face> faceMeasures(m_dg) ;
+  OrientedUnitNormals<Discretization::Face> faceNormals(m_dg) ;
+
+  m_mat_on_subFace.resize(m_cell_size,maxFaceNumber*maxFaceNumber);
+  m_mat_on_subFace.fill(0);
+  m_mat_on_subNodes.resize(m_cell_size,maxNodeNumber*maxNodeNumber);
+  m_mat_on_subNodes.fill(0);
+  m_mass_mat_on_subNodes.resize(m_cell_size,maxNodeNumber*maxNodeNumber);
+  m_mass_mat_on_subNodes.fill(0);
+  m_scalar_kappa.resize(m_cell_size,maxNodeNumber);
+  m_scalar_kappa.fill(0);
+
+  const Real sqrtPenalizationAndSpatialDimension = math::sqrt(3.)/2.;
+  Real3 quadPoint(0,0,0.25);
+  Real unitPyramidMesaure = 4./3.;
+  Real3x3 perm;
+
+  ENUMERATE_DISCRETIZATION_CELL(icell, m_cells)
+  {
+    const Discretization::Cell& cell = *icell;
+    Real invCellMeasure = 1./(cellMeasures)(cell);
+    Real3 cellCenter = (cellCenters)(cell);
+
+    const auto & cell_perm = kappa[cell];
+    APosterioriErrorEstimatesUtils::assign(perm,cell_perm);
+
+    const Discretization::ConnectedItems cellNodes((m_dc)->nodes(cell)) ;
+    Integer index_center = cellNodes.size();
+
+    const Discretization::ConnectedItems faces((m_dc)->faces(cell)) ;
+    ENUMERATE_DISCRETIZATION_FACE(iface,faces)
+    {
+      const Discretization::Face& face_i = *iface;
+      const Arcane::Integer iBackBoundCellLid = m_dc->isCellGroupBoundary(iface) ? m_dc->boundaryCell(iface).localId() :
+          m_dc->backCell(iface).localId() ;
+      const bool iIsBackBound = (iBackBoundCellLid == icell -> localId()) ;
+      const Discretization::FaceCellInd iFaceCellInd =
+          (iIsBackBound ? Discretization::FaceCellInd::Back : Discretization::FaceCellInd::Front) ;
+      const Real3 iFaceOutwardUnitNormal = faceNormals(iface, iFaceCellInd) ;
+      const Real iFaceMeasure = std::sqrt(faceMeasures(iface, iFaceCellInd))/2. ;
+      const Real3 iFaceGrad = iFaceMeasure * iFaceOutwardUnitNormal * invCellMeasure ;
+      ENUMERATE_DISCRETIZATION_FACE(jface,faces)
+      {
+        const Arcane::Integer jBackBoundCellLid = m_dc->isCellGroupBoundary(jface) ? m_dc->boundaryCell(jface).localId() :
+            m_dc->backCell(jface).localId() ;
+        const bool jIsBackBound = (jBackBoundCellLid == icell -> localId()) ;
+        const Discretization::FaceCellInd jFaceCellInd =
+            (jIsBackBound ? Discretization::FaceCellInd::Back : Discretization::FaceCellInd::Front) ;
+        const Real3 jFaceOutwardUnitNormal = faceNormals(jface, jFaceCellInd) ;
+        const Real jFaceMeasure = std::sqrt(faceMeasures(jface, jFaceCellInd))/2. ;
+        const Real3 jFaceGrad = jFaceMeasure * jFaceOutwardUnitNormal * invCellMeasure ;
+
+        //const Real iGradKappaJGrad = math::scaMul(iFaceGrad, TensorVectorProduct::eval(perm,jFaceGrad));
+        const Real iGradKappaJGrad = math::scaMul(iFaceGrad, jFaceGrad);
+        Real Aij = 0.;
+        //if(options()->penalty())
+        ENUMERATE_DISCRETIZATION_FACE(kface,faces)
+        {
+          const Arcane::Integer kBackBoundCellLid = m_dc->isCellGroupBoundary(kface) ? m_dc->boundaryCell(kface).localId() :
+               m_dc->backCell(kface).localId() ;
+           const bool kIsBackBound = (kBackBoundCellLid == icell -> localId()) ;
+           const Discretization::FaceCellInd kFaceCellInd =
+               (kIsBackBound ? Discretization::FaceCellInd::Back : Discretization::FaceCellInd::Front) ;
+           const Real3 kFaceCenter = faceCenters(kface, kFaceCellInd) ;
+           const Real3 kFaceOutwardUnitNormal = faceNormals(kface, kFaceCellInd) ;
+           const Real kFaceMeasure = std::sqrt(faceMeasures(kface, kFaceCellInd))/2. ;
+          const Real kHyperPlaneDistance = DiscretizationGeometry::hyperplaneDistance(kFaceOutwardUnitNormal, cellCenter, kFaceCenter);
+          const Real kConeMeasure = kFaceMeasure * kHyperPlaneDistance / 3.;//m_spatialDimension ;
+          const Real penalty = sqrtPenalizationAndSpatialDimension / kHyperPlaneDistance ;
+          const Real3 kFaceDistance = kFaceCenter - cellCenter ;
+          const Real3 kiPenalty = penalty * (static_cast<Real>(iface.index() == kface.index()) -
+              invCellMeasure * math::scaMul(iFaceMeasure * iFaceOutwardUnitNormal, kFaceDistance)) *
+                  kFaceOutwardUnitNormal ;
+          const Real3 kjPenalty = penalty * (static_cast<Real> (jface.index() == kface.index()) -
+                            invCellMeasure * math::scaMul(jFaceMeasure * jFaceOutwardUnitNormal, kFaceDistance) ) *
+                            kFaceOutwardUnitNormal ;
+          //const Real kPenalty = math::scaMul(kiPenalty, TensorVectorProduct::eval(perm, kjPenalty)) ;
+          const Real kPenalty = math::scaMul(kiPenalty, kjPenalty) ;
+          Aij += kConeMeasure * (iGradKappaJGrad + kPenalty);
+        }
+        //else
+        //Aij = iGradKappaJGrad / invCellMeasure ;
+        m_mat_on_subFace[cell.localId()][iface.index()*maxFaceNumber + jface.index()] = Aij;
+      }//end enumerate of jface -> bool iface :
+
+      Real kappaNormalNormal = math::scaMul(TensorVectorProduct::eval(perm,iFaceOutwardUnitNormal),iFaceOutwardUnitNormal);
+      m_scalar_kappa[cell.localId()][iface.index()] = kappaNormalNormal;
+      // Stiffness and mass matrix :
+      const Real det= std::sqrt(_detJacobianPyramid(cell,face_i,quadPoint));
+      const Discretization::ConnectedItems nodes((m_dc)->nodes(face_i)) ;
+      Real3 dBF_center=_dBaseFunction(quadPoint,nodes.size());
+      Real  bF_center = _baseFunction(quadPoint,nodes.size());
+      ENUMERATE_DISCRETIZATION_NODE(inode,nodes)
+      {
+        const Discretization::Node& node_i = *inode;
+        Integer index_i = localInCellIndex(cell,node_i);
+        Real3 dBFi=_dBaseFunction(quadPoint,inode.index());
+        Real  bFi = _baseFunction(quadPoint,inode.index());
+        ENUMERATE_DISCRETIZATION_NODE(jnode,nodes)
+        {
+          const Discretization::Node& node_j = *jnode;
+          Integer index_j = localInCellIndex(cell,node_j);
+          Real3 dBFj=_dBaseFunction(quadPoint,jnode.index());
+          Real  bFj = _baseFunction(quadPoint,jnode.index());
+          Real kappaIGradJGrad = math::scaMul(TensorVectorProduct::eval(perm, dBFi),TensorVectorProduct::eval(perm,dBFj)) ;
+
+          m_mat_on_subNodes[cell.localId()][index_i*maxNodeNumber + index_j] += unitPyramidMesaure* det* kappaIGradJGrad;
+
+          const Real kappaIGradCenterGrad = math::scaMul(TensorVectorProduct::eval(perm, dBFi),TensorVectorProduct::eval(perm, dBF_center)) ;
+          m_mat_on_subNodes[cell.localId()][index_i*maxNodeNumber + index_center] += unitPyramidMesaure* det* kappaIGradCenterGrad;
+
+          m_mass_mat_on_subNodes[cell.localId()][index_i*maxNodeNumber + index_j] += unitPyramidMesaure* det* bFi * bFj;
+          m_mass_mat_on_subNodes[cell.localId()][index_i*maxNodeNumber + index_center] += unitPyramidMesaure * det *  bFi * bF_center;
+        }
+      }
+      ENUMERATE_DISCRETIZATION_NODE(jnode,nodes)
+      {
+        const Discretization::Node& node_j = *jnode;
+        Integer index_j = localInCellIndex(cell,node_j);
+        Real3 dBFj=_dBaseFunction(quadPoint,jnode.index());
+        Real  bFj = _baseFunction(quadPoint,jnode.index());
+        const Real kappaCenterGradJGrad = math::scaMul(TensorVectorProduct::eval(perm, dBF_center),TensorVectorProduct::eval(perm, dBFj)) ;
+        m_mat_on_subNodes[cell.localId()][index_center*maxNodeNumber + index_j] += unitPyramidMesaure* det* kappaCenterGradJGrad;
+
+        const Real kappaCenterGradCenterGrad = math::scaMul(TensorVectorProduct::eval(perm, dBF_center),TensorVectorProduct::eval(perm, dBF_center)) ;
+        m_mat_on_subNodes[cell.localId()][index_center*maxNodeNumber + index_center] += unitPyramidMesaure* det* kappaCenterGradCenterGrad;
+
+        m_mass_mat_on_subNodes[cell.localId()][index_center*maxNodeNumber + index_j] += unitPyramidMesaure * det * bF_center * bFj;
+        m_mass_mat_on_subNodes[cell.localId()][index_center*maxNodeNumber + index_center] += unitPyramidMesaure* det * bF_center * bF_center;
+      }
+    }
+  }
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+void APosterioriErrorEstimates<TCell, TFace, TNode>::
+_initEx(){
+
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+Real APosterioriErrorEstimates<TCell, TFace, TNode>::
+ _baseFunction(const Real3& X, const Integer& index){
+
+  switch(index)
+  {
+    case 0:
+      return (1. + X[0] + X[1] - X[2] + X[0]*X[1]/(1-X[2]))/4.;
+      break;
+    case 1:
+      return (1. - X[0] + X[1] - X[2] - X[0]*X[1]/(1-X[2]))/4.;
+      break;
+    case 2:
+      return (1. - X[0] - X[1] - X[2] + X[0]*X[1]/(1-X[2]))/4.;
+      break;
+    case 3:
+      return (1. + X[0] - X[1] - X[2] - X[0]*X[1]/(1-X[2]))/4.;
+      break;
+    default:
+      return X[2];
+  }
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+Real3 APosterioriErrorEstimates<TCell, TFace, TNode>::
+_dBaseFunction(const Real3& X, const Integer& index){
+
+  Real3 dBF(0.,0.,0.);
+  switch(index)
+  {
+    case 0:{
+      Real3 dBF0((1. + X[1]/(1-X[2]))/4.,(1. + X[0]/(1-X[2]))/4.,(-1. + X[0]*X[1]/std::pow(1-X[2],2))/4.);
+      dBF=dBF0;
+      break;
+    }
+    case 1:{
+      Real3 dBF1((-1. - X[1]/(1-X[2]))/4.,(1. - X[0]/(1-X[2]))/4.,(-1. - X[0]*X[1]/std::pow(1-X[2],2))/4.);
+      dBF=dBF1;
+      break;
+    }
+    case 2:{
+      Real3 dBF2((-1. + X[1]/(1-X[2]))/4.,(-1. + X[0]/(1-X[2]))/4.,(-1. + X[0]*X[1]/std::pow(1-X[2],2))/4.);
+      dBF=dBF2;
+      break;
+    }
+    case 3:{
+      Real3 dBF3((1. - X[1]/(1-X[2]))/4.,(-1. - X[0]/(1-X[2]))/4.,(-1. - X[0]*X[1]/std::pow(1-X[2],2))/4.);
+      dBF=dBF3;
+      break;
+    }
+    default:{
+      Real3 dBF4(0.,0.,1);
+      dBF=dBF4;
+    }
+  }
+  return dBF;
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+Real APosterioriErrorEstimates<TCell, TFace, TNode>::
+_detJacobianPyramid(const Discretization::Cell& cell, const Discretization::Face& face, const Real3& X){
+
+  Centers<Discretization::Cell> cellCenters(m_dg) ;
+  Centers<Discretization::Node> nodeCenters(m_dg) ;
+  Real3 S4 = cellCenters(cell);
+  Real3 zero(0,0,0);
+  Real3SharedArray S1to3;
+  S1to3.resize(4);
+  S1to3.fill(zero);
+  const Discretization::ConnectedItems nodes((m_dc)->nodes(face)) ;
+  ENUMERATE_DISCRETIZATION_NODE(inode,nodes){
+    const Discretization::Node& node=*inode;
+    S1to3[inode.index()] = (nodeCenters)(node);
+  }
+
+  //Real3 C0 =  S1to3[0]-S1to3[1]-S1to3[2]+S1to3[3];
+  Real3 C1 =  S1to3[0]-S1to3[1]-S1to3[2]+S1to3[3];
+  Real3 C2 =  S1to3[0]+S1to3[1]-S1to3[2]-S1to3[3];
+  Real3 C3 = -S1to3[0]-S1to3[1]-S1to3[2]-S1to3[3] + 4*S4;
+  Real3 C4 =  S1to3[0]-S1to3[1]+S1to3[2]-S1to3[3];
+
+  Real3 colonne1 = C1+(X[1]/(1-X[2]))*C4;
+  Real3 colonne2 = C2+(X[0]/(1-X[2]))*C4;
+  Real3 colonne3 = C3+(X[0]*X[1]/std::pow(1-X[2],2))*C4;
+
+  Eigen::Matrix3f A;
+  A << colonne1[0], colonne2[0], colonne3[0],
+       colonne1[1], colonne2[1], colonne3[1],
+       colonne1[2], colonne2[2], colonne3[2];
+  Real det = A.determinant();
+
+  return std::abs(det);
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+template<typename TCell, typename TFace, typename TNode>
+Integer APosterioriErrorEstimates<TCell, TFace, TNode>::
+localInCellIndex(const Discretization::Cell& cell, const Discretization::Node& localNode){
+  const Discretization::ConnectedItems nodes((m_dc)->nodes(cell)) ;
+  ENUMERATE_DISCRETIZATION_NODE(inode,nodes){
+    const Discretization::Node& node=*inode;
+    if(node.localId()==localNode.localId())
+      return inode.index();
+  }
+  return 0;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+
+#endif /* SRC_ERRORESTIMATES_APOSTERIORIERRORESTIMATES_H_ */

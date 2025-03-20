@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="hdf5" />
+  </needed-packages>
+  <files language="c++">
+    <file>IXMDataExchanger</file>
+    <file>IXMDataSerializer</file>
+    <file>IXMItemAidMapper</file>
+    <file>IXMMeshBuilderBase</file>
+    <file>IXMMeshFile</file>
+    <file>IXMPropertyBuilder</file>
+    <file>IXMStaticMeshBuilder</file>
+    <file>IXMStaticMeshChecker</file>
+    <file>IXMUidToLidMng</file>
+    <file>IXMV3MeshReader</file>
+    <file>IXMV4MeshReader</file>
+    <file>IXMV4_1MeshReader</file>
+    <file>ParticleReader</file>
+  </files>
+  <files language="c++header">
+    <file>IIXMMeshChecker</file>
+    <file>IIXMMeshReader</file>
+    <file>IIXMMeshReaderBase</file>
+    <file>IIXMStaticMeshReader</file>
+    <file>IXMDataReceiver</file>
+    <file>IXMItemConnections</file>
+    <file>IXMMeshReaderTools</file>
+    <file>IXMTools</file>
+    <file>ixm_v3_xsd</file>
+    <file>ixm_v4_xsd</file>
+    <file>ixm_v4_1_0_xsd</file>
+  </files>
+</makefile>

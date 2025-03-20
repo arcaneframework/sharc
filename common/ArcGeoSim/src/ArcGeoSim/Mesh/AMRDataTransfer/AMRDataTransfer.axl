@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="AMRDataTransfer" version="1.0" type="caseoption">
+  <description>Transfert de Donn�es AMR </description>
+ <interface name="IAMRDataTransfer" />
+
+ <variables>
+  </variables>
+  
+  <options>
+    <simple name="use-particles" type="bool" default="false"/>
+    <service-instance name="particle-mapper" type="IParticleMapping" default="ParticleMapping"/>
+  	<enumeration name="interpolator-type" type="TypesInterpolator::eTypesInterpolator" default="P0">
+		<enumvalue name="P0" genvalue="TypesInterpolator::P0" />
+		<enumvalue name="P1" genvalue="TypesInterpolator::P1" />
+		<enumvalue name="P2" genvalue="TypesInterpolator::P2" />
+	</enumeration>
+  </options>
+  
+</service>

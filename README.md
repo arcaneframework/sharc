@@ -9,10 +9,16 @@ Written by CEA/IFPEN and Contributors
 All content is the property of the respective authors or their employers.
 For more information regarding authorship of content, please consult the listed source code repository logs.
 
-## Compilation
+## Introduction
+
+## Installation
+
+<details><summary><h3>Pre requis</summary>
+
 To compile the application you will need the arcaneframework, alien opensource and alien legacy plugins (check the corresponding repos for prerequisites and compilation).
 
 Here is the list of required (?) softwares to compile ShArc:
+
 | Currently            | Loaded                           | Modules                             | :                        |
 | ---------------------|----------------------------------|-------------------------------------|------------------------  |
 |  1) GCCcore/7.3.0    | 15) libunwind/1.2.1              | 29) hwloc/1.11.10                   | 43) Ninja/1.9.0          |
@@ -30,13 +36,22 @@ Here is the list of required (?) softwares to compile ShArc:
 | 13) Mono/5.10.0.160  | 27) libxml2/2.9.8                | 41) GLib/2.54.3                     |                          |
 | 14) XZ/5.2.4         | 28) libpciaccess/0.14            | 42) ifort/2018.3.222-GCC-7.3.0-2.30 |                          |
 
+</details>
+
+
+<details><summary><h3>Compilation</summary>
+
 To configure ShArc:
-```shell
+
+```bash
     mkdir build && cd build
     cmake -S /my/path/to/sharc -B /my/path/to/sharc/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON -DARCANEFRAMEWORK_ROOT=/my/path/to/Arcane.framework/install
 ```
+
 To compile it:
 
 ```shell
     make -j 8
 ```
+</details>
+

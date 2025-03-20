@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -23,8 +23,11 @@
   #endif
 #endif
 
+#ifdef USE_ARCANE_V3
+#include <arcane/core/IDoFFamily.h>
+#endif
+
 #include <utility>
-#include <vector>
 #include <type_traits>
 #include <set>
 
@@ -40,7 +43,7 @@ namespace Discretization {
 
   using ItemKindSet = std::set<ItemKind> ;
 
-  using ItemKindPairList = std::vector<ItemKindPair> ;
+  using ItemKindPairList = Arcane::UniqueArray<ItemKindPair> ;
 
   template<ItemKind IK> class Item : public Arcane::DoF {
   public:
@@ -48,6 +51,9 @@ namespace Discretization {
     Item(Arcane::ItemInternal* internal) : Arcane::DoF(internal) {}
     Item(const ItemInternalPtr* internals, Arcane::Integer local_id) : Arcane::DoF(internals, local_id) {}
     Item(const Arcane::Item aItem) : Arcane::DoF(aItem.internal()) {}
+#ifdef USE_ARCANE_V3
+    Item(const Arcane::impl::ItemBase aItem) : Arcane::DoF(aItem) {}
+#endif
   } ;
 
   using Cell = Item<ItemKind::Cell> ;
@@ -56,7 +62,11 @@ namespace Discretization {
 
   using Node = Item<ItemKind::Node> ;
 
+#ifdef USE_ARCANE_V3
+  using Family = Arcane::IDoFFamily ;
+#else
   using Family = Arcane::mesh::DoFFamily ;
+#endif
 
   using ItemGroup = Arcane::DoFGroup  ;
 
@@ -72,7 +82,6 @@ namespace Discretization {
 //  using ConnectedItems = Arcane::ItemVectorView; // SDC
   using ConnectedItems = Arcane::ConnectivityItemVector;
 #endif
-
 
   using CellEnumerator = Arcane::ItemEnumeratorT<Cell> ;
   using FaceEnumerator = Arcane::ItemEnumeratorT<Face> ;

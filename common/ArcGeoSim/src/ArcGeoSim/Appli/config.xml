@@ -17,5 +17,9 @@
   </files>
   <directories>
     <directory>Architecture</directory>
+    <directory depend="win32">CRTMonitor</directory>
+    <!--directory depend="linux">WaitAround</directory>
+    <directory depend="linux">InternalDebugger</directory>
+    <directory depend="linux,binutils">StackTraceService</directory-->
   </directories>
 </makefile>

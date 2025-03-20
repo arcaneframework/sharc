@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="petsc" />
+    <package name="mpi" />
+  </needed-packages>
+  <files language="service">
+    <file header='false'>AdditiveFieldSplitType</file>
+    <file header='false'>MultiplicativeFieldSplitType</file>
+    <file header='false'>PETScPrecConfigFieldSplit</file>
+    <file header='false'>SchurFieldSplitType</file>
+    <file header='false'>SymmetricMultiplicativeFieldSplitType</file>
+  </files>
+  <files language="c++header">
+    <file>IFieldSplitType</file>
+  </files>
+</makefile>

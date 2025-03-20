@@ -7,5 +7,6 @@
   <directories>
     <directory>ShArc</directory>
     <directory>TwoPhaseFlowSimulation</directory>
+    <directory>ExaDiBench</directory>
   </directories>
 </makefile>

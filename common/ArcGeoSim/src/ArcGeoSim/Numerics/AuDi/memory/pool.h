@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef __audi_memory_pool_h__
 #define __audi_memory_pool_h__
 
@@ -16,19 +10,25 @@ namespace audi {
   class pool {
   public:
 
-    static const int max_size = 400;
+    static const int max_size = 4000;
 
     pool() : m_memory(new T[max_size]) {}
 
-    inline static pool<T>& get()
-    {
+    ~pool() {
+      delete [] m_memory;
+    }
+
+    inline static pool<T>& get() {
       if(m_instance.get() == nullptr) {
         m_instance.reset(new pool<T>);
       }
       return *m_instance.get();
     }
 
-    T* operator()() { return &(m_memory[m_current++]); }
+    T* operator()() {
+      assert(m_current < max_size);
+      return &(m_memory[m_current++]);
+    }
 
     void reset() { m_current = 0; }
 

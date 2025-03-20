@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #include "LawGraphTesterService.h"
 
 /*---------------------------------------------------------------------------*/
@@ -30,9 +24,18 @@ init()
     count++;
   }
   // graph creation
-  for(Integer i_funct=0; i_funct<m_num_of_function; i_funct++){
-    // add function in graph
-    _addFunction(m_functions_def[m_function_insertion_order[i_funct]]);
+  if(options()->withMultiScalar()){
+	for(Integer i_funct=0; i_funct<m_num_of_function; i_funct++){
+	  // add function in graph
+	  _addMultiFunction(m_functions_def[m_function_insertion_order[i_funct]]);
+	}
+  }
+  else
+  {
+    for(Integer i_funct=0; i_funct<m_num_of_function; i_funct++){
+      // add function in graph
+      _addFunction(m_functions_def[m_function_insertion_order[i_funct]]);
+    }
   }
   // parameters initialization
   for(Integer i =0;i<m_num_param;++i)
@@ -105,6 +108,47 @@ _addFunction(FuctionDefininition& function_def) {
 
 }
 
+// add function in graph
+void
+LawGraphTesterService::
+_addMultiFunction(FuctionDefininition& function_def) {
+  switch(function_def.m_functions_kind){
+    case Two_In_One_Out:
+    {
+      // create a function with two inputs and one output specialized by parameters
+      TwoInOneOutWithMultiAlgo object;
+      TwoInOneOutWithMulti::Signature signature;
+      signature.in_1.add(m_properties[function_def.m_in_property_id[0]]);
+      signature.in_1.add(m_properties[function_def.m_in_property_id[1]]);
+      signature.out_1 = m_properties[function_def.m_out_property_id[0]];
+      signature.param_1 = m_params[function_def.m_param_prop_id];
+      // add function to the graph of function
+      auto f = std::make_shared<TwoInOneOutWithMulti::Function>(signature, object, &TwoInOneOutWithMultiAlgo::compute);
+      m_function_mng <<  f;
+      m_function_mng.registerOrReplace(f);
+    }
+    break;
+    case Three_In_Two_Out:
+    {
+      // create a function with three inputs and two outputs specialized by parameters
+      ThreeInTwoOutWithMultiAlgo object;
+      ThreeInTwoOutWithMulti::Signature signature;
+      signature.in_1 =  m_properties[function_def.m_in_property_id[0]];
+      signature.in_2.add(m_properties[function_def.m_in_property_id[1]]);
+      signature.in_2.add(m_properties[function_def.m_in_property_id[2]]);
+      signature.out_1.add(m_properties[function_def.m_out_property_id[0]]);
+      signature.out_1.add(m_properties[function_def.m_out_property_id[1]]);
+      signature.param_1 = m_params[function_def.m_param_prop_id];
+      // add function to the graph of function
+      auto f = std::make_shared<ThreeInTwoOutWithMulti::Function>(signature, object, &ThreeInTwoOutWithMultiAlgo::compute);
+      m_function_mng << f;
+      m_function_mng.registerOrReplace(f);
+    }
+    break;
+    //add fault with msg
+  }
+
+}
 /*---------------------------------------------------------------------------*/
 
 // validate all the tests

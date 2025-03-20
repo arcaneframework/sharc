@@ -24,6 +24,9 @@
   <directories>
     <directory>Euclidian</directory>
     <directory>Impl</directory>
+    <directory>Static</directory>
+    <directory>Temis</directory>
+    <directory>PolytopicMesh</directory>
   </directories>
 
 </makefile>

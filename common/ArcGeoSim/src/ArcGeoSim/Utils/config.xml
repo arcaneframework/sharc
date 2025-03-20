@@ -8,19 +8,25 @@
   </needed-packages>
   
   <files language="c++">
+    <file>GraphBuilder</file>
     <file>HdfReader</file>
-    <file>ParallelUtils</file>
-    <file>ItemGroupMap</file>
     <file>IOBuffer</file>
-    <file header="false">XmlCaseOptionConverter</file>
+    <file>ItemGroupMap</file>
     <file>ItemTools</file>
+    <file>MemoryAllocationTracker</file>
+    <file>MeshVariableArray2NonUniformRefT</file>
+    <file>ObservableProperty</file>
+    <file>ParallelUtils</file>
+    <file header="false">XmlCaseOptionConverter</file>
   </files>
   
   <files language="c++header">
     <file>ArcGeoSim</file>
     <file>ArrayUtils</file>
+    <file>CountStampMng</file>
     <file>DataTypeUtils</file>
     <file>DefineUtils</file>
+    <file>ExceptionUtils</file>
     <file>FunctionUtils</file>
     <file>IVisitor</file>
     <file>ItemComparator</file>
@@ -36,5 +42,16 @@
     <file>TupleRandomIterator</file>
     <file>Utils</file>
     <file>VMap</file>
+    <file>VariableItemArray2</file>
+    <file>VariableItemView</file>
+    <file>VisitorT</file>
+    <file>WinUtil</file>
   </files>
+
+  <directories>
+    <directory>ZoneModelMng</directory>
+    <directory depend='harts, tbb'>RunTimeSystem</directory>
+    <directory depend='precice'>CAWF</directory>
+  </directories>
+
 </makefile>

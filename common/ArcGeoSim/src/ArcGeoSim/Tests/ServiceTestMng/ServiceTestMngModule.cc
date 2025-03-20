@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -8,6 +8,7 @@
 #include "ArcGeoSim/Appli/IAppServiceMng.h"
 #include "ArcGeoSim/Mesh/Geometry/IGeometryMng.h"
 #include "ArcGeoSim/Numerics/Expressions/IExpressionMng.h"
+#include "ArcGeoSim/Utils/RunTimeSystem/IRunTimeSystemMng.h"
 
 #include "ServiceTestMngModule.h"
 
@@ -34,6 +35,7 @@ initializeAppServiceMng()
 
   ADD_OPTIONAL_SERVICE(geometryService,"Geometry");
   ADD_OPTIONAL_SERVICE(expressionMng,"Expression Manager");
+  ADD_OPTIONAL_SERVICE(runtimeSystemMng,"RunTimeSystem Manager");
 
   m_initialized = true ;
 }

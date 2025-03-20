@@ -1,11 +1,12 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
 #ifndef SIUNITSSYSTEM_H
 #define SIUNITSSYSTEM_H
+
 
 #include "IUnitsSystem.h"
 #include "SIUnitsSystem_axl.h"
@@ -13,7 +14,7 @@
 using namespace Arcane ;
 
 /**
- * Interface du service du module de resolution non lineaire.
+ * Interface du service du modu?le de resolution non lineaire.
  */
 
 class SIUnitsSystemService :
@@ -32,7 +33,7 @@ public:
 public:
   void init() {}
    
-  //! @name Determination de coefficient vers SI
+  //! @name D�termination de coefficient vers SI
   //@{
   bool hasMultFactor(UnitType unit) { return false ; }
   Real getMultFactor(UnitType unit) { return 1. ; }
@@ -40,7 +41,7 @@ public:
   Real getConstFactor(UnitType unit) { return 0. ; }
   //@}
 
-  //! @name Determination de coefficient vers systeme specifique
+  //! @name D�termination de coefficient vers syst�me sp�cifique
   //@{
   bool hasMultFactorTo(IUnitsSystem* system, UnitType unit) { return system->hasMultFactor(unit); }
   Real getMultFactorTo(IUnitsSystem* system, UnitType unit) { return 1./system->getMultFactor(unit); }

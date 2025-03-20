@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+
+  <files language="service">
+    <file>BoundaryConditionMng</file>
+  </files>
+
+  <files language="c++header">
+    <file>IBoundaryCondition</file>
+    <file>IBoundaryConditionMng</file>
+    <file>BoundaryConditionTypes</file>
+    <file>ScalarBoundaryCondition</file>
+    <file>IBoundaryConditionMngService</file>
+  </files>
+
+</makefile>

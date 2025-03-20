@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -50,9 +50,9 @@ namespace OutputFormatting {
     {
       std::string c = columns.localstr();
 
-      m_column_indentations.reserve(columns.length());
+      m_column_indentations.reserve(columns.len());
 
-      for(Arcane::Integer i = 0; i < columns.length(); ++i) {
+      for(Arcane::Integer i = 0; i < columns.len(); ++i) {
         if(c[i] == 'l' || c[i] == 'r' || c[i] == 'c') {
           m_number_of_columns++;
           char cc = c[i];
@@ -67,7 +67,7 @@ namespace OutputFormatting {
       }
 
       Arcane::Integer ncols = 0;
-      for(Arcane::Integer i = 0; i < columns.length(); ++i) {
+      for(Arcane::Integer i = 0; i < columns.len(); ++i) {
         char cc = c[i];
         if((cc == 'l') || (cc == 'r') || (cc == 'c')) {
           ncols++;
@@ -148,7 +148,7 @@ namespace OutputFormatting {
         v.fill(0);
         for(Arcane::Integer j = 0; j < ny; ++j) {
           const Arcane::Integer multi = line.multi(j);
-          for(Arcane::Integer k = 0; k < line[j].length()-multi+1; ++k)
+          for(Arcane::Integer k = 0; k < line[j].len()-multi+1; ++k)
             v[j+k%multi]++;
           j += multi - 1;
         }
@@ -170,7 +170,7 @@ namespace OutputFormatting {
     }
 
     for(Arcane::Integer j = 1; j < f.numberOfColumns(); ++j) {
-        line_size += f.separator(j).length();
+        line_size += f.separator(j).len();
     }
     std::string prefix(f.prefixSize(), ' ');
     const Arcane::Integer nrows = f.numberOfLines();

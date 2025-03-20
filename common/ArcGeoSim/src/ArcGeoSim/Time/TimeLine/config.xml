@@ -6,9 +6,7 @@
   <files language="c++">
     <file>EventCalendar</file>
     <file>TimeEvolution</file>
-    <!--
     <file>TimeLineForcedByEvents</file>
-    -->
   </files>
   <files language="c++header">
     <file>SpiedTimeVariables</file>

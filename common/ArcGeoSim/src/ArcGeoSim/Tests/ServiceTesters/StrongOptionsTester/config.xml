@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="c++">
+    <file>RootTesterService</file>
+  </files>
+  <files language="axl[case+strong]">
+    <file>RootTester</file>
+  </files>
+  <files language="service[case+strong]">
+  	<!-- next line commented for axl[case+strong] target test bellow -->
+    <!-- file>RootTester</file-->
+    <file>X1</file>
+    <file>X2</file>
+    <file>Y1</file>
+  </files>
+</makefile>

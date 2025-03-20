@@ -9,5 +9,6 @@
     <directory depend="law">LawContribution</directory>
     <directory depend="law">LawGraph</directory>
     <directory depend="law">LawDebug</directory>
+    <directory depend="law,onnx">LawNNInference</directory>
   </directories>
 </makefile>

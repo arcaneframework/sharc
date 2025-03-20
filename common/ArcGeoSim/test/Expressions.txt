@@ -1,0 +1,14 @@
+# -*- cmake -*-
+# Test expression parser
+ARCANE_ADD_TEST_SEQUENTIAL(Expressions
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Expressions 
+  Expressions.arc)
+ARCANE_ADD_TEST_SEQUENTIAL(Expressions_XDMF_ascii
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Expressions 
+  Expressions_XDMF_ascii.arc)
+ARCANE_ADD_TEST_SEQUENTIAL(Expressions_XDMF_binary
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Expressions 
+  Expressions_XDMF_binary.arc)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+  <files language="c++header">
+    <file>LineSearch</file>
+    <file>NewtonSolver</file>
+    <file>DichotomySolver</file>
+    <file>LUSolver</file>
+    <file>lu</file>
+  </files>
+</makefile>

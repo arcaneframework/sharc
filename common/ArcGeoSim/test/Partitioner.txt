@@ -1,0 +1,7 @@
+# -*- cmake -*-
+# Test (the performance of) the mesh partitioner
+ARCANE_ADD_TEST(Partitioner
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Partitioner
+  MeshPartitioner.arc
+  )

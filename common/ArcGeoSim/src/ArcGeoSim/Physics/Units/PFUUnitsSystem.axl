@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="PFUUnitsSystem" version="1.0" type="caseoption">
+<description>Jeu de donnees du service System d'unité PFU pour le réservoir</description>
+<interface name="IUnitsSystem" />
+	<variables>
+	</variables>
+	
+	<options>	
+	</options>	
+</service>

@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -11,7 +11,6 @@
 
 #include <arcane/VariableBuildInfo.h>
 #include <arcane/MathUtils.h>
-#include <arcane/IMeshMng.h>
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
@@ -126,7 +125,13 @@ _saveVariablesAtTime(Real saved_time, const Arcane::Array<Arcane::VariableList>&
       for(Integer ip=0,np=m_pp_writer.size();ip<np;++ip)
         {
           IPostProcessorWriter* writer = m_pp_writer[ip];
+# ifndef USE_ARCANE_V3
           writer->setMesh(m_pp_meshes[ip]);
+#else
+          // The mesh is set in the writer
+          // todo check mesh in the writer is the same as the one given here
+          // -> waiting for a method IPostProcessorWriter::mesh() or equivalent
+#endif
           writer->setBaseDirectoryName(m_pp_base_directory_names[ip]);
           writer->setTimes(m_times);
           writer->setVariables(pp_variables[ip]);
@@ -203,7 +208,7 @@ _addPostProcessingMesh(const Arcane::String& mesh_name)
   else
     {
       bool throw_exception = true;
-      m_pp_meshes.add(m_sub_domain->meshMng()->findMeshHandle(mesh_name,throw_exception)->mesh());
+      m_pp_meshes.add(m_sub_domain->findMesh(mesh_name,throw_exception));
     }
 }
 

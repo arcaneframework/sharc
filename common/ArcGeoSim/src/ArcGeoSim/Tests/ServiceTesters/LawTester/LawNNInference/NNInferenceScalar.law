@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<law name="NNInferenceScalar">
+
+  <input name="input_1_1" type="real" dim="scalar" />
+  <input name="input_1_2" type="real" dim="scalar" />
+  <input name="input_1_3" type="real" dim="scalar" />
+  
+  <output name="output_1_1" type="real" dim="scalar" />
+  <output name="output_1_2" type="real" dim="scalar" />
+ 
+</law>

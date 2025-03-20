@@ -1,0 +1,84 @@
+//////////////////////////////////////////////////////////////////////
+NOTICE
+
+GenericItemExtractor est un service permettant de lire un format de maillage polyedrique fournit par l'equipe
+moteur geometrique. Ce format est type TMF. un format TMF est le suivant :
+/////////////////////////////////////////////////////////////////////////
+nb de sommets
+x1 y1 z1
+x2 y2 z2
+.....
+xn yn zn
+nb de faces
+sommets de la face 1 + une propriete
+sommets de la face 2 + une propriete
+.....
+sommets de la face n + une propriete
+nb de proprietes
+nom de la propriete 1
+valeur de la propriete pour la face 1
+valeur de la propriete pour la face 2
+........
+valeur de la propriete pour  la face n
+nom de la propriete 2
+valeur de la propriete 2 pour  la face 1
+valeur de la propriete 2 pour  la face 2
+........
+valeur de la propriete 2 pour la face n
+........
+nb de cellules
+nb_face_cell_1 + faces de la cellule 1
+nb_face_cell_2 + faces de la cellule 2
+.....
+nb_face_cell_n + faces de la cellule n
+x_center_cellule_1  y_center_cellule_1 z_center_cellule_1
+x_center_cellule_2  y_center_cellule_2 z_center_cellule_2
+.........
+x_center_cellule_n  y_center_cellule_n z_center_cellule_n
+////////////////////////////////// END FILE ////////////////////////
+///
+GenericItemExtractor convertit le maillage TMF en un maillage entree pour Arcane. Ce maillage est d'extension .vor.
+Le format .vor est le suivant: 
+////////////////////////////////////////////////////////////////
+nb de sommets
+x1 y1 z1
+x2 y2 z2
+.....
+xn yn zn
+nb_faces nb_nodes_faces
+sommets de la face 1 
+sommets de la face 2 
+.....
+sommets de la face n
+nb de cellules
+nb_node_cell_1 + sommets de la cellule 1
+nb_node_cell_2 + sommets de la cellule 2
+.....
+nb_node_cell_n + sommets de la cellule n
+x_center_cellule_1  y_center_cellule_1 z_center_cellule_1
+x_center_cellule_2  y_center_cellule_2 z_center_cellule_2
+.........
+x_center_cellule_n  y_center_cellule_n z_center_cellule_n
+//////////////////// END FILE ////////////////////////////////////
+
+GenericItemExtractor permet également d'extraire les types de mailles existants dans le maillage courant.
+Les types de mailles et la structure associee sont ranges dans un fichier ascii. Le format de ce fichier est le suivant:
+//////////////////////////////////////////////////////////////////
+Nb_types
+type_id_cell1 nb_faces_cell1 nb_edges_cell1
+FOR EACH face of cell1 DO
+nb_node_face + sommets de la face1
+edge_1 edge_2 face_left face_right
+END DO
+.....
+type_id_celln nb_faces_celln nb_edges_celln
+FOR EACH face of celln DO
+nb_node_face + sommets de la face
+edge_1 edge_2 face_left face_right
+END DO
+////////////////////// END FILE /////////////////////////////////////////
+
+
+Les deux fichiers sorties de ce service sont le maillage .vor et le fichier de types .format. Ces deux fichiers servent
+comme entree d'arcane. Le .vor sera lu dans le .arc et le .format est passe en variable d'environnement a ARCANE_ITEM_TYPE_FILE.
+Un test unitaire est enregiste dans la base de tests sous le nom de GenericItemExtractor.  

@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -32,9 +32,9 @@ FunctionEvaluator(const FunctionManager& f, Integer max_nb_unknowns)
 /*---------------------------------------------------------------------------*/
 
 FunctionEvaluator::
-FunctionEvaluator(const FunctionManager& f, IntegerConstArrayView ids, Integer max_nb_unknowns)
+FunctionEvaluator(const FunctionManager& f, IntegerConstArrayView ids, Integer max_nb_unknowns, DerivativesMode dependencies_mode)
   : m_function_mng(f)
-  , m_functions(f.functions(ids))
+  , m_functions(f.functions(ids, dependencies_mode))
   , m_parameters(f.parameters())
   , m_max_nb_unknowns(max_nb_unknowns)
   , m_is_first_derivate_eval(true) {}

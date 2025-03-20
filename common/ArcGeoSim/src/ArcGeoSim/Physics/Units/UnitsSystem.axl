@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="UnitsSystem" version="1.0" type="caseoption">
+<description>Jeu de donnees du service System d'unité</description>
+<interface name="IUnitsSystem" />
+	<variables>
+	</variables>
+	
+	<options>	
+      <complex name="mult-factor" type="UnitMultFactor" minOccurs="0" maxOccurs="unbounded">
+         <description>description des facteurs de conversion</description>
+         <enumeration name="unit" type="IUnitsSystemProperty::eProperty">
+             <enumvalue name="Time" genvalue="IUnitsSystemProperty::Time" />
+             <enumvalue name="X" genvalue="IUnitsSystemProperty::X" />
+             <enumvalue name="Y" genvalue="IUnitsSystemProperty::Y" />
+             <enumvalue name="Z" genvalue="IUnitsSystemProperty::Z" />
+             <enumvalue name="Pressure" genvalue="IUnitsSystemProperty::Pressure" />
+             <enumvalue name="CapillaryPressure" genvalue="IUnitsSystemProperty::CapillaryPressure" />
+             <enumvalue name="Porosity" genvalue="IUnitsSystemProperty::Porosity" />
+             <enumvalue name="Transmissivity" genvalue="IUnitsSystemProperty::Transmissivity" />
+             <enumvalue name="Permeability" genvalue="IUnitsSystemProperty::Permeability" />
+             <enumvalue name="Flow" genvalue="IUnitsSystemProperty::Flow" />
+             <enumvalue name="MassFlow" genvalue="IUnitsSystemProperty::MassFlow" />
+             <enumvalue name="GasVolFlow" genvalue="IUnitsSystemProperty::GasVolFlow" />
+             <enumvalue name="LiqVolFlow" genvalue="IUnitsSystemProperty::LiqVolFlow" />
+             <enumvalue name="Density" genvalue="IUnitsSystemProperty::Density" />
+             <enumvalue name="Viscosity" genvalue="IUnitsSystemProperty::Viscosity" />
+             <enumvalue name="Weight" genvalue="IUnitsSystemProperty::Weight" />
+             <enumvalue name="Mass" genvalue="IUnitsSystemProperty::Mass" />
+             <enumvalue name="MolarMass" genvalue="IUnitsSystemProperty::MolarMass" />
+             <enumvalue name="MassDensity" genvalue="IUnitsSystemProperty::MassDensity" />
+             <enumvalue name="Concentration" genvalue="IUnitsSystemProperty::Concentration" />
+             <enumvalue name="Salinity" genvalue="IUnitsSystemProperty::Salinity" />
+             <enumvalue name="Temperature" genvalue="IUnitsSystemProperty::Temperature" />
+             <enumvalue name="Solubility" genvalue="IUnitsSystemProperty::Solubility" />
+         </enumeration>
+         <simple name="value" type="real"/>
+         <simple name="short-name" type="string" minOccurs="0" maxOccurs="1"/>
+         <simple name="long-name" type="string" minOccurs="0" maxOccurs="1"/>
+      </complex>
+      <complex name="const-factor" type="UnitConstFactor" minOccurs="0" maxOccurs="unbounded">
+         <description>description des facteurs constants de conversion</description>
+         <enumeration name="unit" type="IUnitsSystemProperty::eProperty">
+             <enumvalue name="Temperature" genvalue="IUnitsSystemProperty::Temperature" />
+         </enumeration>
+         <simple name="value" type="real"/>
+         <simple name="short-name" type="string" minOccurs="0" maxOccurs="1"/>
+         <simple name="long-name" type="string" minOccurs="0" maxOccurs="1"/>
+      </complex>
+	</options>	
+</service>

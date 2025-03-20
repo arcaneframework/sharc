@@ -1,0 +1,151 @@
+*I-Internal   WARNING: Execution in DEBUG mode!
+*I-Internal   WARNING: Compilation in CHECK mode !
+*I-Internal   WARNING: Execution in CHECK mode!
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal    
+*I-Internal                  ArcaneDemo
+*I-Internal    
+*I-Internal                  Version 1.0.0
+*I-Internal    
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal   Date: 2025-01-08T15:27:19
+*I-Internal   MemoryUsage: 397 (MegaBytes)
+*I-Internal   ArccoreVersion: 2.8.0.0
+*I-Internal   ArcaneVersion: 3.15.0.0 (Compiler: GCC 11.2)
+*I-Internal   Current process pid=89606 machine=irlin386303
+*I-Internal   MessagePassing service=MpiParallelSuperMng
+*I-Internal   Stack trace service is available
+*I-Internal   Using 'libxml2' for XML parsing
+*I-Internal   Getting hardware architecture.
+*I-Internal   Machine#0 + Package#0 + L3(24MB)
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#0
+*I-Internal       PU#0
+*I-Internal       PU#1
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#4
+*I-Internal       PU#2
+*I-Internal       PU#3
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#8
+*I-Internal       PU#4
+*I-Internal       PU#5
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#12
+*I-Internal       PU#6
+*I-Internal       PU#7
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#16
+*I-Internal       PU#8
+*I-Internal       PU#9
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#20
+*I-Internal       PU#10
+*I-Internal       PU#11
+*I-Internal     L2(2048KB)
+*I-Internal       L1d(32KB) + Core#24 + PU#12
+*I-Internal       L1d(32KB) + Core#25 + PU#13
+*I-Internal       L1d(32KB) + Core#26 + PU#14
+*I-Internal       L1d(32KB) + Core#27 + PU#15
+*I-Internal     L2(2048KB)
+*I-Internal       L1d(32KB) + Core#28 + PU#16
+*I-Internal       L1d(32KB) + Core#29 + PU#17
+*I-Internal       L1d(32KB) + Core#30 + PU#18
+*I-Internal       L1d(32KB) + Core#31 + PU#19
+*I-Internal   Cpuset: 0x000fffff
+*I-Internal   Unknown online debugger service
+*I-Internal   Using configuration file: '/work/gratienj/Arcane3/2025/arcgeosimframework/ArcaneDemo/../ArcGeoSim/test/ServiceTests/ArcaneDemo.config'
+*I-Internal   Data initialisation policy is : 3
+*I-Internal   Service used for thread management : 'TBBThreadImplementationService'
+*I-Internal   No task management active
+*I-Internal   UnitSystem service found name=Udunits
+*I-Internal   PerformanceCounterService found name=LinuxPerfPerformanceCounterService
+*I-Internal   sizeof(ItemInternal)=16 sizeof(ItemInternalConnectivityList)=464 sizeof(ItemSharedInfo)=136
+*I-Internal   sizeof(ItemLocalId)=4 sizeof(ItemConnectivityContainerView)=32 sizeof(UnstructuredMeshConnectivityView)=392
+*I-Internal   sizeof(Item)=16 sizeof(ItemEnumerator)=48 sizeof(ItemVectorView)=32 sizeof(ItemVectorViewConstIterator)=24 ItemEnumeratorVersion=3
+*I-Internal   sizeof(eItemKind)=4 sizeof(IndexedItemConnectivityViewBase)=40
+*I-Internal   Output directory is </work/gratienj/Arcane3/2025/arcgeosimframework/ArcGeoSim/test/ServiceTests/AnyItem/output>
+*I-Internal   NB_LOCAL_RANK=1
+*I-Internal   Reading input data 'TestAnyItemLinearAlgebra2_test.arc'
+*D-Internal   [MpiParallelSuperMng::internalCreateWorldParallelMng]
+*D-Internal   [MpiParallelSuperMng::internalCreateWorldParallelMng] pm->build()
+*D-Internal   [MpiParallelMng] No m_world_parallel_mng found, reverting to ourselves!
+*I-Mpi        Initialisation de MpiParallelMng
+*I-Mpi        ** ** MPI Communicator = 0x14efad8
+*I-Internal   DeviceInfo: nb_device=1
+*I-Internal   Using device number=0
+*I-Internal   AcceleratorRuntime=
+*I-Internal   DefaultDataAllocator MemoryResource=Host
+*I-Internal   Using accelerator runtime=Sequential
+*I-Internal   DeviceInfo: name=HostDevice
+*I-Internal   DeviceInfo: description=
+*I-Internal   Is AMR Activated? = 0AMR type = None
+*I-Internal   Connectivity policy=5
+*I-Internal   Graph connectivity is activated
+*I-Internal   Add mesh name=Mesh0 count=0
+*I-Mesh       Building DynamicMesh name=Mesh0 ItemInternalMapImpl=1
+*D-Mesh       ItemFamily:createGroup(name): Node: name=AllNodes
+*D-Mesh       ItemFamily:createGroup(name): Edge: name=AllEdges
+*D-Mesh       ItemFamily:createGroup(name): Face: name=AllFaces
+*D-Mesh       ItemFamily:createGroup(name): Cell: name=AllCells
+*I-Mesh       Using MpiSynchronizer V2
+*D-Internal   LoadBalanceInternal -- Mesh : Mesh0 -- reset()
+*I-Internal   Error output file  '/work/gratienj/Arcane3/2025/arcgeosimframework/ArcGeoSim/test/ServiceTests/AnyItem/output/listing/errors.0'
+*I-Init       Reading the case `TestAnyItemLinearAlgebra2_test.arc'
+*I-Internal   REPLICATION: rank=0
+*I-Internal    CpuSet=0x000fffff
+*I-Internal   CHECK GLOBAL SINGLETON SERVICES
+*I-Internal   Using the time loop <TestLoop>
+*I-TimeLoopMng Loading module ArcaneCeaVerifier (Version 0.0.1) (autoload)
+*I-TimeLoopMng Loading module Master (Version 1.1.0) (autoload)
+*I-TimeLoopMng Loading module ArcanePostProcessing (Version 0.1.2)
+*I-TimeLoopMng Loading module ServiceTestMng (Version 1.0.0)
+*D-TimeLoopMng Adding the module  `MasterArcaneDemo' to the execution
+*D-TimeLoopMng Adding the module  `TimeHistoryMng' to the execution
+*D-TimeLoopMng Adding the module  `ArcaneCeaVerifier' to the execution
+*D-TimeLoopMng Adding the module  `Master' to the execution
+*D-TimeLoopMng Adding the module  `ArcanePostProcessing' to the execution
+*D-TimeLoopMng Adding the module  `ServiceTestMng' to the execution
+*I-Internal   SubDomain: Allocating meshes
+*I-Internal   Date: 2025-01-08T15:27:19 MEM=400 MAX_MEM=400 MIN_MEM=400 AVG_MEM=400 MIN_RANK=0 MAX_RANK=0
+*I-CaseMng    Reading the input data (phase1): language 'en', 5 input data.
+*I-CaseMng    NB_CASE_FUNCTION_PROVIDER_FACTORY = 0
+*E* Code:---------------------------------------------
+*E*   ERROR (0,irlin386303): FatalErrorException caught in ArcaneMain::callFunctor: Exception!
+
+Thrown in: 'void Arcane::CaseMng::_printErrors(Arcane::ICaseDocumentFragment*, bool)'
+Type: 'FatalError'
+
+Message: Input data are invalid:
+
+TraceFile: /work/gratienj/Arcane3/2025/framework/arcane/src/arcane/core/CaseOptionService.cc:244
+TraceFunc: void Arcane::CaseOptionServiceImpl::_readPhase1()
+<//case/service-test-mng/service/linear-solver> : Unable to find a service named 'PETScSolver' (valid values:[0]="HypreSolver" [1]="IFPSolver" [2]="TrilinosSolver")
+TraceFile: /work/gratienj/Arcane3/2025/framework/arcane/src/arcane/core/CaseOptionService.cc:244
+TraceFunc: void Arcane::CaseOptionServiceImpl::_readPhase1()
+<//case/service-test-mng/service/submesh-linear-solver> : Unable to find a service named 'PETScSolver' (valid values:[0]="HypreSolver" [1]="IFPSolver" [2]="TrilinosSolver")
+
+Fatal error occured.
+Can not further proceed.
+
+Call stack:
+StackTrace [19-1] called from
+ # 19 : /work/gratienj/Arcane3/2025/build-arcanedemo-gimkl2021b/ArcaneDemo/bin/ArcaneDemo.exe() [0x40789f]
+ # 18 : ArcGeoSim::main(Arcane::ApplicationInfo&) [+0xd6]
+ # 17 : Arcane::ArcaneLauncher::run() [+0x9]
+ # 16 : Arcane::ArcaneMain::run() [+0x10c]
+ # 15 : Arcane::ArcaneMain::arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x86]
+ # 14 : Arcane::ArcaneMain::_arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x89]
+ # 13 : Arcane::ArcaneMainExecInfo::execute() [+0x179]
+ # 12 : Arcane::ArcaneMain::callFunctorWithCatchedException(Arccore::IFunctor*, Arcane::IArcaneMain*, bool*, bool) [+0xe5]
+ # 11 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x14ff8e) [0x7ff250a3df8e]
+ # 10 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1ee5e9) [0x7ff250adc5e9]
+ #  9 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1ef933) [0x7ff250add933]
+ #  8 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1f044d) [0x7ff250ade44d]
+ #  7 : ArcGeoSim::ArcGeoSimCodeService::initCase(Arcane::ISubDomain*, bool) [+0x89]
+ #  6 : Arcane::CodeService::initCase(Arcane::ISubDomain*, bool) [+0x1ec]
+ #  5 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x202b3c) [0x7ff250af0b3c]
+ #  4 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x2030fa) [0x7ff250af10fa]
+ #  3 : Arccore::FatalErrorException::FatalErrorException(Arccore::TraceInfo const&, Arccore::String const&) [+0x46]
+ #  2 : Arccore::Exception::Exception(Arccore::String const&, Arccore::TraceInfo const&, Arccore::String const&) [+0xd3]
+ #  1 : Arccore::Exception::_setStackTrace() [+0x4a]
+
+
+
+*I-Internal   MpiParallelSuperMng: rank 0 calling MPI_Abort

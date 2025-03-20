@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <!--package name="glpk" optional='true'/-->
+    <package name="highs" optional='true'/>
+  </needed-packages>
+
+  <files language="c++">
+    <file>TraceOperator</file>
+    <file>HarmonicAverageTraceOperator</file>
+    <file>ConormalDecompositionComputer</file>
+    <file>ADFiniteVolumeStencil</file>
+    <file>TPFAStencil</file>
+    <file>ConormalDecompositionFaces</file>
+    <file>ConormalDecompositionStencil</file>
+    <file>TrihedralConormalDecompositionComputer</file>
+  </files>
+
+  <directories>
+    <directory depend="highs">LPConormalDecomposition</directory>
+  </directories>
+
+
+</makefile>

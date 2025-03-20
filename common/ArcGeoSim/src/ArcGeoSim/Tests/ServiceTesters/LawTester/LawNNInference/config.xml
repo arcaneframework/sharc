@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="onnx" />
+  </needed-packages>
+  <files language="service">
+    <file header="false">LawNNInferenceTester</file>
+    <file header="false">LawNNInferenceWithDerivativesTester</file>
+  </files>
+  <files language="law[inference=onnx]">
+    <file>NNInferenceScalar</file>
+    <file>NNInferenceMultiScalar</file>
+  </files>
+</makefile>

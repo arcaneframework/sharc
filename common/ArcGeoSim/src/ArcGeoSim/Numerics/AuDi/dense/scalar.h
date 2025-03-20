@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef __audi_dense_scalar_h__
 #define __audi_dense_scalar_h__
 
@@ -147,7 +141,8 @@ namespace audi {
 
     inline scalar& operator=(const scalar& n)
     {
-      m_capacity = n.m_size;
+      m_value = n.m_value;
+      //m_capacity = n.m_size;
       m_size = n.m_size;
       resize(m_size);
       std::copy(n.m_gradient, n.m_gradient + m_size, m_gradient);

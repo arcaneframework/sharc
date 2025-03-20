@@ -2,12 +2,12 @@
 # Test Gump
 ARCANE_ADD_TEST_SEQUENTIAL(Gump 
   ArcGeoSim
-  common/ArcGeoSim/test/ServiceTests/Gump 
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Gump 
   Gump.arc)
 if(TARGET gump)
   # Test GumpExample
   ARCANE_ADD_TEST_SEQUENTIAL(GumpExample
     ArcGeoSim
-    common/ArcGeoSim/test/ServiceTests/Gump 
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Gump 
     GumpExample.arc)
 endif()

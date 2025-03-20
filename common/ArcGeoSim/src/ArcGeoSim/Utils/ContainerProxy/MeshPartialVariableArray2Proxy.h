@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -18,7 +18,7 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-// Pour avoir une API similaire et a priori bientot dans Arcane
+// Pour avoir une API similaire et a priori bient�t dans Arcane
 ARCANE_BEGIN_NAMESPACE
 
 /*---------------------------------------------------------------------------*/
@@ -32,7 +32,7 @@ class ItemPartialVariableArray2RefT : public ItemPartialVariableArrayRefT<T>
 public:
   
   typedef T DataType;
-  typedef Array2<T> ValueType; // Pas encore coherent, il faudrait Array3
+  typedef Array2<T> ValueType; // Pas encore coh�rent, il faudrait Array3
   typedef ConstArray2View<T> ConstReturnReferenceType;
   typedef Array2View<T> ReturnReferenceType;
  
@@ -108,13 +108,13 @@ public:
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-#ifdef USE_ARCANE_V3
+#if (ARCANE_VERSION >= 30003)
 #define VARIABLE_WITH_TYPE(type)                                        \
   typedef MeshPartialVariableArray2RefT<Cell,type> PartialVariableCellArray2##type; \
   typedef MeshPartialVariableArray2RefT<Face,type> PartialVariableFaceArray2##type; \
   typedef MeshPartialVariableArray2RefT<Node,type> PartialVariableNodeArray2##type; \
   typedef MeshPartialVariableArray2RefT<Edge,type> PartialVariableEdgeArray2##type; \
-  typedef ItemPartialVariableArray2RefT<type> PartialVariableItemArray2##type; 
+  typedef ItemPartialVariableArray2RefT<type> PartialVariableItemArray2##type;
 #else
 #define VARIABLE_WITH_TYPE(type)                                        \
   typedef MeshPartialVariableArray2RefT<Cell,type> PartialVariableCellArray2##type; \
@@ -125,7 +125,6 @@ public:
   typedef MeshPartialVariableArray2RefT<Link,type> PartialVariableLinkArray2##type; \
   typedef ItemPartialVariableArray2RefT<type> PartialVariableItemArray2##type; 
 #endif
-
 VARIABLE_WITH_TYPE(Real);
 VARIABLE_WITH_TYPE(Real2);
 VARIABLE_WITH_TYPE(Real2x2);
@@ -137,21 +136,15 @@ VARIABLE_WITH_TYPE(Int64);
 
 #undef VARIABLE_WITH_TYPE
 
-#ifdef USE_ARCANE_V3
 typedef MeshPartialVariableArray2RefT<Cell,Byte> PartialVariableCellArray2Bool;
 typedef MeshPartialVariableArray2RefT<Face,Byte> PartialVariableFaceArray2Bool;
 typedef MeshPartialVariableArray2RefT<Node,Byte> PartialVariableNodeArray2Bool;
 typedef MeshPartialVariableArray2RefT<Edge,Byte> PartialVariableEdgeArray2Bool;
-typedef ItemPartialVariableArray2RefT<Byte> PartialVariableItemArray2Bool;
-#else
-typedef MeshPartialVariableArray2RefT<Cell,Byte> PartialVariableCellArray2Bool;
-typedef MeshPartialVariableArray2RefT<Face,Byte> PartialVariableFaceArray2Bool;
-typedef MeshPartialVariableArray2RefT<Node,Byte> PartialVariableNodeArray2Bool;
-typedef MeshPartialVariableArray2RefT<Edge,Byte> PartialVariableEdgeArray2Bool;
+#if (ARCANE_VERSION < 30003)
 typedef MeshPartialVariableArray2RefT<DualNode,Byte> PartialVariableDualNodeArray2Bool;
 typedef MeshPartialVariableArray2RefT<Link,Byte> PartialVariableLinkArray2Bool;
-typedef ItemPartialVariableArray2RefT<Byte> PartialVariableItemArray2Bool;
 #endif
+typedef ItemPartialVariableArray2RefT<Byte> PartialVariableItemArray2Bool;
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/

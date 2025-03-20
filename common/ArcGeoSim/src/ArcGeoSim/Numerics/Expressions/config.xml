@@ -8,16 +8,33 @@
     <file>WExpressionMng</file>
   </files>
   <files language="c++header">
-    <file>IFunctionR1vR1</file>
+    
     <file>IExpressionMng</file>
+    <file>IIFunctionTransformer</file>
+    <file>IFunctionR1vR1Transformer</file>
     <file>IFunctionR2vR1</file>
     <file>IIFunction</file>
     <file>IFunction</file>
+    <file>FunctionVars</file>
+    <file>IFunctionR1vR1</file>
     <file>IFunctionR3vR1</file>
     <file>IFunctionR4vR1</file>
+    <file>IFunctionR5vR1</file>
+    <file>IFunctionR6vR1</file>
+    <file>IFunctionR7vR1</file>
+    <file>IFunctionR8vR1</file>
+    <file>IFunctionR9vR1</file>
+    <file>IFunctionR10vR1</file>
+    <file>IFunctionRNvR1</file>
+    <file>IDFunctionR1vR1</file>
   </files>
   <directories>
-    <directory>FunctionParser</directory>
+    <directory>ConstantFunction</directory>
     <directory>ExpressionBuilder</directory>
+    <directory>Polynom</directory>
+    <directory>KozenyCarmannFunction</directory>
+    <directory>UnsteadyRegularGridData</directory>
+    <directory>PieceWiseFunction</directory>
+    <directory>FunctionParser</directory>
   </directories>
 </makefile>

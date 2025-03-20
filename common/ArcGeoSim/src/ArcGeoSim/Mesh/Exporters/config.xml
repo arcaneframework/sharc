@@ -11,5 +11,21 @@
   <files language="c++">
     <file>ArcGeoSimPostProcessingBase</file>
   </files>
-
+  
+  <files language="service">
+    <file header='false'>IXM3PostProcessor</file>
+     <file header='false'>IXM4Writer</file>
+     <file header='false'>XDMFWriter</file>
+     <file header='false'>PUMAWriter</file>
+     <file header='false'>HdfHeavyDataFormat</file>
+     <file header='false'>XmlHeavyDataFormat</file>
+  </files>
+  
+  <directories>
+    <directory>IXM4</directory>
+    <directory>IXM3</directory>
+    <directory>XDMF</directory>
+    <directory>PUMA</directory>
+  </directories>
+  
 </makefile>

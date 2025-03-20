@@ -2,5 +2,5 @@
 # Test AuDi
 ARCANE_ADD_TEST_SEQUENTIAL(AuDi 
   ArcGeoSim
-  common/ArcGeoSim/test/ServiceTests/AuDi 
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/AuDi 
   AuDi.arc)

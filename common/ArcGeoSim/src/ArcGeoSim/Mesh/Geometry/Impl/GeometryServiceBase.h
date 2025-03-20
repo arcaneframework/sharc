@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_GEOMETRY_GEOMETRYSERVICEBASE_H
 #define ARCGEOSIM_GEOMETRY_GEOMETRYSERVICEBASE_H
 /* Author : havep at Thu Apr  3 09:09:09 2008
@@ -121,16 +115,16 @@ public:
   void beginContext(IGeometryPolicy * policy);
   //! Dissocie la politique avec le contexte de calcul courant
   void endContext();
-  //! Indique si la propriete definie par son StorageInfo a besoin d'une mise a jour
+  //! Indique si la propriété définie par son StorageInfo à besoin d'une mise à jour
   bool checkNeedUpdate(ItemGroup group, IGeometryProperty::eProperty property, const ItemGroupGeometryProperty::StorageInfo & storage_info);
-  //! Enregistre un nouveau context dans une propriete definie par son StorageInfo
+  //! Enregistre un nouveau context dans une propriété définie par son StorageInfo
   void setNewContext(ItemGroupGeometryProperty::StorageInfo & storage_info);
 
 protected:
   typedef std::map<ItemGroupImpl*, ItemGroupGeometryProperty> PropertyMap;
   PropertyMap m_group_property_map;
   String m_suffix; //!< suffix for internal variable names
-  bool m_changed_property; //!< Tracage des changements d'etat (addItemGroupProperty si la propritete est deja defini est aussi un changement d'etat)
+  bool m_changed_property; //!< Tracage des changements d'état (addItemGroupProperty si la propritété est déjà défini est aussi un changement d'état)
   enum { eUndef, eLazy, eStrict } m_policy_tolerance;
   IGeometryPolicy * m_policy;
 
@@ -142,7 +136,7 @@ protected:
    *  At this level, the user is responsible to the collision management of names */
   void setSuffix(const String & suffix);
 
-  //! Ajout un avertissement sur l'usage d'une propriete
+  //! Ajout un avertissement sur l'usage d'une propriété
   void _checkItemGroupPropertyUsage(ItemGroup group, IGeometryProperty::eProperty property, IGeometryProperty::eStorage storage,
                                     UInt32 count, Integer externStorage, Integer storageType);
 
@@ -154,12 +148,12 @@ private:
   std::shared_ptr<ItemVariableScalarRefT<T> > buildPropertyVariableT(ItemGroup group, IGeometryProperty::eProperty property);
 
 private:
-  //! Traite le maillage \a mesh pour une mise a jour complete de la geometrie
+  //! Traite le maillage \a mesh pour une mise à jour complète de la géométrie
   void _fullUpdate(IMesh * mesh); 
-  //! Traite le maillage \a mesh pour une mise a jour partielle de la geometrie
+  //! Traite le maillage \a mesh pour une mise à jour partielle de la géométrie
   void _partialUpdate(IMesh * mesh);
 
-  static Integer s_suffix_count; //!< Aide a la creation sans collision des variables propres a chaque instance de geometrie
+  static Integer s_suffix_count; //!< Aide à la création sans collision des variables propres à chaque instance de géométrie
 
   bool m_first_update;
 };

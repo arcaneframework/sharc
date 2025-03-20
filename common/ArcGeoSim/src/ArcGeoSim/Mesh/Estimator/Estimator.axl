@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="Estimator" version="1.0" type="caseoption">
+  <description>Estimateur d'erreur </description>
+ <interface name="IEstimator" />
+
+ <variables>
+      <variable field-name="h_size" name="CellHSize" data-type="real" item-kind="cell" dim="0" dump="true" need-sync="true" /> 
+ </variables>
+
+<options>
+	<enumeration name="estimator-type" type="TypesEstimator::eTypesEstimator" default="Dx">
+		<enumvalue name="Dx" genvalue="TypesEstimator::Dx" />
+		<enumvalue name="Dt" genvalue="TypesEstimator::Dt" />
+		<enumvalue name="DtDx" genvalue="TypesEstimator::DtDx" />
+	</enumeration>
+</options> 
+  
+  
+</service>

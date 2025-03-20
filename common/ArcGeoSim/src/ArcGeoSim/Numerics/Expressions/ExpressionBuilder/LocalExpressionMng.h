@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_EXPRESSIONS_EXPRESSIONBUILDER_LOCALEXPRESSIONMNG_H
 #define ARCGEOSIM_EXPRESSIONS_EXPRESSIONBUILDER_LOCALEXPRESSIONMNG_H
 /* Author : havep at Wed Dec  3 15:54:28 2008
@@ -35,7 +29,7 @@ public:
   //! Access to constante
   Real constant(const String & name) const;
 
-  //! teste l'existence d'une constante de nom donne
+  //! teste l'existence d'une constante de nom donné
   const Real * constantLookup(const String & name) const;
 
   //! Access to function

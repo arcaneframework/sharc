@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -31,7 +31,7 @@
 #include <arcane/utils/Enumerator.h>
 #include <arcane/utils/OStringStream.h>
 #include <arcane/ArcaneVersion.h>
-#ifndef USE_ARCANE_V3
+#if (ARCANE_VERSION<30003)
 #include <arcane/IGraph.h>
 #include <arcane/IGraphModifier.h>
 #endif
@@ -469,9 +469,9 @@ _readMesh(IPrimaryMesh* mesh,const String& file_name,const String& dir_name,bool
   const char* buf = 0;
   // Lecture de la description
   String description = vtk_file.getNextLine();
-  // Teste si le maillage est 2D en cherchant le mot cle 2d dans la description vtk. Tout les procs lisent, ne necessite
-  // pas de synchronisation mais utilise la variable de classe supplementaire mesh_dim. De plus le keyword doit
-  // etre ajoute dans les maillage non strucures vtk
+  // Teste si le maillage est 2D en cherchant le mot cl� 2d dans la description vtk. Tout les procs lisent, ne n�cessite
+  // pas de synchronisation mais utilise la variable de classe suppl�mentaire mesh_dim. De plus le keyword doit
+  // �tre ajout� dans les maillage non strucur�s vtk
   Integer mesh_dimension(3);
   if (description.lower().contains("2d") || description.lower().contains("2 d")) mesh_dimension = 2;
   String format = vtk_file.getNextLine();
@@ -557,7 +557,7 @@ _readStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_pa
   // IParallelMng* pm = subDomain()->parallelMng();
 
   ////////////////////////////////////////////////////////////
-  // Lecture des parametres obligatoires
+  // Lecture des param�tres obligatoires
 
   // Lecture du nombre de points: DIMENSIONS nx ny nz
   const char* buf = 0;
@@ -670,7 +670,7 @@ _readStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_pa
   _createFaceGroup(mesh,"ZMAX",zmax_surface_lid);
 
   ////////////////////////////////////////////////////////////
-  // Lecture des parametres optionnels
+  // Lecture des param�tres optionnels
 
   info() << "Reading optional parameters";
 
@@ -687,12 +687,12 @@ _readStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_pa
     if( buf == NULL ) break;
     istringstream iline(buf);
 
-    // Lis le mot cle
+    // Lis le mot cl�
     std::string keyword;
     iline >> ws >> keyword;
 
     if( IfpVtkFile::isEqualString(keyword,"TAGS") ) {
-      // Lecture des etiquettes associees aux faces du parallepipede
+      // Lecture des �tiquettes associ�es aux faces du parall�l�pip�de
       // pour le conditions au bord dans l'ordre suivant:
       // z = zmin, z = zmax, y = ymin, y = ymax, x = xmin, x = xmax
 
@@ -743,7 +743,7 @@ _readStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_pa
                          use_internal_partition);
     } else if( (IfpVtkFile::isEqualString(keyword,"CELL_DATA")  ) ||
                (IfpVtkFile::isEqualString(keyword,"POINT_DATA") )   ) {
-      // Maintenant, regarde s'il existe des donnees associees cell aux fichiers
+      // Maintenant, regarde s'il existe des donn�es associ�es cell aux fichiers
         ok = _readData( mesh,
                             vtk_file,
                             use_internal_partition,
@@ -1327,7 +1327,7 @@ _readStructured3D(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_part
       }
     else
     {
-      // STEP est volontairement non liste dans l'ensemble des mots clefs car deprecated
+      // STEP est volontairement non list� dans l'ensemble des mots clefs car deprecated
       vtk_file.checkString(step_str,"DXYZ","DXY","DX","DY","DZ", "DXFILE");
     }
   }
@@ -1379,7 +1379,6 @@ _readStructured3D(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_part
         }
       }
       //nb_node_local_id = node_local_id;
-      warning() << " NB NODE LOCAL ID=" << node_local_id;
     }
 
     // Creation des mailles
@@ -1725,7 +1724,7 @@ _readStructured2D(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_part
       }
     else
     {
-      // STEP est volontairement non liste dans l'ensemble des mots clefs car deprecated
+      // STEP est volontairement non list� dans l'ensemble des mots clefs car deprecated
       vtk_file.checkString(step_str,"DXYZ","DXY","DX","DY","DZ", "DXFILE");
     }
   }
@@ -2191,6 +2190,7 @@ _readStructuredGraph(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_p
 bool IfpVtkMeshIOService::
 _readStructuredDualGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_internal_partition)
 {
+#if (ARCANE_VERSION<30003)
 #if (ARCANE_VERSION<11602)
   mesh::DynamicGraph* graph = dynamic_cast<mesh::DynamicGraph*> (mesh) ;
   if(graph==NULL)
@@ -2199,7 +2199,6 @@ _readStructuredDualGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
       return true ;
     }
 #else
-#ifndef USE_ARCANE_V3
   IGraph* graph = mesh->graph();
 #endif
 #endif
@@ -2534,6 +2533,7 @@ _readStructuredDualGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
       }
     }
 
+#if (ARCANE_VERSION<30003)
 #if (ARCANE_VERSION<11602)
     graph->setDimension(3) ;
     graph->allocateCells(nb_cell,cells_infos,false);
@@ -2544,11 +2544,10 @@ _readStructuredDualGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
 #else 
     mesh->setDimension(3) ;
     mesh->allocateCells(nb_cell,cells_infos,false);
-#ifndef USE_ARCANE_V3
     graph->modifier()->addLinks(nb_link,links_infos);
     graph->modifier()->addDualNodes(nb_dnode,dnodes_infos) ;
-#endif
     mesh->endAllocate();
+#endif
 #endif
 
     // Positionne les coordonnees
@@ -3248,7 +3247,7 @@ bool IfpVtkMeshIOService::_readData( IPrimaryMesh* mesh,
     if (sid==0){
       info()<<"READATA :**********PROC MASTER";
       const String str = created_infos_str.str();
-      Integer len = str.length();
+      Integer len = str.len();
       bytes.resize(len+1);
       ::memcpy(bytes.unguardedBasePointer(),str.localstr(),len+1);
       info() << "SEND STR=" << str;
@@ -3572,7 +3571,7 @@ _readFaceData(IPrimaryMesh* mesh,
     ByteSharedArray bytes;
     if (sid==0){
       const String str = created_infos_str.str();
-      Integer len = str.length();
+      Integer len = str.len();
       bytes.resize(len+1);
       ::memcpy(bytes.unguardedBasePointer(),str.localstr(),len+1);
       info() << "SEND STR=" << str;
@@ -3940,7 +3939,7 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
   IParallelMng* pm = subDomain()->parallelMng();
 
   ////////////////////////////////////////////////////////////
-  // Lecture des parametres obligatoires
+  // Lecture des param�tres obligatoires
 
   // Lecture du nombre de points: DIMENSIONS nx ny nz
   const char* buf = 0;
@@ -4074,7 +4073,7 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
       }
     else
     {
-      // STEP est volontairement non liste dans l'ensemble des mots clefs car deprecated
+      // STEP est volontairement non list� dans l'ensemble des mots clefs car deprecated
       vtk_file.checkString(step_str,"DXYZ","DXY");
     }
   }
@@ -4188,7 +4187,7 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
     SharedArray<Integer> nodes_unique_id(local_nb_node);
 
     info() << " NODE YZ = " << nb_node_yz;
-    // Creation des noeuds
+    // Cr�ation des noeuds
     //Integer nb_node_local_id = 0;
     {
       Integer node_local_id = 0;
@@ -4208,7 +4207,7 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
       warning() << " NB NODE LOCAL ID=" << node_local_id;
     }
 
-    // Creation des mailles
+    // Cr�ation des mailles
 
     // Infos pour la creation des mailles
     // par maille: 1 pour son unique id,
@@ -4325,7 +4324,7 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
     }
   }
 
-  // Cree les groupes de faces des cotes du parallelepipede
+  // Cr�e les groupes de faces des c�t�s du parallelepipede
   SharedArray<Integer> xmin_surface_lid;
   SharedArray<Integer> xmax_surface_lid;
   SharedArray<Integer> ymin_surface_lid;
@@ -4383,7 +4382,7 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
   _createFaceGroup(mesh,"ZMAX",zmax_surface_lid);
 
   ////////////////////////////////////////////////////////////
-  // Lecture des parametres optionnels
+  // Lecture des param�tres optionnels
 
   info() << "Reading optional parameters";
 
@@ -4400,12 +4399,12 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
     if( buf == NULL ) break;
     istringstream iline(buf);
 
-    // Lis le mot cle
+    // Lis le mot cl�
     std::string keyword;
     iline >> ws >> keyword;
 
     if( keyword == "TAGS" ) {
-      // Lecture des etiquettes associeees aux faces du parallelepipede
+      // Lecture des �tiquettes associ��es aux faces du parall�l�pip�de
       // pour le conditions au bord dans l'ordre suivant:
       // z = zmin, z = zmax, y = ymin, y = ymax, x = xmin, x = xmax
 
@@ -4443,7 +4442,7 @@ _readDistStructuredGrid(IPrimaryMesh* mesh,IfpVtkFile& vtk_file,bool use_interna
                          first_x,local_nb_node_y,first_y,local_nb_node_y,IK_Node,
                          use_internal_partition);
     } else if(( keyword == "CELL_DATA")||( keyword == "POINT_DATA")) {
-      // Maintenant, regarde s'il existe des donnees associees cell aux fichiers
+      // Maintenant, regarde s'il existe des donn�es associ�es cell aux fichiers
         ok = _readData( mesh,
                             vtk_file,
                             use_internal_partition,
@@ -4729,7 +4728,7 @@ _readDistStructuredFacesMesh(IPrimaryMesh* mesh,const String& file_name,const St
       }
     }
 
-    // Il faut a partir de la connectivite retrouver les localId() des faces
+    // Il faut � partir de la connectivit� retrouver les localId() des faces
     //faces_local_id.resize(nb_face);
     {
       IMeshUtilities* mu = mesh->utilities();
@@ -4737,7 +4736,7 @@ _readDistStructuredFacesMesh(IPrimaryMesh* mesh,const String& file_name,const St
     }
   }
 
-  // Maintenant, regarde s'il existe des donnees associees aux fichier
+  // Maintenant, regarde s'il existe des donn�es associ�es aux fichier
   _readFaceData(mesh,vtk_file,use_internal_partition,IK_Face,faces_local_id);
 }
 /*---------------------------------------------------------------------------*/

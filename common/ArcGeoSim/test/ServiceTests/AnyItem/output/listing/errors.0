@@ -1,0 +1,42 @@
+*E* Code:---------------------------------------------
+*E*   ERROR (0,irlin386303): FatalErrorException caught in ArcaneMain::callFunctor: Exception!
+
+Thrown in: 'void Arcane::CaseMng::_printErrors(Arcane::ICaseDocumentFragment*, bool)'
+Type: 'FatalError'
+
+Message: Input data are invalid:
+
+TraceFile: /work/gratienj/Arcane3/2025/framework/arcane/src/arcane/core/CaseOptionService.cc:244
+TraceFunc: void Arcane::CaseOptionServiceImpl::_readPhase1()
+<//case/service-test-mng/service/linear-solver> : Unable to find a service named 'PETScSolver' (valid values:[0]="HypreSolver" [1]="IFPSolver" [2]="TrilinosSolver")
+TraceFile: /work/gratienj/Arcane3/2025/framework/arcane/src/arcane/core/CaseOptionService.cc:244
+TraceFunc: void Arcane::CaseOptionServiceImpl::_readPhase1()
+<//case/service-test-mng/service/submesh-linear-solver> : Unable to find a service named 'PETScSolver' (valid values:[0]="HypreSolver" [1]="IFPSolver" [2]="TrilinosSolver")
+
+Fatal error occured.
+Can not further proceed.
+
+Call stack:
+StackTrace [19-1] called from
+ # 19 : /work/gratienj/Arcane3/2025/build-arcanedemo-gimkl2021b/ArcaneDemo/bin/ArcaneDemo.exe() [0x40789f]
+ # 18 : ArcGeoSim::main(Arcane::ApplicationInfo&) [+0xd6]
+ # 17 : Arcane::ArcaneLauncher::run() [+0x9]
+ # 16 : Arcane::ArcaneMain::run() [+0x10c]
+ # 15 : Arcane::ArcaneMain::arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x86]
+ # 14 : Arcane::ArcaneMain::_arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x89]
+ # 13 : Arcane::ArcaneMainExecInfo::execute() [+0x179]
+ # 12 : Arcane::ArcaneMain::callFunctorWithCatchedException(Arccore::IFunctor*, Arcane::IArcaneMain*, bool*, bool) [+0xe5]
+ # 11 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x14ff8e) [0x7ff250a3df8e]
+ # 10 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1ee5e9) [0x7ff250adc5e9]
+ #  9 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1ef933) [0x7ff250add933]
+ #  8 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1f044d) [0x7ff250ade44d]
+ #  7 : ArcGeoSim::ArcGeoSimCodeService::initCase(Arcane::ISubDomain*, bool) [+0x89]
+ #  6 : Arcane::CodeService::initCase(Arcane::ISubDomain*, bool) [+0x1ec]
+ #  5 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x202b3c) [0x7ff250af0b3c]
+ #  4 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x2030fa) [0x7ff250af10fa]
+ #  3 : Arccore::FatalErrorException::FatalErrorException(Arccore::TraceInfo const&, Arccore::String const&) [+0x46]
+ #  2 : Arccore::Exception::Exception(Arccore::String const&, Arccore::TraceInfo const&, Arccore::String const&) [+0xd3]
+ #  1 : Arccore::Exception::_setStackTrace() [+0x4a]
+
+
+

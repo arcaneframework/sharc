@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- Author : gratienj -->
+
+<service name="PETScPrecConfigFieldSplit" version="1.0" type="caseoption">
+	<description>Service Préconditionneur FieldSplit de PETSc</description>
+	<interface name="IPETScPC" />
+
+  <!-- Eviter l'utilisation de variable gloable dans un service -->
+  <variables/>
+
+	<options>
+    <enumeration name="schur" type="PCCompositeType" default="multiplicative">
+      <description>Type of Schwarz method</description>
+      <enumvalue name="additive" genvalue="PC_COMPOSITE_ADDITIVE">
+       <description></description>
+      </enumvalue> 
+      <enumvalue name="multiplicative" genvalue="PC_COMPOSITE_MULTIPLICATIVE">
+       <description></description>
+      </enumvalue> 
+      <enumvalue name="symmetric_multiplicative" genvalue="PC_COMPOSITE_SYMMETRIC_MULTIPLICATIVE">
+       <description></description>
+      </enumvalue> 
+      <enumvalue name="schur" genvalue="PC_COMPOSITE_SCHUR">
+       <description></description>
+      </enumvalue> 
+     </enumeration>
+     <complex name="solver" type="FieldSolver" minOccurs="0" maxOccurs="unbounded">
+       <simple name="field" type="string"/>
+       <simple name="ksp" type="string" default="richardson"/>
+       <simple name="pc" type="string" default="none"/>
+       <simple name="pc_hypre" type="string" default="none"/>
+       <simple name="rtol" type="real" default="1e-5"/>
+       <simple name="atol" type="real" default="1e-50"/>
+       <simple name="divtol" type="real" default="1e5"/>
+       <simple name="max_it" type="integer" default="1e5"/>
+     </complex>
+
+	</options>
+</service>

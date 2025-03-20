@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="mpi" />
+    <package name="boost" />
+    <package name="mtl" />
+    <package name="umfpack" optional='true'/>
+  </needed-packages>
+
+  <!--files language="c++">
+    <file>MTLLinearSystem</file>
+  </files-->
+
+  <files language="service">
+    <file header='false'>MTLLinearSolver</file>
+  </files>
+
+  <files language="c++header">
+    <file>MTLInternal</file>
+    <file>MTLOptionTypes</file>
+  </files>
+
+</makefile>

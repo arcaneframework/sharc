@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="StandardDivKGradTwoPointsActive" type="caseoption">
+  <description>Standard two-point finite volume method on active mesh, consistent on permeability-orthogonal meshes</description>
+  <interface name="IDivKGradDiscreteOperator" inherited="false"/>
+
+  <variables>
+  </variables>
+
+  <options>
+  </options>
+
+</service>

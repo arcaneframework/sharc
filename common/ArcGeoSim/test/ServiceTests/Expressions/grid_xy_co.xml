@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RegularGrid type="uniform">
+  
+  <x-dimension>3</x-dimension>
+  <x-extremal>0 2</x-extremal>
+  
+  <y-dimension>3</y-dimension>
+  <y-extremal>0 2</y-extremal>
+  
+  <z-dimension>1</z-dimension>
+  <z-extremal>0 0</z-extremal>
+  
+  
+  <t-value>0</t-value>
+  
+  <property-value>
+  1 2 3
+  4 5 6
+  7 8 9
+  </property-value>
+
+</RegularGrid>

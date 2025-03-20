@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="SuperLUSolver" version="1.0" type="caseoption">
+
+  <description>Service de solveur MTL</description>
+  <interface name="Alien::ILinearSolver" />
+
+  <options>
+    <simple name="verbose" type="bool" default="false">
+      <description>Verbosity flag</description>
+    </simple>
+    <simple name="col-major" type="bool" default="true">
+      <description>natural lu ordering</description>
+    </simple>
+    <simple name="arg" type="string" minOccurs="0" maxOccurs="unbounded">
+      <description>options</description>
+    </simple>
+  </options>
+</service>

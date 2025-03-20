@@ -7,7 +7,12 @@
   </needed-packages>
 
   <files language="c++">
+    <file>PAUUnitsSystem</file>
+    <file>CarnotUnitsSystem</file>
     <file>SIUnitsSystem</file>
+    <file>PMUUnitsSystem</file>
+    <file>UnitsSystem</file>
+    <file>PFUUnitsSystem</file>
   </files>
 
   <files language="c++header">
@@ -15,7 +20,11 @@
   </files>
 
   <files language="axl">
+    <file>PAUUnitsSystem</file>
     <file>SIUnitsSystem</file>
+    <file>UnitsSystem</file>
+    <file>PMUUnitsSystem</file>
+    <file>PFUUnitsSystem</file>
   </files>
 
 </makefile>

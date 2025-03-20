@@ -11,14 +11,15 @@
     <file>VariableView</file>
   </files>
   <files language="c++header">
+    <file>AmrUtils</file>
     <file>ArrayMng</file>
     <file>ArrayMngT</file>
     <file>ArrayMngTImpl</file>
+    <file>MeshProperty</file>
     <file>MeshTypes</file>
   </files>
-  <!--
   <directories>
     <directory>IXMTools</directory>
+    <directory>MappingTools</directory>
   </directories>
-  -->
 </makefile>

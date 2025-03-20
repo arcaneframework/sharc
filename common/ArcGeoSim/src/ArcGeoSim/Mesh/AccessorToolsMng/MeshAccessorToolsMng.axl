@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="MeshAccessorToolsMng" version="1.0" type="caseoption">
+  <description>Service </description>
+  <interface name="ArcGeoSim::IMeshAccessorToolsMng" />
+  
+  <options>
+    <simple name="nx" type="integer" default="1"/>
+    <simple name="ny" type="integer" default="1"/>
+    <simple name="nz" type="integer" default="1"/>
+    
+    <simple name="nb-points-per-cell" type="integer" default="10"/>
+    <simple name="epsilon" type="real" default="1.e-6"/>
+    <simple name="thresholdAugmentation" type="real" default="0.02"/>
+    <enumeration name="grid-type" type="RegularGrid::GridType" default="ISOTROPE">
+      <description>
+      Grid type :      \n
+      - BASIC,         \n
+      - ISOTROPE,      \n
+      - ANISOTROPE,    \n
+      - ANISOTROPE_Z_1 \n
+      </description>
+      <enumvalue name="BASIC" genvalue="RegularGrid::BASIC">
+         <description>/** Regular grid with the number of cells chosen by the user */</description>
+      </enumvalue>
+      <enumvalue name="ISOTROPE" genvalue="RegularGrid::ISOTROPE">
+         <description>/** Isotropic grid, equal delta along each axis *</description>
+      </enumvalue>
+      <enumvalue name="ANISOTROPE" genvalue="RegularGrid::ANISOTROPE">
+         <description>/** Anisotropic grid, equal number of cells along each axis */</description>
+      </enumvalue>
+      <enumvalue name="ANISOTROPE_Z_1" genvalue="RegularGrid::ANISOTROPE_Z_1">
+         <description></description>
+      </enumvalue>
+    </enumeration>
+      
+  </options>
+</service>

@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -108,10 +108,12 @@ operator[](const Property& p) const
 
 FunctionManager::Enumerator
 FunctionManager::
-functions(IntegerConstArrayView idx_output) const
+functions(IntegerConstArrayView idx_output, DerivativesMode dependencies_mode) const
 {
   _recomputeDependenciesIfRequired();
-  const bool recursive = (m_dependencies_mode!=eDirect);
+  // supprimer cette rustine liee a construction enumerateur
+  // quand possilite de gerer la profondeur du graphe
+  const bool recursive = (m_dependencies_mode==eComposition && dependencies_mode==eComposition);
   return m_functions.toSortVector(idx_output, recursive);
 }
 
