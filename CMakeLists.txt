@@ -49,6 +49,11 @@ add_definitions(-DUSE_ARCANE_V3)
 # affichage des informations
 include(PrintArcGeoSimInformations)
 
+
+set(CMAKE_INSTALL_LIBDIR "lib")
+include(GNUInstallDirs)
+message(STATUS "INSTALL_LIBDIR = ${CMAKE_INSTALL_LIBDIR}")
+
 logStatus("Loading ArcGeoSim components...")
 
 logStatus("Loading ArcGeoSim components...")
