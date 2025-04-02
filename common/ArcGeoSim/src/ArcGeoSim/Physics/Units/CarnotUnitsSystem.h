@@ -7,7 +7,6 @@
 #ifndef CARNOTUNITSSYSTEM_H
 #define CARNOTUNITSSYSTEM_H
 
-
 #include "IUnitsSystem.h"
 
 using namespace Arcane ;

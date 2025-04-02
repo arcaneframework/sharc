@@ -7,15 +7,13 @@
 // -*- C++ -*-
 #pragma once
 
-#include "ArcGeoSim/Numerics/Discretization/Schemes/TwoPointsStencil.h"
-
-#include "ArcGeoSim/Numerics/Discretization/Schemes/MultiPointsStencil.h"
-
 #include <alien/ref/data/block/BlockMatrix.h>
 #include <alien/ref/data/block/VBlockMatrix.h>
 #include <alien/ref/handlers/profiler/MatrixProfiler.h>
 #include <alien/ref/handlers/block/ProfiledBlockMatrixBuilder.h>
 
+#include "ArcGeoSim/Numerics/NumericalScheme/MultiPointsStencil.h"
+#include "ArcGeoSim/Numerics//NumericalScheme/TwoPointsStencil.h"
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

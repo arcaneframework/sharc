@@ -8,7 +8,7 @@
 #define ARCGEOSIM_MESH_AMRDATATRANSFER_DATATOTRANSFER_H
 
 
-// Donn�es pouvant �tre transf�r�es d'un maillage � l'autre
+// Donnees pouvant etre transferees d'un maillage a l'autre
 
 #include <arcane/ArcaneVersion.h>
 #include <arcane/Item.h>
@@ -156,7 +156,7 @@ public:
       for (UInt32 j = 0, js = Cell(parent).nbHChildren(); j < js; j++)
       {
         ItemInternal* child = Cell(parent).hChild(j).internal();
-        ParticleVectorView particle_list = m_cell_to_particles[child];
+        ParticleVectorView particle_list = m_cell_to_particles[child].view();
         Real value = 0. ;
         if (particle_list.size()>0)
         {

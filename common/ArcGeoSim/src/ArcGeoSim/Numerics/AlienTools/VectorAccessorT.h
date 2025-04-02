@@ -6,6 +6,7 @@
 //-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_ARCGEOSIM_NUMERICS_LINEARALGEBRA2_ACCESSOR_VECTORACCESSORT_H
 #define ARCGEOSIM_ARCGEOSIM_NUMERICS_LINEARALGEBRA2_ACCESSOR_VECTORACCESSORT_H
+
 /*---------------------------------------------------------------------------*/
 
 #ifdef ARCGEOSIM_LINEARALGEBRA2_INCLUDE_TEMPLATE_IN_CC 

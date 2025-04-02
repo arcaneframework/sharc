@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<makefile>
+  
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+
+  <files language="service">
+    <file>NotMatchingSurfaceMng</file>
+  </files>
+
+</makefile>

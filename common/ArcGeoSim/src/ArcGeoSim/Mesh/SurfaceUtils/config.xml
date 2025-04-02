@@ -22,8 +22,15 @@
   <files language="c++header">
     <file>INotMatchingSurfaceMng</file>
     <file>INotMatchingSurfaceMngAccessor</file>
+    <file>INotMatchingSurfaceBuilder</file>
     <file>ISurface</file>
     <file>ISurfaceUtils</file>
   </files>
 
+  <directories>
+    <directory>NotMatchingSurfaceIXMImporter</directory>
+    <directory>NotMatchingSurfaceImporter</directory>
+    <directory>NotMatchingSurfaceMng</directory>
+  </directories>
+  
 </makefile>

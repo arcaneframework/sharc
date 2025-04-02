@@ -232,10 +232,10 @@ init()
   // inputs initialization
   {
     auto accessor =  m_domain.lawVariableAccessor();
-    VariableCellReal in_1(accessor.values(in1.cast()));
-    VariableCellReal in_2a(accessor.values(in2a.cast()));
-    VariableCellReal in_2b(accessor.values(in2b.cast()));
-    VariableCellReal in_2c(accessor.values(in2c.cast()));
+    VariableCellReal in_1(accessor.values(Law::cast(in1)));
+    VariableCellReal in_2a(accessor.values(Law::cast(in2a)));
+    VariableCellReal in_2b(accessor.values(Law::cast(in2b)));
+    VariableCellReal in_2c(accessor.values(Law::cast(in2c)));
     ENUMERATE_CELL(icell, allCells()) {
       in_1[icell] = m_uniform();
       in_2a[icell] = m_uniform();
@@ -313,10 +313,10 @@ _common_tests()
   //
   // Input properties used to evaluate reference results
   auto accessor =  m_domain.lawVariableAccessor();
-  VariableCellReal in_1(accessor.values(in1.cast()));
-  VariableCellReal in_2a(accessor.values(in2a.cast()));
-  VariableCellReal in_2b(accessor.values(in2b.cast()));
-  VariableCellReal in_2c(accessor.values(in2c.cast()));
+  VariableCellReal in_1(accessor.values(Law::cast(in1)));
+  VariableCellReal in_2a(accessor.values(Law::cast(in2a)));
+  VariableCellReal in_2b(accessor.values(Law::cast(in2b)));
+  VariableCellReal in_2c(accessor.values(Law::cast(in2c)));
   //
   // Tests results variables
   bool check_law1_mult_law2 = true;
@@ -328,17 +328,17 @@ _common_tests()
   ENUMERATE_CELL(icell, allCells()) {
     //
     // test A: (law1*law2)
-    const Law::Contribution contrib_law1_mult_law2 = out1_contrib[icell] * out2_contrib[icell];
+    const ArcNum::Contribution contrib_law1_mult_law2 = out1_contrib[icell] * out2_contrib[icell];
     // check results
     check_law1_mult_law2 &= _check_law1_op_law2(ContributionOperator::mult, unpack(um_size, contrib_law1_mult_law2), in_1, icell);
     //
     // test B: (law1+law2)
-    const Law::Contribution contrib_law1_add_law2 = out1_contrib[icell] + out2_contrib[icell];
+    const ArcNum::Contribution contrib_law1_add_law2 = out1_contrib[icell] + out2_contrib[icell];
     // check results
     check_law1_add_law2 &= _check_law1_op_law2(ContributionOperator::add, unpack(um_size, contrib_law1_add_law2), in_1, icell);
     //
     // test C: (law1/law2)
-    const Law::Contribution contrib_law1_div_law2 = out1_contrib[icell] / out2_contrib[icell];
+    const ArcNum::Contribution contrib_law1_div_law2 = out1_contrib[icell] / out2_contrib[icell];
     // check results
     check_law1_div_law2 &= _check_law1_op_law2(ContributionOperator::div, unpack(um_size, contrib_law1_div_law2), in_1, icell);
     //
@@ -346,7 +346,7 @@ _common_tests()
     ENUMERATE_SPECIES(ispecies_out, m_gump_system.species()) {
       auto idx_species_out = ispecies_out.index();
       // contribution
-      const Law::Contribution contrib_law1_mult_law2_mult_law3 =
+      const ArcNum::Contribution contrib_law1_mult_law2_mult_law3 =
           contrib_law1_mult_law2 * out3_contrib[ispecies_out][icell];
       // check results
       check_law1_mult_law2_mult_law3 &= _check_law1_op_law2_mult_law3(
@@ -358,7 +358,7 @@ _common_tests()
     ENUMERATE_SPECIES(ispecies_out, m_gump_system.species()) {
       auto idx_species_out = ispecies_out.index();
       // contribution
-      const Law::Contribution contrib_law1_add_law2_mult_law3 =
+      const ArcNum::Contribution contrib_law1_add_law2_mult_law3 =
           contrib_law1_add_law2 * out3_contrib[ispecies_out][icell];
       // check results
       check_law1_add_law2_mult_law3 &= _check_law1_op_law2_mult_law3(
@@ -500,7 +500,7 @@ _stencil_test()
   //
   // Input properties used to evaluate reference results
   auto accessor = m_domain.lawVariableAccessor();
-  VariableCellReal in_1(accessor.values(in1.cast()));
+  VariableCellReal in_1(accessor.values(Law::cast(in1)));
   //
   // Loop on inner faces
   Arcane::FaceGroup inner_faces = allCells().innerFaceGroup();
@@ -509,14 +509,14 @@ _stencil_test()
     // test: kind of gradient law1 on stencil (2 points) * mult Law2 with kind of off-center
 	//
     // mimick stencil 2 point Geoxim
-    const Law::Cell back_cell(iface->backCell() , 2, 0);
-    const Law::Cell front_cell(iface->frontCell(), 2, 1);
+    const ArcNum::Stencil::Cell back_cell(iface->backCell() , 2, 0);
+    const ArcNum::Stencil::Cell front_cell(iface->frontCell(), 2, 1);
     //
     // kind of gradient
-    const Law::Contribution contrib_law1_grad_kl = out1_contrib[back_cell] * out1_contrib[front_cell];
+    const ArcNum::Contribution contrib_law1_grad_kl = out1_contrib[back_cell] * out1_contrib[front_cell];
     //
     // kind of off-center mult
-    const Law::Contribution contrib_law1_law2_flux_kl = (contrib_law1_grad_kl>0) ?
+    const ArcNum::Contribution contrib_law1_law2_flux_kl = (contrib_law1_grad_kl>0) ?
         		out2_contrib[back_cell]*contrib_law1_grad_kl :
     			out2_contrib[front_cell]*contrib_law1_grad_kl;
     //

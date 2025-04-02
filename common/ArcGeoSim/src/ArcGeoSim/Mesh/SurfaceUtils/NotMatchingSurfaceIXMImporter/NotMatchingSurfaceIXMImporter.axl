@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="NotMatchingSurfaceIXMImporter" version="1.0" type="caseoption">
+  <description>Service de calculs NotMatchingSurface via importer</description>
+  <interface name="ArcGeoSim::Surface::INotMatchingSurfaceBuilder" />
+
+  <!-- Eviter l'utilisation de variable gloable dans un service -->
+  <variables/>
+
+  <options>
+
+    <simple name="output-level" type="integer" default="0"> 
+      <description>
+        Niveau de verbosit� du service
+      </description>
+    </simple>
+
+  </options>
+</service>

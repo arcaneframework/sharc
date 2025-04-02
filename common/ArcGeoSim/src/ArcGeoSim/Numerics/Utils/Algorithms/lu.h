@@ -51,7 +51,7 @@ namespace Numerics {
 #if BOOST_UBLAS_TYPE_CHECK
     swap_rows (pm, cm);
     BOOST_UBLAS_CHECK (singular != 0 ||
-                       detail::expression_type_check (prod (triangular_adaptor<matrix_type, unit_lower> (m),
+                       boost::numeric::ublas::detail::expression_type_check (prod (triangular_adaptor<matrix_type, unit_lower> (m),
                                                             triangular_adaptor<matrix_type, upper> (m)), cm), internal_logic ());
 #endif
     return singular;

@@ -7,7 +7,6 @@
 #ifndef LAPACKUTILS_H
 #define LAPACKUTILS_H
 
-
 #define F77NAME(X) X ## _
 
 ////////////////////////////////////////////////////////////

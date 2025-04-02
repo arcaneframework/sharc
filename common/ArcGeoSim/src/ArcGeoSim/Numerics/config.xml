@@ -12,9 +12,7 @@
     <directory>BCs</directory>
     <directory depend="!win32">ExpressionParser</directory>
     <directory>GroupCreator</directory>
-    <directory>Discretization</directory>
-    <directory depend="eigen3">APostErrEstims</directory>
-    <directory depend="alien1">AlienTools</directory>
+    <directory>NumericalScheme</directory>
     <directory>ArcNumTools</directory>
   </directories>
 </makefile>

@@ -36,8 +36,8 @@
 #include "ArcGeoSim/Physics/Law2/Contribution/VariableFolderAccessor.h"
 
 
-#include "ArcGeoSim/Numerics/Discretization/Schemes/TwoPointsScheme/TwoPointsTransmissivity.h"
-#include "ArcGeoSim/Numerics/Discretization/Schemes/TwoPointsStencil.h"
+#include "ArcGeoSim/Numerics/NumericalScheme/TwoPointsScheme/TwoPointsTransmissivity.h"
+#include "ArcGeoSim/Numerics/NumericalScheme/TwoPointsStencil.h"
 #include "ArcGeoSim/Numerics/ArcNumTools/LinearAlgebra/Vector.h"
 #include "ArcGeoSim/Numerics/ArcNumTools/LinearAlgebra/Matrix.h"
 #include "ArcGeoSim/Numerics/ArcNumTools/Solver/INewtonSolver.h"

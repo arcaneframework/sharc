@@ -23,7 +23,10 @@ VariableManager(Arcane::IMesh* mesh)
   : m_name("")
   , m_mesh(mesh)
   , m_trace(NULL)
-  , m_verbose(false) 
+  , m_verbose(false)
+#ifdef USE_ARCANE_V3
+  , m_mesh_handle(mesh->handle())
+#endif
 {
   m_default_family_name[Arcane::IK_Particle] = "Particle";
 }
@@ -35,7 +38,10 @@ VariableManager(Arcane::IMesh* mesh, Arcane::ITraceMng* trace)
   : m_name("")
   , m_mesh(mesh)
   , m_trace(trace)
-  , m_verbose(true) 
+  , m_verbose(true)
+#ifdef USE_ARCANE_V3
+  , m_mesh_handle(mesh->handle())
+#endif
 {
   m_default_family_name[Arcane::IK_Particle] = "Particle";
 }
@@ -49,6 +55,9 @@ VariableManager(Arcane::String name, Arcane::IMesh* mesh)
   , m_mesh(mesh)
   , m_trace(NULL)
   , m_verbose(false)
+#ifdef USE_ARCANE_V3
+  , m_mesh_handle(mesh->handle())
+#endif
 {
   m_default_family_name[Arcane::IK_Particle] = "Particle";
 }
@@ -61,9 +70,27 @@ VariableManager(Arcane::String name, Arcane::IMesh* mesh, Arcane::ITraceMng* tra
   , m_mesh(mesh)
   , m_trace(trace)
   , m_verbose(true)
+#ifdef USE_ARCANE_V3
+  , m_mesh_handle(mesh->handle())
+#endif
 {
   m_default_family_name[Arcane::IK_Particle] = "Particle";
 }
+
+/*---------------------------------------------------------------------------*/
+
+#ifdef USE_ARCANE_V3
+VariableManager::
+VariableManager(Arcane::MeshHandle const& mesh_handle, Arcane::ITraceMng* trace)
+  : m_name("")
+  , m_mesh(nullptr)
+  , m_trace(trace)
+  , m_verbose(true)
+  , m_mesh_handle(mesh_handle)
+{
+  m_default_family_name[Arcane::IK_Particle] = "Particle";
+}
+#endif
 
 /*---------------------------------------------------------------------------*/
 
@@ -84,6 +111,11 @@ operator<<(const std::shared_ptr<IAllocator>& info)
 {
   info->addPrefix(m_name);
   info->setDefaultFamilyNames(m_default_family_name);
+#ifdef USE_ARCANE_V3
+  if (!m_mesh) {
+    m_mesh = m_mesh_handle.mesh();
+  }
+#endif
   return ( *this << info->create(m_mesh) );
 }
   

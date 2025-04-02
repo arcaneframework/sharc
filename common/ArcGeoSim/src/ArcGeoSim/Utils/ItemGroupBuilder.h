@@ -7,7 +7,6 @@
 #ifndef ITEMGROUPBUILDER_H
 #define ITEMGROUPBUILDER_H
 
-
 #include <set>
 #include <cstring>
 #include <cctype>

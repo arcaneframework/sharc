@@ -336,19 +336,35 @@ class HARTSTaskImplementation
 
   //! Exécute une boucle 1D en concurrence
   void executeParallelFor(const ComplexLoopRanges<1>& loop_ranges,
+#if (ARCANE_VERSION >= 31500)
+                                  const ForLoopRunInfo& options,
+#else
                                   const ParallelLoopOptions& options,
+#endif
                                   IMDRangeFunctor<1>* functor) {}
   //! Exécute une boucle 2D en concurrence
   void executeParallelFor(const ComplexLoopRanges<2>& loop_ranges,
+#if (ARCANE_VERSION >= 31500)
+                              const ForLoopRunInfo& options,
+#else
                                   const ParallelLoopOptions& options,
+#endif
                                   IMDRangeFunctor<2>* functor) {}
   //! Exécute une boucle 3D en concurrence
   void executeParallelFor(const ComplexLoopRanges<3>& loop_ranges,
+#if (ARCANE_VERSION >= 31500)
+                              const ForLoopRunInfo& options,
+#else
                                   const ParallelLoopOptions& options,
+#endif
                                   IMDRangeFunctor<3>* functor) {}
   //! Exécute une boucle 4D en concurrence
   void executeParallelFor(const ComplexLoopRanges<4>& loop_ranges,
+#if (ARCANE_VERSION >= 31500)
+                              const ForLoopRunInfo& options,
+#else
                                   const ParallelLoopOptions& options,
+#endif
                                   IMDRangeFunctor<4>* functor) {}
 #endif
 

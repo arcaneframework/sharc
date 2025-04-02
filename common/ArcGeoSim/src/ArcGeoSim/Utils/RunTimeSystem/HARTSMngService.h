@@ -7,7 +7,6 @@
 #ifndef ARCGEOSIM_HARTSMNG_H
 #define ARCGEOSIM_HARTSMNG_H
 
-
 #include "ArcGeoSim/Utils/RunTimeSystem/IRunTimeSystemMng.h"
 #include "HARTSMng_axl.h"
 

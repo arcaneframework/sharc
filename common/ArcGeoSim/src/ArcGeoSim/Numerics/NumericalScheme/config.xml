@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="eigen3" optional='true'/>
+    <package name="glpk" optional='true'/>
+  </needed-packages>
+
+  <files language="c++header">
+    <file>MPFASchemesTypedefs</file>
+    <file>DiscretizationTwoPointInterpolator</file>
+    <file>ADFiniteVolumeScheme</file>
+    <file >TwoPointsStencil</file>
+    <file >MultiPointsStencil</file>
+  </files>
+
+  <directories>
+    <directory>TwoPointsScheme</directory>
+  </directories>
+
+</makefile>

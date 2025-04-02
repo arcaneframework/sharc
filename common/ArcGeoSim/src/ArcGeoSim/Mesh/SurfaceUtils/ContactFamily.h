@@ -19,6 +19,7 @@
 #include <arcane/ArcaneVersion.h>
 #include <arcane/ArcaneTypes.h>
 #include <arcane/utils/TraceInfo.h>
+#include "arcane/utils/Event.h"
 #include <arcane/Item.h>
 #include <arcane/ItemSharedInfo.h>
 #include <arcane/ItemInternal.h>
@@ -64,6 +65,11 @@
 #ifdef USE_ARCANE_V3
 #include <arcane/mesh/DoFFamily.h>
 #include <arcane/mesh/DoFManager.h>
+#endif
+
+#if (ARCANE_VERSION >= 31600)
+#include <arcane/utils/Event.h>
+#include <arcane/core/ItemFamilyItemListChangedEventArgs.h>
 #endif
 
 /*---------------------------------------------------------------------------*/
@@ -425,6 +431,17 @@ public:
    }
 #endif
   //!@}
+
+#if (ARCANE_VERSION >= 31600)
+   Arcane::EventObservableView<const Arcane::ItemFamilyItemListChangedEventArgs&> itemListChangedEvent() override{
+     _notImplemented();
+     Arcane::EventObservable<const Arcane::ItemFamilyItemListChangedEventArgs&> item_list_change_event;
+     return Arcane::EventObservableView<const Arcane::ItemFamilyItemListChangedEventArgs&>{item_list_change_event};
+   }
+  void experimentalChangeUniqueId(Arcane::ItemLocalId,Arcane::ItemUniqueId) {
+     _notImplemented();
+   }
+#endif
 };
 
 /*---------------------------------------------------------------------------*/

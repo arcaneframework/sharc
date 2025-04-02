@@ -14,7 +14,7 @@
 #include <alien/ref/handlers/block/BlockVectorWriter.h>
 #include <alien/ref/handlers/block/BlockVectorReader.h>
 
-#include "ArcGeoSim/Numerics/Discretization/Schemes/Stencil.h"
+#include "ArcGeoSim/Numerics/NumericalScheme/Stencil.h"
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

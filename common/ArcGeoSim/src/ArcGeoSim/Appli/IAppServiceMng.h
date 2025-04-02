@@ -30,7 +30,6 @@
 namespace Arcane {
   class ITimeLoopMng;
   class IServiceMng;
-  class ITraceMng;
 }
 
 #ifdef ARCGEOSIM_USE_EXPORT
@@ -230,7 +229,7 @@ private:
   void _checkBeforeFind(const char * name);
   void _checkNotFound(const char * name);
    
-  ITraceMng * _traceMng();
+  Arcane::ITraceMng * _traceMng();
   
   template<typename T> void _addService(T* service)
   {

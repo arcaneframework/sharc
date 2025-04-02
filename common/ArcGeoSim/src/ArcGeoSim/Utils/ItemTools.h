@@ -7,7 +7,6 @@
 #ifndef ITEMTOOLS_H
 #define ITEMTOOLS_H
 
-
 #ifdef WIN32
 #include <ciso646>
 #endif

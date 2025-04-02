@@ -21,13 +21,15 @@ class IExtraEntryPoints;
 class INextTimeComputer;
 class IIterationInformation;
 
-template class Delegate<IExtraEntryPoints>;
-template class Delegate<INextTimeComputer>;
-template class Delegate<IIterationInformation>;
+
 
 template<> IExtraEntryPoints* Delegate<IExtraEntryPoints>::m_unique_delegate = NULL;
 template<> INextTimeComputer* Delegate<INextTimeComputer>::m_unique_delegate = NULL;
 template<> IIterationInformation* Delegate<IIterationInformation>::m_unique_delegate = NULL;
+
+template class Delegate<IExtraEntryPoints>;
+template class Delegate<INextTimeComputer>;
+template class Delegate<IIterationInformation>;
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/

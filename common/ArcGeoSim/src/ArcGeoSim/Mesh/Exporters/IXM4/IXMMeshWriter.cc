@@ -727,11 +727,11 @@ faceElement(const String format, XmlNode current_node ){
 
 	ENUMERATE_FACE(iface,own_faces){// Scanning the cells' nodes to get type and connectivity
 		Face face = *iface;
-		register Integer  nb_node = face.nbNode();
+		Integer  nb_node = face.nbNode();
 		strides[iface.index()] = nb_node;
 		face_types.add(face.type());
-		for(register Integer j=0; j<nb_node;++j){
-			register Integer uid=face.node(j).uniqueId().asInteger();
+		for(Integer j=0; j<nb_node;++j){
+			Integer uid=face.node(j).uniqueId().asInteger();
 			node_face_uids.add(uid);
 		}
 	}

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
-<case codeversion="1.0" codename="ArcaneDemo" xml:lang="en">
+<case codeversion="1.0" codename="ShArc" xml:lang="en">
 	<arcane>
 		<title>Experimentation Arcane</title>
 		<timeloop>TimeLoop</timeloop>
@@ -7,11 +7,9 @@
   <mesh>
     <!-- <meshgenerator><simple><mode>1</mode></simple></meshgenerator> -->
     <file internal-partition='true'>cube3D1.vt2</file>
-    <!--file internal-partition='true'>unit3dcube_coarse.vor</file-->
-    <!-- <file internal-partition='true'>abordPuits-3D-gros-2.vt2</file> -->
   </mesh>
 
-  <arcane-demo>
+  <sharc>
     <post-processing>
       <output-period>1</output-period>
       <save-init>true</save-init>
@@ -28,11 +26,11 @@
       </post-processor>
     </post-processing>
     <max-iteration>3</max-iteration>
-  </arcane-demo>
+  </sharc>
 
-  <geometry-test>
+  <exa-di-bench>
     <use-external-storage>true</use-external-storage>
     <factor>0.5</factor>
 	  <geometry name="Euclidian3Geometry"/>
-  </geometry-test>
+  </exa-di-bench>
 </case>

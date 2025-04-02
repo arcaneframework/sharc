@@ -66,6 +66,9 @@ public:
   VariableManager(Arcane::IMesh* mesh, Arcane::ITraceMng* trace);
   VariableManager(Arcane::String name, Arcane::IMesh* mesh);
   VariableManager(Arcane::String name, Arcane::IMesh* mesh, Arcane::ITraceMng* trace);
+#ifdef USE_ARCANE_V3
+  VariableManager(Arcane::MeshHandle const& mesh, Arcane::ITraceMng* trace);
+#endif
 
   ~VariableManager() {}
   
@@ -74,7 +77,11 @@ public:
   void enableVerbosity() { m_verbose = true && (m_trace != NULL); }
   void disableVerbosity() { m_verbose = false; }
 
+#ifdef USE_ARCANE_V3
+  Arcane::IMesh* mesh() const { if (!m_mesh) m_mesh = m_mesh_handle.mesh(); }
+#else
   Arcane::IMesh* mesh() const { return m_mesh; }
+#endif
 
   void setDefaultFamily(Arcane::IItemFamily* family);
  
@@ -118,8 +125,15 @@ private:
 private:
   
   Arcane::String m_name;
+#ifdef USE_ARCANE_V3
+  mutable Arcane::IMesh* m_mesh;
+#else
   Arcane::IMesh* m_mesh;
+#endif
   Arcane::ITraceMng* m_trace;
+#ifdef USE_ARCANE_V3
+  Arcane::MeshHandle const& m_mesh_handle;
+#endif
 
   bool m_verbose;
 

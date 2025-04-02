@@ -53,7 +53,7 @@ protected:
 
   Delegate()
   {
-    if(m_unique_delegate == NULL) {
+    if(m_unique_delegate == nullptr) {
       m_unique_delegate = this;
     }
   }
@@ -67,7 +67,7 @@ public:
   //! Pour savoir si une delegation a ete donnee
   static bool isEnabled()
   {
-    return m_unique_delegate != NULL;
+    return m_unique_delegate != nullptr;
   }
 
   //! Pour recuperer le delegue. La cle est une intance du
