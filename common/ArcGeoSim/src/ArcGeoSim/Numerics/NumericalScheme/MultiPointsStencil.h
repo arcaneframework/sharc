@@ -5,7 +5,6 @@
 #include "ArcGeoSim/Numerics/NumericalScheme/Stencil.h"
 #include "ArcGeoSim/Mesh/SurfaceUtils/Contact.h"
 #include "ArcGeoSim/Mesh/SurfaceUtils/ContactGroup.h"
-#include "ArcGeoSim/Numerics/Discretization/Discretization.h"
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
@@ -17,10 +16,8 @@ class MultiPointsStencil
 {
 public:
   virtual ~MultiPointsStencil() {}
-  virtual void init(const Discretization::Face& f) = 0 ;
   virtual void init(const Arcane::Face& f) = 0 ;
   virtual void init(const Contact& f) = 0 ;
-  virtual void init(const Discretization::FaceEnumerator & f) = 0 ;
   virtual void init(const Arcane::FaceEnumerator& f) = 0 ;
   virtual void init(const ContactEnumerator& f) = 0 ;
   virtual void begin() = 0 ;
