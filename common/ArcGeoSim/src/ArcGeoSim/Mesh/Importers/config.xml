@@ -11,7 +11,7 @@
   <files language="c++">
     <file header='false'>EMeshIOService</file> 
     <file header='false'>IfpVtkMeshIOService</file>
-    <!--file header='false'>IXMMeshReaderService</file-->
+    <file header='false'>IXMMeshReaderService</file>
     <file>MeshInfo</file> 
   </files>
   

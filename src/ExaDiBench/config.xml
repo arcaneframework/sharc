@@ -10,4 +10,8 @@
     <file>ExaDiBench</file>
   </files>
 
+  <files language="c++">
+    <file header='false'>MeshbMeshReaderService</file>
+  </files>
+  
 </makefile>

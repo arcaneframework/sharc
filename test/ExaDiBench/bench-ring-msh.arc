@@ -4,12 +4,12 @@
 		<title>Experimentation Arcane</title>
 		<timeloop>TimeLoop</timeloop>
 	</arcane>
+  
   <mesh>
-    <!-- <meshgenerator><simple><mode>1</mode></simple></meshgenerator> -->
-    <file internal-partition='true'>cube3D1.vt2</file>
+    <file internal-partition='true'>ring.ixm</file>
   </mesh>
 
-  <sharc>
+  <sh-arc>
     <post-processing>
       <output-period>1</output-period>
       <save-init>true</save-init>
@@ -26,7 +26,7 @@
       </post-processor>
     </post-processing>
     <max-iteration>3</max-iteration>
-  </sharc>
+  </sh-arc>
 
   <exa-di-bench>
     <use-external-storage>true</use-external-storage>

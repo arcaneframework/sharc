@@ -15,6 +15,9 @@
 
 #include <stdlib.h> // pour *rand48
 
+#include <arcane/IMeshWriter.h>
+#include <arcane/ServiceBuilder.h>
+
 /* Petite note indicative
  * Arcane a quelques probl�mes avec les variables partielles
  * - Si m_cell_group and utilise des RealVariable => pb (dans volumeCompute)
@@ -29,6 +32,45 @@ void
 ExaDiBenchModule::
 init()
 {
+  if(options()->exportVtk())
+  {
+    const Arcane::String fileName = mesh()->name()+Arcane::String("-vtk") ;
+    Arcane::IMeshWriter* writer = Arcane::ServiceBuilder<Arcane::IMeshWriter>::createInstance(mesh()->subDomain(),"VtkLegacyMeshWriter") ;
+    if (writer)
+    {
+      writer->writeMeshToFile(mesh(), fileName) ;
+    }
+    else
+       info() << "Writer not found" ;
+  }
+  if(options()->exportMsh())
+  {
+    const Arcane::String fileName = mesh()->name()+Arcane::String("-msh") ;
+    Arcane::IMeshWriter* writer = Arcane::ServiceBuilder<Arcane::IMeshWriter>::createInstance(mesh()->subDomain(),"MshNewMeshWriter") ;
+    if (writer)
+    {
+      writer->writeMeshToFile(mesh(), fileName) ;
+    }
+    else
+       info() << "Writer not found" ;
+  }
+  if(options()->exportIxm())
+  {
+    const Arcane::String fileName = mesh()->name()+Arcane::String("-ixm") ;
+    Arcane::IMeshWriter* writer = Arcane::ServiceBuilder<Arcane::IMeshWriter>::createInstance(mesh()->subDomain(),"IXMMeshWriter") ;
+    if (writer)
+    {
+      writer->writeMeshToFile(mesh(), fileName) ;
+    }
+    else
+       info() << "Writer not found" ;
+  }
+
+  if(options()->refineLevel()>0)
+  {
+    refineMesh(options()->refineLevel()) ;
+  }
+
   m_cell_group = ownCells();
   // m_cell_group = allCells();
 
@@ -162,6 +204,15 @@ compute()
 /*---------------------------------------------------------------------------*/
 
 void 
+ExaDiBenchModule::
+refineMesh(Integer level)
+{
+  info() << "Refine Mesh : Level = "<<level;
+
+  warning() << "Refine feature not yet implemented";
+}
+
+void
 ExaDiBenchModule::
 restore()
 {

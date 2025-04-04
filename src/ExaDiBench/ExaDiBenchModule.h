@@ -31,6 +31,8 @@ class ExaDiBenchModule
   
   virtual void compute();
 
+  virtual void refineMesh(Integer level) ;
+
   virtual void restore();
 
   /** Retourne le num�ro de version du module */
