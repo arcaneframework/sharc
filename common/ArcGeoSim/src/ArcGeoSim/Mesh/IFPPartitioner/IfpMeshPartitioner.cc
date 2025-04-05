@@ -161,7 +161,7 @@ void IfpMeshPartitioner::build() {
   //m_cut_type = options()->type();
 
   MPI_Comm comm = MPI_COMM_WORLD;
-  int fcomm = (int) comm;
+  int fcomm = MPI_Comm_c2f(comm);
   Integer needMpiInit = (m_is_parallel) ? 1 : 0;
   //needMpiInit=0;
   F2C(ifppartitionerinit)(&fcomm, &needMpiInit);

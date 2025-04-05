@@ -36,11 +36,17 @@ ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10Well
         use-case-two-phase-flow-spe10-well.arc)
 
 
-ARCANE_ADD_TEST(ExaDiBench-cube3D
+ARCANE_ADD_TEST_SEQUENTIAL(ExaDiBench-cube3D
         ShArc
         test/ExaDiBench
         bench-cube3d.arc
         )
+
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-cube3D
+        ShArc
+        test/ExaDiBench
+        bench-cube3d.arc
+        2)
 
 #ARCANE_ADD_TEST(ExaDiBench-spe11c
 #        ShArc
