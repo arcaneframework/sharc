@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="harts" />
+    <package name="tbb" />
+    <package name="hwloc" />
+    <package name="extraboost" />
+    <package name="alien" />
+  </needed-packages>
+  
+  <files language="c++">
+    <file>HARTSTaskImplementation</file>
+  </files>
+  <files language="service">
+    <file>HARTSMng</file>
+  </files>
+</makefile>

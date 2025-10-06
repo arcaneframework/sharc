@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef ARCGEOSIM_MESH_GEOMETRY_EUCLIDIANGEOMETRY_EUCLIDIANGEOMETRY_H
 #error "Template implementation has to be used with template declaration"
@@ -793,7 +787,7 @@ ComputeGenericVolumeT<Dimension, CoordinatesVariable>::
 //computeOrientedMeasureAndCenter(const ItemWithNodes & item, Real & measure, Real3 & center, coordsType & coords)
 computeOrientedMeasureAndCenter(const ItemWithNodes & item, Real & measure, Real3 & center, Array<Real> & coords)
 {
-  // Choix d'un point arbitraire d'toilement, mais "proche" du centre
+  // Choix d'un point arbitraire d'étoilement, mais "proche" du centre
   Real3 vcenter(0,0,0);
   for(Integer i=0;i<item.nbNode();++i) {
     vcenter += this->m_coords[item.node(i)];
@@ -803,7 +797,7 @@ computeOrientedMeasureAndCenter(const ItemWithNodes & item, Real & measure, Real
   Real volume = 0;
   center = Real3(0,0,0);
 
-  // Initialisations de tableaux utilises pour les coordonnees barycentriques
+  // Initialisations de tableaux utilisés pour les coordonnées barycentriques
   coords.resize(item.nbNode());
 
   const Cell cell = item.toCell();

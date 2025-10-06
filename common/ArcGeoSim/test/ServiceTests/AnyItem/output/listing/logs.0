@@ -1,0 +1,118 @@
+*L-Init     The mesh file is cube3D1.vt2
+*L-TimeLoopMng Registering the time loop TestLoop
+*L-TimeLoopMng [01/08/2025 15:27:19] Using time loop TestLoop
+*L-CaseMng  Register case option <arcane-cea-verifier>
+*L-TimeLoopMng  Add an entry point <ArcaneCeaVerifier::VerifierOnExit>
+*L-TimeLoopMng  Add an entry point <ArcaneCeaVerifier::VerifierOnInit>
+*L-CaseMng  Register case option <master>
+*L-TimeLoopMng  Add an entry point <Master::MasterBuild>
+*L-CaseMng  Register case option <arcane-post-processing>
+*L-TimeLoopMng  Add an entry point <ArcanePostProcessing::PostProcessingExportData>
+*L-TimeLoopMng  Add an entry point <ArcanePostProcessing::PostProcessingExportDataStart>
+*L-TimeLoopMng  Add an entry point <ArcanePostProcessing::PostProcessingStartInit>
+*L-TimeLoopMng  Add an entry point <ArcanePostProcessing::PostProcessingInit>
+*L-TimeLoopMng  Add an entry point <ArcanePostProcessing::PostProcessingExit>
+*L-CaseMng  Register case option <service-test-mng>
+*L-TimeLoopMng  Add an entry point <ServiceTestMng::Init>
+*L-TimeLoopMng  Add an entry point <ServiceTestMng::Test>
+*L-TimeLoopMng Looking for entry point 'ServiceTestMng.Test'
+*L-TimeLoopMng Looking for entry point 'ServiceTestMng.Init'
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneTimeLoopBegin' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneMasterStartInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneMasterInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneMasterContinueInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneMasterLoopExit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneMasterLoopMeshChanged' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneMasterLoopRestore' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstBuild' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstStartInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstContinueInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstComputeLoop' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstOnMeshChanged' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstRestore' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterFirstExit' to the execution
+*L-TimeLoopMng Adding the entry point `TimeHistoryMng::ArcaneTimeHistoryBegin' to the execution
+*L-TimeLoopMng Adding the entry point `TimeHistoryMng::ArcaneTimeHistoryInit' to the execution
+*L-TimeLoopMng Adding the entry point `TimeHistoryMng::ArcaneTimeHistoryStartInit' to the execution
+*L-TimeLoopMng Adding the entry point `TimeHistoryMng::ArcaneTimeHistoryContinueInit' to the execution
+*L-TimeLoopMng Adding the entry point `TimeHistoryMng::ArcaneTimeHistoryRestore' to the execution
+*L-TimeLoopMng Adding the entry point `ArcaneCeaVerifier::VerifierOnInit' to the execution
+*L-TimeLoopMng Adding the entry point `Master::MasterBuild' to the execution
+*L-TimeLoopMng Adding the entry point `ArcanePostProcessing::PostProcessingExportDataStart' to the execution
+*L-TimeLoopMng Adding the entry point `ArcanePostProcessing::PostProcessingStartInit' to the execution
+*L-TimeLoopMng Adding the entry point `ServiceTestMng::Test' to the execution
+*L-TimeLoopMng Adding the entry point `ServiceTestMng::Init' to the execution
+*L-TimeLoopMng Adding the entry point `ArcanePostProcessing::PostProcessingExit' to the execution
+*L-TimeLoopMng Adding the entry point `ArcanePostProcessing::PostProcessingInit' to the execution
+*L-TimeLoopMng Adding the entry point `ArcanePostProcessing::PostProcessingExportData' to the execution
+*L-TimeLoopMng Adding the entry point `ArcaneCeaVerifier::VerifierOnExit' to the execution
+*L-TimeLoopMng Adding the entry point `TimeHistoryMng::ArcaneTimeHistoryStartInitEnd' to the execution
+*L-TimeLoopMng Adding the entry point `TimeHistoryMng::ArcaneTimeHistoryEnd' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastExit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastRestore' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastOnMeshChanged' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastComputeLoop' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastContinueInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastStartInit' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcGeoSimMasterLastBuild' to the execution
+*L-TimeLoopMng Adding the entry point `MasterArcaneDemo::ArcaneTimeLoopEnd' to the execution
+*E* Code:---------------------------------------------
+*E*   ERROR (0,irlin386303): FatalErrorException caught in ArcaneMain::callFunctor: Exception!
+
+Thrown in: 'void Arcane::CaseMng::_printErrors(Arcane::ICaseDocumentFragment*, bool)'
+Type: 'FatalError'
+
+Message: Input data are invalid:
+
+TraceFile: /work/gratienj/Arcane3/2025/framework/arcane/src/arcane/core/CaseOptionService.cc:244
+TraceFunc: void Arcane::CaseOptionServiceImpl::_readPhase1()
+<//case/service-test-mng/service/linear-solver> : Unable to find a service named 'PETScSolver' (valid values:[0]="HypreSolver" [1]="IFPSolver" [2]="TrilinosSolver")
+TraceFile: /work/gratienj/Arcane3/2025/framework/arcane/src/arcane/core/CaseOptionService.cc:244
+TraceFunc: void Arcane::CaseOptionServiceImpl::_readPhase1()
+<//case/service-test-mng/service/submesh-linear-solver> : Unable to find a service named 'PETScSolver' (valid values:[0]="HypreSolver" [1]="IFPSolver" [2]="TrilinosSolver")
+
+Fatal error occured.
+Can not further proceed.
+
+Call stack:
+StackTrace [19-1] called from
+ # 19 : /work/gratienj/Arcane3/2025/build-arcanedemo-gimkl2021b/ArcaneDemo/bin/ArcaneDemo.exe() [0x40789f]
+ # 18 : ArcGeoSim::main(Arcane::ApplicationInfo&) [+0xd6]
+ # 17 : Arcane::ArcaneLauncher::run() [+0x9]
+ # 16 : Arcane::ArcaneMain::run() [+0x10c]
+ # 15 : Arcane::ArcaneMain::arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x86]
+ # 14 : Arcane::ArcaneMain::_arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x89]
+ # 13 : Arcane::ArcaneMainExecInfo::execute() [+0x179]
+ # 12 : Arcane::ArcaneMain::callFunctorWithCatchedException(Arccore::IFunctor*, Arcane::IArcaneMain*, bool*, bool) [+0xe5]
+ # 11 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x14ff8e) [0x7ff250a3df8e]
+ # 10 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1ee5e9) [0x7ff250adc5e9]
+ #  9 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1ef933) [0x7ff250add933]
+ #  8 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x1f044d) [0x7ff250ade44d]
+ #  7 : ArcGeoSim::ArcGeoSimCodeService::initCase(Arcane::ISubDomain*, bool) [+0x89]
+ #  6 : Arcane::CodeService::initCase(Arcane::ISubDomain*, bool) [+0x1ec]
+ #  5 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x202b3c) [0x7ff250af0b3c]
+ #  4 : /work/gratienj/Arcane3/2025/Install-gimkl2021b/lib/libarcane_impl.so(+0x2030fa) [0x7ff250af10fa]
+ #  3 : Arccore::FatalErrorException::FatalErrorException(Arccore::TraceInfo const&, Arccore::String const&) [+0x46]
+ #  2 : Arccore::Exception::Exception(Arccore::String const&, Arccore::TraceInfo const&, Arccore::String const&) [+0xd3]
+ #  1 : Arccore::Exception::_setStackTrace() [+0x4a]
+
+
+
+Stack
+StackTrace [13-1] called from
+ # 13 : /work/gratienj/Arcane3/2025/build-arcanedemo-gimkl2021b/ArcaneDemo/bin/ArcaneDemo.exe() [0x40789f]
+ # 12 : ArcGeoSim::main(Arcane::ApplicationInfo&) [+0xd6]
+ # 11 : Arcane::ArcaneLauncher::run() [+0x9]
+ # 10 : Arcane::ArcaneMain::run() [+0x10c]
+ #  9 : Arcane::ArcaneMain::arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x86]
+ #  8 : Arcane::ArcaneMain::_arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*) [+0x89]
+ #  7 : Arcane::ArcaneMainExecInfo::execute() [+0x179]
+ #  6 : Arcane::ArcaneMain::callFunctorWithCatchedException(Arccore::IFunctor*, Arcane::IArcaneMain*, bool*, bool) [+0x35d]
+ #  5 : Arccore::TraceMessage::~TraceMessage() [+0x41]
+ #  4 : Arccore::TraceMng::endTrace(Arccore::TraceMessage const*) [+0x89]
+ #  3 : Arccore::TraceMng::_endTrace(Arccore::TraceMessage const*) [+0x291]
+ #  2 : Arccore::TraceMng::_writeDirect(Arccore::TraceMessage const*, Arccore::Span<unsigned char const, -1l, 0l>, Arccore::Span<unsigned char const, -1l, 0l>) [+0x26d]
+ #  1 : Arccore::Platform::getStackTrace() [+0x5d]
+

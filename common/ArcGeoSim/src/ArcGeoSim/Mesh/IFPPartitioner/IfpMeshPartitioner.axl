@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?><!-- -*- SGML -*- -->
+
+  <service name="IfpMeshPartitioner" parent-name="MeshPartitionerBase"   type="caseoption">
+     <name lang='fr'>ifpart</name>
+    <description>Partionneur de maillage IFP</description>
+    <interface name="Arcane::IMeshPartitioner" inherited="false" />
+    <variables>
+    </variables>
+
+    <options>
+    
+        <!-- enumeration name="type" type="TypesIfpMeshPartitioner::eCutType" default="OneD">
+          <description>type de l algorithme de decoupage</description>
+          <enumvalue name="X" genvalue="TypesIfpMeshPartitioner::X" />
+          <enumvalue name="Y" genvalue="TypesIfpMeshPartitioner::Y" />
+          <enumvalue name="OneD" genvalue="TypesIfpMeshPartitioner::OneD" />
+          <enumvalue name="TwoD" genvalue="TypesIfpMeshPartitioner::TwoD" />
+          <enumvalue name="TwoDMetis" genvalue="TypesIfpMeshPartitioner::TwoDMetis" />
+          <enumvalue name="ThreeDMetis" genvalue="TypesIfpMeshPartitioner::ThreeDMetis" />
+        </enumeration-->
+    </options>
+
+  </service>

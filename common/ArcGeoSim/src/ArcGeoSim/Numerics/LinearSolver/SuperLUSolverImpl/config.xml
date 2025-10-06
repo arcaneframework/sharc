@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="superlu" />
+  </needed-packages>
+
+  <files language="c++">
+    <file>SuperLUSolver</file>
+    <file>SuperLULinearSystem</file>
+  </files>
+
+  <files language="c++header">
+    <file>SuperLUOptionTypes</file>
+    <file>SuperLUInternal</file>
+  </files>
+
+  <files language="axl">
+    <file>SuperLUSolver</file>
+  </files>
+
+</makefile>

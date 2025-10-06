@@ -1,0 +1,16 @@
+#ifndef ARCGEOSIM_MESH_AMRDATATRANSFER_INTERPOLATORTYPE_H
+#define ARCGEOSIM_MESH_AMRDATATRANSFER_INTERPOLATORTYPE_H
+
+
+class TypesInterpolator
+{
+public:
+  typedef enum
+  {
+    P0,
+    P1,
+    P2
+   } eTypesInterpolator;
+};
+
+#endif /* ARCGEOSIM_MESH_AMRDATATRANSFER_INTERPOLATORTYPE_H_ */

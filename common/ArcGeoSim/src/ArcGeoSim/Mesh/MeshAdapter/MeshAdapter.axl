@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="MeshAdapter" version="1.0" type="caseoption">
+  <description>Adaptateur de maillage </description>
+  <interface name="IMeshAdapter" inherited="false"/>
+
+  <variables>
+  </variables>
+
+  <options>
+    <simple name="max-level"     type="integer" default="3"/>
+    <simple name="refine-ratio"  type="real"    default="1."/>
+    <simple name="coarsen-ratio" type="real"    default="0.2"/>
+    <simple name="refine-on-init" type="bool" default="false">
+      <description>Option to refine mesh at the beginning of the simulation</description>
+    </simple>
+    <extended name="zone" type="CellGroup" minOccurs="0" maxOccurs="unbounded"/>
+
+    <service-instance name="estimator" type="IEstimator" minOccurs="0" maxOccurs="1"/>
+    <service-instance name="a-m-r-data-transfer" type="IAMRDataTransfer" minOccurs="0" maxOccurs="1"/>
+
+    <simple name="enable-restriction-diffusion" type="bool" default="false"/>
+
+  </options>
+</service>

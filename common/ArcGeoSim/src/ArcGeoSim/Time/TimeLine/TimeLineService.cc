@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -57,7 +57,6 @@ public:
   TimeLineService(const Arcane::ServiceBuildInfo & sbi)
     : ArcaneTimeLineObject(sbi)
     , SpiedTimeVariables(sbi.subDomain())
-    , m_initialized(false)
     , m_calendar(sbi.subDomain())
     , m_evolution(sbi.subDomain())
     , m_final_time_is_reached(Arcane::VariableBuildInfo(sbi.subDomain(),"PrivateFinalTimeIsReached"))
@@ -84,6 +83,10 @@ public:
   
   IEventCalendar& calendar() { return m_calendar; }
   //!}
+
+  void computeRestoredNextTime() ;
+
+  void computeRestoredPreviousTime() ;
 
   //!@{ Delegate<INextTimeComputer>
   TimeStep::EntryPoints& userEntryPoints() { return m_entry_points; }
@@ -122,7 +125,8 @@ private:
 
 private:
 
-  bool m_initialized;
+  bool m_initialized            = false;
+  bool m_time_has_been_restored = false;
 
   EventCalendar m_calendar;
   TimeEvolution m_evolution;
@@ -371,6 +375,25 @@ _computeTimeStep()
 }
 
 /*---------------------------------------------------------------------------*/
+void
+TimeLineService::
+computeRestoredPreviousTime()
+{
+  m_next_time = m_time();
+  m_time_n = m_time_n();
+  m_dt = m_dt();
+  m_time_has_been_restored = true ;
+}
+
+/*---------------------------------------------------------------------------*/
+void
+TimeLineService::
+computeRestoredNextTime()
+{
+    m_next_time = m_time() + m_dt();
+    m_time_n = m_time();
+    m_time_has_been_restored = true ;
+}
 
 void 
 TimeLineService::
@@ -443,7 +466,13 @@ void
 TimeLineService::
 timeIncrementation()
 { 
-  unlock();
+  if(m_time_has_been_restored)
+  {
+	  unlock(SpyPolicy::NothingIfChanged);
+	  m_time_has_been_restored = false ;
+  }
+  else
+	  unlock() ;
 
   // Old time saving
   m_time_n = m_time();

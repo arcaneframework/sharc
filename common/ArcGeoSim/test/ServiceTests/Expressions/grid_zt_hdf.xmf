@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<Xdmf Version="2.0">
+<Domain>
+<Topology TopologyType="1DMesh" Dimensions="2">
+</Topology>
+<Geometry Type="VZ">
+ <!-- VZ -->
+ <DataItem Format="HDF" Dimensions="2">grid_zt.h5:/VZ/values</DataItem>
+</Geometry>
+<Grid Name="User Defined Name" GridType="Collection" CollectionType="Temporal">
+<Grid>
+<Time Value="0.00"/>
+<Topology Reference="/Xdmf/Domain/Topology"/>
+<Geometry Reference="/Xdmf/Domain/Geometry"/>
+<Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="HDF" Dimensions="2">grid_zt.h5:/Property/Time=0.0</DataItem>
+</Attribute>
+</Grid>
+<Grid>
+<Time Value="1.00"/>
+<Topology Reference="/Xdmf/Domain/Topology"/>
+<Geometry Reference="/Xdmf/Domain/Geometry"/>
+<Attribute Name="User Defined Name" Center="Node">
+<DataItem Format="HDF" Dimensions="2">grid_zt.h5:/Property/Time=1.0</DataItem>
+</Attribute>
+</Grid>
+</Grid>
+</Domain>
+</Xdmf>

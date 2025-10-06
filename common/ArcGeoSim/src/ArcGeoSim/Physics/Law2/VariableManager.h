@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -13,7 +13,7 @@
 
 /*
  * \ingroup Law
- * \brief Base de donnees de variables pour les lois
+ * \brief Base de donn�es de variables pour les lois
  *
  * Voir les fonctions de remplissage dans VariableAllocator.h
  *
@@ -36,6 +36,7 @@
  *
  */
 
+#include "ArcGeoSim/Mesh/Utils/MeshUtils.h"
 #include "ArcGeoSim/Physics/Law2/VariableAccessor.h"
 #include "ArcGeoSim/Physics/Law2/VariableAllocator.h"
 
@@ -65,6 +66,9 @@ public:
   VariableManager(Arcane::IMesh* mesh, Arcane::ITraceMng* trace);
   VariableManager(Arcane::String name, Arcane::IMesh* mesh);
   VariableManager(Arcane::String name, Arcane::IMesh* mesh, Arcane::ITraceMng* trace);
+#ifdef USE_ARCANE_V3
+  VariableManager(Arcane::MeshHandle const& mesh, Arcane::ITraceMng* trace);
+#endif
 
   ~VariableManager() {}
   
@@ -73,28 +77,32 @@ public:
   void enableVerbosity() { m_verbose = true && (m_trace != NULL); }
   void disableVerbosity() { m_verbose = false; }
 
+#ifdef USE_ARCANE_V3
+  Arcane::IMesh* mesh() const { if (!m_mesh) m_mesh = m_mesh_handle.mesh(); }
+#else
   Arcane::IMesh* mesh() const { return m_mesh; }
+#endif
 
   void setDefaultFamily(Arcane::IItemFamily* family);
  
   //! Enregistrement par un allocateur
   VariableManager& operator<<(const std::shared_ptr<IAllocator>& info);
  
-  //! Enregistrement d'une reference
+  //! Enregistrement d'une r�f�rence
   VariableManager& operator<<(const std::shared_ptr<VariableRef>& info);
   
   //! Accesseur de variable
   template<typename Kind>
-  VariableAccessorT<Kind> variables() const 
+  VariableAccessorT<typename ArcGeoSim::Mesh::GraphTraits<Kind>::item_type> variables() const
   { 
-    return VariableAccessorT<Kind>(m_variable);
+    return VariableAccessorT<typename ArcGeoSim::Mesh::GraphTraits<Kind>::item_type>(m_variable);
   }
   
   //! Accesseur de variable partielle
   template<typename Kind>
-  PartialVariableAccessorT<Kind> partialVariables() const
+  PartialVariableAccessorT<typename ArcGeoSim::Mesh::GraphTraits<Kind>::item_type> partialVariables() const
   {
-    return PartialVariableAccessorT<Kind>(m_partial_variable);
+    return PartialVariableAccessorT<typename ArcGeoSim::Mesh::GraphTraits<Kind>::item_type>(m_partial_variable);
   }
   
   //! Accesseur de variable tableau
@@ -117,8 +125,15 @@ private:
 private:
   
   Arcane::String m_name;
+#ifdef USE_ARCANE_V3
+  mutable Arcane::IMesh* m_mesh;
+#else
   Arcane::IMesh* m_mesh;
+#endif
   Arcane::ITraceMng* m_trace;
+#ifdef USE_ARCANE_V3
+  Arcane::MeshHandle const& m_mesh_handle;
+#endif
 
   bool m_verbose;
 

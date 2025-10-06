@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xi="http://www.w3.org/2001/XInclude"  
+           elementFormDefault="qualified">
+  <!-- define ixm as a root node -->
+  <xs:element name="ixm">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="unstructured-grid">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mesh" type="mesh-type"
+                maxOccurs="1" minOccurs="0" />
+              <xs:element minOccurs="0" name="properties" type="property-type" />  
+              <xs:element name="event" type="event-type"
+                maxOccurs="unbounded" minOccurs="0" />
+            </xs:sequence>
+            <xs:attribute name="dimension" type="dimension-kind"
+              use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:attribute name="version" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- define static mesh model -->
+  <xs:complexType name="mesh-type">
+    <xs:sequence>
+      <xs:element name="topology" minOccurs="1" type="topology-type" />
+      <xs:element minOccurs="0" name="properties" type="property-type" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+
+
+  <!-- event model description -->
+  <xs:complexType name="event-type">
+    <xs:sequence>
+      <xs:choice>
+      	<xs:element minOccurs="0" name="mesh-increment" type="mesh-increment-type" />
+        <xs:element minOccurs="0" name="mesh " type="topology-type" />
+      </xs:choice>
+      <xs:element minOccurs="0" name="properties"
+        type="time-dependent-property-type" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="begin-time" type="xs:double" use="required" />
+    <xs:attribute name="end-time" type="xs:double" use="required" />
+  </xs:complexType>
+
+  <!-- incremental mesh description -->
+  <xs:complexType name="mesh-increment-type">
+    <xs:sequence>
+      <xs:element name="topology" minOccurs="0"
+        type="topology-increment-type" />
+      <xs:element minOccurs="0" name="geometry"
+        type="geometry-increment-type" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- a static topology description -->
+  <xs:complexType name="topology-type">
+    <xs:sequence maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="nodes" maxOccurs="1" minOccurs="0"
+        type="node-type" />
+      <xs:element name="cells" maxOccurs="1" minOccurs="0"
+        type="cell-type" />
+      <xs:element name="faces" maxOccurs="1" minOccurs="0"
+        type="face-type" />
+      <xs:element name="edges" maxOccurs="1" minOccurs="0"
+        type="edge-type" />
+      <xs:element name="connections" maxOccurs="unbounded"
+        minOccurs="0" type="connection-type" />
+      <xs:element name="particles" maxOccurs="1" minOccurs="0"
+        type="particle-type" />
+      <xs:element name="group" maxOccurs="unbounded"
+        minOccurs="0" type="group-type" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- a topology increment description -->
+  <xs:complexType name="topology-increment-type">
+    <xs:sequence maxOccurs="1" minOccurs="0">
+      <xs:element name="delete-cells" maxOccurs="1"
+        minOccurs="0">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="cell-ids" type="int64-data-type" />
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="change-cells" maxOccurs="1"
+        minOccurs="0" type="cell-type" />
+
+      <xs:element name="create-cells" maxOccurs="1"
+        minOccurs="0" type="cell-type" />
+
+      <xs:element name="update-nodes" maxOccurs="1"
+        minOccurs="0" type="update-node-type" />
+
+      <xs:element name="faces" maxOccurs="1" minOccurs="0"
+        type="face-type" />
+        
+      <xs:element name="edges" maxOccurs="1" minOccurs="0"
+        type="edge-type" />
+
+      <xs:element name="connections" maxOccurs="unbounded"
+        minOccurs="0" type="connection-type" />
+
+      <xs:element name="group" maxOccurs="unbounded"
+        minOccurs="0" type="group-increment-type" />
+    </xs:sequence>
+    <xs:attribute name="date" type="xs:date" />
+    <xs:attribute name="time" type="xs:double" />
+  </xs:complexType>
+
+  <!-- a geometry increment description -->
+  <xs:complexType name="geometry-increment-type">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="move-node-to"
+        type="node-type" />
+    </xs:sequence>
+    <xs:attribute name="date" type="xs:date" />
+    <xs:attribute name="time" type="xs:double" />
+  </xs:complexType>
+
+  <!-- ############################################################################################################################### 
+    Different stuff definitions 
+    ############################################################################################################################### -->
+
+  <!-- a common cell description used for static and incremental meshes -->
+  <xs:complexType name="cell-type">
+    <xs:sequence>
+      <xs:element name="cell-types" type="int32-data-type" />
+      <xs:element name="cell-ids" type="int64-data-type" />
+      <xs:element name="node-ids" type="int64-data-type" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- a specific node description for evolving grids -->
+  <xs:complexType name="update-node-type">
+    <xs:all>
+      <xs:element name="clone-update" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="node-ids" type="int64-data-type" />
+            <xs:element name="cloned-node-ids" type="int64-data-type" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="coord-update" type="node-type"
+        minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <!-- a common node description used for a static mesh and events -->
+  <xs:complexType name="node-type">
+    <xs:sequence>
+      <xs:element name="node-ids" type="int64-data-type" />
+      <xs:element name="coords" type="real3-data-type" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- a common face description used for static mesh and events -->
+  <xs:complexType name="face-type">
+    <xs:sequence>
+      <xs:element name="face-types" type="int32-data-type" />
+      <xs:element name="face-ids" type="int64-data-type" />
+      <xs:element name="node-ids" type="int64-data-type" />
+    </xs:sequence>
+  </xs:complexType>
+  
+   <!-- a common face description used for static mesh and events -->
+  <xs:complexType name="edge-type">
+    <xs:sequence>
+      <xs:element name="edge-ids" type="int64-data-type" />
+      <xs:element name="node-ids" type="int64-data-type" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- a common connection description used for static mesh and events -->
+  <xs:complexType name="connection-type">
+    <xs:sequence>
+      <xs:element name="connection-types" type="int32-data-type" />
+      <xs:element name="connection-ids" type="int64-data-type" />
+      <xs:element name="item-ids" type="int64-data-type" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- a particle description used for static -->
+  <xs:complexType name="particle-type">
+    <xs:sequence>
+      <xs:element name="particle-ids" type="int64-data-type" />
+      <xs:element name="particle-types" type="int32-data-type" />
+      <xs:element name="cell-ids" type="int64-data-type" />
+      <xs:element name="particle-coords" type="real3-data-type" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- a common group description used for static mesh and events -->
+  <xs:complexType name="group-type">
+    <xs:choice minOccurs="0">
+      <xs:element name="group-ids" type="int64-data-type" />
+    </xs:choice>
+    <xs:attribute name="name" type="arcane-string-type" use="required" />
+    <xs:attribute type="item-kind" name="kind" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="group-increment-type">
+    <xs:complexContent>
+      <xs:extension base="group-type">
+        <xs:attribute name="mode" type="group-operation-type"
+          default="reset" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- define group operations -->
+  <xs:simpleType name="group-operation-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="add" />
+      <xs:enumeration value="delete" />
+      <xs:enumeration value="reset" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- the main node for handling heavy data -->
+  <xs:complexType name="data-type">
+    <xs:choice>
+      <xs:element name="data"> <!-- parse Character data -->
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="collapsed-string-type">
+              <xs:attribute name="format" type="format-type"
+                            default="xml" />
+              <xs:attribute name="type" type="primitive-type"
+                            use="required" />
+              <xs:attribute name="array-size" type="xs:int" use="optional" />
+              <xs:attribute name="base" type="arcane-string-type"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- specific instances for data-type used to restrict access to int64
+    connectivity -->
+  <xs:complexType name="int64-data-type">
+    <xs:choice>
+      <xs:element name="data"> <!-- parse Character data -->
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="collapsed-string-type">
+              <xs:attribute name="format" type="format-type"
+                default="xml" />
+              <xs:attribute name="type" type="int64-type"
+                use="required" />
+              <xs:attribute name="base" type="arcane-string-type"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+
+  </xs:complexType>
+
+  <!-- specific instances for data-type used to restrict access to int32
+    types and item numbers -->
+  <xs:complexType name="int32-data-type">
+    <xs:choice>
+      <xs:element name="data"> <!-- parse Character data -->
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="collapsed-string-type">
+              <xs:attribute name="format" type="format-type"
+                default="xml" />
+              <xs:attribute name="type" type="int32-type"
+                use="required" />
+              <xs:attribute name="base" type="arcane-string-type"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- specific instance for real3 data-type used by coordinates -->
+  <xs:complexType name="real3-data-type">
+    <xs:choice>
+      <xs:element name="data"> <!-- parse Character data -->
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="collapsed-string-type">
+              <xs:attribute name="format" type="format-type"
+                default="xml" />
+              <xs:attribute name="type" type="real3-type"
+                use="required" />
+              <xs:attribute name="base" type="arcane-string-type"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- define a property node as a combination of a support and a values
+    nodes -->
+  <xs:complexType name="property-type">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="property">
+        <xs:complexType>
+          <xs:sequence maxOccurs="1" minOccurs="0">
+            <xs:element name="support" type="property-support-type" minOccurs="0"/>
+            <xs:element name="values" type="data-type" />
+          </xs:sequence>
+          <xs:attribute name="name" type="arcane-string-type" use="required" />
+          <xs:attribute name="kind" type="item-kind" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- define a time dependent property node as a combination of a support
+    and a time dependent values nodes -->
+  <xs:complexType name="time-dependent-property-type">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="property">
+        <xs:complexType>
+          <xs:sequence maxOccurs="1" minOccurs="0">
+            <xs:element name="support" type="property-support-type" minOccurs="0"/>
+            <xs:element maxOccurs="unbounded" name="values"
+              type="time-dependent-property-values-type" />
+          </xs:sequence>
+          <xs:attribute name="name" type="arcane-string-type" use="required" />
+          <xs:attribute name="kind" type="item-kind" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- define a property support used in property-type -->
+  <xs:complexType name="property-support-type">
+    <xs:complexContent>
+      <xs:extension base="int64-data-type">
+        <xs:attribute name="group-name" type="arcane-string-type" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- define a property values associated to property-type -->
+  <xs:complexType name="time-dependent-property-values-type">
+    <xs:complexContent>
+      <xs:extension base="data-type">
+        <xs:attribute name="time" type="xs:double" use="required" />
+        <xs:attribute name="date" type="xs:date" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- define space dimension -->
+  <xs:simpleType name="dimension-kind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="3Dxyz" />
+      <xs:enumeration value="2Dxy" />
+      <xs:enumeration value="2Dxz" />
+      <xs:enumeration value="2Dyz" />
+      <xs:enumeration value="2Dxyz" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Arcane integer mapping convention for items -->
+  <xs:simpleType name="item-type">
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="2" /> 	<!-- Line2 -->
+      <xs:enumeration value="3" /> 	<!-- Triangle3 -->
+      <xs:enumeration value="4" /> 	<!-- Quad4 -->
+      <xs:enumeration value="5" /> 	<!-- Pentagon5 -->
+      <xs:enumeration value="6" /> 	<!-- Hexagon6 -->
+      <xs:enumeration value="7" /> 	<!-- Tetra4 -->
+      <xs:enumeration value="8" /> 	<!-- Pyramid5 -->
+      <xs:enumeration value="9" /> 	<!-- Pentaedron6 -->
+      <xs:enumeration value="10" /> 	<!-- Hexaedron8 -->
+      <xs:enumeration value="11" /> 	<!-- Heptaedron10 -->
+      <xs:enumeration value="12" /> 	<!-- Octaedron12 -->
+      <xs:enumeration value="13" /> 	<!-- HemiHexa7 -->
+      <xs:enumeration value="14" /> 	<!-- HemiHexa6 -->
+      <xs:enumeration value="15" /> 	<!-- HemiHexa5 -->
+      <xs:enumeration value="16" /> 	<!-- AntiWedgeLeft6 -->
+      <xs:enumeration value="17" /> 	<!-- AntiWedgeRight6 -->
+      <xs:enumeration value="18" /> 	<!-- DiTetra5 -->
+      <xs:enumeration value="19" /> 	<!-- cellule 3D quelconque -->
+      <xs:enumeration value="20" /> 	<!-- cellule 2D quelconque -->
+
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- define different item kinds -->
+  <xs:simpleType name="item-kind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="face" />
+      <xs:enumeration value="edge" />
+      <xs:enumeration value="cell" />
+      <xs:enumeration value="node" />
+      <xs:enumeration value="connection" />
+      <xs:enumeration value="particle" />
+      <xs:enumeration value="global" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- define data format: XML for ascii inline data and HDF for binary one -->
+  <xs:simpleType name="format-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="xml" />
+      <xs:enumeration value="hdf" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- main data-type structure -->
+  <xs:simpleType name="primitive-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="integer" />
+      <xs:enumeration value="real" />
+      <xs:enumeration value="real3" />
+      <xs:enumeration value="bool" />
+      <xs:enumeration value="int64" />
+      <xs:enumeration value="int32" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- specific instances for data-type used to restrict access to int64 
+    connectivity -->
+  <xs:simpleType name="int64-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="int64" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- specific instances for data-type used to restrict access to int32 
+    types and item numbers -->
+  <xs:simpleType name="int32-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="int32" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- specific instances for data-type used to restrict access to real3 
+    types. Used for item coordinates -->
+  <xs:simpleType name="real3-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="real3" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- define collapsed-string-type as string without whitespace at its start and end-->
+  <xs:simpleType name="collapsed-string-type">
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="collapse" />
+    </xs:restriction>
+  </xs:simpleType>
+
+ <xs:simpleType name="arcane-string-type">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[a-zA-Z][a-zA-Z0-9_.]*"/>
+  </xs:restriction>
+</xs:simpleType> 
+
+</xs:schema>

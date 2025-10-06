@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_GEOMETRY_IGEOMETRYSERVICE_H
 #define ARCGEOSIM_GEOMETRY_IGEOMETRYSERVICE_H
 /* Author : havep at Fri Oct 10 10:54:26 2008

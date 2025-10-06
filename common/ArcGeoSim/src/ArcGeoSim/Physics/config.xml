@@ -2,7 +2,8 @@
 <makefile>
   <directories>
     <directory>Units</directory>
-    <directory>Law2</directory>
+    <directory depend="law_v1">Law1</directory>
+    <directory depend="!law_v1">Law2</directory>
     <directory>Gump</directory>
   </directories>
 </makefile>

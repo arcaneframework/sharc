@@ -8,6 +8,19 @@
     <directory>Importers</directory>
     <directory>Exporters</directory>
     <directory>Utils</directory>
+    <directory>Interpolator</directory>
     <directory>Geometry</directory>
+    <directory>GenericItemExtractor</directory>
+    <directory>AMRDataTransfer</directory>
+    <directory>Estimator</directory>
+    <directory>MeshAdapter</directory>
+    <directory>Mapping</directory>
+    <directory>PolylineDiscretisation</directory>
+    <directory>SurfaceUtils</directory>
+    <directory>Operator</directory>
+    <directory>AccessorToolsMng</directory>
+    <directory>MeshPartitioner</directory>
+    <directory depend="ifpsolver">IFPPartitioner</directory>
+    <directory>PatchGenerator</directory>
   </directories>
 </makefile>

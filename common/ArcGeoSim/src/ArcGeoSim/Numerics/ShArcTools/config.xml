@@ -6,5 +6,6 @@
   <directories>
     <directory>LinearAlgebra</directory>
     <directory>Solver</directory>
+    <directory>Schemes</directory>
   </directories>
 </makefile>

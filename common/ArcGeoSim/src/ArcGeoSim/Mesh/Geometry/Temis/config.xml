@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+ 
+ <files language="service">
+    <file header='false'>TemisGeometry</file>
+    <file header='false'>TemisGeometry2</file>
+  </files>
+  
+  <files language="c++">
+    <file>TemisGeometry</file>
+    <file>TemisGeometry2</file>
+  </files>
+
+</makefile>

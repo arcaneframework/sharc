@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+
+  <directories>
+    <directory depend='ifpsolver,!alien'>IFPSolverImpl</directory>
+    <directory depend='hypre,!alien'>HypreSolverImpl</directory>
+    <directory depend='mtl,!alien'>MTLSolverImpl</directory>
+    <directory depend='petsc,!alien'>PETScSolverImpl</directory>
+<!--
+    <directory depend='linux'>SuperLUSolverImpl</directory>
+    <directory>LocalDirectSolverImpl</directory>
+-->
+  </directories>
+  
+</makefile>

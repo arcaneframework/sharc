@@ -10,7 +10,7 @@
     <file>Law1</file>
     <file>Law2</file>
   </files>
-  <files language="gump">
+  <!--files language="gump">
   	<file>ContributionModel</file>
-  </files>
+  </files-->
 </makefile>

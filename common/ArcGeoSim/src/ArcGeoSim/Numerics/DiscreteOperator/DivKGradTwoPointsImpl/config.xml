@@ -8,6 +8,8 @@
 
   <files language="service">
     <file>DivKGradTwoPoints</file>
+    <file>StandardDivKGradTwoPoints</file>
+    <file>StandardDivKGradTwoPointsActive</file>
   </files>
 
 </makefile>

@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_TESTS_SERVICETESTERS_LAWGRAPHTESTER_LAWTESTERSERVICE_H
 #define ARCGEOSIM_TESTS_SERVICETESTERS_LAWGRAPHTESTER_LAWTESTERSERVICE_H
 
@@ -13,6 +7,9 @@
 
 #include "ThreeInTwoOut_law.h"
 #include "TwoInOneOut_law.h"
+
+#include "ThreeInTwoOutWithMulti_law.h"
+#include "TwoInOneOutWithMulti_law.h"
 
 #include "ArcGeoSim/Physics/Law2/VariableManager.h"
 #include "ArcGeoSim/Physics/Law2/FunctionManager.h"
@@ -40,7 +37,7 @@ private:
     FuctionDefininition(Integer* _property_id)
     {
       if(_property_id[5]==-1){
-        m_functions_kind = Two_In_One_Out;
+    	m_functions_kind = Two_In_One_Out;
         m_in_property_id.resize(2);
         m_in_property_id[0] = _property_id[0];
         m_in_property_id[1] = _property_id[1];
@@ -84,6 +81,20 @@ private:
   };
 
   /*---------------------------------------------------------------------------*/
+  //! class to compute function with two inputs and one output specialized by parameters
+
+  struct TwoInOneOutWithMultiAlgo
+  {
+    void compute(RealConstArrayView i_1, Real& o_1, RealArrayView do_1_1, const Real p_1) const
+    {
+      ARCANE_ASSERT((i_1.size()==2),("method argument i_1 size must be equals to 2"));
+      o_1=p_1*i_1[0]+2*p_1*i_1[1];
+      do_1_1[0] = i_1[0]*p_1;
+      do_1_1[1] = i_1[1]*p_1;
+    }
+  };
+
+  /*---------------------------------------------------------------------------*/
   //! class to compute function with three inputs and two outputs specialized by parameters
 
   struct ThreeInTwoOutAlgo
@@ -93,14 +104,35 @@ private:
         Real& o_2, Real& do_2_1, Real& do_2_2, Real& do_2_3,
         const Real p_1) const
     {
-      o_1=p_1*i_1+2*p_1*i_2+3*p_1*i_3;
-      o_2=2*p_1*i_1+3*p_1*i_2+4*p_1*i_3;
+      o_1 = p_1*i_1+2*p_1*i_2+3*p_1*i_3;
+      o_2 = 2*p_1*i_1+3*p_1*i_2+4*p_1*i_3;
       do_1_1 = i_1*p_1;
       do_1_2 = i_1*i_2*p_1;
       do_1_3 = i_2*p_1;
       do_2_1 = i_3;
       do_2_2 = i_1;
       do_2_3 = i_3*i_1;
+    }
+  };
+
+  /*---------------------------------------------------------------------------*/
+  //! class to compute function with three inputs and two outputs specialized by parameters
+
+  struct ThreeInTwoOutWithMultiAlgo
+  {
+    void compute(const Real i_1, RealConstArrayView i_2,
+	         RealArrayView o_1, RealArrayView do_1_1, 
+	         RealArray2View do_1_2, const Real p_1) const
+    {
+      ARCANE_ASSERT((i_2.size()==2 && o_1.size()==2),("method arguments i_2 and o_1 size must be equals to 2"));
+      o_1[0] = p_1*i_1+2*p_1*i_2[0]+3*p_1*i_2[1];
+      o_1[1] = 2*p_1*i_1+3*p_1*i_2[0]+4*p_1*i_2[1];
+      do_1_1[0]    = i_1*p_1;
+      do_1_2[0][0] = i_1*i_2[0]*p_1;
+      do_1_2[0][1] = i_2[0]*p_1;
+      do_1_1[1]    = i_2[1];
+      do_1_2[1][0] = i_1;
+      do_1_2[1][1] = i_2[1]*i_1;
     }
   };
 
@@ -162,6 +194,8 @@ public:
 private:
   //! add function in graph
   void _addFunction(FuctionDefininition& function_def);
+  //! add function multi scalar in graph
+  void _addMultiFunction(FuctionDefininition& function_def);
   //! first test validate the full graph evaluation
   Integer _test_1() const;
   //! second test validate a partial graph evaluation

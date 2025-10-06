@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="ifpsolver" optional="true"/>
+    <package name="arcane" />
+    <package name="mpi" />
+    <package name="metis" />
+  </needed-packages>
+  <files language="c++">
+    <file>IfpMeshPartitioner</file>
+  </files>
+  <files language="c++header">
+    <file>TypesIfpMeshPartitioner</file> 
+  </files>
+  <files language="axl">
+    <file>IfpMeshPartitioner</file>
+  </files>
+</makefile>

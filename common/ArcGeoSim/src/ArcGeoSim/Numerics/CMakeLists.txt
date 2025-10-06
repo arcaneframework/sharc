@@ -6,7 +6,8 @@ generateCMakeLists(ArcGeoSim_numerics)
 linkLibraries(ArcGeoSim_numerics  
   ArcGeoSim_appli 
   ArcGeoSim_utils 
-  ArcGeoSim_mesh 
+  ArcGeoSim_mesh
+  #ArcGeoSim_physics
   )
 
 if(TARGET intel)
@@ -21,4 +22,14 @@ if(TARGET fftw3)
     )
 endif()
   
-commit(ArcGeoSim_numerics)
+commit(ArcGeoSim_numerics DESTINATION Numerics)
+
+if (ARCGEOSIM_EXPORT_TARGET)
+    target_link_libraries(arcgeosim_full INTERFACE ArcGeoSim_numerics)
+    add_library(ArcGeoSim::ArcGeoSim_numerics ALIAS ArcGeoSim_numerics)
+endif()
+
+install(DIRECTORY .
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ArcGeoSim/Numerics
+        FILES_MATCHING PATTERN "*.h"
+        )

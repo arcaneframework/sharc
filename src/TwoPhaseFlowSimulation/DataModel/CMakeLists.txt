@@ -1,0 +1,1 @@
+generateGumpModel(ArcRes.gump ShArc)

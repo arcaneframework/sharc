@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="PatchGenerator" version="1.0" type="caseoption">
+  <description>Generateur des patches </description>
+  <interface name="IPatchGenerator"/>
+
+  <variables>
+  </variables>
+
+  <options>
+    <simple name="max-length"     type="integer" default="3"/>
+    <simple name="min-length"     type="integer" default="1"/>
+    <simple name="max-elements"     type="integer" default="100"/>
+    <simple name="efficiency-threshold"     type="real" default="0.9"/>
+    <simple name="efficiency-goal"          type="real" default="0.5"/>
+    <simple name="refine-on-init" type="bool" default="false">
+      <description>Option to refine mesh at the beginning of the simulation</description>
+    </simple>
+
+   </options>
+</service>

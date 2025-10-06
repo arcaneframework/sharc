@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<makefile>
+  
+  <needed-packages>
+    <package name="arcane" />
+    <package name="blas" />
+  </needed-packages>
+  
+  <files language="c++">
+    <file>Contact</file> 
+    <file>ContactGroup</file>
+    <file>ContactGroupImpl</file>
+    <file>ContactVariable</file>
+    <file>ContactFamily</file>
+    <file>ContactSharedInfo</file>
+    <file>NotMatchingSurfaceProperty</file>
+    <file>FaceVectorAnalysis</file>
+    <file>ContactFamilyVariableSynchronizer</file>
+  </files>
+
+  <files language="c++header">
+    <file>INotMatchingSurfaceMng</file>
+    <file>INotMatchingSurfaceMngAccessor</file>
+    <file>INotMatchingSurfaceBuilder</file>
+    <file>ISurface</file>
+    <file>ISurfaceUtils</file>
+  </files>
+
+  <directories>
+    <directory>NotMatchingSurfaceIXMImporter</directory>
+    <directory>NotMatchingSurfaceImporter</directory>
+    <directory>NotMatchingSurfaceMng</directory>
+  </directories>
+  
+</makefile>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?><!-- -*- SGML -*- -->
+
+<!-- ###################################################################### -->
+
+<service name="RootTester" version="1.0" type="caseoption">
+  <description>Service de test des options typees fortes</description>
+  <interface name="IServiceTester" />
+  <options>
+  
+    <!-- Simple types with default values -->
+    <!-- 1 - types used with their defaults -->
+
+    <simple name = "simple-int-1" type = "integer" default = "3">
+      <description>simple integer with default value</description>
+    </simple>
+ 
+    <simple name = "simple-real-1" type = "real" default = "1.5">
+      <description>simple real with default value</description>
+    </simple>
+
+    <simple name = "simple-string-1" type = "string" default = "PETSC">
+      <description>simple string with default value</description>
+    </simple>
+
+    <simple name = "simple-bool-1" type = "bool" default = "true">
+      <description>simple bool with default value</description>
+    </simple>
+  
+    <enumeration name = "simple-enum-1" type = "TypesStrongOptionsTester::eSimpleEnum" default = "enum2">
+      <description>simple enum with default value</description>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum1" name="enum1"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum2" name="enum2"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum3" name="enum3"/>
+    </enumeration>
+
+    <!-- 2 - types with defaults overruled -->
+
+    <simple name = "simple-int-2" type = "integer" default = "20">
+      <description>simple integer with default value</description>
+    </simple>
+ 
+    <simple name = "simple-real-2" type = "real" default = "2.5">
+      <description>simple real with default value</description>
+    </simple>
+
+    <simple name = "simple-string-2" type = "string" default = "HYPRE">
+      <description>simple string with default value</description>
+    </simple>
+
+    <simple name = "simple-bool-2" type = "bool" default = "false">
+      <description>simple bool with default value</description>
+    </simple>
+
+    <enumeration name = "simple-enum-2" type = "TypesStrongOptionsTester::eSimpleEnum" default = "enum3">
+      <description>simple enum with default value</description>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum1" name="enum1"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum2" name="enum2"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum3" name="enum3"/>
+    </enumeration>
+
+    <!-- Simple types without default values -->
+
+    <simple name = "simple-int-3" type = "integer">
+      <description>simple integer without default value</description>
+    </simple>
+ 
+    <simple name = "simple-real-3" type = "real">
+      <description>simple real without default value</description>
+    </simple>
+
+    <simple name = "simple-string-3" type = "string">
+      <description>simple string without default value</description>
+    </simple>
+
+    <simple name = "simple-bool-3" type = "bool">
+      <description>simple bool without default value</description>
+    </simple>
+
+    <enumeration name = "simple-enum-3" type = "TypesStrongOptionsTester::eSimpleEnum">
+      <description>simple enum without default value</description>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum1" name="enum1"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum2" name="enum2"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum3" name="enum3"/>
+    </enumeration>
+
+    <!-- Services with default values -->
+    <!-- Default cannot be X1 since X1 has at least one non-default parameter -->
+    <!-- 1 - services used with their defaults -->
+    <service-instance name="service-x-1" type="IX" default = "X2">
+      <description>Service X with default</description>
+    </service-instance>
+       
+    <!-- 2 - services with defaults overruled -->
+    <service-instance name="service-x-2" type="IX" default = "X2">
+      <description>Service X with default</description>
+    </service-instance>
+
+    <!-- Services without default values -->
+    <service-instance name="service-x-3" type="IX">
+      <description>Service X without default</description>
+    </service-instance>
+         
+    <service-instance name="service-x-4" type="IX" minOccurs = "1" maxOccurs = "2">
+      <description>Service X with default</description>
+    </service-instance>
+
+    <!-- Multiple occurences without defaut values -->
+
+    <simple name = "simple-int-4" type = "integer" minOccurs = "3" maxOccurs = "3">
+      <description>simple integer without default value and multiple occurences</description>
+    </simple>
+
+    <simple name = "simple-real-4" type = "real" minOccurs = "2" maxOccurs = "unbounded">
+      <description>simple real without default value and multiple occurences</description>
+    </simple>
+
+    <simple name = "simple-string-4" type = "string" minOccurs = "0" maxOccurs = "unbounded">
+      <description>simple string without default value and multiple occurences</description>
+    </simple>
+
+    <simple name = "simple-bool-4" type = "bool" minOccurs = "1" maxOccurs = "2">
+      <description>simple bool without default value and multiple occurences</description>
+    </simple>
+
+    <enumeration name = "simple-enum-4" type = "TypesStrongOptionsTester::eSimpleEnum" minOccurs = "1" maxOccurs = "unbounded">
+      <description>simple enum without default value and multiple occurences</description>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum1" name="enum1"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum2" name="enum2"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum3" name="enum3"/>
+    </enumeration>
+
+    <!-- Multiple occurences check setter -->
+
+    <simple name = "simple-int-5" type = "integer" minOccurs = "0" maxOccurs = "3">
+      <description>simple integer without default value and multiple occurences</description>
+    </simple>
+
+    <simple name = "simple-real-5" type = "real" minOccurs = "0" maxOccurs = "unbounded">
+      <description>simple real without default value and multiple occurences</description>
+    </simple>
+
+    <simple name = "simple-string-5" type = "string" minOccurs = "0" maxOccurs = "unbounded">
+      <description>simple string without default value and multiple occurences</description>
+    </simple>
+
+    <simple name = "simple-bool-5" type = "bool" minOccurs = "0" maxOccurs = "5">
+      <description>simple bool without default value and multiple occurences</description>
+    </simple>
+
+    <enumeration name = "simple-enum-5" type = "TypesStrongOptionsTester::eSimpleEnum" minOccurs = "0" maxOccurs = "unbounded">
+      <description>simple enum without default value and multiple occurences</description>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum1" name="enum1"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum2" name="enum2"/>
+      <enumvalue genvalue="TypesStrongOptionsTester::StrongEnum3" name="enum3"/>
+    </enumeration>
+
+    <service-instance name="service-x-5" type="IX" default = "X2">
+       <description>Service X with default</description>
+    </service-instance>
+
+    <service-instance name="service-x-5-multi" type="IX" minOccurs = "0" maxOccurs = "3">
+       <description>Service X with default</description>
+     </service-instance>
+  </options>
+  
+</service>

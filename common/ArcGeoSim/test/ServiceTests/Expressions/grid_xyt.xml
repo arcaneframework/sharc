@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RegularGrid type="non-uniform">
+  <x-value>0 1 2 </x-value>
+  <y-value>0 1 2 </y-value>
+  <z-value>0</z-value>
+  <t-value>0 1</t-value>
+  <property-value>
+  1 2 3
+  4 5 6
+  7 8 9
+  10 11 12
+  13 14 15
+  16 17 18
+  </property-value>
+</RegularGrid>

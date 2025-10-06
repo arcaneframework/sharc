@@ -5,21 +5,28 @@ if(TARGET law)
   # Test law
   ARCANE_ADD_TEST(LawCompiler 
     ArcGeoSim
-    common/ArcGeoSim/test/ServiceTests/LawTest 
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest 
     LawCompiler.arc)
 endif()
 
 if(TARGET law)
 ARCANE_ADD_TEST(LawGraph
   ArcGeoSim
-  common/ArcGeoSim/test/ServiceTests/LawTest
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest
   LawGraph.arc)
+endif()
+
+if(TARGET law)
+ARCANE_ADD_TEST(LawGraphMultiScalar
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest
+  LawGraphMultiScalar.arc)
 endif()
 
 if(TARGET law)
 ARCANE_ADD_TEST(LawDebug
   ArcGeoSim
-  common/ArcGeoSim/test/ServiceTests/LawTest
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest
   LawDebug.arc)
 endif()
 
@@ -27,6 +34,25 @@ if(TARGET law AND TARGET gump)
   # Test contribution
   ARCANE_ADD_TEST(LawContribution
     ArcGeoSim
-    common/ArcGeoSim/test/ServiceTests/LawTest 
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest 
     LawContribution.arc)
+endif()
+
+# Test Neural Network Inference
+if(TARGET law AND TARGET onnx)
+  # Test Inference with ONNX
+  ARCANE_ADD_TEST_SEQUENTIAL(LawNNInference
+    ArcGeoSim
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest 
+    LawNNInference.arc)
+
+  ARCANE_ADD_TEST_SEQUENTIAL(LawNNInferenceMultiScalar
+    ArcGeoSim
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest 
+    LawNNInferenceMultiScalar.arc)
+    
+  ARCANE_ADD_TEST_SEQUENTIAL(LawNNInferenceWithDerivatives
+    ArcGeoSim
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LawTest 
+    LawNNInferenceWithDerivatives.arc)
 endif()

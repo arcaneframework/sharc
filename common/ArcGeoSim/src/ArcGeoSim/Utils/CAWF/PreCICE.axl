@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="PreCICE" version="1.0" type="caseoption">
+  <description>This is the coupling environment service. preCICE (Precise Code Interaction Coupling Environment) enables the efficient 
+and accurate coupling of different simulation codes.
+For a comprehensive understanding of the capabilities offered by preCICE, we recommend referring to the preCICE online 
+`documentation &lt;https://precice.org/docs.html>`_. 
+The documentation provides detailed information about preCICE's features, functionalities, and usage, helping you harness the full 
+potential of this powerful coupling environment.</description>
+  <interface name="ArcGeoSim::ICAWFMng"/>
+  <variables>
+    
+    <!--  NODE COORD   -->
+    <variable
+      field-name="node_coord"
+      name="NodeCoord"
+      data-type="real3"
+      item-kind="node"
+      dim="0"
+      dump="true"
+      need-sync="true" />
+      
+  </variables>
+  
+  <options>
+        
+    <simple name="update-read-var" type="bool" default="true">
+      <description>This option is intended solely for testing purposes and disables the update of variables read during the coupling workflow.</description>
+    </simple>
+    
+    <simple name="app-id" type="integer">
+      <description>Defines the ID of this participant to the coupling workflow.</description>
+    </simple>
+    
+    <simple name="app-name" type="string">
+      <description>Defines the name of this participant to the coupling workflow.</description>
+    </simple>
+    
+    <simple name="config-file" type="string">
+      <description>Defines the name of the preCICE configuration file.</description>
+    </simple>
+    
+    <simple name="mesh-name" type="string">
+      <description>Defines the name of the mesh for this participant to the coupling workflow.</description>
+    </simple>
+    
+    <complex name="mesh-filter" type="MeshFilter" minOccurs="0">
+      <description>upwind option</description>
+      <simple name="mesh" type="string">
+      </simple>
+      <simple name="filter" type="bool" default="false">
+      </simple>
+    </complex>
+    
+    
+    <simple name="evolutive-mesh" type="bool" default="false">
+      <description>This flag is used to handle evolutive mesh or mesh based on the geometry of wells.</description>
+    </simple>
+    
+    <simple name="max-iter" type="integer" default="0">
+      <description>This parameter sets the maximum number of coupling iterations allowed.</description>
+    </simple>
+
+    <complex name="read-data" type="ReadData" minOccurs="0" maxOccurs="unbounded">
+      <description>Theses specify the name and type of the variables to be read.</description>
+      <simple name="name" type="string">
+          <description>This is the variable name used in the preCICE configuration file.</description>
+      </simple>
+      <simple name="var-name" type="string">
+          <description>This is the variable name used in the application.</description>
+      </simple>
+      <enumeration name="item-kind" type="Arcane::eItemKind" default="cell">
+        <description>Defines the name of support for the read data.</description>
+        <enumvalue name="cell" genvalue="Arcane::IK_Cell">
+        	  <description>cell variable</description>
+        </enumvalue>
+        <enumvalue name="dualnode" genvalue="Arcane::IK_DoF">
+        	  <description>dual node variable</description>
+        </enumvalue>
+      </enumeration>
+    </complex>
+    
+    <complex name="write-data" type="WriteData" minOccurs="0" maxOccurs="unbounded">
+      <description>Theses specify the name and type of the variables to be written.</description>
+      <simple name="name" type="string">
+          <description>This is the variable name used in the preCICE configuration file.</description>
+      </simple>
+      <simple name="var-name" type="string">
+          <description>This is the variable name used in the application.</description>
+      </simple>
+      <enumeration name="item-kind" type="Arcane::eItemKind" default="cell">
+        <description>Defines the name of support for the written data.</description>
+        <enumvalue name="cell" genvalue="Arcane::IK_Cell">
+        	  <description>cell variable</description>
+        </enumvalue>
+        <enumvalue name="dualnode" genvalue="Arcane::IK_DoF">
+        	  <description>dual node variable</description>
+        </enumvalue>
+      </enumeration>
+    </complex>
+    
+   </options>
+</service>

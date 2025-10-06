@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef DIVKGRADTWOPOINTSSERVICE_H
 #define DIVKGRADTWOPOINTSSERVICE_H
@@ -251,25 +245,33 @@ void DivKGradTwoPointsService::_form_discrete_operator(const VariableTypeT & k)
 
     const Face& F = *iF;
 
-    // Retrieve information
-    const Cell& T0  = F.boundaryCell();
+    Real tau = 0;
+    
+    if(F.isOwn()) {
+    
+      // Retrieve information
+      const Cell& T0  = F.boundaryCell();
 
-    const Real3& nF = f_normals[F];
+      const Real3& nF = f_normals[F];
 
-    const Real3& C0 = c_centers[T0];
-    const Real3& CF = f_centers[F];
-    const Real3 s0F = CF - C0;
+      const Real3& C0 = c_centers[T0];
+      const Real3& CF = f_centers[F];
+      const Real3 s0F = CF - C0;
 
-    Real d0F1 = math::scaMul(s0F, s0F);
-    Real d0F2 = math::abs(math::scaMul(s0F, nF));
+      Real d0F1 = math::scaMul(s0F, s0F);
+      Real d0F2 = math::abs(math::scaMul(s0F, nF));
 
-    const DiffusionType & k0 = k[T0];
+      const DiffusionType & k0 = k[T0];
 
-    // Compute transmissivities
-    Real nFnF =  math::scaMul(nF, nF);
-    Real cos2 =  (d0F2 * d0F2) / (d0F1 * nFnF)  ;
-    Real tau  =  math::scaMul(nF, DiscreteOperator::tensor_vector_prod<DiffusionType>::eval(k0, nF)) / d0F2;
-    tau  = tau * cos2;
+      // Compute transmissivities
+      Real nFnF =  math::scaMul(nF, nF);
+      Real cos2 =  (d0F2 * d0F2) / (d0F1 * nFnF)  ;
+      tau  =  math::scaMul(nF, DiscreteOperator::tensor_vector_prod<DiffusionType>::eval(k0, nF)) / d0F2;
+      tau  = tau * cos2;
+    }
+    else {
+      tau=0.;
+    }
 
     StencilFluxCoeffType c_tau_F = m_cell_coefficients->coefficients(F);
     StencilFluxCoeffType f_tau_F = m_face_coefficients->coefficients(F);

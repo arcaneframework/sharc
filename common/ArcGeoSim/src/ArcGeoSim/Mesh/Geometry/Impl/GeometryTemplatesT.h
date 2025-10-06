@@ -1,14 +1,8 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_GEOMETRY_IMPL_GEOMETRYTEMPLATES_H
 #define ARCGEOSIM_GEOMETRY_IMPL_GEOMETRYTEMPLATES_H
 
 #ifndef ARCGEOSIM_GEOMETRY_IMPL_GEOMETRYSERVICEBASET_H
-#error "Ce fichier n'est destine qu'a GeometryServiceBaseT.h"
+#error "Ce fichier n'est destiné qu'à GeometryServiceBaseT.h"
 #endif /* ARCGEOSIM_GEOMETRY_IMPL_GEOMETRYSERVICEBASET_H */
 
 #include <arcane/IMesh.h>
@@ -67,7 +61,7 @@ public:
   template<typename ComputeLineFunctor>
   void applyLineTemplate(ItemVectorView group)
   {
-    // Utilise des tableaux locaux plutot qu'une specialisation par type de propriete (moins de code, plus de souplesse)
+    // Utilise des tableaux locaux plutot qu'une spécialisation par type de propriété (moins de code, plus de souplesse)
     SharedArray<Real3> centers(group.size());
     SharedArray<Real3> orientations(group.size());
 
@@ -88,7 +82,7 @@ public:
   template<typename ComputeSurfaceFunctor>
   void applySurfaceTemplate(ItemVectorView group)
   {
-    // Utilise des tableaux locaux plutot qu'une specialisation par type de propriete (moins de code, plus de souplesse)
+    // Utilise des tableaux locaux plutot qu'une spécialisation par type de propriété (moins de code, plus de souplesse)
     SharedArray<Real3> centers(group.size());
     SharedArray<Real3> mass_centers(group.size());
     SharedArray<Real3> normals(group.size());
@@ -121,7 +115,7 @@ public:
   template<typename ComputeVolumeFunctor>
   void applyVolumeTemplate(ItemVectorView group)
   {
-    // Utilise des tableaux locaux plutot qu'une specialisation par type de propriete (moins de code, plus de souplesse)
+    // Utilise des tableaux locaux plutot qu'une spécialisation par type de propriété (moins de code, plus de souplesse)
     SharedArray<Real3> centers(group.size());
     SharedArray<Real> volumes(group.size());
     SharedArray<Real> coords;

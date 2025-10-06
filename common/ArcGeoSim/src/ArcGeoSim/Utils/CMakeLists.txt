@@ -8,4 +8,14 @@ if(TARGET force-link-google-prof)
   )
 endif()
 
-commit(ArcGeoSim_utils)
+commit(ArcGeoSim_utils DESTINATION Utils)
+
+if (ARCGEOSIM_EXPORT_TARGET)
+    target_link_libraries(arcgeosim_full INTERFACE ArcGeoSim_utils)
+    add_library(ArcGeoSim::ArcGeoSim_utils ALIAS ArcGeoSim_utils)
+endif()
+
+install(DIRECTORY .
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ArcGeoSim/Utils
+        FILES_MATCHING PATTERN "*.h"
+        )

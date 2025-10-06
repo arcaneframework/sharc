@@ -1,0 +1,182 @@
+//Données topologiques du maillage
+//
+//Données des noeuds
+// nombre de noeuds et les identifiants de noeud
+N
+Identifiant1
+Identifiant2
+.........
+IdentifiantN
+//
+//Données des mailles
+// nombre de mailles  M
+//Pour chaque maille de 1 à M, on donne
+// le type de la maille, l'identifiant de la maille, le nombre de noeuds qui composent la 
+// maille et l'identifiant de ces noeuds.
+M
+type_1
+Identifiant_1
+N1
+Identifiant_1_1 Identifiant_1_2 ..... Identifiant_1_N1
+type_2
+Identifiant_2
+N2
+Identifiant_2_1 Identifiant_2_2 ..... Identifiant_2_N2
+............
+type_i
+Identifiant_i
+Ni
+Identifiant_i_1 Identifiant_i_2 ..... Identifiant_i_Ni
+.........
+type_M
+Identifiant_M
+NM
+Identifiant_M_1 Identifiant_M_2 ..... Identifiant_M_NM
+//
+//Données de faces
+//nombre de face
+//Pour chaque face, on donne l'identifiant de la face, l'identifiant de la maille auquelle la //face est associée et le numéro local de la face pour cette maille.
+F
+Identifiant_1
+Identifiant_M1
+NumLocFace_1
+.......
+Identifiant_j
+Identifiant_Mj
+NumLocFace_j
+........
+Identifiant_F
+Identifiant_MF
+NumLocFace_F
+//
+//Données pour l'objet NONCOINCIDENCE 
+//on donne les couples d'identifiant de face dont la mesure de l'intersection de ces deux //faces est non nulle
+//On commence par donner le nombre de couples 
+NC
+Identifiant_1_1  Identifiant_1_2
+Identifiant_2_1  Identifiant_2_2
+...........
+Identifiant_i_1  Identifiant_i_2
+.....................
+Identifiant_NC_1  Identifiant_NC_2
+//
+//Données pour l'objet UPDATE_NODE
+//on donne le nombre de noeuds concernés
+//Pour chaque noeud, on donne son identifiant, le nombre de faces voisines et les //identifiant des faces voisines
+n
+Identifiant_1
+NF1
+Id_1_1  Id_1_2 ..... Id_1_NF1 
+Identifiant_2
+NF2
+Id_2_1  Id_2_2 ..... Id_2_NF2
+...........
+ Identifiant_i
+NFi
+Id_i_1  Id_i_2 ..... Id_i_NFi
+........
+ Identifiant_n
+NFn
+Id_n_1  Id_n_2 ..... Id_n_NFn
+//
+//Données géométriques du maillage
+//
+//Données des noeuds
+// le nombre de noeud étant N
+// on donne pour chaque noeud, les coordonnées (x, y, z) du noeud
+x1 y1 z1
+x2 y2 z2
+......
+xi yi zi
+.......
+xN yN zN
+//
+//Données des mailles
+// le nombre de mailles étant M
+// on donne pour chaque maille, les coordonnées du centre de maille et son volume
+x1 y1 z1
+vol1
+x2 y2 z2
+vol2
+........
+xi yi zi
+voli
+.........
+xM yM zM
+volM
+//
+//Données de faces
+// le nombre de faces étant connu
+// Pour chaque face, on donne le nombre de triplets (une mesure, un centre, une normale)
+//Puis pour cette face on donne chaque triplet  : une mesure, les coordonnées d'un centre et //une normale
+// 
+//
+1
+m1
+x1 y1 z1
+nx1 ny1 nz1
+1
+m2
+x2 y2 z2
+nx2 ny2 nz2
+.......
+1
+mi
+xi yi zi
+nxi nyi nzi
+.....
+1
+mF
+xF yF zF
+nxF nyF nzF
+//
+//Données pour l'objet NONCOINCIDENCE 
+// on précise par les libellés SYM et NOSYM respectivement si l'opération d'intersection
+// est symétrique ou non symétrique 
+// on précise par les libellés FORM et NOFORM respectivement si les noeuds définissant les //sous faces sont demandés ou pas
+// Le nombre de couples de faces étant NC
+// Pour chaque couple de faces, on donne la mesure, les coordonnées du centre et la normale //de la face résultant de l'intersection du couple de faces
+SYM
+m_1
+x_1 y_1 z_1
+nx_1 ny_1 nz_1
+m_2
+x_2 y_2 z_2
+nx_2 ny_2 nz_2
+.......
+m_i
+x_i y_i z_i
+nx_i ny_i nz_i
+......
+m_NC
+x_NC y_NC z_NC
+nx_NC ny_NC nz_NC
+//
+//Données métiers du maillage
+//
+//Pour les données métiers, on précise dans le fichier si ce sont des données rattachées aux //noeuds, mailles, faces respectivement par des libellés NOEUD, MAILLE, FACE.
+//exemple si on a des données rattachées aux mailles, on précise
+MAILLE
+//
+//
+//On donne alors toutes les données métiers rattachées aux mailles
+//Pour chaque donnée métier
+//On donne un nom pour le type de valeur en question
+//On donne le nombre de valeurs nécessaires pour définir cette donnée métier
+//On donne le nombre de mailles pour lesquelles on a des valeurs
+//Puis on donne pour chaque maille concernée,  son identifiant et les valeurs pour cette maille
+// voici un exemple avec la perméabilité et la porosité
+PERMEABILITE
+1
+3
+identifiant1  2
+identifiant2  6
+identifiant3  12
+POROSITE
+1
+2
+identifiant1  0.2
+identifiant2  0.6
+
+
+

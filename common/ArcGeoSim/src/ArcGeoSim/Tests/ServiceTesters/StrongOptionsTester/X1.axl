@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="X1" version="1.0" type="caseoption">
+  <description>Service X1</description>
+  <interface name="IX" />
+  
+  <options>
+
+  <!-- Complex Tests -->
+
+  <complex name = "complex-1" type = "Complex1">
+    <description>Complex1</description>
+    <simple name = "simple-real-1" type = "real" default = '7.5' />
+    <simple name = "simple-real-2" type = "real" />
+    <complex name = "complex-1-1" type = "Complex11">
+      <simple name = "simple-bool-1" type = "bool" />
+      <simple name = "multi-string-1" type = "string" minOccurs = "0" maxOccurs = "unbounded"/>
+    </complex>
+    <complex name = "complex-1-2" type = "Complex12" minOccurs = "1" maxOccurs = "3">
+      <simple name = "simple-real-3" type = "real" default = '15.5' />
+      <!-- Complex with default -->
+      <complex name = "complex-1-2-1" type = "Complex121">
+        <service-instance name="service-multi-y" type="IY" minOccurs = "0" maxOccurs = "unbounded" />
+        <service-instance name="service-y" type="IY" default="Y1" />
+        <simple name = "simple-real-3" type = "real" default = '18.5' />
+        <simple name = "simple-real-4" type = "real" default = '1.2'/>
+        <simple name = "simple-real-multi" type = "real" minOccurs = "0" maxOccurs = "3"/>
+        <simple name = "simple-bool-1" type = "bool" default = 'true'/>
+      </complex>
+    </complex>
+  </complex>
+
+  <complex name = "complex-2" type = "Complex2"  minOccurs = "0" maxOccurs = "unbounded">
+    <description>Complex2</description>
+    <simple name = "simple-int-1" type = "integer"/>
+  </complex>
+
+  </options>
+</service> 

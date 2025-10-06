@@ -74,6 +74,12 @@ public:
 	m_data.m_values_2d[m_data.m_equation][k] += contrib[k];
       }
       m_data.m_alien_builder(m_data.m_i, m_data.m_j) += Alien::view(m_data.m_values_2d);
+      /*
+      std::cout<<"MATRIX ADD+("<<m_data.m_i<<","<<m_data.m_j<<"):";
+      for(int i=0;i<3;++i)
+        for(int j=0;j<3;++j)
+          std::cout<<m_data.m_values_2d[i][j]<<",";
+      std::cout<<std::endl ;*/
     }
     // TODO (XT)
     void operator-=(const Law::Contribution& values)
@@ -117,6 +123,12 @@ public:
 	  m_data.m_values_2d[m_data.m_equation][k] += contrib[k];
         }
 	m_data.m_alien_builder(m_data.m_i, j) += Alien::view(m_data.m_values_2d);
+	/*
+        std::cout<<"MATRIX VFADD+("<<m_data.m_i<<","<<j<<"):";
+        for(int ii=0;ii<3;++ii)
+          for(int jj=0;jj<3;++jj)
+            std::cout<<m_data.m_values_2d[ii][jj]<<",";
+        std::cout<<std::endl ;*/
       }
       {
 	Alien::fill(m_data.m_values_2d, 0.);
@@ -127,6 +139,12 @@ public:
 	  m_data.m_values_2d[m_data.m_equation][k] += contrib[k];
         }
 	m_data.m_alien_builder(m_data.m_i, j) += Alien::view(m_data.m_values_2d);
+	/*
+        std::cout<<"MATRIX VFADD+("<<m_data.m_i<<","<<j<<"):";
+        for(int ii=0;ii<3;++ii)
+          for(int jj=0;jj<3;++jj)
+            std::cout<<m_data.m_values_2d[ii][jj]<<",";
+        std::cout<<std::endl ;*/
       }
     }
     void operator-=(const Law::Contribution& values)
@@ -141,6 +159,12 @@ public:
 	  m_data.m_values_2d[m_data.m_equation][k] -= contrib[k];
         }
 	m_data.m_alien_builder(m_data.m_i, j) += Alien::view(m_data.m_values_2d);
+	/*
+        std::cout<<"MATRIX VFADD-("<<m_data.m_i<<","<<j<<"):";
+        for(int ii=0;ii<3;++ii)
+          for(int jj=0;jj<3;++jj)
+            std::cout<<m_data.m_values_2d[ii][jj]<<",";
+        std::cout<<std::endl ;*/
       }
       {
 	Alien::fill(m_data.m_values_2d, 0.);
@@ -151,6 +175,12 @@ public:
 	  m_data.m_values_2d[m_data.m_equation][k] -= contrib[k];
         }
 	m_data.m_alien_builder(m_data.m_i, j) += Alien::view(m_data.m_values_2d);
+	/*
+        std::cout<<"MATRIX VFADD-("<<m_data.m_i<<","<<j<<"):";
+        for(int ii=0;ii<3;++ii)
+          for(int jj=0;jj<3;++jj)
+            std::cout<<m_data.m_values_2d[ii][jj]<<",";
+        std::cout<<std::endl ;*/
       }
     }
     // TODO : To complete (and test) (XT)

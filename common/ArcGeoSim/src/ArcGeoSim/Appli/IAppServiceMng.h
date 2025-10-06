@@ -1,12 +1,11 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_APPLI_IAPPSERVICEMNG_H
 #define ARCGEOSIM_APPLI_IAPPSERVICEMNG_H
-
 /**
  * \author Jean-Marc GRATIEN
  * \version 1.0
@@ -31,7 +30,6 @@
 namespace Arcane {
   class ITimeLoopMng;
   class IServiceMng;
-  class ITraceMng;
 }
 
 #ifdef ARCGEOSIM_USE_EXPORT
@@ -95,10 +93,10 @@ protected:
 public:
   
   //! Ajout d'un service 
-  ARCANE_DEPRECATED void addService(IService* service);
+  ARCANE_DEPRECATED void addService(Arcane::IService* service);
   
   //! Ajout d'un service 
-  ARCANE_DEPRECATED void addService(IService* service, const String & type_name);
+  ARCANE_DEPRECATED void addService(Arcane::IService* service, const String & type_name);
 
   //! Information sur un service absent
   void addMissingServiceInfo(const String & type_id, const String & type_name);
@@ -109,7 +107,7 @@ public:
      - prise en charge du dynamiccast
   */
 
-  //! Ajout d'un service partage 
+  //! Ajout d'un service partag� 
   template<typename T> void addService(T* service)
   {
     _traceMng()->debug() << "Adding shared service "
@@ -118,7 +116,7 @@ public:
     _addService(service);
   }
   
-  //! Ajout d'un service partage 
+  //! Ajout d'un service partag� 
   template<typename T> void addService(const T& service)
   {
     _traceMng()->debug() << "Adding shared service "
@@ -127,7 +125,7 @@ public:
     _addService(service);
   }
   
-  //! Ajout d'un service partage
+  //! Ajout d'un service partag�
   template<typename T> void addService(T* service, const String & type_name)
   {
     _traceMng()->debug() << "Adding shared service "
@@ -137,7 +135,7 @@ public:
     _addService(service);
   }
   
-  //! Ajout d'un service partage
+  //! Ajout d'un service partag�
   template<typename T> void addService(const T& service, const String & type_name)
   {
     _traceMng()->debug() << "Adding shared service "
@@ -150,11 +148,11 @@ public:
   //! Information sur un service absent
   template<typename T> void addMissingServiceInfo(const String & type_name)
   {
-    // Par souci de compatibilite, on utilise T* et non T
+    // Par souci de compatibilit�, on utilise T* et non T
     addMissingServiceInfo(typeid(T*).name(), type_name);
   }
   
-  //! Ajout d'un service partage 
+  //! Ajout d'un service partag� 
   template<typename T> void addOptionalService(const Arcane::CaseOptionMultiServiceT<T>& option,
                                                const String & type_name)
   {
@@ -167,8 +165,8 @@ public:
   }
   
   //! Recherche d'un service
-  /*! @param delegate_error : true si la gestion d'erreur est deleguee (ie si non trouve)
-   *  L'initialisation du service trouve est a la charge de IAppServiceMng
+  /*! @param delegate_error : true si la gestion d'erreur est d�l�gu�e (ie si non trouv�)
+   *  L'initialisation du service trouv� est � la charge de IAppServiceMng
    */
   template<class T>
   T* find(bool delegate_error)
@@ -181,7 +179,7 @@ public:
         Pointer* s = iter->first.get();
         {
           T* m = NULL;
-          PointerT<IService>* generic_m = dynamic_cast<PointerT<IService>*>(s);
+          PointerT<Arcane::IService>* generic_m = dynamic_cast<PointerT<Arcane::IService>*>(s);
           if(generic_m == NULL) {
             // Cas enregistrement service nouvelle version
             PointerT<T>* p = dynamic_cast<PointerT<T>*>(s);
@@ -193,10 +191,10 @@ public:
           }
           if (m) 
             {
-              if((*iter).second) // true si pas encore initialise
+              if((*iter).second) // true si pas encore initialis�
               {
                 m->init();
-                (*iter).second = false ; // memorisation de l'initialisation
+                (*iter).second = false ; // m�morisation de l'initialisation
               }
               return m ;
             }
@@ -209,19 +207,19 @@ public:
     return NULL ;
   }
 
-  //! Definit le gestion de boucle pour des messages d'erreur plus precis
+  //! D�finit le gestion de boucle pour des messages d'erreur plus pr�cis
   void setTimeLoopMng(ITimeLoopMng * time_loop_mng);
 
-  //! Acces a l'instance de IAppServiceMng
-  //! Si le service n'est pas trouve :
-  //! fatal_if_not_found = true  => une erreur est lancee
+  //! Acc�s � l'instance de IAppServiceMng
+  //! Si le service n'est pas trouv� :
+  //! fatal_if_not_found = true  => une erreur est lanc�e
   //! fatal_if_not_found = false => retourne NULL
   static IAppServiceMng * instance(IServiceMng * sm = NULL, bool fatal_if_not_found = true);
 
   //! Indique si le mode est 'continue'
-  //! Par defaut, renvoie false
-  //! Politique par defaut mise en place en attendant la mise
-  //! en conformite des applications 
+  //! Par d�faut, renvoie false
+  //! Politique par d�faut mise en place en attendant la mise
+  //! en conformit� des applications 
   virtual bool isContinue() const { return false; }
 
 private:
@@ -231,7 +229,7 @@ private:
   void _checkBeforeFind(const char * name);
   void _checkNotFound(const char * name);
    
-  ITraceMng * _traceMng();
+  Arcane::ITraceMng * _traceMng();
   
   template<typename T> void _addService(T* service)
   {
@@ -256,7 +254,7 @@ private:
   }
 
 private:
-  PointerList m_services; //!< liste des services avec flag d'initialisation (true => non initialise)
+  PointerList m_services; //!< liste des services avec flag d'initialisation (true => non initialis�)
   std::map<String,String> m_missing_service_infos; //!< Information descriptive des services manquant
   ITimeLoopMng * m_time_loop_mng; //!< Lien au gestionnaire de boucle en temps
   static ARCGEOSIM_APPLI_EXPORT IAppServiceMng * m_instance;

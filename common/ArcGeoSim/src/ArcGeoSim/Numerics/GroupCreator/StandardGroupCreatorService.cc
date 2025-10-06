@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -19,6 +19,7 @@
 #include "ArcGeoSim/Utils/ItemGroupBuilder.h"
 #include "ArcGeoSim/Mesh/Geometry/IGeometryMng.h"
 #include "ArcGeoSim/Mesh/Geometry/IGeometry2DMng.h"
+#include "ArcGeoSim/Mesh/Geometry/ManualUpdateGeometryPolicy.h"
 
 #include "ArcGeoSim/Numerics/Expressions/IExpressionMng.h"
 #include "ArcGeoSim/Numerics/Expressions/IFunctionR3vR1.h"
@@ -108,6 +109,11 @@ prepare()
   m_geometry_service->addItemGroupProperty(allCells(), IGeometryProperty::PCenter, IGeometryProperty::PVariable);
   m_geometry_service->addItemGroupProperty(allFaces(), IGeometryProperty::PCenter, IGeometryProperty::PVariable);
   m_geometry_service->addItemGroupProperty(allFaces(), IGeometryProperty::PNormal, IGeometryProperty::PVariable);
+
+  IGeometryPolicy *geometryPolicy = new ManualUpdateGeometryPolicy;
+  m_geometry_service->setPolicyTolerance(true);
+  m_geometry_service->update(geometryPolicy);
+  delete geometryPolicy;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -322,6 +328,32 @@ createFaceGroups()
   const IGeometryMng::Real3Variable & cell_centers = m_geometry_service->getReal3VariableProperty(allCells(), IGeometryProperty::PCenter);
   const IGeometryMng::Real3Variable & face_normals = m_geometry_service->getReal3VariableProperty(allFaces(), IGeometryProperty::PNormal);
 
+
+  //Group of true boundary faces
+  ItemGroupBuilder<Face> all_face_group_builder(mesh(), "GC_AllBoundaryFaces");
+  {
+    VariableFaceBool is_face_true_boundary(VariableBuildInfo(mesh(), "TmpFaceVar"));
+    is_face_true_boundary.fill(false);
+
+    ENUMERATE_FACE(iFace, outerFaces().own())
+    {
+      //Security check that boundary cell is own
+      if (iFace->boundaryCell().isOwn())
+        is_face_true_boundary[iFace] = true;
+    }
+    //synchronization to capture ghost boundary faces
+    is_face_true_boundary.synchronize();
+    ENUMERATE_FACE(iFace,outerFaces())
+    {
+      if (is_face_true_boundary[iFace]) {
+        all_face_group_builder.add(*iFace);
+      }
+    }
+  }
+  FaceGroup GC_allBoundaryFaces_group = all_face_group_builder.buildGroup();
+
+
+
   for(int facegroup_nbr=0; facegroup_nbr<options()->facegroup.size(); facegroup_nbr++)
     {
 
@@ -359,7 +391,8 @@ createFaceGroups()
           // Check if area_name exists as a cellgroup otherwise return empty cellgroup
           if(area_name=="GC_allBoundaryFaces")
             {
-              area_facegroup = outerFaces().own();
+              //area_facegroup = outerFaces().own();
+              area_facegroup = GC_allBoundaryFaces_group;
               Integer icount = 0;
               ENUMERATE_FACE(iFace,area_facegroup)
                 {
@@ -462,7 +495,8 @@ createFaceGroups()
             // Check if area_name exists as a cellgroup otherwise return empty cellgroup
             if(area_name=="GC_allBoundaryFaces")
               {
-                area_facegroup = outerFaces().own();
+                //area_facegroup = outerFaces().own();
+                area_facegroup = GC_allBoundaryFaces_group;
               }
             else
               {
@@ -659,6 +693,27 @@ create2DFaceGroups()
   const IGeometry2DMng::Real2Variable& face_centers = geometry2d_mng->getReal2VariableProperty(allFaces(), IGeometryProperty::PCenter);
   //const IGeometry2DMng::Real2Variable& face_normals = geometry2d_mng->getReal2VariableProperty(allFaces(), IGeometryProperty::PNormal);
 
+  //Group of true boundary faces
+  ItemGroupBuilder<Face> all_face_group_builder(mesh(), "GC_AllBoundaryFaces");
+  {
+    VariableFaceBool is_face_true_boundary(VariableBuildInfo(mesh(), "TmpFaceVar"));
+    is_face_true_boundary.fill(false);
+    ENUMERATE_FACE(iFace, outerFaces().own())
+    {
+      //Security check that boundary cell is own
+      if (iFace->boundaryCell().isOwn())
+        is_face_true_boundary[iFace] = true;
+    }
+    //synchronization to capture ghost boundary faces
+    is_face_true_boundary.synchronize();
+    ENUMERATE_FACE(iFace,outerFaces())
+    {
+      if (is_face_true_boundary[iFace]) {
+        all_face_group_builder.add(*iFace);
+      }
+    }
+  }
+  FaceGroup GC_allBoundaryFaces_group = all_face_group_builder.buildGroup();
 
   for(int facegroup_nbr=0; facegroup_nbr<options()->facegroup.size(); facegroup_nbr++)
     {
@@ -800,7 +855,8 @@ create2DFaceGroups()
             // Check if area_name exists as a cellgroup otherwise return empty cellgroup
             if(area_name=="GC_allBoundaryFaces")
               {
-                area_facegroup = outerFaces().own();
+                //area_facegroup = outerFaces().own();
+                area_facegroup = GC_allBoundaryFaces_group;
               }
             else
               {

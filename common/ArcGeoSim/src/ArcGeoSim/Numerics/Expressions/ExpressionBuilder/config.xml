@@ -8,6 +8,12 @@
     <file>ExpressionBuilderR2vR1Core</file>
     <file>ExpressionBuilderR3vR1Core</file>
     <file>ExpressionBuilderR4vR1Core</file>
+    <file>ExpressionBuilderR5vR1Core</file>
+    <file>ExpressionBuilderR6vR1Core</file>
+    <file>ExpressionBuilderR7vR1Core</file>
+    <file>ExpressionBuilderR8vR1Core</file>
+    <file>ExpressionBuilderR9vR1Core</file>
+    <file>ExpressionBuilderR10vR1Core</file>
     <file>LocalExpressionMng</file>
   </files>
   <files language="service">
@@ -15,6 +21,12 @@
     <file header="false">ExpressionBuilderR2vR1</file>
     <file header="false">ExpressionBuilderR3vR1</file>
     <file header="false">ExpressionBuilderR4vR1</file>
+    <file header="false">ExpressionBuilderR5vR1</file>
+    <file header="false">ExpressionBuilderR6vR1</file>
+    <file header="false">ExpressionBuilderR7vR1</file>
+    <file header="false">ExpressionBuilderR8vR1</file>
+    <file header="false">ExpressionBuilderR9vR1</file>
+    <file header="false">ExpressionBuilderR10vR1</file>
     <file>ExpressionBuilder</file>
   </files>
 </makefile>

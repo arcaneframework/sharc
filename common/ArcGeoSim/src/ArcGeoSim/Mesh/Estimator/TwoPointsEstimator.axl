@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="TwoPointsEstimator" version="1.0" type="caseoption">
+  <description>Estimateur d'erreur </description>
+ <interface name="IEstimator" />
+
+ <variables>
+     <variable field-name="h_size" name="CellHSize" data-type="real" item-kind="cell" dim="0" dump="true" need-sync="true" /> 
+     <variable field-name="grad" name="CellGrad" data-type="real3" item-kind="cell" dim="0" dump="true" need-sync="true" /> 
+     <variable field-name="gradX" name="CellGradX" data-type="real" item-kind="cell" dim="0" dump="true" need-sync="true" /> 
+     <variable field-name="gradY" name="CellGradY" data-type="real" item-kind="cell" dim="0" dump="true" need-sync="true" /> 
+     <variable field-name="gradZ" name="CellGradZ" data-type="real" item-kind="cell" dim="0" dump="true" need-sync="true" /> 
+ </variables>
+
+<options>
+</options> 
+  
+  
+</service>

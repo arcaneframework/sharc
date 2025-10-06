@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="c++header">
+    <file>IFunctor</file>
+    <file>IFunctorUtils</file>
+  </files>
+  <directories>
+    <directory>Utils</directory>
+    <directory>Type</directory>
+    <directory>Functions</directory>
+  </directories>
+</makefile>

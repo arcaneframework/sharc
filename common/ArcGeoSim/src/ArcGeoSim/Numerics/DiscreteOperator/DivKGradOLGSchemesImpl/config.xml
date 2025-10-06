@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+
+  <files language="c++">
+    <file>DivKGradLSchemeStencils</file>
+  </files>
+
+  <files language="c++header">
+    <file>DivKGradOScheme</file>
+    <file>DivKGradGScheme</file>
+    <file>DivKGradLScheme</file>
+  </files>
+
+</makefile>

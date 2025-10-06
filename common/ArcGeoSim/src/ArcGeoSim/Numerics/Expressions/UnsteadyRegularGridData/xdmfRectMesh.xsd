@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+ <xs:element name='Time'>
+  <xs:complexType>
+   <xs:attribute name='Value' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Topology'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name='Information' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element name='DataItem' minOccurs='0' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='TopologyType' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='2DRectMesh'/>
+      <xs:enumeration value='2DCoRectMesh'/>
+      <xs:enumeration value='3DRectMesh'/>
+      <xs:enumeration value='3DCoRectMesh'/>
+      <xs:enumeration value='1DMesh'/>
+      <xs:enumeration value='1DCoMesh'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='Reference' type='xs:string' use='optional' />
+   <xs:attribute name='Dimensions' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Geometry'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name='Information' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element name='DataItem' minOccurs='0' maxOccurs='3'/>
+   </xs:sequence>
+   <xs:attribute name='Reference' type='xs:string' use='optional' />
+   <xs:attribute name='Name' type='xs:string' use='optional'/>
+   <xs:attribute name='Type' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='VXVY'/>
+      <xs:enumeration value='ORIGIN_DXDY'/>
+      <xs:enumeration value='VXVYVZ'/>
+      <xs:enumeration value='ORIGIN_DXDYDZ'/>
+      <xs:enumeration value='VZ'/>
+      <xs:enumeration value='ORIGIN_DZ'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='DataItem'>
+  <xs:complexType>
+   <xs:attribute name='Dimensions' type='xs:string' use='required'/>
+   <xs:attribute name='Format' use='required'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='XML'/>
+      <xs:enumeration value='HDF'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Attribute'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name='Information' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element name='DataItem' minOccurs='1' maxOccurs='1'/>
+   </xs:sequence>
+   <xs:attribute name='Name' type='xs:string' use='optional'/>
+   <xs:attribute name='Center' use='required'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='Node'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Information'>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element name='Information'/>
+    <xs:element name='EMPTY'/>
+   </xs:choice>
+   <xs:attribute name='Name' type='xs:string' use='optional'/>
+   <xs:attribute name='Value' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+ 
+ <xs:element name='Xdmf'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name='Information' type="xs:string" minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='Domain' minOccurs='1' maxOccurs='1'/>
+   </xs:sequence>
+   <xs:attribute name='Version' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Grid'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name='Information' type="xs:string" minOccurs='0' maxOccurs='1'/>
+    <xs:element name='Time' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='Grid' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element ref='Topology' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='Geometry' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='Attribute' minOccurs='0' maxOccurs='1'/>
+   </xs:sequence>
+   <xs:attribute name='Name' type='xs:string' use='optional'/>
+   <xs:attribute name='GridType' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='Collection'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='CollectionType' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='Temporal'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+  </xs:complexType>
+ </xs:element>
+ 
+  <xs:element name='Domain'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='Topology' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='Geometry' minOccurs='0' maxOccurs='1'/>
+    <xs:element name='Information' type="xs:string" minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='Grid' minOccurs='1' maxOccurs='1'/>
+   </xs:sequence>
+   <xs:attribute name='Name' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+ 
+</xs:schema>

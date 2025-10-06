@@ -3,6 +3,11 @@
 	<description>Service Graph Law Tester</description>
 	<interface name="IServiceTester" />
 
-  <options />
+  <options>
+    <simple name="with-multi-scalar" type="bool" default="false">
+      <description>composition test with multi-scalar laws only scalar else</description>
+    </simple>
+    
+  </options>
 
 </service>

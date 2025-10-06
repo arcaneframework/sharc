@@ -1,0 +1,8 @@
+# -*- cmake -*-
+# Test observable property
+ARCANE_ADD_TEST(ObservableProperty 
+  ArcGeoSim
+  ${ARCGESIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/ObservableProperty 
+  ObservableProperty.arc
+  )
+

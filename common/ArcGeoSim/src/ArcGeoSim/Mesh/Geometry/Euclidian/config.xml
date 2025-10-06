@@ -7,7 +7,9 @@
   </needed-packages>
  
   <files language="service">
+    <file header='false'>EuclidianGeometry2</file>
     <file header='false'>EuclidianGeometry3</file>
+    <file header='false'>Euclidian2Geometry</file>
   </files>
  
 </makefile>

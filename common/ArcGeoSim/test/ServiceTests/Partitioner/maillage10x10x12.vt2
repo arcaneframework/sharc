@@ -1,0 +1,14 @@
+# vtk DataFile Version 2.0
+Maillage Arcane
+ASCII
+DATASET STRUCTURED_GRID
+DIMENSIONS 10 10 12 
+TOP surface10x10.dat
+DXY 1. 1. 
+DZFILE dz12.dat 
+CELLGROUPS 4
+RockZone1 1 9 1 9 1 2
+RockZone2 1 9 1 9 2 3
+RockZone3 1 9 1 9 3 6
+RockZone4 1 9 1 9 6 11
+NODEGROUPS 0

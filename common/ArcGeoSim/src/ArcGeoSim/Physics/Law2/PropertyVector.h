@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -201,6 +201,42 @@ public:
     return *this;
   }
   
+  //! Ajout incremental d'une propriete
+  PropertyVector& operator<<(const Gump::Property& gp)
+  {
+    ScalarRealProperty p(gp.uniqueId(),gp.fullName()) ;
+    ARCANE_ASSERT((p.isInitialized()),(Arcane::String::format("Property '{0}' is not initialized",p.name()).localstr()));
+
+    if(contains(p)) return *this;
+
+    m_properties.add(p);
+
+    const Integer id = p.id();
+
+    if(id >= m_index.size()) {
+      const Integer old_size = m_index.size();
+      m_index.resize(id+1);
+      m_size.resize(id+1);
+      for(Integer i = old_size; i < id+1; ++i) {
+        m_index[i] = -1;
+        m_size[i] = 0;
+      }
+    }
+
+    ARCANE_ASSERT((m_index[id] == -1),(Arcane::String::format("Property '{0}' is not in vector",p.name()).localstr()));
+
+    m_index[id] = m_properties.size() - 1;
+
+    m_size[id] = p.size();
+
+    m_data_size += p.size();
+
+    m_offset.add(m_data_size);
+
+    return *this;
+  }
+
+
   //! Ajout incremental d'un tableau de proprietes
   PropertyVector& operator<<(Arcane::ConstArrayView<Property> properties)
   {

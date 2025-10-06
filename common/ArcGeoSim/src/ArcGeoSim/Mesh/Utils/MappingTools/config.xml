@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="c++">
+    <file>MeshCellAccessor</file>
+    <file>MeshTools</file>
+    <file>OrthonormalBoundingBox</file>
+    <file>RegularGrid</file>
+  </files>
+  <files language="c++header">
+    <file>IBoundingBox</file>
+  </files>
+</makefile>

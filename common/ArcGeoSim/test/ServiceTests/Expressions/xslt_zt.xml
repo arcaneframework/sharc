@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:output method="xml" omit-xml-declaration="no" version="1.1" encoding="utf-16"  indent="yes"/>
+
+<xsl:template name="splitAttributeValues" xml:space="preserve">
+ <xsl:param name="timeSteps"/>
+ <xsl:param name="pText"/>
+ <xsl:param name="dimensions"/>
+ <xsl:param name="size"/>
+ <xsl:param name="begin"/>
+ <xsl:param name="end"/>
+ <xsl:if test="string-length($timeSteps)">
+ <xsl:text>&#x0A;</xsl:text>
+ <Grid>
+ <xsl:if test="contains($timeSteps, ' ')">      
+ <xsl:variable name="timestep" select="substring-before($timeSteps, ' ')"/> 
+ <Time Value="{$timestep}" />
+ </xsl:if>
+ <xsl:if test="not(contains($timeSteps, ' '))">      
+ <xsl:variable name="timestep" select="$timeSteps"/> 
+ <Time Value="{$timestep}" />
+ </xsl:if>
+ <Topology Reference="/Xdmf/Domain/Topology"/>
+ <Geometry Reference="/Xdmf/Domain/Geometry"/>
+ <Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="XML" Dimensions="{$dimensions}">
+ <xsl:call-template name="tokenize">
+    <xsl:with-param name="pText" select="$pText"/>
+    <xsl:with-param name="i" select="1" />
+    <xsl:with-param name="begin" select="$begin" />
+    <xsl:with-param name="end" select="$end" />
+ </xsl:call-template>
+	  </DataItem>
+    </Attribute>
+    </Grid>
+ <xsl:call-template name="splitAttributeValues">
+ <xsl:with-param name="timeSteps" select="substring-after($timeSteps, ' ')"/>
+ <xsl:with-param name="pText" select="$pText"/>
+ <xsl:with-param name="dimensions" select="$dimensions"/>
+ <xsl:with-param name="size" select="$size"/>
+ <xsl:with-param name="begin" select="$begin + $size"/>
+ <xsl:with-param name="end" select="$end + $size"/>
+ </xsl:call-template> 
+ </xsl:if>
+ </xsl:template>  
+ 
+ 
+  <xsl:template name="tokenize">
+  <xsl:param name="pText"/>
+  <xsl:param name="i"/>
+  <xsl:param name="begin"/>
+  <xsl:param name="end"/>
+  <xsl:if test="string-length($pText)">
+    <xsl:if test="$i &gt;= $begin and $i &lt;= $end">    
+      <xsl:if test="contains($pText, ' ')">  
+      <xsl:value-of select="substring-before($pText, ' ')"/><xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:if test="not(contains($pText, ' '))">  
+      <xsl:value-of select="$pText"/><xsl:text> </xsl:text>
+      </xsl:if>      
+    </xsl:if>
+    <xsl:call-template name="tokenize">
+      <xsl:with-param name="pText" select="substring-after($pText, ' ')"/>
+      <xsl:with-param name="i" select="$i + 1"/>
+      <xsl:with-param name="begin" select="$begin"/>
+      <xsl:with-param name="end" select="$end"/>       
+    </xsl:call-template>
+  </xsl:if>
+</xsl:template>
+
+
+<xsl:template match="/"  xml:space="preserve">
+
+<xsl:variable name="type" select="RegularGrid/@type"/>
+
+<xsl:variable name="seqX" select="normalize-space(RegularGrid/x-value)"/>
+
+<xsl:variable name="dimX"  select="string-length($seqX) - string-length(translate($seqX, ' ', ''))+1"/>
+
+<xsl:variable name="seqY" select="normalize-space(RegularGrid/y-value)"/>
+
+<xsl:variable name="dimY"  select="string-length($seqY) - string-length(translate($seqY, ' ', ''))+1"/>
+
+<xsl:variable name="seqZ" select="normalize-space(RegularGrid/z-value)"/>
+
+<xsl:variable name="dimZ"  select="string-length($seqZ) - string-length(translate($seqZ, ' ', ''))+1"/>
+
+<xsl:variable name="timesteps" select="normalize-space(RegularGrid/t-value)"/>
+
+<xsl:variable name="nbTimes"  select="string-length($timesteps) - string-length(translate($timesteps, ' ', ''))+1"/>
+
+
+<Xdmf Version="2.0">
+
+<xsl:if test="$type != 'non-uniform'">
+ <xsl:message terminate="yes">
+ ERROR: The grid must be non-uniform !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$dimX != 1">
+ <xsl:message terminate="yes">
+ ERROR: The X dimension of the grid must be 1 !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$dimY != 1">
+ <xsl:message terminate="yes">
+ ERROR: The Y dimension of the grid must be 1 !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$dimZ  &lt;= 1">
+ <xsl:message terminate="yes">
+ ERROR: The Z dimension of the grid must be more than 1 !
+ </xsl:message>
+ </xsl:if>
+
+ <xsl:if test="$nbTimes &lt;= 1">
+ <xsl:message terminate="yes">
+ ERROR: There must be more than one time step !
+ </xsl:message>
+ </xsl:if>
+
+
+
+<Domain>
+<Topology TopologyType="1DMesh" Dimensions="{$dimZ}">	 
+
+</Topology>
+ <Geometry Type="VZ">
+ <!-- VZ -->
+ <DataItem Format="XML" Dimensions="{$dimZ}">
+     <xsl:value-of select='$seqZ'/> 
+ </DataItem>
+ </Geometry>
+ 
+ <xsl:variable name="text" select="normalize-space(RegularGrid/property-value)"/>
+ 
+ <xsl:variable name="times" select="normalize-space(RegularGrid/t-value)"/>
+ 
+
+<Grid Name="User Defined Name" GridType="Collection" CollectionType="Temporal">
+
+ <xsl:call-template name="splitAttributeValues">
+ <xsl:with-param name="timeSteps" select="$times"/>
+ <xsl:with-param name="pText" select="$text"/>
+ <xsl:with-param name="dimensions" select="$dimZ"/>
+ <xsl:with-param name="size" select="$dimZ" />
+ <xsl:with-param name="begin" select="1" />
+ <xsl:with-param name="end" select="$dimZ" />
+ </xsl:call-template>
+  
+</Grid>
+</Domain>
+</Xdmf>
+
+</xsl:template>
+
+</xsl:stylesheet>

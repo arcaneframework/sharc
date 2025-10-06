@@ -12,6 +12,13 @@
 #include <arcane/ISubDomain.h>
 #include <alien/ref/AlienImportExport.h>
 
+#include <alien/kernels/simple_csr/SimpleCSRMatrix.h>
+#include <alien/kernels/simple_csr/SimpleCSRVector.h>
+
+
+#include <alien/kernels/simple_csr/algebra/SimpleCSRLinearAlgebra.h>
+#include <alien/kernels/simple_csr/algebra/SimpleCSRInternalLinearAlgebra.h>
+#include <alien/expression/krylov/AlienKrylov.h>
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
@@ -106,8 +113,57 @@ bool
 ArcNum::LinearSystem::
 solve(Alien::ILinearSolver* solver)
 {
+  {
+    const Alien::SimpleCSRMatrix<Real>& csr = m_alien_matrix->impl()->get<Alien::BackEnd::tag::simplecsr>();
+    const Alien::SimpleCSRMatrix<Real>::ProfileType& profile = csr.getProfile();
+    int nrows = profile.getNRows();
+    int blk_size = m_alien_matrix->block().size();
+    int nnz = profile.getNnz();
+    const int* cols = profile.cols();
+    const int* kcol = profile.kcol();
+    const double* values = csr.getAddressData();
+    m_trace->info()<<"MATRIX("<<nrows<<","<<nnz<<","<<blk_size<<")";
+    for(int i=0;i<nrows;++i)
+    {
+      m_trace->info()<<"ROW["<<i<<"]:";
+      for(int k=kcol[i];k<kcol[i+1];++k)
+      {
+        m_trace->info()<<'\t'<<"COL("<<k<<","<<cols[k]<<")";
+        for(int j=0;j<blk_size*blk_size;++j)
+        {
+          m_trace->info()<<'\t'<<'\t'<<j<<","<<std::hexfloat<<values[k*blk_size*blk_size+j];
+        }
+      }
+    }
+    {
+      const Alien::SimpleCSRVector<Real>& v = m_alien_rhs->impl()->get<Alien::BackEnd::tag::simplecsr>();
+      const double* values = v.getAddressData();
+      for(int i=0;i<nrows;++i)
+      {
+        m_trace->info()<<"RHS["<<i<<"]:";
+        for(int j=0;j<blk_size;++j)
+        {
+            m_trace->info()<<'\t'<<j<<","<<std::hexfloat<<values[i*blk_size+j];
+        }
+      }
+    }
+    {
+      const Alien::SimpleCSRVector<Real>& v = m_alien_solution->impl()->get<Alien::BackEnd::tag::simplecsr>();
+      const double* values = v.getAddressData();
+      for(int i=0;i<nrows;++i)
+      {
+        m_trace->info()<<"SOL["<<i<<"]:";
+        for(int j=0;j<blk_size;++j)
+        {
+            m_trace->info()<<'\t'<<j<<","<<std::hexfloat<<values[i*blk_size+j];
+        }
+      }
+    }
+  }
+
   try
   {
+
     bool succeed = solver->solve(*m_alien_matrix,
                                  *m_alien_rhs,
                                  *m_alien_solution);
@@ -115,6 +171,48 @@ solve(Alien::ILinearSolver* solver)
     const auto& status = solver->getStatus();
 
     Arcane::Integer iteration = status.iteration_count;
+
+    /*
+
+
+      typedef Alien::SimpleCSRInternalLinearAlgebra    AlgebraType ;
+      typedef typename AlgebraType::BackEndType        BackEndType ;
+      typedef Alien::Iteration<AlgebraType>            StopCriteriaType ;
+
+      auto const& true_A = m_alien_matrix->impl()->get<BackEndType>() ;
+      auto const& true_b = m_alien_rhs->impl()->get<BackEndType>() ;
+      auto&       true_x = m_alien_solution->impl()->get<BackEndType>(true) ;
+
+      AlgebraType alg ;
+      StopCriteriaType stop_criteria{alg,true_b,1.e-6,1000,m_trace} ;
+      typedef Alien::BiCGStab<AlgebraType> SolverType ;
+      SolverType solver{alg,m_trace} ;
+      solver.setOutputLevel(3) ;
+      typedef Alien::DiagPreconditioner<AlgebraType> PrecondType ;
+      PrecondType      precond{alg,true_A} ;
+      precond.init() ;
+      solver.solve(precond,stop_criteria,true_A,true_b,true_x) ;
+      bool succeed = stop_criteria.getStatus() ;
+      Arcane::Integer iteration = stop_criteria() ;
+      m_trace->info()<<"NB ITERATIONS : "<<iteration;
+    */
+    m_trace->info()<<"LINEARSOLVER : "<<succeed<<" ITERATION="<<iteration;
+    {
+      const Alien::SimpleCSRMatrix<Real>& csr = m_alien_matrix->impl()->get<Alien::BackEnd::tag::simplecsr>();
+      const Alien::SimpleCSRMatrix<Real>::ProfileType& profile = csr.getProfile();
+      int nrows = profile.getNRows();
+      int blk_size = m_alien_matrix->block().size();
+      const Alien::SimpleCSRVector<Real>& v = m_alien_solution->impl()->get<Alien::BackEnd::tag::simplecsr>();
+      const double* values = v.getAddressData();
+      for(int i=0;i<nrows;++i)
+      {
+        m_trace->info()<<"SOL["<<i<<"]:";
+        for(int j=0;j<blk_size;++j)
+        {
+            m_trace->info()<<'\t'<<j<<","<<std::hexfloat<<values[i*blk_size+j];
+        }
+      }
+    }
 
     if(succeed)
       return true;
@@ -152,6 +250,7 @@ dumpMatrix(std::string name)
   //dumper.dump(name, *m_alien_matrix);
   Alien::SystemWriter writer(name,"ascii",_arcaneGetDefaultSubDomain()->parallelMng()->messagePassingMng()) ;
   writer.dump(*m_alien_matrix, *m_alien_rhs) ;
+
 
 }
 

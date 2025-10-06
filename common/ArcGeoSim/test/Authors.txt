@@ -24,7 +24,10 @@ LinearAlgebra::j-marc.gratien
 LawCompiler::sylvain.desroziers
 LawContribution::raphael.gayno
 LawGraph::raphael.gayno
+LawGraphMultiScalar::raphael.gayno
 LawDebug::raphael.gayno
+Gump::raphael.gayno
+GumpExample::raphael.gayno
 BasicIndexManager::pascal.have
 LinearAlgebra2::pascal.have
 LinearAlgebra2-Block::pascal.have
@@ -41,3 +44,7 @@ ModuleMaster::sylvain.desroziers
 AuDi::sylvain.desroziers
 MakeDelegatedPtr::sylvain.desroziers
 ComplexStrongOptions::raphael.gayno
+ONNXInference::raphael.gayno
+LawNNInference::raphael.gayno
+LawNNInferenceMultiScalar::raphael.gayno
+LawNNInferenceWithDerivatives::raphael.gayno

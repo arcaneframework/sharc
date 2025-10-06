@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -13,14 +13,14 @@
 
 /*
  * \ingroup Law
- * \brief Outil pour l'allocation des references de variables pour les valeurs + derivees pour :
+ * \brief Outil pour l'allocation des r�f�rences de variables pour les valeurs + d�riv�es pour :
  * - variables
  * - variables partielles
  * - tableaux
  * - scalaires
  *
  */
-
+#include "ArcGeoSim/Mesh/Utils/MeshUtils.h"
 #include "ArcGeoSim/Physics/Law2/VariableRef.h"
 #include "ArcGeoSim/Physics/Law2/EvaluationMode.h"
 
@@ -40,23 +40,23 @@ BEGIN_LAW_NAMESPACE
 
 /*
  * \ingroup Law
- * \brief Interface d'allocateur de reference de variables
+ * \brief Interface d'allocateur de r�f�rence de variables
  *
  */
 struct IAllocator
 {
   virtual ~IAllocator() {}
 
-  //! Ajoute des noms de famille par defaut
+  //! Ajoute des noms de famille par d�faut
   virtual void setDefaultFamilyNames(const std::map<Arcane::eItemKind,Arcane::String>&) {}
 
-  //! Alloue une reference
+  //! Alloue une r�f�rence
   virtual std::shared_ptr<VariableRef> create(Arcane::IMesh* mesh) const = 0;
 
   //! Ajout d'un prefixe
   virtual void addPrefix(Arcane::String prefix) = 0;
   
-  //! Pour savoir si la variable existait deja
+  //! Pour savoir si la variable existait d�j�
   virtual bool firstAllocation() const = 0;
 };
 
@@ -65,12 +65,12 @@ struct IAllocator
 
 /*
  * \ingroup Law
- * \brief Allocateur abstrait de reference de variables pour un type de propriete
+ * \brief Allocateur abstrait de r�f�rence de variables pour un type de propri�t�
  *
  * Classe de factorisation
  *
  */
-template<typename Ref>
+template<typename Ref, bool is_graph_type=false>
 class AllocatorT
   : public IAllocator
 {
@@ -109,10 +109,13 @@ public:
     }
   }
 
-  //! Alloue une reference
+  //! Alloue une r�f�rence
   std::shared_ptr<VariableRef> create(Arcane::IMesh* mesh) const 
   {
-    m_first_allocation = !mesh->variableMng()->findMeshVariable(mesh, m_name);
+    m_first_allocation = !mesh->subDomain()->variableMng()->findMeshVariable(mesh, m_name);
+
+    if(is_graph_type)
+        setDefaultFamilyName() ;
 
     ValueType* v = new ValueType(buildInfo(mesh,m_name));
    
@@ -143,6 +146,7 @@ public:
 protected:
     
   virtual Arcane::VariableBuildInfo buildInfo(Arcane::IMesh* mesh, const String& name) const = 0;
+  virtual void setDefaultFamilyName() const {}
   
 protected:
   PropertyType m_property;
@@ -157,16 +161,20 @@ protected:
 
 /*
  * \ingroup Law
- * \brief Allocateur de reference de variables sur le maillage
+ * \brief Allocateur de r�f�rence de variables sur le maillage
  *
- * Voir methodes utilisateur de creation dans la suite
+ * Voir m�thodes utilisateur de cr�ation dans la suite
  *
  */
-template<typename P, typename K>
+template<typename P, typename GK>
 class VariableAllocatorT
-  : public AllocatorT< VariableRefT<P,K> >
-{  
-  typedef AllocatorT< VariableRefT<P,K> > Base;
+  : public AllocatorT< VariableRefT<P,typename ArcGeoSim::Mesh::GraphTraits<GK>::item_type>,
+                       ArcGeoSim::Mesh::GraphTraits<GK>::is_graph_item>
+{
+  static const bool is_graph_item = ArcGeoSim::Mesh::GraphTraits<GK>::is_graph_item ;
+  static const bool is_link = ArcGeoSim::Mesh::GraphTraits<GK>::is_link ;
+  typedef typename ArcGeoSim::Mesh::GraphTraits<GK>::item_type K ;
+  typedef AllocatorT< VariableRefT<P,K>,is_graph_item > Base;
   
 public:
     
@@ -174,16 +182,38 @@ public:
                      EvaluationMode derivative,
                      Arcane::String prefix = "")
     : Base(property, prefix, derivative)
-    , m_has_default_family(false) {}
-  
+    , m_has_default_family(is_graph_item) {}
+
+  void setDefaultFamilyName()
+  {
+    if(is_graph_item)
+    {
+        m_has_default_family = true;
+        if(is_link)
+          {
+            m_default_family_name = "Links";
+          }
+        else
+          m_default_family_name = "DualNodes";
+    }
+  }
+
   void setDefaultFamilyNames(const std::map<Arcane::eItemKind,Arcane::String>& default_family_names)
   {
-    auto it = default_family_names.find(Arcane::ItemTraitsT<K>::kind());
-    
-    if(it != default_family_names.end()) {
-      m_has_default_family = true;
-      m_default_family_name = it->second;
+    if(is_graph_item)
+    {
+        setDefaultFamilyName() ;
     }
+    else
+    {
+      auto it = default_family_names.find(Arcane::ItemTraitsT<K>::kind());
+
+      if(it != default_family_names.end()) {
+        m_has_default_family = true;
+        m_default_family_name = it->second;
+      }
+    }
+    
   }
   
   Arcane::VariableBuildInfo buildInfo(Arcane::IMesh* mesh, const String& name) const 
@@ -230,11 +260,15 @@ struct VariableAllocator
   }
 };
 
-template<typename P, typename K>
+template<typename P, typename GK>
 class PartialVariableAllocatorT
-  : public AllocatorT< PartialVariableRefT<P,K> >
+  : public AllocatorT< PartialVariableRefT<P,typename ArcGeoSim::Mesh::GraphTraits<GK>::item_type>,
+                       ArcGeoSim::Mesh::GraphTraits<GK>::is_graph_item>
 {  
-  typedef AllocatorT< PartialVariableRefT<P,K> > Base;
+  static const bool is_graph_item = ArcGeoSim::Mesh::GraphTraits<GK>::is_graph_item ;
+  static const bool is_link = ArcGeoSim::Mesh::GraphTraits<GK>::is_link ;
+  typedef typename ArcGeoSim::Mesh::GraphTraits<GK>::item_type K ;
+  typedef AllocatorT< PartialVariableRefT<P,K>,is_graph_item > Base;
   
 public:
     
@@ -298,7 +332,7 @@ public:
 
 /*---------------------------------------------------------------------------*/
 
-// Fonctions de creation utilisateur
+// Fonctions de cr�ation utilisateur
 
 template<typename K, typename P>
 std::shared_ptr<IAllocator> variable(P property, EvaluationMode mode = eWithoutDerivative)
@@ -326,7 +360,7 @@ std::shared_ptr<VariableRef> variable(P property, const V& v, const U& dv)
 
 /*---------------------------------------------------------------------------*/
 
-// Fonctions de creation utilisateur
+// Fonctions de cr�ation utilisateur
 
 template<typename K, typename P>
 std::shared_ptr<IAllocator> partialVariable(P property, const Arcane::ItemGroupT<K>& group, EvaluationMode mode = eWithoutDerivative)
@@ -354,7 +388,7 @@ std::shared_ptr<VariableRef> partialVariable(P property, const V& v, const U& dv
 
 /*---------------------------------------------------------------------------*/
 
-// Fonctions de creation utilisateur
+// Fonctions de cr�ation utilisateur
 
 template<typename P>
 std::shared_ptr<IAllocator> array(P property, EvaluationMode mode = eWithoutDerivative)
@@ -382,7 +416,7 @@ std::shared_ptr<VariableRef> array(P property, const V& v, const U& dv)
 
 /*---------------------------------------------------------------------------*/
 
-// Fonctions de creation utilisateur
+// Fonctions de cr�ation utilisateur
 
 template<typename P>
 std::shared_ptr<IAllocator> scalar(P property, EvaluationMode mode = eWithoutDerivative)

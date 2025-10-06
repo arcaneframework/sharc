@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:output method="xml" omit-xml-declaration="no" version="1.1" encoding="utf-16"  indent="yes"/>
+
+ <xsl:template name="splitAttributeValues" xml:space="preserve">
+ <xsl:param name="timeSteps"/>
+ <xsl:param name="pText"/>
+ <xsl:param name="dimX"/>
+ <xsl:param name="dimY"/>
+ <xsl:param name="begin"/>
+ <xsl:param name="end"/>
+ <xsl:variable name="size" select="$dimX * $dimY"/>
+ <xsl:if test="string-length($timeSteps)">
+ <xsl:text>&#x0A;</xsl:text>
+ <Grid>
+ <xsl:if test="contains($timeSteps, ' ')">      
+ <xsl:variable name="timestep" select="substring-before($timeSteps, ' ')"/> 
+ <Time Value="{$timestep}" />
+ </xsl:if>
+ <xsl:if test="not(contains($timeSteps, ' '))">      
+ <xsl:variable name="timestep" select="$timeSteps"/> 
+ <Time Value="{$timestep}" />
+ </xsl:if>
+ <Topology Reference="/Xdmf/Domain/Topology"/>
+ <Geometry Reference="/Xdmf/Domain/Geometry"/>
+ <Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="XML" Dimensions="{$dimX} {$dimY}">
+ <xsl:call-template name="tokenize-transpose">
+    <xsl:with-param name="pText" select="$pText"/>
+    <xsl:with-param name="dimX" select="$dimX" />
+    <xsl:with-param name="dimY" select="$dimY" />
+    <xsl:with-param name="i" select="0" />
+    <xsl:with-param name="begin" select="$begin" />
+    <xsl:with-param name="end" select="$end" />
+ </xsl:call-template>
+	  </DataItem>
+    </Attribute>
+    </Grid>
+ <xsl:call-template name="splitAttributeValues">
+ <xsl:with-param name="timeSteps" select="substring-after($timeSteps, ' ')"/>
+ <xsl:with-param name="pText" select="$pText"/>
+ <xsl:with-param name="dimX" select="$dimX"/>
+ <xsl:with-param name="dimY" select="$dimY"/>
+ <xsl:with-param name="begin" select="$begin + $size"/>
+ <xsl:with-param name="end" select="$end + $size"/>
+ </xsl:call-template> 
+ </xsl:if>
+ </xsl:template>
+
+    <!-- this tokenize transpose dimX x dimY data to dimY x dimX data -->
+    <xsl:template name="tokenize-transpose">
+        <xsl:param name="pText"/>
+        <xsl:param name="dimX"/>
+        <xsl:param name="dimY"/>
+        <xsl:param name="i"/>
+        <xsl:param name="begin"/>
+        <xsl:param name="end"/>
+        <xsl:call-template name="tokenize-inner">
+            <xsl:with-param name="pText" select="$pText"/>
+            <xsl:with-param name="index" select="0"/>
+            <xsl:with-param name="dimX" select="$dimX" />
+            <xsl:with-param name="dimY" select="$dimY" />
+            <xsl:with-param name="begin" select="$begin + $i"/>
+            <xsl:with-param name="end" select="$end"/>
+        </xsl:call-template>
+        <xsl:if test="$i + 1 &lt; $dimX">
+            <xsl:call-template name="tokenize-transpose">
+                <xsl:with-param name="pText" select="$pText"/>
+                <xsl:with-param name="dimX" select="$dimX" />
+                <xsl:with-param name="dimY" select="$dimY" />
+                <xsl:with-param name="i" select="$i + 1" />
+                <xsl:with-param name="begin" select="$begin" />
+                <xsl:with-param name="end" select="$end" />
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="tokenize-inner">
+        <xsl:param name="pText"/>
+        <xsl:param name="index"/>
+        <xsl:param name="dimX"/>
+        <xsl:param name="dimY"/>
+        <xsl:param name="begin"/>
+        <xsl:param name="end"/>
+        <xsl:if test="string-length($pText)">
+            <xsl:if test="$index &gt;= $begin and $index &lt; $end and ($index - $begin) mod $dimX = 0">
+                <xsl:if test="contains($pText, ' ')">
+                    <xsl:value-of select="substring-before($pText, ' ')"/><xsl:text> </xsl:text>
+                </xsl:if>
+                <xsl:if test="not(contains($pText, ' '))">
+                    <xsl:value-of select="$pText"/><xsl:text> </xsl:text>
+                </xsl:if>
+            </xsl:if>
+            <xsl:call-template name="tokenize-inner">
+                <xsl:with-param name="pText" select="substring-after($pText, ' ')"/>
+                <xsl:with-param name="index" select="$index + 1"/>
+                <xsl:with-param name="dimX" select="$dimX" />
+                <xsl:with-param name="dimY" select="$dimY" />
+                <xsl:with-param name="begin" select="$begin"/>
+                <xsl:with-param name="end" select="$end"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
+
+
+
+    <xsl:template match="/"  xml:space="preserve">
+
+<xsl:variable name="type" select="RegularGrid/@type"/>
+
+<xsl:variable name="seqX" select="normalize-space(RegularGrid/x-extremal)"/>
+
+<xsl:variable name="originX"  select='substring-before($seqX," ")'/>
+
+<xsl:variable name="endX"  select='substring-after($seqX," ")'/>
+
+<xsl:variable name="seqY" select="normalize-space(RegularGrid/y-extremal)"/>
+
+<xsl:variable name="originY"  select='substring-before($seqY," ")'/>
+
+<xsl:variable name="endY"  select='substring-after($seqY," ")'/>
+
+<xsl:variable name="dimX" select="RegularGrid/x-dimension"/>
+
+<xsl:variable name="dimY" select="RegularGrid/y-dimension"/>
+
+<xsl:variable name="dimZ" select="RegularGrid/z-dimension"/>
+
+<xsl:variable name="timesteps" select="normalize-space(RegularGrid/t-value)"/>
+
+<xsl:variable name="nbTimes"  select="string-length($timesteps) - string-length(translate($timesteps, ' ', ''))+1"/>
+
+
+<Xdmf Version="2.0">
+
+ <xsl:if test="$type != 'uniform'">
+ <xsl:message terminate="yes">
+ ERROR: The grid must be uniform !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$dimZ != 2">
+ <xsl:message terminate="yes">
+ ERROR: The Z dimension of the grid must be 2 !
+ </xsl:message>
+ </xsl:if>
+ 
+ <xsl:if test="$nbTimes &lt;= 1">
+ <xsl:message terminate="yes">
+ ERROR: There must be more than one time step !
+ </xsl:message>
+ </xsl:if>
+
+<Domain>
+<Topology TopologyType="2DCoRectMesh" Dimensions="{$dimX} {$dimY}">
+
+</Topology>
+ <Geometry Type="ORIGIN_DXDY">
+ <!-- ORIGIN -->
+ <DataItem Format="XML" Dimensions="2">
+     <xsl:value-of select='$originX'/> <xsl:value-of select='$originY'/>
+ </DataItem>
+ <!-- DELTA -->
+ <DataItem Format="XML" Dimensions="2">
+     <xsl:value-of select="(number($endX) - number($originX)) div (number($dimX) - 1) "/> <xsl:value-of select="(number($endX) - number($originX)) div (number($dimY) - 1) "/> 
+ </DataItem>
+ </Geometry>
+
+ 
+ <xsl:variable name="text" select="normalize-space(RegularGrid/property-value)"/>
+ 
+ <xsl:variable name="times" select="normalize-space(RegularGrid/t-value)"/>
+ 
+
+<Grid Name="User Defined Name" GridType="Collection" CollectionType="Temporal">
+
+ <xsl:call-template name="splitAttributeValues">
+ <xsl:with-param name="timeSteps" select="$times"/>
+ <xsl:with-param name="pText" select="$text"/>
+ <xsl:with-param name="dimX" select="$dimX"/>
+ <xsl:with-param name="dimY" select="$dimY"/>
+ <xsl:with-param name="begin" select="0" />
+ <xsl:with-param name="end" select="$dimX * $dimY" />
+ </xsl:call-template>
+ 
+ 
+</Grid>
+
+</Domain>
+</Xdmf>
+
+</xsl:template>
+
+</xsl:stylesheet>

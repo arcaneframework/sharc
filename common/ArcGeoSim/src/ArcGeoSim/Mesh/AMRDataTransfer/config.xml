@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+  <files language="service">
+    <file header="false">AMRDataTransfer</file>
+  </files>
+  <files language="c++header">
+    <file>TypesInterpolator</file>
+    <file>DataToTransfer</file>
+  </files>
+</makefile>

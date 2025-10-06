@@ -10,7 +10,7 @@
     <file header='false'>ThermoChemicalConvection</file>
   </files>
   <directories>
-    <directory>DataModel</directory>
+    <!--directory>DataModel</directory-->
     <directory>PhysicalSystem</directory>
     <directory>PhysicalLaws</directory>
     <directory>InitialCondition</directory>

@@ -1,0 +1,13 @@
+Classe BinaryPow : Warning avec gcc (pas avec icc)
+warning: passing 'double' for argument 2 to 'static typename Promote<typename L::value_type, typename R::value_type>::type BinaryPow<T, power>::getValue(const T&, int, int) [with T = Array<double>, power = Array<double>]'
+
+Lié a l'accès au value_type dans la classe BinaryPow, quand la puissance est de type simple (int, float, double)
+
+Dans la classe Hat :
+Il est nécessaire de faire explicitement appel à la méthode initParameter et à la méthode setKeyVal : 
+
+La "valeur clé" (celle testée pour savoir si l'on fait une évaluation normale ou une évaluation linéaire) est par défaut mise à 0. Il est donc nécessaire de la setter avant d'évaluer.
+
+Les points limites et les points d'extension ne sont pas initialisé !!! Il est donc ici aussi nécessaire de les setter avec la méthode initParameter avant d'évaluer la fonction.
+
+A ajouter dans le subdirlist de NumericUtils : SUB_DIRECTORIES  = FunctorUtils

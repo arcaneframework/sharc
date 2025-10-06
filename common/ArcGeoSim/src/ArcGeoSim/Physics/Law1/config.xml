@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+
+  <files language="c++">
+    <file>FunctionManager</file>
+    <file>FunctionEvaluator</file>
+    <file>EvaluationResults</file>
+    <file>VariableManager</file>
+  </files>
+
+  <files language="c++header"> 
+    <file>Argument</file>
+    <file>BuildInfo</file>
+    <file>ContainerTraits</file>
+    <file>Derivative</file>
+    <file>DerivativeView</file>
+    <file>Dimension</file>
+    <file>Enumerator</file>
+    <file>Function</file>
+    <file>FunctionManager</file>
+    <file>FunctionTraits</file>
+    <file>IFunction</file>
+    <file>IComposedFunction</file>
+    <file>Invoker</file>
+    <file>Law</file>
+    <file>Mpl</file>
+    <file>Property</file>
+    <file>PropertyMapping</file>
+    <file>PropertyVector</file>
+    <file>Signature</file>
+    <file>SignatureTraits</file>
+    <file>StateEvaluator</file>
+    <file>State</file>
+    <file>VariableAccessor</file>
+    <file>VariableAllocator</file>
+    <file>VariableDataBase</file>
+    <file>VariableEvaluator</file>
+    <file>Variable</file>
+    <file>VariableRef</file>
+    <file>VariableResizer</file>
+  </files>
+
+</makefile>

@@ -2,5 +2,5 @@
 # Test SharedService
 ARCANE_ADD_TEST_SEQUENTIAL(AppService 
   ArcGeoSim
-  common/ArcGeoSim/test/ServiceTests/AppServiceTest 
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/AppServiceTest 
   AppServiceTest.arc)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+
+  <files language="c++header">
+    <file>regular_non_uniform_grid_data_xsd</file>
+    <file>regular_uniform_grid_data_xsd</file>
+    <file>IUnsteadyRegularGridData</file>
+    <file>UnsteadyRegularGridData</file>
+    <file>UnsteadyRegularGridDataT</file>
+    <file>XDMFReaderTools</file>
+  </files>
+  
+  <directories>
+    <directory depend="!win32-vs-bug">OnePointInterpGridDataFunction</directory>
+    <directory>LinearInterpGridDataFunction</directory>
+  </directories>
+
+</makefile>

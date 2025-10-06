@@ -1,10 +1,9 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
-// -*- C++ -*-
 #ifndef ARCGEOSIM_MESH_EXPORTERS_ARCGEOSIMPOSTPROCESSINGBASE_H
 #define ARCGEOSIM_MESH_EXPORTERS_ARCGEOSIMPOSTPROCESSINGBASE_H
 /* Author : havep at Tue Dec 20 16:40:39 2011
@@ -58,6 +57,10 @@ public:
   void addPostProcessing(Arcane::IPostProcessorWriter * writer, const Variables & variables, const Arcane::String& mesh_name=m_default_mesh_name);
   template<typename Variables>
   void addPostProcessing(Arcane::IPostProcessorWriter * writer, const Variables & variables, const Variables & init_variables, const Arcane::String& mesh_name=m_default_mesh_name);
+  template<typename Variables>
+
+  //! Add variables to existing writers
+  void addVariables(const Variables & variables);
 
   //! Demande un post-processing pour le temps fourni en argument
   /*! Non test� si diff�rent du temps courant ou non croissant au fil des appels */

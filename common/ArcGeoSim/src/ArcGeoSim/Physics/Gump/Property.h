@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -134,20 +134,10 @@ public:
     return T(*this);
   }
 
-  operator Law::ScalarRealProperty() const
-  {
-    return cast();
-  }
-
-  Law::ScalarRealProperty cast() const
-  {
-    return Law::ScalarRealProperty(uniqueId(),fullName());
-  }
-
-  // Pour la compatibilite avec Law
+  // Pour la compatibilit� avec Law
   Arcane::Integer id() const { return uniqueId(); }
   
-  //! Teste si la propriete est definie
+  //! Teste si la propri�t� est d�finie
   bool isInitialized() const { return id() >= 0 && size() > 0; }
 
 private:
@@ -189,15 +179,6 @@ public:
   PropertyT(Arcane::Integer kind, const Entity& owner)
     : Property(kind, owner) {}
 
-  operator Law::PropertyT<Law::eScalar,T>() const
-  {
-    return cast();
-  }
-
-  Law::PropertyT<Law::eScalar,T> cast() const
-  {
-    return  Law::PropertyT<Law::eScalar,T>(uniqueId(),fullName());
-  }
 };
 
 template<typename T>
@@ -222,6 +203,7 @@ public:
   PropertyT(Arcane::Integer kind, const Entity& owner)
     : Property(kind, owner) {}
 
+  /*
   operator Law::PropertyT<Law::eVectorial,T>() const
   {
     return cast();
@@ -230,7 +212,7 @@ public:
   Law::PropertyT<Law::eVectorial,T> cast() const
   {
     return  Law::PropertyT<Law::eVectorial,T>(uniqueId(),fullName());
-  }
+  }*/
 };
 
 /*---------------------------------------------------------------------------*/

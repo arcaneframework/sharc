@@ -1,0 +1,61 @@
+# -*- cmake -*-
+ARCANE_ADD_TEST(BasicIndexManager
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+  TestIndexManager.arc)
+
+ARCANE_ADD_TEST(LinearAlgebra2
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+  TestLinearAlgebra2.arc)
+
+ARCANE_ADD_TEST(LinearAlgebra2-Block
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+  TestLinearAlgebra2Block.arc)
+
+ARCANE_ADD_TEST(LinearAlgebra2-VBlock
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+  TestLinearAlgebra2VBlock.arc)
+
+#
+# activation des que la version d alien avec strong options est visible par tous
+#
+# ARCANE_ADD_TEST_SEQUENTIAL(LinearAlgebra2-StrongOptions
+#  ArcGeoSim
+#  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+#  TestLinearAlgebra2StrongOptions.arc)
+
+IF(NOT WIN32)
+
+ARCANE_ADD_TEST(LinearAlgebra2-UncommonSolvers
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+  TestLinearAlgebra2-UncommonSolvers.arc)
+
+# ARCANE_ADD_TEST(LinearAlgebra2-Block-UncommonSolvers
+#  ArcGeoSim
+#  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+# TestLinearAlgebra2Block-UncommonSolvers.arc)
+
+ARCANE_ADD_TEST(LinearAlgebra2-VBlock-UncommonSolvers
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+  TestLinearAlgebra2VBlock-UncommonSolvers.arc)
+
+ENDIF(NOT WIN32)
+
+IF(MCGSOLVER_FOUND)
+ARCANE_ADD_TEST(LinearAlgebra2-MCGSolver
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+  TestLinearAlgebra2-MCGSolver.arc)
+ENDIF(MCGSOLVER_FOUND)
+
+IF(SUPERLU_FOUND)
+  ARCANE_ADD_TEST(LinearAlgebra2-SuperLU 
+    ArcGeoSim
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LinearAlgebra2
+    TestLinearAlgebra2-SuperLU.arc)
+ENDIF()

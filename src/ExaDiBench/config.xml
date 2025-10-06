@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+  </needed-packages>
+
+  <files language="module">
+    <file>ExaDiBench</file>
+  </files>
+
+  <files language="c++">
+    <file header='false'>MeshbMeshReaderService</file>
+  </files>
+  
+</makefile>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="X2" version="1.0" type="caseoption">
+  <description>Service X2</description>
+  <interface name="IX" />
+  <options>
+    <simple name = "simple-int-1" type = "integer" default = "30">
+    <description>simple int with default value</description>
+  </simple>
+  </options>
+</service>

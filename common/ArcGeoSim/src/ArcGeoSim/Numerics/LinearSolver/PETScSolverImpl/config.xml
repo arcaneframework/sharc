@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<makefile>
+
+  <needed-packages>
+    <package name="arcane" />
+    <package name="mpi" />
+    <package name="petsc" />
+  </needed-packages>
+
+  <files language="service">
+    <file header='false'>PETScPrecConfigAdditiveSchwarz</file>
+    <file header='false'>PETScSolverConfigBiCGStab</file>
+    <file header='false'>PETScSolverConfigGMRES</file>
+    <file header='false'>PETScSolverConfigCustom</file>
+    <file header='false'>PETScSolverConfigLU</file>
+    <file header='false'>PETScPrecConfigLU</file>
+    <file header='false'>PETScPrecConfigJacobi</file>
+    <file header='false'>PETScPrecConfigNoPreconditioner</file>
+    <file header='false'>PETScSolverConfigRichardson</file>
+    <file header='false'>PETScLinearSolver</file>
+  </files>
+
+  <files language="c++">
+    <file>PETScInitType</file>
+    <file>IPETScKSP</file>
+    <!--<file>PETScLinearSystem</file>-->
+    <file>IPETScPC</file>
+  </files>
+
+  <files language="c++header">
+    <file>PETScInternal</file>
+  </files>
+
+  <directories>
+    <directory depend='linux'>FieldSplit</directory>
+    <directory>Hypre</directory>
+    <directory depend='superlu,superlu_dist'>SuperLU</directory>
+    <!-- A FAIRE directory depend='linux,spai'>SPAI</directory-->
+    <directory depend='linux,!no_spai'>SPAI</directory>
+  </directories>
+
+</makefile>

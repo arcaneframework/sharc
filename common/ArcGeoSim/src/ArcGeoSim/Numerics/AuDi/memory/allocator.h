@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef __audi_memory_allocator_h__
 #define __audi_memory_allocator_h__
@@ -38,7 +32,16 @@ namespace audi {
         m_stack.push(&buffer);
       }
 
-      std::stack<std::vector<T>*> m_stack;
+      ~stack()
+      {
+        while(!m_stack.empty())
+        {
+          delete m_stack.top();
+          m_stack.pop();
+        }
+      }
+
+       std::stack<std::vector<T>*> m_stack;
     };
 
     static std::unique_ptr<stack> m_stack;
@@ -79,16 +82,15 @@ namespace audi {
     std::vector<T>& m_memory;
   };
 
+
   template <class T, class U>
-  inline /* constexpr */ bool operator== (const allocator<T>&,
-												                  const allocator<U>&)
+  inline /* constexpr */ bool operator== (const allocator<T>&, const allocator<U>&)
   {
     return std::is_same<T,U>::value;
   }
 
   template <class T, class U>
-  inline /* constexpr */ bool operator!= (const allocator<T>&,
-											                    const allocator<U>&)
+  inline /* constexpr */ bool operator!= (const allocator<T>&, const allocator<U>&)
   {
     return not std::is_same<T,U>::value;
   }

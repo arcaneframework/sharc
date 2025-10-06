@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="alien"  optional='true'/>
+    <package name="petsc"  optional='true'/>
+    <package name="mtl"    optional='true'/>
+    <package name="umfack" optional='true'/>
+  </needed-packages>
+  <files language="service">
+    <file>LinearAlgebra2Tester</file>
+    <file header="false">LinearAlgebra2BlockTester</file>
+    <file header='false'>LinearAlgebra2VBlockTester</file>
+    <file header='false'>IndexManagerTester</file>
+    <!-- activation des que la version d alien avec strong options est visible par tous-->
+    <!-- file header='false'>LinearAlgebra2StrongOptionsTester</file-->
+  </files>
+</makefile>

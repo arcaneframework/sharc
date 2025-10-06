@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Xdmf Version="2.0">
+  <Domain>
+    <Topology TopologyType="2DRectMesh" Dimensions="3 3"/>
+    <Geometry Type="VXVY">
+      <DataItem Format="HDF" Dimensions="3">grid_xyt_hdf.h5:/VX/values</DataItem>
+      <DataItem Format="HDF" Dimensions="3">grid_xyt_hdf.h5:/VY/values</DataItem>
+    </Geometry>
+    <Grid Name="User Defined Name" GridType="Collection" CollectionType="Temporal">
+      <Grid>
+        <Time Value="0"/>
+        <Topology Reference="/Xdmf/Domain/Topology"/>
+        <Geometry Reference="/Xdmf/Domain/Geometry"/>
+        <Attribute Name="User Defined Name" Center="Node">
+          <DataItem Format="HDF" Dimensions="3 3">grid_xyt_hdf.h5:/Property/Time=0</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid>
+        <Time Value="1"/>
+        <Topology Reference="/Xdmf/Domain/Topology"/>
+        <Geometry Reference="/Xdmf/Domain/Geometry"/>
+        <Attribute Name="User Defined Name" Center="Node">
+          <DataItem Format="HDF" Dimensions="3 3">grid_xyt_hdf.h5:/Property/Time=1</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>

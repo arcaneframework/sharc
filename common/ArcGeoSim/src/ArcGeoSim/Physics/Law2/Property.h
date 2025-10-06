@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -13,14 +13,14 @@
 
 /*
  * \ingroup Law
- * \brief Proprietes physiques utilisees dans les outils lois.
+ * \brief Propri�t�s physiques utilis�es dans les outils lois.
  *
- * Decrit une propriete physique ayant :
- *   - un identifiant unique (a la charge de l'utilisateur)
- *   - un nom unique (a la charge de l'utilisateur)
+ * D�crit une propri�t� physique ayant :
+ *   - un identifiant unique (� la charge de l'utilisateur)
+ *   - un nom unique (� la charge de l'utilisateur)
  *   - une dimension (scalaire ou vectorielle)
  *   - une taille (1 en scalaire et fournie par l'utilisateur en vectoriel)
- *   - un type de donnee
+ *   - un type de donn�e
  *
  * \code
  * ScalarRealProperty pressure(0,"Pressure");
@@ -29,11 +29,12 @@
  * composition.initialize(3);
  * \endcode
  *
- * ATTENTION : il convient de definir son modele de donnees et de fixer les tailles
+ * ATTENTION : il convient de d�finir son mod�le de donn�es et de fixer les tailles
  * avant d'utiliser les outils lois
  *
  */
 
+#include "ArcGeoSim/Physics/Gump/Property.h"
 #include "ArcGeoSim/Physics/Law2/Dimension.h"
 
 #include <arcane/utils/ValueConvert.h>
@@ -48,9 +49,9 @@ BEGIN_LAW_NAMESPACE
 /*---------------------------------------------------------------------------*/
 
 /*!
- * \brief Classe generique de propriete 
+ * \brief Classe g�n�rique de propri�t� 
  *
- * Utilisee pour le stockage
+ * Utilis�e pour le stockage
  *
  */
 class Property
@@ -62,14 +63,14 @@ public:
     , m_name("Unknown")
     , m_dim(eUndefined)
     , m_data_type(Arcane::DT_Unknown)
-    , m_size(0) {} // Pour etre dans conteneurs STL ou Arcane
+    , m_size(0) {} // Pour �tre dans conteneurs STL ou Arcane
   
   virtual ~Property() {}
 
 protected: 
 
   Property(Integer id, 
-           String name, 
+           const String& name,
            Dimension dim, 
            Arcane::eDataType data_type,
            Integer size)
@@ -84,7 +85,7 @@ protected:
  
 public:
   
-  //! Initialisation de la propriete (pour vectoriel)
+  //! Initialisation de la propri�t� (pour vectoriel)
   void initialize(Integer size) 
   {
     ARCANE_ASSERT((m_dim == eVectorial),("Scalar property mustn't be initialized"));
@@ -93,29 +94,29 @@ public:
     m_size = size;
   }
 
-  //! Dimension de la propriete
+  //! Dimension de la propri�t�
   Dimension dimension() const { return m_dim; } 
   
-  //! Type des donnees
+  //! Type des donn�es
   Arcane::eDataType dataType() const { return m_data_type; }
  
-  //! Identifiant de la propriete
+  //! Identifiant de la propri�t�
   Integer id() const { return m_id; }
   
-  //! Name de la propriete
+  //! Name de la propri�t�
   const String& name() const { return m_name; }
   
-  //! Taille de la proprietes 
+  //! Taille de la propri�t�s 
   // ie 1 en scalaire, la taille du vecteur en vectoriel
   Integer size() const { return m_size; }
 
-  //! Comparaison pour etre dans conteneurs tries STL
+  //! Comparaison pour �tre dans conteneurs tri�s STL
   bool operator<(const Property& p) const { return m_id < p.m_id; }
 
-  //! Comparaison pour etre dans conteneurs tries STL
+  //! Comparaison pour �tre dans conteneurs tri�s STL
   bool operator!=(const Property& p) const { return m_id != p.m_id; }
 
-  //! Teste si la propriete est definie
+  //! Teste si la propri�t� est d�finie
   bool isInitialized() const { return m_id >= 0 && m_size > 0; }
 
 private:
@@ -135,13 +136,13 @@ protected:
 /*---------------------------------------------------------------------------*/
 
 /*!
- * \brief Classe statique de propriete 
+ * \brief Classe statique de propri�t� 
  *
  */
 template<Dimension, typename> class PropertyT; 
 
 /*!
- * \brief Propriete scalaire
+ * \brief Propri�t� scalaire
  *
  */
 template<typename T>
@@ -149,19 +150,23 @@ class PropertyT<eScalar,T> : public Property
 {
 public:
   
-  PropertyT() {} // Pour etre dans les vecteurs fusions
+  PropertyT() {} // Pour �tre dans les vecteurs fusions
 
   // Pour le static_cast
   PropertyT(const Property& prop)
    : Property(prop.id(), prop.name(), eScalar, Arcane::VariableDataTypeTraitsT<T>::type(), 1){}
 
-  PropertyT(Integer id, String name)
+  PropertyT(Integer id, const String& name)
     : Property(id, name, eScalar, Arcane::VariableDataTypeTraitsT<T>::type(), 1) {}
 
+  template<typename P>
+  PropertyT(const P& prop)
+  : PropertyT(prop.uniqueId(),prop.fullName())
+  {}
 };
 
 /*!
- * \brief Propriete vectorielle
+ * \brief Propri�t� vectorielle
  *
  */
 template<typename T>
@@ -169,7 +174,7 @@ class PropertyT<eVectorial,T> : public Property
 {
 public:
   
-  PropertyT() {} // Pour etre dans les vecteurs fusions
+  PropertyT() {} // Pour �tre dans les vecteurs fusions
   
   // Pour le static_cast
   PropertyT(const Property& prop)

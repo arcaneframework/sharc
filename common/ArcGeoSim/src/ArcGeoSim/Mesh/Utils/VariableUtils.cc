@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ createMeshVariable(const String& name, const eDataType& data_type,
       name, StringToItemUtils::itemKindToString(item_group.itemKind()),StringToItemUtils::itemKindToString(item_kind)));
 
   // Find if exists
-  IVariable* variable = item_group.mesh()->variableMng()->findMeshVariable(item_group.mesh(),name);
+  IVariable* variable = item_group.mesh()->subDomain()->variableMng()->findMeshVariable(item_group.mesh(),name);
   if (variable)
     {
       if (variable->dataType() != data_type || variable->itemKind() != item_kind ||
@@ -126,7 +126,7 @@ createMeshVariable(const String& name, const eDataType& data_type,
         throw FatalErrorException(String::format(
             "MeshVariable {0} already exists but has different dataType, itemKind, group or dimension",name));
 
-      item_group.mesh()->variableMng()->traceMng()->info() << String::format("MeshVariable creation: variable {0} already exists)",name);
+      item_group.mesh()->subDomain()->traceMng()->info() << String::format("MeshVariable creation: variable {0} already exists)",name);
       return variable;
     }
   else
@@ -152,14 +152,14 @@ createMeshVariableRef(const String& name, const eDataType& data_type,
       name, StringToItemUtils::itemKindToString(item_group.itemKind()),StringToItemUtils::itemKindToString(item_kind)));
 
   // Find if exists
-  IVariable* variable = item_group.mesh()->variableMng()->findMeshVariable(item_group.mesh(),name);
+  IVariable* variable = item_group.mesh()->subDomain()->variableMng()->findMeshVariable(item_group.mesh(),name);
   if (variable)
     {
       if (variable->dataType() != data_type || variable->itemKind() != item_kind ||
           variable->isPartial() != is_partial || variable->dimension() != dimension)
         throw FatalErrorException(String::format(
             "MeshVariable {0} already exists but has different dataType, itemKind, group or dimension",name));
-      item_group.mesh()->variableMng()->traceMng()->info() << String::format("MeshVariable creation: variable {0} already exists)",name);
+      item_group.mesh()->subDomain()->traceMng()->info() << String::format("MeshVariable creation: variable {0} already exists)",name);
     }
   return _switchMeshVariable(name,data_type,item_kind,dimension,is_partial,item_group,property);
 }
@@ -196,8 +196,8 @@ meshVariableArraySize(IData* mesh_array_variable_data, Integer& item_number, Int
     case enum_type : \
     {\
       IArray2DataT<type>* iarray2 = static_cast<IArray2DataT<type> * > (mesh_array_variable_data); \
-      array_size = iarray2->view().dim2Size(); \
-      item_number = iarray2->view().dim1Size(); \
+      array_size = iarray2->value().dim2Size(); \
+      item_number = iarray2->value().dim1Size(); \
       break;\
     }\
 
@@ -232,7 +232,7 @@ resizeMeshVariableArray(Arcane::IVariable* mesh_array_variable, Arcane::Integer 
     case enum_type : \
     {\
       IArray2DataT<type>* iarray2 = static_cast<IArray2DataT<type> * > (mesh_array_variable_data); \
-      iarray2->value().resize(iarray2->view().dim1Size(),dim2_size); \
+      iarray2->value().resize(iarray2->value().dim1Size(),dim2_size); \
       break;\
     }\
 

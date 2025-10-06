@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="hdf5"/>
+    <package name="mpi"/>
+  </needed-packages>
+  <files language="c++">
+    <file>PUMADataWriter</file>    
+  </files>
+</makefile>

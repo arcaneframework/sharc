@@ -1,0 +1,14 @@
+# -*- cmake -*-
+# Test interpolator
+
+ARCGEOSIM_ADD_TEST(Interpolator
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Interpolator
+  Interpolator.arc
+  SEQUENTIAL)
+  
+ARCGEOSIM_ADD_TEST(Interpolator
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Interpolator
+  Interpolator.arc
+  MPI 4)

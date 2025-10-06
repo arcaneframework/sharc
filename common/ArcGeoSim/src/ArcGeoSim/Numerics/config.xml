@@ -6,10 +6,13 @@
   </needed-packages>
   <directories>
     <directory>DiscreteOperator</directory>
+    <directory>LinearSolver</directory>
+    <directory>NonLinearSolver</directory>
     <directory>Expressions</directory>
+    <directory>BCs</directory>
+    <directory depend="!win32">ExpressionParser</directory>
     <directory>GroupCreator</directory>
-    <directory depend="law">ShArcTools</directory>
-    <directory>TwoPointsScheme</directory>
-    <directory>Discretization</directory>
+    <directory>NumericalScheme</directory>
+    <directory>ArcNumTools</directory>
   </directories>
 </makefile>

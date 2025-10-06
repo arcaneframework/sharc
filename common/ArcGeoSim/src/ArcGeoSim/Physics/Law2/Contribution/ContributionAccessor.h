@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef LAW_CONTRIBUTIONACCESSOR_H
 #define LAW_CONTRIBUTIONACCESSOR_H
@@ -29,54 +23,25 @@ class ContributionAccessor
 public:
 
   ContributionAccessor(const VariableFolder<CK,IK>& folder,
-      const FunctionManager& fonctions,
-      const Law::PropertyVector& um)
+        const FunctionManager& fonctions,
+		const Arcane::Integer stencil_size,
+        const Law::PropertyVector& um)
   : m_variables(folder.lawVariableManager())
   , m_accessor(AccessorTraitsType::accessor(m_variables))
   , m_fonctions(fonctions)
   , m_results(m_fonctions, m_variables)
   {
-    Arcane::SharedArray<Law::PropertyVector> properties(1);
-    auto dependencies = um.properties();
-    for(auto p : dependencies) {
-      properties[0] << Law::ScalarRealProperty(p);
-    }
-    m_results.setExtraDependencies(properties);
-  }
-
-  ContributionAccessor(const VariableFolder<CK,IK>& folder,
-      const FunctionManager& fonctions,
-      const Law::PropertyVector& um_1,
-      const Law::PropertyVector& um_2)
-  : m_variables(folder.lawVariableManager())
-  , m_accessor(AccessorTraitsType::accessor(m_variables))
-  , m_fonctions(fonctions)
-  , m_results(m_fonctions, m_variables)
-  {
-    Arcane::SharedArray<Law::PropertyVector> properties(2);
+    Arcane::SharedArray<Law::PropertyVector> properties(stencil_size);
     {
-      auto dependencies = um_1.properties();
-      for(auto p : dependencies) {
-        properties[0] << Law::ScalarRealProperty(p);
-      }
-    }
-    {
-      auto dependencies = um_2.properties();
-      for(auto p : dependencies) {
-        properties[1] << Law::ScalarRealProperty(p);
+      auto dependencies = um.properties();
+      for(Arcane::Integer istencil=0; istencil<stencil_size;++istencil){
+        for(auto p : dependencies) {
+          properties[istencil] << Law::ScalarRealProperty(p);
+        }
       }
     }
     m_results.setExtraDependencies(properties);
   }
-
-  ContributionAccessor(const VariableFolder<CK,IK>& folder,
-                       const FunctionManager& fonctions,
-                       const Arcane::SharedArray<Law::PropertyVector>& ums)
-                       : m_variables(folder.lawVariableManager())
-                       , m_accessor(AccessorTraitsType::accessor(m_variables))
-                       , m_fonctions(fonctions)
-                       , m_results(m_fonctions, m_variables)
-                       {m_results.setExtraDependencies(ums) ;}
 
   ~ContributionAccessor() {}
 
@@ -85,7 +50,7 @@ public:
   ContributionType getVariable(Gump::ScalarRealProperty p) const
   {
     _resizeDerivativesIfExist(p);
-    return _getVariable(p);
+    return _getVariable(cast(p));
   }
 
   template<typename P, typename E>
@@ -143,9 +108,9 @@ private:
   void _resizeDerivativesIfExist(P p) const
   {
     Law::ScalarRealProperty _p(p);
-    if(m_accessor.hasDerivatives(p))
+    if(m_accessor.hasDerivatives(_p))
     {
-      int size = m_fonctions.dependencies(p).size();
+      int size = m_fonctions.dependencies(_p).size();
       m_accessor.derivatives(_p).resize(size);
     }
   }
@@ -179,7 +144,7 @@ contribution(const VariableFolder<CK,IK>& vars,
     const Law::PropertyVector& um,
     const Gump::EntityT<E>& e)
 {
-  return ContributionAccessor<CK,IK>(vars, fonctions, um).template getVariable<P>(e);
+  return ContributionAccessor<CK,IK>(vars, fonctions, 1, um).template getVariable<P>(e);
 }
 
 template<typename P,
@@ -192,7 +157,7 @@ contribution(const VariableFolder<CK,IK>& vars,
     const Law::PropertyVector& um,
     const Gump::EnumeratorT<E>& e)
 {
-  return ContributionAccessor<CK,IK>(vars, fonctions, um).template getVariable<P>(e);
+  return ContributionAccessor<CK,IK>(vars, fonctions, 1, um).template getVariable<P>(e);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -204,10 +169,11 @@ typename E>
 typename ContributionAccessor<CK,IK>::ContributionType
 contribution(const VariableFolder<CK,IK>& vars,
     const FunctionManager& fonctions,
-    const Law::PropertyVector& um1, const Law::PropertyVector& um2,
+	const Arcane::Integer stencil_size,
+    const Law::PropertyVector& um,
     const Gump::EntityT<E>& e)
 {
-  return ContributionAccessor<CK,IK>(vars, fonctions, um1, um2).template getVariable<P>(e);
+  return ContributionAccessor<CK,IK>(vars, fonctions, stencil_size, um).template getVariable<P>(e);
 }
 
 template<typename P,
@@ -217,38 +183,11 @@ typename E>
 Gump::Pack<E, typename ContributionAccessor<CK,IK>::ContributionType>
 contribution(const VariableFolder<CK,IK>& vars,
     const FunctionManager& fonctions,
-    const Law::PropertyVector& um1, const Law::PropertyVector& um2,
+	const Arcane::Integer stencil_size,
+    const Law::PropertyVector& um,
     const Gump::EnumeratorT<E>& e)
 {
-  return ContributionAccessor<CK,IK>(vars, fonctions, um1, um2).template getVariable<P>(e);
-}
-
-/*---------------------------------------------------------------------------*/
-
-template<typename P,
-    ContainerKind::eType CK,
-    ItemKind::eType IK,
-    typename E>
-typename ContributionAccessor<CK,IK>::ContributionType
-contribution(const VariableFolder<CK,IK>& vars,
-             const FunctionManager& fonctions,
-             const Arcane::SharedArray<Law::PropertyVector>& ums,
-             const Gump::EntityT<E>& e)
-{
-  return ContributionAccessor<CK,IK>(vars, fonctions, ums).template getVariable<P>(e);
-}
-
-template<typename P,
-    ContainerKind::eType CK,
-    ItemKind::eType IK,
-    typename E>
-Gump::Pack<E, typename ContributionAccessor<CK,IK>::ContributionType>
-contribution(const VariableFolder<CK,IK>& vars,
-             const FunctionManager& fonctions,
-             const Arcane::SharedArray<Law::PropertyVector>& ums,
-             const Gump::EnumeratorT<E>& e)
-{
-  return ContributionAccessor<CK,IK>(vars, fonctions, ums).template getVariable<P>(e);
+  return ContributionAccessor<CK,IK>(vars, fonctions, stencil_size, um).template getVariable<P>(e);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -262,7 +201,7 @@ contribution(const VariableFolder<CK,IK>& vars,
     const Law::PropertyVector& um,
     const Gump::UserProperty<E>& e)
 {
-  return ContributionAccessor<CK,IK>(vars,fonctions, um).getVariable(e);
+  return ContributionAccessor<CK,IK>(vars,fonctions, 1, um).getVariable(e);
 }
 
 template<ContainerKind::eType CK,
@@ -271,22 +210,11 @@ typename E>
 typename ContributionAccessor<CK,IK>::ContributionType
 contribution(const VariableFolder<CK,IK>& vars,
     const FunctionManager& fonctions,
-    const Law::PropertyVector& um1, const Law::PropertyVector& um2,
+	const Arcane::Integer stencil_size,
+    const Law::PropertyVector& um,
     const Gump::UserProperty<E>& e)
 {
-  return ContributionAccessor<CK,IK>(vars, fonctions, um1, um2).getVariable(e);
-}
-
-template<ContainerKind::eType CK,
-    ItemKind::eType IK,
-    typename E>
-typename ContributionAccessor<CK,IK>::ContributionType
-contribution(const VariableFolder<CK,IK>& vars,
-             const FunctionManager& fonctions,
-             const Arcane::SharedArray<Law::PropertyVector>& ums,
-             const Gump::UserProperty<E>& e)
-{
-  return ContributionAccessor<CK,IK>(vars, fonctions, ums).getVariable(e);
+  return ContributionAccessor<CK,IK>(vars, fonctions, stencil_size, um).getVariable(e);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -300,7 +228,7 @@ contribution(const VariableFolder<CK,IK>& vars,
     const Law::PropertyVector& um,
     const Arcane::Array<Gump::UserProperty<E>>& e)
 {
-  return ContributionAccessor<CK,IK>(vars, fonctions, um).getVariable(e);
+  return ContributionAccessor<CK,IK>(vars, fonctions, 1, um).getVariable(e);
 }
 
 template<ContainerKind::eType CK,
@@ -309,24 +237,12 @@ typename E>
 Gump::Pack<E, typename ContributionAccessor<CK,IK>::ContributionType >
 contribution(const VariableFolder<CK,IK>& vars,
     const FunctionManager& fonctions,
-    const Law::PropertyVector& um1, const Law::PropertyVector& um2,
+	const Arcane::Integer stencil_size,
+    const Law::PropertyVector& um,
     const Arcane::Array<Gump::UserProperty<E>>& e)
 {
-  return ContributionAccessor<CK,IK>(vars, fonctions, um1, um2).getVariable(e);
+  return ContributionAccessor<CK,IK>(vars, fonctions, stencil_size, um).getVariable(e);
 }
-
-template<ContainerKind::eType CK,
-    ItemKind::eType IK,
-    typename E>
-Gump::Pack<E, typename ContributionAccessor<CK,IK>::ContributionType >
-contribution(const VariableFolder<CK,IK>& vars,
-             const FunctionManager& fonctions,
-             const Arcane::SharedArray<Law::PropertyVector>& ums,
-             const Arcane::Array<Gump::UserProperty<E>>& e)
-{
-  return ContributionAccessor<CK,IK>(vars, fonctions, ums).getVariable(e);
-}
-
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/

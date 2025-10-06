@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<Xdmf Version="2.0">
+<Domain>
+<Topology TopologyType="1DCoMesh"
+                 Dimensions="2">
+</Topology>
+<Geometry Type="ORIGIN_DZ">
+ <!-- ORIGIN -->
+ <DataItem Format="XML" Dimensions="1">
+                 -100.0
+ </DataItem>
+ <!-- DZ -->
+ <DataItem Format="XML" Dimensions="1">
+                 200.0
+ </DataItem>
+</Geometry>
+<Grid Name="User Defined Name" GridType="Collection" CollectionType="Temporal">
+<Grid>
+<Time Value="0.00"/>
+<Topology Reference="/Xdmf/Domain/Topology"/>
+<Geometry Reference="/Xdmf/Domain/Geometry"/>
+<Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="XML" Dimensions="2">
+  1 2
+ </DataItem>
+</Attribute>
+</Grid>
+<Grid>
+<Time Value="1.00"/>
+<Topology Reference="/Xdmf/Domain/Topology"/>
+<Geometry Reference="/Xdmf/Domain/Geometry"/>
+<Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="XML" Dimensions="2">
+  3 4 
+ </DataItem>
+</Attribute>
+</Grid>
+</Grid>
+</Domain>
+</Xdmf>

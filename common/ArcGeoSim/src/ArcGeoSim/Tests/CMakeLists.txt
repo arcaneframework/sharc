@@ -52,11 +52,11 @@ endif()
 
 if(TARGET gump)
   
-  generateGumpModel(ServiceTesters/GumpTester/Example/Example.xml)
+  generateGumpModel(ServiceTesters/GumpTester/Example/Example.xml ArcGeoSim_test)
+  generateGumpModel(ServiceTesters/LawTester/LawContribution/ContributionModel.gump ArcGeoSim_test)
   
-  linkLibraries(ArcGeoSim_test example)
-
   if(${have_tests})
+    linkLibraries(ArcGeoSim_test example)
     linkLibraries(ArcGeoSim_test contributionmodel)
   endif()
 endif()

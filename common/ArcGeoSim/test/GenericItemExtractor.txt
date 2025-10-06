@@ -1,0 +1,7 @@
+# -*- cmake -*-
+# Test (the performance of) the mesh item extractor
+ARCANE_ADD_TEST_SEQUENTIAL(GenericItemExtractor
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/GenericItemExtractor
+  GenericItemExtractor.arc
+  )

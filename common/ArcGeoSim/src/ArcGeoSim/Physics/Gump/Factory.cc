@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -17,7 +17,7 @@ namespace Gump {
 /*---------------------------------------------------------------------------*/
 
 Factory::
-~Factory() noexcept(false)
+~Factory()
 {
   if(m_entities.size() == 0) return;
 
@@ -46,7 +46,7 @@ create(Arcane::String name,
       m_number_of_properties,
       m_entity_unique_id++,
       m_property_unique_id);
-  // On garde toutes les entites
+  // On garde toutes les entit�s
   m_entities.add(builder.entity());
   return builder;
 }

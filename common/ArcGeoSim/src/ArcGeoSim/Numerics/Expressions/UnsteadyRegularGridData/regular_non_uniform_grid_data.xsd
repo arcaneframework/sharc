@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="listOfDouble">
+    <xs:list itemType="xs:double"/>
+  </xs:simpleType>
+  <xs:simpleType name="listOfGridType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="uniform"/>
+      <xs:enumeration value="non-uniform"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RegularGrid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="x-value" type="listOfDouble"/>
+        <xs:element name="y-value" type="listOfDouble" />
+        <xs:element name="z-value" type="listOfDouble" />
+        <xs:element name="t-value" type="listOfDouble" />
+        <xs:element name="property-value" type="listOfDouble" />
+      </xs:sequence>
+      <xs:attribute name="type" type="listOfGridType"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

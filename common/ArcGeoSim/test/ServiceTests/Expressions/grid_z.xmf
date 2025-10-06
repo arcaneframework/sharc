@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<Xdmf Version="2.0">
+<Domain>
+<Grid>
+<Topology TopologyType="1DMesh"
+                 Dimensions="2">
+</Topology>
+<Geometry Type="VZ">
+ <!-- VZ -->
+ <DataItem Format="XML" Dimensions="2">
+                 -100.0 100.0
+ </DataItem>
+</Geometry>
+<Attribute Name="User Defined Name" Center="Node">
+ <DataItem Format="XML" Dimensions="2">
+  1 2 
+ </DataItem>
+</Attribute>
+</Grid>
+</Domain>
+</Xdmf>

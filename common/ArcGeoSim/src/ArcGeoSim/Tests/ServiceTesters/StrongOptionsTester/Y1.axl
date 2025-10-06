@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="Y1" version="1.0" type="caseoption">
+  <description>Service Y1</description>
+  <interface name="IY" default="Y1"/>
+  <options>
+    <!-- service sans options-->
+  </options>
+</service>

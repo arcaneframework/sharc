@@ -31,14 +31,16 @@
 #include "ArcGeoSim/Physics/Law2/FunctionManager.h"
 #include "ArcGeoSim/Physics/Law2/FunctionEvaluator.h"
 #include "ArcGeoSim/Physics/Law2/EvaluationResults.h"
+#include "ArcGeoSim/Physics/Law2/Contribution/Contribution.h"
 #include "ArcGeoSim/Physics/Law2/Contribution/ContributionAccessor.h"
 #include "ArcGeoSim/Physics/Law2/Contribution/VariableFolderAccessor.h"
 
-#include "ArcGeoSim/Numerics/ShArcTools/Solver/INewtonSolver.h"
-#include "ArcGeoSim/Numerics/TwoPointsScheme/TwoPointsTransmissivity.h"
-#include "ArcGeoSim/Numerics/TwoPointsScheme/TwoPointsStencil.h"
-#include "ArcGeoSim/Numerics/ShArcTools/LinearAlgebra/Vector.h"
-#include "ArcGeoSim/Numerics/ShArcTools/LinearAlgebra/Matrix.h"
+
+#include "ArcGeoSim/Numerics/NumericalScheme/TwoPointsScheme/TwoPointsTransmissivity.h"
+#include "ArcGeoSim/Numerics/NumericalScheme/TwoPointsStencil.h"
+#include "ArcGeoSim/Numerics/ArcNumTools/LinearAlgebra/Vector.h"
+#include "ArcGeoSim/Numerics/ArcNumTools/LinearAlgebra/Matrix.h"
+#include "ArcGeoSim/Numerics/ArcNumTools/Solver/INewtonSolver.h"
 
 #include "ArcGeoSim/Appli/AppService.h"
 #include "ArcGeoSim/Appli/ITimeLoopSnapshotManager.h"
@@ -73,6 +75,17 @@ public:
     void compute();
 
     // Interface Systeme non lineaire
+    Integer nbEquations() const { return m_unknown_manager.size() ; }
+
+    Domain const& systemDomain() const {  return m_domain ; }
+
+    void initLinearSystemProfile(Arcane::CellGroup cells,
+                               Alien::MatrixProfiler& blockProfiler,
+                               Arcane::ConstArray2View<Arcane::Integer> indexes,
+                               Arcane::Integer block_size) ;
+
+    void setSolutionVariables(Arcane::SharedArray<Arcane::VariableCellReal*>& solutions) ;
+
     const Law::PropertyVector& equationSystem() const { return m_unknown_manager; }
     void build(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
     void applyConstraintOnSolution(bool &NonPhysicalSolution);
@@ -115,9 +128,101 @@ private:
     void _buildFluxBoundary(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
     void _buildFluxWell(ArcNum::Vector& residual, ArcNum::Matrix& jacobian);
 
+    void _twoPointsProfiler(Arcane::CellGroup cells,
+                          Alien::MatrixProfiler& blockProfiler,
+                          Arcane::ConstArray2View<Arcane::Integer> indexes,
+                          Arcane::Integer block_size) const
+    {
+      Arcane::CellGroup group = cells;
+      info() << "Define profil on group '" << group.name() << "' size = " << group.size();
+
+      ENUMERATE_CELL(icell, group.own()) {
+        const Arcane::Integer lid = icell->localId();
+        blockProfiler.addMatrixEntry(indexes[lid][0]/block_size, indexes[lid][0]/block_size);
+      }
+
+      ENUMERATE_FACE(iface, group.innerActiveFaceGroup()) {
+        const Arcane::Cell back_cell = iface->backCell();
+        const Arcane::Integer back_lid = back_cell.localId();
+        const Arcane::Cell front_cell = iface->frontCell();
+        const Arcane::Integer front_lid = front_cell.localId();
+        if(back_cell->isOwn())
+          blockProfiler.addMatrixEntry(indexes[back_lid][0]/block_size, indexes[front_lid][0]/block_size);
+        if(front_cell->isOwn())
+          blockProfiler.addMatrixEntry(indexes[front_lid][0]/block_size, indexes[back_lid][0]/block_size);
+        }
+
+      info() << "OK Define profil";
+    }
+
+    void _multiPointsProfiler(Arcane::CellGroup cells,
+                            Alien::MatrixProfiler& blockProfiler,
+                            Arcane::ConstArray2View<Arcane::Integer> indexes,
+                            Arcane::Integer block_size) const {
+      Arcane::CellGroup group = cells;
+
+      info() << "Define profil on group '" << group.name() << "' size = " << group.size();
+
+      ENUMERATE_CELL(icell, group.own()) {
+        const Arcane::Integer lid = icell->localId();
+        //profiler(indexes[lid], indexes[lid]);
+        blockProfiler.addMatrixEntry(indexes[lid][0]/block_size,indexes[lid][0]/block_size);
+      }
+
+      ENUMERATE_FACE(iface, group.innerActiveFaceGroup()) {
+        m_schemeStencil -> init(iface) ;
+
+        const Arcane::Cell backCell(iface->backCell()) ;
+
+        if(backCell.isOwn()) {
+          const Arcane::Integer backLid(backCell.localId()) ;
+          for(m_schemeStencil -> begin() ; ! m_schemeStencil -> end() ; m_schemeStencil -> next()) {
+            const auto& lawCell(m_schemeStencil->cell()) ;
+            const auto cellLId(lawCell.localId()) ;
+            //profiler(indexes[backLid], indexes[cellLId]);
+            blockProfiler.addMatrixEntry(indexes[backLid][0]/block_size, indexes[cellLId][0]/block_size);
+          }
+        }
+
+        const Arcane::Cell frontCell(iface->frontCell()) ;
+
+        if(frontCell.isOwn()) {
+          const Arcane::Integer frontLid(frontCell.localId()) ;
+          for(m_schemeStencil -> begin() ; ! m_schemeStencil -> end() ; m_schemeStencil -> next()) {
+            const auto& lawCell(m_schemeStencil->cell()) ;
+            const auto cellLId(lawCell.localId()) ;
+            //profiler(indexes[frontLid], indexes[cellLId]);
+            blockProfiler.addMatrixEntry(indexes[frontLid][0]/block_size, indexes[cellLId][0]/block_size);
+          }
+        }
+      }
+
+      ENUMERATE_FACE(iface, group.outerActiveFaceGroup()) {
+        m_schemeStencil -> init(iface) ;
+
+        const Arcane::Cell boundaryCell(iface->boundaryCell()) ;
+
+        if(boundaryCell.isOwn()) {
+          const Arcane::Integer boundLid(boundaryCell.localId()) ;
+          for(m_schemeStencil -> begin() ; ! m_schemeStencil -> end() ; m_schemeStencil -> next()) {
+            const auto& lawCell(m_schemeStencil->cell()) ;
+            const auto cellLId(lawCell.localId()) ;
+            //profiler(indexes[boundLid], indexes[cellLId]);
+            blockProfiler.addMatrixEntry(indexes[boundLid][0]/block_size, indexes[cellLId][0]/block_size);
+          }
+        }
+      }
+
+      //TODO : Create the group of contacts from the connections and complete the profiling of the matrix
+
+      info() << "Multi-points profile defined";
+    }
+
 private:
 
     ArcNum::TwoPointsTransmissivity m_transmissivities;
+
+    std::shared_ptr<ArcNum::MultiPointsStencil> m_schemeStencil ;
 
     // unknowns as Law::PropertyVector!
     Law::PropertyVector m_unknown_manager;
@@ -134,6 +239,7 @@ private:
 
     // acces domain for contributions
     ArcGeoSim::AppService<IVariableManager> m_folder;
+    ArcNum::INonLinearSystem::Domain        m_domain ;
 };
 
 /*---------------------------------------------------------------------------*/
@@ -196,6 +302,30 @@ init()
     _initNewton();
 }
 
+void
+TwoPhaseFlowSimulationModule::
+initLinearSystemProfile(Arcane::CellGroup cells,
+                        Alien::MatrixProfiler& blockProfiler,
+                        Arcane::ConstArray2View<Arcane::Integer> indexes,
+                        Integer block_size)
+{
+
+  if(m_schemeStencil == nullptr)
+    _twoPointsProfiler(cells, blockProfiler, indexes, block_size);
+  else
+    _multiPointsProfiler(cells, blockProfiler, indexes, block_size) ;
+}
+
+void TwoPhaseFlowSimulationModule::
+setSolutionVariables(Arcane::SharedArray<Arcane::VariableCellReal*>& solutions)
+{
+  auto accessor = folder().lawVariableAccessor();
+  for(Integer i =0; i< m_unknown_manager.size(); ++i)
+  {
+    const Law::ScalarRealProperty& property = m_unknown_manager[i];
+    solutions.add(new Arcane::VariableCellReal(accessor.values(property)));
+  }
+}
 /*---------------------------------------------------------------------------*/
 
 void
@@ -346,6 +476,7 @@ _initDomainVariableMng()
     }
 
     info() << "initialize domain properties";
+    m_domain.init(domain().key(),domain().support()) ;
 
     for(Arcane::Integer i = 0; i < options()->initialCondition.size(); ++i) {
         options()->initialCondition[i]->init(system(),domain());
@@ -605,6 +736,8 @@ _buildAccumulation(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
         const Arcane::Real pore_volume = phi[icell] * volume[icell] ;
         const Arcane::Real cell_factor = pore_volume / deltat;
 
+        ArcNum::initContribution();
+
         ENUMERATE_PHASE(iphase, system().phases()) {
 
             const Arcane::Integer iequation = iphase.index();
@@ -635,11 +768,11 @@ _buildFluxInternal(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
     const auto& um = unknownsManager();
 
     // Get Geoxim Domain Implicit Variables
-    auto P = Law::contribution<ArcRes::Pressure>(domain(),functionMng(),um,um,system());
-    auto Pc = Law::contribution<ArcRes::CapillaryPressure>(domain(),functionMng(),um,um,fluid.phases());
-    auto kr = Law::contribution<ArcRes::RelativePermeability>(domain(),functionMng(),um,um,fluid.phases());
-    auto mu = Law::contribution<ArcRes::Viscosity>(domain(),functionMng(),um,um,fluid.phases());
-    auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),um,um,fluid.phases());
+    auto P = Law::contribution<ArcRes::Pressure>(domain(),functionMng(),2,um,system());
+    auto Pc = Law::contribution<ArcRes::CapillaryPressure>(domain(),functionMng(),2,um,fluid.phases());
+    auto kr = Law::contribution<ArcRes::RelativePermeability>(domain(),functionMng(),2,um,fluid.phases());
+    auto mu = Law::contribution<ArcRes::Viscosity>(domain(),functionMng(),2,um,fluid.phases());
+    auto rho = Law::contribution<ArcRes::Density>(domain(),functionMng(),2,um,fluid.phases());
 
     // Build Term
 
@@ -647,10 +780,12 @@ _buildFluxInternal(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 
     ENUMERATE_FACE(iface,inner_faces) {
 
+	ArcNum::initContribution();
+	
         ArcNum::TwoPointsStencil stencil(iface);
 
-        const Law::Cell& cell_k = stencil.back();
-        const Law::Cell& cell_l = stencil.front();
+        auto const& cell_k = stencil.back();
+        auto const& cell_l = stencil.front();
 
         ENUMERATE_PHASE(iphase, fluid.phases()) {
 
@@ -726,6 +861,8 @@ _buildFluxBoundary(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 
         ENUMERATE_FACE(iFace, boundary_faces) {
 
+            ArcNum::initContribution();
+
             const Arcane::Cell& cell_k = iFace->boundaryCell();
 
             ENUMERATE_PHASE(iphase, fluid.phases()) {
@@ -798,6 +935,8 @@ _buildFluxWell(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
 
         ENUMERATE_CELL(icell, cells) {
 
+            ArcNum::initContribution();
+
             ENUMERATE_PHASE(iphase, fluid.phases()) {
 
                 const auto grad_kw = b_IP[icell] * (P[icell] + Pc[iphase][icell]  - b_P[icell] + b_Pc[iphase][icell] );
@@ -846,6 +985,8 @@ _buildClosure(ArcNum::Vector& residual, ArcNum::Matrix& jacobian)
     const Arcane::Integer iequation = fluid.phases().size();
 
     ENUMERATE_CELL(icell, ownCells()) {
+
+        ArcNum::initContribution();
 
         ENUMERATE_PHASE(iphase, system().phases()) {
 

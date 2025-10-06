@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_GEOMETRY_IMPL_ITEMGROUPGEOMETRYPROPERTY_H
 #define ARCGEOSIM_GEOMETRY_IMPL_ITEMGROUPGEOMETRYPROPERTY_H
 /* Author : havep at Tue Apr  1 17:25:52 2008
@@ -40,8 +34,8 @@ public:
 
   typedef std::map<IGeometryProperty::eProperty, StorageInfo> StorageInfos;
 
-  Integer defined; //!< Toutes les proprietes definies sur ce groupe
-  StorageInfos storages; //!< Toutes les proprietes et leurs conteneurs
+  Integer defined; //!< Toutes les propriétés définies sur ce groupe
+  StorageInfos storages; //!< Toutes les propriétés et leurs conteneurs
 
   bool hasProperty(const IGeometryProperty::eProperty p) const;
   Integer getStorage(const IGeometryProperty::eProperty p) const;
@@ -49,7 +43,7 @@ public:
 
 
 
-//! Modele generique (vide) des acces de StorageInfo par type de stockage
+//! Modéle générique (vide) des accès de StorageInfo par type de stockage
 template<typename T>
 class ContainerAccessorT { };
 

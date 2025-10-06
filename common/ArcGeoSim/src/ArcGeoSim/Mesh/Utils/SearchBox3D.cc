@@ -1,13 +1,12 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
 #ifdef WIN32
 #include <ciso646>
 #endif
-
 
 #include "ArcGeoSim/Utils/Utils.h"
 
@@ -199,7 +198,7 @@ isInBox(const Real3& point) const
 
 SearchBox3D::
 SearchBox3D() 
-  : m_first(-1) // Les valeurs -1 montrent une structure non initialisee
+  : m_first(-1) // Les valeurs -1 montrent une structure non initialis�e
   , m_size(-1)
   , m_sorted_list(NULL)
   , m_coord_list(NULL)
@@ -213,11 +212,11 @@ SearchBox3D()
 SearchBox3D::
 ~SearchBox3D()
 {
-  // C'est le pere englobant qui a la propriete de ces allocations
+  // C'est le p�re englobant qui a la propri�t� de ces allocations
   if (m_parent==NULL)
     {
       delete[] m_sorted_list ;
-      // Les coord_list sont partages avec l'exterieur
+      // Les coord_list sont partag�s avec l'ext�rieur
     }
 }
 
@@ -259,7 +258,7 @@ SearchBox3D::
 compute(SearchBox3D* parent)
 {
   if(parent)
-    { // Partage avec le pere des donnees
+    { // Partage avec le p�re des donn�es
       m_parent = parent ;
       m_sorted_list = parent->m_sorted_list ;
       m_coord_list = parent->m_coord_list ;
@@ -293,18 +292,18 @@ sortX(SearchBox3D* box_list)
 
   if( (size>1) and (m_box.m_xmin<m_box.m_xmax) )
     {
-      // On recherche un plan median separant l'espace en 2 suivant la direction X
+      // On recherche un plan m�dian s�parant l'espace en 2 suivant la direction X
       sort<XComparator>(m_sorted_list+first,size) ;
       Integer next = first+size/2;
       Real x_mid = m_coord_list[m_sorted_list[next-1]].x ;
       while((next<end) and (m_coord_list[m_sorted_list[next]].x==x_mid)) ++next;
-      const Integer size1 = next-first; // Taille de la premiere partie <= x_mid
+      const Integer size1 = next-first; // Taille de la premi�re partie <= x_mid
       if(size1==size)
-        { // Tout l'espace est dans la premiere partie
+        { // Tout l'espace est dans la premi�re partie
           x_mid = m_box.m_xmax ;
         }
       else
-        { // Positionne la separation entre la mediane et le point suivant
+        { // Positionne la s�paration entre la m�diane et le point suivant
           x_mid += m_coord_list[m_sorted_list[next]].x;
           x_mid /= 2.;
         }
@@ -318,7 +317,7 @@ sortX(SearchBox3D* box_list)
       sortY(box_list+4) ;
     }
   else
-    { // Cas particulier ou tous les points sont dans le meme plan x
+    { // Cas particulier o� tous les points sont dans le m�me plan x
       sortY(box_list) ;
       box_list[4].m_first = end;
       box_list[4].m_size =  0 ;
@@ -340,18 +339,18 @@ sortY(SearchBox3D* box_list)
 
   if( (size>1) and (m_box.m_ymin<m_box.m_ymax) )
     {
-      // On recherche un plan median separant l'espace en 2 suivant la direction Y
+      // On recherche un plan m�dian s�parant l'espace en 2 suivant la direction Y
       sort<YComparator>(m_sorted_list+first,size) ;
-      Integer next = first+size/2; // on recherche un plan median separant l'espace en 2
+      Integer next = first+size/2; // on recherche un plan m�dian s�parant l'espace en 2
       Real y_mid = m_coord_list[m_sorted_list[next-1]].y ;
       while((next<end) and (m_coord_list[m_sorted_list[next]].y==y_mid)) ++next;
-      const Integer size1 = next-first; // Taille de la premiere partie <= y_mid
+      const Integer size1 = next-first; // Taille de la premi�re partie <= y_mid
       if(size1==size)
-        { // Tout l'espace est dans la premiere partie
+        { // Tout l'espace est dans la premi�re partie
           y_mid = m_box.m_ymax ;
         }
       else
-        { // Positionne la separation entre la mediane et le point suivant
+        { // Positionne la s�paration entre la m�diane et le point suivant
           y_mid += m_coord_list[m_sorted_list[next]].y;
           y_mid /=2.;
         }
@@ -365,7 +364,7 @@ sortY(SearchBox3D* box_list)
       sortZ(box_list+2) ;
     }
   else
-    { // Cas particulier ou tous les points sont dans le meme plan y
+    { // Cas particulier o� tous les points sont dans le m�me plan y
       sortZ(box_list) ;
       box_list[2].m_first = end;
       box_list[2].m_size = 0 ;
@@ -387,18 +386,18 @@ sortZ(SearchBox3D* box_list)
 
   if( (size>1) and (m_box.m_zmin<m_box.m_zmax) )
     {  
-      // On recherche un plan median separant l'espace en 2 suivant la direction Z
+      // On recherche un plan m�dian s�parant l'espace en 2 suivant la direction Z
       sort<ZComparator>(m_sorted_list+first,size) ;
       Integer next = first+size/2;
       Real z_mid = m_coord_list[m_sorted_list[next-1]].z ;
       while((next<end) and (m_coord_list[m_sorted_list[next]].z==z_mid)) ++next;
-      const Integer size1 = next-first; // Taille de la premiere partie <= z_mid
+      const Integer size1 = next-first; // Taille de la premi�re partie <= z_mid
       if(size1==size)
-        { // Tout l'espace est dans la premiere partie
+        { // Tout l'espace est dans la premi�re partie
           z_mid = m_box.m_zmax ;
         }
       else
-        { // Positionne la separation entre la mediane et le point suivant
+        { // Positionne la s�paration entre la m�diane et le point suivant
           z_mid += m_coord_list[m_sorted_list[next]].z;
           z_mid /=2.;
         }
@@ -410,7 +409,7 @@ sortZ(SearchBox3D* box_list)
       box_list[1].m_box.m_zmin = z_mid ;
     }
   else
-    { // Cas particulier ou tous les points sont dans le meme plan z
+    { // Cas particulier o� tous les points sont dans le m�me plan z
       box_list[1].m_first = end;
       box_list[1].m_size = 0 ;
       box_list[1].m_box = m_box ;

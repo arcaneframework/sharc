@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -17,6 +17,9 @@
 #include <arcane/utils/ScopedPtr.h>
 #include <arcane/ISerializedData.h>
 #include <arcane/IDataFactory.h>
+#if ARCANE_VERSION > 30003
+#include <arcane/IDataFactoryMng.h>
+#endif
 #include <arcane/IApplication.h>
 #include <arcane/utils/OStringStream.h>
 
@@ -231,16 +234,25 @@ fillData(IData* const data, const Int32ConstArrayView& item_indexes, const DataK
   // Procedure de modification d'une variable a partir de son IData (cf ISerializedData.h + utilisation dans arcane/std/BasicReaderWriter.cc)
   // Fin Rque
   // Serialize data : this ISerializedData is const. The Data will be modified using a created ISerializedData
-  auto sdata(data->createSerializedDataRef(false));
-
+#if ARCANE_VERSION > 30003
+  auto sdata = data->createSerializedDataRef(false);
+  // 1-Create serialized Data to store new values
+  ARCANE_ASSERT((m_subdomain),("ISubdomain required to use TypedData"))
+  auto data_factory = m_subdomain->application()->dataFactoryMng();
+  auto temp_sdata = arcaneCreateSerializedDataRef(data->dataType(),sdata->memorySize(),
+                                                  sdata->nbDimension(),sdata->nbElement(),
+                                                  sdata->nbBaseElement(),sdata->isMultiSize(),
+                                                  sdata->extents()) ;
+#else
+  Arcane::ScopedPtrT<const Arcane::ISerializedData> sdata(data->createSerializedData(false));
   // 1-Create serialized Data to store new values
   ARCANE_ASSERT((m_subdomain),("ISubdomain required to use TypedData"))
   Arcane::IDataFactory* data_factory = m_subdomain->application()->dataFactory();
-  auto temp_sdata(arcaneCreateSerializedDataRef(data->dataType(),sdata->memorySize(),
-							sdata->nbDimension(),sdata->nbElement(),
-							sdata->nbBaseElement(),sdata->isMultiSize(),
-							sdata->extents()));
-
+  Arcane::ScopedPtrT<Arcane::ISerializedData> temp_sdata(data_factory->createSerializedData(data->dataType(),sdata->memorySize(),
+                                                                                            sdata->nbDimension(),sdata->nbElement(),
+                                                                                            sdata->nbBaseElement(),sdata->isMultiSize(),
+                                                                                            sdata->dimensions()));
+#endif
   // 2-Prepare data to receive temp_sdata values (temp_sdata now points toward data buffer)
   data->allocateBufferForSerializedData(temp_sdata.get());
 
@@ -309,8 +321,11 @@ _extractDataBase(Arcane::SharedArray<DataType> & values, Arcane::IData* const da
 
   // Store the buffer in a new IData: only way to obtain a serialized data for the element at data_indexes position
   sbuf.setMode(ISerializer::ModeGet);
+#if ARCANE_VERSION > 30003
+  auto extracted_data = data->cloneRef(); // cloneEmpty won't work for a mesh array variable (no size for dim2)
+#else
   ScopedPtrT<IData> extracted_data(data->clone()); // cloneEmpty won't work for a mesh array variable (no size for dim2)
-
+#endif
   extracted_data.get()->resize(data_indexes.size());// Resize only dim1 for a mesh array variable
 
   // Store in the new IData the extracted elements.
@@ -321,13 +336,22 @@ _extractDataBase(Arcane::SharedArray<DataType> & values, Arcane::IData* const da
   extracted_data.get()->serialize(&sbuf,position,0);
 
   // Serialize the new IData in a byte buffer
-  auto extracted_data_serialized(extracted_data.get()->createSerializedDataRef(false));
-
+#if ARCANE_VERSION > 30003
+  auto extracted_data_serialized = extracted_data.get()->createSerializedDataRef(false) ;
+  // Store byte buffer in an array
+  ISerializedData const* sdata_ptr = extracted_data_serialized.get() ;
+  const void * ptr = sdata_ptr->bytes().data();
+  Integer nb_element = extracted_data_serialized.get()->nbElement();
+  ConstArrayView<DataType> values_view(nb_element, (const DataType*) ptr);
+  values.copy(values_view) ;
+#else
+  ScopedPtrT<const ISerializedData> extracted_data_serialized(extracted_data.get()->createSerializedData(false));
   // Store byte buffer in an array
   const void * ptr = extracted_data_serialized.get()->buffer().unguardedBasePointer();
   Integer nb_element = extracted_data_serialized.get()->nbElement();
   ConstArrayView<DataType> values_view(nb_element, (const DataType*) ptr);
   values = values_view;
+#endif
 }
 
 /*---------------------------------------------------------------------------*/

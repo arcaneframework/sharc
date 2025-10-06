@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -19,7 +19,7 @@ private:
   static void copyCastIf(DestT * dest, const SrcT * src) { if (Cond) *dest = static_cast<DestT>(*src); }
 
 public:
-  // Le type DataT est dimensionne au cas max et wrappe dans le pseudo constructeur Data pour son int
+  // Le type DataT est dimensionn� au cas max et wrapp� dans le pseudo constructeur Data pour son int�grit�
   template<int N = 0, typename T0 = int, typename T1 = int, typename T2 = int, typename T3 = int, typename T4 = int, typename T5 = int, typename T6 = int> 
   class DataT
   {

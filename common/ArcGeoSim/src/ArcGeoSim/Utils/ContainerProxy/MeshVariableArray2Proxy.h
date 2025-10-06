@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -18,7 +18,7 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-// Pour avoir une API similaire et a priori bientot dans Arcane
+// Pour avoir une API similaire et a priori bient�t dans Arcane
 ARCANE_BEGIN_NAMESPACE
 
 /*---------------------------------------------------------------------------*/
@@ -32,7 +32,7 @@ class ItemVariableArray2RefT : public ItemVariableArrayRefT<T>
 public:
   
   typedef T DataType;
-  typedef Array2<T> ValueType; // Pas encore coherent, il faudrait Array3
+  typedef Array2<T> ValueType; // Pas encore coh�rent, il faudrait Array3
   typedef ConstArray2View<T> ConstReturnReferenceType;
   typedef Array2View<T> ReturnReferenceType;
  
@@ -108,13 +108,13 @@ public:
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-#ifdef USE_ARCANE_V3
+#if (ARCANE_VERSION >= 30003)
 #define VARIABLE_WITH_TYPE(type)                                        \
   typedef MeshVariableArray2RefT<Cell,type> VariableCellArray2##type;   \
   typedef MeshVariableArray2RefT<Face,type> VariableFaceArray2##type;   \
   typedef MeshVariableArray2RefT<Node,type> VariableNodeArray2##type;   \
   typedef MeshVariableArray2RefT<Edge,type> VariableEdgeArray2##type;   \
-  typedef ItemVariableArray2RefT<type> VariableItemArray2##type; 
+  typedef ItemVariableArray2RefT<type> VariableItemArray2##type;
 #else
 #define VARIABLE_WITH_TYPE(type)                                        \
   typedef MeshVariableArray2RefT<Cell,type> VariableCellArray2##type;   \
@@ -125,7 +125,6 @@ public:
   typedef MeshVariableArray2RefT<Link,type> VariableLinkArray2##type;   \
   typedef ItemVariableArray2RefT<type> VariableItemArray2##type; 
 #endif
-
 VARIABLE_WITH_TYPE(Real);
 VARIABLE_WITH_TYPE(Real2);
 VARIABLE_WITH_TYPE(Real2x2);
@@ -137,21 +136,16 @@ VARIABLE_WITH_TYPE(Int64);
 
 #undef VARIABLE_WITH_TYPE
 
-#ifdef USE_ARCANE_V3
 typedef MeshVariableArray2RefT<Cell,Byte> VariableCellArray2Bool;
 typedef MeshVariableArray2RefT<Face,Byte> VariableFaceArray2Bool;
 typedef MeshVariableArray2RefT<Node,Byte> VariableNodeArray2Bool;
 typedef MeshVariableArray2RefT<Edge,Byte> VariableEdgeArray2Bool;
-typedef ItemVariableArray2RefT<Byte> VariableItemArray2Bool;
-#else
-typedef MeshVariableArray2RefT<Cell,Byte> VariableCellArray2Bool;
-typedef MeshVariableArray2RefT<Face,Byte> VariableFaceArray2Bool;
-typedef MeshVariableArray2RefT<Node,Byte> VariableNodeArray2Bool;
-typedef MeshVariableArray2RefT<Edge,Byte> VariableEdgeArray2Bool;
+#if (ARCANE_VERSION < 30003)
 typedef MeshVariableArray2RefT<DualNode,Byte> VariableDualNodeArray2Bool;
 typedef MeshVariableArray2RefT<Link,Byte> VariableLinkArray2Bool;
-typedef ItemVariableArray2RefT<Byte> VariableItemArray2Bool;
 #endif
+typedef ItemVariableArray2RefT<Byte> VariableItemArray2Bool;
+
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

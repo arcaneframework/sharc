@@ -1,0 +1,6 @@
+# -*- cmake -*-
+# Test dense LU solver
+ARCANE_ADD_TEST(LUSolver 
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/LUSolver 
+  LUSolver.arc)

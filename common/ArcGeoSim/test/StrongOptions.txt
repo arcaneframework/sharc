@@ -1,7 +1,7 @@
 # -*- cmake -*-
-if(TARGET strong_options)
+if(TARGET strong_options AND NOT WIN32)
 ARCANE_ADD_TEST_SEQUENTIAL(ComplexStrongOptions
   ArcGeoSim
-  common/ArcGeoSim/test/ServiceTests/StrongOptions
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/StrongOptions
   ComplexStrongOptions.arc)
 endif()

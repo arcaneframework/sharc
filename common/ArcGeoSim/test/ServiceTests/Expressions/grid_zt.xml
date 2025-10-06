@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RegularGrid type="non-uniform">
+<x-value>0.0</x-value>
+<y-value>0.0</y-value>
+<z-value>-100.0 100.0</z-value>
+<t-value>0.0 1.0</t-value>
+<property-value>
+1.0	
+2.0
+3.0
+4.0
+</property-value>
+</RegularGrid>

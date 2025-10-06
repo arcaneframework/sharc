@@ -1,9 +1,3 @@
-// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
-//-----------------------------------------------------------------------------
-// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
-// See the top-level COPYRIGHT file for details.
-// SPDX-License-Identifier: Apache-2.0
-//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef LAW_VARIABLE_VARIABLEFOLDER_H
 #define LAW_VARIABLE_VARIABLEFOLDER_H
@@ -50,6 +44,11 @@ void fill(T& t, V v) { t.fill(v); }
 template<typename T>
 void fill(Arcane::VariableRefScalarT<T>& t, T v) { t = v; }
 
+template<Gump::Dimension D, typename T>
+ScalarRealProperty cast(Gump::PropertyT<D,T> const&p)
+{
+    return ScalarRealProperty(p.uniqueId(),p.fullName());
+}
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
@@ -111,7 +110,7 @@ public:
 
     auto flag = (desc & WithDerivative) ? Law::eWithDerivative : Law::eWithoutDerivative;
 
-    auto allocator = Law::allocator<CK,IK>(p.cast(), flag, m_support, m_key);
+    auto allocator = Law::allocator<CK,IK>(cast(p), flag, m_support, m_key);
 
     m_variables << allocator;
 
@@ -129,14 +128,14 @@ public:
 
     auto flag = (desc & WithDerivative) ? Law::eWithDerivative : Law::eWithoutDerivative;
 
-    auto allocator = Law::allocator<CK,IK>(p.cast(), flag, m_support, m_key);
+    auto allocator = Law::allocator<CK,IK>(cast(p), flag, m_support, m_key);
 
     m_variables << allocator;
 
     // Pour les Nan
     // On ne remplit que ce qui n'existait pas
     if(allocator->firstAllocation()) 
-      _fillZero(p.cast());
+      _fillZero(cast(p));
 
   }
 
@@ -144,7 +143,7 @@ public:
   void _fillZero(Gump::PropertyT<D,T> p)
   {
     auto accessor = lawVariableAccessor();
-    auto& v = accessor.values(p.cast());
+    auto& v = accessor.values(cast(p));
     fill(v, T(0));
   }
 

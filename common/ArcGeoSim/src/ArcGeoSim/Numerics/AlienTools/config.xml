@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="alien" optional='true'/>
+  </needed-packages>
+  <files language="c++">
+    <file>BasicIndexManager</file>
+    <file>SimpleAbstractFamily</file>
+    <file>AnyItemAbstractFamily</file>
+    <file>ContactAbstractFamily</file>
+    <file>Space</file>
+    <file>BlockBuilder</file>
+    <file>BlockSizes</file>
+  </files>
+</makefile>

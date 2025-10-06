@@ -9,7 +9,16 @@
   </needed-packages>
 
   <files language="c++">
+    <file header='false'>EMeshIOService</file> 
     <file header='false'>IfpVtkMeshIOService</file>
+    <file header='false'>IXMMeshReaderService</file>
+    <file>MeshInfo</file> 
   </files>
+  
+  <files language="c++header">
+    <file>IDataMeshImporter</file>
+  </files>
+  
+  
 
 </makefile>

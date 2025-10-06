@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="IfpMeshPartitionerTester" version="1.0" type="caseoption">
+	<description>Service IfpMeshPartitionerTester</description>
+	<interface name="IServiceTester" />
+    <variables>
+        <!-- Cell Owner -->
+		<variable field-name="cell_owner" name="CellOwner" data-type="real" item-kind="cell" dim="0" dump="true" need-sync="true" />
+		<variable field-name="node_owner" name="NodeOwner" data-type="real" item-kind="node" dim="0" dump="true" need-sync="true" />
+    </variables>
+	<options>
+		<service-instance name="partitioner" type="Arcane::IMeshPartitioner">
+			<description> Scalar equation service </description>
+		</service-instance>
+	</options>
+</service>

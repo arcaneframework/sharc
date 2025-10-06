@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="CubeTransformationMesh" type="caseoption" version="1.0">
+	<description>Randomly perturbate the mesh</description>
+	<interface name="IMeshOperator"/>
+  <options>
+    <simple name = "file" type = "string"/>
+    <simple name = "nx" type = "integer" default="1"/>
+    <simple name = "ny" type = "integer" default="1"/>
+    <simple name = "nz" type = "integer" default="1"/>
+    
+  </options>
+</service>

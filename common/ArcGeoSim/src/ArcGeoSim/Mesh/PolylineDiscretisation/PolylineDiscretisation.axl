@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="PolylineDiscretisation" version="1.0" type="caseoption">
+  <description>Service PolylineDiscretisation</description>
+  <interface name="IPolylineDiscretisation" />
+  
+  <options>
+    <!-- les options du service -->
+  </options>
+</service>

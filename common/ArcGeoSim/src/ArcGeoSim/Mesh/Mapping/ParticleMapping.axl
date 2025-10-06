@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<service name="ParticleMapping" version="1.0" type="caseoption">
+  <description>Service ParticleMapping</description>
+  <interface name="IParticleMapping" />
+  
+  <options>
+    <simple name="family-name" type="string" default="Particle"/>
+    <simple name="verbose"     type="bool"   default="false"/>
+  </options>
+</service>
