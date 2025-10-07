@@ -55,7 +55,7 @@ public:
 	    		m_elf = new std::list<int> * [nb_edges];
 	    		for(int i=0;i<nb_edges;i++)
 	    			m_elf[i]= new std::list<int>;
-	    			m_nb_edges= nb_edges;
+	    		m_nb_edges= nb_edges;
 	    	};
 	    	void add_edge(int &a, int &b) {
 	    		if (a>b) {int aux=a; a=b; b=aux;}
