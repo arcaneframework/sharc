@@ -174,7 +174,8 @@ export BOOST_LIBRARY_DIR=/usr/lib/x86_64-linux-gnu
 
 # ShArc project
 echo "SHARC clone project then switch to numpex-exadi branch"
-git clone https://github.com/arcaneframework/sharc.git 
+git clone --recurse-submodules https://github.com/arcaneframework/sharc.git
+cd sharc && git submodule update --init --recursive
 git checkout dev/numpex-exadi
 
 # ShArc project configuration
