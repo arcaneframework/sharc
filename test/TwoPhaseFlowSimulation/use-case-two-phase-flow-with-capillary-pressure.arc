@@ -83,7 +83,12 @@
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
         <linear-solver name="PETScSolver">
-          <solver name="SuperLU" />
+          <!--solver name="SuperLU" /-->
+          <solver name="BiCGStab">
+             <num-iterations-max>1000</num-iterations-max>
+             <stop-criteria-value>1e-3</stop-criteria-value>
+             <preconditioner name="BlockILU"/>
+          </solver>
           <verbose>low</verbose>
         </linear-solver>
       </newton>
