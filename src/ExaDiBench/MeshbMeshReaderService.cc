@@ -35,7 +35,7 @@ MeshbMeshReader::MeshbMeshReader(const ServiceBuildInfo& sbi)
 
 bool MeshbMeshReader::allowExtension(const String& str)
 {
-  return str== "mhb";
+  return str== "meshb";
 }
 
 IMeshReader::eReturnType
