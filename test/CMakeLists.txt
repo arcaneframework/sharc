@@ -23,7 +23,7 @@ ARCANE_ADD_TEST_PARALLEL(TwoPhaseFlowSimulation
         ShArc
         test/TwoPhaseFlowSimulation
         use-case-two-phase-flow.arc
-        4)
+        2)
 
 ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10
         ShArc
