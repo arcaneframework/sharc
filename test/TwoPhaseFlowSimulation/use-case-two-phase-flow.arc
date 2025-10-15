@@ -91,7 +91,7 @@
           <preconditioner>Euclid</preconditioner>
           <verbose>true</verbose>
         </linear-solver>
-         <!--linear-solver name="PETScSolver">
+        <!--linear-solver name="PETScSolver">
              <solver name="SuperLU" />
              <solver name="BiCGStab">
                <num-iterations-max>5000</num-iterations-max>
