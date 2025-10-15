@@ -6,15 +6,15 @@ project(ShArc VERSION 0.1)
 
 
 if (NOT ARCGEOSIM_FRAMEWORK_ROOT)
-  if (DEFINED ENV{ARCGEOSIM_FRAMEWORK_ROOT})
-    set(ARCGEOSIM_FRAMEWORK_ROOT $ENV{ARCGEOSIM_FRAMEWORK_ROOT})
-    set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR})
-  else()
-    #set(ARCGEOSIM_FRAMEWORK_ROOT ${PROJECT_SOURCE_DIR})
-    #set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR})
-    set(ARCGEOSIM_FRAMEWORK_ROOT ${PROJECT_SOURCE_DIR}/common)
-    set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR}/common)
-  endif ()
+    if (DEFINED ENV{ARCGEOSIM_FRAMEWORK_ROOT})
+        set(ARCGEOSIM_FRAMEWORK_ROOT $ENV{ARCGEOSIM_FRAMEWORK_ROOT})
+        set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR})
+    else()
+        #set(ARCGEOSIM_FRAMEWORK_ROOT ${PROJECT_SOURCE_DIR})
+        #set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR})
+        set(ARCGEOSIM_FRAMEWORK_ROOT ${PROJECT_SOURCE_DIR}/common)
+        set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR}/common)
+    endif ()
 endif ()
 # check submodule is loaded
 if (NOT EXISTS ${ARCGEOSIM_FRAMEWORK_ROOT}/ArcaneInfra/build-system/arcgeosim/LoadArcGeoSim.cmake)
@@ -37,9 +37,11 @@ set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR}/common)
 #endif ()
 # chargement du système de compilation
 include(LoadArcGeoSim)
-  
+
+find_package(ouranos)
+
 # ici on met les packages, langages, metas, options...
-  
+
 # activation des strong options (uniquement avec le nouveau systeme de compilation)
 loadMeta(NAME strong_options)
 loadMeta(NAME alien20)
@@ -58,21 +60,21 @@ logStatus("Loading ArcGeoSim components...")
 
 logStatus("Loading ArcGeoSim components...")
 
-#loadPackage(NAME ArcGeoSim) 
+#loadPackage(NAME ArcGeoSim)
 if(ArcGeoSim_FOUND)
-  message(status "TARGET ARCGEOSIM_FULL FOUND")
+    message(status "TARGET ARCGEOSIM_FULL FOUND")
 else()
-  message(status "COMPILE ARCGEOSIM TARGET")
+    message(status "COMPILE ARCGEOSIM TARGET")
 
-  set(common/ArcGeoSim/src/ArcGeoSim/Mesh/AccessorToolsMng ON)
-  
-  add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Appli)
-  add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Utils)
-  add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Time)
-  add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Mesh)
-  add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Numerics)
-  add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Physics)
-  add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Tests)
+    set(common/ArcGeoSim/src/ArcGeoSim/Mesh/AccessorToolsMng ON)
+
+    add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Appli)
+    add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Utils)
+    add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Time)
+    add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Mesh)
+    add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Numerics)
+    add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Physics)
+    add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Tests)
 endif()
 
 logStatus("Loading ShArc components...")
