@@ -10,6 +10,9 @@
 #include "arcane/IMeshReader.h"
 #include "arcane/FactoryService.h"
 
+#include "ouranos/config.h"
+#include "ouranos/kernel/info.hpp"
+
 using namespace Arcane;
 
 class MeshbMeshReader
@@ -50,12 +53,16 @@ readMeshFromFile(IPrimaryMesh* mesh,
 
   info() << "=== READING Meshb MESH ===";
 
+  info () << "Testing ouranos linking " << Ouranos::Kernel::version();
+
   fatal() << "Meshb Reader not yet implemented";
+
+  // auto rns = std::make_shared<Ouranos::Kernel::Ouranos>(com());
+  // Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
+  // msh.read(file_name.c_str());
+  // auto refined_msh = Ouranos::Mesh::refine(rns, msh);
 
   return RTOk;
 };
 
 ARCANE_REGISTER_SUB_DOMAIN_FACTORY(MeshbMeshReader,IMeshReader,MeshbMeshReaderService);
-
-
-

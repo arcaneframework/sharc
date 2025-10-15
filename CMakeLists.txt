@@ -35,6 +35,8 @@ set(USE_LANGUAGE_LAW ON)
 # chargement du systeme de compilation
 include(LoadArcGeoSim)
 
+find_package(ouranos)
+
 # ici on met les packages, langages, metas, options...
 
 # activation des strong options (uniquement avec le nouveau systeme de compilation)
@@ -59,7 +61,7 @@ if(ARCGEOSIM_EXTERNAL)
 loadPackage(NAME ArcGeoSim)
 endif()
 if(ArcGeoSim_FOUND)
-  message(status "TARGET ARCGEOSIM_FULL FOUND")
+    message(status "TARGET ARCGEOSIM_FULL FOUND")
 else()
   message(status "COMPILE ARCGEOSIM TARGET")
   if (NOT ARCGEOSIM_EXPORT_TARGET)

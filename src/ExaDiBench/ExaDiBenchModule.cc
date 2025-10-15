@@ -18,6 +18,8 @@
 #include <arcane/IMeshWriter.h>
 #include <arcane/ServiceBuilder.h>
 
+#include "ouranos/config.h"
+
 /* Petite note indicative
  * Arcane a quelques probl�mes avec les variables partielles
  * - Si m_cell_group and utilise des RealVariable => pb (dans volumeCompute)
@@ -28,7 +30,7 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-void 
+void
 ExaDiBenchModule::
 init()
 {
@@ -76,7 +78,7 @@ init()
 
   ItemGroupBuilder<Node> nodeBuilder(mesh(),"BorderNodes");
   ItemGroupBuilder<Face> faceBuilder(mesh(),"BorderFaces");
-  
+
   ENUMERATE_FACE(iface,ownFaces()) {
     const Face face = *iface;
     if (face.isSubDomainBoundary()) { // bord physique car own
@@ -103,7 +105,7 @@ init()
   if (m_border_face_group.size() != border_face_group_test.size())
     fatal() << "Test failed : Bad OuterFaces group";
 
-  //// 
+  ////
   IGeometryMng * geom = options()->geometry();
   geom->init();
   geom->setPolicyTolerance(false);
@@ -112,7 +114,7 @@ init()
 
   geom->addItemGroupProperty(allCells(), IGeometryProperty::PCenter,IGeometryProperty::PVariable);
 
-  if (options()->useExternalStorage()) 
+  if (options()->useExternalStorage())
     {
       geom->addItemGroupProperty(m_cell_group, IGeometryProperty::PVolume,m_volumes);
       geom->addItemGroupProperty(m_border_face_group, IGeometryProperty::PArea,m_surfaces);
@@ -149,7 +151,7 @@ init()
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-void 
+void
 ExaDiBenchModule::
 compute()
 {
@@ -173,7 +175,7 @@ compute()
       coords[inode] += r*Real3(cos(theta),sin(theta)*cos(phi),sin(theta)*sin(phi));
     }
   }
-  
+
   coords.synchronize();
 
   options()->geometry()->update(m_geometry_policy);
@@ -203,7 +205,7 @@ compute()
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-void 
+void
 ExaDiBenchModule::
 refineMesh(Integer level)
 {
