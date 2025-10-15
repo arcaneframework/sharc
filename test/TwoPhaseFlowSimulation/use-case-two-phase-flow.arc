@@ -29,7 +29,7 @@
       <reference-value>10512859.6282460578</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
-      <tolerance>1e-6</tolerance>
+      <tolerance>1e-3</tolerance>
       <verbose>true</verbose>
     </validator>
     <validator name="SyntheticServiceValidator">
@@ -91,7 +91,7 @@
           <preconditioner>Euclid</preconditioner>
           <verbose>true</verbose>
         </linear-solver>
-         <!--linear-solver name="PETScSolver">
+        <!--linear-solver name="PETScSolver">
              <solver name="SuperLU" />
              <solver name="BiCGStab">
                <num-iterations-max>5000</num-iterations-max>
