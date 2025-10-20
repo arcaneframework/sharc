@@ -48,24 +48,32 @@ ARCANE_ADD_TEST_PARALLEL(ExaDiBench-cube3D
         bench-cube3d.arc
         2)
 
+if (ouranos_FOUND)
+ARCANE_ADD_TEST_SEQUENTIAL(ExaDiBench-meshb
+        ShArc
+        test/ExaDiBench
+        bench-meshb.arc
+        )
+endif()
+
 #ARCANE_ADD_TEST(ExaDiBench-spe11c
 #        ShArc
 #        test/ExaDiBench
 #        bench-spe11c.arc
 #        )
-        
+
 #ARCANE_ADD_TEST(ExaDiBench-spe11c-structured
 #        ShArc
 #        test/ExaDiBench
 #        bench-spe11c-structured.arc
 #        )
-        
+
 #ARCANE_ADD_TEST(ExaDiBench-pb
 #        ShArc
 #        test/ExaDiBench
 #        bench-pb.arc
 #        )
-        
+
 #ARCANE_ADD_TEST_PARALLEL(ExaDiBench-pb-msh
 #        ShArc
 #        test/ExaDiBench
