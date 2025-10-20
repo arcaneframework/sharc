@@ -4,13 +4,11 @@
 
   <needed-packages>
     <package name="arcane" />
+    <package name="ouranos::ouranos" />
   </needed-packages>
 
-  <files language="module">
-    <file>ExaDiBench</file>
+  <files language="c++">
+    <file header='false'>MeshbMeshReaderService</file>
   </files>
 
-  <directories>
-    <directory depend='ouranos'>MeshbReader</directory>
-  </directories>
 </makefile>

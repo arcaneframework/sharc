@@ -35,8 +35,6 @@ set(USE_LANGUAGE_LAW ON)
 # chargement du systeme de compilation
 include(LoadArcGeoSim)
 
-find_package(ouranos)
-
 # ici on met les packages, langages, metas, options...
 
 # activation des strong options (uniquement avec le nouveau systeme de compilation)
@@ -44,6 +42,12 @@ loadMeta(NAME strong_options)
 loadMeta(NAME alien20)
 loadMeta(NAME arcane3)
 add_definitions(-DUSE_ARCANE_V3)
+
+find_package(ouranos)
+if (ouranos_FOUND)
+    loadMeta(NAME ouranos)
+    add_definitions(-DUSE_OURANOS)
+endif()
 
 # affichage des informations
 include(PrintArcGeoSimInformations)

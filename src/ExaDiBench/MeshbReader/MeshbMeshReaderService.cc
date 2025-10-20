@@ -55,7 +55,7 @@ readMeshFromFile(IPrimaryMesh* mesh,
 
   info () << "Testing ouranos linking " << Ouranos::Kernel::version();
 
-  fatal() << "Meshb Reader not yet implemented";
+  // fatal() << "Meshb Reader not yet implemented";
 
   // auto rns = std::make_shared<Ouranos::Kernel::Ouranos>(com());
   // Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
