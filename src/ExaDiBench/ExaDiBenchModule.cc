@@ -18,8 +18,6 @@
 #include <arcane/IMeshWriter.h>
 #include <arcane/ServiceBuilder.h>
 
-#include "ouranos/config.h"
-
 /* Petite note indicative
  * Arcane a quelques probl�mes avec les variables partielles
  * - Si m_cell_group and utilise des RealVariable => pb (dans volumeCompute)
