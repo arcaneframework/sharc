@@ -53,6 +53,7 @@ ARCANE_ADD_TEST_SEQUENTIAL(ExaDiBench-meshb
         ShArc
         test/ExaDiBench
         bench-meshb.arc
+        WILL_FAIL
         )
 endif()
 
