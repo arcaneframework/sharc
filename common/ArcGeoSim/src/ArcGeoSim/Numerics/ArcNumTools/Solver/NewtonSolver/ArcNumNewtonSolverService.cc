@@ -53,6 +53,9 @@ init(std::shared_ptr<ArcNum::INonLinearSystem> non_linear_system)
   // redirection des options
   m_solver.setLinearSolver((Alien::ILinearSolver*)options()->linearSolver());
   m_solver.setWithElimination(options()->withElimination());
+  m_solver.setWithNormalization(options()->withNormalization());
+  m_solver.setWithDiagScaling(options()->withDiagScaling());
+  m_solver.setWithFirstRowSum(options()->withFirstRowSum());
   m_solver.setIterationMax(options()->iterationMax());
   m_solver.setRelativeTolerance(options()->relativeTolerance());
   m_solver.setTolerance(options()->tolerance());

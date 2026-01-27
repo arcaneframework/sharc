@@ -236,6 +236,9 @@ readMeshFromFile(Arcane::IPrimaryMesh* mesh,
   // Groups
   m_ixm_mesh_builder.addGroups(mesh,group_data_list,*m_uid2lid_mng);
 
+  // Partition Constraints
+  m_ixm_mesh_builder.applyMeshPartitionConstraints(mesh);
+
   // Properties
   m_ixm_property_builder = new ArcGeoSim::IXMStaticPropertyBuilder(mesh);
 #if (ARCANE_VERSION >= 30003)

@@ -19,8 +19,6 @@
 #include <arcane/utils/ValueConvert.h>
 #include <arcane/VariableDataTypeTraits.h>
 
-#include "ArcGeoSim/Physics/Law2/Property.h"
-
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
@@ -203,16 +201,6 @@ public:
   PropertyT(Arcane::Integer kind, const Entity& owner)
     : Property(kind, owner) {}
 
-  /*
-  operator Law::PropertyT<Law::eVectorial,T>() const
-  {
-    return cast();
-  }
-
-  Law::PropertyT<Law::eVectorial,T> cast() const
-  {
-    return  Law::PropertyT<Law::eVectorial,T>(uniqueId(),fullName());
-  }*/
 };
 
 /*---------------------------------------------------------------------------*/

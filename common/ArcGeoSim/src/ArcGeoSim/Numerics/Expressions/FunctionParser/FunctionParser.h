@@ -41,6 +41,12 @@
 #include <arcane/ArcaneException.h>
 #include <arcane/utils/TraceInfo.h>
 
+#ifdef ARCGEOSIM_USE_EXPORT
+#include "ArcGeoSim/Numerics/ArcGeoSim_numericsExport.h"
+#else
+#define ARCGEOSIM_NUMERICS_EXPORT
+#endif
+
 using namespace Arcane;
 using namespace boost::spirit::classic;
 using namespace phoenix;

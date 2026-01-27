@@ -25,7 +25,7 @@ endif()
 commit(ArcGeoSim_numerics DESTINATION Numerics)
 
 if (ARCGEOSIM_EXPORT_TARGET)
-    target_link_libraries(arcgeosim_full INTERFACE ArcGeoSim_numerics)
+    target_link_libraries(arcgeosim INTERFACE ArcGeoSim_numerics)
     add_library(ArcGeoSim::ArcGeoSim_numerics ALIAS ArcGeoSim_numerics)
 endif()
 

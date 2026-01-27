@@ -4,6 +4,9 @@
     <package name="arcane" />
 	<package name="boost" />
   </needed-packages>
+  <files language="c++">
+    <file>ArcGeoSimTimeRegisterer</file>
+  </files>
   <files language="c++header">
     <file>IEvent</file>
     <file>IEventCalendar</file>

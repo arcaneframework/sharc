@@ -4,6 +4,9 @@
     <package name="arcane" />
     <package name="boost" />
   </needed-packages>
+  <files language="c++">
+    <file>ArcGeoSimMeshRegisterer</file>
+  </files>
   <directories>
     <directory>Importers</directory>
     <directory>Exporters</directory>

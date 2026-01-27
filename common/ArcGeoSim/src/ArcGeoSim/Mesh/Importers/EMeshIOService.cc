@@ -162,7 +162,7 @@ public:
   
   virtual bool allowExtension(const String& str)
   {
-    return str=="msh";
+    return str=="imsh";
   }
 
 public:

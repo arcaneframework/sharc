@@ -14,6 +14,7 @@
 #include "ArcGeoSim/Physics/Gump/Property.h"
 #include "ArcGeoSim/Physics/Gump/IO.h"
 #include "ArcGeoSim/Physics/Gump/XPath.h"
+#include "ArcGeoSim/Physics/Law2/Property.h"
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
@@ -192,7 +193,7 @@ test_2()
 {
   info() << "test_2";
 
-  // Mode sans entités
+  // Mode sans entitï¿½s
   Law::ScalarRealProperty P(0,"P");
   Law::VectorialRealProperty S(1,"S",3);
 

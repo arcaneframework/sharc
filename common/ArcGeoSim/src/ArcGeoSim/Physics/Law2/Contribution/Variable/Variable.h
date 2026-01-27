@@ -22,7 +22,7 @@ BEGIN_AUDI_NAMESPACE
 template<typename K>
 class Variable
 : public Law::VariableT< Law::VariableRefT<Law::ScalarRealProperty,K> >
-, private ArcNum::audi::Variable<K>
+, public ArcNum::audi::Variable<K>
 {
 public:
 

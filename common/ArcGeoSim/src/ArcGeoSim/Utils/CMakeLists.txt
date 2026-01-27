@@ -11,7 +11,7 @@ endif()
 commit(ArcGeoSim_utils DESTINATION Utils)
 
 if (ARCGEOSIM_EXPORT_TARGET)
-    target_link_libraries(arcgeosim_full INTERFACE ArcGeoSim_utils)
+    target_link_libraries(arcgeosim INTERFACE ArcGeoSim_utils)
     add_library(ArcGeoSim::ArcGeoSim_utils ALIAS ArcGeoSim_utils)
 endif()
 

@@ -1,7 +1,7 @@
 createExecutable(ShArc.exe)
 
 addSources(ShArc.exe main.cc)
- 
+
 linkLibraries(ShArc.exe
   ShArc
   ArcGeoSim_appli
@@ -10,7 +10,7 @@ linkLibraries(ShArc.exe
   ArcGeoSim_numerics
   ArcGeoSim_time
   ArcGeoSim_physics
-  ArcGeoSim_test
+  ArcGeoSim_tests
   )
 #if(TARGET ArcGeoSim_alientools)
 #linkLibraries(ShArc.exe

@@ -22,4 +22,8 @@ if(TARGET intel)
     )
 endif()
 
+if(TARGET alien AND WIN32 AND ARCANEFRAMEWORK_ROOT)
+    linkDynLibraries(ArcGeoSim.exe alien_ifpen_solvers)
+endif()
+
 commit(ArcGeoSim.exe)

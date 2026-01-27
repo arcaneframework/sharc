@@ -5,7 +5,7 @@ generateCMakeLists(ArcGeoSim_appli)
 commit(ArcGeoSim_appli DESTINATION Appli)
 
 if (ARCGEOSIM_EXPORT_TARGET)
-    target_link_libraries(arcgeosim_full INTERFACE ArcGeoSim_appli)
+    target_link_libraries(arcgeosim INTERFACE ArcGeoSim_appli)
     add_library(ArcGeoSim::ArcGeoSim_appli ALIAS ArcGeoSim_appli)
 endif()
 

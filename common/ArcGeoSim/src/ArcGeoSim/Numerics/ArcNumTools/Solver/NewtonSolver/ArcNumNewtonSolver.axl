@@ -34,6 +34,8 @@
 
     <simple name="with-elimination" type="bool" default="true" />
     <simple name="with-normalization" type="bool" default="false" />
+    <simple name="with-first-row-sum" type="bool" default="false" />
+    <simple name="with-diag-scaling" type="bool" default="false" />
     
     <simple name="iteration-max" type="integer"/>
     

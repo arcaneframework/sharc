@@ -4,6 +4,9 @@
     <package name="arcane" />
     <package name="boost" />
   </needed-packages>
+  <files language="c++">
+    <file>ArcGeoSimNumericsRegisterer</file>
+  </files>
   <directories>
     <directory>DiscreteOperator</directory>
     <directory>LinearSolver</directory>
@@ -13,6 +16,7 @@
     <directory depend="!win32">ExpressionParser</directory>
     <directory>GroupCreator</directory>
     <directory>NumericalScheme</directory>
+    <directory depend="alien1">AlienTools</directory>
     <directory>ArcNumTools</directory>
   </directories>
 </makefile>

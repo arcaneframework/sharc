@@ -1,64 +1,22 @@
-createLibrary(ArcGeoSim_test)
+createLibrary(ArcGeoSim_tests)
 
-generateCMakeLists(ArcGeoSim_test)
+generateCMakeLists(ArcGeoSim_tests)
 
 # pour windows
-if(WIN32)
-linkLibraries(ArcGeoSim_test  
+linkLibraries(ArcGeoSim_tests 
+  ArcGeoSim_appli	
   ArcGeoSim_utils 
-  ArcGeoSim_mesh 
+  ArcGeoSim_mesh
   )
-  
-  if(TARGET ArcGeoSim_alientools)
-    linkLibraries(ArcGeoSim_test  
-	  ArcGeoSim_alientools
-	)
-  endif()
-  if(TARGET ArcGeoSim_numerics_la)
-    linkLibraries(ArcGeoSim_test  
-	  ArcGeoSim_numerics_la
-	)
-  endif()
+
+commit(ArcGeoSim_tests DESTINATION Tests)
+
+if (ARCGEOSIM_EXPORT_TARGET)
+    target_link_libraries(arcgeosim INTERFACE ArcGeoSim_tests)
+    add_library(ArcGeoSim::ArcGeoSim_tests ALIAS ArcGeoSim_tests)
 endif()
 
-# si les services testers sont presents, il y a des dependances
-# supplementaires
-# TODO splitter les librairies pour supprimer le patch suivant
-if(NOT DEFINED common/ArcGeoSim/src/ArcGeoSim/Tests/ServiceTesters)
-  set(have_tests ON)
-endif()
-if(${common/ArcGeoSim/src/ArcGeoSim/Tests/ServiceTesters})
-  set(have_tests ON)
-endif()
-if(${have_tests})
-  # pour windows
-if(WIN32)
-  linkLibraries(ArcGeoSim_test  
-    ArcGeoSim_numerics 
-    ArcGeoSim_physics
-    )
-	if(TARGET ArcGeoSim_alientools)
-    linkLibraries(ArcGeoSim_test  
-	  ArcGeoSim_alientools
-	)
-  endif()
-  if(TARGET ArcGeoSim_numerics_la)
-    linkLibraries(ArcGeoSim_test  
-	  ArcGeoSim_numerics_la
-	)
-  endif()
-endif()
-endif()
-
-if(TARGET gump)
-  
-  generateGumpModel(ServiceTesters/GumpTester/Example/Example.xml ArcGeoSim_test)
-  generateGumpModel(ServiceTesters/LawTester/LawContribution/ContributionModel.gump ArcGeoSim_test)
-  
-  if(${have_tests})
-    linkLibraries(ArcGeoSim_test example)
-    linkLibraries(ArcGeoSim_test contributionmodel)
-  endif()
-endif()
-
-commit(ArcGeoSim_test)
+install(DIRECTORY .
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ArcGeoSim/Tests
+        FILES_MATCHING PATTERN "*.h"
+)

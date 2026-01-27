@@ -21,7 +21,7 @@ BEGIN_AUDI_NAMESPACE
 
 class VariableArray
     : public Law::VariableT< Law::ArrayRefT<Law::ScalarRealProperty> >
-    , private ArcNum::audi::VariableArray
+    , public ArcNum::audi::VariableArray
 {
 public:
 

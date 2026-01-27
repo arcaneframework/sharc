@@ -6,6 +6,7 @@
     <package name="vtk" optional="true"/>
   </needed-packages>
   <files language="c++">
+    <file>ArcGeoSimAppliRegisterer</file>
     <file>IAppServiceMng</file>
     <file>ArcGeoSimCodeService</file>
   </files>

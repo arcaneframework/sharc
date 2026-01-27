@@ -76,7 +76,7 @@ public:
   bool operator!=(const DualRandomIterator& rhs) const { return m_i != rhs.m_i; }
   bool operator<(const DualRandomIterator& rhs) const { return m_i < rhs.m_i; }
 
-  reference operator*() { return reference(*m_i, *m_j); }
+  reference operator*() const { return reference(*m_i, *m_j); }
 
   difference_type operator-(const DualRandomIterator & rhs) const { return m_i - rhs.m_i; }
 
@@ -121,7 +121,7 @@ public:
   bool operator!=(const TripleRandomIterator& rhs) const { return m_i != rhs.m_i; }
   bool operator<(const TripleRandomIterator& rhs) const { return m_i < rhs.m_i; }
 
-  reference operator*() { return reference(*m_i, *m_j, *m_k); }
+  reference operator*() const { return reference(*m_i, *m_j, *m_k); }
 
   difference_type operator-(const TripleRandomIterator & rhs) const { return m_i - rhs.m_i; }
 

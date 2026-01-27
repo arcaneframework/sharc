@@ -45,10 +45,18 @@ template<typename T>
 void fill(Arcane::VariableRefScalarT<T>& t, T v) { t = v; }
 
 template<Gump::Dimension D, typename T>
-ScalarRealProperty cast(Gump::PropertyT<D,T> const&p)
+auto cast(Gump::PropertyT<D,T> const& p)
 {
-    return ScalarRealProperty(p.uniqueId(),p.fullName());
+  using LawPropertyType = typename GumpToLaw< Gump::PropertyT<D,T> >::type;
+  return LawPropertyType(p.uniqueId(), p.fullName());
 }
+
+template<typename E>
+Law::ScalarRealProperty cast(Gump::UserProperty<E> const& p)
+{
+  return Law::ScalarRealProperty(p.uniqueId(), p.fullName());
+}
+
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

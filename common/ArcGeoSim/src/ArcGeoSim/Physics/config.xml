@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <makefile>
+  <files language="c++">
+    <file>ArcGeoSimPhysicsRegisterer</file>
+  </files>
   <directories>
     <directory>Units</directory>
     <directory depend="law_v1">Law1</directory>
