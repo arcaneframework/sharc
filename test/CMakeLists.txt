@@ -30,54 +30,61 @@ ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10
         test/TwoPhaseFlowSimulation
         use-case-two-phase-flow-spe10.arc)
 
-ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-bcgs-ilu0
+ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-bcgs-ilu0
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-bcgs-ilu0.arc)
+        use-case-two-phase-flow-spe10-bcgs-ilu0.arc
+        600)
 
 if(TARGET hypre)
-ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-bcgs-cpr
+ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-bcgs-cpr
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-bcgs-cpr.arc)
+        use-case-two-phase-flow-spe10-bcgs-cpr.arc
+        600)
 endif()
 
-#ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-petsc-bcgs-ilu0
+#ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-petsc-bcgs-ilu0
 #        ShArc
 #        test/TwoPhaseFlowSimulation
 #        use-case-two-phase-flow-spe10-petsc-bcgs-ilu0.arc)
 
 if(TARGET hypre)
-ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-hypre-bcgs-ilu0
+ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-hypre-bcgs-ilu0
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-hypre-bcgs-ilu0.arc)
+        use-case-two-phase-flow-spe10-hypre-bcgs-ilu0.arc
+        600)
 endif()
 
 if(TARGET trilinos)
-ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-tri-bcgs-ilu0
+ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-tri-bcgs-ilu0
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-tri-bcgs-ilu0.arc)
+        use-case-two-phase-flow-spe10-tri-bcgs-ilu0.arc
+        600)
 endif()
 
 if(TARGET htssolver)
-ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-hts-bcgs-ilu0
+ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-hts-bcgs-ilu0
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-hts-bcgs-ilu0.arc)
+        use-case-two-phase-flow-spe10-hts-bcgs-ilu0.arc
+        600)
 endif()
 
 if(TARGET ifpsolver)
-ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-ifps-bcgs-ilu0
+ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-ifps-bcgs-ilu0
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-ifps-bcgs-ilu0.arc)
+        use-case-two-phase-flow-spe10-ifps-bcgs-ilu0.arc
+        600)
 
-ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10-ifps-bcgs-cpr
+ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-ifps-bcgs-cpr
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-ifps-bcgs-cpr.arc)
+        use-case-two-phase-flow-spe10-ifps-bcgs-cpr.arc
+        600)
 endif()
 
 ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10Well
