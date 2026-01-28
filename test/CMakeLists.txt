@@ -40,7 +40,7 @@ if(TARGET hypre)
 ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-bcgs-cpr
         ShArc
         test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow-spe10-bcgs-cpr.arc
+        use-case-two-phase-flow-spe10-bcgs-cxr.arc
         600)
 endif()
 
