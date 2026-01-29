@@ -22,19 +22,6 @@
 ArcNum::NewtonSolver::
 NewtonSolver()
   : Arcane::TraceAccessor(_arcaneGetDefaultSubDomain()->traceMng())
-  , m_initialized(false)
-  , m_linear_solver(nullptr)
-  , m_with_elimination(true)
-  , m_iteration_max(0)
-  , m_relative_tolerance(0.)
-  , m_tolerance(0.)
-  , m_debug_dump_matlab(false)
-  , m_debug_info_linear_solver(false)
-  , m_debug_stat_linear_solver(false)
-  , m_save_and_fatal_at_iteration(-1)
-  , m_dump_and_fatal_at_iteration(-1)
-  , m_nb_call(0)
-  , m_is_solving(false)
   , m_newton(*this, _arcaneGetDefaultSubDomain()->traceMng())
   , m_newton_iteration(Arcane::VariableBuildInfo(_arcaneGetDefaultSubDomain()->meshes()[0], "NewtonIteration", Arcane::IVariable::PNoDump|Arcane::IVariable::PNoNeedSync))
   , m_newton_iteration_max(Arcane::VariableBuildInfo(_arcaneGetDefaultSubDomain()->meshes()[0], "NewtonIterationMax", Arcane::IVariable::PNoDump|Arcane::IVariable::PNoNeedSync)) {}
@@ -94,6 +81,9 @@ _createAlgebraicObjects()
   auto & domain = m_non_linear_system->systemDomain();
   bc.group = domain.support();
   m_linear_system = ArcNum::LinearSystem(bc, m_with_elimination);
+  m_linear_system.setNormalizeOpt(m_with_normalization) ;
+  m_linear_system.setFirstRowSumOpt(m_with_first_row_sum) ;
+  m_linear_system.setDiagScalingOpt(m_with_diag_scaling) ;
   Alien::BlockMatrix& matrix = m_linear_system.matrix();
   Alien::MatrixProfiler blockProfiler(matrix);
   auto indexes = m_linear_system.indexes();

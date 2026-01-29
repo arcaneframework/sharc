@@ -15,8 +15,8 @@ template<typename K>
 class ScalarPartialVarProperty
 {
 public :
-  typedef Arcane::MeshVariableScalarRefT<K,Arcane::Real> VarType ;
-  typedef Arcane::MeshVariableArrayRefT<K,Arcane::Real>  DerivVarType;
+  typedef Arcane::MeshPartialVariableScalarRefT<K,Arcane::Real> VarType ;
+  typedef Arcane::MeshPartialVariableArrayRefT<K,Arcane::Real>  DerivVarType;
 
 
   typedef typename VarType::ConstReturnReferenceType      ConstReturnReferenceType;

@@ -8,6 +8,7 @@
   </needed-packages>
   
   <files language="c++">
+    <file>ArcGeoSimUtilsRegisterer</file>
     <file>GraphBuilder</file>
     <file>HdfReader</file>
     <file>IOBuffer</file>

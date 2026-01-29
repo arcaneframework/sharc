@@ -11,8 +11,6 @@
 #include "Entity.h"
 #include "UniqueIdFactory.h"
 
-#include "ArcGeoSim/Physics/Law2/Property.h"
-
 #include <arcane/utils/ArcaneGlobal.h>
 
 /*---------------------------------------------------------------------------*/
@@ -87,16 +85,6 @@ public:
 	m_full_name = property.m_full_name;
     m_owner = property.m_owner;
     return *this;
-  }
-
-  operator Law::ScalarRealProperty() const
-  {
-    return cast();
-  }
-
-  Law::ScalarRealProperty cast() const
-  {
-    return Law::ScalarRealProperty(uniqueId(),fullName());
   }
 
 private:

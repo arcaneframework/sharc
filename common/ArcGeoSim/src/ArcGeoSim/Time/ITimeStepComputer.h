@@ -31,6 +31,11 @@ namespace TimeStep {
   public:
     
     virtual void init() = 0;
+
+
+    //! User compute of time step variation (if needed)
+    // return true if time step is refused
+    virtual bool computeVariationStatus() { return false; }
     
     //! User compute of time step (if needed)
     // could send an replay exception

@@ -44,7 +44,7 @@ namespace ArcNum {
 class LinearSystem
 {
 public:
-  
+
   // TODO  refactor avec ArcNum::EquationSystem
   struct Block
   {
@@ -74,6 +74,17 @@ public:
   ~LinearSystem() {}
 
   LinearSystem& operator=(const LinearSystem& system);
+
+  void setNormalizeOpt(bool value) {
+    m_normalize_opt = value;
+  }
+
+  void setFirstRowSumOpt(bool value) {
+    m_first_row_sum_opt = value;
+  }
+  void setDiagScalingOpt(bool value) {
+    m_diag_scaling_opt = value;
+  }
 
 public:
 
@@ -113,9 +124,11 @@ private:
   void _prepareAlien();
 
 private:
-
-  Arcane::ITraceMng* m_trace;
-  Alien::ArcaneTools::Space*             m_alien_space;
+  bool m_normalize_opt                     = false ;
+  bool m_first_row_sum_opt                 = false ;
+  bool m_diag_scaling_opt                  = false ;
+  Arcane::ITraceMng* m_trace               = nullptr;
+  Alien::ArcaneTools::Space* m_alien_space = nullptr;
   std::shared_ptr<Alien::ArcaneTools::BasicIndexManager> m_alien_vector_index_manager;
   typedef Alien::ArcaneTools::IIndexManager::VectorIndexSet VectorIndexSet;
   VectorIndexSet m_alien_vector_index_set;
@@ -126,6 +139,7 @@ private:
   std::shared_ptr<Alien::BlockVector> m_alien_rhs;
   std::shared_ptr<Alien::BlockVector> m_alien_solution;
   std::shared_ptr<Alien::BlockMatrix> m_alien_matrix;
+  std::unique_ptr<Alien::BlockVector> m_matrix_diag;
 };
 
 /*---------------------------------------------------------------------------*/

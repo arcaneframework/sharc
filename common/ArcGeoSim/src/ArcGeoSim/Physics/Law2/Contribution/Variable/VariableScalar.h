@@ -21,7 +21,7 @@ BEGIN_AUDI_NAMESPACE
 
 class VariableScalar
     : public Law::ScalarT< Law::ScalarRefT<Law::ScalarRealProperty> >
-    , private ArcNum::audi::VariableScalar
+    , public ArcNum::audi::VariableScalar
 {
 public:
 

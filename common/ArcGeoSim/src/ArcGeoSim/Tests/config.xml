@@ -4,14 +4,15 @@
     <package name="arcane" />
     <package name="boost" />
   </needed-packages>
+  <files language="c++">
+    <file>ArcGeoSimTestsRegisterer</file>
+  </files>
   <files language="c++header">
     <file>IServiceValidator</file>
   </files>
   <directories>
     <directory>Utils</directory>
-    <directory>ServiceTestMng</directory>
     <directory>SyntheticServiceValidator</directory>
     <directory>FieldServiceValidator</directory>
-    <!--directory>ServiceTesters</directory-->
   </directories>
 </makefile>

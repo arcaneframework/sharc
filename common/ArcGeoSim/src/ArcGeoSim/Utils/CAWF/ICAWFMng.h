@@ -11,8 +11,7 @@
  *      Author: gratienj
  */
 
-#ifndef COMMON_ARCGEOSIM_SRC_ARCGEOSIM_UTILS_CAWF_ICAWFMNG_H_
-#define COMMON_ARCGEOSIM_SRC_ARCGEOSIM_UTILS_CAWF_ICAWFMNG_H_
+#pragma once
 
 #include <vector>
 
@@ -47,12 +46,24 @@ public:
 
     virtual void init() = 0 ;
     virtual void init(ICouplingMesh* mesh) = 0 ;
+
+    virtual void initMesh() = 0 ;
+    virtual void initMesh(Arcane::ConstArrayView<Int64> uids) = 0 ;
+
     virtual void initData() = 0 ;
+
+    virtual void start() = 0 ;
 
     virtual bool isAppLeader() = 0 ;
 
+#ifdef USE_PRECICE_V3
+    virtual void updateMesh() = 0 ;
+    virtual void updateMesh(ICouplingMesh* mesh) = 0 ;
+#endif
     virtual void setAppMeshFilter(Arcane::ConstArrayView<Int64> uids) = 0;
+#ifndef USE_PRECICE_V3
     virtual void activateMeshFilter(Arcane::String const& mesh_name,bool value) = 0;
+#endif
 
     virtual void update() = 0 ;
 
@@ -72,8 +83,8 @@ public:
 
     virtual void setTimeIterStateOp(ITimeIterStateOp* op) = 0 ;
 
+    virtual void setConvergence(bool values) = 0 ;
 };
 
 END_ARCGEOSIM_NAMESPACE
 
-#endif /* COMMON_ARCGEOSIM_SRC_ARCGEOSIM_UTILS_CAWF_ICAWFMNG_H_ */

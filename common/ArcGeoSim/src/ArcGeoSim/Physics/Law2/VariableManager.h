@@ -78,7 +78,7 @@ public:
   void disableVerbosity() { m_verbose = false; }
 
 #ifdef USE_ARCANE_V3
-  Arcane::IMesh* mesh() const { if (!m_mesh) m_mesh = m_mesh_handle.mesh(); }
+  Arcane::IMesh* mesh() const { if (!m_mesh) m_mesh = m_mesh_handle.mesh(); return m_mesh; }
 #else
   Arcane::IMesh* mesh() const { return m_mesh; }
 #endif
@@ -132,7 +132,7 @@ private:
 #endif
   Arcane::ITraceMng* m_trace;
 #ifdef USE_ARCANE_V3
-  Arcane::MeshHandle const& m_mesh_handle;
+  Arcane::MeshHandle m_mesh_handle;
 #endif
 
   bool m_verbose;

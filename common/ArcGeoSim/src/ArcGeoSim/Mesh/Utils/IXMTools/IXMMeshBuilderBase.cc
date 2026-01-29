@@ -33,6 +33,7 @@
 #else
 #include <arcane/utils/DualUniqueIdMng.h>
 #endif
+#include <arcane/IMeshPartitionConstraintMng.h>
 #include <arcane/ItemPrinter.h>
 #include <arcane/SerializeBuffer.h>
 
@@ -45,6 +46,7 @@
 //#include "ArcGeoSim/Mesh/Utils/IXMTools/IXMEvolutiveMeshBuilder.h"
 #include "ArcGeoSim/Mesh/Utils/IXMTools/IXMUidToLidMng.h"
 #include "ArcGeoSim/Mesh/Utils/IXMTools/IXMItemConnections.h"
+#include "ArcGeoSim/Mesh/MeshPartitioner/PartitionConstraints/ItemConnectionGroupPartitionConstraint.h"
 
 #include <memory>
 
@@ -123,6 +125,29 @@ evolutiveInit(Arcane::IPrimaryMesh * mesh)
   m_twin_faces = mesh->faceFamily()->createGroup("IXMEvolutiveMesh_twinFaces");
   m_updated_cells = mesh->cellFamily()->createGroup("IXMEvolutiveMesh_updatedCells");
   m_updated_nodes = mesh->nodeFamily()->createGroup("IXMEvolutiveMesh_updatedNodes");
+}
+
+/*---------------------------------------------------------------------------*/
+
+void
+ArcGeoSim::IXMMeshBuilderBase::
+applyMeshPartitionConstraints(Arcane::IPrimaryMesh * mesh)
+{
+  // add cell cell constraints geoxim dual medium approach
+  
+  // no graph no connections
+  if(m_graph==nullptr)
+    return;
+  // get cell cell connections group convention by name TiedCellCellConnections
+  ArcGeoSim::ItemConnectionMng item_connections(mesh, m_graph);
+  ArcGeoSim::ItemConnectionGroup cell_cell_connections = item_connections.findConnectionGroup("TiedCellCellConnections");
+  // add constraint if group exist
+  if(!cell_cell_connections.null() && !cell_cell_connections.empty())
+  {
+    ItemConnectionGroupPartitionConstraint* partition_constraint = new ItemConnectionGroupPartitionConstraint(m_graph, cell_cell_connections); // delete is handled by partition_constraint_mng
+    IMeshPartitionConstraintMng* partition_constraint_mng = mesh->partitionConstraintMng();
+    partition_constraint_mng->addConstraint(partition_constraint);
+  }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -228,6 +253,7 @@ groupChangeTypes(const Arcane::ItemGroup group)
 }
 
 /*---------------------------------------------------------------------------*/
+
 Arcane::ItemVector
 ArcGeoSim::IXMMeshBuilderBase::
 groupChanges(const ItemGroup group, EvolutiveMeshProperty::eGroupEvent event, const bool check)

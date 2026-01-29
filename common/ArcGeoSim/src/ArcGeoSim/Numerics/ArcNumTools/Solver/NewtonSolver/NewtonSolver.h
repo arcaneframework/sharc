@@ -45,6 +45,9 @@ public:
 
   // TODO : check what options will be used, remove everything else (XT)
   void setWithElimination(bool b) { m_with_elimination = b; }
+  void setWithNormalization(bool b) { m_with_normalization = b; }
+  void setWithFirstRowSum(bool b) { m_with_first_row_sum = b; }
+  void setWithDiagScaling(bool b) { m_with_diag_scaling = b; }
   void setIterationMax(Arcane::Integer b) { m_iteration_max = b; }
   void setRelativeTolerance(Arcane::Real b) { m_relative_tolerance = b; }
   void setTolerance(Arcane::Real b) { m_tolerance = b; }
@@ -110,18 +113,27 @@ private:
 
 private:
 
-  bool m_initialized;
+  bool m_initialized                            = false;
   
-  Alien::ILinearSolver* m_linear_solver;
-  bool m_with_elimination;
-  Arcane::Integer m_iteration_max;
-  Arcane::Real m_relative_tolerance;
-  Arcane::Real m_tolerance;
-  bool m_debug_dump_matlab;
-  bool m_debug_info_linear_solver;
-  bool m_debug_stat_linear_solver;
-  Arcane::Integer m_save_and_fatal_at_iteration;
-  Arcane::Integer m_dump_and_fatal_at_iteration;
+  Alien::ILinearSolver* m_linear_solver         = nullptr;
+  bool m_with_elimination                       = true;
+  bool m_with_normalization                     = false ;
+  bool m_with_first_row_sum                     = false ;
+  bool m_with_diag_scaling                      = false ;
+  Arcane::Integer m_iteration_max               = 0;
+  Arcane::Real m_relative_tolerance             = 0.;
+  Arcane::Real m_tolerance                      = 0.;
+  bool m_debug_dump_matlab                      = false;
+  bool m_debug_info_linear_solver               = false;
+  bool m_debug_stat_linear_solver               = false;
+  Arcane::Integer m_save_and_fatal_at_iteration = -1;
+  Arcane::Integer m_dump_and_fatal_at_iteration = -1;
+
+  // Nombre d'appel au solveur
+  Arcane::Integer m_nb_call                     = 0;
+
+  // En cours de resolution
+  bool m_is_solving                             = false;
 
   // Systeme lineaire
   LinearSystem m_linear_system;
@@ -131,12 +143,6 @@ private:
 
   // Systeme non lineaire
   std::shared_ptr<ArcNum::INonLinearSystem> m_non_linear_system;
-
-  // Nombre d'appel au solveur
-  Arcane::Integer m_nb_call;
-
-  // En cours de resolution
-  bool m_is_solving;
 
   // Newton solver
   Algorithm::Newton<NewtonSolver> m_newton;

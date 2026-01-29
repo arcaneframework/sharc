@@ -3,9 +3,6 @@
   <needed-packages>
     <package name="arcane" />
   </needed-packages>
-  <files language="c++">
-    <file>ColumnPartitionConstraint</file>
-  </files>
   <files language="c++header">
     <file>IInitialPartitionerCreator</file>
   </files>

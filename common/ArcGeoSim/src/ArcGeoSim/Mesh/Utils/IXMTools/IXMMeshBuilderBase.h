@@ -82,6 +82,9 @@ public:
   //! Ajout des connections
   void addConnections(Arcane::IPrimaryMesh* mesh, const IXMConnectionData& connection_data, IXMUidToLidMng& uid2lid_mng);
 
+  //! Ajout de contraintes sur le partionneur
+  void applyMeshPartitionConstraints(Arcane::IPrimaryMesh * mesh);
+
   //! Groupe des cellules en cours de suppression
   Arcane::CellGroup toRemoveCells();
 

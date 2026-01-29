@@ -41,8 +41,8 @@ public:
   , AuDiBase(bi.offsets().constView())
   {
     auto const& property = bi.property() ;
-    auto const& accessor = bi.variableMng().template variables<K>() ;
-    AuDiBase::setValues(accessor.values(property)) ;
+    auto const& accessor = bi.variableMng().template partialVariables<K>() ;
+    AuDiBase::setValues(&(accessor.values(property))) ;
     if(accessor.hasDerivatives(property))
       AuDiBase::setDerivValues(&(accessor.derivatives(property))) ;
   }

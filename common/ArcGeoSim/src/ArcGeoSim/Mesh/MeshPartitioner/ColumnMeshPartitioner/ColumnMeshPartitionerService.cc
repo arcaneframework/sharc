@@ -17,7 +17,7 @@
 #include <arcane/ArcaneVersion.h>
 #include <arcane/IInitialPartitioner.h>
 #include <ArcGeoSim/Mesh/MeshPartitioner/ColumnMeshPartitioner/IInitialPartitionerCreator.h>
-#include <ArcGeoSim/Mesh/MeshPartitioner/ColumnMeshPartitioner/ColumnPartitionConstraint.h>
+#include <ArcGeoSim/Mesh/MeshPartitioner/PartitionConstraints/ItemConnectionGroupPartitionConstraint.h>
 
 #include <arcane/IMesh.h>
 #include <arcane/IMeshPartitioner.h>
@@ -255,10 +255,10 @@ _readConnection(Arcane::IMesh* meshixm)
 {
 #if (ARCANE_VERSION >= 30003)
   ArcGeoSim::ItemConnectionMng item_connection_mng(meshixm,graph);
-  m_constraint.add(new ColumnPartitionConstraint(meshixm,graph,item_connection_mng.allConnections()));
+  m_constraint.add(new ItemConnectionGroupPartitionConstraint(graph, item_connection_mng.allConnections()));
 #else
   ArcGeoSim::ItemConnectionMng item_connection_mng(meshixm);
-  m_constraint.add(new ColumnPartitionConstraint(meshixm,item_connection_mng.allConnections()));
+  m_constraint.add(new ItemConnectionGroupPartitionConstraint(item_connection_mng.allConnections()));
 #endif
 
   Arcane::IMeshPartitionConstraintMng * partition_constraint_mng = meshixm->partitionConstraintMng();

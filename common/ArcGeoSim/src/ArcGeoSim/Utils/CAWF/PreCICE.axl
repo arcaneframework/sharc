@@ -57,6 +57,10 @@ potential of this powerful coupling environment.</description>
       <description>This flag is used to handle evolutive mesh or mesh based on the geometry of wells.</description>
     </simple>
     
+    <simple name="read-then-write" type="bool" default="true">
+      <description>This flag is used to handle if precice is first read then write messages or the inverse</description>
+    </simple>
+    
     <simple name="max-iter" type="integer" default="0">
       <description>This parameter sets the maximum number of coupling iterations allowed.</description>
     </simple>
@@ -98,6 +102,26 @@ potential of this powerful coupling environment.</description>
         </enumvalue>
       </enumeration>
     </complex>
+    
+    <complex name="app-conv-crit" type="Convergence" minOccurs="0" maxOccurs="unbounded">
+      <description>Convergence criteria</description>
+      <simple name="max-iter" type="integer" default="0">
+        <description>This parameter sets the maximum number of coupling iterations allowed.</description>
+      </simple>
+      <simple name="suffice" type="bool" default="true">
+        <description>This parameter sets the maximum number of coupling iterations allowed.</description>
+      </simple>
+      <simple name="strict" type="bool" default="false">
+        <description>This parameter sets the maximum number of coupling iterations allowed.</description>
+      </simple>
+      <simple name="mesh-name" type="string">
+          <description>This is the mesh name used in the preCICE configuration file.</description>
+      </simple>
+      <simple name="data-name" type="string">
+          <description>This is the data name used in the preCICE configuration file.</description>
+      </simple>
+    </complex>
+    
     
    </options>
 </service>

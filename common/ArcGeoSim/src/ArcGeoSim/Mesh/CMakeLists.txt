@@ -16,7 +16,7 @@ endif()
 commit(ArcGeoSim_mesh DESTINATION Mesh)
 
 if (ARCGEOSIM_EXPORT_TARGET)
-    target_link_libraries(arcgeosim_full INTERFACE ArcGeoSim_mesh)
+    target_link_libraries(arcgeosim INTERFACE ArcGeoSim_mesh)
     add_library(ArcGeoSim::ArcGeoSim_mesh ALIAS ArcGeoSim_mesh)
 endif()
 

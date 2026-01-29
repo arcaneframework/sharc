@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(ShArc VERSION 0.1)
+project(ShArc VERSION 2026.1.1.0)
 
 # pour faciliter l'appel de l'outillage
 
@@ -37,9 +37,9 @@ set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR}/common)
 #endif ()
 # chargement du système de compilation
 include(LoadArcGeoSim)
-  
+
 # ici on met les packages, langages, metas, options...
-  
+
 # activation des strong options (uniquement avec le nouveau systeme de compilation)
 loadMeta(NAME strong_options)
 loadMeta(NAME alien20)
@@ -58,14 +58,16 @@ logStatus("Loading ArcGeoSim components...")
 
 logStatus("Loading ArcGeoSim components...")
 
-#loadPackage(NAME ArcGeoSim) 
+#loadPackage(NAME ArcGeoSim)
 if(ArcGeoSim_FOUND)
   message(status "TARGET ARCGEOSIM_FULL FOUND")
 else()
   message(status "COMPILE ARCGEOSIM TARGET")
 
   set(common/ArcGeoSim/src/ArcGeoSim/Mesh/AccessorToolsMng ON)
-  
+
+  add_subdirectory(common/ArcGeoSim)
+
   add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Appli)
   add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Utils)
   add_subdirectory(common/ArcGeoSim/src/ArcGeoSim/Time)

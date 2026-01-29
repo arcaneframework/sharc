@@ -14,7 +14,6 @@
 #ifndef ARCGEOSIM_PERFCOUNTERMNG_H_
 #define ARCGEOSIM_PERFCOUNTERMNG_H_
 
-#include <boost/timer.hpp>
 #include <map>
 #include <iostream>
 #include <iomanip>

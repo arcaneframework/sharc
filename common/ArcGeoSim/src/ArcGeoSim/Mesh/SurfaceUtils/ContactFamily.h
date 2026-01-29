@@ -444,6 +444,7 @@ public:
 #endif
 };
 
+
 /*---------------------------------------------------------------------------*/
 
 #endif /* ARCGEOSIM_ARCGEOSIM_SURFACEUTILS_CONTACTFAMILY_H */

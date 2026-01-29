@@ -3,6 +3,15 @@ GumpExample::raphael.gayno
 TwoPhaseFlowSimulation::raphael.gayno
 TwoPhaseFlowSimulationWPC::raphael.gayno
 TwoPhaseFlowSimulationSPE10::soleiman.yousef
+TwoPhaseFlowSimulationSPE10::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-bcgs-ilu0::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-bcgs-cpr::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-petsc-bcgs-ilu0::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-hypre-bcgs-ilu0::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-tri-bcgs-ilu0::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-hts-bcgs-ilu0::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-ifps-bcgs-ilu0::jean-marc.gratien
+TwoPhaseFlowSimulationSPE10-ifps-bcgs-cpr::jean-marc.gratien
 TwoPhaseFlowSimulationSPE10Well::soleiman.yousef
 ExaDiBench-cube3D::jean-marc.gratien
 ExaDiBench-spe11c::jean-marc.gratien

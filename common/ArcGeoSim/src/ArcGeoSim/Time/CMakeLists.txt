@@ -10,7 +10,7 @@ linkLibraries(ArcGeoSim_time
 commit(ArcGeoSim_time DESTINATION Time)
 
 if (ARCGEOSIM_EXPORT_TARGET)
-    target_link_libraries(arcgeosim_full INTERFACE ArcGeoSim_time)
+    target_link_libraries(arcgeosim INTERFACE ArcGeoSim_time)
     add_library(ArcGeoSim::ArcGeoSim_time ALIAS ArcGeoSim_time)
 endif()
 
