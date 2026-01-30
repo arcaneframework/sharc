@@ -84,17 +84,14 @@
         <tolerance>1.e-8</tolerance>
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
-
-        <linear-solver name="AlienCoreSolver">
-          <backend>SimpleCSR</backend>
-          <solver>BCGS</solver>
-          <preconditioner>ILU0</preconditioner>
-          <max-iter>1000</max-iter>
-          <tol>1.e-8</tol>
-          <output-level>0</output-level>
+         <linear-solver name="MCGSolver">
+          <kernel>CPU_AVX_BCSR</kernel>
+          <max-iteration-num>1000</max-iteration-num>
+          <stop-criteria-value>1e-8</stop-criteria-value>
+          <preconditioner>ILUk</preconditioner>
+          <output>0</output>
         </linear-solver>
       </newton>
-
     </numerics>
     <boundary-condition name="DirichletManager">
         <boundary>

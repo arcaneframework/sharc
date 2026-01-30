@@ -87,32 +87,11 @@
         <debug-dump-matlab>false</debug-dump-matlab>
         <linear-solver name="HypreSolver">
           <num-iterations-max>1000</num-iterations-max>
-          <stop-criteria-value>1e-3</stop-criteria-value>
+          <stop-criteria-value>1e-8</stop-criteria-value>
           <solver>BiCGStab</solver>
           <preconditioner>Euclid</preconditioner>
           <verbose>true</verbose>
         </linear-solver>
-         <!--linear-solver name="PETScSolver">
-	  <solver name="LU" />
-          <verbose>low</verbose>
-        </linear-solver-->
-        <!--linear-solver name="AlienCoreSolver">
-          <backend>SimpleCSR</backend>
-          <solver>BCGS</solver>
-          <preconditioner>ILU0</preconditioner>
-          <max-iter>1000</max-iter>
-          <tol>1.e-8</tol>
-          <output-level>0</output-level>
-        </linear-solver-->
-        <!--linear-solver name="HypreSolver">
-          <exec-space>Host</exec-space>
-          <memory-type>Host</memory-type>
-          <solver>BiCGStab</solver>
-          <num-iterations-max>1000</num-iterations-max>
-          <stop-criteria-value>1e-8</stop-criteria-value>
-          <preconditioner>BJ-ILUK</preconditioner>
-          <verbose>true</verbose>
-        </linear-solver-->
       </newton>
     </numerics>
     <boundary-condition name="DirichletManager">

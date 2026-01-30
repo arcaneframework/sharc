@@ -92,7 +92,7 @@
           <max-iteration-num>1000</max-iteration-num>
           <stop-criteria-value>1e-8</stop-criteria-value>
           <preconditioner>CprAMG</preconditioner>
-          <output>1</output>
+          <output>0</output>
           <nb-subpart>1</nb-subpart>
         </linear-solver>
 
