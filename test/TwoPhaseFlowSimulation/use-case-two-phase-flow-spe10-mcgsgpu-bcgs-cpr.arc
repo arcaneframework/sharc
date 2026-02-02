@@ -85,7 +85,8 @@
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
          <linear-solver name="MCGSolver">
-          <output>0</output>
+          <output>3</output>
+          <rowsum>true</rowsum>
           <kernel>GPU_CUBLAS_BCSP</kernel>
           <max-iteration-num>1000</max-iteration-num>
           <stop-criteria-value>1e-8</stop-criteria-value>
