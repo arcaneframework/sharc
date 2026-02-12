@@ -19,10 +19,10 @@
     <time-manager name="TimeLine">
       <verbose>true</verbose>
       <init-time>0.</init-time>
-      <end-time>86400e3</end-time> <!--1000 days-->
-      <init-time-step>86400</init-time-step> <!-- 1 day -->
-      <min-time-step>86400e-1</min-time-step><!-- 0.1 day --> 
-      <max-time-step>43200e1</max-time-step><!-- 5 days --> 
+      <end-time>86400e2</end-time> <!--100 days-->
+      <init-time-step>4320</init-time-step>
+      <min-time-step>4320e-1</min-time-step>
+      <max-time-step>21600</max-time-step>
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
