@@ -254,6 +254,10 @@ newtonBeforeSolve(Arcane::Integer iteration)
 {
   ARCANE_ASSERT((m_initialized),("Newton solver not initialized"));
 
+  if(iteration == 1) {
+    m_linear_solver->startNonLinear();
+  }
+
   if(m_debug_dump_matlab) {
     info()<<"write files DebugNewton Vector and Matrix "<<m_nb_call<<"_"<<iteration<<".txt";
     std::ostringstream oss;
