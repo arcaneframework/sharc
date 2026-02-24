@@ -23,6 +23,7 @@
   
   <files language="c++header">
     <file>ArcGeoSim</file>
+    <file>ArcGeoSimVersion</file>
     <file>ArrayUtils</file>
     <file>CountStampMng</file>
     <file>DataTypeUtils</file>

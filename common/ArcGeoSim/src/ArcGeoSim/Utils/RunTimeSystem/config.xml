@@ -6,7 +6,7 @@
     <package name="tbb" />
     <package name="hwloc" />
     <package name="extraboost" />
-    <package name="alien" />
+    <!--package name="alien" /-->
   </needed-packages>
   
   <files language="c++">
