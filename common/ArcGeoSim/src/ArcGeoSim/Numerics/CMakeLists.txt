@@ -3,25 +3,24 @@ createLibrary(ArcGeoSim_numerics)
 generateCMakeLists(ArcGeoSim_numerics)
 
 # pour windows
-linkLibraries(ArcGeoSim_numerics  
-  ArcGeoSim_appli 
-  ArcGeoSim_utils 
+linkLibraries(ArcGeoSim_numerics
+  ArcGeoSim_appli
+  ArcGeoSim_utils
   ArcGeoSim_mesh
-  #ArcGeoSim_physics
   )
 
 if(TARGET intel)
-  linkLibraries(ArcGeoSim_numerics  
-    intel
-    )
+  linkLibraries(ArcGeoSim_numerics intel)
 endif()
 
 if(TARGET fftw3)
-  linkLibraries(ArcGeoSim_numerics  
-    fftw3
-    )
+  linkLibraries(ArcGeoSim_numerics fftw3)
 endif()
-  
+
+if(TARGET alien)
+  linkLibraries(ArcGeoSim_numerics alien)
+endif()
+
 commit(ArcGeoSim_numerics DESTINATION Numerics)
 
 if (ARCGEOSIM_EXPORT_TARGET)
