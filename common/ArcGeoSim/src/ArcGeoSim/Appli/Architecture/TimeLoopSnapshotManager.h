@@ -62,6 +62,8 @@ private:
 
   std::map<Arcane::IVariable*, Arcane::VariableRef*> m_clones;
 
+  Arcane::String m_snapshot_prefix;
+
   std::set<Arcane::VariableRef*> m_to_delete;
 
   Arcane::VariableScalarReal m_time;
