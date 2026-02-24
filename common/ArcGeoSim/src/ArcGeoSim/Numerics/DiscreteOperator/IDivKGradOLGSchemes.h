@@ -1617,7 +1617,7 @@ _compute_weak_cell_gradient(const Node & node,
 		FaceNum & face_local = NumLocfacesbyCell[iK];
 		Integer nbfaceK =  face_local.size();
 
-		Array<Real> dK_sigma(nbfaceK);
+		UniqueArray<Real> dK_sigma(nbfaceK);
 		const Real3 & xK = (*this->m_c_centers)[K];
 
 		for (Integer iF = 0 ; iF < nbfaceK ; iF++) {

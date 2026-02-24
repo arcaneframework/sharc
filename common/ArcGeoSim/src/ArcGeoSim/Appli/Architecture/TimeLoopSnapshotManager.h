@@ -28,7 +28,7 @@ class TimeLoopSnapshotManager
 {
 public:
   
-  TimeLoopSnapshotManager(Arcane::ISubDomain* sd);
+  TimeLoopSnapshotManager(Arcane::ISubDomain* sd, Arcane::String snapshot_prefix="TimeLoopSnapshot_");
   
   virtual ~TimeLoopSnapshotManager();
   

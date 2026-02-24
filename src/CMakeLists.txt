@@ -8,8 +8,8 @@ linkLibraries(ShArc arcres)
 
 # pour windows
 linkLibraries(ShArc
-  ArcGeoSim_physics
-  ArcGeoSim_tests
+  ArcGeoSim::ArcGeoSim_physics
+  ArcGeoSim::ArcGeoSim_tests
   )
 
 commit(ShArc)

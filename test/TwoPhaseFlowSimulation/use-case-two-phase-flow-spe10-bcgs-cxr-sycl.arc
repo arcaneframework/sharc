@@ -91,24 +91,24 @@
 	  <solver name="LU" />
           <verbose>low</verbose>
         </linear-solver-->
-        <linear-solver name="AlienCoreSolver">
-          <backend>SimpleCSR</backend>
+        <linear-solver name="AlienCoreSYCLSolver">
+          <backend>SYCL</backend>
           <solver>BCGS</solver>
           <preconditioner>CxrAMG</preconditioner>
-          <relax-solver>ILU0</relax-solver>
+          <relax-solver>FILU0</relax-solver>
           <amg-solver name="HypreSolver">
-            <exec-space>Host</exec-space>
-            <memory-type>Host</memory-type>
+            <exec-space>Device</exec-space>
+            <memory-type>Device</memory-type>
             <solver>AMG</solver>
             <preconditioner>None</preconditioner>
             <num-iterations-max>1</num-iterations-max>
             <stop-criteria-value>1e-8</stop-criteria-value>
             <verbose>true</verbose>
-            <output-level>1</output-level>
+            <output-level>2</output-level>
           </amg-solver>
           <max-iter>1000</max-iter>
           <tol>1.e-8</tol>
-          <output-level>1</output-level>
+          <output-level>3</output-level>
         </linear-solver>
       </newton>
     </numerics>

@@ -221,8 +221,8 @@ public:
       m_data.m_alien_builder(m_data.m_i, b) += Alien::view(m_data.m_values_2d);
       /*
       std::cout<<"MATRIX FVADD+("<<m_data.m_i<<","<<b<<"):";
-      for(int ii=0;ii<3;++ii)
-        for(int jj=0;jj<3;++jj)
+      for(int ii=0;ii<size_b;++ii)
+        for(int jj=0;jj<size_b;++jj)
           std::cout<<m_data.m_values_2d[ii][jj]<<",";
       std::cout<<std::endl ;
       */
@@ -242,8 +242,8 @@ public:
       m_data.m_alien_builder(m_data.m_i, f) += Alien::view(m_data.m_values_2d);
       /*
       std::cout<<"MATRIX FVADD+("<<m_data.m_i<<","<<f<<"):";
-      for(int ii=0;ii<3;++ii)
-        for(int jj=0;jj<3;++jj)
+      for(int ii=0;ii<size_f;++ii)
+        for(int jj=0;jj<size_f;++jj)
           std::cout<<m_data.m_values_2d[ii][jj]<<",";
       std::cout<<std::endl ;
       */
@@ -300,8 +300,8 @@ public:
       m_data.m_alien_builder(m_data.m_i, b) += Alien::view(m_data.m_values_2d);
       /*
       std::cout<<"MATRIX ADD-("<<m_data.m_i<<","<<b<<"):";
-      for(int ii=0;ii<3;++ii)
-        for(int jj=0;jj<3;++jj)
+      for(int ii=0;ii<size_b;++ii)
+        for(int jj=0;jj<size_b;++jj)
           std::cout<<m_data.m_values_2d[ii][jj]<<",";
       std::cout<<std::endl ;
       */
@@ -321,8 +321,8 @@ public:
       m_data.m_alien_builder(m_data.m_i, f) += Alien::view(m_data.m_values_2d);
       /*
       std::cout<<"MATRIX ADD-("<<m_data.m_i<<","<<f<<"):";
-      for(int ii=0;ii<3;++ii)
-        for(int jj=0;jj<3;++jj)
+      for(int ii=0;ii<size_f;++ii)
+        for(int jj=0;jj<size_f;++jj)
           std::cout<<m_data.m_values_2d[ii][jj]<<",";
       std::cout<<std::endl ;
       */
@@ -393,6 +393,7 @@ public:
       ::audi::unpack(_cache_derivatives, values);
 
       for(m_stencil -> begin(); not m_stencil -> end() ; m_stencil -> next()) {
+        Alien::fill(m_data.m_values_2d, 0.);
         const auto& lawCell(m_stencil -> cell()) ;
         Arcane::RealArrayView current_row = get_row(lawCell);
         const Arcane::Integer current_size = current_row.size();
@@ -402,6 +403,10 @@ public:
         for(Arcane::Integer k = 0; k < current_size; ++k) {
           current_row[k] += contrib[k];
         }
+        // houps dev alien to do!
+        const auto cellLId(lawCell.cell().localId()) ;
+        const Arcane::Integer j = m_data.m_all_indexes[cellLId][0]/m_data.m_blk_size;
+        m_data.m_alien_builder(m_data.m_i, j) += Alien::view(m_data.m_values_2d);
       }
     }
 
@@ -414,6 +419,7 @@ public:
       ::audi::unpack(_cache_derivatives, values);
 
       for(m_stencil -> begin() ; not m_stencil -> end() ; m_stencil -> next()) {
+        Alien::fill(m_data.m_values_2d, 0.);
         const auto& lawCell(m_stencil -> cell()) ;
         Arcane::RealArrayView current_row = get_row(lawCell);
         const Arcane::Integer current_size = current_row.size();
@@ -423,6 +429,10 @@ public:
         for(Arcane::Integer k = 0; k < current_size; ++k) {
           current_row[k] -= contrib[k];
         }
+        // houps dev alien to do!
+        const auto cellLId(lawCell.cell().localId()) ;
+        const Arcane::Integer j = m_data.m_all_indexes[cellLId][0]/m_data.m_blk_size;
+        m_data.m_alien_builder(m_data.m_i, j) += Alien::view(m_data.m_values_2d);
       }
     }
 

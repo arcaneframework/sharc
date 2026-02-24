@@ -59,7 +59,7 @@ using namespace phoenix;
 
 /****************************************************************/
 
-struct FunctionParserData
+struct ARCGEOSIM_NUMERICS_EXPORT FunctionParserData
 {
   // Structure pour stocker les elements de type var
 
@@ -765,7 +765,7 @@ struct global_closure
 /****************************************************************/
 
 // Definition de la grammaire
-struct FunctionParser :
+struct ARCGEOSIM_NUMERICS_EXPORT FunctionParser :
   public grammar<FunctionParser, global_closure::context_t>, FunctionParserData
 {
   FunctionParser()

@@ -4,7 +4,7 @@
 
     <needed-packages>
         <package name="arcane" />
-        <package name="alien" optional='true'/>
+        <!--package name="alien" optional='true'/-->
     </needed-packages>
 
     <files language="service">

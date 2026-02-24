@@ -10,10 +10,11 @@
 /*---------------------------------------------------------------------------*/
 
 ArcGeoSim::TimeLoopSnapshotManager::
-TimeLoopSnapshotManager(Arcane::ISubDomain* sd)
+TimeLoopSnapshotManager(Arcane::ISubDomain* sd, Arcane::String snapshot_prefix)
   : Arcane::TraceAccessor(sd->traceMng())
   , m_verbosity(false)
   , m_sub_domain(sd)
+  , m_snapshot_prefix(snapshot_prefix)
   , m_time(Arcane::VariableBuildInfo(sd,"GlobalTime"))
   , m_time_n(Arcane::VariableBuildInfo(sd,"GlobalOldTime"))
   , m_final_time(Arcane::VariableBuildInfo(sd,"GlobalFinalTime"))
@@ -34,12 +35,12 @@ ArcGeoSim::TimeLoopSnapshotManager::
 }
 
 /*---------------------------------------------------------------------------*/
-  
-Arcane::String 
+
+Arcane::String
 ArcGeoSim::TimeLoopSnapshotManager::
 _ownNamingRule(Arcane::String name) const
 {
-  return "TimeLoopSnapshot_" + name;
+  return m_snapshot_prefix + name;
 }
 
 /*---------------------------------------------------------------------------*/
