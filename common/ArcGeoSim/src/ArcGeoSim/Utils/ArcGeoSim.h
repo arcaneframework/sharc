@@ -10,16 +10,12 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 /*
- *   Fichier � inclure pour l'utilisation des outils d'ArcGeoSim
+ *   ArcGeoSim utils header
  *   
- *   Il convient de proscrire les "using namespace" des headers
- *   pour �vtier les conflits d'ambiguit�s. Dans ce fichier, les
- *   exceptions pour les types sont propos�es.
  */
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-// Includes arcane d�finissant les types natifs arcane
 #include <arcane/ArcaneVersion.h>
 #include <arcane/utils/ArcanePrecomp.h>
 #include <arcane/utils/ArcaneGlobal.h>
@@ -32,11 +28,15 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-// Proxy des variables Arcane pour dimensions sup�rieures
 #include "ArcGeoSim/Utils/ContainerProxy/MeshVariableArray2Proxy.h"
 #include "ArcGeoSim/Utils/ContainerProxy/MeshPartialVariableArray2Proxy.h"
 #include "ArcGeoSim/Utils/ContainerProxy/VariableRefArray3Proxy.h"
 #include "ArcGeoSim/Utils/ContainerProxy/Array3Proxy.h"
+#include "ArcGeoSim/Utils/ArcGeoSimVersion.h"
+
+// Temporary to know if ArcGeoSimVersion.h exists and can be included.
+// Can be removed when ArcGeoSim 2026.1.1 is installed
+#define ARCGEOSIM_HAS_VERSION
 
 namespace ArcGeoSim
 {
@@ -60,7 +60,6 @@ namespace ArcGeoSim {
   namespace Numerics {}
 }
 
-// Macros utiles pour la d�finition des namespaces
 #define BEGIN_ARCGEOSIM_NAMESPACE namespace ArcGeoSim {
 #define END_ARCGEOSIM_NAMESPACE }
 #define BEGIN_MESH_NAMESPACE namespace Mesh {
@@ -126,7 +125,6 @@ ARRAY_MACRO(ConstArray2View);
  
 #undef ARRAY_MACRO
 
-// Types donn�es de maillage
 using Arcane::Item;
 using Arcane::Cell;
 using Arcane::Edge;

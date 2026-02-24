@@ -13,7 +13,7 @@
     <directory>NonLinearSolver</directory>
     <directory>Expressions</directory>
     <directory>BCs</directory>
-    <directory depend="!win32">ExpressionParser</directory>
+    <!--directory depend="!win32">ExpressionParser</directory-->
     <directory>GroupCreator</directory>
     <directory>NumericalScheme</directory>
     <directory depend="alien1">AlienTools</directory>
