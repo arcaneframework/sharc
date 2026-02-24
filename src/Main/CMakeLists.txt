@@ -12,15 +12,11 @@ linkLibraries(ShArc.exe
   ArcGeoSim::ArcGeoSim_physics
   ArcGeoSim::ArcGeoSim_tests
   )
-#if(TARGET ArcGeoSim_alientools)
-#linkLibraries(ShArc.exe
-#              ArcGeoSim_alientools
-#             )
-#endif()
+if(TARGET alien)
+  linkLibraries(ShArc.exe alien)
+endif()
 if(TARGET intel)
-  linkLibraries(ShArc.exe
-    intel
-    )
+  linkLibraries(ShArc.exe intel)
 endif()
 
 commit(ShArc.exe)
