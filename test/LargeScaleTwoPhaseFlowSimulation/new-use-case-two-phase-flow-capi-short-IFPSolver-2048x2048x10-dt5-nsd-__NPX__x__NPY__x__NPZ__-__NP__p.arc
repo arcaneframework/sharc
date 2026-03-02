@@ -111,18 +111,6 @@
         <debug-dump-matlab>false</debug-dump-matlab>
         <debug-stat-linear-solver>true</debug-stat-linear-solver>
 
-        <!--linear-solver name="MCGSolver">
-          <output>1</output>
-          <max-iteration-num>1000</max-iteration-num>
-          <stop-criteria-value>1e-8</stop-criteria-value>
-          <kernel>CPU_CBLAS_BCSR</kernel>
-          <preconditioner>CprAmg</preconditioner>
-          <CprAmg>
-            <relax-solver>ILUk</relax-solver>
-          </CprAmg>
-         <sp-prec>true</sp-prec>
-        </linear-solver-->
-
         <linear-solver name="IFPSolver">
           <output>1</output>
           <verbose>true</verbose>
