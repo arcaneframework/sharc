@@ -12,9 +12,9 @@ TwoPhaseFlowSimulationSPE10-tri-bcgs-ilu0::jean-marc.gratien
 TwoPhaseFlowSimulationSPE10-hts-bcgs-ilu0::jean-marc.gratien
 TwoPhaseFlowSimulationSPE10-ifps-bcgs-ilu0::jean-marc.gratien
 TwoPhaseFlowSimulationSPE10-ifps-bcgs-cpr::jean-marc.gratien
-TwoPhaseFlowSimulationSPE10-ifps-mcgs-ilu0::thomas.guignon
-TwoPhaseFlowSimulationSPE10-ifps-mcgs-cpr::thomas.guignon
-TwoPhaseFlowSimulationSPE10-ifps-mcgsgpu-cpr::thomas.guignon
+TwoPhaseFlowSimulationSPE10-mcgs-bcgs-ilu0::thomas.guignon
+TwoPhaseFlowSimulationSPE10-mcgs-bcgs-cpr::thomas.guignon
+TwoPhaseFlowSimulationSPE10-mcgsgpu-bcgs-cpr::thomas.guignon
 TwoPhaseFlowSimulationSPE10Well::soleiman.yousef
 ExaDiBench-cube3D::jean-marc.gratien
 ExaDiBench-spe11c::jean-marc.gratien

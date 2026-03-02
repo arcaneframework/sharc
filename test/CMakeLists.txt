@@ -94,13 +94,13 @@ if(TARGET mcgsolver)
         use-case-two-phase-flow-spe10-mcgs-bcgs-ilu0.arc
         600)
 
-  ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgs-bcsgs-cpr
+  ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgs-bcgs-cpr
         ShArc
         test/TwoPhaseFlowSimulation
         use-case-two-phase-flow-spe10-mcgs-bcgs-cpr.arc
         600)
 
-  ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgsgpu-bcsgs-cpr
+  ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgsgpu-bcgs-cpr
         ShArc
         test/TwoPhaseFlowSimulation
         use-case-two-phase-flow-spe10-mcgsgpu-bcgs-cpr.arc
