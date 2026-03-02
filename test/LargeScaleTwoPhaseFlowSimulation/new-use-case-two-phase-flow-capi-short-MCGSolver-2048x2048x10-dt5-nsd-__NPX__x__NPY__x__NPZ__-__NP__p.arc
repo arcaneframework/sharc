@@ -8,8 +8,8 @@
           <face-numbering-version>4</face-numbering-version>
            <origine>0 0 -100</origine>
            <nsd>__NPX__ __NPY__ __NPZ__</nsd>
-           <lx nx="128">1000</lx>
-           <ly ny="128">1000</ly>
+           <lx nx="2048">20000</lx>
+           <ly ny="2048">20000</ly>
            <lz nz="10">100</lz>
         </cartesian>
     </meshgenerator>
@@ -19,10 +19,10 @@
     <time-manager name="TimeLine">
       <verbose>true</verbose>
       <init-time>0.</init-time>
-      <end-time>86400e2</end-time> <!--100 days-->
-      <init-time-step>4320</init-time-step>
-      <min-time-step>4320e-1</min-time-step>
-      <max-time-step>21600</max-time-step>
+      <end-time>86400e3</end-time> <!--1000 days-->
+      <init-time-step>86400</init-time-step> <!-- 1 day -->
+      <min-time-step>86400e-1</min-time-step><!-- 0.1 day --> 
+      <max-time-step>43200e1</max-time-step><!-- 5 days --> 
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
@@ -99,7 +99,7 @@
       <facegroup>
         <name>XMAX</name>
         <area>GC_allBoundaryFaces</area>
-        <filter>h(x-1000)</filter>
+        <filter>h(x-20000)</filter>
       </facegroup>
     </group-creator>
     <numerics>
@@ -111,14 +111,17 @@
         <debug-dump-matlab>false</debug-dump-matlab>
         <debug-stat-linear-solver>true</debug-stat-linear-solver>
 
-        <linear-solver name="IFPSolver">
+        <linear-solver name="MCGSolver">
           <output>1</output>
-          <verbose>true</verbose>
-          <num-iterations-max>1000</num-iterations-max>
+          <rowsum>true</rowsum>
+          <max-iteration-num>1000</max-iteration-num>
           <stop-criteria-value>1e-8</stop-criteria-value>
-          <precond-option>CprAmg</precond-option>
-          <ilu0-algo>BlockJacobi</ilu0-algo> 
-        </linear-solver> 
+          <kernel>CPU_CBLAS_BCSR</kernel>
+          <preconditioner>CprAmg</preconditioner>
+          <CprAmg>
+            <relax-solver>ILUk</relax-solver>
+          </CprAmg>
+        </linear-solver>
 
       </newton>
     </numerics>
@@ -181,7 +184,7 @@
      <initial-condition name="Expression">
       <property>[SubSystem]Fluid::Permeability</property>
       <condition name="ExpressionBuilderR3vR1">
-       <expression>(x,y,z)->exp(-30+3*sin(2*pi*x/1000)*sin(8*pi*y/1000)+y/1000)</expression>
+       <expression>(x,y,z)->exp(-30+3*sin(2*pi*x/20000)*sin(8*pi*y/20000)+y/20000)</expression>
        <constant>
         <name>pi</name>
         <value>3.14</value>
