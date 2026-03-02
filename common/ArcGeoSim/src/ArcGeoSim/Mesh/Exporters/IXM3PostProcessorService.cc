@@ -62,7 +62,7 @@ public:
   void setBaseDirectoryName(const String& dirname);
 
   //! Nom du r�pertoire de sortie des fichiers.
-  const String& baseDirectoryName() {return PostProcessorWriterBase::baseDirectoryName();}
+  String baseDirectoryName() {return PostProcessorWriterBase::baseDirectoryName();}
 
   /*!
    * \brief Positionne le nom du fichier contenant les sorties
@@ -70,7 +70,7 @@ public:
   void setBaseFileName(const String& filename) {PostProcessorWriterBase::setBaseFileName(filename);}
 
   //! Nom du fichier contenant les sorties.
-  const String& baseFileName() {return PostProcessorWriterBase::baseFileName();}
+  String baseFileName() {return PostProcessorWriterBase::baseFileName();}
 
   //! Set mesh
   void setMesh(IMesh * mesh) {m_mesh = mesh; m_mesh_set = true;}
