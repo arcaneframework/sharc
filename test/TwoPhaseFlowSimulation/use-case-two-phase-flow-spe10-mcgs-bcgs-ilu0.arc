@@ -86,7 +86,7 @@
         <debug-dump-matlab>false</debug-dump-matlab>
          <linear-solver name="MCGSolver">
           <output>3</output>
-          <kernel>CPU_AVX_BCSR</kernel>
+          <kernel>CPU_CBLAS_BCSR</kernel>
           <max-iteration-num>1000</max-iteration-num>
           <stop-criteria-value>1e-8</stop-criteria-value>
           <preconditioner>ILUk</preconditioner>
