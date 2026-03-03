@@ -84,17 +84,19 @@
         <tolerance>1.e-8</tolerance>
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
-
-        <linear-solver name="AlienCoreSolver">
-          <backend>SimpleCSR</backend>
-          <solver>BCGS</solver>
-          <preconditioner>ILU0</preconditioner>
-          <max-iter>1000</max-iter>
-          <tol>1.e-8</tol>
-          <output-level>0</output-level>
+         <linear-solver name="MCGSolver">
+          <output>3</output>
+          <rowsum>true</rowsum>
+          <kernel>GPU_CUBLAS_BCSP</kernel>
+          <max-iteration-num>1000</max-iteration-num>
+          <stop-criteria-value>1e-8</stop-criteria-value>
+          <preconditioner>CprAmg</preconditioner>
+          <CprAmg>
+            <cxr-solver>amgx</cxr-solver>
+            <relax-solver>ColorILU0</relax-solver> 
+          </CprAmg>
         </linear-solver>
       </newton>
-
     </numerics>
     <boundary-condition name="DirichletManager">
         <boundary>

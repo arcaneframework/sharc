@@ -87,6 +87,26 @@ ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-ifps-bcgs-cpr
         600)
 endif()
 
+if(TARGET mcgsolver)
+  ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgs-bcgs-ilu0
+        ShArc
+        test/TwoPhaseFlowSimulation
+        use-case-two-phase-flow-spe10-mcgs-bcgs-ilu0.arc
+        600)
+
+  ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgs-bcgs-cpr
+        ShArc
+        test/TwoPhaseFlowSimulation
+        use-case-two-phase-flow-spe10-mcgs-bcgs-cpr.arc
+        600)
+
+  ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgsgpu-bcgs-cpr
+        ShArc
+        test/TwoPhaseFlowSimulation
+        use-case-two-phase-flow-spe10-mcgsgpu-bcgs-cpr.arc
+        600)
+endif()
+
 ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10Well
         ShArc
         test/TwoPhaseFlowSimulation

@@ -3,16 +3,26 @@
     <timeloop>ArcResTimeLoop</timeloop>
   </arcane>
   <mesh>
-    <file internal-partition="true">SPE10-mesh-level0.vt2</file>
+    <meshgenerator>
+        <cartesian>
+          <face-numbering-version>4</face-numbering-version>
+           <origine>0 0 -100</origine>
+           <nsd>__NPX__ __NPY__ __NPZ__</nsd>
+           <lx nx="128">1000</lx>
+           <ly ny="128">1000</ly>
+           <lz nz="10">100</lz>
+        </cartesian>
+    </meshgenerator>
   </mesh>
   
   <sh-arc>
     <time-manager name="TimeLine">
+      <verbose>true</verbose>
       <init-time>0.</init-time>
-      <end-time>86400</end-time>
-      <init-time-step>8640</init-time-step>
-      <min-time-step>8640</min-time-step>
-      <max-time-step>8640</max-time-step>
+      <end-time>86400e2</end-time> <!--100 days-->
+      <init-time-step>4320</init-time-step>
+      <min-time-step>4320e-1</min-time-step>
+      <max-time-step>21600</max-time-step>
     </time-manager>
     <time-step-policy name="TimeStepEvolutionPolicy">
       <type>Geometric</type>
@@ -20,37 +30,40 @@
       <decrease-factor>0.5</decrease-factor>
     </time-step-policy>
     <geometry name="Euclidian3Geometry"/>
-    <validator name="SyntheticServiceValidator">
+    <!--validator name="SyntheticServiceValidator">
       <variable-field name="VariableAccessor">
         <name>Domain_Pressure_System</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>8593410.2664998025</reference-value>
+      <reference-value>10512859.6282460578</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
       <verbose>true</verbose>
-    </validator>
-    <validator name="SyntheticServiceValidator">
+    </validator-->
+    <!--validator name="SyntPheticServiceValidator">
       <variable-field name="VariableAccessor">
         <name>Domain_Saturation_Water</name>
       </variable-field>
       <group-name>AllCells</group-name>
-      <reference-value>0.9968946892</reference-value>
+      <reference-value>0.0516165805</reference-value>
       <reduction>Mean</reduction>
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
       <verbose>true</verbose>
-    </validator>
+    </validator-->
     <expression-mng name="ExpressionMng"/>
     <post-processing>
       <save-init>false</save-init>
-      <output-period>1</output-period>
+      <output-period>10</output-period>
       <output-path>output</output-path>
       <post-processor>
+        <format name="Ensight7PostProcessor">
+          <force-first-geometry>true</force-first-geometry>
+        </format>
         <variables>
           <variable>Domain_Pressure_System</variable>
-          <variable>Domain_XPermeability_Fluid</variable>
+          <variable>Domain_Permeability_Fluid</variable>
           <variable>Domain_Saturation_Water</variable>
         </variables>
       </post-processor>
@@ -76,7 +89,19 @@
     </system>
   </physical-model>
   <two-phase-flow-simulation>
-    <scalar-perm>false</scalar-perm>
+    <group-creator name="StandardGroupCreator">
+      <scalar-eval>false</scalar-eval>
+      <facegroup>
+        <name>XMIN</name>
+        <area>GC_allBoundaryFaces</area>
+        <filter>h(1.e-14-x)</filter>
+      </facegroup>
+      <facegroup>
+        <name>XMAX</name>
+        <area>GC_allBoundaryFaces</area>
+        <filter>h(x-1000)</filter>
+      </facegroup>
+    </group-creator>
     <numerics>
       <newton name="ArcNumNewtonSolver">
         <iteration-max>20</iteration-max>
@@ -84,24 +109,25 @@
         <tolerance>1.e-8</tolerance>
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
+        <debug-stat-linear-solver>true</debug-stat-linear-solver>
 
-        <linear-solver name="AlienCoreSolver">
-          <backend>SimpleCSR</backend>
-          <solver>BCGS</solver>
-          <preconditioner>ILU0</preconditioner>
-          <max-iter>1000</max-iter>
-          <tol>1.e-8</tol>
-          <output-level>0</output-level>
-        </linear-solver>
+        <linear-solver name="IFPSolver">
+          <output>1</output>
+          <verbose>true</verbose>
+          <num-iterations-max>1000</num-iterations-max>
+          <stop-criteria-value>1e-8</stop-criteria-value>
+          <precond-option>CprAmg</precond-option>
+          <ilu0-algo>BlockJacobi</ilu0-algo> 
+        </linear-solver> 
+
       </newton>
-
     </numerics>
     <boundary-condition name="DirichletManager">
         <boundary>
-          <face-group>YMIN</face-group>
+          <face-group>XMIN</face-group>
           <limit-condition>
             <property>[System]System::Pressure</property>
-            <value>1.38E+7</value>
+            <value>600.e5</value>
           </limit-condition>
           <limit-condition>
             <property>[Phase]Water::Saturation</property>
@@ -113,10 +139,10 @@
           </limit-condition>
         </boundary>
         <boundary>
-          <face-group>YMAX</face-group>
+          <face-group>XMAX</face-group>
           <limit-condition>
             <property>[System]System::Pressure</property>
-            <value>3.45E+6</value>
+            <value>100.e5</value>
           </limit-condition>
           <limit-condition>
             <property>[Phase]Water::Saturation</property>
@@ -131,7 +157,7 @@
     <initial-condition name="Constant">
       <property>[System]System::Pressure</property>
       <condition>
-        <value>1.38E+7</value>
+        <value>105.e5</value>
       </condition>
     </initial-condition>
     <initial-condition name="Constant">
@@ -152,19 +178,23 @@
         <value>0.</value>
       </condition>
     </initial-condition>
-    <initial-condition name="Constant">
+     <initial-condition name="Expression">
       <property>[SubSystem]Fluid::Permeability</property>
-      <condition>
-        <value>1000.e-15</value>
+      <condition name="ExpressionBuilderR3vR1">
+       <expression>(x,y,z)->exp(-30+3*sin(2*pi*x/1000)*sin(8*pi*y/1000)+y/1000)</expression>
+       <constant>
+        <name>pi</name>
+        <value>3.14</value>
+       </constant>
       </condition>
-    </initial-condition>
+     </initial-condition>
     <law name="ConstantLawConfig">
       <output>
         <result>[Phase]Water::Density</result>
       </output>
       <input />
       <parameters>
-        <value>1025</value>
+        <value>1000</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -173,7 +203,7 @@
       </output>
       <input />
       <parameters>
-        <value>849</value>
+        <value>1000</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -182,7 +212,7 @@
       </output>
       <input />
       <parameters>
-        <value>0.003</value>
+        <value>1.e-3</value>
       </parameters>
     </law>
     <law name="ConstantLawConfig">
@@ -191,7 +221,7 @@
       </output>
       <input />
       <parameters>
-        <value>0.03</value>
+        <value>1.e-4</value>
       </parameters>
     </law>
     <law name="RelativePermeabilityPowerLawConfig">
@@ -218,6 +248,31 @@
         <alpha>2</alpha>
         <Swi>0</Swi>
         <Sgc>0</Sgc>
+      </parameters>
+    </law>
+    <law name="CapillaryPressureLawConfig">
+      <output>
+        <capillary-pressure>[Phase]Water::CapillaryPressure</capillary-pressure>
+      </output>
+      <input>
+        <saturation>[Phase]Water::Saturation</saturation>
+      </input>
+      <parameters>
+        <Pe>0</Pe>
+      </parameters>
+    </law>
+    <law name="CapillaryPressureLawConfig">
+      <output>
+        <capillary-pressure>[Phase]Gas::CapillaryPressure</capillary-pressure>
+      </output>
+      <input>
+        <saturation>[Phase]Gas::Saturation</saturation>
+      </input>
+      <parameters>
+        <Pe>1.e5</Pe>
+        <Sr-ref>0.2</Sr-ref>
+        <Sr>0.1</Sr>
+        <lambda>1</lambda>
       </parameters>
     </law>
   </two-phase-flow-simulation>
