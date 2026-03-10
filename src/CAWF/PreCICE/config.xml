@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+    <needed-packages>
+        <package name="arcane" />
+        <package name="precice" />
+        <package name="petsc" />
+    </needed-packages>
+
+  <directories>
+    <directory>App1</directory>
+    <directory>App2</directory>
+    <directory>Compaction</directory>
+    <directory>Elasticity</directory>
+    <directory>DynamicMeshMng</directory>
+  </directories>
+</makefile>

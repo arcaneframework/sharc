@@ -1,0 +1,13 @@
+# vtk DataFile Version 2.0
+Maillage Arcane
+ASCII
+DATASET STRUCTURED_GRID
+DIMENSIONS 5 5 6
+ORIGIN 0. 0. -1.25
+DXYZ 0.25 0.25 0.25
+
+CELLGROUPS 1
+IXMEvolutiveMesh_newCells 1 4 1 4 5 5
+NODEGROUPS 2
+IXMEvolutiveMesh_newNodes 1 5 1 5 6 6
+IXMEvolutiveMesh_updateNodes 1 5 1 5 1 6
