@@ -15,6 +15,7 @@ if (NOT ARCGEOSIM_FRAMEWORK_ROOT)
   endif ()
 else()
   set(ARCGEOSIM_FRAMEWORK_BINARY_DIR ${PROJECT_BINARY_DIR})
+  set(ARCGEOSIM_EXTERNAL TRUE)
 endif ()
 
 # check submodule is loaded
@@ -73,7 +74,12 @@ endif()
 
 logStatus("Loading ShArc components...")
 
+if(TARGET precice)
+  add_subdirectory(src/CAWF/PreCICE)
+endif()
+
 add_subdirectory(src)
+
 
 logStatus("Loading ShArc.exe...")
 

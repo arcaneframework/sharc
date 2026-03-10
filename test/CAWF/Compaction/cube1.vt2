@@ -1,0 +1,7 @@
+# vtk DataFile Version 2.0
+Maillage Arcane
+ASCII
+DATASET STRUCTURED_GRID
+DIMENSIONS 5 5 2
+ORIGIN 0. 0. -0.25
+DXYZ 0.25 0.25 0.25
