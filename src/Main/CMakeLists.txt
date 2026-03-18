@@ -4,13 +4,7 @@ addSources(ShArc.exe main.cc)
 
 linkLibraries(ShArc.exe
   ShArc
-  ArcGeoSim::ArcGeoSim_appli
-  ArcGeoSim::ArcGeoSim_utils
-  ArcGeoSim::ArcGeoSim_mesh
-  ArcGeoSim::ArcGeoSim_numerics
-  ArcGeoSim::ArcGeoSim_time
-  ArcGeoSim::ArcGeoSim_physics
-  ArcGeoSim::ArcGeoSim_tests
+  ArcGeoSim::arcgeosim
   )
 if(TARGET alien)
   linkLibraries(ShArc.exe alien)

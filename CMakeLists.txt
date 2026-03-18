@@ -74,10 +74,7 @@ endif()
 
 logStatus("Loading ShArc components...")
 
-if(TARGET precice)
-  add_subdirectory(src/CAWF/PreCICE)
-endif()
-
+add_subdirectory(src/CAWF)
 add_subdirectory(src)
 
 
