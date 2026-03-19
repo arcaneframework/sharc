@@ -10,7 +10,6 @@
 /* FEM code to test vectorial FE for Elasticity problem.                     */
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
-
 #include <arcane/core/IParallelMng.h>
 
 #include "arcane/accelerator/core/IAcceleratorMng.h"
@@ -74,12 +73,14 @@
 #include <alien/kernels/sycl/algebra/SYCLKernelInternal.h>
 #endif
 
+
 namespace ax = Arcane::Accelerator;
 
 template <class FunctionT>
 void FemModuleElasticity::
 _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
 {
+  std::cout<<"BILINEAROP ASSEMBLY ON ACCELERATOR"<<std::endl ;
   const Int32 dim = mesh()->dimension();
   UnstructuredMeshConnectivityView connectivity_view(mesh());
   auto cell_node_cv = connectivity_view.cellNode();
@@ -104,6 +105,9 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
   Arccore::UniqueArray<Arccore::Integer> own_cell_lids(platform::getDefaultDataAllocator()) ;
   own_cell_lids = mesh()->ownCells().view().localIds() ;
   {
+    sycl::buffer<Integer,1> node_lids_buffer(node_lids.data(),sycl::range(node_lids.size())) ;
+    sycl::buffer<Integer,1> allUIndex_buffer(accAllUIndex.data(),sycl::range(accAllUIndex.size())) ;
+
     Alien::SYCL::ProfiledMatrixBuilder builder(matrixA, Alien::ProfiledMatrixOptions::eResetValues);
     //builder.setParallelAssembleStencil(1,m_dof_dof_connection_offset.view(),m_dof_dof_connection_index.view()) ;
 
@@ -112,8 +116,10 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
                   {
                     auto& command = handler.command() ;
 
-                    auto in_allUIndex      = ax::viewIn(command,accAllUIndex) ;
-                    auto in_node_lids      = ax::viewIn(command,node_lids) ;
+                    //auto in_allUIndex      = ax::viewIn(command,accAllUIndex) ;
+                    //auto in_node_lids      = ax::viewIn(command,node_lids) ;
+                    auto in_allUIndex      = allUIndex_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
+                    auto in_node_lids      = node_lids_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
 
                     auto in_node_coord     = ax::viewIn(command, m_node_coord);
                     auto in_lambda         = ax::viewIn(command, m_cell_lambda);
@@ -122,12 +128,16 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
                     auto matrix_acc = builder.view(handler) ;
                     auto local_size = mesh()->ownNodes().size() ;
 
+                    auto out = sycl::stream(1024, 768, handler.m_internal);
+
                     handler.parallel_for(engine.maxNumThreads(),
                                          [=](Alien::ParallelEngine::Item<1>::type item)
                                          {
                                             auto id = item.get_id(0) ;
-                                            for (auto index = id; index < local_size; index += item.get_range()[0])
+                                            for (std::size_t index = id; index < local_size; index += item.get_range()[0])
                                             {
+                                              //out << "NODE LID  = ";
+
                                               auto node0_lid = in_node_lids[index] ;
                                               auto node0 = NodeLocalId(node0_lid) ;
                                               for (auto cell : node_cell_cv.cells(node0))
