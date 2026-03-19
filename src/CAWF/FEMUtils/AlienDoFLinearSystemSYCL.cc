@@ -67,6 +67,8 @@
 #include <alien/handlers/scalar/sycl/VectorAccessorImplT.h>
 #include <alien/handlers/scalar/sycl/ProfiledMatrixBuilderImplT.h>
 
+#include <alien/handlers/accelerator/HCSRViewT.h>
+
 
 #include <alien/expression/solver/ILinearSolver.h>
 
@@ -124,13 +126,19 @@ _setVectorsAcc(Alien::Vector& vectorX, Alien::Vector& vectorB)
     auto vx_acc = Alien::SYCL::VectorAccessorT<Real>(vectorX);
     auto vb_acc = Alien::SYCL::VectorAccessorT<Real>(vectorB);
 
+    sycl::buffer<Integer,1> dof_lids_buffer(dof_lids.data(),sycl::range(dof_lids.size())) ;
+    sycl::buffer<Integer,1> allUIndex_buffer(accAllUIndex.data(),sycl::range(accAllUIndex.size())) ;
+
     Alien::ParallelEngine engine(m_alien_bsr_format->queue()) ;
 
     engine.submit([&](ControlGroupHandler& handler)
                   {
                     auto& command         = handler.command() ;
-                    auto in_dof_lids      = ax::viewIn(command,dof_lids);
-                    auto in_allUIndex     = ax::viewIn(command,accAllUIndex) ;
+                    //auto in_dof_lids      = ax::viewIn(command,dof_lids);
+                    //auto in_allUIndex     = ax::viewIn(command,accAllUIndex) ;
+                    auto in_dof_lids      = dof_lids_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
+                    auto in_allUIndex     = allUIndex_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
+
                     auto in_result        = ax::viewIn(command,dof_variable);
                     auto in_rhs           = ax::viewIn(command,rhs_variable);
 
@@ -170,8 +178,9 @@ _getSolutionAcc(Alien::Vector& vectorX)
 
   Arccore::SmallSpan<const Int32> accAllUIndex = m_alien_bsr_format->getAllUIndex() ;
   {
-    auto vx_acc = Alien::SYCL::VectorAccessorT<Real>(vectorX);
-
+    //auto vx_acc = Alien::SYCL::VectorAccessorT<Real>(vectorX);
+    auto const& sycl_X = vectorX.impl()->get<Alien::BackEnd::tag::sycl>() ;
+    auto x_buffer      = sycl_X.internal()->values() ;
     Alien::ParallelEngine engine(m_alien_bsr_format->queue()) ;
 
     engine.submit([&](ControlGroupHandler& handler)
@@ -179,19 +188,18 @@ _getSolutionAcc(Alien::Vector& vectorX)
                     auto& command         = handler.command() ;
                     auto in_dof_lids      = ax::viewIn(command,dof_lids);
                     auto in_allUIndex     = ax::viewIn(command,accAllUIndex) ;
-                    auto out_result        = ax::viewOut(command,dof_variable);
+                    auto out_result       = ax::viewOut(command,dof_variable);
+                    auto in_vx            = x_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
 
-                    auto in_vx = vx_acc.view(handler) ;
-
-                    auto local_size = dof_lids.size() ;
+                    auto local_size       = dof_lids.size() ;
                     handler.parallel_for(engine.maxNumThreads(),
                                          [=](Alien::ParallelEngine::Item<1>::type item)
                                          {
                                             auto id = item.get_id(0) ;
                                             for (auto index = id; index < local_size; index += item.get_range()[0])
                                             {
-                                              auto vi   = DoFLocalId(in_dof_lids[index]) ;
-                                              auto lid     = in_dof_lids[index] ;
+                                              auto vi     = DoFLocalId(in_dof_lids[index]) ;
+                                              auto lid    = in_dof_lids[index] ;
                                               auto iIndex = in_allUIndex[lid];
                                               if(iIndex!=-1)
                                               {
@@ -201,6 +209,83 @@ _getSolutionAcc(Alien::Vector& vectorX)
                                          }) ;
 
                   }) ;
+  }
+}
+
+void AlienDoFLinearSystemImpl::
+_applyForcedValuesToLhsAcc()
+{
+  IItemFamily* dof_family        = dofFamily();
+  VariableDoFBool& is_forced     = this->getForcedInfo() ;
+  VariableDoFReal& forced_value  = this->getForcedValue() ;
+
+  auto& matrixA = m_alien_bsr_format->getMatrixA();
+
+  Arccore::SmallSpan<const Int32> dof_lids    = dof_family->allItems().own().view().localIds() ;
+  Arccore::SmallSpan<const Integer> allUIndex = m_alien_bsr_format->getAllUIndex() ;
+  {
+
+    Alien::SYCL::ProfiledMatrixBuilder builder(matrixA, Alien::ProfiledMatrixOptions::eKeepValues);
+    Alien::ParallelEngine engine(m_alien_bsr_format->queue()) ;
+
+    sycl::buffer<Integer,1> allUIndex_buffer(allUIndex.data(),sycl::range(allUIndex.size())) ;
+
+    engine.submit([&](ControlGroupHandler& handler)
+                  {
+                    auto& command         = handler.command() ;
+                    auto in_dof_lids      = ax::viewIn(command,dof_lids);
+                    //auto in_allUIndex     = ax::viewIn(command,allUIndex) ;
+                    auto in_allUIndex      = allUIndex_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
+                    auto in_is_forced     = ax::viewIn(command,is_forced);
+                    auto in_forced_value  = ax::viewIn(command,forced_value);
+                    auto matrix_acc       = builder.view(handler) ;
+                    auto local_size = dof_lids.size() ;
+                    handler.parallel_for(engine.maxNumThreads(),
+                                         [=](Alien::ParallelEngine::Item<1>::type item)
+                                         {
+                                            auto id = item.get_id(0) ;
+                                            for (auto index = id; index < local_size; index += item.get_range()[0])
+                                            {
+                                              auto vi     = DoFLocalId(in_dof_lids[index]) ;
+                                              auto lid    = in_dof_lids[index] ;
+                                              auto row_i  = in_allUIndex[lid];
+                                              auto forced = in_is_forced[vi] ;
+                                              Real value  = in_forced_value[vi];
+                                              if(row_i!=-1 && forced)
+                                              {
+                                                auto eii        = matrix_acc.entryIndex(row_i, row_i) ;
+                                                matrix_acc[eii] = value;
+                                              }
+                                            } ;
+                                         }) ;
+
+                  }) ;
+  }
+}
+
+
+void AlienDoFLinearSystemImpl::
+_printMatrixAcc(Alien::Matrix& matrix)
+{
+
+  auto const& true_A = matrix.impl()->get<Alien::BackEnd::tag::hcsr>() ;
+
+  auto nrows  = true_A.getLocalSize();
+  auto kcol_buffer   = true_A.internal()->kcol() ;
+  auto cols_buffer   = true_A.internal()->cols() ;
+  auto values_buffer = true_A.internal()->values() ;
+  sycl::host_accessor<Real, 1, sycl::access::mode::read> values(values_buffer);
+  sycl::host_accessor<int, 1, sycl::access::mode::read> kcol(kcol_buffer);
+  sycl::host_accessor<int, 1, sycl::access::mode::read> cols(cols_buffer);
+
+  for(int irow=0;irow<nrows;++irow)
+  {
+    std::cout<<"ROW["<<irow<<"] : ";
+    for(int k=kcol[irow];k<kcol[irow+1];++k)
+    {
+      std::cout<<"("<<cols[k]<<","<<values[k]<<") ";
+    }
+    std::cout<<std::endl;
   }
 }
 

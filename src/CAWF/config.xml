@@ -10,6 +10,7 @@
     <directory>App2</directory-->
     <directory>Compaction</directory>
     <directory>Elasticity</directory>
+    <directory>Poisson</directory>
     <directory>DynamicMeshMng</directory>
   </directories>
 </makefile>

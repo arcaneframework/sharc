@@ -51,6 +51,7 @@
 #include <alien/arcane_tools/indexSet/IndexSetFabric.h>
 #include <alien/arcane_tools/data/Space.h>
 
+#include <alien/handlers/scalar/CSRModifierViewT.h>
 #include <alien/kernels/simple_csr/algebra/SimpleCSRLinearAlgebra.h>
 #include <alien/kernels/simple_csr/algebra/SimpleCSRInternalLinearAlgebra.h>
 
@@ -76,7 +77,7 @@ using namespace Alien;
 AlienDoFLinearSystemImpl::AlienDoFLinearSystemImpl(IItemFamily* dof_family, const String& solver_name)
 //: CsrDoFLinearSystemImpl(dof_family, solver_name)
 : DoFLinearSystemImplBase(dof_family, solver_name)
-, m_dof_matrix_numbering(VariableBuildInfo(dof_family, solver_name + "MatrixNumbering"))
+//, m_dof_matrix_numbering(VariableBuildInfo(dof_family, solver_name + "MatrixNumbering"))
 {
   info() << "[Alien-Info] Creating AlienDoFLinearSystemImpl()";
 }
@@ -125,6 +126,29 @@ _getSolutionCpu(Alien::Vector& vectorX)
   {
     const Integer iIndex = m_allUIndex[idof->localId()];
     dof_variable[idof] = reader[iIndex];
+  }
+}
+
+
+
+void AlienDoFLinearSystemImpl::
+_printMatrixCpu(Alien::Matrix& matrix)
+{
+  auto const& true_A = matrix.impl()->get<Alien::BackEnd::tag::simplecsr>() ;
+
+  Alien::CSRConstViewT<SimpleCSRMatrix<Real>> view(true_A);
+  auto nrows  = view.nrows();
+  auto kcol   = view.kcol() ;
+  auto cols   = view.cols() ;
+  auto values = view.data() ;
+  for(int irow=0;irow<nrows;++irow)
+  {
+    std::cout<<"ROW["<<irow<<"] : ";
+    for(int k=kcol[irow];k<kcol[irow+1];++k)
+    {
+      std::cout<<"("<<cols[k]<<","<<values[k]<<") ";
+    }
+    std::cout<<std::endl;
   }
 }
 
@@ -212,17 +236,25 @@ solve()
   auto& vectorX = m_alien_bsr_format->getVectorX();
   auto& vectorB = m_alien_bsr_format->getVectorB();
 
-  if(options->useAccelerator())
-  {
+#ifdef ALIEN_USE_SYCL
+  if(m_use_accelerator)
     _setVectorsAcc(vectorX,vectorB) ;
-  }
   else
-  {
+#endif
     _setVectorsCpu(vectorX,vectorB) ;
-  }
 
   Real a3 = platform::getRealTime();
   info() << "[Alien-Timer] Time to create vectors = " << (a3 - a2);
+
+#ifdef PRINT_DEBUG
+#ifdef ALIEN_USE_SYCL
+  if(m_use_accelerator)
+    _printMatrixAcc(matrixA) ;
+  else
+#endif
+    _printMatrixCpu(matrixA) ;
+#endif
+
 
   m_solver_backend->solve(matrixA, vectorB, vectorX);
 
@@ -252,12 +284,39 @@ solve()
 
 
 void AlienDoFLinearSystemImpl::
+_applyForcedValuesToLhsCpu()
+{
+  IItemFamily* dof_family = dofFamily();
+  VariableDoFReal& rhs_variable = this->rhsVariable();
+  VariableDoFReal& dof_variable = this->solutionVariable();
+
+  VariableDoFBool& is_forced     = this->getForcedInfo() ;
+  VariableDoFReal& forced_value  = this->getForcedValue() ;
+
+  auto& matrixA = m_alien_bsr_format->getMatrixA();
+  {
+    Alien::ProfiledMatrixBuilder builder(matrixA, Alien::ProfiledMatrixOptions::eKeepValues);
+    ENUMERATE_DOF(idof, dof_family->allItems().own())
+    {
+      if(is_forced[*idof])
+      {
+        const Integer iIndex = m_allUIndex[idof->localId()];
+        builder(iIndex,iIndex) = forced_value[*idof] ;
+      }
+    }
+  }
+}
+
+void AlienDoFLinearSystemImpl::
 applyMatrixTransformation()
 {
   // Matrix transformation
   //_fillRowColumnEliminationInfos();
   //_applyRowOrRowColumnEliminationOnMatrix();
-  //_applyForcedValuesToLhs();
+  if(m_use_accelerator)
+    _applyForcedValuesToLhsAcc();
+  else
+    _applyForcedValuesToLhsCpu();
 }
 
 /*---------------------------------------------------------------------------*/

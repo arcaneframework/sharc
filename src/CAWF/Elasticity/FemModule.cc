@@ -523,13 +523,16 @@ _assembleBilinearOperatorCpu(const std::function<RealMatrix<N, N>(const Cell&)>&
   const Int32 dim = mesh()->dimension();
   auto node_dof(m_dofs_on_nodes.nodeDoFConnectivityView());
 
-  ENUMERATE_ (Cell, icell, allCells()) {
+  ENUMERATE_ (Cell, icell, allCells())
+  {
     Cell cell = *icell;
     auto K_e = compute_element_matrix(cell);
 
     Int32 n1_index = 0;
-    for (Node node1 : cell.nodes()) {
-      if (node1.isOwn()) {
+    for (Node node1 : cell.nodes())
+    {
+      if (node1.isOwn())
+      {
         Int32 n2_index = 0;
         for (Node node2 : cell.nodes()) {
           for (Int32 i = 0; i < dim; ++i) {
