@@ -116,27 +116,24 @@ _setVectorsAcc(Alien::Vector& vectorX, Alien::Vector& vectorB)
   IItemFamily* dof_family = dofFamily();
   VariableDoFReal& rhs_variable = this->rhsVariable();
   VariableDoFReal& dof_variable = this->solutionVariable();
-  auto rhs_data = rhs_variable.asArray();
-  auto result_data = dof_variable.asArray();
-  Arccore::UniqueArray<Arccore::Integer> dof_lids(platform::getDefaultDataAllocator()) ;
-  dof_lids = dof_family->allItems().own().view().localIds() ;
-  Arccore::SmallSpan<const Int32> accAllUIndex = m_alien_bsr_format->getAllUIndex() ;
+  Arccore::SmallSpan<const Int32> dof_lids = dof_family->allItems().own().view().localIds() ;
+  Arccore::SmallSpan<const Int32> allUIndex = m_alien_bsr_format->getAllUIndex() ;
 
   {
     auto vx_acc = Alien::SYCL::VectorAccessorT<Real>(vectorX);
     auto vb_acc = Alien::SYCL::VectorAccessorT<Real>(vectorB);
 
-    sycl::buffer<Integer,1> dof_lids_buffer(dof_lids.data(),sycl::range(dof_lids.size())) ;
-    sycl::buffer<Integer,1> allUIndex_buffer(accAllUIndex.data(),sycl::range(accAllUIndex.size())) ;
+    //sycl::buffer<Integer,1> dof_lids_buffer(dof_lids.data(),sycl::range(dof_lids.size())) ;
+    sycl::buffer<Integer,1> allUIndex_buffer(allUIndex.data(),sycl::range(allUIndex.size())) ;
 
     Alien::ParallelEngine engine(m_alien_bsr_format->queue()) ;
 
     engine.submit([&](ControlGroupHandler& handler)
                   {
                     auto& command         = handler.command() ;
-                    //auto in_dof_lids      = ax::viewIn(command,dof_lids);
+                    auto in_dof_lids      = ax::viewIn(command,dof_lids);
+                    //auto in_dof_lids      = dof_lids_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
                     //auto in_allUIndex     = ax::viewIn(command,accAllUIndex) ;
-                    auto in_dof_lids      = dof_lids_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
                     auto in_allUIndex     = allUIndex_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
 
                     auto in_result        = ax::viewIn(command,dof_variable);
@@ -173,12 +170,11 @@ _getSolutionAcc(Alien::Vector& vectorX)
   IItemFamily* dof_family = dofFamily();
   VariableDoFReal& rhs_variable = this->rhsVariable();
   VariableDoFReal& dof_variable = this->solutionVariable();
-  Arccore::UniqueArray<Arccore::Integer> dof_lids(platform::getDefaultDataAllocator()) ;
-  dof_lids = dof_family->allItems().own().view().localIds() ;
+  Arccore::SmallSpan<const Int32> dof_lids = dof_family->allItems().own().view().localIds() ;
 
-  Arccore::SmallSpan<const Int32> accAllUIndex = m_alien_bsr_format->getAllUIndex() ;
+  Arccore::SmallSpan<const Int32> allUIndex = m_alien_bsr_format->getAllUIndex() ;
   {
-    //auto vx_acc = Alien::SYCL::VectorAccessorT<Real>(vectorX);
+    sycl::buffer<Integer,1> allUIndex_buffer(allUIndex.data(),sycl::range(allUIndex.size())) ;
     auto const& sycl_X = vectorX.impl()->get<Alien::BackEnd::tag::sycl>() ;
     auto x_buffer      = sycl_X.internal()->values() ;
     Alien::ParallelEngine engine(m_alien_bsr_format->queue()) ;
@@ -187,7 +183,8 @@ _getSolutionAcc(Alien::Vector& vectorX)
                   {
                     auto& command         = handler.command() ;
                     auto in_dof_lids      = ax::viewIn(command,dof_lids);
-                    auto in_allUIndex     = ax::viewIn(command,accAllUIndex) ;
+                    //auto in_allUIndex     = ax::viewIn(command,accAllUIndex) ;
+                    auto in_allUIndex     = allUIndex_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
                     auto out_result       = ax::viewOut(command,dof_variable);
                     auto in_vx            = x_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
 
@@ -221,7 +218,7 @@ _applyForcedValuesToLhsAcc()
 
   auto& matrixA = m_alien_bsr_format->getMatrixA();
 
-  Arccore::SmallSpan<const Int32> dof_lids    = dof_family->allItems().own().view().localIds() ;
+  Arccore::SmallSpan<const Int32>   dof_lids  = dof_family->allItems().own().view().localIds() ;
   Arccore::SmallSpan<const Integer> allUIndex = m_alien_bsr_format->getAllUIndex() ;
   {
 
