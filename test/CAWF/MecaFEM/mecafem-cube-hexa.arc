@@ -18,7 +18,7 @@
     <mesh>
       <filename>meshes/cube.hexa.msh</filename>
       <subdivider>
-        <nb-subdivision>4</nb-subdivision>
+        <nb-subdivision>2</nb-subdivision>
       </subdivider>
     </mesh>
   </meshes>

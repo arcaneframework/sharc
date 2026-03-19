@@ -91,22 +91,15 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
   auto node_dof(m_dofs_on_nodes.nodeDoFConnectivityView());
 
   auto& matrixA = m_alien_bsr_format->getMatrixA();
-  auto& vectorX = m_alien_bsr_format->getVectorX();
-  auto& vectorB = m_alien_bsr_format->getVectorB();
 
-  Arccore::SmallSpan<const Int32> accAllUIndex = m_alien_bsr_format->getAllUIndex() ;
+  Arccore::SmallSpan<const Int32> allUIndex = m_alien_bsr_format->getAllUIndex() ;
 
-  Arccore::UniqueArray<Arccore::Integer> node_lids(platform::getDefaultDataAllocator()) ;
-  node_lids = mesh()->ownNodes().view().localIds() ;
-  Arccore::UniqueArray<Arccore::Integer> all_node_lids(platform::getDefaultDataAllocator()) ;
-  all_node_lids = mesh()->allNodes().view().localIds() ;
-  Arccore::UniqueArray<Arccore::Integer> cell_lids(platform::getDefaultDataAllocator()) ;
-  cell_lids = mesh()->allCells().view().localIds() ;
-  Arccore::UniqueArray<Arccore::Integer> own_cell_lids(platform::getDefaultDataAllocator()) ;
-  own_cell_lids = mesh()->ownCells().view().localIds() ;
+  Arccore::SmallSpan<const Int32> node_lids = mesh()->ownNodes().view().localIds() ;
+  Arccore::SmallSpan<const Int32> all_node_lids = mesh()->allNodes().view().localIds() ;
+  Arccore::SmallSpan<const Int32> cell_lids = mesh()->allCells().view().localIds() ;
+  Arccore::SmallSpan<const Int32> own_cell_lids = mesh()->ownCells().view().localIds() ;
   {
-    sycl::buffer<Integer,1> node_lids_buffer(node_lids.data(),sycl::range(node_lids.size())) ;
-    sycl::buffer<Integer,1> allUIndex_buffer(accAllUIndex.data(),sycl::range(accAllUIndex.size())) ;
+    sycl::buffer<Integer,1> allUIndex_buffer(allUIndex.data(),sycl::range(allUIndex.size())) ;
 
     Alien::SYCL::ProfiledMatrixBuilder builder(matrixA, Alien::ProfiledMatrixOptions::eResetValues);
     //builder.setParallelAssembleStencil(1,m_dof_dof_connection_offset.view(),m_dof_dof_connection_index.view()) ;
@@ -116,10 +109,10 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
                   {
                     auto& command = handler.command() ;
 
-                    //auto in_allUIndex      = ax::viewIn(command,accAllUIndex) ;
-                    //auto in_node_lids      = ax::viewIn(command,node_lids) ;
+                    //auto in_allUIndex      = ax::viewIn(command,allUIndex) ;
                     auto in_allUIndex      = allUIndex_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
-                    auto in_node_lids      = node_lids_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
+                    auto in_node_lids      = ax::viewIn(command,node_lids) ;
+                    //auto in_node_lids      = node_lids_buffer.get_access<sycl::access::mode::read>(handler.m_internal) ;
 
                     auto in_node_coord     = ax::viewIn(command, m_node_coord);
                     auto in_lambda         = ax::viewIn(command, m_cell_lambda);
@@ -128,7 +121,7 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
                     auto matrix_acc = builder.view(handler) ;
                     auto local_size = mesh()->ownNodes().size() ;
 
-                    auto out = sycl::stream(1024, 768, handler.m_internal);
+                    //auto out = sycl::stream(1024, 768, handler.m_internal);
 
                     handler.parallel_for(engine.maxNumThreads(),
                                          [=](Alien::ParallelEngine::Item<1>::type item)
@@ -150,10 +143,10 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
                                                 Int32 n1_index = 0;
                                                 for (auto node1 : cell_node_cv.nodes(cell))
                                                 {
-                                                  if(node1==node0)
+                                                  Int32 n2_index = 0;
+                                                  for (auto node2 : cell_node_cv.nodes(cell))
                                                   {
-                                                    Int32 n2_index = 0;
-                                                    for (auto node2 : cell_node_cv.nodes(cell))
+                                                    if(node1==node0)
                                                     {
                                                       for (Int32 i = 0; i < dim; ++i)
                                                       {
@@ -168,15 +161,56 @@ _assembleBilinearOperatorGpu(const FunctionT& compute_element_matrix)
                                                           matrix_acc[eij] += value;
                                                         }
                                                       }
-                                                      ++n2_index;
                                                     }
+                                                    ++n2_index;
                                                   }
+                                                  ++n1_index;
                                                 }
                                               }
                                             } ;
                                           }) ;
                   }) ;
   }
+  /*
+  auto allUIndex = m_alien_bsr_format->getAllUIndex();
+  ENUMERATE_NODE(inode,mesh()->ownNodes())
+  {
+    auto node0 = *inode ;
+    for (auto cell : inode->cells())
+    {
+      auto K_e = _computeElementMatrixHexa8(cell) ;
+      Int32 n1_index = 0;
+      for (auto node1 : cell.nodes())
+      {
+        Int32 n2_index = 0;
+        for (auto node2 : cell.nodes())
+        {
+          if(node1==node0)
+          {
+            for (Int32 i = 0; i < dim; ++i)
+            {
+              DoFLocalId dof1 = node_dof.dofId(node1, i);
+              Integer row_i = allUIndex[dof1];
+              for (Int32 j = 0; j < dim; ++j)
+              {
+                DoFLocalId dof2 = node_dof.dofId(node2, j);
+                Integer col_j = allUIndex[dof2];
+                Real value = K_e(dim * n1_index + i, dim * n2_index + j);
+                if(row_i==3)
+                {
+                  info()<<"ADD MATRIX("<<dof1<<","<<dof2<<") : "<<value<<" i="<<i<<" j="<<j<<" "<<n1_index<<" "<<n2_index;
+                  info()<<"K CELL["<<cell.localId()<<"]";
+                  K_e.dump(info().file()) ;
+                }
+              }
+            }
+          }
+          ++n2_index;
+        }
+        ++n1_index;
+      }
+    }
+  }*/
 }
 
 void FemModuleElasticity::

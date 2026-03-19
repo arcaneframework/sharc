@@ -134,14 +134,19 @@ class AlienDoFLinearSystemImpl
 
   }
 
-  CSRFormatView& getCSRValues() override { return m_csr_view; };
+  CSRFormatView& getCSRValues() override
+  {
+    //return m_csr_view;
+    ARCANE_THROW(NotImplementedException, "");
+  };
 
   void setCSRValues(const CSRFormatView& csr_view) override
   {
-    m_csr_view = csr_view;
+    //m_csr_view = csr_view;
+    ARCANE_THROW(NotImplementedException, "");
   }
 
-  bool hasSetCSRValues() const override { return true; }
+  bool hasSetCSRValues() const override { return false; }
 
   void eliminateRow(DoFLocalId row, Real value) override
   {
@@ -160,18 +165,28 @@ class AlienDoFLinearSystemImpl
   {
     info() << "[CsrImpl]: Clear values";
     DoFLinearSystemImplBase::clearValues();
-    m_csr_view = {};
+    //m_csr_view = {};
     m_alien_bsr_format.reset() ;
+    m_use_accelerator = options->useAccelerator() ;
   }
 
   void startSystemAssembly() {
+    m_allUIndex = m_alien_bsr_format->getAllUIndex() ;
     m_alien_bsr_format->startSystemFillingStep() ;
     m_builder = m_alien_bsr_format->getMatrixBuilder() ;
-    m_allUIndex = m_alien_bsr_format->getAllUIndex() ;
   }
 
   void endSystemAssembly() {
     m_alien_bsr_format->endSystemFillingStep() ;
+#ifdef PRINT_DEBUG
+    auto& matrixA = m_alien_bsr_format->getMatrixA();
+#ifdef ALIEN_USE_SYCL
+    if(m_use_accelerator)
+      _printMatrixAcc(matrixA) ;
+    else
+#endif
+      _printMatrixCpu(matrixA) ;
+#endif
   }
 
   void solve() override;
@@ -192,25 +207,22 @@ class AlienDoFLinearSystemImpl
   CaseOptionsAlienDoFLinearSystemFactory* options = nullptr;
 
  private:
+  void _applyForcedValuesToLhsCpu();
   void _setVectorsCpu(Alien::Vector& vectorX, Alien::Vector& vectorB) ;
   void _getSolutionCpu(Alien::Vector& vectorX) ;
+  void _printMatrixCpu(Alien::Matrix& matrix) ;
 #ifdef ALIEN_USE_SYCL
+  void _applyForcedValuesToLhsAcc();
   void _setVectorsAcc(Alien::Vector& vectorX, Alien::Vector& vectorB) ;
   void _getSolutionAcc(Alien::Vector& vectorX) ;
+  void _printMatrixAcc(Alien::Matrix& matrix) ;
 #endif
-
-  Alien::ILinearSolver* m_solver_backend = nullptr;
-  VariableDoFInt32 m_dof_matrix_numbering;
-
-  NumArray<Real, MDDim1> m_rhs_work_values;
-  //! Work array to store values of solution vector in parallel
-  NumArray<Real, MDDim1> m_result_work_values;
-
-  Alien::ProfiledMatrixBuilder* m_builder = nullptr;
-  std::unique_ptr<AlienBSRFormat> m_alien_bsr_format;
+  bool                             m_use_accelerator  = false ;
+  Alien::ILinearSolver*            m_solver_backend   = nullptr;
+  Alien::ProfiledMatrixBuilder*    m_builder          = nullptr;
+  std::unique_ptr<AlienBSRFormat>  m_alien_bsr_format;
   ConstArrayView<Arccore::Integer> m_allUIndex;
 
-  CSRFormatView m_csr_view;
 };
 
 } // namespace Arcane::FemUtils

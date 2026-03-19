@@ -187,12 +187,10 @@ _defineMatrixProfile(ProfilerT& profiler, ConstArrayView<Integer> allUIndex)
   ENUMERATE_ (Cell, icell, mesh()->allCells())
   {
     Cell cell = *icell;
-    Int32 n1_index = 0;
     for (Node node1 : cell.nodes())
     {
       if (node1.isOwn())
       {
-        Int32 n2_index = 0;
         for (Node node2 : cell.nodes())
         {
           for (Int32 i = 0; i < dim; ++i)
@@ -204,10 +202,8 @@ _defineMatrixProfile(ProfilerT& profiler, ConstArrayView<Integer> allUIndex)
               profiler.addMatrixEntry(allUIndex[dof1.localId()], allUIndex[dof2.localId()]);
             }
           }
-          ++n2_index;
         }
       }
-      ++n1_index;
     }
   }
 }

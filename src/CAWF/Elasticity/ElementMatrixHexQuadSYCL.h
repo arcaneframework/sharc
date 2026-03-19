@@ -92,7 +92,8 @@ computeElementMatrixQuad4Gpu(CellLocalId cell_lid,
   ae.fill(0.0);
 
   // Loop over Gauss points
-  for (Int8 ixi = 0; ixi < 2; ++ixi) {
+  for (Int8 ixi = 0; ixi < 2; ++ixi)
+  {
     for (Int8 ieta = 0; ieta < 2; ++ieta) {
       // Get the coordinates of the Gauss point in natural coordinates (ξ,η)
       const Real xi = gp[ixi];
@@ -116,6 +117,7 @@ computeElementMatrixQuad4Gpu(CellLocalId cell_lid,
       ae += computeElementMatrixQuad4Base(dxU, dyU, integration_weight, lambda[cell_lid], mu[cell_lid]);
     }
   }
+  return ae;
 }
 
 /*---------------------------------------------------------------------------*/
