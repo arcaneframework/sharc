@@ -18,7 +18,7 @@
     <mesh>
       <filename>meshes/cube.hexa.msh</filename>
       <subdivider>
-        <nb-subdivision>2</nb-subdivision>
+        <nb-subdivision>4</nb-subdivision>
       </subdivider>
     </mesh>
   </meshes>
@@ -49,17 +49,17 @@
     </boundary-conditions>
 
     <max-iter>1</max-iter>
-    <matrix-format>Alien-BSR</matrix-format>
+    <matrix-format>Alien-BSR-Acc</matrix-format>
     <!--linear-system name="HypreLinearSystem">
       <solver>bicgstab</solver>
       <rtol>1e-9</rtol>
       <atol>0.</atol>
     </linear-system-->
     <linear-system name="AlienLinearSystem">
-      <use-accelerator>false</use-accelerator>
+      <use-accelerator>true</use-accelerator>
       <linear-solver name="HypreSolver">
-        <exec-space>Host</exec-space>
-        <memory-type>Host</memory-type>
+        <exec-space>Device</exec-space>
+        <memory-type>Device</memory-type>
         <solver>BiCGStab</solver>
         <num-iterations-max>1000</num-iterations-max>
         <stop-criteria-value>1e-6</stop-criteria-value>

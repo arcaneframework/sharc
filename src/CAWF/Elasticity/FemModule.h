@@ -103,9 +103,13 @@ class FemModuleElasticity
   void _doStationarySolve();
   template<typename ProfilerT>
   void _defineMatrixProfile(ProfilerT& profiler, ConstArrayView<Integer> allUIndex) ;
+#ifdef ALIEN_USE_SYCL
   void _defineMatrixProfileAcc() ;
+#endif
   void _assembleBilinearOperator();
+#ifdef ALIEN_USE_SYCL
   void _assembleBilinearOperatorAlienAcc() ;
+#endif
   void _assembleDirichletsGpu();
 
   void _computePrePro();

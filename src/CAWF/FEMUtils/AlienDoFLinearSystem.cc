@@ -313,9 +313,11 @@ applyMatrixTransformation()
   // Matrix transformation
   //_fillRowColumnEliminationInfos();
   //_applyRowOrRowColumnEliminationOnMatrix();
+#ifdef ALIEN_USE_SYCL
   if(m_use_accelerator)
     _applyForcedValuesToLhsAcc();
   else
+#endif:
     _applyForcedValuesToLhsCpu();
 }
 

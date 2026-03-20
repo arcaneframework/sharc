@@ -307,9 +307,11 @@ _doStationarySolve()
   {
     if(m_alien_bsr_format)
     {
+#ifdef ALIEN_USE_SYCL
       if(m_matrix_format == "Alien-BSR-Acc")
         _defineMatrixProfileAcc() ;
       else
+#endif
       {
         auto func = [this](Alien::MatrixProfiler& profiler,ConstArrayView<Integer> allUIndex)
                    {
@@ -472,10 +474,12 @@ _assembleBilinearOperator()
       }
     }
   }
+#ifdef ALIEN_USE_SYCL
   else if (m_matrix_format == "Alien-BSR-Acc")
   {
     _assembleBilinearOperatorAlienAcc() ;
   }
+#endif
   else if (m_matrix_format == "DOK")
   {
     if (mesh()->dimension() == 2) {
