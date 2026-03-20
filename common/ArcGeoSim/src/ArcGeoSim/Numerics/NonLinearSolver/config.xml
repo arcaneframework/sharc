@@ -12,5 +12,6 @@
   </files>
   <directories>
     <directory>NewtonImpl</directory>
+    <directory>LocalDirectSolverImpl</directory>
   </directories>
 </makefile>

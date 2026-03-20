@@ -36,7 +36,7 @@ class NewtonSolver
 public:
 
   NewtonSolver() ;
-  
+
   ~NewtonSolver() {}
 
 public:
@@ -61,7 +61,7 @@ public:
 
   // Initialisation
   void init(std::shared_ptr<ArcNum::INonLinearSystem> non_linear_system);
-  
+
   // Resolution du probleme non lineaire
   bool solve();
 
@@ -90,7 +90,7 @@ private:
 
     auto & domain = m_non_linear_system->systemDomain();
     Arcane::CellGroup cells = domain.support();
-  
+
     auto indexes = system.indexes();
     const Alien::BlockVector& solution = system.solution();
     auto offset = solution.distribution().offset();
@@ -100,12 +100,12 @@ private:
       Alien::LocalBlockVectorReader vr(solution);
       ConstArrayView<Real> values = vr[id];
       //ARCANE_ASSERT((block.size() == nb_equations),("number of equations and size block not matching"));
-      
+
       for(Arcane::Integer i = 0; i < nb_equations; ++i) {
 	(*y[i])[icell] += values[i];
       }
     }
-    
+
     for(Arcane::Integer i = 0; i < nb_equations; ++i)
       y[i]->synchronize();
 
@@ -114,7 +114,7 @@ private:
 private:
 
   bool m_initialized                            = false;
-  
+
   Alien::ILinearSolver* m_linear_solver         = nullptr;
   bool m_with_elimination                       = true;
   bool m_with_normalization                     = false ;

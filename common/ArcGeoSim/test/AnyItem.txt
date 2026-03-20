@@ -1,5 +1,5 @@
 # -*- cmake -*-
-ARCANE_ADD_TEST(AnyItemLinearAlgebra2
+ARCANE_ADD_TEST(AnyItemAlien
   ArcGeoSim
-  ../ArcGeoSim/test/ServiceTests/AnyItem
-  TestAnyItemLinearAlgebra2.arc)
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/AnyItem
+  TestAnyItemAlien.arc)

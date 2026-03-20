@@ -47,7 +47,7 @@ setVariableUpdater(INonLinearSystemVisitor * updater)
 
 void
 NewtonSolverService::
-setLinearSolver(LocalDirectSolverNamespace::ILinearSolver * solver)
+setLinearSolver(IDirectSolverType * solver)
 {
   m_linear_solver = solver;
 }
@@ -63,7 +63,7 @@ setLinearSolver(Alien::ILinearSolver * solver)
 
 void
 NewtonSolverService::
-setLinearSystemBuilder(ILinearSystemBuilder * builder)
+setLinearSystemBuilder(ILinearSystemBuilderType * builder)
 {
   m_linear_system_builder = builder;
   m_linear_solver->setLinearSystemBuilder(builder);
@@ -257,31 +257,10 @@ bool
 NewtonSolverService::
 solve(INonLinearSystem * system)
 {
-  //if(m_linear_solver)
-#ifdef USE_ALIEN_ARCGEOSIM
-    return _solve(system,m_linear_solver) ;
-#endif
-#ifdef USE_ALIEN_V0
-    if(m_linear_solver)
-      return _solve(system,m_linear_solver);
-    else
-      return _solve(system,m_linear_solver2) ;
-#endif
-    //else
-#ifdef USE_ALIEN_V1
-    if(m_linear_solver)
-      return _solve(system,m_linear_solver);
-    else
-      return _solve(system,m_linear_solver2) ;
-#endif
-
-#ifdef USE_ALIEN_V2
-    if(m_linear_solver)
-      return _solve(system,m_linear_solver);
-    else
-      return _solve(system,m_linear_solver2) ;
-#endif
-
+  if(m_linear_solver)
+    return _solve(system,m_linear_solver);
+  else
+    return _solve(system,m_linear_solver2) ;
 }
 
 bool
@@ -326,7 +305,7 @@ _solve(INonLinearSystem * system, Alien::ILinearSolver* solver)
   // R�solution de J0 R0 = F0
   if(solver->solve(system->getMatrix(),system->getRHS(),system->getSolution()))
   {
-    const IBaseLinearSolver::Status& status = solver->getStatus();
+    const auto& status = solver->getStatus();
 
     m_linear_solver_residual[0]      = status.residual;
     m_linear_solver_iteration[0]     = status.iteration_count;
@@ -391,7 +370,7 @@ _solve(INonLinearSystem * system, Alien::ILinearSolver* solver)
     // R�solution de Jk Rk = Fk
     if(solver->solve(system->getMatrix(),system->getRHS(),system->getSolution()))
     {
-      const IBaseLinearSolver::Status& status = solver->getStatus();
+      const auto& status = solver->getStatus();
 
       m_linear_solver_residual[m_iteration]  = status.residual;
       m_linear_solver_iteration[m_iteration] = status.iteration_count;
@@ -436,7 +415,7 @@ _solve(INonLinearSystem * system, Alien::ILinearSolver* solver)
 
 bool
 NewtonSolverService::
-_solve(INonLinearSystem * system, LocalDirectSolverNamespace::ILinearSolver* solver)
+_solve(INonLinearSystem * system, IDirectSolverType* solver)
 {
   m_status = NotConverged;
 
@@ -446,7 +425,7 @@ _solve(INonLinearSystem * system, LocalDirectSolverNamespace::ILinearSolver* sol
 
   // Calcul de F(X0) et J(X0)
   _buildNonLinearSystem(system);
-  
+
   m_iteration = 0;
 
   // Norme du residu
@@ -479,7 +458,7 @@ _solve(INonLinearSystem * system, LocalDirectSolverNamespace::ILinearSolver* sol
   // R�solution de J0 R0 = F0
   if(solver->solve())
   {
-    const LocalDirectSolverNamespace::ILinearSolver::Status& status = solver->getStatus();
+    const auto& status = solver->getStatus();
 
     m_linear_solver_residual[0]      = status.residual;
     m_linear_solver_iteration[0]     = status.iteration_count;
@@ -547,7 +526,7 @@ _solve(INonLinearSystem * system, LocalDirectSolverNamespace::ILinearSolver* sol
     // R�solution de Jk Rk = Fk
     if(solver->solve())
     {
-      const LocalDirectSolverNamespace::ILinearSolver::Status& status = solver->getStatus();
+      const auto& status = solver->getStatus();
 
       m_linear_solver_residual[m_iteration]  = status.residual;
       m_linear_solver_iteration[m_iteration] = status.iteration_count;

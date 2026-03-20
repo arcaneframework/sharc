@@ -20,7 +20,6 @@ endif()
 if(TARGET alien)
   linkLibraries(ArcGeoSim_numerics alien)
 endif()
-
 commit(ArcGeoSim_numerics DESTINATION Numerics)
 
 if (ARCGEOSIM_EXPORT_TARGET)

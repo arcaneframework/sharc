@@ -1,24 +1,31 @@
 createExecutable(ArcGeoSim.exe)
 
 addSources(ArcGeoSim.exe main.cc)
- 
-linkLibraries(ArcGeoSim.exe 
+
+linkLibraries(ArcGeoSim.exe
   ArcGeoSim_appli
   ArcGeoSim_utils
   ArcGeoSim_mesh
   ArcGeoSim_numerics
   ArcGeoSim_time
   ArcGeoSim_physics
-  ArcGeoSim_test
+  ArcGeoSim_tests
+  Main_tests
   )
 if(TARGET ArcGeoSim_alientools)
-linkLibraries(ArGeoSim.exe 
+linkLibraries(ArGeoSim.exe
               ArcGeoSim_alientools
              )
 endif()
 if(TARGET intel)
-  linkLibraries(ArcGeoSim.exe 
+  linkLibraries(ArcGeoSim.exe
     intel
+    )
+endif()
+
+if(TARGET alien)
+  linkLibraries(ArcGeoSim.exe
+    alien
     )
 endif()
 
