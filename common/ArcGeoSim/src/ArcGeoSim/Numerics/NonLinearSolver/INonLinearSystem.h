@@ -12,9 +12,6 @@
 
 #include <arcane/utils/ArcaneGlobal.h>
 
-#ifdef USE_ALIEN_ARCGEOSIM
-#include "ArcGeoSim/Numerics/LinearAlgebra2/LinearAlgebra2.h"
-#endif
 #ifdef USE_ALIEN_V0
 #include <ALIEN/BaseObjects/Matrix.h>
 #include <ALIEN/BaseObjects/Vector.h>

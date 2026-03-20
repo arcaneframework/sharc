@@ -1,3 +1,9 @@
+// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
+//-----------------------------------------------------------------------------
+// Copyright 2000-2026 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// See the top-level COPYRIGHT file for details.
+// SPDX-License-Identifier: Apache-2.0
+//-----------------------------------------------------------------------------
 // -*- C++ -*-
 #ifndef ARCGEOSIM_ARCGEOSIM_MESH_UTILS_IXMTOOLS_IXMMESHBUILDERBASE_H
 #define ARCGEOSIM_ARCGEOSIM_MESH_UTILS_IXMTOOLS_IXMMESHBUILDERBASE_H
@@ -42,6 +48,8 @@ typedef std::map<Int64,Integer> OwnerMap;
 
 //class IXMEvolutiveMeshBuilderObserverMng;
 
+enum class IXMMeshType {EvolutiveMesh, StaticMesh};
+
 class IXMMeshBuilderBase : public Arcane::TraceAccessor
 {
   /*!
@@ -50,7 +58,7 @@ class IXMMeshBuilderBase : public Arcane::TraceAccessor
 public:
   
   /** Constructeur de la classe */
-  IXMMeshBuilderBase(Arcane::IMesh * mesh, Arcane::ITraceMng * traceMng, Arcane::IParallelMng * parallelMng);
+  IXMMeshBuilderBase(Arcane::IMesh * mesh, Arcane::ITraceMng * traceMng, Arcane::IParallelMng * parallelMng, IXMMeshType mesh_type);
   
   /** Destructeur de la classe */
   virtual ~IXMMeshBuilderBase() {}
@@ -103,23 +111,23 @@ public:
   //! Groupe des faces jumelles
   Arcane::FaceGroup twinFaces();
 
-  //! Groupe des cellules topologiquement modifi�es
+  //! Groupe des cellules topologiquement modifiees
   Arcane::CellGroup updatedCells();
 
-  //! Groupe des noeuds topologiquement modifi�s
+  //! Groupe des noeuds topologiquement modifies
   Arcane::NodeGroup updatedNodes();
 
-  //! Ensemble des groupes ayant �t� modifi�s
+  //! Ensemble des groupes ayant ete modifies
   Arcane::ItemGroupCollection changedGroups();
 
-  //! Indique si un groupe a chang� (hors groupe globaux)
+  //! Indique si un groupe a change (hors groupe globaux)
   bool hasChangedGroup(const ItemGroup group);
 
-  //! Indique les types de changement sur un groupe donn� (hors groupes globaux)
-  /*! Les modifications sont donn�es comme ou logique (|) de eGroupEvent */
+  //! Indique les types de changement sur un groupe donne (hors groupes globaux)
+  /*! Les modifications sont donnees comme ou logique (|) de eGroupEvent */
   Arcane::Integer groupChangeTypes(const ItemGroup group);
 
-  //! Liste des items constituants la modification li� � l'�v�nement "event"
+  //! Liste des items constituants la modification lie a l'evenement "event"
   Arcane::ItemVector groupChanges(const ItemGroup group, EvolutiveMeshProperty::eGroupEvent event, const bool check);
 
 #ifdef USE_EVOLUTIF
@@ -145,21 +153,23 @@ protected:
   Arcane::IGraph2* m_graph = nullptr;
 #endif
 
-  Arcane::CellGroup m_old_cells; //!< Cellules en passe d'�tre supprim�es
+  Arcane::CellGroup m_old_cells; //!< Cellules en passe d'etre supprimees
   Arcane::CellGroup m_new_cells; //!< Nouvelles cellules
   Arcane::NodeGroup m_new_nodes; //!< Nouveaux noeuds
   Arcane::NodeGroup m_twin_nodes; //!< Noeuds jumeaux
-  Arcane::EdgeGroup m_new_edges; //!< Nouvelles ar�tes
-  Arcane::EdgeGroup m_twin_edges; //!< Ar�tes jumelles
+  Arcane::EdgeGroup m_new_edges; //!< Nouvelles aretes
+  Arcane::EdgeGroup m_twin_edges; //!< Aretes jumelles
   Arcane::FaceGroup m_new_faces; //!< Nouvelles faces
   Arcane::FaceGroup m_twin_faces; //!< Faces jumelles
 
-  Arcane::CellGroup m_updated_cells; //!< Cellules modifi�es
-  Arcane::NodeGroup m_updated_nodes; //!< Noeuds modifi�s (topologie)
+  Arcane::CellGroup m_updated_cells; //!< Cellules modifiees
+  Arcane::NodeGroup m_updated_nodes; //!< Noeuds modifies (topologie)
 
   bool m_is_initialized;
 
   ArcGeoSim::ParallelUtils m_parallel_utils;
+
+  IXMMeshType m_mesh_type;
 
 #ifdef USE_EVOLUTIF
   IXMEvolutiveMeshBuilderObserverMng* m_evolutive_mesh_observer_mng;
@@ -215,7 +225,7 @@ protected:
 
   Arcane::ItemGroupCollection m_changed_group_collection;
   typedef std::map<Arcane::ItemGroupImpl *, GroupChangeInfo> GroupChangeMap; //!< Type interne des modifications de groupe
-  GroupChangeMap m_changed_groups; //!< Groupe modifi�
+  GroupChangeMap m_changed_groups; //!< Groupe modifie
 
   typedef std::set<Arcane::IItemFamily*> IItemFamilySet;
   void _findAllCellChildFamilies(Arcane::IItemFamily * family, Arcane::SharedArray<ChangedCellData> & child_array, IItemFamilySet & scanned_families);

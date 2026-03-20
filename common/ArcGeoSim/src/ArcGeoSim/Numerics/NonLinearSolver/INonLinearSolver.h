@@ -25,10 +25,7 @@
   * - un crit�re d'arr�t.
   *
  */
-
-#ifdef USE_ALIEN_ARCGEOSIM
-#include "ArcGeoSim/Numerics/LinearAlgebra2/ILinearSolver.h"
-#endif
+#include <arcane/ArcaneVersion.h>
 #ifdef USE_ALIEN_V0
 #include <ALIEN/Algo/ILinearSolver.h>
 #endif
@@ -39,15 +36,28 @@
 #include <alien/expression/solver/ILinearSolver.h>
 #endif
 
-#include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
-
+#if (ARCANE_VERSION >= 40105)
+#include "alien/local_direct_solvers/IBaseLinearSolver.h"
+#else
+#include "ArcGeoSim/Numerics/NonLinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
+#endif
 
 class INonLinearSystem ;
 class INonLinearSystemVisitor ;
 class INonLinearSystemBuilder ;
 class INonLinearStopCriteria ;
+
+#if (ARCANE_VERSION >= 40105)
+namespace Alien
+{
 class ILinearSystemBuilder ;
 class ILinearSystemVisitor ;
+
+}
+#else
+class ILinearSystemBuilder ;
+class ILinearSystemVisitor ;
+#endif
 
 
 class INonLinearSolver
@@ -61,6 +71,14 @@ public:
     Integer iteration_count;
     Integer error ;
   };
+
+#if (ARCANE_VERSION >= 40105)
+  using IDirectSolverType        = Alien::LocalDirectSolverNamespace::ILinearSolver;
+  using ILinearSystemBuilderType = Alien::ILinearSystemBuilder;
+#else
+  using IDirectSolverType        = LocalDirectSolverNamespace::ILinearSolver;
+  using ILinearSystemBuilderType = ILinearSystemBuilder;
+#endif
 
   /** Constructeur de la classe */
   INonLinearSolver()
@@ -80,11 +98,11 @@ public:
   virtual void setNonLinearSystemBuilder(INonLinearSystemBuilder * non_linear_builder) = 0;
 
   //! Setting linear solver
-  virtual void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver * solver) = 0;
+  virtual void setLinearSolver(IDirectSolverType * solver) = 0;
   virtual void setLinearSolver(Alien::ILinearSolver * solver) = 0;
 
   //! Setting linear system builder
-  virtual void setLinearSystemBuilder(ILinearSystemBuilder * linear_builder) = 0;
+  virtual void setLinearSystemBuilder(ILinearSystemBuilderType * linear_builder) = 0;
 
   //! Setting variable updater
   virtual void setVariableUpdater(INonLinearSystemVisitor * visitor) = 0;
@@ -94,7 +112,7 @@ public:
 
   //! Solving non linear system return true if ok, false if not ok
   virtual bool solve(INonLinearSystem * system) = 0;
-  
+
   //! Optimized version for local litle non linear system
   virtual bool solveOpt(INonLinearSystem * system) = 0;
 

@@ -1,0 +1,66 @@
+# -*- cmake -*-
+ARCANE_ADD_TEST(BasicIndexManager
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+  TestIndexManager.arc)
+
+ARCANE_ADD_TEST(Alien
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+  TestAlien.arc)
+
+AddTest(NAME Alien-Block
+    FILE ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien/TestAlienBlock.arc
+)
+
+AddTest(NAME Alien-Block_MPI
+    FILE ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien/TestAlienBlock.arc
+    LABELS ToFix
+    MPI 4
+)
+
+ARCANE_ADD_TEST(Alien-VBlock
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+  TestAlienVBlock.arc)
+
+#
+# activation des que la version d alien avec strong options est visible par tous
+#
+# ARCANE_ADD_TEST_SEQUENTIAL(Alien-StrongOptions
+#  ArcGeoSim
+#  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+#  TestAlienStrongOptions.arc)
+
+IF(NOT WIN32)
+
+ARCANE_ADD_TEST(Alien-UncommonSolvers
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+  TestAlien-UncommonSolvers.arc)
+
+# ARCANE_ADD_TEST(Alien-Block-UncommonSolvers
+#  ArcGeoSim
+#  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+# TestAlienBlock-UncommonSolvers.arc)
+
+ARCANE_ADD_TEST(Alien-VBlock-UncommonSolvers
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+  TestAlienVBlock-UncommonSolvers.arc)
+
+ENDIF(NOT WIN32)
+
+IF(MCGSOLVER_FOUND)
+ARCANE_ADD_TEST(Alien-MCGSolver
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+  TestAlien-MCGSolver.arc)
+ENDIF(MCGSOLVER_FOUND)
+
+IF(SUPERLU_FOUND)
+  ARCANE_ADD_TEST(Alien-SuperLU 
+    ArcGeoSim
+    ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+    TestAlien-SuperLU.arc)
+ENDIF()

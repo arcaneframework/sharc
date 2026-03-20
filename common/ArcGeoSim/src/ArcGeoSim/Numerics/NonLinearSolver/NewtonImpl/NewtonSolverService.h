@@ -9,7 +9,12 @@
 #include "ArcGeoSim/Numerics/NonLinearSolver/INonLinearSystem.h"
 #include "ArcGeoSim/Numerics/NonLinearSolver/INonLinearSystemBuilder.h"
 #include "ArcGeoSim/Numerics/NonLinearSolver/INonLinearStopCriteria.h"
-#include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
+
+#if (ARCANE_VERSION >= 40105)
+#include "alien/local_direct_solvers/IBaseLinearSolver.h"
+#else
+#include "ArcGeoSim/Numerics/NonLinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
+#endif
 
 #include "ArcGeoSim/Appli/IInfoModel.h"
 
@@ -21,22 +26,6 @@ using namespace Arcane;
 #include <arcane/Timer.h>
 #include <arcane/utils/String.h>
 
-#ifdef USE_ALIEN_ARCGEOSIM
-namespace LocalDirectSolverNamespace {
-  class ILinearSolver;
-};
-#endif
-#ifdef USE_ALIEN_V0
-namespace LocalDirectSolverNamespace {
-  class ILinearSolver;
-};
-#endif
-#ifdef USE_ALIEN_V1
-namespace Alien
-{
-  class ILinearSolver;
-};
-#endif
 #ifdef USE_ALIEN_V2
 namespace Alien
 {
@@ -51,6 +40,10 @@ public ArcaneNewtonSolverObject,
   public IInfoModel
 {
  public:
+
+  using IDirectSolverType        = INonLinearSolver::IDirectSolverType;
+  using ILinearSystemBuilderType = INonLinearSolver::ILinearSystemBuilderType;
+
   /** Constructeur de la classe */
  NewtonSolverService(const Arcane::ServiceBuildInfo & sbi)
    : ArcaneNewtonSolverObject(sbi)
@@ -77,13 +70,12 @@ public ArcaneNewtonSolverObject,
   //! Setting variable updater
   void setVariableUpdater(INonLinearSystemVisitor * updater);
 
-  //! Setting linear solver
-  void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver * solver);
+  void setLinearSolver(IDirectSolverType * solver);
 
   void setLinearSolver(Alien::ILinearSolver * solver) ;
 
   //! Setting linear system builder
-  void setLinearSystemBuilder(ILinearSystemBuilder * builder);
+  void setLinearSystemBuilder(ILinearSystemBuilderType * builder);
 
   //! Setting stop criteria
   void setStopCriteria(INonLinearStopCriteria * stop_criteria);
@@ -93,7 +85,7 @@ public ArcaneNewtonSolverObject,
 
   //! Solving non linear problem
   bool solve(INonLinearSystem * system);
-  
+
   bool solveOpt(INonLinearSystem * system);
 
   //! Finalizing (after solve)
@@ -127,11 +119,11 @@ public ArcaneNewtonSolverObject,
   //! Build non linear system (Flux and residual)
   Integer _buildNonLinearSystem(INonLinearSystem * system);
 
-  //! new algorithm version with LinearAlgebra2 package
+  //! new algorithm version with Alien package
   bool _solve(INonLinearSystem * system, Alien::ILinearSolver* solver) ;
 
   //! old algorithm version with LinearSolver package
-  bool _solve(INonLinearSystem * system,LocalDirectSolverNamespace::ILinearSolver* solver) ;
+  bool _solve(INonLinearSystem * system, IDirectSolverType* solver) ;
 
   //! Check the stop criteria
   UInt32 _stop(INonLinearSystem * system, Real& criteria);
@@ -169,10 +161,10 @@ public ArcaneNewtonSolverObject,
   INonLinearSystemBuilder *                   m_non_linear_system_builder  = nullptr;
 
   //! Linear builder
-  ILinearSystemBuilder *                      m_linear_system_builder      = nullptr;
+  ILinearSystemBuilderType *                  m_linear_system_builder      = nullptr;
 
   //! Linear solver
-  LocalDirectSolverNamespace::ILinearSolver * m_linear_solver              = nullptr;
+  IDirectSolverType *                         m_linear_solver              = nullptr;
   Alien::ILinearSolver *                      m_linear_solver2             = nullptr;
 
   //! Variable updater

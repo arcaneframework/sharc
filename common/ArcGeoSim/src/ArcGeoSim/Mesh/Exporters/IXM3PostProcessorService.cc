@@ -1,6 +1,6 @@
 // -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
 //-----------------------------------------------------------------------------
-// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// Copyright 2000-2026 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
@@ -51,60 +51,77 @@ public:
  public:
 
   /*!
-   * \brief Retourne l'�crivain associ� � ce post-processeur.
+   * \brief Retourne l'ecrivain associe a ce post-processeur.
    */
   IDataWriter* dataWriter() {return m_data_writer;}
 
   /*!
-   * \brief Positionne le nom du r�pertoire de sortie des fichiers.
-   * Ce r�pertoire doit exister.
+   * \brief Positionne le nom du repertoire de sortie des fichiers.
+   * Ce repertoire doit exister.
    */
   void setBaseDirectoryName(const String& dirname);
 
-  //! Nom du r�pertoire de sortie des fichiers.
+  //! Nom du repertoire de sortie des fichiers.
+#if (ARCANE_VERSION >= 40105)
+  String baseDirectoryName() override {return PostProcessorWriterBase::baseDirectoryName();}
+#else
   const String& baseDirectoryName() {return PostProcessorWriterBase::baseDirectoryName();}
+#endif
 
   /*!
    * \brief Positionne le nom du fichier contenant les sorties
    */
-  void setBaseFileName(const String& filename) {PostProcessorWriterBase::setBaseFileName(filename);}
+  void setBaseFileName(const String& filename) override {PostProcessorWriterBase::setBaseFileName(filename);}
 
   //! Nom du fichier contenant les sorties.
-  const String& baseFileName() {return PostProcessorWriterBase::baseFileName();}
+#if (ARCANE_VERSION >= 40105)
+  String baseFileName() override {return PostProcessorWriterBase::baseFileName();}
+#else
+  const String& baseFileName() override {return PostProcessorWriterBase::baseFileName();}
+#endif
 
   //! Set mesh
-  void setMesh(IMesh * mesh) {m_mesh = mesh; m_mesh_set = true;}
+  void setMesh(IMesh * mesh) override {m_mesh = mesh; m_mesh_set = true;}
 
   //! Positionne la liste des temps
-  void setTimes(RealConstArrayView times);
+  void setTimes(RealConstArrayView times) override;
 
-  //! Liste des temps sauv�s
-  RealConstArrayView times() {return PostProcessorWriterBase::times();}
+  //! Liste des temps sauves
+  RealConstArrayView times() override {return PostProcessorWriterBase::times();}
 
-  //! Positionne la liste des variables � sortir
-  void setVariables(VariableCollection variables);
+  //! Positionne la liste des variables a sortir
+#if ARCANE_VERSION >= 40105
+  void setVariables(const VariableCollection& variables) override;
+#else
+  void setVariables(VariableCollection variables) override;
+#endif
 
-  //! Liste des variables � sauver
-  VariableCollection variables() {return PostProcessorWriterBase::variables();}
 
-  //! Positionne la liste des groupes � sortir
-  void setGroups(ItemGroupCollection groups);
+  //! Liste des variables a sauver
+  VariableCollection variables() override {return PostProcessorWriterBase::variables();}
 
-  //! Liste des groupes � sauver
-  ItemGroupCollection groups() {return PostProcessorWriterBase::groups();}
+  //! Positionne la liste des groupes a sortir
+#if ARCANE_VERSION >= 40105
+  void setGroups(const ItemGroupCollection& groups) override;
+#else
+  void setGroups(ItemGroupCollection groups) override;
+#endif
+
+  //! Liste des groupes a sauver
+  ItemGroupCollection groups() override {return PostProcessorWriterBase::groups();}
 
  public:
 
-  //! Notifie qu'une sortie va �tre effectu�e avec les param�tres courants.
-  void notifyBeginWrite();
+  //! Notifie qu'une sortie va etre effectuee avec les parametres courants.
+  void notifyBeginWrite() override;
 
-  //! Notifie qu'une sortie vient d'�tre effectu�e.
-  void notifyEndWrite();
+  //! Notifie qu'une sortie vient d'etre effectuee.
+  void notifyEndWrite() override;
 
  public:
 
-  //! Ferme l'�crivain. Apr�s fermeture, il ne peut plus �tre utilis�
-  void close() {}
+  //! Ferme l'ecrivain. Apres fermeture, il ne peut plus etre utilise
+  void close() override {}
 
  private:
   IDataWriter* m_data_writer;
@@ -171,7 +188,11 @@ setBaseDirectoryName(const String& dirname)
 /*---------------------------------------------------------------------------*/
 void
 IXM3PostProcessorService::
+#if ARCANE_VERSION >= 40105
+setVariables(const VariableCollection& variables)
+#else
 setVariables(VariableCollection variables)
+#endif
 {
   // Temporary handling of array mesh variable (before their handling within mesh xsd)
   // Create scalar mesh variable with each component of array variables.
@@ -194,7 +215,11 @@ setVariables(VariableCollection variables)
 
 void
 IXM3PostProcessorService::
+#if ARCANE_VERSION >= 40105
+setGroups(const ItemGroupCollection& groups)
+#else
 setGroups(ItemGroupCollection groups)
+#endif
 {
   PostProcessorWriterBase::setGroups(groups);
   m_groups_set = true;

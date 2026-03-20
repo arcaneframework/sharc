@@ -4,6 +4,9 @@
 // See the top-level COPYRIGHT file for details.
 // SPDX-License-Identifier: Apache-2.0
 //-----------------------------------------------------------------------------
+
+#include <arcane/ArcaneVersion.h>
+
 #include "LinearSystem.h"
 
 #include <arcane/ISubDomain.h>
@@ -118,12 +121,14 @@ solve(Alien::ILinearSolver* solver)
   {
     if(m_normalize_opt)
     {
+#if (ARCANE_VERSION >= 40103)
       if(m_diag_scaling_opt)
       {
         auto ptr = dynamic_cast<Alien::ILinearSolverWithDiagScaling*>(solver) ;
         if(ptr)
           ptr->setDiagScaling(*m_alien_matrix) ;
       }
+#endif
       Alien::NormalizeOpt op ;
       op.setAlgo(Alien::NormalizeOpt::StdLU) ;
       op.setOpt(Alien::NormalizeOpt::SumFirstEq,m_first_row_sum_opt) ;

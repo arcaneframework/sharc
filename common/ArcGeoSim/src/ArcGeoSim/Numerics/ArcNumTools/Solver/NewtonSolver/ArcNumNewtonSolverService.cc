@@ -27,7 +27,7 @@ public:
 
   ArcNumNewtonSolverService(const Arcane::ServiceBuildInfo & sbi)
     : ArcaneArcNumNewtonSolverObject(sbi) {}
-  
+
   ~ArcNumNewtonSolverService() {}
 
 public:

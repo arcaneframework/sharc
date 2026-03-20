@@ -4,7 +4,12 @@
 
 # ArcGeoSim tests
 message(STATUS " ** Including ArcGeoSim tests")
-set(ARCGEOSIM_TEST_DIR $ENV{ARCGEOSIM_TEST_DIR})
+if($ENV{ARCGEOSIM_TEST_DIR})
+  set(ARCGEOSIM_TEST_DIR $ENV{ARCGEOSIM_TEST_DIR})
+else()
+  set(ARCGEOSIM_TEST_DIR "..")
+endif()
+
 # INCLUDE(${ARCGEOSIM_TEST_PATH}/LUSolver.txt)
 include(${PROJECT_SOURCE_DIR}/test/AnyItem.txt) 
 include(${PROJECT_SOURCE_DIR}/test/AppService.txt)
@@ -16,7 +21,7 @@ include(${PROJECT_SOURCE_DIR}/test/Gump.txt)
 include(${PROJECT_SOURCE_DIR}/test/Interpolator.txt)
 include(${PROJECT_SOURCE_DIR}/test/Law.txt)
 include(${PROJECT_SOURCE_DIR}/test/LUSolver.txt)
-include(${PROJECT_SOURCE_DIR}/test/LinearAlgebra2.txt)
+include(${PROJECT_SOURCE_DIR}/test/Alien.txt)
 include(${PROJECT_SOURCE_DIR}/test/MakeDelegatedPtr.txt)
 include(${PROJECT_SOURCE_DIR}/test/ModuleMaster.txt)
 include(${PROJECT_SOURCE_DIR}/test/StrongOptions.txt)

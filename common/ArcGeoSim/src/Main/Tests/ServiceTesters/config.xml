@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<makefile>
+  <needed-packages>
+    <package name="arcane" />
+    <package name="boost" />
+  </needed-packages>
+  <files language="c++header">
+    <file>IServiceTester</file>
+  </files>
+  <directories>
+    <directory>AuDiTester</directory>
+    <directory>DivKGradTwoPointsServiceTester</directory>
+    <directory>MeshPartitionerTester</directory>
+    <!--directory>ObservablePropertyTester</directory-->
+    <directory>MeshGeneratorTester</directory>
+    <directory>AlienTester</directory>
+    <directory>LUSolverTester</directory>
+    <directory>GenericItemExtractorTester</directory>
+    <directory>InterpolatorTester</directory>
+    <directory>ExpressionsTester</directory>
+    <directory depend="!law_v1">LawTester</directory>
+    <directory>AnyItemTester</directory>
+    <directory>AppServiceTester</directory>
+    <directory>ModuleMasterTester</directory>
+    <directory>MakeDelegatedPtrTester</directory>
+    <directory>GumpTester</directory>
+    <directory depend="strong_options,linux">StrongOptionsTester</directory>
+    <directory>NNInferenceTester</directory>
+  </directories>
+</makefile>
