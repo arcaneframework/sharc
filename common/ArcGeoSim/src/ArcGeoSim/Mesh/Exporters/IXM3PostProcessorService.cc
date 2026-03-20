@@ -8,7 +8,7 @@
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-// Interface du service 
+// Interface du service
 #include <arcane/IPostProcessorWriter.h>
 
 #include <arcane/VariableCollection.h>
@@ -30,18 +30,18 @@ using namespace Arcane;
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
-class IXM3PostProcessorService 
+class IXM3PostProcessorService
   : public ArcaneIXM3PostProcessorObject
 {
 public:
-  
+
   /** Constructeur de la classe */
-  IXM3PostProcessorService(const Arcane::ServiceBuildInfo & sbi) 
+  IXM3PostProcessorService(const Arcane::ServiceBuildInfo & sbi)
     : ArcaneIXM3PostProcessorObject(sbi), m_data_writer(NULL), m_is_master(true) {}
-  
+
   /** Destructeur de la classe */
   ~IXM3PostProcessorService() {}
-  
+
 public:
 
   //! Construit l'instance
@@ -62,11 +62,7 @@ public:
   void setBaseDirectoryName(const String& dirname);
 
   //! Nom du repertoire de sortie des fichiers.
-#if (ARCANE_VERSION >= 40105)
-  String baseDirectoryName() override {return PostProcessorWriterBase::baseDirectoryName();}
-#else
   const String& baseDirectoryName() {return PostProcessorWriterBase::baseDirectoryName();}
-#endif
 
   /*!
    * \brief Positionne le nom du fichier contenant les sorties
@@ -74,11 +70,7 @@ public:
   void setBaseFileName(const String& filename) override {PostProcessorWriterBase::setBaseFileName(filename);}
 
   //! Nom du fichier contenant les sorties.
-#if (ARCANE_VERSION >= 40105)
-  String baseFileName() override {return PostProcessorWriterBase::baseFileName();}
-#else
   const String& baseFileName() override {return PostProcessorWriterBase::baseFileName();}
-#endif
 
   //! Set mesh
   void setMesh(IMesh * mesh) override {m_mesh = mesh; m_mesh_set = true;}
@@ -90,22 +82,14 @@ public:
   RealConstArrayView times() override {return PostProcessorWriterBase::times();}
 
   //! Positionne la liste des variables a sortir
-#if ARCANE_VERSION >= 40105
-  void setVariables(const VariableCollection& variables) override;
-#else
   void setVariables(VariableCollection variables) override;
-#endif
 
 
   //! Liste des variables a sauver
   VariableCollection variables() override {return PostProcessorWriterBase::variables();}
 
   //! Positionne la liste des groupes a sortir
-#if ARCANE_VERSION >= 40105
-  void setGroups(const ItemGroupCollection& groups) override;
-#else
   void setGroups(ItemGroupCollection groups) override;
-#endif
 
   //! Liste des groupes a sauver
   ItemGroupCollection groups() override {return PostProcessorWriterBase::groups();}
@@ -188,11 +172,7 @@ setBaseDirectoryName(const String& dirname)
 /*---------------------------------------------------------------------------*/
 void
 IXM3PostProcessorService::
-#if ARCANE_VERSION >= 40105
-setVariables(const VariableCollection& variables)
-#else
 setVariables(VariableCollection variables)
-#endif
 {
   // Temporary handling of array mesh variable (before their handling within mesh xsd)
   // Create scalar mesh variable with each component of array variables.
@@ -215,11 +195,7 @@ setVariables(VariableCollection variables)
 
 void
 IXM3PostProcessorService::
-#if ARCANE_VERSION >= 40105
-setGroups(const ItemGroupCollection& groups)
-#else
 setGroups(ItemGroupCollection groups)
-#endif
 {
   PostProcessorWriterBase::setGroups(groups);
   m_groups_set = true;
