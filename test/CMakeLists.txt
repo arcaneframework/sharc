@@ -100,7 +100,7 @@ if(TARGET mcgsolver)
         use-case-two-phase-flow-spe10-mcgs-bcgs-cpr.arc
         600)
 
-  if(TARGET mcgsolver::gpu)
+  if(TARGET mcgsolver::cuda)
     ARCANE_ADD_TEST_SEQUENTIAL_LONGTIME(TwoPhaseFlowSimulationSPE10-mcgsgpu-bcgs-cpr
           ShArc
           test/TwoPhaseFlowSimulation
