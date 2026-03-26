@@ -27,8 +27,8 @@
       <group-name>AllCells</group-name>
       <reference-value>8593410.2664998025</reference-value>
       <reduction>Mean</reduction>
-      <comparator>AbsoluteError</comparator>
-      <tolerance>1e-6</tolerance>
+      <comparator>RelativeError</comparator>
+      <tolerance>1e-10</tolerance>
       <verbose>true</verbose>
     </validator>
     <validator name="SyntheticServiceValidator">
@@ -38,8 +38,8 @@
       <group-name>AllCells</group-name>
       <reference-value>0.9968946892</reference-value>
       <reduction>Mean</reduction>
-      <comparator>AbsoluteError</comparator>
-      <tolerance>1e-6</tolerance>
+      <comparator>RelativeError</comparator>
+      <tolerance>1e-10</tolerance>
       <verbose>true</verbose>
     </validator>
     <expression-mng name="ExpressionMng"/>
@@ -84,17 +84,19 @@
         <tolerance>1.e-8</tolerance>
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
-
-        <linear-solver name="AlienCoreSolver">
-          <backend>SimpleCSR</backend>
-          <solver>BCGS</solver>
-          <preconditioner>ILU0</preconditioner>
-          <max-iter>1000</max-iter>
-          <tol>1.e-8</tol>
-          <output-level>0</output-level>
+         <linear-solver name="MCGSolver">
+          <output>0</output>
+          <rowsum>true</rowsum>
+          <kernel>CPU_CBLAS_BCSR</kernel>
+          <max-iteration-num>1000</max-iteration-num>
+          <stop-criteria-value>1e-8</stop-criteria-value>
+          <preconditioner>CprAmg</preconditioner>
+          <CprAmg>
+            <cxr-solver>HypreAMG</cxr-solver>
+            <relax-solver>ILUk</relax-solver> 
+          </CprAmg>
         </linear-solver>
       </newton>
-
     </numerics>
     <boundary-condition name="DirichletManager">
         <boundary>

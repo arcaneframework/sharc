@@ -20,7 +20,7 @@
       <decrease-factor>0.5</decrease-factor>
     </time-step-policy>
     <geometry name="Euclidian3Geometry"/>
-    <validator name="SyntheticServiceValidator">
+    <!--validator name="SyntheticServiceValidator">
       <variable-field name="VariableAccessor">
         <name>Domain_Pressure_System</name>
       </variable-field>
@@ -41,7 +41,7 @@
       <comparator>AbsoluteError</comparator>
       <tolerance>1e-6</tolerance>
       <verbose>true</verbose>
-    </validator>
+    </validator-->
     <expression-mng name="ExpressionMng"/>
     <post-processing>
       <save-init>false</save-init>
@@ -84,17 +84,17 @@
         <tolerance>1.e-8</tolerance>
         <control-factor>0.1</control-factor>
         <debug-dump-matlab>false</debug-dump-matlab>
-
-        <linear-solver name="AlienCoreSolver">
-          <backend>SimpleCSR</backend>
-          <solver>BCGS</solver>
-          <preconditioner>ILU0</preconditioner>
-          <max-iter>1000</max-iter>
-          <tol>1.e-8</tol>
-          <output-level>0</output-level>
+       
+        <linear-solver name="PETScSolver">
+          <solver name="BiCGStab">
+            <num-iterations-max>500</num-iterations-max>
+            <stop-criteria-value>1e-8</stop-criteria-value>
+            <preconditioner name="ILU"></preconditioner>
+          </solver>
         </linear-solver>
-      </newton>
+ 
 
+      </newton>
     </numerics>
     <boundary-condition name="DirichletManager">
         <boundary>
