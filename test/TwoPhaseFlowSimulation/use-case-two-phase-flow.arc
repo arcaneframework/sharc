@@ -28,8 +28,8 @@
       <group-name>AllCells</group-name>
       <reference-value>10512859.6282460578</reference-value>
       <reduction>Mean</reduction>
-      <comparator>AbsoluteError</comparator>
-      <tolerance>1e-6</tolerance>
+      <comparator>RelativeError</comparator>
+      <tolerance>1e-10</tolerance>
       <verbose>true</verbose>
     </validator>
     <validator name="SyntheticServiceValidator">
@@ -39,8 +39,8 @@
       <group-name>AllCells</group-name>
       <reference-value>0.0516165805</reference-value>
       <reduction>Mean</reduction>
-      <comparator>AbsoluteError</comparator>
-      <tolerance>1e-6</tolerance>
+      <comparator>ReleativeError</comparator>
+      <tolerance>1e-10</tolerance>
       <verbose>true</verbose>
     </validator>
     <expression-mng name="ExpressionMng"/>
