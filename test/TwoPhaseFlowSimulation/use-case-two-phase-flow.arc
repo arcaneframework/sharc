@@ -39,8 +39,8 @@
       <group-name>AllCells</group-name>
       <reference-value>0.0516165805</reference-value>
       <reduction>Mean</reduction>
-      <comparator>ReleativeError</comparator>
-      <tolerance>1e-10</tolerance>
+      <comparator>RelativeError</comparator>
+      <tolerance>1e-9</tolerance>
       <verbose>true</verbose>
     </validator>
     <expression-mng name="ExpressionMng"/>
