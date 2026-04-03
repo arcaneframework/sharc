@@ -31,8 +31,9 @@ env:
   CM_CCACHE_OPTS: "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"
   # CTest
   CT_OPTS: "--timeout 300 --output-on-failure ${{ github.event.inputs.ctest_options }}"
-  # For intel MPI to fix errors appearing in July 2023
-  I_MPI_SHM_LMT: shm
+  # For OpenMPI to allow run as root
+  OMPI_ALLOW_RUN_AS_ROOT: 1
+  OMPI_ALLOW_RUN_AS_ROOT_CONFIRM: 1
   # To remove test output directory to reduce disk usage
   ARCANE_TEST_CLEANUP_AFTER_RUN : 1
 
@@ -47,8 +48,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
-      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-foss-2021b:el8
-      #options: --user root  # Avoid to match github UID in container.
+      image: ghcr.io/arcaneframework/ifpen-arcenv-foss-2021b-el8:latest
+      options: --user root  # Avoid to match github UID in container.
     strategy:
       fail-fast: false
     env:
@@ -152,8 +153,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
-      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-foss-2021b:el8
-      #options: --user root  # Avoid to match github UID in container.
+      image: ghcr.io/arcaneframework/ifpen-arcenv-foss-2021b-el8:latest
+      options: --user root  # Avoid to match github UID in container.
     strategy:
       fail-fast: false
     env:
@@ -270,8 +271,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     container:
-      image: ghcr.io/arcaneframework/arcane-ifpen-devenv-foss-2021b:el8
-      #options: --user root  # Avoid to match github UID in container.
+      image: ghcr.io/arcaneframework/ifpen-arcenv-foss-2021b-el8:latest
+      options: --user root  # Avoid to match github UID in container.
     strategy:
       fail-fast: false
 
