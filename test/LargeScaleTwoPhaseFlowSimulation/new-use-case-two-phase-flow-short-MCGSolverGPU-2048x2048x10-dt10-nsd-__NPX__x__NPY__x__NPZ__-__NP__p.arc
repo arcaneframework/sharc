@@ -111,14 +111,20 @@
         <debug-dump-matlab>false</debug-dump-matlab>
         <debug-stat-linear-solver>true</debug-stat-linear-solver>
 
-        <linear-solver name="IFPSolver">
+        <linear-solver name="MCGSolver">
           <output>1</output>
-          <verbose>true</verbose>
-          <num-iterations-max>1000</num-iterations-max>
+          <max-iteration-num>1000</max-iteration-num>
           <stop-criteria-value>1e-8</stop-criteria-value>
-          <precond-option>CprAmg</precond-option>
-          <ilu0-algo>BlockJacobi</ilu0-algo> 
-        </linear-solver> 
+          <kernel>GPU_CUBLAS_BCSP</kernel>
+          <rowsum>true</rowsum>
+          <preconditioner>CprAmg</preconditioner>
+          <CprAmg>
+            <relax-solver>ILUk</relax-solver>
+          </CprAmg>
+          <ILUk>
+            <sp>true</sp>
+          </ILUk>
+        </linear-solver>
 
       </newton>
     </numerics>
