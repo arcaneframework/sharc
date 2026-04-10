@@ -5,7 +5,11 @@
  */
 
 #include "ArcGeoSim/Utils/VisitorT.h"
+#if (ARCANE_VERSION >= 40105)
+#include "alien/local_direct_solvers/ILinearSystemBuilder.h"
+#else
 #include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSystemBuilder.h"
+#endif
 
 #ifdef USE_ALIEN_V1
 #include <ALIEN/Alien-IFPEN.h>
@@ -50,15 +54,20 @@ template<typename ModelType, typename MatrixT = Alien::Matrix, typename VectorT 
   typedef MatrixType ThisMatrixType;
   typedef VectorType ThisVectorType;
 #endif
+#if (ARCANE_VERSION >= 40105)
+  using ILinearSystemBuilderType = Alien::ILinearSystemBuilder;
+#else
+  using ILinearSystemBuilderType = ILinearSystemBuilder;
+#endif
   /** Constructeur de la classe */
   NonLinearSystemT(ModelType* model)
   : m_model(model)
   , m_builder(NULL)
   {}
-  
+
   /** Destructeur de la classe */
   virtual ~NonLinearSystemT() { }
-  
+
   public:
 
   //! Initialisation
@@ -67,19 +76,19 @@ template<typename ModelType, typename MatrixT = Alien::Matrix, typename VectorT 
     if(m_builder)
       m_builder->init() ;
   }
-  
-  //! Initializing the system 
+
+  //! Initializing the system
   void start() {
     if(m_builder)
       m_builder->start() ;
   }
-  
+
   //! Finalizing the system
   void end() {
     if(m_builder)
       m_builder->end() ;
   }
-  
+
   void allocateData() {}
   void freeData() {}
 
@@ -90,7 +99,7 @@ template<typename ModelType, typename MatrixT = Alien::Matrix, typename VectorT 
   //A. Anciaux pour BlockTailleVariable
   virtual void initLinearSystem(bool rs_block) {
   }
-  
+
 
   virtual void buildLinearSystem() {
   }
@@ -101,16 +110,16 @@ template<typename ModelType, typename MatrixT = Alien::Matrix, typename VectorT 
     return 0 ;
   }
 
-  //! Computing at the begin of the iterative step 
+  //! Computing at the begin of the iterative step
   void startStep() {
     m_model->startNewtonStep() ;
   }
-  
+
   //! Computing at the end of the iterative step
   void endStep() {
     m_model->endNewtonStep() ;
   }
-  
+
   INonLinearSystem* asINonLinearSystem() {
     return this ;
   }
@@ -146,28 +155,28 @@ template<typename ModelType, typename MatrixT = Alien::Matrix, typename VectorT 
   ThisVectorType&       getSolution() {
     return m_sol ;
   }
-  
+
   Integer buildLinearizedSystem() {
     return m_model->buildLinearizedSystem() ;
   }
-  
+
   Integer updateVariable() {
     return m_model->updateVariable() ;
   }
-  
+
   template<typename NormeType>
   Real getNewtonResidual(NormeType& norme)
   {
     return m_model->getNewtonResidual(norme) ;
   }
-  
+
   Integer getNumericalError() {
     return m_model->getNumericalError() ;
   }
-  
+
   private :
-  ModelType* m_model ;
-  ILinearSystemBuilder* m_builder ;
+  ModelType*                    m_model   = nullptr;
+  ILinearSystemBuilderType*     m_builder = nullptr;
   protected :
   ThisMatrixType                m_matrix;
   ThisVectorType                m_rhs ;

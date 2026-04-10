@@ -9,8 +9,7 @@ linkLibraries(ArcGeoSim_mesh
   )
 
 if(TARGET metis)
-linkLibraries(ArcGeoSim_mesh
-              metis)
+  linkLibraries(ArcGeoSim_mesh metis)
 endif()
 
 commit(ArcGeoSim_mesh DESTINATION Mesh)

@@ -58,9 +58,9 @@ nextEventTime()
 
   for(; it != m_observers.end(); ++it) {
     const IEvent* e = static_cast<IEvent*>(*it);
-    if (e->startDate() > m_time())
+    if ((e->startDate() - m_time()) > std::numeric_limits<Arcane::Real>::epsilon())
       event_time = Arcane::math::min(event_time, e->startDate());
-    if (e->endDate() > m_time())
+    if ((e->endDate() - m_time()) > std::numeric_limits<Arcane::Real>::epsilon())
       event_time = Arcane::math::min(event_time, e->endDate());
   }
   

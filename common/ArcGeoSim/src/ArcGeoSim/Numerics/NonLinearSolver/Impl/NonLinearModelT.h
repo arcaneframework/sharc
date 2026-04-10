@@ -5,23 +5,22 @@
  */
 
 #include "ArcGeoSim/Numerics/Utils/Norme.h"
-#ifdef USE_ALIEN_ARCGEOSIM
-#include "ArcGeoSim/Numerics/LinearAlgebra2/ILinearSolver.h"
-#include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
-//using namespace Alien;
-#endif
 #ifdef USE_ALIEN_V0
 #include "ALIEN/Algo/ILinearSolver.h"
-#include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
 #endif
 #ifdef USE_ALIEN_V1
 #include <ALIEN/Expression/Solver/ILinearSolver.h>
-#include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
 #endif
 #ifdef USE_ALIEN_V2
 #include <alien/expression/solver/ILinearSolver.h>
+#endif
+
+#if (ARCANE_VERSION >= 40105)
+#include "alien/local_direct_solvers/IBaseLinearSolver.h"
+#else
 #include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSolver.h"
 #endif
+
 #include "ArcGeoSim/Numerics/NonLinearSolver/INonLinearModel.h"
 #include "ArcGeoSim/Numerics/NonLinearSolver/INonLinearSystem.h"
 #include "ArcGeoSim/Numerics/NonLinearSolver/INonLinearSystemBuilder.h"
@@ -32,13 +31,16 @@
 #include "ArcGeoSim/Numerics/NonLinearSolver/Impl/NonLinearSystemBuilderT.h"
 #include "ArcGeoSim/Numerics/NonLinearSolver/Impl/VariableUpdaterT.h"
 
+#if (ARCANE_VERSION >= 40105)
+#include "alien/local_direct_solvers/ILinearSystemBuilder.h"
+#else
 #include "ArcGeoSim/Numerics/LinearSolver/LocalDirectSolverImpl/ILinearSystemBuilder.h"
+#endif
 //template<typename ModelType> class NonLinearSystemT ;
 class INonLinearSystemBuilder;
-class ILinearSystemBuilder;
 //class ILinearSolver;
 
-class BaseNonLinearModel 
+class BaseNonLinearModel
 : public INonLinearModel
 {
  public:
@@ -47,18 +49,26 @@ class BaseNonLinearModel
   typedef ArcGeoSim::Numerics::Norme<ArcGeoSim::Numerics::L1> NormeL1 ;
   typedef ArcGeoSim::Numerics::Norme<ArcGeoSim::Numerics::L2> NormeL2 ;
 
+#if (ARCANE_VERSION >= 40105)
+  using ILinearSystemBuilderType = Alien::ILinearSystemBuilder;
+  using IDirectLinearSolverType  = Alien::LocalDirectSolverNamespace::ILinearSolver ;
+#else
+  using ILinearSystemBuilderType = ILinearSystemBuilder;
+  using IDirectLinearSolverType  = LocalDirectSolverNamespace::ILinearSolver ;
+#endif
+
   BaseNonLinearModel() {
     m_non_linear_system = new NonLinearSystemType(this) ;
     m_non_linear_system_builder = new NonLinearSystemBuilderT<NonLinearSystemType>();
     m_variable_updater = new VariableUpdaterT<NonLinearSystemType>() ;
   }
-  
+
   virtual ~BaseNonLinearModel() {}
-  
+
   INonLinearSystem* getNonLinearSystem() {
     return m_non_linear_system ;
   }
-  
+
   INonLinearSystemBuilder* getNonLinearSystemBuilder() {
     return m_non_linear_system_builder ;
   }
@@ -66,35 +76,25 @@ class BaseNonLinearModel
     return m_variable_updater ;
   }
 
-#ifdef USE_ALIEN_ARCGEOSIM
-  virtual void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) = 0 ;  
-#endif
-#ifdef USE_ALIEN_V0
-  virtual void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) = 0 ;  
-#endif
-#ifdef USE_ALIEN_V1
-  virtual void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) = 0 ;  
-#endif
-#ifdef USE_ALIEN_V2
-  virtual void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) = 0 ;
-#endif
+  virtual void setLinearSolver(IDirectLinearSolverType* solver) = 0 ;
+
   virtual void setLinearSolver(Alien::ILinearSolver* solver) = 0 ;
 
-  virtual ILinearSystemBuilder* getLinearSystemBuilder(){
-    return NULL ;
-  } 
-  
+  virtual ILinearSystemBuilderType* getLinearSystemBuilder(){
+    return nullptr ;
+  }
+
   virtual Integer buildLinearizedSystem() = 0 ;
   virtual Integer updateVariable() = 0 ;
-  
+
   virtual Real getNewtonResidual(NormeL0& norme) = 0 ;
   virtual Real getNewtonResidual(NormeL1& norme) = 0 ;
   virtual Real getNewtonResidual(NormeL2& norme) = 0 ;
   virtual Integer getNumericalError() = 0 ;
  protected :
-  NonLinearSystemType*      m_non_linear_system  ;
-  INonLinearSystemBuilder*  m_non_linear_system_builder  ;
-  INonLinearSystemVisitor*  m_variable_updater ;
+  NonLinearSystemType*      m_non_linear_system         = nullptr ;
+  INonLinearSystemBuilder*  m_non_linear_system_builder = nullptr ;
+  INonLinearSystemVisitor*  m_variable_updater          = nullptr;
 } ;
 
 
@@ -123,20 +123,6 @@ class BaseNonLinearModelT
     , m_initialized(false)
     , m_name(name)
     , m_model(model)
-#ifdef USE_ALIEN_ARCGEOSIM
-    , m_linear_solver(NULL)
-#endif
-#ifdef USE_ALIEN_V0
-    , m_linear_solver(NULL)
-#endif
-#ifdef USE_ALIEN_V1
-    , m_linear_solver(NULL)
-#endif
-#ifdef USE_ALIEN_V2
-    , m_linear_solver(NULL)
-#endif
-    , m_linear_solver2(NULL)
-    , m_error(0)
     {
     }
 
@@ -148,35 +134,18 @@ class BaseNonLinearModelT
     return m_name ;
   }
 
-#ifdef USE_ALIEN_ARCGEOSIM
-  void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) {
+  void setLinearSolver(IDirectLinearSolverType* solver) {
     m_linear_solver = solver ;
   }
-#endif
 
-#ifdef USE_ALIEN_V0
-  void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) {
-    m_linear_solver = solver ;
-  }
-#endif
-#ifdef USE_ALIEN_V1
-  void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) {
-    m_linear_solver = solver ;
-  }
-#endif
-#ifdef USE_ALIEN_V2
-  void setLinearSolver(LocalDirectSolverNamespace::ILinearSolver* solver) {
-    m_linear_solver = solver ;
-  }
-#endif
 
   void setLinearSolver(Alien::ILinearSolver* solver) {
     m_linear_solver2 = solver ;
   }
 
 #ifdef USE_LINEARSOLVER_V1
-  ILinearSystemBuilder* getLinearSystemBuilder()  {
-    return NULL ;
+  ILinearSystemBuilderType* getLinearSystemBuilder()  {
+    return nullptr ;
   }
 #endif
 
@@ -205,24 +174,13 @@ class BaseNonLinearModelT
   }
 
  protected :
-  bool m_initialized ;
+  bool m_initialized = false;
   String m_name ;
 
-  ModelType*     m_model ;
-#ifdef USE_ALIEN_ARCGEOSIM
-  LocalDirectSolverNamespace::ILinearSolver* m_linear_solver;
-#endif
-#ifdef USE_ALIEN_V0
-  LocalDirectSolverNamespace::ILinearSolver* m_linear_solver;
-#endif
-#ifdef USE_ALIEN_V1
-  LocalDirectSolverNamespace::ILinearSolver* m_linear_solver;
-#endif
-#ifdef USE_ALIEN_V2
-  LocalDirectSolverNamespace::ILinearSolver* m_linear_solver;
-#endif
-  Alien::ILinearSolver* m_linear_solver2;
-  Integer             m_error ;
+  ModelType*               m_model          = nullptr;
+  IDirectLinearSolverType* m_linear_solver  = nullptr;
+  Alien::ILinearSolver*    m_linear_solver2 = nullptr;
+  Integer                  m_error          = 0;
 };
 
 #endif

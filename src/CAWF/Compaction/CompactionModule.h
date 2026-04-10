@@ -46,6 +46,8 @@ private :
   int           m_max_iter = 0 ;
 
 
+  String                         m_top_boundary_name     = "TopBoundary" ;
+  String                         m_bottom_boundary_name  = "BottomBoundary" ;
   Real                           m_gravity               = 9.8;
   Real                           m_top_z                 = 0. ;
   Real                           m_event_period          = 0. ;

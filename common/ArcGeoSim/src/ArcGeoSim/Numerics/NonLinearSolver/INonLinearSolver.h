@@ -25,10 +25,7 @@
   * - un crit�re d'arr�t.
   *
  */
-
-#ifdef USE_ALIEN_ARCGEOSIM
-#include "ArcGeoSim/Numerics/LinearAlgebra2/ILinearSolver.h"
-#endif
+#include <arcane/ArcaneVersion.h>
 #ifdef USE_ALIEN_V0
 #include <ALIEN/Algo/ILinearSolver.h>
 #endif
