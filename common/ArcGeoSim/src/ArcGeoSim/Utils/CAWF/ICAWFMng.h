@@ -57,6 +57,8 @@ public:
     virtual bool isAppLeader() = 0 ;
 
 #ifdef USE_PRECICE_V3
+    virtual bool isMeshUpdate() const = 0 ;
+    virtual void invalidateMesh(bool value) = 0 ;
     virtual void updateMesh() = 0 ;
     virtual void updateMesh(ICouplingMesh* mesh) = 0 ;
 #endif

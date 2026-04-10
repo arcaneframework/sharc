@@ -208,10 +208,16 @@ void DynamicMeshMngService::updateNewEvent()
     info()<<" EVENT INDEX : "<<m_current_event_iter;
     update_face_group(options()->top()) ;
     update_face_group(options()->bottom()) ;
-    update_face_group(options()->front()) ;
-    update_face_group(options()->back()) ;
-    update_face_group(options()->left()) ;
-    update_face_group(options()->right()) ;
+    if(options()->front.isPresent())
+      update_face_group(options()->front()) ;
+    if(options()->back.isPresent())
+      update_face_group(options()->back()) ;
+    if(options()->left.isPresent())
+      update_face_group(options()->left()) ;
+    if(options()->right.isPresent())
+      update_face_group(options()->right()) ;
+    if(options()->border.isPresent())
+      update_face_group(options()->border()) ;
   }
   else
   {

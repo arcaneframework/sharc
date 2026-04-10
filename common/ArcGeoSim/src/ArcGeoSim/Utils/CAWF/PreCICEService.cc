@@ -110,7 +110,7 @@ public:
   virtual ~PreCICEService() {}
 
 public:
-  
+
   //====================================================================================================
   // Les méthodes d'interface
   //====================================================================================================
@@ -126,6 +126,13 @@ public:
   bool isAppLeader() ;
 
 #ifdef USE_PRECICE_V3
+  bool isMeshUpdate() const {
+    return m_mesh_is_update ;
+  }
+  void invalidateMesh(bool value) {
+    if(value)
+      m_mesh_is_update = false;
+  }
   void updateMesh() ;
   void updateMesh(ICouplingMesh* mesh) ;
   void setAppMeshFilter(Arcane::ConstArrayView<Int64> uids);
@@ -193,6 +200,10 @@ private:
   std::vector<int>            m_evol_vertex_ids;
   std::vector<int>            m_evol_vertex_lids;
   std::map<uid_type,lid_type> m_evol_vertex_uid2lid ;
+
+#ifdef USE_PRECICE_V3
+  bool                        m_mesh_is_update = false;
+#endif
 
   std::vector<double> m_readScalarBuffer;
   std::vector<std::vector<double>> m_writeScalarBuffer;
@@ -388,6 +399,7 @@ PreCICEService::initMesh()
 #ifdef USE_PRECICE
 #ifdef USE_PRECICE_V3
   m_precice_interface->setMeshVertices(m_mesh_name.localstr(), m_vertices, m_vertex_ids);
+  m_mesh_is_update = true;
 #else
   m_precice_interface->setMeshVertices(m_mesh_id, m_nb_vertices, m_vertices.data(), m_vertex_ids.data());
 #endif
@@ -396,7 +408,6 @@ PreCICEService::initMesh()
   m_writeScalarBuffer.resize(m_write_datas.size());
   for(auto& buffer : m_writeScalarBuffer)
       buffer.resize(m_nb_vertices) ;
-
 #endif
   /*
   {
@@ -428,6 +439,7 @@ PreCICEService::initMesh(Arcane::ConstArrayView<Int64> uids)
     }
   }
   m_precice_interface->setMeshVertices(m_mesh_name.localstr(), vertices, m_evol_vertex_ids);
+  m_mesh_is_update = true;
 
   auto nb_vertices = uids.size() ;
   m_readScalarBuffer.resize(nb_vertices);
@@ -523,6 +535,12 @@ PreCICEService::updateMesh()
   }
 
   m_precice_interface->setMeshVertices(m_mesh_name.localstr(), m_vertices, m_vertex_ids);
+  m_mesh_is_update = true;
+
+  m_readScalarBuffer.resize(m_nb_vertices);
+  for(auto& buffer : m_writeScalarBuffer)
+      buffer.resize(m_nb_vertices) ;
+  info()<<"PreCICE::BUFFER UPDATED SIZE : "<<m_nb_vertices;
 }
 
 
@@ -694,9 +712,11 @@ PreCICEService::endTimeStep()
         auto const& item_kind = m_write_datas[i].m_item_kind ;
         switch(item_kind)
             {
-          case Arcane::IK_Cell: _writeMeshVariable<Arcane::Cell>(i, ownCells().itemFamily()->name(), ownCells());
+          case Arcane::IK_Cell:
+            _writeMeshVariable<Arcane::Cell>(i, ownCells().itemFamily()->name(), ownCells());
             break;
-          case Arcane::IK_DoF: _writeMeshVariable<Arcane::DualNode>(i, mesh::GraphDoFs::dualNodeFamilyName(), GRAPH(mesh())->dualNodeFamily()->allItems().own());
+          case Arcane::IK_DoF:
+            _writeMeshVariable<Arcane::DualNode>(i, mesh::GraphDoFs::dualNodeFamilyName(), GRAPH(mesh())->dualNodeFamily()->allItems().own());
             break;
          default:
             fatal()<<"unknown item kind "<<item_kind;

@@ -119,7 +119,11 @@ void CompactionModule::init()
   m_event_index = 0 ;
 
   FaceGroup boundary = mesh()->allCells().outerFaceGroup();
-  FaceGroup top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+  if(options()->top.isPresent())
+    m_top_boundary_name = options()->top();
+  if(options()->bottom.isPresent())
+    m_bottom_boundary_name = options()->bottom();
+  FaceGroup top_face_boundary = mesh()->faceFamily()->findGroup(m_top_boundary_name);
   if(top_face_boundary.empty())
   {
     const IGeometryMng::Real3Variable & face_center =
@@ -132,8 +136,8 @@ void CompactionModule::init()
       if(face_center[*iface].z == 0.)
         top_face_lids.add(iface->localId());
     }
-    mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
-    top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+    mesh()->faceFamily()->createGroup(m_top_boundary_name,top_face_lids,true) ;
+    top_face_boundary = mesh()->faceFamily()->findGroup(m_top_boundary_name);
   }
   {
     const IGeometryMng::Real3Variable & face_center =
@@ -228,7 +232,7 @@ void CompactionModule::reloadOldState()
 void CompactionModule::
 updateTopBoundary(CellGroup const& new_event)
 {
-  FaceGroup top_boundary = mesh()->faceFamily()->findGroup(options()->top()) ;
+  FaceGroup top_boundary = mesh()->faceFamily()->findGroup(m_top_boundary_name) ;
   if(top_boundary.empty())
   {
     info()<<"UPDATE TOP BOUNDARY FACE GROUP";
@@ -255,10 +259,10 @@ updateTopBoundary(CellGroup const& new_event)
         }
       }
     }
-    mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
+    mesh()->faceFamily()->createGroup(m_top_boundary_name,top_face_lids,true) ;
   }
 
-  FaceGroup const& top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+  FaceGroup const& top_face_boundary = mesh()->faceFamily()->findGroup(m_top_boundary_name);
   {
     const IGeometryMng::Real3Variable & face_center =
         m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
@@ -650,7 +654,7 @@ test()
               m_layer_id[*icell] = m_new_layer_id ;
             }
 
-            FaceGroup top_boundary = mesh()->faceFamily()->findGroup(options()->top()) ;
+            FaceGroup top_boundary = mesh()->faceFamily()->findGroup(m_top_boundary_name) ;
             if(top_boundary.empty())
             {
               info()<<"UPDATE TOP BOUNDARY FACE GROUP";
@@ -676,10 +680,10 @@ test()
                     }
                   }
                 }
-                mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
+                mesh()->faceFamily()->createGroup(m_top_boundary_name,top_face_lids,true) ;
             }
 
-            FaceGroup const& top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+            FaceGroup const& top_face_boundary = mesh()->faceFamily()->findGroup(m_top_boundary_name);
             {
               const IGeometryMng::Real3Variable & face_center =
                   m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
