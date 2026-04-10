@@ -28,22 +28,23 @@ public:
   void init();
   //! Run the test
   void test();
+
+  void updateTopBoundary(CellGroup const& new_event);
+  void computeDensity();
   void computePressure();
+  void updateVariablesTN();
 
   void saveOldState() ;
   void reloadOldState() ;
 
 private :
 
-  ShArc::IDynamicMeshMng* m_dynamic_mesh_mng = nullptr;
-  ArcGeoSim::ICAWFMng*    m_cawf_mng         = nullptr ;
 
   Real          m_dt = 0. ;
   Real          m_time = 0. ;
   int           m_iter = 0 ;
   int           m_max_iter = 0 ;
 
-  IParallelMng* m_parallel_mng = nullptr;
 
   Real                           m_gravity               = 9.8;
   Real                           m_top_z                 = 0. ;
@@ -58,6 +59,9 @@ private :
   Real                           m_next_layer_event_time = 0. ;
   UniqueArray<Int64>             m_activated_layers_uids;
 
+  IParallelMng*                  m_parallel_mng          = nullptr;
+  ShArc::IDynamicMeshMng*        m_dynamic_mesh_mng      = nullptr;
+  ArcGeoSim::ICAWFMng*           m_cawf_mng              = nullptr ;
   IGeometryMng *                 m_geometry_mng          = nullptr;
   NoOptimizationGeometryPolicy   m_geometry_policy ;
   Alien::ILinearSolver *         m_linear_solver         = nullptr;

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<case codename="Poisson" xml:lang="en" codeversion="1.0">
+<case codename="ShArc" xml:lang="en" codeversion="1.0">
   <arcane>
     <title>Sphere 3D</title>
     <timeloop>PoissonLoop</timeloop>
@@ -19,7 +19,7 @@
     </mesh>
   </meshes>
 
-  <fem>
+  <fem-poisson>
     <f>5.5</f>
     <boundary-conditions>
       <dirichlet>
@@ -27,5 +27,11 @@
         <value>0.5</value>
       </dirichlet>
     </boundary-conditions>
-  </fem>
+    <linear-system name="HypreLinearSystem">
+      <solver>bicgstab</solver>
+      <rtol>1e-9</rtol>
+      <atol>0.</atol>
+    </linear-system>
+
+  </fem-poisson>
 </case>

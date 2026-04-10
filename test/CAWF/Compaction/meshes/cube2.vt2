@@ -7,7 +7,7 @@ ORIGIN 0. 0. -0.5
 DXYZ 0.1 0.1 0.25
 
 CELLGROUPS 1
-IXMEvolutiveMesh_newCells 1 10 1 10 2 2
+IXMEvolutiveMesh_newCells 1 10 1 4 2 2
 NODEGROUPS 2
 IXMEvolutiveMesh_newNodes 1 11 1 11 3 3
 IXMEvolutiveMesh_updateNodes 1 11 1 11 1 3

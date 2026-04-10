@@ -15,7 +15,7 @@
   </arcane-post-processing>
 
   <mesh>
-    <file internal-partition="true">meshes/cube2.vt2</file>
+    <file internal-partition="true">meshes/cube.vt2</file>
     <!--file internal-partition="true">meshes/cube.vt2</file-->
   </mesh>
 
@@ -79,6 +79,21 @@
         <left>XMIN</left>
         <right>XMAX</right>
     </dynamic-mesh-mng-->
+    <cawf-mng name="PreCICE">
+          <app-id>0</app-id>
+          <app-name>MecaFEM</app-name>
+          <config-file>../precice-config-v3.xml</config-file>
+          <mesh-name>Mesh2</mesh-name>
+          <read-data>
+              <name>P</name>
+              <var-name>CellPressure</var-name>
+          </read-data>
+          <write-data>
+            <name>DivU</name>
+            <var-name>CellDivU</var-name>
+          </write-data>
+    </cawf-mng>
+
     <geometry-mng name="Euclidian3Geometry"/>
   </fem>
 </case>

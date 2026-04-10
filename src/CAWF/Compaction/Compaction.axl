@@ -8,8 +8,8 @@
 
 
     <variable
-      field-name="u"
-      name="U"
+      field-name="p"
+      name="P"
       data-type="real"
       item-kind="cell"
       dim="0"
@@ -17,10 +17,9 @@
       need-sync="true"
     />
 
-
     <variable
-      field-name="ul"
-      name="UL"
+      field-name="p_N"
+      name="PN"
       data-type="real"
       item-kind="cell"
       dim="0"
@@ -79,8 +78,48 @@
     />
 
     <variable
+      field-name="rho_N"
+      name="RhoN"
+      data-type="real"
+      item-kind="cell"
+      dim="0"
+      dump="true"
+      need-sync="true"
+    />
+
+    <variable
       field-name="drhodp"
       name="DRhoDP"
+      data-type="real"
+      item-kind="cell"
+      dim="0"
+      dump="true"
+      need-sync="true"
+    />
+
+    <variable
+      field-name="drhodu"
+      name="DRhoDU"
+      data-type="real"
+      item-kind="cell"
+      dim="0"
+      dump="true"
+      need-sync="true"
+    />
+
+    <variable
+      field-name="divu"
+      name="DivU"
+      data-type="real"
+      item-kind="cell"
+      dim="0"
+      dump="true"
+      need-sync="true"
+    />
+
+    <variable
+      field-name="divu_N"
+      name="DivUN"
       data-type="real"
       item-kind="cell"
       dim="0"
@@ -97,6 +136,7 @@
       dump="true"
       need-sync="true"
     />
+
     <variable
       field-name="k"
       name="K"
@@ -110,27 +150,6 @@
     <variable
       field-name="s"
       name="S"
-      data-type="real"
-      item-kind="cell"
-      dim="0"
-      dump="true"
-      need-sync="true"
-    />
-
-    <variable
-      field-name="c"
-      name="C"
-      data-type="real"
-      item-kind="cell"
-      dim="0"
-      dump="true"
-      need-sync="true"
-    />
-
-
-    <variable
-      field-name="c_N"
-      name="CN"
       data-type="real"
       item-kind="cell"
       dim="0"
@@ -177,6 +196,26 @@
 
   <options>
 
+
+    <simple name="top" type="string" default="top">
+      <description>Bottom face group name</description>
+    </simple>
+    <simple name="bottom" type="string" default="bottom">
+      <description>Bottom face group name</description>
+    </simple>
+    <simple name="front" type="string" default="front">
+      <description>Front face group name</description>
+    </simple>
+    <simple name="back" type="string" default="back">
+      <description>Front face group name</description>
+    </simple>
+    <simple name="right" type="string" default="right">
+      <description>Right face group name</description>
+    </simple>
+    <simple name="left" type="string" default="left">
+      <description>Left face group name</description>
+    </simple>
+
     <simple name="surface-density" type="real" default="1.">
       <description>Surface Density</description>
     </simple>
@@ -202,7 +241,7 @@
       <description></description>
     </simple>
 
-    <service-instance name="dynamic-mesh-mng" type="ShArc::IDynamicMeshMng">
+    <service-instance name="dynamic-mesh-mng" type="ShArc::IDynamicMeshMng" optional='true'>
        <description>Dynamic Mesh mng Service</description>
     </service-instance>
 

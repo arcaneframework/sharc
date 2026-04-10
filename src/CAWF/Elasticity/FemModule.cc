@@ -31,12 +31,13 @@
  * This method initializes degrees of freedom (DoFs) on nodes.
  */
 /*---------------------------------------------------------------------------*/
-
-void FemModuleElasticity::
-startInit()
+void FemModuleElasticity::init()
 {
-  info() << "[ArcaneFem-Info] Started module  startInit()";
-  Real elapsedTime = platform::getRealTime();
+
+  Alien::setTraceMng(traceMng());
+  Alien::setVerbosityLevel(Alien::Verbosity::Debug);
+  m_parallel_mng = subDomain()->parallelMng();
+
 
   m_dynamic_mesh_mng = nullptr;
   if(options()->dynamicMeshMng.isPresent())
@@ -52,11 +53,22 @@ startInit()
   {
     m_cawf_mng->init() ;
     m_cawf_mng->setTimeIterStateOp(this) ;
+    m_cawf_mng->initMesh() ;
   }
   else
   {
     m_max_iter = options()->maxIter() ;
   }
+
+  /*
+  m_linear_solver = options()->linearSolver();
+  m_linear_solver->init() ;
+
+  if (not m_linear_solver->hasParallelSupport() and m_parallel_mng->commSize() > 1)
+  {
+    fatal() << "Current solver has not a parallel support for solving linear system : skip it";
+  }*/
+
   m_geometry_mng = options()->geometryMng() ;
   m_geometry_mng -> addItemGroupProperty(mesh() -> allCells(),
                                    IGeometryProperty::PCenter,
@@ -81,17 +93,108 @@ startInit()
   m_geometry_mng -> setPolicyTolerance(true) ;
   m_geometry_mng -> update(&m_geometry_policy) ;
 
+  m_event_index = 0 ;
 
-  _getMaterialParameters();
+  FaceGroup boundary = mesh()->allCells().outerFaceGroup();
+  FaceGroup top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+  if(top_face_boundary.empty())
+  {
+    const IGeometryMng::Real3Variable & face_center =
+        m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
+    UniqueArray<Integer> top_face_lids;
+    top_face_lids.reserve(boundary.size());
+    ENUMERATE_FACE(iface,boundary)
+    {
+      info()<<"BOUNDARY FACE["<<iface->localId()<<"]"<<face_center[*iface].z;
+      if(face_center[*iface].z == 0.)
+        top_face_lids.add(iface->localId());
+    }
+    mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
+    top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+  }
+  {
+    const IGeometryMng::Real3Variable & face_center =
+        m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
+    Real top_z = 0. ;
+    ENUMERATE_FACE(iface,top_face_boundary)
+    {
+      top_z += face_center[*iface].z ;
+    }
+    top_z = top_z/top_face_boundary.size() ;
+    m_top_z = top_z;
+    info()<<"TOP BOUNDARY AVG HEIGHT : "<<m_top_z;
+  }
+
+  info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size();
+  m_face_is_top.fill(0) ;
+  ENUMERATE_FACE(iface,top_face_boundary)
+  {
+    m_face_is_top[iface] = 1 ;
+  }
+  {
+    const IGeometryMng::Real3Variable & face_normal =
+        m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PNormal);
+
+    const IGeometryMng::RealVariable & face_measure =
+      m_geometry_mng->getRealVariableProperty(mesh()->allFaces(),IGeometryProperty::PMeasure);
+    m_face_is_nz.fill(0) ;
+    ENUMERATE_FACE(iface,boundary)
+    {
+      Real3 normal = face_normal[*iface]/face_measure[*iface] ;
+      Integer sgn = iface->isSubDomainBoundaryOutside() ? 1 : -1 ;
+      if(normal.z> 0.75)
+        m_face_is_nz[iface] = sgn ;
+      if(normal.z< -0.75)
+        m_face_is_nz[iface] = -sgn ;
+    }
+  }
+
+
+  m_new_layer_id = 0 ;
+  ENUMERATE_CELL(icell,allCells())
+  {
+    m_layer_id[*icell] = m_new_layer_id ;
+  }
+
+  m_time = 0. ;
+  m_dt = 1. ;
+
+  m_event_period = options()->eventPeriod() ;
+  m_next_event_time = m_time + m_event_period ;
+  if(m_cawf_mng)
+  {
+    m_cawf_mng->start() ;
+    m_dt = m_cawf_mng->initialTimeStep() ;
+  }
+  m_global_deltat = m_dt ;
+
+  startInit();
+}
+
+void FemModuleElasticity::
+startInit()
+{
+  info() << "[ArcaneFem-Info] Started module  startInit()";
+  Real elapsedTime = platform::getRealTime();
+
+  m_dof_per_node = defaultMesh()->dimension();
+  m_matrix_format = options()->matrixFormat();
+  m_assemble_linear_system = options()->assembleLinearSystem();
+  m_solve_linear_system = options()->solveLinearSystem();
+  m_cross_validation = options()->hasSolutionComparisonFile();
+  m_petsc_flags = options()->petscFlags();
+  m_hex_quad_mesh = options()->hexQuadMesh();
+
+  _getMaterialParameters(mesh()->allCells());
 
   const UniqueArray<String> f_string = options()->f();
   info() << "[ArcaneFem-Info] Applying Bodyforce " << f_string;
-  Real3 f;
-  for (Int32 i = 0; i < f_string.size(); ++i) {
-    f[i] = 0.0;
+  for (Int32 i = 0; i < f_string.size(); ++i)
+  {
+    m_F[i] = 0.0;
     if (f_string[i] != "NULL") {
       m_applyBodyForce = true;
-      f[i] = std::stod(f_string[i].localstr());
+      m_F[i] = std::stod(f_string[i].localstr());
     }
   }
   if(m_applyBodyForce)
@@ -100,16 +203,67 @@ startInit()
         m_geometry_mng->getReal3VariableProperty(mesh()->allCells(),IGeometryProperty::PCenter);
     ENUMERATE_CELL(icell,mesh()->allCells())
     {
-      m_cell_pressure[icell] = f[2]*cell_center[icell].z;
+      m_cell_pressure[icell] = m_F[2]*cell_center[icell].z;
     }
   }
-
-  m_dofs_on_nodes.initialize(defaultMesh(), m_dof_per_node);
 
   elapsedTime = platform::getRealTime() - elapsedTime;
   ArcaneFemFunctions::GeneralFunctions::printArcaneFemTime(traceMng(),"initialize", elapsedTime);
 }
 
+void FemModuleElasticity::
+_updateTopBoundary(CellGroup const& new_event)
+{
+  FaceGroup top_boundary = mesh()->faceFamily()->findGroup(options()->top()) ;
+  if(top_boundary.empty())
+  {
+    info()<<"UPDATE TOP BOUNDARY FACE GROUP";
+      const IGeometryMng::RealVariable & face_measure =
+          m_geometry_mng->getRealVariableProperty(mesh()->allFaces(),IGeometryProperty::PMeasure);
+
+      const IGeometryMng::Real3Variable & face_normal =
+          m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PNormal);
+
+      const IGeometryMng::Real3Variable & face_center =
+          m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
+
+      UniqueArray<Integer> top_face_lids;
+      ENUMERATE_CELL(icell,new_event)
+      {
+        ENUMERATE_FACE(iface,icell->faces())
+        {
+          if(iface->isSubDomainBoundary())
+          {
+            Real3 normal = face_normal[*iface]/face_measure[*iface] ;
+            if(std::abs(normal.z)> 0.75)
+              top_face_lids.add(iface->localId());
+          }
+        }
+      }
+      mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
+  }
+
+  FaceGroup const& top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+  {
+    const IGeometryMng::Real3Variable & face_center =
+        m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
+    Real top_z = 0. ;
+    ENUMERATE_FACE(iface,top_boundary)
+    {
+      top_z += face_center[*iface].z ;
+      info()<<"TOP FACE : "<<iface->uniqueId()<<" BOUNDARY CELL : "<<iface->boundaryCell().uniqueId()<<" H = "<<face_center[*iface].z ;
+    }
+    top_z /= top_boundary.size() ;
+    m_top_z = top_z;
+    info()<<"TOP BOUDARY AVG HEIGHT : "<<m_top_z;
+  }
+  info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size() ;
+  m_face_is_top.fill(0) ;
+  ENUMERATE_FACE(iface,top_face_boundary)
+  {
+    m_face_is_top[iface] = 1 ;
+  }
+}
 /*---------------------------------------------------------------------------*/
 /**
  * @brief Performs the main computation for the FemModuleElasticity.
@@ -123,14 +277,16 @@ startInit()
 /*---------------------------------------------------------------------------*/
 
 void FemModuleElasticity::
-compute()
+computeDivU()
 {
-  info() << "[ArcaneFem-Info] Started module  compute()";
+  info() << "[ArcaneFem-Info] Started module  computeDivU()";
   Real elapsedTime = platform::getRealTime();
 
   // Stop code after computations
-  if (m_global_iteration() > 0)
-    subDomain()->timeLoopMng()->stopComputeLoop(true);
+  //if (m_global_iteration() > 0)
+  //  subDomain()->timeLoopMng()->stopComputeLoop(true);
+
+  m_dofs_on_nodes.initialize(defaultMesh(), m_dof_per_node);
 
   m_linear_system.reset();
   m_linear_system.setLinearSystemFactory(options()->linearSystem());
@@ -169,13 +325,231 @@ compute()
   ArcaneFemFunctions::GeneralFunctions::printArcaneFemTime(traceMng(),"compute", elapsedTime);
 }
 
+
+void
+FemModuleElasticity::
+test()
+{
+
+  info()<<"FEM Elasticity MODULE COMPUTATION";
+
+  ///////////////////////////////////////////////////////////////////////////
+  //
+  // RESOLUTION
+  //
+  if(m_cawf_mng)
+  {
+    if(m_cawf_mng->isCouplingOngoing())
+    {
+      info()<<"ITERATION ["<<m_iter<<"] TIME = "<<m_time<<" DT="<<m_dt ;
+
+
+      bool time_iter_is_valid = false ;
+      int sub_iter = 0 ;
+      while(not time_iter_is_valid)
+      {
+          info()<<"TIME STEP NUB ITERATION : "<<sub_iter;
+          // precice.readVectorData
+          m_cawf_mng->startTimeStep() ;
+
+          if(not m_cawf_mng->isMeshUpdate())
+          {
+            m_cawf_mng->updateMesh() ;
+          }
+
+          computeDivU();
+
+          //precice.writeVectorData
+          m_cawf_mng->endTimeStep() ;
+
+          // precice.advance coupling
+          Real precice_dt = m_cawf_mng->newTimeStep(m_dt) ;
+
+          // precice.readIterationCheck point reloadOldState
+          // time step non converged
+          if( m_cawf_mng->validateCurrentTimeStep())
+          {
+              //m_dt = new_dt ;
+            m_dt = math::min(m_dt,precice_dt );
+            ++m_iter ;
+            m_time += m_dt ;
+            m_global_deltat = m_dt ;
+            time_iter_is_valid = true ;
+            info() << " VALIDATESTEP " ;
+            if(m_dynamic_mesh_mng)
+            {
+              if((m_event_period>0) && (m_time >= m_next_event_time))
+              {
+                m_dynamic_mesh_mng->updateNewEvent() ;
+                m_geometry_mng -> update(&m_geometry_policy) ;
+
+                CellGroup new_event = mesh()->cellFamily()->findGroup("NewEventLayer") ;
+
+                info()<<" NEW EVENT : "<<m_event_index<<" "<<new_event.size();
+                if(not new_event.empty())
+                {
+                  info()<<" NEW EVENT LAYER : "<<m_new_layer_id;
+                  ++ m_new_layer_id ;
+
+                  if(m_cawf_mng)
+                    m_cawf_mng->invalidateMesh(true) ;
+
+                  ENUMERATE_CELL(icell,new_event)
+                  {
+                    m_cell_div_u[icell] = 0. ;
+                    m_layer_id[icell] = m_new_layer_id ;
+                  }
+
+                  _getMaterialParameters(new_event);
+
+                  if(m_applyBodyForce)
+                  {
+                    const IGeometryMng::Real3Variable & cell_center =
+                        m_geometry_mng->getReal3VariableProperty(mesh()->allCells(),IGeometryProperty::PCenter);
+                    ENUMERATE_CELL(icell,new_event)
+                    {
+                      m_cell_pressure[icell] = m_F[2]*cell_center[icell].z;
+                    }
+                  }
+
+                  _updateTopBoundary(new_event) ;
+
+                }
+                ++ m_event_index ;
+                m_next_event_time += m_event_period ;
+              }
+            }
+          }
+          else
+          {
+            ++sub_iter;
+            m_global_deltat = 0. ;
+            info() << " ITERATE COUPLING " ;
+            info() << " Global Time " << m_global_time() << " Iter " << m_global_iteration();
+          }
+
+        } //while( m_cawf_mng->isCouplingOngoing());
+    }
+    else
+    {
+      info()<<"FINAL TIME : "<<m_time ;
+      m_cawf_mng->finalize() ;
+      info()<<"STOP PERFECT";
+      subDomain()->timeLoopMng()->stopComputeLoop(true);
+    }
+  }
+  else
+  {
+    info()<<"ITERATION ["<<m_iter<<"] TIME = "<<m_time<<" DT="<<m_dt ;
+
+    {
+      computeDivU() ;
+      ++m_iter ;
+      m_time += m_dt ;
+      m_global_deltat = m_dt ;
+      if(m_dynamic_mesh_mng)
+      {
+        if((m_event_period>0) && (m_time >= m_next_event_time))
+        {
+          m_dynamic_mesh_mng->updateNewEvent() ;
+          m_geometry_mng -> update(&m_geometry_policy) ;
+
+          CellGroup new_event = mesh()->cellFamily()->findGroup("NewEventLayer") ;
+
+          info()<<" NEW EVENT : "<<m_event_index<<" "<<new_event.size();
+          if(not new_event.empty())
+          {
+            info()<<" NEW EVENT LAYER : "<<m_new_layer_id;
+            ++ m_new_layer_id ;
+            ENUMERATE_CELL(icell,new_event)
+            {
+              m_layer_id[*icell] = m_new_layer_id ;
+            }
+
+            _getMaterialParameters(new_event);
+
+            if(m_applyBodyForce)
+            {
+              const IGeometryMng::Real3Variable & cell_center =
+                  m_geometry_mng->getReal3VariableProperty(mesh()->allCells(),IGeometryProperty::PCenter);
+              ENUMERATE_CELL(icell,new_event)
+              {
+                m_cell_pressure[icell] = m_F[2]*cell_center[icell].z;
+              }
+            }
+
+
+            FaceGroup top_boundary = mesh()->faceFamily()->findGroup(options()->top()) ;
+            if(top_boundary.empty())
+            {
+              info()<<"UPDATE TOP BOUNDARY FACE GROUP";
+                const IGeometryMng::RealVariable & face_measure =
+                    m_geometry_mng->getRealVariableProperty(mesh()->allFaces(),IGeometryProperty::PMeasure);
+
+                const IGeometryMng::Real3Variable & face_normal =
+                    m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PNormal);
+
+                const IGeometryMng::Real3Variable & face_center =
+                    m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
+
+                UniqueArray<Integer> top_face_lids;
+                ENUMERATE_CELL(icell,new_event)
+                {
+                  ENUMERATE_FACE(iface,icell->faces())
+                  {
+                    if(iface->isSubDomainBoundary())
+                    {
+                      Real3 normal = face_normal[*iface]/face_measure[*iface] ;
+                      if(std::abs(normal.z)> 0.75)
+                        top_face_lids.add(iface->localId());
+                    }
+                  }
+                }
+                mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
+            }
+
+            FaceGroup const& top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
+            {
+              const IGeometryMng::Real3Variable & face_center =
+                  m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
+              Real top_z = 0. ;
+              ENUMERATE_FACE(iface,top_boundary)
+              {
+                top_z += face_center[*iface].z ;
+                info()<<"TOP FACE : "<<iface->uniqueId()<<" BOUNDARY CELL : "<<iface->boundaryCell().uniqueId()<<" H = "<<face_center[*iface].z ;
+              }
+              top_z /= top_boundary.size() ;
+              m_top_z = top_z;
+              info()<<"TOP BOUDARY AVG HEIGHT : "<<m_top_z;
+            }
+            info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size() ;
+            m_face_is_top.fill(0) ;
+            ENUMERATE_FACE(iface,top_face_boundary)
+            {
+              m_face_is_top[iface] = 1 ;
+            }
+          }
+          ++ m_event_index ;
+          m_next_event_time += m_event_period ;
+        }
+      }
+    }
+    if(m_iter>=m_max_iter)
+    {
+      info()<<"FINAL TIME : "<<m_time ;
+      info()<<"STOP PERFECT";
+      subDomain()->timeLoopMng()->stopComputeLoop(true);
+    }
+  }
+}
+
 void
 FemModuleElasticity::saveOldState()
 {
   info() << " App1 saveOldState() " ;
   ENUMERATE_CELL(icell,allCells())
   {
-    m_cell_pressure_N[icell] = m_cell_pressure[icell] ;
+    //m_cell_pressure_N[icell] = m_cell_pressure[icell] ;
   }
 }
 
@@ -184,7 +558,7 @@ void FemModuleElasticity::reloadOldState()
   info() << " App1  ReloadOldState " ;
   ENUMERATE_CELL(icell,allCells())
   {
-    m_cell_pressure[icell] = m_cell_pressure_N[icell] ;
+    //m_cell_pressure[icell] = m_cell_pressure_N[icell] ;
   }
 }
 
@@ -343,7 +717,7 @@ _doStationarySolve()
 /*---------------------------------------------------------------------------*/
 
 void FemModuleElasticity::
-_getMaterialParameters()
+_getMaterialParameters(CellGroup const& domain)
 {
   info() << "[ArcaneFem-Info] Started module  _getMaterialParameters()";
   Real elapsedTime = platform::getRealTime();
@@ -354,15 +728,7 @@ _getMaterialParameters()
   Real mu = (E / (2 * (1 + nu))); // lame parameter μ
   Real lambda = E * nu / ((1 + nu) * (1 - 2 * nu)); // lame parameter λ
 
-  m_dof_per_node = defaultMesh()->dimension();
-  m_matrix_format = options()->matrixFormat();
-  m_assemble_linear_system = options()->assembleLinearSystem();
-  m_solve_linear_system = options()->solveLinearSystem();
-  m_cross_validation = options()->hasSolutionComparisonFile();
-  m_petsc_flags = options()->petscFlags();
-  m_hex_quad_mesh = options()->hexQuadMesh();
-
-  ENUMERATE_CELL(icell,allCells())
+  ENUMERATE_CELL(icell,domain)
   {
     m_cell_mu[icell] = mu ;
     m_cell_lambda[icell] = lambda;
