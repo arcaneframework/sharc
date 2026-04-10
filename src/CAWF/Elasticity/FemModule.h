@@ -95,11 +95,13 @@ class FemModuleElasticity
 
   void saveOldState();
   void reloadOldState();
-
+  void init() override;
   void startInit() override; //! Method called at the beginning of the simulation
-  void compute() override; //! Method called at each iteration
+  void computeDivU() override; //! Method called at each iteration
+  void test() override; //! Method called at each iteration
   VersionInfo versionInfo() const override { return VersionInfo(1, 0, 0); }
 
+  void _updateTopBoundary(CellGroup const& new_event);
   void _doStationarySolve();
   template<typename ProfilerT>
   void _defineMatrixProfile(ProfilerT& profiler, ConstArrayView<Integer> allUIndex) ;
@@ -126,6 +128,7 @@ class FemModuleElasticity
   UniqueArray<Integer> m_dof_dof_connection_index;
   UniqueArray<Integer> m_dof_dof_connection_offset;
 
+  Real3 m_F;
   Real E;
   Real nu;
   //Real mu;
@@ -145,14 +148,32 @@ class FemModuleElasticity
   bool m_cross_validation = false;
   bool m_hex_quad_mesh = false;
 
-  Integer                        m_max_iter         = 0 ;
+  Real                           m_dt                    = 0. ;
+  Real                           m_time                  = 0. ;
+  int                            m_iter                  = 0 ;
+  Integer                        m_max_iter              = 0 ;
+  Real                           m_gravity               = 9.8;
+  Real                           m_top_z                 = 0. ;
+  Real                           m_event_period          = 0. ;
+  Real                           m_next_event_time       = 0. ;
+  Integer                        m_event_index           = 0 ;
+  Integer                        m_new_layer_id          = 0 ;
+  bool                           m_precice_mesh_is_updated = false;
 
-  ShArc::IDynamicMeshMng*        m_dynamic_mesh_mng = nullptr;
-  ArcGeoSim::ICAWFMng*           m_cawf_mng         = nullptr ;
-  IGeometryMng *                 m_geometry_mng     = nullptr;
+  UniqueArray<Arcane::CellGroup> m_layers ;
+  Real                           m_layer_event_period    = 0. ;
+  Real                           m_layer_event_time      = 0. ;
+  Real                           m_next_layer_event_time = 0. ;
+  UniqueArray<Int64>             m_activated_layers_uids;
+
+  IParallelMng*                  m_parallel_mng          = nullptr;
+  ShArc::IDynamicMeshMng*        m_dynamic_mesh_mng      = nullptr;
+  ArcGeoSim::ICAWFMng*           m_cawf_mng              = nullptr ;
+  IGeometryMng *                 m_geometry_mng          = nullptr;
   NoOptimizationGeometryPolicy   m_geometry_policy ;
+  Alien::ILinearSolver *         m_linear_solver         = nullptr;
 
-  void _getMaterialParameters();
+  void _getMaterialParameters(CellGroup const& cells);
   void _solve();
   void _assembleLinearOperator();
   void _validateResults();

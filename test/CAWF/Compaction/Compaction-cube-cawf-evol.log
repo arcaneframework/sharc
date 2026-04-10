@@ -1,0 +1,1968 @@
+*I-Internal   MPI has non blocking collective
+*I-Internal   MPI: sizeof(MPI_Count)=8
+*I-Internal   MPI: is GPU Aware?=0
+*I-Internal   MPI: init_time (seconds)=1.59740447998047e-05
+*I-Internal   WARNING: Execution in DEBUG mode!
+*I-Internal   WARNING: Compilation in CHECK mode !
+*I-Internal   WARNING: Execution in CHECK mode!
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal    
+*I-Internal                  ShArc
+*I-Internal    
+*I-Internal                  Version 1.0.0
+*I-Internal    
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal   ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- ** -- **
+*I-Internal   Date: 2026-04-10T17:29:35
+*I-Internal   MemoryUsage: 366 (MegaBytes)
+*I-Internal   ArccoreVersion: 2.8.0.0
+*I-Internal   ArcaneVersion: 4.1.9.0 (Compiler: GCC 11.2)
+*I-Internal   Current process pid=206897 machine=irlin386303
+*I-Internal   MessagePassing service=MpiParallelSuperMng
+*I-Internal   Stack trace service is available
+*I-Internal   Using 'libxml2' for XML parsing
+*I-Internal   Getting hardware architecture hwloc_version=2.5.0
+*I-Internal   Machine#0 + Package#0 + L3(24MB)
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#0
+*I-Internal       PU#0
+*I-Internal       PU#1
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#4
+*I-Internal       PU#2
+*I-Internal       PU#3
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#8
+*I-Internal       PU#4
+*I-Internal       PU#5
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#12
+*I-Internal       PU#6
+*I-Internal       PU#7
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#16
+*I-Internal       PU#8
+*I-Internal       PU#9
+*I-Internal     L2(1280KB) + L1d(48KB) + Core#20
+*I-Internal       PU#10
+*I-Internal       PU#11
+*I-Internal     L2(2048KB)
+*I-Internal       L1d(32KB) + Core#24 + PU#12
+*I-Internal       L1d(32KB) + Core#25 + PU#13
+*I-Internal       L1d(32KB) + Core#26 + PU#14
+*I-Internal       L1d(32KB) + Core#27 + PU#15
+*I-Internal     L2(2048KB)
+*I-Internal       L1d(32KB) + Core#28 + PU#16
+*I-Internal       L1d(32KB) + Core#29 + PU#17
+*I-Internal       L1d(32KB) + Core#30 + PU#18
+*I-Internal       L1d(32KB) + Core#31 + PU#19
+*I-Internal   Cpuset: 0x000fffff
+*I-Internal   Unknown online debugger service
+*I-Internal   Using configuration file in current directory.
+*I-Internal   Using configuration file: 'ShArc.config'
+*I-Internal   Data initialisation policy is : 3
+*I-Internal   Service used for thread management : 'StdThreadImplementationService'
+*I-Internal   No task management active
+*I-Internal   UnitSystem service found name=Udunits
+*I-Internal   PerformanceCounterService found name=LinuxPerfPerformanceCounterService
+*I-Internal   sizeof(ItemInternal)=16 sizeof(ItemInternalConnectivityList)=464 sizeof(ItemSharedInfo)=136
+*I-Internal   sizeof(ItemLocalId)=4 sizeof(ItemConnectivityContainerView)=32 sizeof(UnstructuredMeshConnectivityView)=392
+*I-Internal   sizeof(Item)=16 sizeof(ItemEnumerator)=48 sizeof(ItemVectorView)=32 sizeof(ItemVectorViewConstIterator)=24 ItemEnumeratorVersion=3
+*I-Internal   sizeof(eItemKind)=4 sizeof(IndexedItemConnectivityViewBase)=40
+*I-Internal   Output directory is </work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output>
+*I-Internal   NB_LOCAL_RANK=1
+*I-Internal   Reading input data 'Compaction-cube-cawf-evol.arc'
+*D-Internal   [MpiParallelSuperMng::internalCreateWorldParallelMng]
+*D-Internal   [MpiParallelSuperMng::internalCreateWorldParallelMng] pm->build()
+*D-Internal   [MpiParallelMng] No m_world_parallel_mng found, reverting to ourselves!
+*I-Internal   initializeWindowCreator() MPI
+*I-Mpi        Initialisation de MpiParallelMng
+*I-Mpi        ** ** MPI Communicator = 0x9855e8
+*I-Internal   DeviceInfo: nb_device=1
+*I-Internal   Using device number=0
+*I-Internal   AcceleratorRuntime=
+*I-Internal   DefaultDataAllocator MemoryResource=Host
+*I-Internal   Using accelerator runtime=Sequential
+*I-Internal   DeviceInfo: name=HostDevice
+*I-Internal   DeviceInfo: description=
+*I-Internal   Is AMR Activated? = 0 AMR type = None allow_loose_items=0
+*I-Internal   Connectivity policy=5
+*I-Internal   Graph connectivity is activated
+*I-Internal   Add mesh name=Mesh0 count=0
+*I-Mesh       Building DynamicMesh name=Mesh0 ItemInternalMapImpl=1
+*D-Mesh       ItemFamily:createGroup(name): Node: name=AllNodes
+*D-Mesh       ItemFamily:createGroup(name): Edge: name=AllEdges
+*D-Mesh       ItemFamily:createGroup(name): Face: name=AllFaces
+*D-Mesh       ItemFamily:createGroup(name): Cell: name=AllCells
+*I-Mesh       Using MpiSynchronizer V2
+*D-Internal   LoadBalanceInternal -- Mesh : Mesh0 -- reset()
+*I-Internal   Error output file  '/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/listing/errors.0'
+*I-Init       Reading the case `Compaction-cube-cawf-evol.arc'
+*I-Internal   REPLICATION: rank=0
+*I-Internal    CpuSet=0x000fffff
+*I-Internal   CHECK GLOBAL SINGLETON SERVICES
+*I-Internal   Using the time loop <CAWFLoop>
+*I-TimeLoopMng Loading module Master (Version 1.1.0) (autoload)
+*I-TimeLoopMng Loading module ArcaneCeaVerifier (Version 0.0.1) (autoload)
+*I-TimeLoopMng Loading module ArcaneCheckpoint (Version 0.9.1)
+*I-TimeLoopMng Loading module ArcanePostProcessing (Version 0.1.2)
+*I-TimeLoopMng Loading module Compaction (Version 0.0.0)
+*D-TimeLoopMng Adding the module  `MasterShArc' to the execution
+*D-TimeLoopMng Adding the module  `TimeHistoryMng' to the execution
+*D-TimeLoopMng Adding the module  `Master' to the execution
+*D-TimeLoopMng Adding the module  `ArcaneCeaVerifier' to the execution
+*D-TimeLoopMng Adding the module  `ArcanePostProcessing' to the execution
+*D-TimeLoopMng Adding the module  `Compaction' to the execution
+*D-TimeLoopMng Adding the module  `ArcaneCheckpoint' to the execution
+*I-Internal   SubDomain: Allocating meshes
+*I-Internal   Date: 2026-04-10T17:29:35 MEM=369 MAX_MEM=369 MIN_MEM=369 AVG_MEM=369 MIN_RANK=0 MAX_RANK=0
+*I-CaseMng    Reading the input data (phase1): language 'en', 6 input data.
+*I-CaseMng    NB_CASE_FUNCTION_PROVIDER_FACTORY = 0
+*I-Internal   -- Executing build entry points
+*I-Internal   SubDomain: read or reload meshes
+*I-Internal   Date: 2026-04-10T17:29:35 MEM=369 MAX_MEM=369 MIN_MEM=369 AVG_MEM=369 MIN_RANK=0 MAX_RANK=0
+*I-Internal    nb_mesh_created=1 is_continue?=0
+*D-Internal    MF=meshes/cube2.vt2
+*I-Internal   Number of nodes (x, y, z) = (11, 11, 3)
+*I-Internal    NODE YZ = 33
+*I-Internal   Mesh name=Mesh0 set dimension = 3
+*I-Internal   Is Generate Edge and Face uniqueId() from Nodes=0
+*D-Internal   Mesh Mesh0 connectivity : NodeToFace|NodeToCell|FaceToNode|FaceToCell|CellToNode|CellToFace|HasNode|HasFace|HasCell|Frozen|Dim3D
+*D-Internal   Family Node prealloc 0 by edge, 12 by face, 8 by cell.
+*D-Internal   Family Edge prealloc 0 by node, 0 by face, 0 by cell.
+*D-Internal   Family Face prealloc 4 by node, 0 by edge, 2 by cell.
+*D-Internal   Family Cell prealloc 8 by node, 0 by edge, 6 by face.
+*I-Mesh       Estimating the number of entities: Node=240 Edge=1360 Face=680 Cell=200
+*I-Mesh       Time to build the mesh structures (indirect method) (unit: second): 0.00892503067734651
+*I-Mesh       Begin compute face unique ids
+*I-Mesh       Date: 2026-04-10T17:29:35 MEM=370 MAX_MEM=370 MIN_MEM=370 AVG_MEM=370 MIN_RANK=0 MAX_RANK=0
+*I-Mesh       Using version=1 to compute faces unique ids mesh=Mesh0 is_parallel=0
+*I-Mesh       Max uid=199
+*I-Mesh       TIME to compute face unique ids=0.000455379486083984
+*I-Mesh       Check no duplicate face uniqueId
+*I-Mesh       Begin compute ghost layer
+*I-Mesh       Date: 2026-04-10T17:29:35 MEM=370 MAX_MEM=370 MIN_MEM=370 AVG_MEM=370 MIN_RANK=0 MAX_RANK=0
+*D-Mesh       Add one ghost layer
+*I-Mesh       Use ghost layer builder version 2
+*I-Mesh       ** NEW GHOST LAYER BUILDER V2
+*D-Mesh        RANK=0 size=1
+*D-Mesh       NOT PARALLEL
+*I-Mesh       TIME to compute ghost layer=1.40666961669922e-05
+*I-Mesh       Begin compact items
+*I-Mesh       Date: 2026-04-10T17:29:35 MEM=370 MAX_MEM=370 MIN_MEM=370 AVG_MEM=370 MIN_RANK=0 MAX_RANK=0
+*D-Mesh       _finalizeMeshChanged on Node Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Edge Family on Mesh Mesh0
+*D-Mesh       _finalizeMeshChanged on Face Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Cell Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*I-Mesh       -- Mesh information (Arcane2):
+*I-Mesh       Number of nodes   363
+*I-Mesh       Number of edges   0
+*I-Mesh       Number of faces   740
+*I-Mesh       Number of cells   200
+*I-Mesh       -- Graph information (Arcane2):
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       BEGIN = 0xb40ad0 0xb92990 S1=363 S2=363
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       BEGIN = 0xb486d0 0xbb1950 S1=740 S2=740
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       BEGIN = 0xb4b690 0xb8d350 S1=200 S2=200
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=363 new=363 internal=363 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=740 new=740 internal=740 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=200 new=200 internal=200 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*I-Mesh       Date: 2026-04-10T17:29:35 MEM=370 MAX_MEM=370 MIN_MEM=370 AVG_MEM=370 MIN_RANK=0 MAX_RANK=0
+*I-Mesh       Computing family synchronization information for Mesh0
+*D-Mesh       Creating the ghosts nodes list
+*D-Mesh       Creating the list of ghosts edges
+*D-Mesh       Creating the list of ghosts faces
+*D-Mesh       Creating the list of ghosts cells
+*I-Mesh       Computing group synchronization information for Mesh0
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=363 new=363 internal=363 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=740 new=740 internal=740 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=200 new=200 internal=200 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       ITEMS_INFO_INDEX=0 N=0
+*D-Mesh       NODES_ISO_INDEX=0 N=0
+*D-Mesh       MeshChecker::checkValidConnectivity check
+*I-Mesh       ItemSharedInfoList: check valid family=Node count=1 list=1 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Edge count=0 list=0 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Face count=1 list=1 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Cell count=1 list=1 free=0 changed=0
+*I-Mesh       DynamicMesh::checkValidMeshFull on Mesh0
+*D-Mesh        VAR_FACE GROUP=0xa8f2b8 NAME=AllFaces FAMILY_NAME=Face GROUP_NAME=AllFaces
+*I-Mesh        -------------------------------------------
+*I-Mesh        -- MESH STATISTICS    (All)    FOR Mesh0
+*I-Mesh                     Item    Myself       Min    Rank       Max    Rank   Average       Bal       Total
+*I-Mesh        
+*I-Mesh                     Node       363       363       0       363       0       363         0         363
+*I-Mesh                     Face       740       740       0       740       0       740         0         740
+*I-Mesh                     Cell       200       200       0       200       0       200         0         200
+*I-Mesh        
+*I-Mesh                   Vertex       363       363       0       363       0       363         0         363
+*I-Mesh                    Quad4       740       740       0       740       0       740         0         740
+*I-Mesh               Hexaedron8       200       200       0       200       0       200         0         200
+*I-Mesh        
+*I-Mesh        -------------------------------------------
+*I-Mesh       CommunicatingSubDomains: local=0, min=0, max=0 average=0 min_rank=0 max_rank=0
+*I-Mesh       Total memory for legacy connectivities mem=5212
+*I-Mesh       Total memory for incremental connectivities mem=116264
+*I-Internal   Create face group 'XMIN' size = 20
+*D-Internal   ItemFamily:createGroup(name): Face: name=XMIN
+*I-Internal   Create face group 'XMAX' size = 20
+*D-Internal   ItemFamily:createGroup(name): Face: name=XMAX
+*I-Internal   Create face group 'YMIN' size = 20
+*D-Internal   ItemFamily:createGroup(name): Face: name=YMIN
+*I-Internal   Create face group 'YMAX' size = 20
+*D-Internal   ItemFamily:createGroup(name): Face: name=YMAX
+*I-Internal   Create face group 'ZMIN' size = 100
+*D-Internal   ItemFamily:createGroup(name): Face: name=ZMIN
+*I-Internal   Create face group 'ZMAX' size = 100
+*D-Internal   ItemFamily:createGroup(name): Face: name=ZMAX
+*I-Internal   Reading optional parameters
+*I-Internal   Create group: IXMEvolutiveMesh_newCells nb_element=40
+*D-Internal   ItemFamily:createGroup(name): Cell: name=IXMEvolutiveMesh_newCells
+*I-Internal   Create group: IXMEvolutiveMesh_newNodes nb_element=121
+*D-Internal   ItemFamily:createGroup(name): Node: name=IXMEvolutiveMesh_newNodes
+*I-Internal   Create group: IXMEvolutiveMesh_updateNodes nb_element=363
+*D-Internal   ItemFamily:createGroup(name): Node: name=IXMEvolutiveMesh_updateNodes
+*I-Internal   Build boundary conditions faces groups
+*I-Internal   Create face group 'BC_DEFAULT' size = 100
+*D-Internal   ItemFamily:createGroup(name): Face: name=BC_DEFAULT
+*I-Internal   No file to describe the faces 'meshes/cube2.vt2faces.vt2'
+*D-Internal   ITEMS_INFO_INDEX=0 N=0
+*D-Internal   NODES_ISO_INDEX=0 N=0
+*D-Internal   MeshChecker::checkValidConnectivity check
+*I-Internal   ItemSharedInfoList: check valid family=Node count=1 list=1 free=0 changed=0
+*I-Internal   ItemSharedInfoList: check valid family=Edge count=0 list=0 free=0 changed=0
+*I-Internal   ItemSharedInfoList: check valid family=Face count=1 list=1 free=0 changed=0
+*I-Internal   ItemSharedInfoList: check valid family=Cell count=1 list=1 free=0 changed=0
+*I-Internal   DynamicMesh::checkValidMeshFull on Mesh0
+*D-Internal    VAR_FACE GROUP=0xa8f2b8 NAME=AllFaces FAMILY_NAME=Face GROUP_NAME=AllFaces
+*I-Internal   Initialisation des variables
+*I-Internal   Initialization of the variable from the configuration file
+*I-CaseMng    Reading the input data (phase2)
+*I-Internal   -----------------------------------------------------
+*I-Internal   Input data values:
+*I-Internal    <main>
+*I-Internal     do-time-history                         1
+*I-Internal     write-history-period                    0
+*I-Internal    </main>
+*I-Internal    <master-module>
+*I-Internal    </master-module>
+*I-Internal    <arcane-cea-verifier>
+*I-Internal     verify                                  0
+*I-Internal     generate                                0
+*I-Internal     reference-file                          verif
+*I-Internal     compare-parallel-sequential             0
+*I-Internal     result-file                             compare.xml
+*I-Internal     verifier-service-name                   ArcaneBasicVerifier2
+*I-Internal     files-in-output-dir                     0
+*I-Internal    </arcane-cea-verifier>
+*I-Internal    <arcane-checkpoint>
+*I-Internal     frequency                               0
+*I-Internal     period                                  0
+*I-Internal     frequency-cpu                           0
+*I-Internal     do-dump-at-end                          1
+*I-Internal     <checkpoint-service name="ArcaneHdf5Checkpoint2">
+*I-Internal      fileset-size                           1
+*I-Internal      index-modulo                           0
+*I-Internal     </checkpoint-service>
+*I-Internal    </arcane-checkpoint>
+*I-Internal    <arcane-post-processing>
+*I-Internal     output-frequency                        0
+*I-Internal     output-period                           1
+*I-Internal     output-history-period                   1
+*I-Internal     output-history-shrink                   0
+*I-Internal     save-init                               0
+*I-Internal     save-final-time                         1
+*I-Internal     end-execution-output                    0
+*I-Internal     <format name="Ensight7PostProcessor">
+*I-Internal      fileset-size                           0
+*I-Internal      use-degenerated-hexa                   1
+*I-Internal      binary-file                            1
+*I-Internal      force-first-geometry                   0
+*I-Internal      save-uids                              0
+*I-Internal     </format>
+*I-Internal     <output>
+*I-Internal      variable                               DivU LayerId Rho DRhoDP 
+*I-Internal      group                                  
+*I-Internal     </output>
+*I-Internal    </arcane-post-processing>
+*I-Internal    <compaction>
+*I-Internal     top                                     ZMAX
+*I-Internal     bottom                                  ZMIN
+*I-Internal     front                                   YMIN
+*I-Internal     back                                    YMAX
+*I-Internal     right                                   XMAX
+*I-Internal     left                                    XMIN
+*I-Internal     surface-density                         1
+*I-Internal     surface-compressibility                 0
+*I-Internal     nb-layers                               0
+*I-Internal     layer-event-period                      0
+*I-Internal     event-period                            1
+*I-Internal     max-iter                                4
+*I-Internal     <dynamic-mesh-mng name="DynamicMeshMng">
+*I-Internal      mesh                                   meshes/cube
+*I-Internal      format                                 vt2
+*I-Internal      first-event-id                         2
+*I-Internal      top                                    ZMAX
+*I-Internal      bottom                                 ZMIN
+*I-Internal      front                                  YMIN
+*I-Internal      back                                   YMAX
+*I-Internal      right                                  XMAX
+*I-Internal      left                                   XMIN
+*I-Internal     </dynamic-mesh-mng>
+*I-Internal     <cawf-mng name="PreCICE">
+*I-Internal      update-read-var                        1
+*I-Internal      app-id                                 0
+*I-Internal      app-name                               Compaction
+*I-Internal      config-file                            ../precice-config-evol-v3.xml
+*I-Internal      mesh-name                              Mesh1
+*I-Internal      evolutive-mesh                         0
+*I-Internal      read-then-write                        1
+*I-Internal      max-iter                               0
+*I-Internal      <read-data>
+*I-Internal       name                                  DivU
+*I-Internal       var-name                              divu
+*I-Internal       item-kind                             'cell' (3)
+*I-Internal      </read-data>
+*I-Internal      <write-data>
+*I-Internal       name                                  P
+*I-Internal       var-name                              P
+*I-Internal       item-kind                             'cell' (3)
+*I-Internal      </write-data>
+*I-Internal     </cawf-mng>
+*I-Internal     <geometry-mng name="Euclidian3Geometry">
+*I-Internal      variable-suffix                        
+*I-Internal      fatal-on-error                         0
+*I-Internal     </geometry-mng>
+*I-Internal     <linear-solver name="AlienCoreSolver">
+*I-Internal      output-level                           1
+*I-Internal      dot-prod-opt                           3
+*I-Internal      asynch                                 1
+*I-Internal      max-iter                               1000
+*I-Internal      tol                                    1e-06
+*I-Internal      poly-factor                            0.5
+*I-Internal      poly-order                             3
+*I-Internal      poly-factor-max-iter                   10
+*I-Internal      filu-factor-niter                      0
+*I-Internal      filu-solver-niter                      3
+*I-Internal      filu-tol                               1e-06
+*I-Internal      backend                                'SimpleCSR' (0)
+*I-Internal      solver                                 'BCGS' (0)
+*I-Internal      preconditioner                         'Diag' (0)
+*I-Internal      relax-solver                           'Diag' (0)
+*I-Internal     </linear-solver>
+*I-Internal    </compaction>
+*I-Internal   -----------------------------------------------------
+*I-Mesh        -------------------------------------------
+*I-Mesh        -- MESH STATISTICS    (All)    FOR Mesh0
+*I-Mesh                     Item    Myself       Min    Rank       Max    Rank   Average       Bal       Total
+*I-Mesh        
+*I-Mesh                     Node       363       363       0       363       0       363         0         363
+*I-Mesh                     Face       740       740       0       740       0       740         0         740
+*I-Mesh                     Cell       200       200       0       200       0       200         0         200
+*I-Mesh        
+*I-Mesh                   Vertex       363       363       0       363       0       363         0         363
+*I-Mesh                    Quad4       740       740       0       740       0       740         0         740
+*I-Mesh               Hexaedron8       200       200       0       200       0       200         0         200
+*I-Mesh        
+*I-Mesh        -------------------------------------------
+*I-Mesh       CommunicatingSubDomains: local=0, min=0, max=0 average=0 min_rank=0 max_rank=0
+*I-Mesh       Total memory for legacy connectivities mem=5212
+*I-Mesh       Total memory for incremental connectivities mem=116264
+*I-Internal   -- Executing init entry points
+*I-TimeHistoryMng Add CurveWriter2 name=gnuplot
+*I-TimeHistoryMng FOUND CURVE SERVICE (V2)!
+*I-TimeHistoryMng Add CurveWriter2 name=ArcaneCurveWriter
+preCICE:[0m Remeshing for implicit coupling schemes is in development. Currently, the acceleration data is deleted on remeshing.
+preCICE:[0m This is preCICE version 3.3.0
+preCICE:[0m Revision info: v3.2.0-137-gd23b3ae4
+preCICE:[0m Build type: Debug
+preCICE:[0m Working directory "/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction"
+preCICE:[0m Configuring preCICE with configuration "../precice-config-evol-v3.xml"
+preCICE:[0m I am participant "Compaction"
+*I-Compaction PRECISE IS INITIALIZED : DT INIT =0
+*I-Compaction ALLOCATE SEND RECV BUFFER : 200
+*D-Euclidian3Geometry Add geometric property [Center] on group AllCells / Mesh0
+*D-Euclidian3Geometry Add geometric property [Measure] on group AllCells / Mesh0
+*D-Euclidian3Geometry Add geometric property [Normal] on group AllFaces / Mesh0
+*D-Euclidian3Geometry Add geometric property [Measure] on group AllFaces / Mesh0
+*D-Euclidian3Geometry Add geometric property [Center] on group AllFaces / Mesh0
+*D-Euclidian3Geometry Full update on Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Building Variable MeasureOfAllFaces on Mesh0_Face_AllFaces
+*D-Euclidian3Geometry Property Center will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Building Variable CenterOfAllFaces on Mesh0_Face_AllFaces
+*D-Euclidian3Geometry Property Normal will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Building Variable NormalOfAllFaces on Mesh0_Face_AllFaces
+*D-Euclidian3Geometry Property Measure will be computed for group AllCells / Mesh0
+*D-Euclidian3Geometry Building Variable MeasureOfAllCells on Mesh0_Cell_AllCells
+*D-Euclidian3Geometry Property Center will be computed for group AllCells / Mesh0
+*D-Euclidian3Geometry Building Variable CenterOfAllCells on Mesh0_Cell_AllCells
+*D-Euclidian3Geometry Property Measure will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Center will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Normal will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllCells / Mesh0
+*D-Euclidian3Geometry Property Center will be computed for group AllCells / Mesh0
+*D-Compaction ItemFamily:createGroup(name,parent): Face: name=AllCells_OuterFaces parent=AllCells
+*I-Compaction TOP BOUNDARY AVG HEIGHT : 0
+*I-Compaction TOP BOUNDARY SIZE[0] : 100
+*D-Compaction OuterFaceItemGroupComputeFunctor::execute() this=0xccd080 parent_name=AllCells name=AllCells_OuterFaces parent_count=200 mysize=280
+preCICE:[0m Setting up primary communication to coupling partner/s
+preCICE:[0m Primary ranks are connected
+preCICE:[0m Setting up preliminary secondary communication to coupling partner/s
+preCICE:[0m Prepare partition for mesh Mesh1
+preCICE:[0m Gather mesh Mesh1
+preCICE:[0m Send global mesh Mesh1
+preCICE:[0m Setting up secondary communication to coupling partner/s
+preCICE:[0m Secondary ranks are connected
+preCICE:[0m it 1 (min: 2, max: 10), time-window 1 (max: 5), t 0, Dt 1, max-dt 1
+*I-ArcanePostProcessing  -------------------------------------------
+*I-ArcanePostProcessing |            POST PROCESSING                |
+*I-ArcanePostProcessing  -------------------------------------------
+*I-ArcanePostProcessing  
+*I-ArcanePostProcessing Variables output:
+*I-ArcanePostProcessing Output every 1 iterations.
+*I-ArcanePostProcessing History output:
+*I-ArcanePostProcessing Output every 1 iterations.
+*I-ArcanePostProcessing  
+*I-ArcanePostProcessing -- List of output variables (4 variables):
+*I-ArcanePostProcessing Variable <DivU>
+*I-ArcanePostProcessing Variable <LayerId>
+*I-ArcanePostProcessing Variable <Rho>
+*I-ArcanePostProcessing Variable <DRhoDP>
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 1 (1 0 0 diff=0)
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 1 (1 0 0 diff=0)
+*I-ArcaneCheckpoint  -------------------------------------------
+*I-ArcaneCheckpoint |            PROTECTION-REPRISE             |
+*I-ArcaneCheckpoint  -------------------------------------------
+*I-ArcaneCheckpoint  
+*I-ArcaneCheckpoint  
+*I-ArcaneCheckpoint No output required.
+*I-ArcaneCheckpoint  
+*I-ArcaneCheckpoint Protection required at the end of computations
+*I-MasterShArc Information on consumption (unit:second): Con(R=...,I=...,C=...)
+*I-MasterShArc  R -> consumption in real time (clock) since the beginning of the computation
+*I-MasterShArc  I -> real time (clock) spent during the last iteration
+*I-MasterShArc  C -> consumption in CPU time since the beginning of the computation
+*I-MasterShArc Information on memory consumption (unit: Mo): Mem=(X,m=X1:R1,M=X2:R2,avg=Z)
+*I-MasterShArc  X -> memory consumption of the process
+*I-MasterShArc  X1 -> memory consumption of the least memory hungry process and R1 is its rank
+*I-MasterShArc  X2 -> memory consumption of the most memory hungry process and R2 is its rank
+*I-MasterShArc  Z -> average memory consumption of all process
+*I-MasterShArc  
+*I-MasterShArc *** ITERATION        1  TIME 1.000000000000000e+00  LOOP        1  DELTAT 1.000000000000000e+00 ***
+*I-MasterShArc Date: 2026-04-10T17:29:36 Conso=(R=0,I=0,C=0) Mem=(378,m=378:0,M=378:0,avg=378)
+*D-TimeHistoryMng Writing of the history of values path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes
+*I-TimeHistoryMng Begin output history: 2026-04-10T17:29:36
+*D-TimeHistoryMng Writing curves with 'gnuplot' date=2026-04-10T17:29:36
+*D-TimeHistoryMng Writing curves with 'ArcaneCurveWriter' date=2026-04-10T17:29:36
+*I-TimeHistoryMng ArcaneCurveWriter::beginWrite()Begin write curves path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes
+*I-TimeHistoryMng Begin write curves full_path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes/curves.acv
+*I-TimeHistoryMng Fin sortie historique: 2026-04-10T17:29:36
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 2 (1 0 1 diff=0)
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 2 (1 0 1 diff=0)
+*I-Compaction Compaction MODULE COMPUTATION
+*I-Compaction ITERATION [0] TIME = 0 DT=1
+*I-Compaction TIME STEP NUB ITERATION : 0
+*I-Compaction DUMMY: Writing iteration checkpoint
+*I-Compaction  App1 saveOldState() 
+*I-Compaction RECEIVING VAR NAME : divu DATA NAME : DivU SIZE : 200
+*I-Compaction CHECK[divu] : OLD=0 NEW=0
+*I-Compaction Entry ordering :
+*I-Compaction 	Entry 'U' placed at rank 0 with 200 local / 200 global indexes 
+*I-Compaction Total local Entry indexes = 200
+*I-Compaction END Compaction MODULE INITIALIZATION
+*I-Compaction Create VectorDistribution(global=200local=200)
+*I-Compaction Create VectorDistribution(global=200)
+*I-Compaction Create MatrixDistribution(global_row=200,global_col=200,local_row=200)
+*I-Compaction Create VectorDistribution(global=200local=200)
+*I-Compaction GLOBAL SIZE : 200
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Building & initializing vector b
+*I-Compaction Space size = 200, local size= 200
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xbf4f10
+*I-Compaction Udpate Timestamp 0xbf4f10 (0 Observers) by TimestampMng 0xbf2d10
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xbf4fe0
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbf2420
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbf2420
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbf2420
+*I-Compaction Udpate Timestamp 0xbf4f10 (0 Observers) by TimestampMng 0xbf2d10
+*I-Compaction STOP CRITERIA NORME B = 150062500.060025
+*I-Compaction DIAG PRECONDITIONER
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bea38
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdc40
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdb70
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdaa0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd9d0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd900
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd830
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd760
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd690
+*I-Compaction ================================
+*I-Compaction iteration (0) criteria = 4.99969999249994e-06
+*I-Compaction Resolution info      :
+*I-Compaction Resolution status      : OK
+*I-Compaction Residual             : 2.19337700888815e-17
+*I-Compaction Number of iterations : 1
+*I-Compaction 
+AlienCoreSolver Perf INFO :
+================================
+PERF INFO : 
+PrecSetUp:3.2328e-05
+Solve:0.000286891
+================================
+
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.000286891
+*I-Compaction | total prec setup time : 3.2328e-05
+*I-Compaction | total num of iter    : 1
+*I-Compaction | solve num            : 1
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.000286891
+*I-Compaction | total prec setup time : 3.2328e-05
+*I-Compaction | total num of iter    : 1
+*I-Compaction | solve num            : 1
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------------------|
+              | Linear Solver : 
+              |--------------------------------------------------------|
+              | Last convergence      : true
+              | Last iteration number : 1
+              | Last relative residual: 2.19338e-17
+              | Last prepare time     : wct:3.8147e-05 ; cpu:         0
+              | Last solve time       : wct: 0.0091159 ; cpu:         0
+              | Initialization time   : wct:1.5974e-05 ; cpu:         0
+              | Total prepare time    : wct:3.8147e-05 ; cpu:         0
+              | Total solve time      : wct: 0.0091159 ; cpu:         0
+              | Total iterations      : 1
+              | Solve count           : 1
+              |--------------------------------------------------------|
+*I-Compaction SENDING VAR NAME : P P SIZE : 200
+*I-Compaction STATIC MESH : 200 200
+preCICE:[0m it 2 (min: 2, max: 10), time-window 1 (max: 5), t 0, Dt 1, max-dt 1
+*I-Compaction DUMMY: Reading iteration checkpoint
+*I-Compaction  App1  ReloadOldState 
+*I-Compaction VALIDATE TIME STEP : 0
+*I-Compaction  ITERATE COUPLING 
+*I-Compaction  Global Time 1 Iter 1
+*I-Compaction TIME STEP NUB ITERATION : 1
+*I-Compaction RECEIVING VAR NAME : divu DATA NAME : DivU SIZE : 200
+*I-Compaction CHECK[divu] : OLD=0 NEW=0
+*I-Compaction Entry ordering :
+*I-Compaction 	Entry 'U' placed at rank 0 with 200 local / 200 global indexes 
+*I-Compaction Total local Entry indexes = 200
+*I-Compaction END Compaction MODULE INITIALIZATION
+*I-Compaction Create VectorDistribution(global=200local=200)
+*I-Compaction Create VectorDistribution(global=200)
+*I-Compaction Create MatrixDistribution(global_row=200,global_col=200,local_row=200)
+*I-Compaction Create VectorDistribution(global=200local=200)
+*I-Compaction GLOBAL SIZE : 200
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Building & initializing vector b
+*I-Compaction Space size = 200, local size= 200
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xbf4fe0
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbd56a0
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xbf4f10
+*I-Compaction Udpate Timestamp 0xbf4f10 (0 Observers) by TimestampMng 0xbff5d0
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Udpate Timestamp 0xbf4f10 (0 Observers) by TimestampMng 0xbff5d0
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Udpate Timestamp 0xbf4f10 (0 Observers) by TimestampMng 0xbff5d0
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbd56a0
+*I-Compaction STOP CRITERIA NORME B = 150062500.060025
+*I-Compaction DIAG PRECONDITIONER
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bea38
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdc40
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdb70
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdaa0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd9d0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd900
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd830
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd760
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd690
+*I-Compaction ================================
+*I-Compaction iteration (0) criteria = 4.99969999249994e-06
+*I-Compaction Resolution info      :
+*I-Compaction Resolution status      : OK
+*I-Compaction Residual             : 2.19337700888815e-17
+*I-Compaction Number of iterations : 1
+*I-Compaction 
+AlienCoreSolver Perf INFO :
+================================
+PERF INFO : 
+PrecSetUp:1.2508e-05
+Solve:0.000279421
+================================
+
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.000566312
+*I-Compaction | total prec setup time : 4.4836e-05
+*I-Compaction | total num of iter    : 2
+*I-Compaction | solve num            : 2
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.000566312
+*I-Compaction | total prec setup time : 4.4836e-05
+*I-Compaction | total num of iter    : 2
+*I-Compaction | solve num            : 2
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------------------|
+              | Linear Solver : 
+              |--------------------------------------------------------|
+              | Last convergence      : true
+              | Last iteration number : 1
+              | Last relative residual: 2.19338e-17
+              | Last prepare time     : wct:1.4305e-05 ; cpu:         0
+              | Last solve time       : wct:0.00034499 ; cpu:         0
+              | Initialization time   : wct:1.5974e-05 ; cpu:         0
+              | Total prepare time    : wct:5.2452e-05 ; cpu:         0
+              | Total solve time      : wct: 0.0094609 ; cpu:         0
+              | Total iterations      : 2
+              | Solve count           : 2
+              |--------------------------------------------------------|
+*I-Compaction SENDING VAR NAME : P P SIZE : 200
+*I-Compaction STATIC MESH : 200 200
+preCICE:[0m it 3 (min: 2, max: 10), time-window 1 (max: 5), t 0, Dt 1, max-dt 1
+*I-Compaction DUMMY: Reading iteration checkpoint
+*I-Compaction  App1  ReloadOldState 
+*I-Compaction VALIDATE TIME STEP : 0
+*I-Compaction  ITERATE COUPLING 
+*I-Compaction  Global Time 1 Iter 1
+*I-Compaction TIME STEP NUB ITERATION : 2
+*I-Compaction RECEIVING VAR NAME : divu DATA NAME : DivU SIZE : 200
+*I-Compaction CHECK[divu] : OLD=0 NEW=1.819999999998e-09
+*I-Compaction Entry ordering :
+*I-Compaction 	Entry 'U' placed at rank 0 with 200 local / 200 global indexes 
+*I-Compaction Total local Entry indexes = 200
+*I-Compaction END Compaction MODULE INITIALIZATION
+*I-Compaction Create VectorDistribution(global=200local=200)
+*I-Compaction Create VectorDistribution(global=200)
+*I-Compaction Create MatrixDistribution(global_row=200,global_col=200,local_row=200)
+*I-Compaction Create VectorDistribution(global=200local=200)
+*I-Compaction GLOBAL SIZE : 200
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Building & initializing vector b
+*I-Compaction Space size = 200, local size= 200
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xbf4f10
+*I-Compaction Udpate Timestamp 0xbf4f10 (0 Observers) by TimestampMng 0xbf50b0
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xbf4fe0
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbf2d10
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbf2d10
+*I-Compaction Udpate Timestamp 0xc0b3a0 (0 Observers) by TimestampMng 0xbe2b40
+*I-Compaction Udpate Timestamp 0xbf4fe0 (0 Observers) by TimestampMng 0xbf2d10
+*I-Compaction Udpate Timestamp 0xbf4f10 (0 Observers) by TimestampMng 0xbf50b0
+*I-Compaction STOP CRITERIA NORME B = 150062500.060025
+*I-Compaction DIAG PRECONDITIONER
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bea38
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdc40
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdb70
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdaa0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd9d0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd900
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd830
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd760
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd690
+*I-Compaction ================================
+*I-Compaction iteration (0) criteria = 4.99969999249994e-06
+*I-Compaction Resolution info      :
+*I-Compaction Resolution status      : OK
+*I-Compaction Residual             : 2.19337700888815e-17
+*I-Compaction Number of iterations : 1
+*I-Compaction 
+AlienCoreSolver Perf INFO :
+================================
+PERF INFO : 
+PrecSetUp:1.2235e-05
+Solve:0.0002482
+================================
+
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.000814512
+*I-Compaction | total prec setup time : 5.7071e-05
+*I-Compaction | total num of iter    : 3
+*I-Compaction | solve num            : 3
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.000814512
+*I-Compaction | total prec setup time : 5.7071e-05
+*I-Compaction | total num of iter    : 3
+*I-Compaction | solve num            : 3
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------------------|
+              | Linear Solver : 
+              |--------------------------------------------------------|
+              | Last convergence      : true
+              | Last iteration number : 1
+              | Last relative residual: 2.19338e-17
+              | Last prepare time     : wct:1.6212e-05 ; cpu:         0
+              | Last solve time       : wct:0.00030804 ; cpu:         0
+              | Initialization time   : wct:1.5974e-05 ; cpu:         0
+              | Total prepare time    : wct:6.8665e-05 ; cpu:         0
+              | Total solve time      : wct:  0.009769 ; cpu:         0
+              | Total iterations      : 3
+              | Solve count           : 3
+              |--------------------------------------------------------|
+*I-Compaction SENDING VAR NAME : P P SIZE : 200
+*I-Compaction STATIC MESH : 200 200
+preCICE:[0m Time window completed
+preCICE:[0m it 1 (min: 2, max: 10), time-window 2 (max: 5), t 1, Dt 1, max-dt 1
+*I-Compaction VALIDATE TIME STEP : 1
+*I-Compaction  VALIDATESTEP 
+*I-Compaction Is AMR Activated? = 0 AMR type = None allow_loose_items=0
+*I-Compaction Connectivity policy=5
+*I-Compaction Graph connectivity is activated
+*I-Compaction Add mesh name=DynamicMesh-3Event count=1
+*I-Mesh       Building DynamicMesh name=DynamicMesh-3Event ItemInternalMapImpl=1
+*D-Mesh       ItemFamily:createGroup(name): Node: name=AllNodes
+*D-Mesh       ItemFamily:createGroup(name): Edge: name=AllEdges
+*D-Mesh       ItemFamily:createGroup(name): Face: name=AllFaces
+*D-Mesh       ItemFamily:createGroup(name): Cell: name=AllCells
+*I-Mesh       Using MpiSynchronizer V2
+*I-Compaction READ Mesh FILE : meshes/cube3.vt2 For Event : 3
+*I-Compaction Number of nodes (x, y, z) = (11, 11, 4)
+*I-Compaction  NODE YZ = 44
+*I-Compaction Mesh name=DynamicMesh-3Event set dimension = 3
+*I-Compaction Is Generate Edge and Face uniqueId() from Nodes=0
+*D-Compaction Mesh DynamicMesh-3Event connectivity : NodeToFace|NodeToCell|FaceToNode|FaceToCell|CellToNode|CellToFace|HasNode|HasFace|HasCell|Frozen|Dim3D
+*D-Compaction Family Node prealloc 0 by edge, 12 by face, 8 by cell.
+*D-Compaction Family Edge prealloc 0 by node, 0 by face, 0 by cell.
+*D-Compaction Family Face prealloc 4 by node, 0 by edge, 2 by cell.
+*D-Compaction Family Cell prealloc 8 by node, 0 by edge, 6 by face.
+*I-Mesh       Estimating the number of entities: Node=360 Edge=2040 Face=1020 Cell=300
+*I-Mesh       Time to build the mesh structures (indirect method) (unit: second): 0.0121837784536183
+*I-Mesh       Begin compute face unique ids
+*I-Mesh       Date: 2026-04-10T17:29:38 MEM=382 MAX_MEM=382 MIN_MEM=382 AVG_MEM=382 MIN_RANK=0 MAX_RANK=0
+*I-Mesh       Using version=1 to compute faces unique ids mesh=DynamicMesh-3Event is_parallel=0
+*I-Mesh       Max uid=299
+*I-Mesh       TIME to compute face unique ids=0.000678539276123047
+*I-Mesh       Check no duplicate face uniqueId
+*I-Mesh       Begin compute ghost layer
+*I-Mesh       Date: 2026-04-10T17:29:38 MEM=382 MAX_MEM=382 MIN_MEM=382 AVG_MEM=382 MIN_RANK=0 MAX_RANK=0
+*D-Mesh       Add one ghost layer
+*I-Mesh       Use ghost layer builder version 2
+*I-Mesh       ** NEW GHOST LAYER BUILDER V2
+*D-Mesh        RANK=0 size=1
+*D-Mesh       NOT PARALLEL
+*I-Mesh       TIME to compute ghost layer=1.12056732177734e-05
+*I-Mesh       Begin compact items
+*I-Mesh       Date: 2026-04-10T17:29:38 MEM=382 MAX_MEM=382 MIN_MEM=382 AVG_MEM=382 MIN_RANK=0 MAX_RANK=0
+*D-Mesh       _finalizeMeshChanged on Node Family on Mesh DynamicMesh-3Event
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Edge Family on Mesh DynamicMesh-3Event
+*D-Mesh       _finalizeMeshChanged on Face Family on Mesh DynamicMesh-3Event
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Cell Family on Mesh DynamicMesh-3Event
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*I-Mesh       -- Mesh information (Arcane2):
+*I-Mesh       Number of nodes   484
+*I-Mesh       Number of edges   0
+*I-Mesh       Number of faces   1060
+*I-Mesh       Number of cells   300
+*I-Mesh       -- Graph information (Arcane2):
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       BEGIN = 0xbee1c0 0xd3e950 S1=484 S2=484
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       BEGIN = 0xd43810 0xc30050 S1=1060 S2=1060
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       BEGIN = 0xc26dd0 0xc84840 S1=300 S2=300
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=300 new=300 internal=300 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=484 new=484 internal=484 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=1060 new=1060 internal=1060 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*I-Mesh       Date: 2026-04-10T17:29:38 MEM=382 MAX_MEM=382 MIN_MEM=382 AVG_MEM=382 MIN_RANK=0 MAX_RANK=0
+*I-Mesh       Computing family synchronization information for DynamicMesh-3Event
+*D-Mesh       Creating the ghosts nodes list
+*D-Mesh       Creating the list of ghosts edges
+*D-Mesh       Creating the list of ghosts faces
+*D-Mesh       Creating the list of ghosts cells
+*I-Mesh       Computing group synchronization information for DynamicMesh-3Event
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=484 new=484 internal=484 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=1060 new=1060 internal=1060 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=300 new=300 internal=300 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       ITEMS_INFO_INDEX=0 N=0
+*D-Mesh       NODES_ISO_INDEX=0 N=0
+*D-Mesh       MeshChecker::checkValidConnectivity check
+*I-Mesh       ItemSharedInfoList: check valid family=Node count=1 list=1 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Edge count=0 list=0 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Face count=1 list=1 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Cell count=1 list=1 free=0 changed=0
+*I-Mesh       DynamicMesh::checkValidMeshFull on DynamicMesh-3Event
+*D-Mesh        VAR_FACE GROUP=0xc94618 NAME=AllFaces FAMILY_NAME=Face GROUP_NAME=AllFaces
+*I-Mesh        -------------------------------------------
+*I-Mesh        -- MESH STATISTICS    (All)    FOR DynamicMesh-3Event
+*I-Mesh                     Item    Myself       Min    Rank       Max    Rank   Average       Bal       Total
+*I-Mesh        
+*I-Mesh                     Node       484       484       0       484       0       484         0         484
+*I-Mesh                     Face      1060      1060       0      1060       0      1060         0        1060
+*I-Mesh                     Cell       300       300       0       300       0       300         0         300
+*I-Mesh        
+*I-Mesh                   Vertex       484       484       0       484       0       484         0         484
+*I-Mesh                    Quad4      1060      1060       0      1060       0      1060         0        1060
+*I-Mesh               Hexaedron8       300       300       0       300       0       300         0         300
+*I-Mesh        
+*I-Mesh        -------------------------------------------
+*I-Mesh       CommunicatingSubDomains: local=0, min=0, max=0 average=0 min_rank=0 max_rank=0
+*I-Mesh       Total memory for legacy connectivities mem=7376
+*I-Mesh       Total memory for incremental connectivities mem=163424
+*I-Compaction Create face group 'XMIN' size = 30
+*D-Compaction ItemFamily:createGroup(name): Face: name=XMIN
+*I-Compaction Create face group 'XMAX' size = 30
+*D-Compaction ItemFamily:createGroup(name): Face: name=XMAX
+*I-Compaction Create face group 'YMIN' size = 30
+*D-Compaction ItemFamily:createGroup(name): Face: name=YMIN
+*I-Compaction Create face group 'YMAX' size = 30
+*D-Compaction ItemFamily:createGroup(name): Face: name=YMAX
+*I-Compaction Create face group 'ZMIN' size = 100
+*D-Compaction ItemFamily:createGroup(name): Face: name=ZMIN
+*I-Compaction Create face group 'ZMAX' size = 100
+*D-Compaction ItemFamily:createGroup(name): Face: name=ZMAX
+*I-Compaction Reading optional parameters
+*I-Compaction Create group: IXMEvolutiveMesh_newCells nb_element=100
+*D-Compaction ItemFamily:createGroup(name): Cell: name=IXMEvolutiveMesh_newCells
+*I-Compaction Create group: IXMEvolutiveMesh_newNodes nb_element=121
+*D-Compaction ItemFamily:createGroup(name): Node: name=IXMEvolutiveMesh_newNodes
+*I-Compaction Create group: IXMEvolutiveMesh_updateNodes nb_element=484
+*D-Compaction ItemFamily:createGroup(name): Node: name=IXMEvolutiveMesh_updateNodes
+*I-Compaction Build boundary conditions faces groups
+*I-Compaction Create face group 'BC_DEFAULT' size = 100
+*D-Compaction ItemFamily:createGroup(name): Face: name=BC_DEFAULT
+*I-Compaction No file to describe the faces 'meshes/cube3.vt2faces.vt2'
+*I-Compaction Evolutive Mesh INFO - Event : 3
+*I-Compaction MESH INFO[3] NEW TOTAL NB CELL = 300
+*I-Compaction MESH INFO[3] NEW CELLS GROUP SIZE = 100
+*I-Compaction MESH INFO[3] NEW NODES GROUP SIZE = 121
+*D-Mesh       _finalizeMeshChanged on Node Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Edge Family on Mesh Mesh0
+*D-Mesh       _finalizeMeshChanged on Face Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Cell Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       BEGIN = 0xb44400 0xc154e0 S1=484 S2=484
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       BEGIN = 0xbca650 0xbb1950 S1=1060 S2=1060
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       BEGIN = 0xb3fb00 0xc82350 S1=300 S2=300
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=484 new=484 internal=484 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=1060 new=1060 internal=1060 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=300 new=300 internal=300 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       MeshChecker::checkValidConnectivity check
+*D-Compaction ItemFamily:createGroup(name): Cell: name=NewEventLayer
+*I-Compaction  EVENT INDEX : 3
+*I-Compaction BOUNDARY[ZMAX] GROUP SIZE : 100
+*I-Compaction BOUNDARY[ZMIN] GROUP SIZE : 100
+*I-Compaction BOUNDARY[YMIN] GROUP SIZE : 30
+*I-Compaction BOUNDARY[YMAX] GROUP SIZE : 30
+*I-Compaction BOUNDARY[XMIN] GROUP SIZE : 30
+*I-Compaction BOUNDARY[XMAX] GROUP SIZE : 30
+*D-Euclidian3Geometry Full update on Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Center will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Normal will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllCells / Mesh0
+*D-Euclidian3Geometry Property Center will be computed for group AllCells / Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllFaces / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Measure on group AllFaces / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Center will be computed for group AllFaces / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Center on group AllFaces / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Normal will be computed for group AllFaces / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Normal on group AllFaces / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Measure will be computed for group AllCells / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Measure on group AllCells / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Center will be computed for group AllCells / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Center on group AllCells / Mesh0 with Variable storage never used since last update
+*I-Compaction  NEW EVENT : 0 100
+*I-Compaction  NEW EVENT LAYER : 0
+*I-Compaction TOP FACE : 742 BOUNDARY CELL : 200 H = 0
+*I-Compaction TOP FACE : 746 BOUNDARY CELL : 201 H = 0
+*I-Compaction TOP FACE : 750 BOUNDARY CELL : 202 H = 0
+*I-Compaction TOP FACE : 754 BOUNDARY CELL : 203 H = 0
+*I-Compaction TOP FACE : 758 BOUNDARY CELL : 204 H = 0
+*I-Compaction TOP FACE : 762 BOUNDARY CELL : 205 H = 0
+*I-Compaction TOP FACE : 766 BOUNDARY CELL : 206 H = 0
+*I-Compaction TOP FACE : 770 BOUNDARY CELL : 207 H = 0
+*I-Compaction TOP FACE : 774 BOUNDARY CELL : 208 H = 0
+*I-Compaction TOP FACE : 778 BOUNDARY CELL : 209 H = 0
+*I-Compaction TOP FACE : 782 BOUNDARY CELL : 210 H = 0
+*I-Compaction TOP FACE : 785 BOUNDARY CELL : 211 H = 0
+*I-Compaction TOP FACE : 788 BOUNDARY CELL : 212 H = 0
+*I-Compaction TOP FACE : 791 BOUNDARY CELL : 213 H = 0
+*I-Compaction TOP FACE : 794 BOUNDARY CELL : 214 H = 0
+*I-Compaction TOP FACE : 797 BOUNDARY CELL : 215 H = 0
+*I-Compaction TOP FACE : 800 BOUNDARY CELL : 216 H = 0
+*I-Compaction TOP FACE : 803 BOUNDARY CELL : 217 H = 0
+*I-Compaction TOP FACE : 806 BOUNDARY CELL : 218 H = 0
+*I-Compaction TOP FACE : 809 BOUNDARY CELL : 219 H = 0
+*I-Compaction TOP FACE : 813 BOUNDARY CELL : 220 H = 0
+*I-Compaction TOP FACE : 816 BOUNDARY CELL : 221 H = 0
+*I-Compaction TOP FACE : 819 BOUNDARY CELL : 222 H = 0
+*I-Compaction TOP FACE : 822 BOUNDARY CELL : 223 H = 0
+*I-Compaction TOP FACE : 825 BOUNDARY CELL : 224 H = 0
+*I-Compaction TOP FACE : 828 BOUNDARY CELL : 225 H = 0
+*I-Compaction TOP FACE : 831 BOUNDARY CELL : 226 H = 0
+*I-Compaction TOP FACE : 834 BOUNDARY CELL : 227 H = 0
+*I-Compaction TOP FACE : 837 BOUNDARY CELL : 228 H = 0
+*I-Compaction TOP FACE : 840 BOUNDARY CELL : 229 H = 0
+*I-Compaction TOP FACE : 844 BOUNDARY CELL : 230 H = 0
+*I-Compaction TOP FACE : 847 BOUNDARY CELL : 231 H = 0
+*I-Compaction TOP FACE : 850 BOUNDARY CELL : 232 H = 0
+*I-Compaction TOP FACE : 853 BOUNDARY CELL : 233 H = 0
+*I-Compaction TOP FACE : 856 BOUNDARY CELL : 234 H = 0
+*I-Compaction TOP FACE : 859 BOUNDARY CELL : 235 H = 0
+*I-Compaction TOP FACE : 862 BOUNDARY CELL : 236 H = 0
+*I-Compaction TOP FACE : 865 BOUNDARY CELL : 237 H = 0
+*I-Compaction TOP FACE : 868 BOUNDARY CELL : 238 H = 0
+*I-Compaction TOP FACE : 871 BOUNDARY CELL : 239 H = 0
+*I-Compaction TOP FACE : 875 BOUNDARY CELL : 240 H = 0
+*I-Compaction TOP FACE : 878 BOUNDARY CELL : 241 H = 0
+*I-Compaction TOP FACE : 881 BOUNDARY CELL : 242 H = 0
+*I-Compaction TOP FACE : 884 BOUNDARY CELL : 243 H = 0
+*I-Compaction TOP FACE : 887 BOUNDARY CELL : 244 H = 0
+*I-Compaction TOP FACE : 890 BOUNDARY CELL : 245 H = 0
+*I-Compaction TOP FACE : 893 BOUNDARY CELL : 246 H = 0
+*I-Compaction TOP FACE : 896 BOUNDARY CELL : 247 H = 0
+*I-Compaction TOP FACE : 899 BOUNDARY CELL : 248 H = 0
+*I-Compaction TOP FACE : 902 BOUNDARY CELL : 249 H = 0
+*I-Compaction TOP FACE : 906 BOUNDARY CELL : 250 H = 0
+*I-Compaction TOP FACE : 909 BOUNDARY CELL : 251 H = 0
+*I-Compaction TOP FACE : 912 BOUNDARY CELL : 252 H = 0
+*I-Compaction TOP FACE : 915 BOUNDARY CELL : 253 H = 0
+*I-Compaction TOP FACE : 918 BOUNDARY CELL : 254 H = 0
+*I-Compaction TOP FACE : 921 BOUNDARY CELL : 255 H = 0
+*I-Compaction TOP FACE : 924 BOUNDARY CELL : 256 H = 0
+*I-Compaction TOP FACE : 927 BOUNDARY CELL : 257 H = 0
+*I-Compaction TOP FACE : 930 BOUNDARY CELL : 258 H = 0
+*I-Compaction TOP FACE : 933 BOUNDARY CELL : 259 H = 0
+*I-Compaction TOP FACE : 937 BOUNDARY CELL : 260 H = 0
+*I-Compaction TOP FACE : 940 BOUNDARY CELL : 261 H = 0
+*I-Compaction TOP FACE : 943 BOUNDARY CELL : 262 H = 0
+*I-Compaction TOP FACE : 946 BOUNDARY CELL : 263 H = 0
+*I-Compaction TOP FACE : 949 BOUNDARY CELL : 264 H = 0
+*I-Compaction TOP FACE : 952 BOUNDARY CELL : 265 H = 0
+*I-Compaction TOP FACE : 955 BOUNDARY CELL : 266 H = 0
+*I-Compaction TOP FACE : 958 BOUNDARY CELL : 267 H = 0
+*I-Compaction TOP FACE : 961 BOUNDARY CELL : 268 H = 0
+*I-Compaction TOP FACE : 964 BOUNDARY CELL : 269 H = 0
+*I-Compaction TOP FACE : 968 BOUNDARY CELL : 270 H = 0
+*I-Compaction TOP FACE : 971 BOUNDARY CELL : 271 H = 0
+*I-Compaction TOP FACE : 974 BOUNDARY CELL : 272 H = 0
+*I-Compaction TOP FACE : 977 BOUNDARY CELL : 273 H = 0
+*I-Compaction TOP FACE : 980 BOUNDARY CELL : 274 H = 0
+*I-Compaction TOP FACE : 983 BOUNDARY CELL : 275 H = 0
+*I-Compaction TOP FACE : 986 BOUNDARY CELL : 276 H = 0
+*I-Compaction TOP FACE : 989 BOUNDARY CELL : 277 H = 0
+*I-Compaction TOP FACE : 992 BOUNDARY CELL : 278 H = 0
+*I-Compaction TOP FACE : 995 BOUNDARY CELL : 279 H = 0
+*I-Compaction TOP FACE : 999 BOUNDARY CELL : 280 H = 0
+*I-Compaction TOP FACE : 1002 BOUNDARY CELL : 281 H = 0
+*I-Compaction TOP FACE : 1005 BOUNDARY CELL : 282 H = 0
+*I-Compaction TOP FACE : 1008 BOUNDARY CELL : 283 H = 0
+*I-Compaction TOP FACE : 1011 BOUNDARY CELL : 284 H = 0
+*I-Compaction TOP FACE : 1014 BOUNDARY CELL : 285 H = 0
+*I-Compaction TOP FACE : 1017 BOUNDARY CELL : 286 H = 0
+*I-Compaction TOP FACE : 1020 BOUNDARY CELL : 287 H = 0
+*I-Compaction TOP FACE : 1023 BOUNDARY CELL : 288 H = 0
+*I-Compaction TOP FACE : 1026 BOUNDARY CELL : 289 H = 0
+*I-Compaction TOP FACE : 1030 BOUNDARY CELL : 290 H = 0
+*I-Compaction TOP FACE : 1033 BOUNDARY CELL : 291 H = 0
+*I-Compaction TOP FACE : 1036 BOUNDARY CELL : 292 H = 0
+*I-Compaction TOP FACE : 1039 BOUNDARY CELL : 293 H = 0
+*I-Compaction TOP FACE : 1042 BOUNDARY CELL : 294 H = 0
+*I-Compaction TOP FACE : 1045 BOUNDARY CELL : 295 H = 0
+*I-Compaction TOP FACE : 1048 BOUNDARY CELL : 296 H = 0
+*I-Compaction TOP FACE : 1051 BOUNDARY CELL : 297 H = 0
+*I-Compaction TOP FACE : 1054 BOUNDARY CELL : 298 H = 0
+*I-Compaction TOP FACE : 1057 BOUNDARY CELL : 299 H = 0
+*I-Compaction TOP BOUDARY AVG HEIGHT : 0
+*I-Compaction TOP BOUNDARY SIZE[0] : 100
+*I-ArcanePostProcessing  
+*I-ArcanePostProcessing ****  Output in progress at time 1  ******
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   Compression: old=484 new=484 internal=484 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   Compression: old=1060 new=1060 internal=1060 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Variable   OuterFaceItemGroupComputeFunctor::execute() this=0xccd080 parent_name=AllCells name=AllCells_OuterFaces parent_count=300 mysize=320
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   Compression: old=300 new=300 internal=300 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Variable   ITEMS_INFO_INDEX=0 N=0
+*D-Variable   NODES_ISO_INDEX=0 N=0
+*D-Variable   Total nb element 300 and group 1
+*D-Variable   Add nodes        484
+*D-Variable   Saving variable1 DivU ptr=0xb3bb00 ps=300
+*D-Variable   Saving variable DivU in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/DivU/DivU000000
+*D-Variable   Saving variable1 LayerId ptr=0xb3b540 ps=300
+*D-Variable   Saving variable LayerId in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/LayerId/LayerId000000
+*D-Variable   Saving variable1 Rho ptr=0xb48700 ps=300
+*D-Variable   Saving variable Rho in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/Rho/Rho000000
+*D-Variable   Saving variable1 DRhoDP ptr=0xb2e4c0 ps=300
+*D-Variable   Saving variable DRhoDP in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/DRhoDP/DRhoDP000000
+*D-Variable   ** Exporting data to /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement
+*I-MasterShArc  
+*I-MasterShArc *** ITERATION        2  TIME 2.000000000000000e+00  LOOP        2  DELTAT 1.000000000000000e+00 ***
+*I-MasterShArc Date: 2026-04-10T17:29:38 Conso=(R=2.641,I=2.641,C=0.173) Mem=(423,m=423:0,M=423:0,avg=423)
+*D-TimeHistoryMng Writing of the history of values path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes
+*I-TimeHistoryMng Begin output history: 2026-04-10T17:29:38
+*D-TimeHistoryMng Writing curves with 'gnuplot' date=2026-04-10T17:29:38
+*D-TimeHistoryMng Writing curves with 'ArcaneCurveWriter' date=2026-04-10T17:29:38
+*I-TimeHistoryMng ArcaneCurveWriter::beginWrite()Begin write curves path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes
+*I-TimeHistoryMng Begin write curves full_path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes/curves.acv
+*I-TimeHistoryMng Fin sortie historique: 2026-04-10T17:29:38
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 3 (1 1 2 diff=0)
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 3 (1 1 2 diff=0)
+*I-Compaction Compaction MODULE COMPUTATION
+*I-Compaction ITERATION [1] TIME = 1 DT=1
+*I-Compaction TIME STEP NUB ITERATION : 0
+*I-Compaction DUMMY: Writing iteration checkpoint
+*I-Compaction  App1 saveOldState() 
+*I-Compaction RECEIVING VAR NAME : divu DATA NAME : DivU SIZE : 200
+*I-Compaction CHECK[divu] : OLD=0 NEW=-nan
+*I-Compaction PreCICE::BUFFER UPDATED SIZE : 300
+*I-Compaction Entry ordering :
+*I-Compaction 	Entry 'U' placed at rank 0 with 300 local / 300 global indexes 
+*I-Compaction Total local Entry indexes = 300
+*I-Compaction END Compaction MODULE INITIALIZATION
+*I-Compaction Create VectorDistribution(global=300local=300)
+*I-Compaction Create VectorDistribution(global=300)
+*I-Compaction Create MatrixDistribution(global_row=300,global_col=300,local_row=300)
+*I-Compaction Create VectorDistribution(global=300local=300)
+*I-Compaction GLOBAL SIZE : 300
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Building & initializing vector b
+*I-Compaction Space size = 300, local size= 300
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xef1980
+*I-Compaction Udpate Timestamp 0xef1980 (0 Observers) by TimestampMng 0xe10b80
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xef1830
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xbd56a0
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xbd56a0
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xbd56a0
+*I-Compaction Udpate Timestamp 0xef1980 (0 Observers) by TimestampMng 0xe10b80
+*I-Compaction STOP CRITERIA NORME B = 150062500.12005
+*I-Compaction DIAG PRECONDITIONER
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bea38
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdc40
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdb70
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdaa0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd9d0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd900
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd830
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd760
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd690
+*I-Compaction ================================
+*I-Compaction iteration (0) criteria = 1.5000329802738e-05
+*I-Compaction Resolution info      :
+*I-Compaction Resolution status      : OK
+*I-Compaction Residual             : 1.04890640033217e-07
+*I-Compaction Number of iterations : 1
+*I-Compaction 
+AlienCoreSolver Perf INFO :
+================================
+PERF INFO : 
+PrecSetUp:2.227e-05
+Solve:0.000286662
+================================
+
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.001101174
+*I-Compaction | total prec setup time : 7.9341e-05
+*I-Compaction | total num of iter    : 4
+*I-Compaction | solve num            : 4
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.001101174
+*I-Compaction | total prec setup time : 7.9341e-05
+*I-Compaction | total num of iter    : 4
+*I-Compaction | solve num            : 4
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------------------|
+              | Linear Solver : 
+              |--------------------------------------------------------|
+              | Last convergence      : true
+              | Last iteration number : 1
+              | Last relative residual: 1.04891e-07
+              | Last prepare time     : wct: 1.812e-05 ; cpu:         0
+              | Last solve time       : wct:0.00036097 ; cpu:         0
+              | Initialization time   : wct:1.5974e-05 ; cpu:         0
+              | Total prepare time    : wct:8.6784e-05 ; cpu:         0
+              | Total solve time      : wct:   0.01013 ; cpu:         0
+              | Total iterations      : 4
+              | Solve count           : 4
+              |--------------------------------------------------------|
+*I-Compaction SENDING VAR NAME : P P SIZE : 300
+*I-Compaction STATIC MESH : 300 300
+preCICE:[0m Reinitializing Participant
+preCICE:[0m Close distributed communication channels
+preCICE:[0m Setting up primary communication to coupling partner/s
+preCICE:[0m Primary ranks are connected
+preCICE:[0m Setting up preliminary secondary communication to coupling partner/s
+preCICE:[0m Prepare partition for mesh Mesh1
+preCICE:[0m Gather mesh Mesh1
+preCICE:[0m Send global mesh Mesh1
+preCICE:[0m Setting up secondary communication to coupling partner/s
+preCICE:[0m Secondary ranks are connected
+preCICE:[0m it 2 (min: 2, max: 10), time-window 2 (max: 5), t 1, Dt 1, max-dt 1
+*I-Compaction DUMMY: Reading iteration checkpoint
+*I-Compaction  App1  ReloadOldState 
+*I-Compaction VALIDATE TIME STEP : 0
+*I-Compaction  ITERATE COUPLING 
+*I-Compaction  Global Time 2 Iter 2
+*I-Compaction TIME STEP NUB ITERATION : 1
+*I-Compaction RECEIVING VAR NAME : divu DATA NAME : DivU SIZE : 300
+*I-Compaction CHECK[divu] : OLD=0 NEW=1.819999999998e-09
+*I-Compaction Entry ordering :
+*I-Compaction 	Entry 'U' placed at rank 0 with 300 local / 300 global indexes 
+*I-Compaction Total local Entry indexes = 300
+*I-Compaction END Compaction MODULE INITIALIZATION
+*I-Compaction Create VectorDistribution(global=300local=300)
+*I-Compaction Create VectorDistribution(global=300)
+*I-Compaction Create MatrixDistribution(global_row=300,global_col=300,local_row=300)
+*I-Compaction Create VectorDistribution(global=300local=300)
+*I-Compaction GLOBAL SIZE : 300
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Building & initializing vector b
+*I-Compaction Space size = 300, local size= 300
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xef1830
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xbf2420
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xef1980
+*I-Compaction Udpate Timestamp 0xef1980 (0 Observers) by TimestampMng 0xbf50b0
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Udpate Timestamp 0xef1980 (0 Observers) by TimestampMng 0xbf50b0
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Udpate Timestamp 0xef1980 (0 Observers) by TimestampMng 0xbf50b0
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xbf2420
+*I-Compaction STOP CRITERIA NORME B = 150062500.12005
+*I-Compaction DIAG PRECONDITIONER
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bea38
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdc40
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdb70
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdaa0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd9d0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd900
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd830
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd760
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd690
+*I-Compaction ================================
+*I-Compaction iteration (0) criteria = 1.5000329802738e-05
+*I-Compaction Resolution info      :
+*I-Compaction Resolution status      : OK
+*I-Compaction Residual             : 1.04890640033217e-07
+*I-Compaction Number of iterations : 1
+*I-Compaction 
+AlienCoreSolver Perf INFO :
+================================
+PERF INFO : 
+PrecSetUp:1.4317e-05
+Solve:0.000285169
+================================
+
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.001386343
+*I-Compaction | total prec setup time : 9.3658e-05
+*I-Compaction | total num of iter    : 5
+*I-Compaction | solve num            : 5
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.001386343
+*I-Compaction | total prec setup time : 9.3658e-05
+*I-Compaction | total num of iter    : 5
+*I-Compaction | solve num            : 5
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------------------|
+              | Linear Solver : 
+              |--------------------------------------------------------|
+              | Last convergence      : true
+              | Last iteration number : 1
+              | Last relative residual: 1.04891e-07
+              | Last prepare time     : wct:1.4305e-05 ; cpu:         0
+              | Last solve time       : wct:0.00035596 ; cpu:         0
+              | Initialization time   : wct:1.5974e-05 ; cpu:         0
+              | Total prepare time    : wct:0.00010109 ; cpu:         0
+              | Total solve time      : wct:  0.010486 ; cpu:         0
+              | Total iterations      : 5
+              | Solve count           : 5
+              |--------------------------------------------------------|
+*I-Compaction SENDING VAR NAME : P P SIZE : 300
+*I-Compaction STATIC MESH : 300 300
+preCICE:[0m it 3 (min: 2, max: 10), time-window 2 (max: 5), t 1, Dt 1, max-dt 1
+*I-Compaction DUMMY: Reading iteration checkpoint
+*I-Compaction  App1  ReloadOldState 
+*I-Compaction VALIDATE TIME STEP : 0
+*I-Compaction  ITERATE COUPLING 
+*I-Compaction  Global Time 2 Iter 2
+*I-Compaction TIME STEP NUB ITERATION : 2
+*I-Compaction RECEIVING VAR NAME : divu DATA NAME : DivU SIZE : 300
+*I-Compaction CHECK[divu] : OLD=0 NEW=-4.5732070624945e-10
+*I-Compaction Entry ordering :
+*I-Compaction 	Entry 'U' placed at rank 0 with 300 local / 300 global indexes 
+*I-Compaction Total local Entry indexes = 300
+*I-Compaction END Compaction MODULE INITIALIZATION
+*I-Compaction Create VectorDistribution(global=300local=300)
+*I-Compaction Create VectorDistribution(global=300)
+*I-Compaction Create MatrixDistribution(global_row=300,global_col=300,local_row=300)
+*I-Compaction Create VectorDistribution(global=300local=300)
+*I-Compaction GLOBAL SIZE : 300
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Building & initializing vector b
+*I-Compaction Space size = 300, local size= 300
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xef1980
+*I-Compaction Udpate Timestamp 0xef1980 (0 Observers) by TimestampMng 0xbff5d0
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xef1830
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xe10b80
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xe10b80
+*I-Compaction Udpate Timestamp 0xe19680 (0 Observers) by TimestampMng 0xf4e590
+*I-Compaction Udpate Timestamp 0xef1830 (0 Observers) by TimestampMng 0xe10b80
+*I-Compaction Udpate Timestamp 0xef1980 (0 Observers) by TimestampMng 0xbff5d0
+*I-Compaction STOP CRITERIA NORME B = 150062500.12005
+*I-Compaction DIAG PRECONDITIONER
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bea38
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdc40
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdb70
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdaa0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd9d0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd900
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd830
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd760
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd690
+*I-Compaction ================================
+*I-Compaction iteration (0) criteria = 1.5000329802738e-05
+*I-Compaction Resolution info      :
+*I-Compaction Resolution status      : OK
+*I-Compaction Residual             : 1.04890640033217e-07
+*I-Compaction Number of iterations : 1
+*I-Compaction 
+AlienCoreSolver Perf INFO :
+================================
+PERF INFO : 
+PrecSetUp:1.3989e-05
+Solve:0.000284498
+================================
+
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.001670841
+*I-Compaction | total prec setup time : 0.000107647
+*I-Compaction | total num of iter    : 6
+*I-Compaction | solve num            : 6
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.001670841
+*I-Compaction | total prec setup time : 0.000107647
+*I-Compaction | total num of iter    : 6
+*I-Compaction | solve num            : 6
+*I-Compaction |---------------------------------------------|
+*I-Compaction |--------------------------------------------------------|
+              | Linear Solver : 
+              |--------------------------------------------------------|
+              | Last convergence      : true
+              | Last iteration number : 1
+              | Last relative residual: 1.04891e-07
+              | Last prepare time     : wct:1.3828e-05 ; cpu:         0
+              | Last solve time       : wct:0.00034499 ; cpu:         0
+              | Initialization time   : wct:1.5974e-05 ; cpu:         0
+              | Total prepare time    : wct:0.00011492 ; cpu:         0
+              | Total solve time      : wct:  0.010831 ; cpu:         0
+              | Total iterations      : 6
+              | Solve count           : 6
+              |--------------------------------------------------------|
+*I-Compaction SENDING VAR NAME : P P SIZE : 300
+*I-Compaction STATIC MESH : 300 300
+preCICE:[0m Time window completed
+preCICE:[0m it 1 (min: 2, max: 10), time-window 3 (max: 5), t 2, Dt 1, max-dt 1
+*I-Compaction VALIDATE TIME STEP : 1
+*I-Compaction  VALIDATESTEP 
+*I-Compaction Is AMR Activated? = 0 AMR type = None allow_loose_items=0
+*I-Compaction Connectivity policy=5
+*I-Compaction Graph connectivity is activated
+*I-Compaction Add mesh name=DynamicMesh-4Event count=2
+*I-Mesh       Building DynamicMesh name=DynamicMesh-4Event ItemInternalMapImpl=1
+*D-Mesh       ItemFamily:createGroup(name): Node: name=AllNodes
+*D-Mesh       ItemFamily:createGroup(name): Edge: name=AllEdges
+*D-Mesh       ItemFamily:createGroup(name): Face: name=AllFaces
+*D-Mesh       ItemFamily:createGroup(name): Cell: name=AllCells
+*I-Mesh       Using MpiSynchronizer V2
+*I-Compaction READ Mesh FILE : meshes/cube4.vt2 For Event : 4
+*I-Compaction Number of nodes (x, y, z) = (11, 11, 5)
+*I-Compaction  NODE YZ = 55
+*I-Compaction Mesh name=DynamicMesh-4Event set dimension = 3
+*I-Compaction Is Generate Edge and Face uniqueId() from Nodes=0
+*D-Compaction Mesh DynamicMesh-4Event connectivity : NodeToFace|NodeToCell|FaceToNode|FaceToCell|CellToNode|CellToFace|HasNode|HasFace|HasCell|Frozen|Dim3D
+*D-Compaction Family Node prealloc 0 by edge, 12 by face, 8 by cell.
+*D-Compaction Family Edge prealloc 0 by node, 0 by face, 0 by cell.
+*D-Compaction Family Face prealloc 4 by node, 0 by edge, 2 by cell.
+*D-Compaction Family Cell prealloc 8 by node, 0 by edge, 6 by face.
+*I-Mesh       Estimating the number of entities: Node=480 Edge=2720 Face=1360 Cell=400
+*I-Mesh       Time to build the mesh structures (indirect method) (unit: second): 0.0167030274897115
+*I-Mesh       Begin compute face unique ids
+*I-Mesh       Date: 2026-04-10T17:29:41 MEM=423 MAX_MEM=423 MIN_MEM=423 AVG_MEM=423 MIN_RANK=0 MAX_RANK=0
+*I-Mesh       Using version=1 to compute faces unique ids mesh=DynamicMesh-4Event is_parallel=0
+*I-Mesh       Max uid=399
+*I-Mesh       TIME to compute face unique ids=0.00092315673828125
+*I-Mesh       Check no duplicate face uniqueId
+*I-Mesh       Begin compute ghost layer
+*I-Mesh       Date: 2026-04-10T17:29:41 MEM=423 MAX_MEM=423 MIN_MEM=423 AVG_MEM=423 MIN_RANK=0 MAX_RANK=0
+*D-Mesh       Add one ghost layer
+*I-Mesh       Use ghost layer builder version 2
+*I-Mesh       ** NEW GHOST LAYER BUILDER V2
+*D-Mesh        RANK=0 size=1
+*D-Mesh       NOT PARALLEL
+*I-Mesh       TIME to compute ghost layer=1.19209289550781e-05
+*I-Mesh       Begin compact items
+*I-Mesh       Date: 2026-04-10T17:29:41 MEM=423 MAX_MEM=423 MIN_MEM=423 AVG_MEM=423 MIN_RANK=0 MAX_RANK=0
+*D-Mesh       _finalizeMeshChanged on Node Family on Mesh DynamicMesh-4Event
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Edge Family on Mesh DynamicMesh-4Event
+*D-Mesh       _finalizeMeshChanged on Face Family on Mesh DynamicMesh-4Event
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Cell Family on Mesh DynamicMesh-4Event
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*I-Mesh       -- Mesh information (Arcane2):
+*I-Mesh       Number of nodes   605
+*I-Mesh       Number of edges   0
+*I-Mesh       Number of faces   1380
+*I-Mesh       Number of cells   400
+*I-Mesh       -- Graph information (Arcane2):
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       BEGIN = 0xea8720 0xe77130 S1=605 S2=605
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       BEGIN = 0x102a070 0xe69bb0 S1=1380 S2=1380
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       BEGIN = 0xf6c1d0 0xfddf10 S1=400 S2=400
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=605 new=605 internal=605 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=400 new=400 internal=400 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=1380 new=1380 internal=1380 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*I-Mesh       Date: 2026-04-10T17:29:41 MEM=423 MAX_MEM=423 MIN_MEM=423 AVG_MEM=423 MIN_RANK=0 MAX_RANK=0
+*I-Mesh       Computing family synchronization information for DynamicMesh-4Event
+*D-Mesh       Creating the ghosts nodes list
+*D-Mesh       Creating the list of ghosts edges
+*D-Mesh       Creating the list of ghosts faces
+*D-Mesh       Creating the list of ghosts cells
+*I-Mesh       Computing group synchronization information for DynamicMesh-4Event
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=605 new=605 internal=605 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=1380 new=1380 internal=1380 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=400 new=400 internal=400 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       ITEMS_INFO_INDEX=0 N=0
+*D-Mesh       NODES_ISO_INDEX=0 N=0
+*D-Mesh       MeshChecker::checkValidConnectivity check
+*I-Mesh       ItemSharedInfoList: check valid family=Node count=1 list=1 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Edge count=0 list=0 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Face count=1 list=1 free=0 changed=0
+*I-Mesh       ItemSharedInfoList: check valid family=Cell count=1 list=1 free=0 changed=0
+*I-Mesh       DynamicMesh::checkValidMeshFull on DynamicMesh-4Event
+*D-Mesh        VAR_FACE GROUP=0xf4d6e8 NAME=AllFaces FAMILY_NAME=Face GROUP_NAME=AllFaces
+*I-Mesh        -------------------------------------------
+*I-Mesh        -- MESH STATISTICS    (All)    FOR DynamicMesh-4Event
+*I-Mesh                     Item    Myself       Min    Rank       Max    Rank   Average       Bal       Total
+*I-Mesh        
+*I-Mesh                     Node       605       605       0       605       0       605         0         605
+*I-Mesh                     Face      1380      1380       0      1380       0      1380         0        1380
+*I-Mesh                     Cell       400       400       0       400       0       400         0         400
+*I-Mesh        
+*I-Mesh                   Vertex       605       605       0       605       0       605         0         605
+*I-Mesh                    Quad4      1380      1380       0      1380       0      1380         0        1380
+*I-Mesh               Hexaedron8       400       400       0       400       0       400         0         400
+*I-Mesh        
+*I-Mesh        -------------------------------------------
+*I-Mesh       CommunicatingSubDomains: local=0, min=0, max=0 average=0 min_rank=0 max_rank=0
+*I-Mesh       Total memory for legacy connectivities mem=9540
+*I-Mesh       Total memory for incremental connectivities mem=210584
+*I-Compaction Create face group 'XMIN' size = 40
+*D-Compaction ItemFamily:createGroup(name): Face: name=XMIN
+*I-Compaction Create face group 'XMAX' size = 40
+*D-Compaction ItemFamily:createGroup(name): Face: name=XMAX
+*I-Compaction Create face group 'YMIN' size = 40
+*D-Compaction ItemFamily:createGroup(name): Face: name=YMIN
+*I-Compaction Create face group 'YMAX' size = 40
+*D-Compaction ItemFamily:createGroup(name): Face: name=YMAX
+*I-Compaction Create face group 'ZMIN' size = 100
+*D-Compaction ItemFamily:createGroup(name): Face: name=ZMIN
+*I-Compaction Create face group 'ZMAX' size = 100
+*D-Compaction ItemFamily:createGroup(name): Face: name=ZMAX
+*I-Compaction Reading optional parameters
+*I-Compaction Create group: IXMEvolutiveMesh_newCells nb_element=100
+*D-Compaction ItemFamily:createGroup(name): Cell: name=IXMEvolutiveMesh_newCells
+*I-Compaction Create group: IXMEvolutiveMesh_newNodes nb_element=121
+*D-Compaction ItemFamily:createGroup(name): Node: name=IXMEvolutiveMesh_newNodes
+*I-Compaction Create group: IXMEvolutiveMesh_updateNodes nb_element=605
+*D-Compaction ItemFamily:createGroup(name): Node: name=IXMEvolutiveMesh_updateNodes
+*I-Compaction Build boundary conditions faces groups
+*I-Compaction Create face group 'BC_DEFAULT' size = 100
+*D-Compaction ItemFamily:createGroup(name): Face: name=BC_DEFAULT
+*I-Compaction No file to describe the faces 'meshes/cube4.vt2faces.vt2'
+*I-Compaction Evolutive Mesh INFO - Event : 4
+*I-Compaction MESH INFO[4] NEW TOTAL NB CELL = 400
+*I-Compaction MESH INFO[4] NEW CELLS GROUP SIZE = 100
+*I-Compaction MESH INFO[4] NEW NODES GROUP SIZE = 121
+*D-Mesh       _finalizeMeshChanged on Node Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Edge Family on Mesh Mesh0
+*D-Mesh       _finalizeMeshChanged on Face Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       _finalizeMeshChanged on Cell Family on Mesh Mesh0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       BEGIN = 0xb36f00 0xc154e0 S1=605 S2=605
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       BEGIN = 0xed9a40 0xeab200 S1=1380 S2=1380
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       BEGIN = 0xf6c1d0 0xbee1c0 S1=400 S2=400
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Node
+*D-Mesh       Compression: old=605 new=605 internal=605 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Edge
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Face
+*D-Mesh       Compression: old=1380 new=1380 internal=1380 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       DynamicMeshKindInfos::checkValid(): Cell
+*D-Mesh       Compression: old=400 new=400 internal=400 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Mesh       MeshChecker::checkValidConnectivity check
+*I-Compaction  EVENT INDEX : 4
+*I-Compaction BOUNDARY[ZMAX] GROUP SIZE : 100
+*I-Compaction BOUNDARY[ZMIN] GROUP SIZE : 100
+*I-Compaction BOUNDARY[YMIN] GROUP SIZE : 40
+*I-Compaction BOUNDARY[YMAX] GROUP SIZE : 40
+*I-Compaction BOUNDARY[XMIN] GROUP SIZE : 40
+*I-Compaction BOUNDARY[XMAX] GROUP SIZE : 40
+*D-Euclidian3Geometry Full update on Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Center will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Normal will be computed for group AllFaces / Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllCells / Mesh0
+*D-Euclidian3Geometry Property Center will be computed for group AllCells / Mesh0
+*D-Euclidian3Geometry Property Measure will be computed for group AllFaces / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Measure on group AllFaces / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Center will be computed for group AllFaces / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Center on group AllFaces / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Normal will be computed for group AllFaces / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Normal on group AllFaces / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Measure will be computed for group AllCells / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Measure on group AllCells / Mesh0 with Variable storage never used since last update
+*D-Euclidian3Geometry Property Center will be computed for group AllCells / Mesh0
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): Geometric property Center on group AllCells / Mesh0 with Variable storage never used since last update
+*I-Compaction  NEW EVENT : 1 100
+*I-Compaction  NEW EVENT LAYER : 1
+*I-Compaction TOP FACE : 1062 BOUNDARY CELL : 300 H = 0
+*I-Compaction TOP FACE : 1066 BOUNDARY CELL : 301 H = 0
+*I-Compaction TOP FACE : 1070 BOUNDARY CELL : 302 H = 0
+*I-Compaction TOP FACE : 1074 BOUNDARY CELL : 303 H = 0
+*I-Compaction TOP FACE : 1078 BOUNDARY CELL : 304 H = 0
+*I-Compaction TOP FACE : 1082 BOUNDARY CELL : 305 H = 0
+*I-Compaction TOP FACE : 1086 BOUNDARY CELL : 306 H = 0
+*I-Compaction TOP FACE : 1090 BOUNDARY CELL : 307 H = 0
+*I-Compaction TOP FACE : 1094 BOUNDARY CELL : 308 H = 0
+*I-Compaction TOP FACE : 1098 BOUNDARY CELL : 309 H = 0
+*I-Compaction TOP FACE : 1102 BOUNDARY CELL : 310 H = 0
+*I-Compaction TOP FACE : 1105 BOUNDARY CELL : 311 H = 0
+*I-Compaction TOP FACE : 1108 BOUNDARY CELL : 312 H = 0
+*I-Compaction TOP FACE : 1111 BOUNDARY CELL : 313 H = 0
+*I-Compaction TOP FACE : 1114 BOUNDARY CELL : 314 H = 0
+*I-Compaction TOP FACE : 1117 BOUNDARY CELL : 315 H = 0
+*I-Compaction TOP FACE : 1120 BOUNDARY CELL : 316 H = 0
+*I-Compaction TOP FACE : 1123 BOUNDARY CELL : 317 H = 0
+*I-Compaction TOP FACE : 1126 BOUNDARY CELL : 318 H = 0
+*I-Compaction TOP FACE : 1129 BOUNDARY CELL : 319 H = 0
+*I-Compaction TOP FACE : 1133 BOUNDARY CELL : 320 H = 0
+*I-Compaction TOP FACE : 1136 BOUNDARY CELL : 321 H = 0
+*I-Compaction TOP FACE : 1139 BOUNDARY CELL : 322 H = 0
+*I-Compaction TOP FACE : 1142 BOUNDARY CELL : 323 H = 0
+*I-Compaction TOP FACE : 1145 BOUNDARY CELL : 324 H = 0
+*I-Compaction TOP FACE : 1148 BOUNDARY CELL : 325 H = 0
+*I-Compaction TOP FACE : 1151 BOUNDARY CELL : 326 H = 0
+*I-Compaction TOP FACE : 1154 BOUNDARY CELL : 327 H = 0
+*I-Compaction TOP FACE : 1157 BOUNDARY CELL : 328 H = 0
+*I-Compaction TOP FACE : 1160 BOUNDARY CELL : 329 H = 0
+*I-Compaction TOP FACE : 1164 BOUNDARY CELL : 330 H = 0
+*I-Compaction TOP FACE : 1167 BOUNDARY CELL : 331 H = 0
+*I-Compaction TOP FACE : 1170 BOUNDARY CELL : 332 H = 0
+*I-Compaction TOP FACE : 1173 BOUNDARY CELL : 333 H = 0
+*I-Compaction TOP FACE : 1176 BOUNDARY CELL : 334 H = 0
+*I-Compaction TOP FACE : 1179 BOUNDARY CELL : 335 H = 0
+*I-Compaction TOP FACE : 1182 BOUNDARY CELL : 336 H = 0
+*I-Compaction TOP FACE : 1185 BOUNDARY CELL : 337 H = 0
+*I-Compaction TOP FACE : 1188 BOUNDARY CELL : 338 H = 0
+*I-Compaction TOP FACE : 1191 BOUNDARY CELL : 339 H = 0
+*I-Compaction TOP FACE : 1195 BOUNDARY CELL : 340 H = 0
+*I-Compaction TOP FACE : 1198 BOUNDARY CELL : 341 H = 0
+*I-Compaction TOP FACE : 1201 BOUNDARY CELL : 342 H = 0
+*I-Compaction TOP FACE : 1204 BOUNDARY CELL : 343 H = 0
+*I-Compaction TOP FACE : 1207 BOUNDARY CELL : 344 H = 0
+*I-Compaction TOP FACE : 1210 BOUNDARY CELL : 345 H = 0
+*I-Compaction TOP FACE : 1213 BOUNDARY CELL : 346 H = 0
+*I-Compaction TOP FACE : 1216 BOUNDARY CELL : 347 H = 0
+*I-Compaction TOP FACE : 1219 BOUNDARY CELL : 348 H = 0
+*I-Compaction TOP FACE : 1222 BOUNDARY CELL : 349 H = 0
+*I-Compaction TOP FACE : 1226 BOUNDARY CELL : 350 H = 0
+*I-Compaction TOP FACE : 1229 BOUNDARY CELL : 351 H = 0
+*I-Compaction TOP FACE : 1232 BOUNDARY CELL : 352 H = 0
+*I-Compaction TOP FACE : 1235 BOUNDARY CELL : 353 H = 0
+*I-Compaction TOP FACE : 1238 BOUNDARY CELL : 354 H = 0
+*I-Compaction TOP FACE : 1241 BOUNDARY CELL : 355 H = 0
+*I-Compaction TOP FACE : 1244 BOUNDARY CELL : 356 H = 0
+*I-Compaction TOP FACE : 1247 BOUNDARY CELL : 357 H = 0
+*I-Compaction TOP FACE : 1250 BOUNDARY CELL : 358 H = 0
+*I-Compaction TOP FACE : 1253 BOUNDARY CELL : 359 H = 0
+*I-Compaction TOP FACE : 1257 BOUNDARY CELL : 360 H = 0
+*I-Compaction TOP FACE : 1260 BOUNDARY CELL : 361 H = 0
+*I-Compaction TOP FACE : 1263 BOUNDARY CELL : 362 H = 0
+*I-Compaction TOP FACE : 1266 BOUNDARY CELL : 363 H = 0
+*I-Compaction TOP FACE : 1269 BOUNDARY CELL : 364 H = 0
+*I-Compaction TOP FACE : 1272 BOUNDARY CELL : 365 H = 0
+*I-Compaction TOP FACE : 1275 BOUNDARY CELL : 366 H = 0
+*I-Compaction TOP FACE : 1278 BOUNDARY CELL : 367 H = 0
+*I-Compaction TOP FACE : 1281 BOUNDARY CELL : 368 H = 0
+*I-Compaction TOP FACE : 1284 BOUNDARY CELL : 369 H = 0
+*I-Compaction TOP FACE : 1288 BOUNDARY CELL : 370 H = 0
+*I-Compaction TOP FACE : 1291 BOUNDARY CELL : 371 H = 0
+*I-Compaction TOP FACE : 1294 BOUNDARY CELL : 372 H = 0
+*I-Compaction TOP FACE : 1297 BOUNDARY CELL : 373 H = 0
+*I-Compaction TOP FACE : 1300 BOUNDARY CELL : 374 H = 0
+*I-Compaction TOP FACE : 1303 BOUNDARY CELL : 375 H = 0
+*I-Compaction TOP FACE : 1306 BOUNDARY CELL : 376 H = 0
+*I-Compaction TOP FACE : 1309 BOUNDARY CELL : 377 H = 0
+*I-Compaction TOP FACE : 1312 BOUNDARY CELL : 378 H = 0
+*I-Compaction TOP FACE : 1315 BOUNDARY CELL : 379 H = 0
+*I-Compaction TOP FACE : 1319 BOUNDARY CELL : 380 H = 0
+*I-Compaction TOP FACE : 1322 BOUNDARY CELL : 381 H = 0
+*I-Compaction TOP FACE : 1325 BOUNDARY CELL : 382 H = 0
+*I-Compaction TOP FACE : 1328 BOUNDARY CELL : 383 H = 0
+*I-Compaction TOP FACE : 1331 BOUNDARY CELL : 384 H = 0
+*I-Compaction TOP FACE : 1334 BOUNDARY CELL : 385 H = 0
+*I-Compaction TOP FACE : 1337 BOUNDARY CELL : 386 H = 0
+*I-Compaction TOP FACE : 1340 BOUNDARY CELL : 387 H = 0
+*I-Compaction TOP FACE : 1343 BOUNDARY CELL : 388 H = 0
+*I-Compaction TOP FACE : 1346 BOUNDARY CELL : 389 H = 0
+*I-Compaction TOP FACE : 1350 BOUNDARY CELL : 390 H = 0
+*I-Compaction TOP FACE : 1353 BOUNDARY CELL : 391 H = 0
+*I-Compaction TOP FACE : 1356 BOUNDARY CELL : 392 H = 0
+*I-Compaction TOP FACE : 1359 BOUNDARY CELL : 393 H = 0
+*I-Compaction TOP FACE : 1362 BOUNDARY CELL : 394 H = 0
+*I-Compaction TOP FACE : 1365 BOUNDARY CELL : 395 H = 0
+*I-Compaction TOP FACE : 1368 BOUNDARY CELL : 396 H = 0
+*I-Compaction TOP FACE : 1371 BOUNDARY CELL : 397 H = 0
+*I-Compaction TOP FACE : 1374 BOUNDARY CELL : 398 H = 0
+*I-Compaction TOP FACE : 1377 BOUNDARY CELL : 399 H = 0
+*I-Compaction TOP BOUDARY AVG HEIGHT : 0
+*I-Compaction TOP BOUNDARY SIZE[1] : 100
+*I-ArcanePostProcessing  
+*I-ArcanePostProcessing ****  Output in progress at time 2  ******
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   DynamicMeshKindInfos::checkValid(): Node
+*D-Variable   Compression: old=605 new=605 internal=605 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   DynamicMeshKindInfos::checkValid(): Face
+*D-Variable   Compression: old=1380 new=1380 internal=1380 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Variable   OuterFaceItemGroupComputeFunctor::execute() this=0xccd080 parent_name=AllCells name=AllCells_OuterFaces parent_count=400 mysize=360
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   DynamicMeshKindInfos::checkValid(): Cell
+*D-Variable   Compression: old=400 new=400 internal=400 free=0
+*D-Mesh       ItemFamily::notifyItemsOwnerChanged()
+*D-Variable   ITEMS_INFO_INDEX=0 N=0
+*D-Variable   NODES_ISO_INDEX=0 N=0
+*D-Variable   Total nb element 400 and group 1
+*D-Variable   Add nodes        605
+*D-Variable   Saving variable1 DivU ptr=0xb97d40 ps=400
+*D-Variable   Saving variable DivU in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/DivU/DivU000001
+*D-Variable   Saving variable1 LayerId ptr=0xb929c0 ps=400
+*D-Variable   Saving variable LayerId in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/LayerId/LayerId000001
+*D-Variable   Saving variable1 Rho ptr=0x102fd00 ps=400
+*D-Variable   Saving variable Rho in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/Rho/Rho000001
+*D-Variable   Saving variable1 DRhoDP ptr=0xe67bc0 ps=400
+*D-Variable   Saving variable DRhoDP in /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement/DRhoDP/DRhoDP000001
+*D-Variable   ** Exporting data to /work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/depouillement
+*I-MasterShArc  
+*I-MasterShArc *** ITERATION        3  TIME 3.000000000000000e+00  LOOP        3  DELTAT 1.000000000000000e+00 ***
+*I-MasterShArc Date: 2026-04-10T17:29:41 Conso=(R=5.114,I=2.472,C=0.308) Mem=(423,m=423:0,M=423:0,avg=423)
+*D-TimeHistoryMng Writing of the history of values path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes
+*I-TimeHistoryMng Begin output history: 2026-04-10T17:29:41
+*D-TimeHistoryMng Writing curves with 'gnuplot' date=2026-04-10T17:29:41
+*D-TimeHistoryMng Writing curves with 'ArcaneCurveWriter' date=2026-04-10T17:29:41
+*I-TimeHistoryMng ArcaneCurveWriter::beginWrite()Begin write curves path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes
+*I-TimeHistoryMng Begin write curves full_path=/work/gratienj/Arcane3/2026/sharc/test/CAWF/Compaction/output/courbes/curves.acv
+*I-TimeHistoryMng Fin sortie historique: 2026-04-10T17:29:41
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 4 (1 2 3 diff=0)
+*D-ArcanePostProcessing OutputChecker::check >>> Next output at iteration 4 (1 2 3 diff=0)
+*I-Compaction Compaction MODULE COMPUTATION
+*I-Compaction ITERATION [2] TIME = 2 DT=1
+*I-Compaction TIME STEP NUB ITERATION : 0
+*I-Compaction DUMMY: Writing iteration checkpoint
+*I-Compaction  App1 saveOldState() 
+*I-Compaction RECEIVING VAR NAME : divu DATA NAME : DivU SIZE : 300
+*I-Compaction CHECK[divu] : OLD=0 NEW=-4.5732070624945e-10
+*I-Compaction PreCICE::BUFFER UPDATED SIZE : 400
+*I-Compaction Entry ordering :
+*I-Compaction 	Entry 'U' placed at rank 0 with 400 local / 400 global indexes 
+*I-Compaction Total local Entry indexes = 400
+*I-Compaction END Compaction MODULE INITIALIZATION
+*I-Compaction Create VectorDistribution(global=400local=400)
+*I-Compaction Create VectorDistribution(global=400)
+*I-Compaction Create MatrixDistribution(global_row=400,global_col=400,local_row=400)
+*I-Compaction Create VectorDistribution(global=400local=400)
+*I-Compaction GLOBAL SIZE : 400
+*I-Compaction Udpate Timestamp 0xc368d0 (0 Observers) by TimestampMng 0x1007560
+*I-Compaction Building & initializing vector b
+*I-Compaction Space size = 400, local size= 400
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xf0a2d0
+*I-Compaction Udpate Timestamp 0xf0a2d0 (0 Observers) by TimestampMng 0xbff5d0
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0xde9a70
+*I-Compaction Udpate Timestamp 0xde9a70 (0 Observers) by TimestampMng 0xe95740
+*I-Compaction Udpate Timestamp 0xc368d0 (0 Observers) by TimestampMng 0x1007560
+*I-Compaction Udpate Timestamp 0xde9a70 (0 Observers) by TimestampMng 0xe95740
+*I-Compaction Udpate Timestamp 0xc368d0 (0 Observers) by TimestampMng 0x1007560
+*I-Compaction Udpate Timestamp 0xde9a70 (0 Observers) by TimestampMng 0xe95740
+*I-Compaction Udpate Timestamp 0xf0a2d0 (0 Observers) by TimestampMng 0xbff5d0
+*I-Compaction STOP CRITERIA NORME B = -nan
+*I-Compaction DIAG PRECONDITIONER
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bea38
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Create Empty VectorDistribution
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdc40
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdb70
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bdaa0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd9d0
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd900
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd830
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd760
+*I-Compaction Initializing SimpleCSRVector 0x7ffe2c3bd690
+*I-Compaction |--------------------------------------------|
+*I-Compaction | Linear Solver        : AlienCoreSolver
+*I-Compaction |--------------------------------------------|
+*I-Compaction | total solver time    : 0.001670841
+*I-Compaction | total prec setup time : 0.000107647
+*I-Compaction | total num of iter    : 6
+*I-Compaction | solve num            : 6
+*I-Compaction |---------------------------------------------|
+*E* Code:---------------------------------------------
+*E*   ERROR (0,irlin386303): Exception!
+
+Thrown in: 'void Arcane::arcaneCallDefaultSignal(int)'
+Type: 'ArithmeticException'
+
+Message: arithmetic or floating error
+
+Call stack:
+   7f4d3e87f610  Arcane::arcaneCallDefaultSignal(int)
+   7f4d3f8f39b6  arcaneSignalHandler
+   7f4d3e87f466  _MiscSigactionFunc
+   7f4d42a41990  funlockfile
+   7f4d51efd47c  Alien::Iteration<Alien::SimpleCSRInternalLinearAlgebra>::stop(Alien::SimpleCSRVector<double> const&)
+   7f4d51ef898f  int Alien::BiCGStab<Alien::SimpleCSRInternalLinearAlgebra>::solve2<Alien::DiagPreconditioner<Alien::SimpleCSRInternalLinearAlgebra>, Alien::Iteration<Alien::SimpleCSRInternalLinearAlgebra> >(Alien::DiagPreconditioner<Alien::SimpleCSRInternalLinearAlgebra>&, Alien::Iteration<Alien::SimpleCSRInternalLinearAlgebra>&, Alien::SimpleCSRMatrix<double> const&, Alien::SimpleCSRVector<double> const&, Alien::SimpleCSRVector<double>&)
+   7f4d51ebc5b1  Alien::AlienCoreSolverBaseT<Alien::SimpleCSRInternalLinearAlgebra>::solve(Alien::SimpleCSRMatrix<double> const&, Alien::SimpleCSRVector<double> const&, Alien::SimpleCSRVector<double>&)
+   7f4d51eb351c  Alien::AlienCoreLinearSolver::solve(Alien::SimpleCSRMatrix<double> const&, Alien::SimpleCSRVector<double> const&, Alien::SimpleCSRVector<double>&)
+   7f4d51eb3664  Alien::AlienCoreLinearSolver::solve(Alien::IMatrix const&, Alien::IVector const&, Alien::IVector&)
+   7f4d5126105f  CompactionModule::computePressure()
+   7f4d5126197f  CompactionModule::test()
+   7f4d5127b46c  Arcane::FunctorWithAddressT<ArcaneCompactionObject>::executeFunctor()
+   7f4d3ee2684d  Arcane::EntryPoint::executeEntryPoint()
+   7f4d3fa896c9  Arcane::TimeLoopMng::_execOneEntryPoint(Arcane::IEntryPoint*, int, bool)
+   7f4d3fa8b0f9  Arcane::TimeLoopMng::doOneIteration()
+   7f4d3fa923d2  Arcane::TimeLoopMng::doComputeLoop(int)
+   7f4d3f98fd32  Arcane::ArcaneMainBatch::SessionExec::_createAndRunSubDomain(Arcane::ArcaneMainBatch::SessionExec::SubInfo*, Arcane::Ref<Arcane::IParallelMng, 1>, Arcane::Ref<Arcane::IParallelMng, 1>, int)
+   7f4d3f98eea9  Arcane::ArcaneMainBatch::SessionExec::executeRank(int)
+   7f4d3f98db53  Arcane::ArcaneMainBatch::execute()
+   7f4d3f8f4646  Arcane::ArcaneMainExecFunctor::executeFunctor()
+   7f4d3f8f0011  Arcane::ArcaneMain::callFunctorWithCatchedException(Arcane::IFunctor*, Arcane::IArcaneMain*, bool*, bool)
+   7f4d3f8efcf5  Arcane::ArcaneMainExecInfo::execute()
+   7f4d3f8efee0  Arcane::ArcaneMain::_arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*)
+   7f4d3f8f0dce  Arcane::ArcaneMain::arcaneMain(Arcane::ApplicationInfo const&, Arcane::IMainFactory*)
+   7f4d3f8f1000  Arcane::ArcaneMain::run()
+   7f4d46be5947  Arcane::ArcaneLauncher::run()
+   7f4d53119ad2  ArcGeoSim::main(Arcane::ApplicationInfo&)
+         4026ef  main
+   7f4d3d7b7865  free_mem
+         40257e  _start
+
+FileAndOffsetStack:{{
+()  0x7f4d44a6332d
+()  0x7f4d44a62ba4
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_utils.so  0x3e610
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x1779b6
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_utils.so  0x3e466
+/lib64/libpthread.so.0  0x12990
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libalien_core_solvers.so  0x6847c
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libalien_core_solvers.so  0x6398f
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libalien_core_solvers.so  0x275b1
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libalien_core_solvers.so  0x1e51c
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libalien_core_solvers.so  0x1e664
+/work/gratienj/Arcane3/2026/build-sharc-gimkl2021b-Debug/lib/libCAWF.so  0xbc05f
+/work/gratienj/Arcane3/2026/build-sharc-gimkl2021b-Debug/lib/libCAWF.so  0xbc97f
+/work/gratienj/Arcane3/2026/build-sharc-gimkl2021b-Debug/lib/libCAWF.so  0xd646c
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_core.so  0x53084d
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x30d6c9
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x30f0f9
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x3163d2
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x213d32
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x212ea9
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x211b53
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x178646
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x174011
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x173cf5
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x173ee0
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x174dce
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_impl.so  0x175000
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libarcane_launcher.so  0x6947
+/work/gratienj/Arcane3/2026/Install-gimkl2021b-Debug/lib/libArcGeoSim_appli.so  0x82ad2
+/work/gratienj/Arcane3/2026/build-sharc-gimkl2021b-Debug/bin/ShArc.exe  0x4026ef
+/lib64/libc.so.6  0x3a865
+/work/gratienj/Arcane3/2026/build-sharc-gimkl2021b-Debug/bin/ShArc.exe  0x40257e
+}}
+
+
+** Can't continue with the execution.
+
+preCICE:[0m Implicitly finalizing in destructor
+preCICE:[0m Close communication channels
+*W* Code:---------------------------------------------
+*W*   WARNING (0,irlin386303): The following variables are still referenced:   GlobalCPUTime (1)  GlobalDeltaT (1)  GlobalElapsedTime (1)  GlobalFinalTime (1)  GlobalIteration (1)  GlobalOldCPUTime (1)  GlobalOldDeltaT (1)  GlobalOldElapsedTime (1)  GlobalOldTime (1)  GlobalTime (1) (set the environment variable ARCANE_TRACE_VARIABLE_CREATION to get the stack trace)
+*I-Internal   Remaining variables after cleanup n=0
+*I-Internal   MpiParallelSuperMng: rank 0 calling MPI_Abort

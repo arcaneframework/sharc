@@ -8,8 +8,7 @@
   <arcane-post-processing>
     <output-period>1</output-period>
     <output>
-      <variable>U</variable>
-      <variable>C</variable>
+      <variable>DivU</variable>
       <variable>LayerId</variable>
       <variable>Rho</variable>
       <variable>DRhoDP</variable>
@@ -22,17 +21,6 @@
 
 
     <compaction>
-      <dynamic-mesh-mng name="DynamicMeshMng">
-        <mesh>cube</mesh>
-        <format>vt2</format>
-        <first-event-id>2</first-event-id>
-        <bottom>ZMIN</bottom>
-        <top>ZMAX</top>
-        <front>YMIN</front>
-        <back>YMAX</back>
-        <left>XMIN</left>
-        <right>XMAX</right>
-      </dynamic-mesh-mng>
       <bottom>ZMIN</bottom>
       <top>ZMAX</top>
       <front>YMIN</front>
@@ -42,30 +30,6 @@
 
       <event-period>1</event-period>
       <max-iter>4</max-iter>
-      <!--cawf-mng name="PreCICE">
-          <app-id>0</app-id>
-          <app-name>App1</app-name>
-          <config-file>../precice-config.xml</config-file>
-          <mesh-name>Mesh1</mesh-name>
-          <read-data>
-              <name>C</name>
-              <var-name>C</var-name>
-          </read-data>
-          <write-data>
-            <name>P</name>
-            <var-name>U</var-name>
-          </write-data>
-      </cawf-mng-->
-
-      <!--linear-solver name="PETScSolver">
-        <solver name="BiCGStab">
-          <num-iterations-max>1000</num-iterations-max>
-          <stop-criteria-value>1e-8</stop-criteria-value>
-          <preconditioner name="BlockILU">
-          </preconditioner>
-        </solver>
-       <verbose>high</verbose>
-      </linear-solver-->
       <surface-density>1.</surface-density>
       <surface-compressibility>0.</surface-compressibility>
       <geometry-mng name="Euclidian3Geometry"/>
@@ -84,5 +48,33 @@
         <tol>1.e-6</tol>
         <output-level>1</output-level>
       </linear-solver>
+
+      <dynamic-mesh-mng name="DynamicMeshMng">
+        <mesh>meshes/cube</mesh>
+        <format>vt2</format>
+        <first-event-id>2</first-event-id>
+        <bottom>ZMIN</bottom>
+        <top>ZMAX</top>
+        <front>YMIN</front>
+        <back>YMAX</back>
+        <left>XMIN</left>
+        <right>XMAX</right>
+      </dynamic-mesh-mng>
+
+      <cawf-mng name="PreCICE">
+          <app-id>0</app-id>
+          <app-name>Compaction</app-name>
+          <config-file>../precice-config-evol-v3.xml</config-file>
+          <mesh-name>Mesh1</mesh-name>
+          <read-data>
+              <name>DivU</name>
+              <var-name>divu</var-name>
+          </read-data>
+          <write-data>
+            <name>P</name>
+            <var-name>P</var-name>
+          </write-data>
+      </cawf-mng>
+
   </compaction>
 </case>

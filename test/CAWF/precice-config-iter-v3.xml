@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<precice-configuration>
+  <log>
+    <sink
+      type="stream"
+      output="stdout"
+      filter="%Severity% > debug"
+      format="preCICE:%ColorizedSeverity% %Message%"
+      enabled="true" />
+  </log>
+  <profiling mode="all"/>
+
+  <data:scalar name="C" />
+  <data:scalar name="P" />
+  <data:scalar name="K" />
+
+  <mesh name="Mesh1" dimensions="3">
+    <use-data name="C" />
+    <use-data name="P" />
+    <use-data name="K" />
+  </mesh>
+
+  <mesh name="Mesh2" dimensions="3">
+    <use-data name="C" />
+    <use-data name="P" />
+  </mesh>
+
+  <participant name="App1">
+    <provide-mesh name="Mesh1"/>
+    <write-data name="P" mesh="Mesh1" />
+    <read-data  name="C" mesh="Mesh1" />
+  </participant>
+
+  <participant name="App2">
+    <receive-mesh name="Mesh1" from="App1" />
+    <provide-mesh name="Mesh2"/>
+    <mapping:nearest-neighbor
+      direction="write"
+      from="Mesh2"
+      to="Mesh1"
+      constraint="conservative" />
+    <mapping:nearest-neighbor
+      direction="read"
+      from="Mesh1"
+      to="Mesh2"
+      constraint="consistent" />
+    <write-data name="C" mesh="Mesh2" />
+    <read-data name="P" mesh="Mesh2" />
+  </participant>
+
+  <m2n:sockets acceptor="App1" connector="App2" exchange-directory=".." />
+
+  <coupling-scheme:serial-implicit>
+    <participants first="App1" second="App2" />
+    <max-time-windows value="400"/>
+    <time-window-size value="1"/>
+    <max-iterations value="5"/>
+ 
+
+    <!--
+    <absolute-convergence-measure data="C" mesh="Mesh1" limit="1.e-03" />
+      <min-iteration-convergence-measure min-iterations="2" data="C" mesh="Mesh1" strict="1"/>
+
+      <absolute-convergence-measure limit="1.0e-04" data="C" mesh="Mesh1" suffices="1"/>
+    -->
+    <relative-convergence-measure limit="1.e-12" data="C" mesh="Mesh1" suffices="1"/>
+    <exchange data="P" mesh="Mesh1" from="App1" to="App2" />
+    <exchange data="C" mesh="Mesh1" from="App2" to="App1" />
+  </coupling-scheme:serial-implicit>
+</precice-configuration>
