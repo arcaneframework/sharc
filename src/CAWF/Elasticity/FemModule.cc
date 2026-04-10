@@ -352,11 +352,12 @@ test()
           // precice.readVectorData
           m_cawf_mng->startTimeStep() ;
 
+#ifdef USE_PRECICE_V3
           if(not m_cawf_mng->isMeshUpdate())
           {
             m_cawf_mng->updateMesh() ;
           }
-
+#endif
           computeDivU();
 
           //precice.writeVectorData
@@ -391,9 +392,9 @@ test()
                   info()<<" NEW EVENT LAYER : "<<m_new_layer_id;
                   ++ m_new_layer_id ;
 
-                  if(m_cawf_mng)
-                    m_cawf_mng->invalidateMesh(true) ;
-
+#ifdef USE_PRECICE_V3
+                  m_cawf_mng->invalidateMesh(true) ;
+#endif
                   ENUMERATE_CELL(icell,new_event)
                   {
                     m_cell_div_u[icell] = 0. ;

@@ -535,10 +535,12 @@ test()
           // precice.readVectorData
           m_cawf_mng->startTimeStep() ;
 
+#ifdef USE_PRECICE_V3
           if(not m_cawf_mng->isMeshUpdate())
           {
             m_cawf_mng->updateMesh() ;
           }
+#endif
 
           computeDensity();
           computePressure();
@@ -577,9 +579,9 @@ test()
                   info()<<" NEW EVENT LAYER : "<<m_new_layer_id;
                   ++ m_new_layer_id ;
 
-                  if(m_cawf_mng)
-                    m_cawf_mng->invalidateMesh(true) ;
-
+#ifdef USE_PRECICE_V3
+                  m_cawf_mng->invalidateMesh(true) ;
+#endif
                   Real rho0    = options()->surfaceDensity() ;
                   Real drhodp0 = options()->surfaceCompressibility() ;
                   ENUMERATE_CELL(icell,new_event)
