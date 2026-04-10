@@ -14,6 +14,7 @@ else()
                 ArcGeoSim::ArcGeoSim_time
                 ArcGeoSim::ArcGeoSim_physics
                 ArcGeoSim::ArcGeoSim_tests
+               )
 endif()
 
 if(TARGET alien)
