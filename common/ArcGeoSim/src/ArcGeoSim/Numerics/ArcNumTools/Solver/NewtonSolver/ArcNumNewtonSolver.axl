@@ -15,9 +15,9 @@
 	item-kind="none"
 	dim="0"
 	dump="false"
-	need-sync="false" 
+	need-sync="false"
 	/>
-    
+
     <variable
 	field-name="newton_iteration_max"
 	name="NewtonIterationMax"
@@ -25,36 +25,36 @@
 	item-kind="none"
 	dim="0"
 	dump="false"
-	need-sync="false" 
+	need-sync="false"
 	/>
-    
+
   </variables>
-  
+
   <options>
 
     <simple name="with-elimination" type="bool" default="true" />
     <simple name="with-normalization" type="bool" default="false" />
     <simple name="with-first-row-sum" type="bool" default="false" />
     <simple name="with-diag-scaling" type="bool" default="false" />
-    
+
     <simple name="iteration-max" type="integer"/>
-    
+
     <simple name="tolerance" type="real"/>
-    
+
     <simple name="relative-tolerance" type="real"/>
-    
+
     <simple name="control-factor" type="real" default ="1"/>
 
     <service-instance name="linear-solver" type="Alien::ILinearSolver"/>
-    
+
     <simple name="save-and-fatal-at-iteration" type="integer" default="-1" />
     <simple name="dump-and-fatal-at-iteration" type="integer" default="-1" />
 
     <simple name="debug-dump-matlab" type="bool" default="false" />
-    
+
     <simple name="debug-info-linear-solver" type="bool" default="false" />
     <simple name="debug-stat-linear-solver" type="bool" default="false" />
-    
+
     <complex name="control" type="Control" minOccurs="0" maxOccurs="1">
       <complex name="variation" type="Variation" minOccurs="1" maxOccurs="unbounded">
 	<simple name="property" type="string" />
