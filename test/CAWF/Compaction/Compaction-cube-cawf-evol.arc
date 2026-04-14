@@ -16,7 +16,7 @@
   </arcane-post-processing>
 
   <mesh>
-    <file internal-partition='true'>meshes/cube2.vt2</file>
+    <file internal-partition='true'>../meshes/cube2.vt2</file>
   </mesh>
 
 
@@ -50,7 +50,7 @@
       </linear-solver>
 
       <dynamic-mesh-mng name="DynamicMeshMng">
-        <mesh>meshes/cube</mesh>
+        <mesh>../meshes/cube</mesh>
         <format>vt2</format>
         <first-event-id>2</first-event-id>
         <bottom>ZMIN</bottom>

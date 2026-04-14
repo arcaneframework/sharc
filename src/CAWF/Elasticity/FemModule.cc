@@ -23,6 +23,7 @@
 #include "BodyForce.h"
 #include "Traction.h"
 #include "Dirichlet.h"
+#include "Neumann.h"
 
 /*---------------------------------------------------------------------------*/
 /**
@@ -95,43 +96,28 @@ void FemModuleElasticity::init()
 
   m_event_index = 0 ;
 
-  FaceGroup boundary = mesh()->allCells().outerFaceGroup();
-  FaceGroup top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
-  if(top_face_boundary.empty())
-  {
-    const IGeometryMng::Real3Variable & face_center =
-        m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
-    UniqueArray<Integer> top_face_lids;
-    top_face_lids.reserve(boundary.size());
-    ENUMERATE_FACE(iface,boundary)
-    {
-      info()<<"BOUNDARY FACE["<<iface->localId()<<"]"<<face_center[*iface].z;
-      if(face_center[*iface].z == 0.)
-        top_face_lids.add(iface->localId());
-    }
-    mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
-    top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
-  }
-  {
-    const IGeometryMng::Real3Variable & face_center =
-        m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
-    Real top_z = 0. ;
-    ENUMERATE_FACE(iface,top_face_boundary)
-    {
-      top_z += face_center[*iface].z ;
-    }
-    top_z = top_z/top_face_boundary.size() ;
-    m_top_z = top_z;
-    info()<<"TOP BOUNDARY AVG HEIGHT : "<<m_top_z;
-  }
+  if(options()->top.isPresent())
+    m_top_boundary_name = options()->top() ;
+  if(options()->bottom.isPresent())
+    m_bottom_boundary_name = options()->bottom() ;
+  if(options()->front.isPresent())
+    m_front_boundary_name = options()->front() ;
+  if(options()->back.isPresent())
+    m_back_boundary_name = options()->back() ;
+  if(options()->left.isPresent())
+    m_left_boundary_name = options()->left() ;
+  if(options()->right.isPresent())
+    m_right_boundary_name = options()->right() ;
+  if(options()->border.isPresent())
+    m_border_boundary_name = options()->border() ;
 
-  info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size();
-  m_face_is_top.fill(0) ;
-  ENUMERATE_FACE(iface,top_face_boundary)
+  _updateTopBoundary(mesh()->allCells());
+
+  _computeBoundaryFaceNormalType(mesh()->allCells());
+
   {
-    m_face_is_top[iface] = 1 ;
-  }
-  {
+    FaceGroup boundary = mesh()->allCells().outerFaceGroup();
+
     const IGeometryMng::Real3Variable & face_normal =
         m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PNormal);
 
@@ -203,7 +189,7 @@ startInit()
         m_geometry_mng->getReal3VariableProperty(mesh()->allCells(),IGeometryProperty::PCenter);
     ENUMERATE_CELL(icell,mesh()->allCells())
     {
-      m_cell_pressure[icell] = m_F[2]*cell_center[icell].z;
+      m_cell_pressure[icell] = m_F[2]*(m_top_z -cell_center[icell].z);
     }
   }
 
@@ -262,6 +248,34 @@ _updateTopBoundary(CellGroup const& new_event)
   ENUMERATE_FACE(iface,top_face_boundary)
   {
     m_face_is_top[iface] = 1 ;
+  }
+}
+
+
+void FemModuleElasticity::
+_computeBoundaryFaceNormalType(CellGroup const& new_event)
+{
+  const IGeometryMng::Real3Variable & face_normal =
+      m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PNormal);
+
+  ENUMERATE_FACE(iface,new_event.faceGroup())
+  {
+    m_face_normal_type[iface] = -1;
+    if(iface->isSubDomainBoundary())
+    {
+      Real3 fnormal = face_normal[iface];
+      Real max_normal_comp = 0. ;
+      Integer index = -1 ;
+      for(Integer i=0;i<3;++i)
+      {
+        if(std::abs(fnormal[i]) > max_normal_comp)
+        {
+          index = i;
+          max_normal_comp = std::abs(fnormal[i]);
+        }
+      }
+      m_face_normal_type[iface] = index ;
+    }
   }
 }
 /*---------------------------------------------------------------------------*/
@@ -409,11 +423,13 @@ test()
                         m_geometry_mng->getReal3VariableProperty(mesh()->allCells(),IGeometryProperty::PCenter);
                     ENUMERATE_CELL(icell,new_event)
                     {
-                      m_cell_pressure[icell] = m_F[2]*cell_center[icell].z;
+                      m_cell_pressure[icell] = m_F[2]*(m_top_z-cell_center[icell].z);
                     }
                   }
 
                   _updateTopBoundary(new_event) ;
+                  _computeBoundaryFaceNormalType(new_event);
+
 
                 }
                 ++ m_event_index ;
@@ -475,60 +491,13 @@ test()
                   m_geometry_mng->getReal3VariableProperty(mesh()->allCells(),IGeometryProperty::PCenter);
               ENUMERATE_CELL(icell,new_event)
               {
-                m_cell_pressure[icell] = m_F[2]*cell_center[icell].z;
+                m_cell_pressure[icell] = m_F[2]*(m_top_z-cell_center[icell].z);
               }
             }
 
+            _updateTopBoundary(new_event) ;
+            _computeBoundaryFaceNormalType(new_event);
 
-            FaceGroup top_boundary = mesh()->faceFamily()->findGroup(options()->top()) ;
-            if(top_boundary.empty())
-            {
-              info()<<"UPDATE TOP BOUNDARY FACE GROUP";
-                const IGeometryMng::RealVariable & face_measure =
-                    m_geometry_mng->getRealVariableProperty(mesh()->allFaces(),IGeometryProperty::PMeasure);
-
-                const IGeometryMng::Real3Variable & face_normal =
-                    m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PNormal);
-
-                const IGeometryMng::Real3Variable & face_center =
-                    m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
-
-                UniqueArray<Integer> top_face_lids;
-                ENUMERATE_CELL(icell,new_event)
-                {
-                  ENUMERATE_FACE(iface,icell->faces())
-                  {
-                    if(iface->isSubDomainBoundary())
-                    {
-                      Real3 normal = face_normal[*iface]/face_measure[*iface] ;
-                      if(std::abs(normal.z)> 0.75)
-                        top_face_lids.add(iface->localId());
-                    }
-                  }
-                }
-                mesh()->faceFamily()->createGroup(options()->top(),top_face_lids,true) ;
-            }
-
-            FaceGroup const& top_face_boundary = mesh()->faceFamily()->findGroup(options()->top());
-            {
-              const IGeometryMng::Real3Variable & face_center =
-                  m_geometry_mng->getReal3VariableProperty(mesh()->allFaces(),IGeometryProperty::PCenter);
-              Real top_z = 0. ;
-              ENUMERATE_FACE(iface,top_boundary)
-              {
-                top_z += face_center[*iface].z ;
-                info()<<"TOP FACE : "<<iface->uniqueId()<<" BOUNDARY CELL : "<<iface->boundaryCell().uniqueId()<<" H = "<<face_center[*iface].z ;
-              }
-              top_z /= top_boundary.size() ;
-              m_top_z = top_z;
-              info()<<"TOP BOUDARY AVG HEIGHT : "<<m_top_z;
-            }
-            info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size() ;
-            m_face_is_top.fill(0) ;
-            ENUMERATE_FACE(iface,top_face_boundary)
-            {
-              m_face_is_top[iface] = 1 ;
-            }
           }
           ++ m_event_index ;
           m_next_event_time += m_event_period ;
@@ -770,6 +739,7 @@ _assembleLinearOperator()
   _applyBodyForce(rhs_values, node_dof);
   _applyTraction(rhs_values, node_dof);
   _applyDirichlet(rhs_values, node_dof);
+  _applyNeumann(rhs_values, node_dof);
 
   elapsedTime = platform::getRealTime() - elapsedTime;
   ArcaneFemFunctions::GeneralFunctions::printArcaneFemTime(traceMng(),"rhs-vector-assembly", elapsedTime);

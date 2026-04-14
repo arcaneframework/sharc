@@ -40,7 +40,21 @@ _applyDirichlet(VariableDoFReal& rhs_values, const IndexedNodeDoFConnectivityVie
   BC::IArcaneFemBC* bc = options()->boundaryConditions();
   if (bc) {
     for (BC::IDirichletBoundaryCondition* bs : bc->dirichletBoundaryConditions())
-      ArcaneFemFunctions::BoundaryConditions::applyDirichletToLhsAndRhs(bs, node_dof, m_linear_system, rhs_values);
+    {
+      if(bs->getValue().size()==1)
+        ArcaneFemFunctions::BoundaryConditions::
+          applyNormalDirichletToLhsAndRhs(bs,
+                                          node_dof,
+                                          m_linear_system,
+                                          rhs_values,
+                                          m_face_normal_type);
+      else
+        ArcaneFemFunctions::BoundaryConditions::
+          applyDirichletToLhsAndRhs(bs,
+                                    node_dof,
+                                    m_linear_system,
+                                    rhs_values);
+    }
 
     for (BC::IDirichletPointCondition* bs : bc->dirichletPointConditions())
       ArcaneFemFunctions::BoundaryConditions::applyPointDirichletToLhsAndRhs(bs, node_dof, m_linear_system, rhs_values);

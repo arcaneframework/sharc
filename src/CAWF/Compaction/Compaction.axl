@@ -48,6 +48,16 @@
     />
 
     <variable
+      field-name="cell_is_top"
+      name="CellIsTop"
+      data-type="integer"
+      item-kind="cell"
+      dim="0"
+      dump="true"
+      need-sync="true"
+    />
+
+    <variable
       field-name="face_is_top"
       name="FaceIsTop"
       data-type="integer"
@@ -256,6 +266,9 @@
        <description>Geometry Mng Service</description>
     </service-instance>
 
+    <simple name="diag-penality" type="real" default="100000.">
+      <description>Diag penality term</description>
+    </simple>
     <service-instance name="linear-solver" type="Alien::ILinearSolver">
        <description>Linear Solver Service </description>
     </service-instance>

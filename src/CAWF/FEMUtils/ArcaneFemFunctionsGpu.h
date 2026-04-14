@@ -825,6 +825,11 @@ class BoundaryConditions3D
   static void applyNeumannToRhs(BC::INeumannBoundaryCondition* bs, const FemDoFsOnNodes& dofs_on_nodes,
                                 const VariableNodeReal3& node_coord, VariableDoFReal& rhs_variable_na,
                                 IMesh* mesh, Accelerator::RunQueue* queue);
+
+
+  static void applyNeumannToRhsHexa8(BC::INeumannBoundaryCondition* bs, const FemDoFsOnNodes& dofs_on_nodes,
+                                const VariableNodeReal3& node_coord, VariableDoFReal& rhs_variable_na,
+                                IMesh* mesh, Accelerator::RunQueue* queue);
 };
 
 /*---------------------------------------------------------------------------*/

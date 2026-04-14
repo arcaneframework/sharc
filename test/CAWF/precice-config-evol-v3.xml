@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<precice-configuration experimental="True" allow-remeshing="True" >
+  <log>
+    <sink
+      type="stream"
+      output="stdout"
+      filter="%Severity% > debug"
+      format="preCICE:%ColorizedSeverity% %Message%"
+      enabled="true" />
+  </log>
+  <profiling mode="all"/>
+
+  <data:scalar name="DivU" />
+  <data:scalar name="P" />
+
+  <mesh name="Mesh1" dimensions="3">
+    <use-data name="DivU" />
+    <use-data name="P" />
+  </mesh>
+
+  <mesh name="Mesh2" dimensions="3">
+    <use-data name="DivU" />
+    <use-data name="P" />
+  </mesh>
+
+  <participant name="Compaction">
+    <provide-mesh name="Mesh1"/>
+    <write-data name="P" mesh="Mesh1" />
+    <read-data name="DivU" mesh="Mesh1" />
+  </participant>
+
+  <participant name="MecaFEM">
+    <receive-mesh name="Mesh1" from="Compaction" />
+    <provide-mesh name="Mesh2"/>
+    <mapping:nearest-neighbor
+      direction="write"
+      from="Mesh2"
+      to="Mesh1"
+      constraint="conservative" />
+    <mapping:nearest-neighbor
+      direction="read"
+      from="Mesh1"
+      to="Mesh2"
+      constraint="consistent" />
+    <write-data name="DivU" mesh="Mesh2" />
+    <read-data name="P" mesh="Mesh2" />
+  </participant>
+
+  <m2n:sockets acceptor="Compaction" connector="MecaFEM" exchange-directory=".." />
+
+  <coupling-scheme:parallel-implicit>
+    <participants first="Compaction" second="MecaFEM" />
+    <max-time-windows value="5" />
+    <time-window-size value="1.0" />
+    <max-iterations value="10" />
+    <min-iterations value="2" />
+    <relative-convergence-measure limit="1.e-12" data="DivU" mesh="Mesh1" suffices="1"/>
+    <exchange data="P" mesh="Mesh1" from="Compaction" to="MecaFEM" />
+    <exchange data="DivU" mesh="Mesh1" from="MecaFEM" to="Compaction" />
+  </coupling-scheme:parallel-implicit>
+</precice-configuration>

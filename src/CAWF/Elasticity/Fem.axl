@@ -51,6 +51,8 @@
 
     <variable field-name="face_is_nz" name="FaceIsNz" data-type="integer" item-kind="face" dim="0" dump="true" need-sync="true" />
 
+    <variable field-name="face_normal_type" name="FaceNormalType" data-type="integer" item-kind="face" dim="0" dump="true" need-sync="true"/>
+
     <variable field-name="layer_id" name="LayerId" data-type="integer" item-kind="cell" dim="0" dump="true" need-sync="true"
     />
 
@@ -70,23 +72,26 @@
       <description>Poissons ratio of the material.</description>
     </simple>
 
-    <simple name="top" type="string" default="top">
+    <simple name="top" type="string" optional="true">
       <description>Top face group name</description>
     </simple>
-    <simple name="bottom" type="string" default="bottom">
+    <simple name="bottom" type="string" optional="true">
       <description>Bottom face group name</description>
     </simple>
-    <simple name="front" type="string" default="front">
+    <simple name="front" type="string" optional="true">
       <description>Front face group name</description>
     </simple>
-    <simple name="back" type="string" default="back">
+    <simple name="back" type="string" optional="true">
       <description>Front face group name</description>
     </simple>
-    <simple name="right" type="string" default="right">
+    <simple name="right" type="string" optional="true">
       <description>Right face group name</description>
     </simple>
-    <simple name="left" type="string" default="left">
+    <simple name="left" type="string" optional="true">
       <description>Left face group name</description>
+    </simple>
+    <simple name="border" type="string" optional="true">
+      <description>border face group name</description>
     </simple>
 
     <simple name="nb-layers" type="integer" default="0">

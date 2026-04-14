@@ -1188,6 +1188,29 @@ class ArcaneFemFunctions
       }
     }
 
+    static inline void applyNormalDirichletToNodeGroupViaPenalty(Real value, Real penalty, const IndexedNodeDoFConnectivityView& node_dof, DoFLinearSystem& linear_system, VariableDoFReal& rhs_values,VariableFaceInteger const& face_normal_type, NodeGroup& node_group)
+    {
+      ENUMERATE_ (Node, inode, node_group) {
+        Node node = *inode;
+        if (node.isOwn()) {
+          bool n[3] = {false,false,false} ;
+          for(auto face : node.faces())
+          {
+            n[face_normal_type[face]] = true ;
+          }
+          for(int dof_index=0;dof_index<3;++dof_index)
+          {
+            if(n[dof_index])
+            {
+              linear_system.matrixSetValue(node_dof.dofId(node, dof_index), node_dof.dofId(node, dof_index), penalty);
+              Real u_g = penalty * value;
+              rhs_values[node_dof.dofId(node, dof_index)] = u_g;
+            }
+          }
+        }
+      }
+    }
+
     static inline void applyDirichletToNodeGroupViaRowElimination(const Int32 dof_index, Real value,
                                                                   const IndexedNodeDoFConnectivityView& node_dof,
                                                                   DoFLinearSystem& linear_system,
@@ -1249,23 +1272,27 @@ class ArcaneFemFunctions
      * @param rhs_values RHS values to update.
      */
     /*---------------------------------------------------------------------------*/
-    static inline void applyDirichletToLhsAndRhs(BC::IDirichletBoundaryCondition* bs, const IndexedNodeDoFConnectivityView& node_dof, DoFLinearSystem& m_linear_system, VariableDoFReal& rhs_values)
+    static inline void applyDirichletToLhsAndRhs(BC::IDirichletBoundaryCondition* bs,
+                                                 const IndexedNodeDoFConnectivityView& node_dof,
+                                                 DoFLinearSystem& linear_system,
+                                                 VariableDoFReal& rhs_values)
     {
       FaceGroup face_group = bs->getSurface();
       NodeGroup node_group = face_group.nodeGroup();
       const StringConstArrayView u_dirichlet_string = bs->getValue();
+
       for (Int32 dof_index = 0; dof_index < u_dirichlet_string.size(); ++dof_index) {
         if (u_dirichlet_string[dof_index] != "NULL") {
           Real value = std::stod(u_dirichlet_string[dof_index].localstr());
           if (bs->getEnforceDirichletMethod() == "Penalty") {
             Real penalty = bs->getPenalty();
-            ArcaneFemFunctions::BoundaryConditionsHelpers::applyDirichletToNodeGroupViaPenalty(dof_index, value, penalty, node_dof, m_linear_system, rhs_values, node_group);
+            ArcaneFemFunctions::BoundaryConditionsHelpers::applyDirichletToNodeGroupViaPenalty(dof_index, value, penalty, node_dof, linear_system, rhs_values, node_group);
           }
           else if (bs->getEnforceDirichletMethod() == "RowElimination") {
-            ArcaneFemFunctions::BoundaryConditionsHelpers::applyDirichletToNodeGroupViaRowElimination(dof_index, value, node_dof, m_linear_system, rhs_values, node_group);
+            ArcaneFemFunctions::BoundaryConditionsHelpers::applyDirichletToNodeGroupViaRowElimination(dof_index, value, node_dof, linear_system, rhs_values, node_group);
           }
           else if (bs->getEnforceDirichletMethod() == "RowColumnElimination") {
-            ArcaneFemFunctions::BoundaryConditionsHelpers::applyDirichletToNodeGroupViaRowColumnElimination(dof_index, value, node_dof, m_linear_system, rhs_values, node_group);
+            ArcaneFemFunctions::BoundaryConditionsHelpers::applyDirichletToNodeGroupViaRowColumnElimination(dof_index, value, node_dof, linear_system, rhs_values, node_group);
           }
           else {
             ARCANE_FATAL("Unknown Dirichlet method");
@@ -1273,6 +1300,34 @@ class ArcaneFemFunctions
         }
       }
     }
+    static inline void applyNormalDirichletToLhsAndRhs(BC::IDirichletBoundaryCondition* bs,
+                                                       const IndexedNodeDoFConnectivityView& node_dof,
+                                                       DoFLinearSystem& linear_system,
+                                                       VariableDoFReal& rhs_values,
+                                                       VariableFaceInteger const& face_normal_type)
+     {
+       FaceGroup face_group = bs->getSurface();
+       NodeGroup node_group = face_group.nodeGroup();
+       const StringConstArrayView u_dirichlet_string = bs->getValue();
+       //Dirichlet only on Normal axes
+       if (u_dirichlet_string[0] != "NULL") {
+         Real value = std::stod(u_dirichlet_string[0].localstr());
+         if (bs->getEnforceDirichletMethod() == "Penalty") {
+           Real penalty = bs->getPenalty();
+           ArcaneFemFunctions::BoundaryConditionsHelpers::
+           applyNormalDirichletToNodeGroupViaPenalty(value,
+                                                     penalty,
+                                                     node_dof,
+                                                     linear_system,
+                                                     rhs_values,
+                                                     face_normal_type,
+                                                     node_group);
+         }
+         else {
+           ARCANE_FATAL("Unknown Dirichlet method");
+         }
+       }
+     }
 
     /*---------------------------------------------------------------------------*/
     /**

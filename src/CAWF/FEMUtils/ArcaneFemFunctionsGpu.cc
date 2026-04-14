@@ -458,6 +458,25 @@ applyNeumannToRhs(BC::INeumannBoundaryCondition* bs, const FemDoFsOnNodes& dofs_
 
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
+/**
+ * @brief Applies Neumann conditions to the right-hand side (RHS) values.
+ *
+ * This method updates the RHS values of the finite element method equations
+ * based on the provided Neumann boundary condition. The boundary condition
+ * can specify a value or its components along the x and y directions.
+ *
+ */
+void BoundaryConditions3D::
+applyNeumannToRhsHexa8(BC::INeumannBoundaryCondition* bs, const FemDoFsOnNodes& dofs_on_nodes,
+                  const VariableNodeReal3& node_coord, VariableDoFReal& rhs_variable_na,
+                  IMesh* mesh, RunQueue* queue)
+{
+  ARCANE_THROW(Arccore::NotImplementedException, "applyNeumannToRhsHexa8 not supported.");
+}
+
+
+/*---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
 
 }; // namespace Arcane::FemUtils::Gpu
 

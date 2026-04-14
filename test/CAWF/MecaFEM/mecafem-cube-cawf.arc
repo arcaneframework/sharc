@@ -15,8 +15,7 @@
   </arcane-post-processing>
 
   <mesh>
-    <file internal-partition="true">meshes/cube.vt2</file>
-    <!--file internal-partition="true">meshes/cube.vt2</file-->
+    <file internal-partition="true">../meshes/cube.vt2</file>
   </mesh>
 
   <fem>

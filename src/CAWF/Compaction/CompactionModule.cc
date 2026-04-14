@@ -154,9 +154,11 @@ void CompactionModule::init()
 
   info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size();
   m_face_is_top.fill(0) ;
+  m_cell_is_top.fill(0) ;
   ENUMERATE_FACE(iface,top_face_boundary)
   {
     m_face_is_top[iface] = 1 ;
+    m_cell_is_top[iface->boundaryCell()] = 1 ;
   }
   {
     const IGeometryMng::Real3Variable & face_normal =
@@ -278,9 +280,11 @@ updateTopBoundary(CellGroup const& new_event)
   }
   info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size() ;
   m_face_is_top.fill(0) ;
+  m_cell_is_top.fill(0) ;
   ENUMERATE_FACE(iface,top_face_boundary)
   {
     m_face_is_top[iface] = 1 ;
+    m_cell_is_top[iface->boundaryCell()] = 1 ;
   }
 }
 
@@ -436,7 +440,7 @@ computePressure()
             if((m_face_is_top[face])/*||(m_face_is_nz[*iface]==1)*/)
             {
               //vB[i] -= off_diag ;
-              double diag = 1000. ;
+              double diag = options()->diagPenality() ;
               builder(i,i) = diag ;
               //vB[i] += diag * m_gravity * m_rho[cell] * (face_center[face].z - cell_center[cell].z) ;
               vB[i] = diag * m_gravity * m_rho[cell] * (m_top_z - cell_center[cell].z) ;
@@ -701,9 +705,11 @@ test()
             }
             info()<<"TOP BOUNDARY SIZE["<<m_event_index<<"] : "<<top_face_boundary.size() ;
             m_face_is_top.fill(0) ;
+            m_cell_is_top.fill(0) ;
             ENUMERATE_FACE(iface,top_face_boundary)
             {
               m_face_is_top[iface] = 1 ;
+              m_cell_is_top[iface->boundaryCell()] = 1;
             }
           }
           ++ m_event_index ;

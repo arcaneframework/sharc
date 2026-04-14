@@ -102,6 +102,8 @@ class FemModuleElasticity
   VersionInfo versionInfo() const override { return VersionInfo(1, 0, 0); }
 
   void _updateTopBoundary(CellGroup const& new_event);
+  void _computeBoundaryFaceNormalType(CellGroup const& new_event);
+
   void _doStationarySolve();
   template<typename ProfilerT>
   void _defineMatrixProfile(ProfilerT& profiler, ConstArrayView<Integer> allUIndex) ;
@@ -113,6 +115,7 @@ class FemModuleElasticity
   void _assembleBilinearOperatorAlienAcc() ;
 #endif
   void _assembleDirichletsGpu();
+  void _assembleNeumannsGpu(VariableDoFReal& rhs_values);
 
   void _computePrePro();
   void _computePostPro();
@@ -160,6 +163,14 @@ class FemModuleElasticity
   Integer                        m_new_layer_id          = 0 ;
   bool                           m_precice_mesh_is_updated = false;
 
+  String                         m_top_boundary_name     = "TopBoundary" ;
+  String                         m_bottom_boundary_name  = "BottomBoundary" ;
+  String                         m_front_boundary_name   = "FrontBoundary" ;
+  String                         m_back_boundary_name    = "BackBoundary" ;
+  String                         m_left_boundary_name    = "LeftBoundary" ;
+  String                         m_right_boundary_name   = "RightBoundary" ;
+  String                         m_border_boundary_name  = "BorderBoundary" ;
+
   UniqueArray<Arcane::CellGroup> m_layers ;
   Real                           m_layer_event_period    = 0. ;
   Real                           m_layer_event_time      = 0. ;
@@ -184,6 +195,7 @@ class FemModuleElasticity
   inline void _applyBodyForce(VariableDoFReal& rhs_values, const IndexedNodeDoFConnectivityView& node_dof);
   inline void _applyTraction(VariableDoFReal& rhs_values, const IndexedNodeDoFConnectivityView& node_dof);
   inline void _applyDirichlet(VariableDoFReal& rhs_values, const IndexedNodeDoFConnectivityView& node_dof);
+  inline void _applyNeumann(VariableDoFReal& rhs_values, const IndexedNodeDoFConnectivityView& node_dof);
 
   RealMatrix<6, 6> _computeElementMatrixTria3(Cell cell);
   RealMatrix<12, 12> _computeElementMatrixTetra4(Cell cell);
