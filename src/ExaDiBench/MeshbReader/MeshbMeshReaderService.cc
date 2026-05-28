@@ -39,6 +39,7 @@
 #include <arcane/IMeshUtilities.h>
 #include <arcane/IMeshWriter.h>
 #include <arcane/BasicService.h>
+#include <arcane/ServiceBuilder.h>
 
 #include "arcane/utils/PlatformUtils.h"
 #include "arcane/utils/Convert.h"
@@ -104,21 +105,18 @@ readMeshFromFile(IPrimaryMesh* mesh,
 
   info() << "Ouranos version: " << Ouranos::Kernel::version();
   info() << "Mesh read: " << nb_nodes << " nodes, "
-         << msh.tet().nbr() << " tetrahedra, "
-         << msh.tri().nbr() << " triangles";
+         << msh.tet().nbr() << " tetrahedra " ;
 
   // Arcane mesh
   mesh->setDimension(3);
 
-  // Get tetra and triangles
+  // Get tetras
   const auto& tets = msh.tet();
   Integer nb_tets = tets.nbr();
-  const auto& tris = msh.tri();
-  Integer nb_tris = tris.nbr();
 
   // Build cells_infos array
   SharedArray<Int64> cells_infos;
-  cells_infos.reserve(nb_tets * 6 + nb_tris * 5);
+  cells_infos.reserve(nb_tets * 6);
 
   // Adding tetra
   for (Integer i = 0; i < nb_tets; ++i) {
@@ -127,19 +125,11 @@ readMeshFromFile(IPrimaryMesh* mesh,
       for (Integer j = 0; j < 4; ++j) {
           cells_infos.add(tets.con()[i + 1][j]);
       }
-  }
+   }
 
-  // Adding triangles
-  for (Integer i = 0; i < nb_tris; ++i) {
-      cells_infos.add(IT_Triangle3);
-      cells_infos.add(nb_tets + i);
-      for (Integer j = 0; j < 3; ++j) {
-          cells_infos.add(tris.con()[i + 1][j]);
-      }
-  }
 
   // Allocate cells
-  mesh->allocateCells(nb_tets + nb_tris, cells_infos, false);
+  mesh->allocateCells(nb_tets, cells_infos, false);
   mesh->endAllocate();
 
   info() << "Arcane mesh created: " << mesh->nbNode() << " nodes, "
@@ -152,15 +142,24 @@ readMeshFromFile(IPrimaryMesh* mesh,
   ENUMERATE_NODE (inode, mesh->allNodes()) {
       const Node& node = *inode;
       Int64 uid = node.uniqueId().asInt64();
-      rns_real_t x = coords[uid - 1][0];
-      rns_real_t y = coords[uid - 1][1];
-      rns_real_t z = coords[uid - 1][2];
+      rns_real_t x = coords[uid][0];
+      rns_real_t y = coords[uid][1];
+      rns_real_t z = coords[uid][2];
       nodes_coord[inode] = Real3(x, y, z);
   }
-  
+
+// Mesh into vtk for debug
+IMeshWriter* writer = Arcane::ServiceBuilder<IMeshWriter>::createInstance(
+    mesh->subDomain(), "VtkLegacyMeshWriter"
+);
+if (writer) {
+    writer->writeMeshToFile(mesh, file_name + ".vtk");
+    info() << "Mesh saved to " << file_name << ".vtk";
+} else {
+    info() << "Writer not found";
+}
   // auto refined_msh = Ouranos::Mesh::refine(rns, msh);
 
-  fatal() << "Meshb Reader not yet implemented";
   return RTOk;
 };
 
