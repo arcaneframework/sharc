@@ -1,0 +1,119 @@
+\hypertarget{Utils_2FunctorUtils_2Functions_2LogFunc_8h}{}\doxysection{/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Utils/\+Functor\+Utils/\+Functions/\+Log\+Func.h File Reference}
+\label{Utils_2FunctorUtils_2Functions_2LogFunc_8h}\index{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Utils/FunctorUtils/Functions/LogFunc.h@{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Utils/FunctorUtils/Functions/LogFunc.h}}
+
+
+Operations logiques.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Utils_2FunctorUtils_2Functions_2LogFunc_8h_a4cf70e0afb5d12720e75a9074dcee58d}{LOGFUNC1}}(op,  sens)
+\begin{DoxyCompactList}\small\item\em Macro permettant de generaliser les operations logiques == et !=. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{Utils_2FunctorUtils_2Functions_2LogFunc_8h_ab0f5ce668299c4011674948b5307ecb3}{LOGFUNC2}}(op)
+\begin{DoxyCompactList}\small\item\em Macro permettant de generaliser les operations logiques $<$, $<$=, $>$, $>$=. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Operations logiques. 
+
+\begin{DoxyDate}{Date}
+01/04/2008 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Xavier TUNC
+\end{DoxyAuthor}
+Operations logiques sur les tableaux/expressions Les operations ==, !=, $<$, $<$=, $>$, $>$= sont surcharges 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Utils_2FunctorUtils_2Functions_2LogFunc_8h_a4cf70e0afb5d12720e75a9074dcee58d}\label{Utils_2FunctorUtils_2Functions_2LogFunc_8h_a4cf70e0afb5d12720e75a9074dcee58d}} 
+\index{LogFunc.h@{LogFunc.h}!LOGFUNC1@{LOGFUNC1}}
+\index{LOGFUNC1@{LOGFUNC1}!LogFunc.h@{LogFunc.h}}
+\doxysubsubsection{\texorpdfstring{LOGFUNC1}{LOGFUNC1}}
+{\footnotesize\ttfamily \#define LOGFUNC1(\begin{DoxyParamCaption}\item[{}]{op,  }\item[{}]{sens }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} U> \(\backslash\)}
+\DoxyCodeLine{inline \textcolor{keywordtype}{int} \textcolor{keyword}{operator} op(\textcolor{keyword}{const} T \& left, \textcolor{keyword}{const} U \& right) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  int result = 0; \(\backslash\)}
+\DoxyCodeLine{  const \textcolor{keywordtype}{double} eps = 1E-\/7 ; \(\backslash\)}
+\DoxyCodeLine{  if (left.getSize() == right.getSize()) \{ \(\backslash\)}
+\DoxyCodeLine{    result = 1 ; \(\backslash\)}
+\DoxyCodeLine{    for(\textcolor{keywordtype}{int} i=0;i<left.getSize();i++) \(\backslash\)}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{      if((fabs( left.getValue(i) -\/ right.getValue(i) ) sens max(fabs(left.getValue(i)),fabs(right.getValue(i))) * eps)) \(\backslash\)}
+\DoxyCodeLine{      \{ \(\backslash\)}
+\DoxyCodeLine{        ; \(\backslash\)}
+\DoxyCodeLine{      \} \(\backslash\)}
+\DoxyCodeLine{      else \{ \(\backslash\)}
+\DoxyCodeLine{        result = 0; \(\backslash\)}
+\DoxyCodeLine{        break; \(\backslash\)}
+\DoxyCodeLine{      \} \(\backslash\)}
+\DoxyCodeLine{    \} \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{  return result; \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+
+\end{DoxyCode}
+
+
+Macro permettant de generaliser les operations logiques == et !=. 
+
+Retourne 0 si faux, 1 si vrai 
+\begin{DoxyParams}{Parameters}
+{\em left} & \+: operande de gauche \\
+\hline
+{\em right} & \+: operande de droite \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file Log\+Func.\+h.
+
+\mbox{\Hypertarget{Utils_2FunctorUtils_2Functions_2LogFunc_8h_ab0f5ce668299c4011674948b5307ecb3}\label{Utils_2FunctorUtils_2Functions_2LogFunc_8h_ab0f5ce668299c4011674948b5307ecb3}} 
+\index{LogFunc.h@{LogFunc.h}!LOGFUNC2@{LOGFUNC2}}
+\index{LOGFUNC2@{LOGFUNC2}!LogFunc.h@{LogFunc.h}}
+\doxysubsubsection{\texorpdfstring{LOGFUNC2}{LOGFUNC2}}
+{\footnotesize\ttfamily \#define LOGFUNC2(\begin{DoxyParamCaption}\item[{}]{op }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} U> \(\backslash\)}
+\DoxyCodeLine{inline \textcolor{keywordtype}{void} \textcolor{keyword}{operator} op(\textcolor{keyword}{const} T \& left, \textcolor{keyword}{const} U \& right) \{ \(\backslash\)}
+\DoxyCodeLine{  if (left.getSize() == right.getSize() || left.getSize() == 1 || right.getSize() == 1 ) \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    for(\textcolor{keywordtype}{int} i=0;i<left.getSize();i++) \(\backslash\)}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{      if(left.getValue(i) op right.getValue(i)) \{ \(\backslash\)}
+\DoxyCodeLine{        std::cout << 1 << std::endl; \(\backslash\)}
+\DoxyCodeLine{      \} \(\backslash\)}
+\DoxyCodeLine{      else \{ \(\backslash\)}
+\DoxyCodeLine{        std::cout << 0 << std::endl; \(\backslash\)}
+\DoxyCodeLine{      \} \(\backslash\)}
+\DoxyCodeLine{    \} \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{  else \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    std::cout << \textcolor{stringliteral}{"{} !!! WARNING !!! LHS \& RHS pas de meme dim (exit(1)) "{}} << std::endl; \(\backslash\)}
+\DoxyCodeLine{    exit(1); \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+
+\end{DoxyCode}
+
+
+Macro permettant de generaliser les operations logiques $<$, $<$=, $>$, $>$=. 
+
+Affiche 1 si vrai, 0 si faux 
+\begin{DoxyParams}{Parameters}
+{\em left} & \+: operande de gauche \\
+\hline
+{\em right} & \+: operande de droite \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file Log\+Func.\+h.
+

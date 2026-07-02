@@ -1,0 +1,97 @@
+\hypertarget{classPolynom}{}\doxysection{Polynom$<$ N $>$ Class Template Reference}
+\label{classPolynom}\index{Polynom$<$ N $>$@{Polynom$<$ N $>$}}
+
+
+Inherits \mbox{\hyperlink{classBasePolynom}{Base\+Polynom}}, and \mbox{\hyperlink{classIDFunctionR1vR1}{IDFunction\+R1v\+R1}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPolynom_a3d9da5a71610e2a4f1943d6bb9fda481}\label{classPolynom_a3d9da5a71610e2a4f1943d6bb9fda481}} 
+{\bfseries Polynom} (Real $\ast$coef)
+\item 
+\mbox{\Hypertarget{classPolynom_a7db77fc437e2728316eb927f3c36a7f9}\label{classPolynom_a7db77fc437e2728316eb927f3c36a7f9}} 
+void \mbox{\hyperlink{classPolynom_a7db77fc437e2728316eb927f3c36a7f9}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a0be25e16044f404c9795b854070f1e55}\label{classPolynom_a0be25e16044f404c9795b854070f1e55}} 
+void \mbox{\hyperlink{classPolynom_a0be25e16044f404c9795b854070f1e55}{set\+Parameter}} (const String \&name, const Real \&parameter)
+\begin{DoxyCompactList}\small\item\em Setting parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a7f31ac4661f009317e983d89962dc12f}\label{classPolynom_a7f31ac4661f009317e983d89962dc12f}} 
+void {\bfseries set\+Parameter} (Integer index, const Real \&parameter)
+\item 
+\mbox{\Hypertarget{classPolynom_a0cc8c8622980d4b55d57179cf8e17cbc}\label{classPolynom_a0cc8c8622980d4b55d57179cf8e17cbc}} 
+Integer \mbox{\hyperlink{classPolynom_a0cc8c8622980d4b55d57179cf8e17cbc}{nb\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a12bf1e9a811b179b2e430541e581cf00}\label{classPolynom_a12bf1e9a811b179b2e430541e581cf00}} 
+String \mbox{\hyperlink{classPolynom_a12bf1e9a811b179b2e430541e581cf00}{parameter\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_af68094735c714c88d6a048be617ebb78}\label{classPolynom_af68094735c714c88d6a048be617ebb78}} 
+void \mbox{\hyperlink{classPolynom_af68094735c714c88d6a048be617ebb78}{set\+Variable}} (const String \&name, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\begin{DoxyCompactList}\small\item\em Setting vectorized variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a92ddaf782c8046bb8e54b9210eaf5915}\label{classPolynom_a92ddaf782c8046bb8e54b9210eaf5915}} 
+void {\bfseries set\+Variable} (Integer index, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\item 
+\mbox{\Hypertarget{classPolynom_ac8b92e51d1165806bdd94da5cf4fcfa4}\label{classPolynom_ac8b92e51d1165806bdd94da5cf4fcfa4}} 
+String \mbox{\hyperlink{classPolynom_ac8b92e51d1165806bdd94da5cf4fcfa4}{variable\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a50de11ba5c2b259c228dfd01c7e1c2ad}\label{classPolynom_a50de11ba5c2b259c228dfd01c7e1c2ad}} 
+void \mbox{\hyperlink{classPolynom_a50de11ba5c2b259c228dfd01c7e1c2ad}{set\+Evaluation\+Result}} (\mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\begin{DoxyCompactList}\small\item\em Setting evaluation vectorized result. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a245658422daa60c063a413e40d6afa1a}\label{classPolynom_a245658422daa60c063a413e40d6afa1a}} 
+void \mbox{\hyperlink{classPolynom_a245658422daa60c063a413e40d6afa1a}{eval}} (const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&var0, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluationo f P(x) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a6365ad0af1ef4fdba4091a5d22197aef}\label{classPolynom_a6365ad0af1ef4fdba4091a5d22197aef}} 
+void \mbox{\hyperlink{classPolynom_a6365ad0af1ef4fdba4091a5d22197aef}{eval}} (const Const\+Array\+View$<$ Real $>$ var0, Array\+View$<$ Real $>$ res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a38d966057ba28e8114e905f8be5eac3b}\label{classPolynom_a38d966057ba28e8114e905f8be5eac3b}} 
+\mbox{\hyperlink{classDVar}{DVar}}$<$ Real $>$ \mbox{\hyperlink{classPolynom_a38d966057ba28e8114e905f8be5eac3b}{evalD}} (const Real \&x)
+\begin{DoxyCompactList}\small\item\em Point-\/wise evaluation of P(x) and P\textquotesingle{}(x) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a4c2773af058d30786bd4e3a4d963745a}\label{classPolynom_a4c2773af058d30786bd4e3a4d963745a}} 
+void \mbox{\hyperlink{classPolynom_a4c2773af058d30786bd4e3a4d963745a}{evalD}} (const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&var0, \mbox{\hyperlink{classArray}{Array}}$<$ \mbox{\hyperlink{classDVar}{DVar}}$<$ Real $>$ $>$ \&res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation of P(x) and P\textquotesingle{}(x) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a3921e5cee0cd06a70906d0fb48a82c65}\label{classPolynom_a3921e5cee0cd06a70906d0fb48a82c65}} 
+Real \mbox{\hyperlink{classPolynom_a3921e5cee0cd06a70906d0fb48a82c65}{diff\+Eval}} (const Real \&x)
+\begin{DoxyCompactList}\small\item\em Point-\/wise derivation temporary (derivation handling in \mbox{\hyperlink{classIFunction}{IFunction}} not yet defined) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_aeda668e289af93323847b3dea7c1f245}\label{classPolynom_aeda668e289af93323847b3dea7c1f245}} 
+void \mbox{\hyperlink{classPolynom_aeda668e289af93323847b3dea7c1f245}{eval}} (const Real \&var0, Real \&res0, Real \&diffres0)
+\begin{DoxyCompactList}\small\item\em Coupled function and derivative scalar evaluation (temporary\+: derivation handling in \mbox{\hyperlink{classIFunction}{IFunction}} still to be defined) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ di variable}\par
+{\em Setting derivation vectorized result
+
+Derivation following }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPolynom_a6b38c16c8457ee2c84ca9848a5da2fb0}\label{classPolynom_a6b38c16c8457ee2c84ca9848a5da2fb0}} 
+void {\bfseries set\+Derivation\+Result} (Integer di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classPolynom_abc019cac83dbc88007c275a79ae5d99b}\label{classPolynom_abc019cac83dbc88007c275a79ae5d99b}} 
+virtual void {\bfseries set\+Derivation\+Result} (const String \&di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classPolynom_aab3463c3732420b8eb3779a785e7ff1f}\label{classPolynom_aab3463c3732420b8eb3779a785e7ff1f}} 
+void \mbox{\hyperlink{classPolynom_aab3463c3732420b8eb3779a785e7ff1f}{cleanup}} ()
+\begin{DoxyCompactList}\small\item\em Cleanup after evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_a3bcf4bf64c2e1e87f6e2db4941f260b3}\label{classPolynom_a3bcf4bf64c2e1e87f6e2db4941f260b3}} 
+void \mbox{\hyperlink{classPolynom_a3bcf4bf64c2e1e87f6e2db4941f260b3}{eval}} ()
+\begin{DoxyCompactList}\small\item\em Eval vectorized data service function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_ac8cade44698dbf75a36a4ebbb4b3c132}\label{classPolynom_ac8cade44698dbf75a36a4ebbb4b3c132}} 
+Real \mbox{\hyperlink{classPolynom_ac8cade44698dbf75a36a4ebbb4b3c132}{eval}} (const Real \&x)
+\begin{DoxyCompactList}\small\item\em Point-\/wise evaluation of P(x) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolynom_ae6d761d1f08f6973b4f051cc87f107d3}\label{classPolynom_ae6d761d1f08f6973b4f051cc87f107d3}} 
+void {\bfseries eval} (const Real \&var0, Real \&res0)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$Integer N$>$\newline
+class Polynom$<$ N $>$}
+
+
+
+Definition at line 25 of file Polynom.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Polynom/Polynom.\+h\end{DoxyCompactItemize}

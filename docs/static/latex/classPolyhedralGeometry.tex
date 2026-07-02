@@ -1,0 +1,181 @@
+\hypertarget{classPolyhedralGeometry}{}\doxysection{Polyhedral\+Geometry Class Reference}
+\label{classPolyhedralGeometry}\index{PolyhedralGeometry@{PolyhedralGeometry}}
+
+
+Inherits \mbox{\hyperlink{classIGeometry}{IGeometry}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a8c878b181622686bc51ec280770c28b5}\label{classPolyhedralGeometry_a8c878b181622686bc51ec280770c28b5}} 
+{\bfseries Polyhedral\+Geometry} (const Arcane\+::\+Variable\+Node\+Real3 \&node\+\_\+coord, Integer dimension)
+\item 
+Real \mbox{\hyperlink{classPolyhedralGeometry_aaf5e145a51c0295f47315cc09ebc3513}{compute\+Length}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de la longueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_acc0c0ea87621374bd556f9d49b8e506d}\label{classPolyhedralGeometry_acc0c0ea87621374bd556f9d49b8e506d}} 
+Real \mbox{\hyperlink{classPolyhedralGeometry_acc0c0ea87621374bd556f9d49b8e506d}{compute\+Length}} (const \mbox{\hyperlink{structReal3}{Real3}} \&m, const \mbox{\hyperlink{structReal3}{Real3}} \&n)
+\begin{DoxyCompactList}\small\item\em Calcul de longueur d\textquotesingle{}un segment d{\ucr}fini par deux points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a6f7b076b9b67969c0b8f9feb01d24a41}\label{classPolyhedralGeometry_a6f7b076b9b67969c0b8f9feb01d24a41}} 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classPolyhedralGeometry_a6f7b076b9b67969c0b8f9feb01d24a41}{compute\+Center}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul du centre de masse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_aefadde2fd92fbdaacfe8db03f9f77cd0}\label{classPolyhedralGeometry_aefadde2fd92fbdaacfe8db03f9f77cd0}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Centroid} (const Item\+With\+Nodes \&item)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a9409079ead2963d0e3c76c79190b85b6}\label{classPolyhedralGeometry_a9409079ead2963d0e3c76c79190b85b6}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Center} (const Item\+With\+Nodes \&item, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&coords)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a261ea62f2313f62716ddf6a02b1ac426}\label{classPolyhedralGeometry_a261ea62f2313f62716ddf6a02b1ac426}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Face\+Center} (const Item\+With\+Nodes \&item)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a3455ff304d3e4adaedc7504b5f9d7fce}\label{classPolyhedralGeometry_a3455ff304d3e4adaedc7504b5f9d7fce}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Face\+Barycenter} (const Item\+With\+Nodes \&item)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a702ea5c82f5499a1f2dd41b4c2da7df5}\label{classPolyhedralGeometry_a702ea5c82f5499a1f2dd41b4c2da7df5}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Normalized\+Face\+Normal} (const Item\+With\+Nodes \&iface)
+\item 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classPolyhedralGeometry_a8f2634036f9f2b612248400329140921}{compute\+Oriented\+Measure}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de la mesure orient{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a5eb2e1cf6ead222eb8ac9393e94cfbfd}\label{classPolyhedralGeometry_a5eb2e1cf6ead222eb8ac9393e94cfbfd}} 
+Real \mbox{\hyperlink{classPolyhedralGeometry_a5eb2e1cf6ead222eb8ac9393e94cfbfd}{compute\+Measure}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de la mesure (sans orientation) \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{classPolyhedralGeometry_a23a8f9bad59b17338f492765682fadd7}{compute\+Area}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de l\textquotesingle{}aire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classPolyhedralGeometry_ac7015876fd16b1221b20352c498f7104}{compute\+Oriented\+Area}} (Integer n, const \mbox{\hyperlink{structReal3}{Real3}} $\ast$coords)
+\begin{DoxyCompactList}\small\item\em Uniquement pour les Items surfaciques $\ast$/ ~\newline
+ virtual \mbox{\hyperlink{structReal3}{Real3}} compute\+Surface\+Center(\+Integer n, const Real3 $\ast$ coords) = 0;. \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{classPolyhedralGeometry_a025255c40de67fba18374b68a98af82a}{compute\+Volume}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul du volume. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a00fc7cbe5679eb36429a3f7ed3887ed4}\label{classPolyhedralGeometry_a00fc7cbe5679eb36429a3f7ed3887ed4}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Integral\+X2} (Arcane\+::\+Real3 node1, Arcane\+::\+Real3 node2, Arcane\+::\+Real3 node3)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_aa40afc2095f9524a33e91c50507847ea}\label{classPolyhedralGeometry_aa40afc2095f9524a33e91c50507847ea}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Triangle\+Normal} (const \mbox{\hyperlink{structReal3}{Real3}} \&n0, const \mbox{\hyperlink{structReal3}{Real3}} \&n1, const \mbox{\hyperlink{structReal3}{Real3}} \&n2)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_abc6105089f23541ac48299abef7df559}\label{classPolyhedralGeometry_abc6105089f23541ac48299abef7df559}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Triangle\+Center} (const \mbox{\hyperlink{structReal3}{Real3}} \&n0, const \mbox{\hyperlink{structReal3}{Real3}} \&n1, const \mbox{\hyperlink{structReal3}{Real3}} \&n2)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a2973d15134d7e8ced317245c5c20b357}\label{classPolyhedralGeometry_a2973d15134d7e8ced317245c5c20b357}} 
+static Real {\bfseries compute\+Triangle\+Surface} (const \mbox{\hyperlink{structReal3}{Real3}} \&n0, const \mbox{\hyperlink{structReal3}{Real3}} \&n1, const \mbox{\hyperlink{structReal3}{Real3}} \&n2)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a10a7d88a64dc468bb54fcca123cb8664}\label{classPolyhedralGeometry_a10a7d88a64dc468bb54fcca123cb8664}} 
+static Real {\bfseries compute\+Tetraedron\+Volume} (const \mbox{\hyperlink{structReal3}{Real3}} \&n0, const \mbox{\hyperlink{structReal3}{Real3}} \&n1, const \mbox{\hyperlink{structReal3}{Real3}} \&n2, const \mbox{\hyperlink{structReal3}{Real3}} \&n3)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a080f6168442dddc526715723c1b8f4a1}\label{classPolyhedralGeometry_a080f6168442dddc526715723c1b8f4a1}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Tetraedron\+Center} (const \mbox{\hyperlink{structReal3}{Real3}} \&n0, const \mbox{\hyperlink{structReal3}{Real3}} \&n1, const \mbox{\hyperlink{structReal3}{Real3}} \&n2, const \mbox{\hyperlink{structReal3}{Real3}} \&n3)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_a9d6344e6104b88f12b69550d66b1f507}\label{classPolyhedralGeometry_a9d6344e6104b88f12b69550d66b1f507}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Quadrilateral\+Center} (const \mbox{\hyperlink{structReal3}{Real3}} \&n0, const \mbox{\hyperlink{structReal3}{Real3}} \&n1, const \mbox{\hyperlink{structReal3}{Real3}} \&n2, const \mbox{\hyperlink{structReal3}{Real3}} \&n3)
+\item 
+\mbox{\Hypertarget{classPolyhedralGeometry_aed26f30b9f7a41f42beab1b7e23a1a77}\label{classPolyhedralGeometry_aed26f30b9f7a41f42beab1b7e23a1a77}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Quadrilateral\+Center} (const \mbox{\hyperlink{structReal3}{Real3}} \&n0, const \mbox{\hyperlink{structReal3}{Real3}} \&n1, const \mbox{\hyperlink{structReal3}{Real3}} \&n2, const \mbox{\hyperlink{structReal3}{Real3}} \&n3, Real \&s0, Real \&s1, Real \&s2, Real \&s3, Real \&totalS)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 24 of file Polyhedral\+Geometry.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPolyhedralGeometry_a23a8f9bad59b17338f492765682fadd7}\label{classPolyhedralGeometry_a23a8f9bad59b17338f492765682fadd7}} 
+\index{PolyhedralGeometry@{PolyhedralGeometry}!computeArea@{computeArea}}
+\index{computeArea@{computeArea}!PolyhedralGeometry@{PolyhedralGeometry}}
+\doxysubsubsection{\texorpdfstring{computeArea()}{computeArea()}}
+{\footnotesize\ttfamily Real Polyhedral\+Geometry\+::compute\+Area (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calcul de l\textquotesingle{}aire. 
+
+Uniquement pour les Items surfaciques 
+
+Implements \mbox{\hyperlink{classIGeometry_a26c50bb4402ce5f4afbca09a2daa7a0b}{IGeometry}}.
+
+
+
+Definition at line 296 of file Polyhedral\+Geometry.\+cc.
+
+\mbox{\Hypertarget{classPolyhedralGeometry_aaf5e145a51c0295f47315cc09ebc3513}\label{classPolyhedralGeometry_aaf5e145a51c0295f47315cc09ebc3513}} 
+\index{PolyhedralGeometry@{PolyhedralGeometry}!computeLength@{computeLength}}
+\index{computeLength@{computeLength}!PolyhedralGeometry@{PolyhedralGeometry}}
+\doxysubsubsection{\texorpdfstring{computeLength()}{computeLength()}}
+{\footnotesize\ttfamily Real Polyhedral\+Geometry\+::compute\+Length (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calcul de la longueur. 
+
+Uniquement pour les Items lin{\ucr}{\ucr}ques 
+
+Implements \mbox{\hyperlink{classIGeometry_a7b9ed2677c1ed6995f1ca5bc765ab28b}{IGeometry}}.
+
+
+
+Definition at line 11 of file Polyhedral\+Geometry.\+cc.
+
+\mbox{\Hypertarget{classPolyhedralGeometry_ac7015876fd16b1221b20352c498f7104}\label{classPolyhedralGeometry_ac7015876fd16b1221b20352c498f7104}} 
+\index{PolyhedralGeometry@{PolyhedralGeometry}!computeOrientedArea@{computeOrientedArea}}
+\index{computeOrientedArea@{computeOrientedArea}!PolyhedralGeometry@{PolyhedralGeometry}}
+\doxysubsubsection{\texorpdfstring{computeOrientedArea()}{computeOrientedArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structReal3}{Real3}} Polyhedral\+Geometry\+::compute\+Oriented\+Area (\begin{DoxyParamCaption}\item[{Integer}]{n,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} $\ast$}]{coords }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Uniquement pour les Items surfaciques $\ast$/ ~\newline
+ virtual \mbox{\hyperlink{structReal3}{Real3}} compute\+Surface\+Center(\+Integer n, const Real3 $\ast$ coords) = 0;. 
+
+! Calcul de l\textquotesingle{}aire orient{\ucr}e (ie normale) /$\ast$! Uniquement pour les Items surfaciques 
+
+Implements \mbox{\hyperlink{classIGeometry_a727af88bd22defac0416aed48dc0e4fa}{IGeometry}}.
+
+
+
+Definition at line 57 of file Polyhedral\+Geometry.\+h.
+
+\mbox{\Hypertarget{classPolyhedralGeometry_a8f2634036f9f2b612248400329140921}\label{classPolyhedralGeometry_a8f2634036f9f2b612248400329140921}} 
+\index{PolyhedralGeometry@{PolyhedralGeometry}!computeOrientedMeasure@{computeOrientedMeasure}}
+\index{computeOrientedMeasure@{computeOrientedMeasure}!PolyhedralGeometry@{PolyhedralGeometry}}
+\doxysubsubsection{\texorpdfstring{computeOrientedMeasure()}{computeOrientedMeasure()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structReal3}{Real3}} Polyhedral\+Geometry\+::compute\+Oriented\+Measure (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Calcul de la mesure orient{\ucr}e. 
+
+Dans le cas d\textquotesingle{}un {\ucr}l{\ucr}ment plan, ceci correspond {\ucr} la normale moyenne unitaire $\ast$ mesure de l\textquotesingle{}{\ucr}l{\ucr}ment et dans le cas d\textquotesingle{}un simple {\ucr}l{\ucr}ment volumique nous obtenons volume $\ast$ z (ou z=(0,0,1)) 
+
+Implements \mbox{\hyperlink{classIGeometry_a44f3002889d8d9b9b8b0e6205aa54d17}{IGeometry}}.
+
+
+
+Definition at line 42 of file Polyhedral\+Geometry.\+h.
+
+\mbox{\Hypertarget{classPolyhedralGeometry_a025255c40de67fba18374b68a98af82a}\label{classPolyhedralGeometry_a025255c40de67fba18374b68a98af82a}} 
+\index{PolyhedralGeometry@{PolyhedralGeometry}!computeVolume@{computeVolume}}
+\index{computeVolume@{computeVolume}!PolyhedralGeometry@{PolyhedralGeometry}}
+\doxysubsubsection{\texorpdfstring{computeVolume()}{computeVolume()}}
+{\footnotesize\ttfamily Real Polyhedral\+Geometry\+::compute\+Volume (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Calcul du volume. 
+
+Uniquement pour les Items volumiques 
+
+Implements \mbox{\hyperlink{classIGeometry_a33bbeb3570a018f7d76ffc6a10e59682}{IGeometry}}.
+
+
+
+Definition at line 62 of file Polyhedral\+Geometry.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+Polytopic\+Mesh/\+Geom3\+D/Polyhedral\+Geometry.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+Polytopic\+Mesh/\+Geom3\+D/Polyhedral\+Geometry.\+cc\end{DoxyCompactItemize}

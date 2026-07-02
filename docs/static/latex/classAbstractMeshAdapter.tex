@@ -1,0 +1,49 @@
+\hypertarget{classAbstractMeshAdapter}{}\doxysection{Abstract\+Mesh\+Adapter Class Reference}
+\label{classAbstractMeshAdapter}\index{AbstractMeshAdapter@{AbstractMeshAdapter}}
+
+
+Inherits \mbox{\hyperlink{classIMeshAdapter}{IMesh\+Adapter}}.
+
+
+
+Inherited by Mesh\+Adapter\+Service.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAbstractMeshAdapter_a719b6257ec132fc26a420c3286c4118d}\label{classAbstractMeshAdapter_a719b6257ec132fc26a420c3286c4118d}} 
+virtual void \mbox{\hyperlink{classAbstractMeshAdapter_a719b6257ec132fc26a420c3286c4118d}{init}} ()
+\begin{DoxyCompactList}\small\item\em initialisation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAbstractMeshAdapter_a70c14c658d68613bf086de4e0713a87c}\label{classAbstractMeshAdapter_a70c14c658d68613bf086de4e0713a87c}} 
+virtual bool {\bfseries need\+Mesh\+Adaptation} ()
+\item 
+\mbox{\Hypertarget{classAbstractMeshAdapter_ab1ba9e174ebc9b0ce73a76250484d892}\label{classAbstractMeshAdapter_ab1ba9e174ebc9b0ce73a76250484d892}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{classAbstractMeshAdapter_a1880c3cebefdd65e320b6a703d16a0fb}\label{classAbstractMeshAdapter_a1880c3cebefdd65e320b6a703d16a0fb}} 
+void {\bfseries add\+Observer} (\mbox{\hyperlink{classIMeshAdapter_1_1IObserver}{IObserver}} $\ast$observer)
+\item 
+\mbox{\Hypertarget{classAbstractMeshAdapter_a0609f74b5724601a7a7d812f8c7db26f}\label{classAbstractMeshAdapter_a0609f74b5724601a7a7d812f8c7db26f}} 
+void {\bfseries notify\+All} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAbstractMeshAdapter_a1e80e6b8d13c2de278798bc97b249e87}\label{classAbstractMeshAdapter_a1e80e6b8d13c2de278798bc97b249e87}} 
+bool {\bfseries m\+\_\+mesh\+\_\+need\+\_\+adaptation}
+\item 
+\mbox{\Hypertarget{classAbstractMeshAdapter_a795367a288eecddbf1fbe85a06c32d06}\label{classAbstractMeshAdapter_a795367a288eecddbf1fbe85a06c32d06}} 
+Shared\+Array$<$ \mbox{\hyperlink{classIMeshAdapter_1_1IObserver}{IObserver}} $\ast$ $>$ {\bfseries m\+\_\+observers}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 134 of file IMesh\+Adapter.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Mesh\+Adapter/IMesh\+Adapter.\+h\end{DoxyCompactItemize}

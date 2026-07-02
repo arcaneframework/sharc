@@ -1,0 +1,93 @@
+\hypertarget{classSIUnitsSystemService}{}\doxysection{SIUnits\+System\+Service Class Reference}
+\label{classSIUnitsSystemService}\index{SIUnitsSystemService@{SIUnitsSystemService}}
+
+
+Interface du service du modu?le de resolution non lineaire.  
+
+
+
+
+{\ttfamily \#include $<$SIUnits\+System.\+h$>$}
+
+
+
+Inherits Arcane\+SIUnits\+System\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a3774357b2ab4a14aa3c053e566bc39cb}\label{classSIUnitsSystemService_a3774357b2ab4a14aa3c053e566bc39cb}} 
+\mbox{\hyperlink{classSIUnitsSystemService_a3774357b2ab4a14aa3c053e566bc39cb}{SIUnits\+System\+Service}} (const Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_ac34bcd130a02da49ecf7750b678fbd58}\label{classSIUnitsSystemService_ac34bcd130a02da49ecf7750b678fbd58}} 
+virtual \mbox{\hyperlink{classSIUnitsSystemService_ac34bcd130a02da49ecf7750b678fbd58}{$\sim$\+SIUnits\+System\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a41d31e1689a08353490cdbc4f2f47b45}\label{classSIUnitsSystemService_a41d31e1689a08353490cdbc4f2f47b45}} 
+void {\bfseries init} ()
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ D{\ucr}termination de coefficient vers SI}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a9827d89b49079ac963d896dfd485e15a}\label{classSIUnitsSystemService_a9827d89b49079ac963d896dfd485e15a}} 
+bool {\bfseries has\+Mult\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_adff82f1c5d41611fe2815ff06c9016cd}\label{classSIUnitsSystemService_adff82f1c5d41611fe2815ff06c9016cd}} 
+Real {\bfseries get\+Mult\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a58afe46b75d28e8d67199fb95236acb0}\label{classSIUnitsSystemService_a58afe46b75d28e8d67199fb95236acb0}} 
+bool {\bfseries has\+Const\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_aa404c4f0d4b037bc87910544e96aff15}\label{classSIUnitsSystemService_aa404c4f0d4b037bc87910544e96aff15}} 
+Real {\bfseries get\+Const\+Factor} (Unit\+Type unit)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ D{\ucr}termination de coefficient vers syst{\ucr}me sp{\ucr}cifique}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a1b00e6ca8392aaca7c2821956e7cbbf2}\label{classSIUnitsSystemService_a1b00e6ca8392aaca7c2821956e7cbbf2}} 
+bool {\bfseries has\+Mult\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_af5872388120b38db64abbad84a9a4938}\label{classSIUnitsSystemService_af5872388120b38db64abbad84a9a4938}} 
+Real {\bfseries get\+Mult\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_ab9e021ce8937466e46187a7dfbb6c710}\label{classSIUnitsSystemService_ab9e021ce8937466e46187a7dfbb6c710}} 
+bool {\bfseries has\+Const\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_aa85b05e4761e325c9ce683cc4617b1ec}\label{classSIUnitsSystemService_aa85b05e4761e325c9ce683cc4617b1ec}} 
+Real {\bfseries get\+Const\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Fonctions de conversion}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a5456414ffa1b6c29fdf6989b6021c9ee}\label{classSIUnitsSystemService_a5456414ffa1b6c29fdf6989b6021c9ee}} 
+Real {\bfseries convert} (Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a35b2cde77a99201325ea0cb4a0c0331b}\label{classSIUnitsSystemService_a35b2cde77a99201325ea0cb4a0c0331b}} 
+Real {\bfseries unconvert} (Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a71a95d066e3cbd043363f4e2d5bba440}\label{classSIUnitsSystemService_a71a95d066e3cbd043363f4e2d5bba440}} 
+Real {\bfseries convert\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_ac7b32d33b81e7fa0f1d0d716494c4bae}\label{classSIUnitsSystemService_ac7b32d33b81e7fa0f1d0d716494c4bae}} 
+void {\bfseries convert} (Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_a31dfa3e9c25b15a1c652ac300d08c1a9}\label{classSIUnitsSystemService_a31dfa3e9c25b15a1c652ac300d08c1a9}} 
+void {\bfseries unconvert} (Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classSIUnitsSystemService_ae391458e03e08c4d710a780fda9af078}\label{classSIUnitsSystemService_ae391458e03e08c4d710a780fda9af078}} 
+void {\bfseries convert\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Interface du service du modu?le de resolution non lineaire. 
+
+Definition at line 19 of file SIUnits\+System.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Units/SIUnits\+System.\+h\end{DoxyCompactItemize}

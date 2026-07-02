@@ -1,0 +1,61 @@
+\hypertarget{classIXMPropertyInfo}{}\doxysection{IXMProperty\+Info Class Reference}
+\label{classIXMPropertyInfo}\index{IXMPropertyInfo@{IXMPropertyInfo}}
+
+
+Inherited by Ixm\+Property\+Info\+T$<$ Data\+Type $>$.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_a5465b8a192954e039130ee91b7028dbb}\label{classIXMPropertyInfo_a5465b8a192954e039130ee91b7028dbb}} 
+virtual IVariable $\ast$ {\bfseries variable} () const =0
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_a9a042a38d0302dd875ea2b3c8ee7a59e}\label{classIXMPropertyInfo_a9a042a38d0302dd875ea2b3c8ee7a59e}} 
+virtual void {\bfseries write\+Property} (Xml\+Node current\+\_\+node, const String \&format, \mbox{\hyperlink{structIXM4FileInfo}{IXM4\+File\+Info}} \&fileinfo, const bool write\+\_\+only\+\_\+active\+\_\+cells=false, const Real \&time=std\+::numeric\+\_\+limits$<$ Real $>$\+::quiet\+\_\+\+NaN())=0
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_ae5f31846c782bc5ecd5c82124ce43d03}\label{classIXMPropertyInfo_ae5f31846c782bc5ecd5c82124ce43d03}} 
+const String \& \mbox{\hyperlink{classIXMPropertyInfo_ae5f31846c782bc5ecd5c82124ce43d03}{path}} () const
+\begin{DoxyCompactList}\small\item\em Chemin dans le fichier Hdf5 contenant la valeur de la variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_ad0029f8ee1385ce02904c58dbd65a25d}\label{classIXMPropertyInfo_ad0029f8ee1385ce02904c58dbd65a25d}} 
+void \mbox{\hyperlink{classIXMPropertyInfo_ad0029f8ee1385ce02904c58dbd65a25d}{set\+Path}} (const String \&\mbox{\hyperlink{classIXMPropertyInfo_ae5f31846c782bc5ecd5c82124ce43d03}{path}}, const String \&directory\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Positionne le chemin dans le fichier Hdf5 contenant la valeur de la variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_a4661eb51d59486796f97a52570871f42}\label{classIXMPropertyInfo_a4661eb51d59486796f97a52570871f42}} 
+static \mbox{\hyperlink{classIXMPropertyInfo}{IXMProperty\+Info}} $\ast$ {\bfseries create} (IMesh $\ast$mesh, const String \&name, const String \&family)
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_a82ab4d49c387965ea74f98ab626239db}\label{classIXMPropertyInfo_a82ab4d49c387965ea74f98ab626239db}} 
+static \mbox{\hyperlink{classIXMPropertyInfo}{IXMProperty\+Info}} $\ast$ \mbox{\hyperlink{classIXMPropertyInfo_a82ab4d49c387965ea74f98ab626239db}{create}} (IVariable $\ast$variable)
+\begin{DoxyCompactList}\small\item\em Créé une instance pour la variable {\itshape variable}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_ab0adf4a6da0c511f7f484f4fbc41e521}\label{classIXMPropertyInfo_ab0adf4a6da0c511f7f484f4fbc41e521}} 
+String {\bfseries get\+Data\+Type} (IVariable $\ast$var) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_a5da1d64e1f0528b27e9d6ae4b0973ba4}\label{classIXMPropertyInfo_a5da1d64e1f0528b27e9d6ae4b0973ba4}} 
+String {\bfseries m\+\_\+hdf\+\_\+path}
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_aff3e4ebb34d2147a32409f41e1d760b3}\label{classIXMPropertyInfo_aff3e4ebb34d2147a32409f41e1d760b3}} 
+String {\bfseries m\+\_\+directory\+\_\+name}
+\item 
+\mbox{\Hypertarget{classIXMPropertyInfo_a3b77b5f9aef4dae26e461adf97aa804f}\label{classIXMPropertyInfo_a3b77b5f9aef4dae26e461adf97aa804f}} 
+Real {\bfseries m\+\_\+values\+\_\+time}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 17 of file IXMProperty\+Info.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM4/IXMProperty\+Info.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM4/IXMProperty\+Info.\+cc\end{DoxyCompactItemize}

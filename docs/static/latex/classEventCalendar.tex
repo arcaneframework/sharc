@@ -1,0 +1,100 @@
+\hypertarget{classEventCalendar}{}\doxysection{Event\+Calendar Class Reference}
+\label{classEventCalendar}\index{EventCalendar@{EventCalendar}}
+
+
+Inherits \mbox{\hyperlink{classIEventCalendar}{IEvent\+Calendar}}, Arcane\+::\+Trace\+Accessor, \mbox{\hyperlink{classTimeVariables}{Time\+Variables}}, \mbox{\hyperlink{classTimeStep_1_1IObservable}{Time\+Step\+::\+IObservable}}, and \mbox{\hyperlink{classTimeStep_1_1IObserver}{Time\+Step\+::\+IObserver}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEventCalendar_aab77c44707e422b5434d4fe1388b0d7c}\label{classEventCalendar_aab77c44707e422b5434d4fe1388b0d7c}} 
+{\bfseries Event\+Calendar} (Arcane\+::\+ISub\+Domain $\ast$sd)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEventCalendar_ac30cdc7a53c1f4e67b31c0249116f5e1}\label{classEventCalendar_ac30cdc7a53c1f4e67b31c0249116f5e1}} 
+void \mbox{\hyperlink{classEventCalendar_ac30cdc7a53c1f4e67b31c0249116f5e1}{schedule}} (\mbox{\hyperlink{classIEvent}{IEvent}} $\ast$event, Ownership\+::e\+Policy owner=Ownership\+::\+Take)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classIEventCalendar}{IEvent\+Calendar}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEventCalendar_a45a631a256894a43b4a0a4c68972dbe0}\label{classEventCalendar_a45a631a256894a43b4a0a4c68972dbe0}} 
+void \mbox{\hyperlink{classEventCalendar_a45a631a256894a43b4a0a4c68972dbe0}{execute}} (const \mbox{\hyperlink{classTimeStep_1_1EntryPoint}{Time\+Step\+::\+Entry\+Point}} \&entry\+\_\+point)
+\begin{DoxyCompactList}\small\item\em Execute event according to user time step entry point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEventCalendar_a96a2cb7cf93401af9c3b0bcce8535614}\label{classEventCalendar_a96a2cb7cf93401af9c3b0bcce8535614}} 
+void \mbox{\hyperlink{classEventCalendar_a96a2cb7cf93401af9c3b0bcce8535614}{print}} () const
+\begin{DoxyCompactList}\small\item\em Print info of events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEventCalendar_abea308fc06ce69c0887d86d1b7c8fb07}{attach\+Observable}} (\mbox{\hyperlink{classTimeStep_1_1IObservable}{Time\+Step\+::\+IObservable}} $\ast$observable)
+\begin{DoxyCompactList}\small\item\em \} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEventCalendar_a5419a481e36b2fff61ccefaab60f1106}\label{classEventCalendar_a5419a481e36b2fff61ccefaab60f1106}} 
+void {\bfseries notify} (const \mbox{\hyperlink{classTimeStep_1_1EntryPoint}{Time\+Step\+::\+Entry\+Point}} \&entry\+\_\+point)
+\item 
+\mbox{\Hypertarget{classEventCalendar_acf7379d1e0c717f72c982acd66dcc227}\label{classEventCalendar_acf7379d1e0c717f72c982acd66dcc227}} 
+void {\bfseries notify} (e\+Time\+Step\+State state)
+\item 
+void \mbox{\hyperlink{classEventCalendar_aa7c15555e0b87f06ab553d7f4f8fac5f}{attach\+Observer}} (\mbox{\hyperlink{classTimeStep_1_1IObserver}{Time\+Step\+::\+IObserver}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em \} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEventCalendar_a294155c9e838ba8a5e29171028befc09}\label{classEventCalendar_a294155c9e838ba8a5e29171028befc09}} 
+void {\bfseries detach\+Observer} (\mbox{\hyperlink{classTimeStep_1_1IObserver}{Time\+Step\+::\+IObserver}} $\ast$observer)
+\item 
+\mbox{\Hypertarget{classEventCalendar_a1a49b22adadb2a1dbed15c9cb18228b1}\label{classEventCalendar_a1a49b22adadb2a1dbed15c9cb18228b1}} 
+Arcane\+::\+Real \mbox{\hyperlink{classEventCalendar_a1a49b22adadb2a1dbed15c9cb18228b1}{min\+Time}} () const
+\begin{DoxyCompactList}\small\item\em \} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEventCalendar_aaea6d4e72a08d3e771255a40998fb6c0}\label{classEventCalendar_aaea6d4e72a08d3e771255a40998fb6c0}} 
+Arcane\+::\+Real {\bfseries max\+Time} () const
+\item 
+\mbox{\Hypertarget{classEventCalendar_a87bc3a5d6f7b791d6d74d1bda8b6f33c}\label{classEventCalendar_a87bc3a5d6f7b791d6d74d1bda8b6f33c}} 
+Arcane\+::\+Real {\bfseries next\+Event\+Time} ()
+\item 
+\mbox{\Hypertarget{classEventCalendar_a22d94f2b61b2689b2fb55392696ebb79}\label{classEventCalendar_a22d94f2b61b2689b2fb55392696ebb79}} 
+void {\bfseries set\+Verbosity} (const bool verbosity)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 30 of file Event\+Calendar.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEventCalendar_abea308fc06ce69c0887d86d1b7c8fb07}\label{classEventCalendar_abea308fc06ce69c0887d86d1b7c8fb07}} 
+\index{EventCalendar@{EventCalendar}!attachObservable@{attachObservable}}
+\index{attachObservable@{attachObservable}!EventCalendar@{EventCalendar}}
+\doxysubsubsection{\texorpdfstring{attachObservable()}{attachObservable()}}
+{\footnotesize\ttfamily void Event\+Calendar\+::attach\+Observable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTimeStep_1_1IObservable}{Time\+Step\+::\+IObservable}} $\ast$}]{observable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\} 
+
+IObserver 
+
+Implements \mbox{\hyperlink{classTimeStep_1_1IObserver}{Time\+Step\+::\+IObserver}}.
+
+
+
+Definition at line 205 of file Event\+Calendar.\+cc.
+
+\mbox{\Hypertarget{classEventCalendar_aa7c15555e0b87f06ab553d7f4f8fac5f}\label{classEventCalendar_aa7c15555e0b87f06ab553d7f4f8fac5f}} 
+\index{EventCalendar@{EventCalendar}!attachObserver@{attachObserver}}
+\index{attachObserver@{attachObserver}!EventCalendar@{EventCalendar}}
+\doxysubsubsection{\texorpdfstring{attachObserver()}{attachObserver()}}
+{\footnotesize\ttfamily void Event\+Calendar\+::attach\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTimeStep_1_1IObserver}{Time\+Step\+::\+IObserver}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\} 
+
+IObservable 
+
+Implements \mbox{\hyperlink{classTimeStep_1_1IObservable}{Time\+Step\+::\+IObservable}}.
+
+
+
+Definition at line 216 of file Event\+Calendar.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/\+Time\+Line/Event\+Calendar.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/\+Time\+Line/Event\+Calendar.\+cc\end{DoxyCompactItemize}

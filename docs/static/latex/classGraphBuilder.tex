@@ -1,0 +1,84 @@
+\hypertarget{classGraphBuilder}{}\doxysection{Graph\+Builder Class Reference}
+\label{classGraphBuilder}\index{GraphBuilder@{GraphBuilder}}
+
+
+\mbox{\hyperlink{namespaceArcane}{Arcane}} graph builder.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+Builder.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGraphBuilder_1_1Error}{Error}}
+\item 
+struct \mbox{\hyperlink{structGraphBuilder_1_1Warning}{Warning}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphBuilder_aed6fa1ec0909f3dd0fe02a8232a95c87}\label{classGraphBuilder_aed6fa1ec0909f3dd0fe02a8232a95c87}} 
+typedef std\+::set$<$ \mbox{\hyperlink{classLinkDescriptor}{Link\+Descriptor}}, \mbox{\hyperlink{structLinkDescriptorComparator_1_1Smaller}{Link\+Descriptor\+Comparator\+::\+Smaller}} $>$ {\bfseries descriptor\+\_\+set}
+\item 
+\mbox{\Hypertarget{classGraphBuilder_a5fa176ac9536a60271dcc33efd740872}\label{classGraphBuilder_a5fa176ac9536a60271dcc33efd740872}} 
+typedef std\+::list$<$ \mbox{\hyperlink{classLinkData}{Link\+Data}} $>$ {\bfseries link\+\_\+list}
+\item 
+\mbox{\Hypertarget{classGraphBuilder_a5713f549345d39484e09b26e749f79a5}\label{classGraphBuilder_a5713f549345d39484e09b26e749f79a5}} 
+typedef std\+::map$<$ Integer, link\+\_\+list $>$ {\bfseries descriptor2link\+\_\+map}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphBuilder_a5acd0216d1c0a8818a68dfc2600c8628}\label{classGraphBuilder_a5acd0216d1c0a8818a68dfc2600c8628}} 
+\mbox{\hyperlink{classGraphBuilder_a5acd0216d1c0a8818a68dfc2600c8628}{Graph\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGraphBuilder_a198930c2d4b01223fb800df937d321e6}\label{classGraphBuilder_a198930c2d4b01223fb800df937d321e6}} 
+virtual \mbox{\hyperlink{classGraphBuilder_a198930c2d4b01223fb800df937d321e6}{$\sim$\+Graph\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGraphBuilder_abc245757b33bd9d995fe6f633c46edc0}\label{classGraphBuilder_abc245757b33bd9d995fe6f633c46edc0}} 
+void \mbox{\hyperlink{classGraphBuilder_abc245757b33bd9d995fe6f633c46edc0}{add\+Link\+Descriptor}} (const \mbox{\hyperlink{classLinkDescriptor}{Link\+Descriptor}} \&ld)
+\begin{DoxyCompactList}\small\item\em Add one link descriptor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGraphBuilder_ae2c1224b67c38bc137fa0e1e74561c55}\label{classGraphBuilder_ae2c1224b67c38bc137fa0e1e74561c55}} 
+void \mbox{\hyperlink{classGraphBuilder_ae2c1224b67c38bc137fa0e1e74561c55}{add\+Link}} (const \mbox{\hyperlink{classLinkData}{Link\+Data}} \&l)
+\begin{DoxyCompactList}\small\item\em Add one link. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraphBuilder_ae00632a2eb8c195886ecc3c3a53227dc}{build}} (Arcane\+::mesh\+::\+Dynamic\+Graph $\ast$graph)
+\begin{DoxyCompactList}\small\item\em Build the graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespaceArcane}{Arcane}} graph builder. 
+
+\begin{DoxyAuthor}{Author}
+Daniele A. Di Pietro \href{mailto:daniele-antonio.di-pietro@ifp.fr}{\texttt{ daniele-\/antonio.\+di-\/pietro@ifp.\+fr}}
+\end{DoxyAuthor}
+\textbackslash{}\+Graph\+Builder is a helper class intended to facilitate the creation of the \mbox{\hyperlink{namespaceArcane}{Arcane}} graph. The creation of the graph requires three steps\+: the definition of the link descriptors which characterize the links. A \textbackslash{}\+Link\+Descriptor is defined by the number of items connected by the link together with their type; the addition of the links. A link is created by passing to \textbackslash{}add\+Link the corresponding \textbackslash{}\+Link\+Data; the construction of the graph, which is carried out by the member \textbackslash{}build. 
+
+Definition at line 118 of file Graph\+Builder.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraphBuilder_ae00632a2eb8c195886ecc3c3a53227dc}\label{classGraphBuilder_ae00632a2eb8c195886ecc3c3a53227dc}} 
+\index{GraphBuilder@{GraphBuilder}!build@{build}}
+\index{build@{build}!GraphBuilder@{GraphBuilder}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily void Graph\+Builder\+::build (\begin{DoxyParamCaption}\item[{Arcane\+::mesh\+::\+Dynamic\+Graph $\ast$}]{graph }\end{DoxyParamCaption})}
+
+
+
+Build the graph. 
+
+The graph description is provided in \mbox{\hyperlink{namespaceArcane}{Arcane}} as an array of \textbackslash{}\+Int64. The aim of this member is to build it from the information provided by the user. The array is composed of two parts\+: a headline, where the types of links appearing in the graph are described. A link description is composed of the number of items connected by the link together with their types. The following format is used\+: \hypertarget{classGraphBuilder_autotoc_md15}{}\doxysubsection{of descriptors}\label{classGraphBuilder_autotoc_md15}
+$\vert$ \# of items in descriptor 1 $\vert$ type of item\+\_\+1 $\vert$ type of item\+\_\+2 $\vert$ ... $\vert$ type of item\+\_\+n1 $\vert$ \# of items in descriptor 2 $\vert$ type of item\+\_\+1 $\vert$ type of item\+\_\+2 $\vert$ ... $\vert$ type of item\+\_\+n2 ... a body, containing the groups of links. The following format is used \hypertarget{classGraphBuilder_autotoc_md16}{}\doxysubsection{of groups}\label{classGraphBuilder_autotoc_md16}
+$\vert$ \# of links in group 1 $\vert$ descriptor\textquotesingle{}s progressive number $\vert$ link\+\_\+1 $\vert$ link\+\_\+2 $\vert$ ... $\vert$ link\+\_\+n1 $\vert$ \# of links in group 2 $\vert$ descriptor\textquotesingle{}s progreesive number $\vert$ link\+\_\+1 $\vert$ link\+\_\+2 $\vert$ ... $\vert$ link\+\_\+n2 ... A link is simply described by the (list of the) unique ids of the connected items. 
+
+Definition at line 39 of file Graph\+Builder.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Graph\+Builder.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Graph\+Builder.\+cc\end{DoxyCompactItemize}

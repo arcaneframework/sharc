@@ -1,0 +1,77 @@
+\hypertarget{classL__Stencil}{}\doxysection{L\+\_\+\+Stencil Class Reference}
+\label{classL__Stencil}\index{L\_Stencil@{L\_Stencil}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classL__Stencil_ac134b81979788cc6231c7ace2cacc8a8}\label{classL__Stencil_ac134b81979788cc6231c7ace2cacc8a8}} 
+typedef std\+::vector$<$ Integer $>$ {\bfseries Face\+Num}
+\item 
+\mbox{\Hypertarget{classL__Stencil_a52b73a71be94c62d3ce5f9f7316a6d9d}\label{classL__Stencil_a52b73a71be94c62d3ce5f9f7316a6d9d}} 
+typedef std\+::vector$<$ Face\+Num $>$ {\bfseries Face\+Num\+By\+Cell}
+\item 
+\mbox{\Hypertarget{classL__Stencil_a3517b8cbceccadd06ca8204878459bc1}\label{classL__Stencil_a3517b8cbceccadd06ca8204878459bc1}} 
+typedef Variable\+Cell\+Integer {\bfseries Cell\+Num}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classL__Stencil_a5f08547201149e57a53b889de7d409f9}\label{classL__Stencil_a5f08547201149e57a53b889de7d409f9}} 
+void {\bfseries set\+Cell} (Integer i, Integer numcell)
+\item 
+\mbox{\Hypertarget{classL__Stencil_a9434040cc0c7df3aa06cf9ba1b00edca}\label{classL__Stencil_a9434040cc0c7df3aa06cf9ba1b00edca}} 
+Integer {\bfseries get\+Cell} (Integer i)
+\item 
+\mbox{\Hypertarget{classL__Stencil_a60011e6f89e22405b00401756adfa499}\label{classL__Stencil_a60011e6f89e22405b00401756adfa499}} 
+void {\bfseries set\+Face} (Integer i, Integer numface)
+\item 
+\mbox{\Hypertarget{classL__Stencil_a730db0f045a3813cefc3880cf47b513b}\label{classL__Stencil_a730db0f045a3813cefc3880cf47b513b}} 
+Integer {\bfseries get\+Face} (Integer i)
+\item 
+\mbox{\Hypertarget{classL__Stencil_ad9c8e292ecdc020b2cc58a0a1fbc16d8}\label{classL__Stencil_ad9c8e292ecdc020b2cc58a0a1fbc16d8}} 
+{\bfseries L\+\_\+\+Stencil} (const Cell \&cell, std\+::vector$<$ Byte $>$ \&St\+Faces)
+\item 
+\mbox{\Hypertarget{classL__Stencil_a5f08547201149e57a53b889de7d409f9}\label{classL__Stencil_a5f08547201149e57a53b889de7d409f9}} 
+void {\bfseries set\+Cell} (Integer i, Integer numcell)
+\item 
+\mbox{\Hypertarget{classL__Stencil_a9434040cc0c7df3aa06cf9ba1b00edca}\label{classL__Stencil_a9434040cc0c7df3aa06cf9ba1b00edca}} 
+Integer {\bfseries get\+Cell} (Integer i)
+\item 
+\mbox{\Hypertarget{classL__Stencil_a60011e6f89e22405b00401756adfa499}\label{classL__Stencil_a60011e6f89e22405b00401756adfa499}} 
+void {\bfseries set\+Face} (Integer i, Integer numface)
+\item 
+\mbox{\Hypertarget{classL__Stencil_a730db0f045a3813cefc3880cf47b513b}\label{classL__Stencil_a730db0f045a3813cefc3880cf47b513b}} 
+Integer {\bfseries get\+Face} (Integer i)
+\item 
+\mbox{\Hypertarget{classL__Stencil_af90d5a7f27d929c09a2a9d833635a3ab}\label{classL__Stencil_af90d5a7f27d929c09a2a9d833635a3ab}} 
+{\bfseries L\+\_\+\+Stencil} (const Node \&node, Integer icell, Cell\+Num \&Num\+Loc\+Cell, Face\+Num\+By\+Cell \&Num\+Locfacesby\+Cell)
+\item 
+\mbox{\Hypertarget{classL__Stencil_aee31283070451afcd1a1bf04fd91f251}\label{classL__Stencil_aee31283070451afcd1a1bf04fd91f251}} 
+{\bfseries L\+\_\+\+Stencil} (const Node \&node, Integer icell, Integer iface, Cell\+Num \&Num\+Loc\+Cell, Face\+Num\+By\+Cell \&Num\+Locfacesby\+Cell)
+\item 
+\mbox{\Hypertarget{classL__Stencil_ab66c9c7e830789ef8775bc8a7dd13beb}\label{classL__Stencil_ab66c9c7e830789ef8775bc8a7dd13beb}} 
+{\bfseries L\+\_\+\+Stencil} (const Node \&node, Integer icell, Item\+VectorT$<$ Cell $>$ node\+\_\+cells, Cell\+Num \&Num\+Loc\+Cell, Face\+Num\+By\+Cell \&Num\+Locfacesby\+Cell)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classL__Stencil_afd7b74b6146842acec72f10838f8950c}\label{classL__Stencil_afd7b74b6146842acec72f10838f8950c}} 
+Shared\+Array2$<$ Real $>$ {\bfseries Loc\+Beta}
+\item 
+\mbox{\Hypertarget{classL__Stencil_aa9fd27b9fc9451add5973abd00ac5d3b}\label{classL__Stencil_aa9fd27b9fc9451add5973abd00ac5d3b}} 
+Shared\+Array2$<$ Real $>$ {\bfseries transm}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 10 of file Grad\+M-\/\+LStencils.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+Grad\+MImpl/Grad\+M-\/\+LStencils.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+OLGSchemes\+Impl/Div\+KGrad\+LScheme\+Stencils.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+Grad\+MImpl/Grad\+M-\/\+LStencils.\+cc\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+OLGSchemes\+Impl/Div\+KGrad\+LScheme\+Stencils.\+cc\end{DoxyCompactItemize}

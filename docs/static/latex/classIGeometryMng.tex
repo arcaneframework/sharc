@@ -1,0 +1,128 @@
+\hypertarget{classIGeometryMng}{}\doxysection{IGeometry\+Mng Class Reference}
+\label{classIGeometryMng}\index{IGeometryMng@{IGeometryMng}}
+
+
+Inherited by \mbox{\hyperlink{classGeometryServiceBase}{Geometry\+Service\+Base}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIGeometryMng_a0713e0fee0ac089eeb1f341827665325}\label{classIGeometryMng_a0713e0fee0ac089eeb1f341827665325}} 
+enum class {\bfseries Dimension} \{ \newline
+{\bfseries e\+Undefined} = 0
+, {\bfseries e3\+Dxyz}
+, {\bfseries e2\+Dxy}
+, {\bfseries e2\+Dxz}
+, \newline
+{\bfseries e2\+Dyz}
+, {\bfseries e2\+Dxyz}
+ \}
+\item 
+\mbox{\Hypertarget{classIGeometryMng_a45919b1c47318ce27ee17bc1a2921254}\label{classIGeometryMng_a45919b1c47318ce27ee17bc1a2921254}} 
+typedef Variable\+Item\+Real {\bfseries Real\+Variable}
+\item 
+\mbox{\Hypertarget{classIGeometryMng_a731a32442666f216c139b72c36e78dcd}\label{classIGeometryMng_a731a32442666f216c139b72c36e78dcd}} 
+typedef Variable\+Item\+Real3 {\bfseries Real3\+Variable}
+\item 
+\mbox{\Hypertarget{classIGeometryMng_a5694bcb2a2a3e8750663a0668ac02b8a}\label{classIGeometryMng_a5694bcb2a2a3e8750663a0668ac02b8a}} 
+typedef \mbox{\hyperlink{classItemGroupMapBaseT}{Item\+Group\+Map\+BaseT}}$<$ Real $>$ {\bfseries Real\+Group\+Map}
+\item 
+\mbox{\Hypertarget{classIGeometryMng_ad014d22128f789eb11c79b57b3963069}\label{classIGeometryMng_ad014d22128f789eb11c79b57b3963069}} 
+typedef \mbox{\hyperlink{classItemGroupMapBaseT}{Item\+Group\+Map\+BaseT}}$<$ \mbox{\hyperlink{structReal3}{Real3}} $>$ {\bfseries Real3\+Group\+Map}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIGeometryMng_aabc4bdeaae3a5fcc3825d2d4caff7f14}\label{classIGeometryMng_aabc4bdeaae3a5fcc3825d2d4caff7f14}} 
+\mbox{\hyperlink{classIGeometryMng_aabc4bdeaae3a5fcc3825d2d4caff7f14}{IGeometry\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_aacff1427b1c9eb8f199adcfd3689d254}\label{classIGeometryMng_aacff1427b1c9eb8f199adcfd3689d254}} 
+virtual \mbox{\hyperlink{classIGeometryMng_aacff1427b1c9eb8f199adcfd3689d254}{$\sim$\+IGeometry\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a6515aefc6741a57042e3a918b2442134}\label{classIGeometryMng_a6515aefc6741a57042e3a918b2442134}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_a6515aefc6741a57042e3a918b2442134}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_ac3ab446de994e297d8338e7e6db8587e}\label{classIGeometryMng_ac3ab446de994e297d8338e7e6db8587e}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_ac3ab446de994e297d8338e7e6db8587e}{add\+Item\+Group\+Property}} (Item\+Group group, Integer property, Integer storage)=0
+\begin{DoxyCompactList}\small\item\em Set geometric properties on a Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_aae3a290fb989bbbf7679b78409ea6b83}\label{classIGeometryMng_aae3a290fb989bbbf7679b78409ea6b83}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_aae3a290fb989bbbf7679b78409ea6b83}{add\+Item\+Group\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property, Real\+Variable var)=0
+\begin{DoxyCompactList}\small\item\em Set geometric properties on a Item\+Group with an external container (real field) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a77c3f64f091bb609bffa398b84516c69}\label{classIGeometryMng_a77c3f64f091bb609bffa398b84516c69}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_a77c3f64f091bb609bffa398b84516c69}{add\+Item\+Group\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property, Real3\+Variable var)=0
+\begin{DoxyCompactList}\small\item\em Set geometric properties on a Item\+Group with an external container (real3 field) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a140fdc2951a12f901e2b45c7528e3a88}\label{classIGeometryMng_a140fdc2951a12f901e2b45c7528e3a88}} 
+virtual Integer \mbox{\hyperlink{classIGeometryMng_a140fdc2951a12f901e2b45c7528e3a88}{get\+Item\+Group\+Property}} (Item\+Group group)=0
+\begin{DoxyCompactList}\small\item\em Get set of properties of an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a4b700adc016daa3f61ac75273a7e112f}\label{classIGeometryMng_a4b700adc016daa3f61ac75273a7e112f}} 
+virtual bool \mbox{\hyperlink{classIGeometryMng_a4b700adc016daa3f61ac75273a7e112f}{has\+Item\+Group\+Property}} (Item\+Group group, Integer property)=0
+\begin{DoxyCompactList}\small\item\em Check if a property is activated on an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a2c04cb2f1d11adb68163fdf2d5c0d097}\label{classIGeometryMng_a2c04cb2f1d11adb68163fdf2d5c0d097}} 
+virtual Integer \mbox{\hyperlink{classIGeometryMng_a2c04cb2f1d11adb68163fdf2d5c0d097}{get\+Item\+Group\+Property\+Storage}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)=0
+\begin{DoxyCompactList}\small\item\em Check if a storage is available on an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a6144228ba432113a6e5241776c8228ee}\label{classIGeometryMng_a6144228ba432113a6e5241776c8228ee}} 
+virtual const Real\+Variable \& \mbox{\hyperlink{classIGeometryMng_a6144228ba432113a6e5241776c8228ee}{get\+Real\+Variable\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)=0
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a Real field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a87bc7fe2f3678dd255daeaf0b250ef9a}\label{classIGeometryMng_a87bc7fe2f3678dd255daeaf0b250ef9a}} 
+virtual const Real3\+Variable \& \mbox{\hyperlink{classIGeometryMng_a87bc7fe2f3678dd255daeaf0b250ef9a}{get\+Real3\+Variable\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)=0
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a \mbox{\hyperlink{structReal3}{Real3}} field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a03710f1d496e6d00937254bb004fd603}\label{classIGeometryMng_a03710f1d496e6d00937254bb004fd603}} 
+virtual const \mbox{\hyperlink{classItemGroupMapBaseT}{Real\+Group\+Map}} \& \mbox{\hyperlink{classIGeometryMng_a03710f1d496e6d00937254bb004fd603}{get\+Real\+Group\+Map\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)=0
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a Real field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a7019db1a7c8e7b44c2389a9e83c8614f}\label{classIGeometryMng_a7019db1a7c8e7b44c2389a9e83c8614f}} 
+virtual const \mbox{\hyperlink{classItemGroupMapBaseT}{Real3\+Group\+Map}} \& \mbox{\hyperlink{classIGeometryMng_a7019db1a7c8e7b44c2389a9e83c8614f}{get\+Real3\+Group\+Map\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)=0
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a \mbox{\hyperlink{structReal3}{Real3}} field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_ab59c20e1100dec7f457c230d9266905a}\label{classIGeometryMng_ab59c20e1100dec7f457c230d9266905a}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_ab59c20e1100dec7f457c230d9266905a}{update}} (\mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}} $\ast$policy)=0
+\begin{DoxyCompactList}\small\item\em Update property values for all Item\+Groups on all meshes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a0b166d8dcb936fb9f8092fe70e14cbff}\label{classIGeometryMng_a0b166d8dcb936fb9f8092fe70e14cbff}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_a0b166d8dcb936fb9f8092fe70e14cbff}{update}} (IMesh $\ast$mesh, \mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}} $\ast$policy)=0
+\begin{DoxyCompactList}\small\item\em Update property values for all Item\+Groups on given mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_ac4215ec134a67d524ed43bbc01f15142}\label{classIGeometryMng_ac4215ec134a67d524ed43bbc01f15142}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_ac4215ec134a67d524ed43bbc01f15142}{reset}} ()=0
+\begin{DoxyCompactList}\small\item\em Reset property for all Item\+Groups. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classIGeometry}{IGeometry}} $\ast$ \mbox{\hyperlink{classIGeometryMng_aaaec9fa6a90aae82e97ba980afa0d900}{geometry}} (IMesh $\ast$mesh=NULL)=0
+\begin{DoxyCompactList}\small\item\em Get underlying geometry. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a6a603e0de5adb2de44ee4be8d1b5a39a}\label{classIGeometryMng_a6a603e0de5adb2de44ee4be8d1b5a39a}} 
+virtual Dimension \mbox{\hyperlink{classIGeometryMng_a6a603e0de5adb2de44ee4be8d1b5a39a}{dimension}} () const =0
+\begin{DoxyCompactList}\small\item\em Get dimension associated to this geometry mng. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIGeometryMng_adfcff6e09ed288d926ea4bd81f5218fb}{unregister\+Mesh}} (IMesh $\ast$mesh)=0
+\begin{DoxyCompactList}\small\item\em Remove geometry reference to a given mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryMng_a8688050ca2633fe68e2b0741c880b979}\label{classIGeometryMng_a8688050ca2633fe68e2b0741c880b979}} 
+virtual void \mbox{\hyperlink{classIGeometryMng_a8688050ca2633fe68e2b0741c880b979}{set\+Policy\+Tolerance}} (bool tolerance)=0
+\begin{DoxyCompactList}\small\item\em Temporary interface to set tolerance on geometry policy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 133 of file IGeometry\+Mng.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIGeometryMng_aaaec9fa6a90aae82e97ba980afa0d900}\label{classIGeometryMng_aaaec9fa6a90aae82e97ba980afa0d900}} 
+\index{IGeometryMng@{IGeometryMng}!geometry@{geometry}}
+\index{geometry@{geometry}!IGeometryMng@{IGeometryMng}}
+\doxysubsubsection{\texorpdfstring{geometry()}{geometry()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classIGeometry}{IGeometry}}$\ast$ IGeometry\+Mng\+::geometry (\begin{DoxyParamCaption}\item[{IMesh $\ast$}]{mesh = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get underlying geometry. 
+
+Null value argument is given for retro compatibility (return default geometry for default mesh) \mbox{\Hypertarget{classIGeometryMng_adfcff6e09ed288d926ea4bd81f5218fb}\label{classIGeometryMng_adfcff6e09ed288d926ea4bd81f5218fb}} 
+\index{IGeometryMng@{IGeometryMng}!unregisterMesh@{unregisterMesh}}
+\index{unregisterMesh@{unregisterMesh}!IGeometryMng@{IGeometryMng}}
+\doxysubsubsection{\texorpdfstring{unregisterMesh()}{unregisterMesh()}}
+{\footnotesize\ttfamily virtual void IGeometry\+Mng\+::unregister\+Mesh (\begin{DoxyParamCaption}\item[{IMesh $\ast$}]{mesh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Remove geometry reference to a given mesh. 
+
+Used for deleted sub-\/meshes 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/IGeometry\+Mng.\+h\end{DoxyCompactItemize}

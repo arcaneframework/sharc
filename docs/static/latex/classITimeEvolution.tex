@@ -1,0 +1,36 @@
+\hypertarget{classITimeEvolution}{}\doxysection{ITime\+Evolution Class Reference}
+\label{classITimeEvolution}\index{ITimeEvolution@{ITimeEvolution}}
+
+
+Inherited by \mbox{\hyperlink{classTimeEvolution}{Time\+Evolution}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classITimeEvolution_ab4d568224a96c4793bc23acba9f5f30b}\label{classITimeEvolution_ab4d568224a96c4793bc23acba9f5f30b}} 
+virtual void \mbox{\hyperlink{classITimeEvolution_ab4d568224a96c4793bc23acba9f5f30b}{register\+Time\+Step\+Computer}} (\mbox{\hyperlink{classTimeStep_1_1IComputer}{Time\+Step\+::\+IComputer}} $\ast$policy, Ownership\+::e\+Policy owner=Ownership\+::\+Let)=0
+\begin{DoxyCompactList}\small\item\em Register time step computer accroding to ownership policy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeEvolution_a260bcb5a841770aef5ed06ff31e36efe}\label{classITimeEvolution_a260bcb5a841770aef5ed06ff31e36efe}} 
+virtual void \mbox{\hyperlink{classITimeEvolution_a260bcb5a841770aef5ed06ff31e36efe}{replay}} ()=0
+\begin{DoxyCompactList}\small\item\em Replay. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeEvolution_a4677783717a192939d9f8f6ead5ac0c7}\label{classITimeEvolution_a4677783717a192939d9f8f6ead5ac0c7}} 
+virtual void \mbox{\hyperlink{classITimeEvolution_a4677783717a192939d9f8f6ead5ac0c7}{replay}} (\mbox{\hyperlink{classTimeStep_1_1IComputer}{Time\+Step\+::\+IComputer}} $\ast$policy)=0
+\begin{DoxyCompactList}\small\item\em Replay from specific computer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeEvolution_a86661a47f6e495fa2f088dd56de5eb43}\label{classITimeEvolution_a86661a47f6e495fa2f088dd56de5eb43}} 
+virtual Arcane\+::\+Real \mbox{\hyperlink{classITimeEvolution_a86661a47f6e495fa2f088dd56de5eb43}{suggested\+Next\+Time\+Step}} () const =0
+\begin{DoxyCompactList}\small\item\em Suggested next time step computed from computer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeEvolution_a06580018589be8a5e80e229f0993cb03}\label{classITimeEvolution_a06580018589be8a5e80e229f0993cb03}} 
+virtual Arcane\+::\+Real \mbox{\hyperlink{classITimeEvolution_a06580018589be8a5e80e229f0993cb03}{suggested\+Restored\+Time\+Step}} () const =0
+\begin{DoxyCompactList}\small\item\em Suggested restored time step computed from computer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 30 of file ITime\+Evolution.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/ITime\+Evolution.\+h\end{DoxyCompactItemize}

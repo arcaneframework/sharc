@@ -1,0 +1,46 @@
+\hypertarget{classAnyItemAbstractFamily}{}\doxysection{Any\+Item\+Abstract\+Family Class Reference}
+\label{classAnyItemAbstractFamily}\index{AnyItemAbstractFamily@{AnyItemAbstractFamily}}
+
+
+Inherits \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IIndex\+Manager\+::\+IAbstract\+Family}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_a06a94ec058c8cec1ffbaf764bfaa93a0}\label{classAnyItemAbstractFamily_a06a94ec058c8cec1ffbaf764bfaa93a0}} 
+\mbox{\hyperlink{classAnyItemAbstractFamily_a06a94ec058c8cec1ffbaf764bfaa93a0}{Any\+Item\+Abstract\+Family}} (const Arcane\+::\+Any\+Item\+::\+Family \&family, \mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Construit une famille abstraite {\ucr} partir d\textquotesingle{}une famille d\textquotesingle{}Any\+Item. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_a095dfc043462f50acd346512249175f9}\label{classAnyItemAbstractFamily_a095dfc043462f50acd346512249175f9}} 
+\mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IIndex\+Manager\+::\+IAbstract\+Family}} $\ast$ \mbox{\hyperlink{classAnyItemAbstractFamily_a095dfc043462f50acd346512249175f9}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Construit un clone de cet objet. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_a94c23ae3319db21e14ddde29a2c74dcf}\label{classAnyItemAbstractFamily_a94c23ae3319db21e14ddde29a2c74dcf}} 
+Integer \mbox{\hyperlink{classAnyItemAbstractFamily_a94c23ae3319db21e14ddde29a2c74dcf}{max\+Local\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Identifiant maximal des local\+Ids pour cette famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_aa3ae334f79621bcda6bda931b41ec311}\label{classAnyItemAbstractFamily_aa3ae334f79621bcda6bda931b41ec311}} 
+void \mbox{\hyperlink{classAnyItemAbstractFamily_aa3ae334f79621bcda6bda931b41ec311}{unique\+Id\+To\+Local\+Id}} (Arcane\+::\+Int32\+Array\+View local\+Ids, Arcane\+::\+Int64\+Const\+Array\+View unique\+Ids) const
+\begin{DoxyCompactList}\small\item\em Convertit des unique\+Ids en local\+Ids. Erreur fatale si un item n\textquotesingle{}est pas retrouv{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_aa0cd5c0a0151ccefce898e9a4aa74f4f}\label{classAnyItemAbstractFamily_aa0cd5c0a0151ccefce898e9a4aa74f4f}} 
+IAbstract\+Family\+::\+Item {\bfseries item} (Integer local\+Id) const
+\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_a93b9075bc6044ed798693468c5e872f2}\label{classAnyItemAbstractFamily_a93b9075bc6044ed798693468c5e872f2}} 
+Safe\+Const\+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classAnyItemAbstractFamily_a93b9075bc6044ed798693468c5e872f2}{owners}} (Arcane\+::\+Int32\+Const\+Array\+View local\+Ids) const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des owners (propri{\ucr}taires) d\textquotesingle{}un ensemble d\textquotesingle{}item d{\ucr}crits par leur local\+Ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_a112d3e5f42030f8e0a5caaeb7b9bca9c}\label{classAnyItemAbstractFamily_a112d3e5f42030f8e0a5caaeb7b9bca9c}} 
+Safe\+Const\+Array\+View$<$ Int64 $>$ \mbox{\hyperlink{classAnyItemAbstractFamily_a112d3e5f42030f8e0a5caaeb7b9bca9c}{uids}} (Arcane\+::\+Int32\+Const\+Array\+View local\+Ids) const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des unique\+Ids d\textquotesingle{}un ensemble d\textquotesingle{}item d{\ucr}crits par leur local\+Ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAnyItemAbstractFamily_a6c21344c0d23b9d19544e806b6722dc6}\label{classAnyItemAbstractFamily_a6c21344c0d23b9d19544e806b6722dc6}} 
+Safe\+Const\+Array\+View$<$ Int32 $>$ \mbox{\hyperlink{classAnyItemAbstractFamily_a6c21344c0d23b9d19544e806b6722dc6}{all\+Local\+Ids}} () const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des identifiants locaux de la famille. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 27 of file Any\+Item\+Abstract\+Family.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Any\+Item\+Abstract\+Family.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Any\+Item\+Abstract\+Family.\+cc\end{DoxyCompactItemize}

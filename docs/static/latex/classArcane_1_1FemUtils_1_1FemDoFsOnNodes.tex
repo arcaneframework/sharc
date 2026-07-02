@@ -1,0 +1,66 @@
+\hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{}\doxysection{Arcane\+::Fem\+Utils\+::Fem\+Do\+Fs\+On\+Nodes Class Reference}
+\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}\index{Arcane::FemUtils::FemDoFsOnNodes@{Arcane::FemUtils::FemDoFsOnNodes}}
+
+
+Manage one or more Do\+Fs on Nodes.  
+
+
+
+
+{\ttfamily \#include $<$Fem\+Do\+Fs\+On\+Nodes.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a7eeddc5021e8fdef0c270d79cc22ace0}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a7eeddc5021e8fdef0c270d79cc22ace0}} 
+{\bfseries Fem\+Do\+Fs\+On\+Nodes} (Arcane\+::\+ITrace\+Mng $\ast$tm)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a586f1c86724ca16013f34dd73ae2fcf6}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a586f1c86724ca16013f34dd73ae2fcf6}} 
+{\bfseries Fem\+Do\+Fs\+On\+Nodes} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a42b184669add82d1c16a6977b8b15e57}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a42b184669add82d1c16a6977b8b15e57}} 
+{\bfseries Fem\+Do\+Fs\+On\+Nodes} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a8babe0b25eb594e461b1bb9841590843}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a8babe0b25eb594e461b1bb9841590843}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \& {\bfseries operator=} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a8b064b5d750020511e12236ea6331eac}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a8b064b5d750020511e12236ea6331eac}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \& {\bfseries operator=} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a0abb16988567ffdf4c3f09ad00c9bbad}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a0abb16988567ffdf4c3f09ad00c9bbad}} 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a0abb16988567ffdf4c3f09ad00c9bbad}{initialize}} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+Int32 nb\+\_\+dof\+\_\+per\+\_\+node)
+\begin{DoxyCompactList}\small\item\em Initialize the instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_ab0b3015811321ca9896eda9dc68e0030}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_ab0b3015811321ca9896eda9dc68e0030}} 
+Arcane\+::\+Indexed\+Node\+Do\+FConnectivity\+View {\bfseries node\+Do\+FConnectivity\+View} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a0918765e5de7906386b66d36558ca6ab}\label{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a0918765e5de7906386b66d36558ca6ab}} 
+Arcane\+::\+IItem\+Family $\ast$ {\bfseries dof\+Family} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manage one or more Do\+Fs on Nodes. 
+
+Before using an instance of this class you need to call method \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes_a0abb16988567ffdf4c3f09ad00c9bbad}{initialize()}}.
+
+After initialization, you can access Do\+Fs like that\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FemDoFsOnNodes dofs\_on\_nodes = ...;}
+\DoxyCodeLine{\textcolor{keyword}{auto} node\_dof(m\_dofs\_on\_nodes.nodeDoFConnectivityView());}
+\DoxyCodeLine{\mbox{\hyperlink{classItemT_3_01Arcane_1_1Node_01_4}{Node}} node = ...}
+\DoxyCodeLine{DoFLocalId dof0 = node\_dof.dofId(node, 0); \textcolor{comment}{//< First DoF of the node}}
+\DoxyCodeLine{DoFLocalId dof1 = node\_dof.dofId(node, 1); \textcolor{comment}{//< Second DoF of the node}}
+
+\end{DoxyCode}
+ 
+
+Definition at line 45 of file Fem\+Do\+Fs\+On\+Nodes.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Fem\+Do\+Fs\+On\+Nodes.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Fem\+Do\+Fs\+On\+Nodes.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,104 @@
+\hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix}{}\doxysection{Arcane\+::Fem\+Utils\+::Alien\+BSRMatrix Class Reference}
+\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix}\index{Arcane::FemUtils::AlienBSRMatrix@{Arcane::FemUtils::AlienBSRMatrix}}
+
+
+A class representing a Block Sparse Row (BSR) matrix.  
+
+
+
+
+{\ttfamily \#include $<$Alien\+BSRFormat.\+h$>$}
+
+
+
+Inherits Arcane\+::\+Trace\+Accessor.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a17b60293256e86b222ef1e135a28984b}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a17b60293256e86b222ef1e135a28984b}} 
+{\bfseries Alien\+BSRMatrix} (ITrace\+Mng $\ast$tm, const e\+Memory\+Ressource \&mem\+\_\+ressource, const Run\+Queue \&queue)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a74a3338022880c065101443c2cf1ebab}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a74a3338022880c065101443c2cf1ebab}} 
+void {\bfseries initialize} (Int32 nb\+\_\+non\+\_\+zero\+\_\+value, Int32 nb\+\_\+col, Int32 nb\+\_\+row, Int8 nb\+\_\+block, bool order\+\_\+values\+\_\+per\+\_\+block)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a1d6c21b87bdbef70a5ef233239a7b943}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a1d6c21b87bdbef70a5ef233239a7b943}} 
+Int32 {\bfseries find\+Value\+Index} (Do\+FLocal\+Id row, Do\+FLocal\+Id col) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a4158c6a022b5f6ca88d0d33b3d0afade}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a4158c6a022b5f6ca88d0d33b3d0afade}} 
+Real {\bfseries get\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id col) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a87963cc943f0969f844f75d54e87d067}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a87963cc943f0969f844f75d54e87d067}} 
+void {\bfseries set\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id col, Real value)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a1826ac0c601b4cb3bc3d5e258a4c2f3a}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a1826ac0c601b4cb3bc3d5e258a4c2f3a}} 
+void {\bfseries add\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id col, Real value)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a101ad9db1c3be882fa231f079095823f}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a101ad9db1c3be882fa231f079095823f}} 
+void {\bfseries to\+Csr} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormat}{Csr\+Format}} $\ast$csr\+\_\+matrix)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a327425773696a13f80be66e53c9b2eb9}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a327425773696a13f80be66e53c9b2eb9}} 
+void {\bfseries to\+Linear\+System} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_aa68cc2cd03d6cfd2167dbb00f800867f}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_aa68cc2cd03d6cfd2167dbb00f800867f}} 
+void {\bfseries dump} (const String \&filename)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_af516abc93edb3b3feb763f9c0d07ce27}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_af516abc93edb3b3feb763f9c0d07ce27}} 
+bool {\bfseries order\+Value\+Per\+Block} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_ab9da97819dc60146f3eb0174d29a6097}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_ab9da97819dc60146f3eb0174d29a6097}} 
+Int32 {\bfseries nb\+Non\+Zero} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a01b221aff255e471ac166c7bbd6d31ba}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a01b221aff255e471ac166c7bbd6d31ba}} 
+Int32 {\bfseries nb\+Column} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_ab9989833cfbd60450e9767892c73624c}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_ab9989833cfbd60450e9767892c73624c}} 
+Int32 {\bfseries nb\+Row} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_aec07d413d9e977cc56ae5deee377f14c}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_aec07d413d9e977cc56ae5deee377f14c}} 
+Int8 {\bfseries nb\+Block} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a3920da442fb14da5f6886bb034f11951}\label{classArcane_1_1FemUtils_1_1AlienBSRMatrix_a3920da442fb14da5f6886bb034f11951}} 
+class {\bfseries Alien\+BSRFormat}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class representing a Block Sparse Row (BSR) matrix. 
+
+The {\ttfamily \mbox{\hyperlink{classArcane_1_1FemUtils_1_1AlienBSRMatrix}{Alien\+BSRMatrix}}} class stores sparse matrices in the Block Sparse Row (BSR) format, suitable for block-\/structured computations.
+
+The BSR format groups non-\/zero elements into fixed-\/size blocks, enabling efficient storage and computation for multi-\/\+Do\+Fs meshes. Below is an example for a 6x6 matrix with a block size of 2x2 (2 Do\+Fs per node). \begin{DoxyVerb}Original Matrix (6x6, Block Size = 2x2):
+
+[ 1  2  0  0  0  0 ]
+[ 3  4  0  0  0  0 ]
+[ 0  0  5  6  7  8 ]
+[ 0  0  9 10 11 12 ]
+[ 0  0  0  0 13 14 ]
+[ 0  0  0  0 15 16 ]
+
+BSR Representation:
+  - Values:
+     if "Ordered per block":
+       [ 1, 2, 3, 4, 5, 6, 9, 10, 7, 8, 11, 12, 13, 14, 15, 16 ]
+     if "Ordered per row" (same as CSR):
+       [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  - Columns:   [ 0, 1, 2, 2 ]  // Column indices of each block
+  - Row Index: [ 0, 1, 3 ]     // Starting indices of blocks per row
+\end{DoxyVerb}
+ \begin{DoxyNote}{Note}
+The class supports flexible memory management for computations on different hardware backends (e.\+g., CPU, GPU). Having the value array stored in per row (which the way CSR format stores matrices) allow us to pass it directly to HYPRE (which support CSR but not BSR), whithout the need for a translation step on it. 
+\end{DoxyNote}
+
+
+Definition at line 75 of file Alien\+BSRFormat.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Alien\+BSRFormat.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Alien\+BSRFormat.\+cc\end{DoxyCompactItemize}

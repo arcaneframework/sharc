@@ -1,0 +1,38 @@
+\hypertarget{structmpl_1_1details_1_1merge}{}\doxysection{mpl\+::details\+::merge$<$ T, V, State, Current, Size $>$ Struct Template Reference}
+\label{structmpl_1_1details_1_1merge}\index{mpl::details::merge$<$ T, V, State, Current, Size $>$@{mpl::details::merge$<$ T, V, State, Current, Size $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmpl_1_1details_1_1merge_a67f9f1bbcb98b56607cf6628ae84a005}\label{structmpl_1_1details_1_1merge_a67f9f1bbcb98b56607cf6628ae84a005}} 
+typedef boost\+::mpl\+::int\+\_\+$<$ Current $>$ {\bfseries \+\_\+\+Current}
+\item 
+\mbox{\Hypertarget{structmpl_1_1details_1_1merge_a097862237a950719bb5e17687c924240}\label{structmpl_1_1details_1_1merge_a097862237a950719bb5e17687c924240}} 
+typedef boost\+::mpl\+::at$<$ T, \+\_\+\+Current $>$\+::type {\bfseries type\+\_\+1}
+\item 
+\mbox{\Hypertarget{structmpl_1_1details_1_1merge_a559f23ec633b6ad30a0f83bb1ccf8067}\label{structmpl_1_1details_1_1merge_a559f23ec633b6ad30a0f83bb1ccf8067}} 
+typedef boost\+::mpl\+::at$<$ V, \+\_\+\+Current $>$\+::type {\bfseries type\+\_\+2}
+\item 
+\mbox{\Hypertarget{structmpl_1_1details_1_1merge_a1e41810f443643fd68ad2207e80ff0ea}\label{structmpl_1_1details_1_1merge_a1e41810f443643fd68ad2207e80ff0ea}} 
+typedef boost\+::mpl\+::push\+\_\+back$<$ \mbox{\hyperlink{classState}{State}}, type\+\_\+1 $>$\+::type {\bfseries partial\+\_\+insert}
+\item 
+\mbox{\Hypertarget{structmpl_1_1details_1_1merge_af8d0fcae7b259b86029d65b35f6426eb}\label{structmpl_1_1details_1_1merge_af8d0fcae7b259b86029d65b35f6426eb}} 
+typedef boost\+::mpl\+::push\+\_\+back$<$ partial\+\_\+insert, type\+\_\+2 $>$\+::type {\bfseries insert}
+\item 
+\mbox{\Hypertarget{structmpl_1_1details_1_1merge_ac9ea1bd9314303b1fb7ecdbc845e91a8}\label{structmpl_1_1details_1_1merge_ac9ea1bd9314303b1fb7ecdbc845e91a8}} 
+typedef \mbox{\hyperlink{structmpl_1_1details_1_1merge}{merge}}$<$ T, V, insert, Current+1, Size $>$\+::type {\bfseries type}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename V, typename State, int Current, int Size$>$\newline
+struct mpl\+::details\+::merge$<$ T, V, State, Current, Size $>$}
+
+
+
+Definition at line 134 of file Mpl.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Mpl.\+h\end{DoxyCompactItemize}

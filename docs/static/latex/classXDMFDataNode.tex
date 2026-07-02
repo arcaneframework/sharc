@@ -1,0 +1,60 @@
+\hypertarget{classXDMFDataNode}{}\doxysection{XDMFData\+Node$<$ T $>$ Class Template Reference}
+\label{classXDMFDataNode}\index{XDMFDataNode$<$ T $>$@{XDMFDataNode$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classXDMFDataNode_a1f7648d1c97d881025eb178ac7d5e5c2}{write\+HDFFile}} (\mbox{\hyperlink{classArray}{Array}}$<$ \mbox{\hyperlink{structReal3}{Real3}} $>$ \&data, const Arcane\+::\+String \&hdata\+\_\+name, const Arcane\+::\+String \&directory\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classXDMFDataNode_aa1840bb827d23d0d573b1a23cda6eeb3}\label{classXDMFDataNode_aa1840bb827d23d0d573b1a23cda6eeb3}} 
+static void {\bfseries create\+XDMFData\+Node} (Arcane\+::\+Xml\+Node \&parent\+\_\+node, \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&array, const \mbox{\hyperlink{classXMLFormatBuildInfo}{XMLFormat\+Build\+Info}}$<$ T $>$ \&buildinfo=\mbox{\hyperlink{classXMLFormatBuildInfo}{XMLFormat\+Build\+Info}}$<$ T $>$(\mbox{\hyperlink{classNoFormatter}{No\+Formatter}}$<$ T $>$()))
+\item 
+\mbox{\Hypertarget{classXDMFDataNode_a2d590a3a1ef798d3a17dcf7f9ffc862e}\label{classXDMFDataNode_a2d590a3a1ef798d3a17dcf7f9ffc862e}} 
+static void {\bfseries create\+XDMFData\+Node} (Arcane\+::\+Xml\+Node \&parent\+\_\+node, \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&array, const \mbox{\hyperlink{classHDFFormatBuildInfo}{HDFFormat\+Build\+Info}} \&buildinfo)
+\item 
+\mbox{\Hypertarget{classXDMFDataNode_a141c9e26b508fb29a8017da0218e0ddb}\label{classXDMFDataNode_a141c9e26b508fb29a8017da0218e0ddb}} 
+static Arcane\+::\+Xml\+Element \mbox{\hyperlink{classXDMFDataNode_a141c9e26b508fb29a8017da0218e0ddb}{create\+From\+Parent}} (Arcane\+::\+Xml\+Node \&parent\+\_\+node, const String \&format, const Integer nb\+\_\+elements)
+\begin{DoxyCompactList}\small\item\em Insert an Element. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classXDMFDataNode_abc0862931fe09d5402139cd27fd9c38c}{write\+HDFFile}} (\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&data, const Arcane\+::\+String \&hdata\+\_\+name, const Arcane\+::\+String \&directory\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class XDMFData\+Node$<$ T $>$}
+
+
+
+Definition at line 72 of file XDMFData\+Node.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classXDMFDataNode_a1f7648d1c97d881025eb178ac7d5e5c2}\label{classXDMFDataNode_a1f7648d1c97d881025eb178ac7d5e5c2}} 
+\index{XDMFDataNode$<$ T $>$@{XDMFDataNode$<$ T $>$}!writeHDFFile@{writeHDFFile}}
+\index{writeHDFFile@{writeHDFFile}!XDMFDataNode$<$ T $>$@{XDMFDataNode$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{writeHDFFile()}{writeHDFFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classXDMFDataNode}{XDMFData\+Node}}$<$ \mbox{\hyperlink{structReal3}{Real3}} $>$\+::write\+HDFFile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArray}{Array}}$<$ \mbox{\hyperlink{structReal3}{Real3}} $>$ \&}]{data,  }\item[{const Arcane\+::\+String \&}]{hdata\+\_\+name,  }\item[{const Arcane\+::\+String \&}]{directory\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the hdf file have been created before
+
+Definition at line 161 of file XDMFData\+Node.\+h.
+
+\mbox{\Hypertarget{classXDMFDataNode_abc0862931fe09d5402139cd27fd9c38c}\label{classXDMFDataNode_abc0862931fe09d5402139cd27fd9c38c}} 
+\index{XDMFDataNode$<$ T $>$@{XDMFDataNode$<$ T $>$}!writeHDFFile@{writeHDFFile}}
+\index{writeHDFFile@{writeHDFFile}!XDMFDataNode$<$ T $>$@{XDMFDataNode$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{writeHDFFile()}{writeHDFFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classXDMFDataNode}{XDMFData\+Node}}$<$ T $>$\+::write\+HDFFile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{data,  }\item[{const Arcane\+::\+String \&}]{hdata\+\_\+name,  }\item[{const Arcane\+::\+String \&}]{directory\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+the hdf file have been created before
+
+Definition at line 138 of file XDMFData\+Node.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+XDMF/XDMFData\+Node.\+h\end{DoxyCompactItemize}

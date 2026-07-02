@@ -1,0 +1,165 @@
+\hypertarget{classIntersectionSegmentTriangle}{}\doxysection{Intersection\+Segment\+Triangle Class Reference}
+\label{classIntersectionSegmentTriangle}\index{IntersectionSegmentTriangle@{IntersectionSegmentTriangle}}
+
+
+Class \mbox{\hyperlink{classIntersectionSegmentTriangle}{Intersection\+Segment\+Triangle}} Intersection segment -\/ triangle.  
+
+
+
+
+{\ttfamily \#include $<$Intersection\+Segment\+Triangle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_adf6c6909d6c403238c4406a5d1c87400}\label{classIntersectionSegmentTriangle_adf6c6909d6c403238c4406a5d1c87400}} 
+\mbox{\hyperlink{classIntersectionSegmentTriangle_adf6c6909d6c403238c4406a5d1c87400}{Intersection\+Segment\+Triangle}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_aac4c5328148f012f37f7ef5d01023645}\label{classIntersectionSegmentTriangle_aac4c5328148f012f37f7ef5d01023645}} 
+virtual \mbox{\hyperlink{classIntersectionSegmentTriangle_aac4c5328148f012f37f7ef5d01023645}{$\sim$\+Intersection\+Segment\+Triangle}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIntersectionSegmentTriangle_a7ca232a09fe1c804eef47096ad097723}{compute}} (const \mbox{\hyperlink{classSegment}{Segment}} \&elem1, const \mbox{\hyperlink{classTriangle}{Triangle}} \&elem2, \mbox{\hyperlink{structReal3}{Real3}} \&point\+\_\+inter)
+\begin{DoxyCompactList}\small\item\em Compute the intersection between a segment and a triangle. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIntersectionSegmentTriangle_ac8f2e16698b6651c93d1cb590fa283c9}{compute}} (const \mbox{\hyperlink{structReal3}{Real3}} \&sp1, const \mbox{\hyperlink{structReal3}{Real3}} \&sp2, const \mbox{\hyperlink{structReal3}{Real3}} \&tp1, const \mbox{\hyperlink{structReal3}{Real3}} \&tp2, const \mbox{\hyperlink{structReal3}{Real3}} \&tp3, \mbox{\hyperlink{structReal3}{Real3}} \&point\+\_\+inter)
+\begin{DoxyCompactList}\small\item\em Compute the intersection between a segment and a triangle defined by their points. \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classIntersectionSegmentTriangle_a5edf11e0df4e1c3ca63d36967c7ab7b6}{get\+Nb\+Intersection}} ()
+\begin{DoxyCompactList}\small\item\em get the number of intersection points \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIntersectionSegmentTriangle_a71dc1e89027c63d70e0cb2579af1b858}{get\+Intersection}} (Short i, \mbox{\hyperlink{structReal3}{Real3}} \&p)
+\begin{DoxyCompactList}\small\item\em return an intersection point \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{classIntersectionSegmentTriangle_a07e088cd6faa7c6ca8d655eba9265082}{get\+Intersection\+Value}} (Short i)
+\begin{DoxyCompactList}\small\item\em return the position of an intersection on the segment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_a3871fca4da4ae170f5f64cc40c33d1fe}\label{classIntersectionSegmentTriangle_a3871fca4da4ae170f5f64cc40c33d1fe}} 
+void \mbox{\hyperlink{classIntersectionSegmentTriangle_a3871fca4da4ae170f5f64cc40c33d1fe}{set\+Trace\+Manager}} (ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em debug purpose -\/ set the trace manager \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \mbox{\hyperlink{classIntersectionSegmentTriangle}{Intersection\+Segment\+Triangle}} Intersection segment -\/ triangle. 
+
+This is imported from Open\+Flow\textquotesingle{}s \mbox{\hyperlink{classIntersectionSegmentTriangle}{Intersection\+Segment\+Triangle}} class. 
+
+Definition at line 23 of file Intersection\+Segment\+Triangle.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_ac8f2e16698b6651c93d1cb590fa283c9}\label{classIntersectionSegmentTriangle_ac8f2e16698b6651c93d1cb590fa283c9}} 
+\index{IntersectionSegmentTriangle@{IntersectionSegmentTriangle}!compute@{compute}}
+\index{compute@{compute}!IntersectionSegmentTriangle@{IntersectionSegmentTriangle}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Intersection\+Segment\+Triangle\+::compute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{sp1,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{sp2,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{tp1,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{tp2,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{tp3,  }\item[{\mbox{\hyperlink{structReal3}{Real3}} \&}]{point\+\_\+inter }\end{DoxyParamCaption})}
+
+
+
+Compute the intersection between a segment and a triangle defined by their points. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em sp1} & first point of the segment \\
+\hline
+ & {\em sp2} & second point of the segment \\
+\hline
+ & {\em tp1} & first point of the triangle \\
+\hline
+ & {\em tp2} & second point of the triangle \\
+\hline
+ & {\em tp3} & third point of the triangle\\
+\hline
+\mbox{\texttt{ out}}  & {\em point\+\_\+inter} & the \char`\"{}first\char`\"{} intersection point \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file Intersection\+Segment\+Triangle.\+cc.
+
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_a7ca232a09fe1c804eef47096ad097723}\label{classIntersectionSegmentTriangle_a7ca232a09fe1c804eef47096ad097723}} 
+\index{IntersectionSegmentTriangle@{IntersectionSegmentTriangle}!compute@{compute}}
+\index{compute@{compute}!IntersectionSegmentTriangle@{IntersectionSegmentTriangle}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Intersection\+Segment\+Triangle\+::compute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSegment}{Segment}} \&}]{elem1,  }\item[{const \mbox{\hyperlink{classTriangle}{Triangle}} \&}]{elem2,  }\item[{\mbox{\hyperlink{structReal3}{Real3}} \&}]{point\+\_\+inter }\end{DoxyParamCaption})}
+
+
+
+Compute the intersection between a segment and a triangle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em elem1} & a segment \\
+\hline
+ & {\em elem2} & a triangle\\
+\hline
+\mbox{\texttt{ out}}  & {\em point\+\_\+inter} & the \char`\"{}first\char`\"{} intersection point \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file Intersection\+Segment\+Triangle.\+cc.
+
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_a71dc1e89027c63d70e0cb2579af1b858}\label{classIntersectionSegmentTriangle_a71dc1e89027c63d70e0cb2579af1b858}} 
+\index{IntersectionSegmentTriangle@{IntersectionSegmentTriangle}!getIntersection@{getIntersection}}
+\index{getIntersection@{getIntersection}!IntersectionSegmentTriangle@{IntersectionSegmentTriangle}}
+\doxysubsubsection{\texorpdfstring{getIntersection()}{getIntersection()}}
+{\footnotesize\ttfamily void Intersection\+Segment\+Triangle\+::get\+Intersection (\begin{DoxyParamCaption}\item[{Short}]{i,  }\item[{\mbox{\hyperlink{structReal3}{Real3}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return an intersection point 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em i} & index of a point in the list containing the intersection points \\
+\hline
+\mbox{\texttt{ out}}  & {\em p} & result \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file Intersection\+Segment\+Triangle.\+h.
+
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_a07e088cd6faa7c6ca8d655eba9265082}\label{classIntersectionSegmentTriangle_a07e088cd6faa7c6ca8d655eba9265082}} 
+\index{IntersectionSegmentTriangle@{IntersectionSegmentTriangle}!getIntersectionValue@{getIntersectionValue}}
+\index{getIntersectionValue@{getIntersectionValue}!IntersectionSegmentTriangle@{IntersectionSegmentTriangle}}
+\doxysubsubsection{\texorpdfstring{getIntersectionValue()}{getIntersectionValue()}}
+{\footnotesize\ttfamily Real Intersection\+Segment\+Triangle\+::get\+Intersection\+Value (\begin{DoxyParamCaption}\item[{Short}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return the position of an intersection on the segment. 
+
+between 0 and 1 \+: 0 for start point, 1 for end point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & index of a point in the list containing the intersection points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the position 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file Intersection\+Segment\+Triangle.\+h.
+
+\mbox{\Hypertarget{classIntersectionSegmentTriangle_a5edf11e0df4e1c3ca63d36967c7ab7b6}\label{classIntersectionSegmentTriangle_a5edf11e0df4e1c3ca63d36967c7ab7b6}} 
+\index{IntersectionSegmentTriangle@{IntersectionSegmentTriangle}!getNbIntersection@{getNbIntersection}}
+\index{getNbIntersection@{getNbIntersection}!IntersectionSegmentTriangle@{IntersectionSegmentTriangle}}
+\doxysubsubsection{\texorpdfstring{getNbIntersection()}{getNbIntersection()}}
+{\footnotesize\ttfamily Integer Intersection\+Segment\+Triangle\+::get\+Nb\+Intersection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the number of intersection points 
+
+\begin{DoxyReturn}{Returns}
+the number of intersection 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file Intersection\+Segment\+Triangle.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Polyline\+Discretisation/\+Utils/Intersection\+Segment\+Triangle.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Polyline\+Discretisation/\+Utils/Intersection\+Segment\+Triangle.\+cc\end{DoxyCompactItemize}

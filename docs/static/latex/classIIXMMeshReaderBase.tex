@@ -1,0 +1,58 @@
+\hypertarget{classIIXMMeshReaderBase}{}\doxysection{IIXMMesh\+Reader\+Base Class Reference}
+\label{classIIXMMeshReaderBase}\index{IIXMMeshReaderBase@{IIXMMeshReaderBase}}
+
+
+Inherited by \mbox{\hyperlink{classIIXMStaticMeshReader}{IIXMStatic\+Mesh\+Reader}}{\ttfamily  \mbox{[}virtual\mbox{]}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIXMMeshReaderBase_a723f7479d7d0a006b13e8dddc1e57aad}\label{classIIXMMeshReaderBase_a723f7479d7d0a006b13e8dddc1e57aad}} 
+virtual \mbox{\hyperlink{classIIXMMeshReaderBase_a723f7479d7d0a006b13e8dddc1e57aad}{$\sim$\+IIXMMesh\+Reader\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+virtual Arcane\+::\+String \mbox{\hyperlink{classIIXMMeshReaderBase_ad0461fa4a00c54c74de3c1bc63aa2fb1}{load\+Mesh\+File}} (\mbox{\hyperlink{classIXMMeshFile}{IXMMesh\+File}} mesh\+\_\+file)=0
+\begin{DoxyCompactList}\small\item\em Fonctions de base partagees par les lecteurs de maillages evolutif et statique. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMMeshReaderBase_a851b82c2db323f6893335966d0d7ee33}\label{classIIXMMeshReaderBase_a851b82c2db323f6893335966d0d7ee33}} 
+virtual Arcane\+::\+String \mbox{\hyperlink{classIIXMMeshReaderBase_a851b82c2db323f6893335966d0d7ee33}{mesh\+Type}} ()=0
+\begin{DoxyCompactList}\small\item\em Type de grille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMMeshReaderBase_a2849d7f8117aacf76db8da048499f6aa}\label{classIIXMMeshReaderBase_a2849d7f8117aacf76db8da048499f6aa}} 
+virtual \mbox{\hyperlink{structIXMMeshDimension}{IXMMesh\+Dimension}} \mbox{\hyperlink{classIIXMMeshReaderBase_a2849d7f8117aacf76db8da048499f6aa}{mesh\+Dimension}} ()=0
+\begin{DoxyCompactList}\small\item\em Dimension de la grille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMMeshReaderBase_ab4bbf0f812e096b895f4cb371de2f5ce}\label{classIIXMMeshReaderBase_ab4bbf0f812e096b895f4cb371de2f5ce}} 
+virtual void \mbox{\hyperlink{classIIXMMeshReaderBase_ab4bbf0f812e096b895f4cb371de2f5ce}{read\+Face\+Data}} (\mbox{\hyperlink{structIXMFaceData}{IXMFace\+Data}} \&face\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)=0
+\begin{DoxyCompactList}\small\item\em Lecture des données de faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMMeshReaderBase_a8ab8c19e17570f0ee235eb567f6f16e8}\label{classIIXMMeshReaderBase_a8ab8c19e17570f0ee235eb567f6f16e8}} 
+virtual void \mbox{\hyperlink{classIIXMMeshReaderBase_a8ab8c19e17570f0ee235eb567f6f16e8}{read\+Edge\+Data}} (\mbox{\hyperlink{structIXMItemData}{IXMEdge\+Data}} \&edge\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)=0
+\begin{DoxyCompactList}\small\item\em Lecture des données de edges. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMMeshReaderBase_ae301092fb9c5a83ec72d9468224bb8a5}\label{classIIXMMeshReaderBase_ae301092fb9c5a83ec72d9468224bb8a5}} 
+virtual void \mbox{\hyperlink{classIIXMMeshReaderBase_ae301092fb9c5a83ec72d9468224bb8a5}{read\+Connection\+Data}} (\mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&connection\+\_\+data)=0
+\begin{DoxyCompactList}\small\item\em Lecture des données de connexions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file IIXMMesh\+Reader\+Base.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIIXMMeshReaderBase_ad0461fa4a00c54c74de3c1bc63aa2fb1}\label{classIIXMMeshReaderBase_ad0461fa4a00c54c74de3c1bc63aa2fb1}} 
+\index{IIXMMeshReaderBase@{IIXMMeshReaderBase}!loadMeshFile@{loadMeshFile}}
+\index{loadMeshFile@{loadMeshFile}!IIXMMeshReaderBase@{IIXMMeshReaderBase}}
+\doxysubsubsection{\texorpdfstring{loadMeshFile()}{loadMeshFile()}}
+{\footnotesize\ttfamily virtual Arcane\+::\+String IIXMMesh\+Reader\+Base\+::load\+Mesh\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIXMMeshFile}{IXMMesh\+File}}}]{mesh\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Fonctions de base partagees par les lecteurs de maillages evolutif et statique. 
+
+Chargement du fichier de maillage. Retourne le repertoir du fichier de maillage 
+
+Implemented in \mbox{\hyperlink{classIXMV4MeshReader_aba8b162cbf3f7b42eff44e4f82a6ca1f}{IXMV4\+Mesh\+Reader}}, \mbox{\hyperlink{classIXMV4__1MeshReader_aed558f1242a9617efb4e809fdda2c86c}{IXMV4\+\_\+1\+Mesh\+Reader}}, and \mbox{\hyperlink{classIXMV3MeshReader_a3d2eed15dcdbdbde0d86f8a6a4213d00}{IXMV3\+Mesh\+Reader}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IIXMMesh\+Reader\+Base.\+h\end{DoxyCompactItemize}

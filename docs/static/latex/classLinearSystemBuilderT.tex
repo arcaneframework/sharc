@@ -1,0 +1,63 @@
+\hypertarget{classLinearSystemBuilderT}{}\doxysection{Linear\+System\+BuilderT$<$ MatrixT, VectorT $>$ Class Template Reference}
+\label{classLinearSystemBuilderT}\index{LinearSystemBuilderT$<$ MatrixT, VectorT $>$@{LinearSystemBuilderT$<$ MatrixT, VectorT $>$}}
+
+
+Inherits \mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder}}, and \mbox{\hyperlink{classVisitorT}{Visitor\+T$<$ Linear\+System\+T$<$ Matrix\+T, Vector\+T $>$ $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a586dc8b90e147d2e982f4cf3713a8545}\label{classLinearSystemBuilderT_a586dc8b90e147d2e982f4cf3713a8545}} 
+typedef MatrixT {\bfseries Matrix\+Type}
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a20869aae5e3d3a995f62f31c9020d2c2}\label{classLinearSystemBuilderT_a20869aae5e3d3a995f62f31c9020d2c2}} 
+typedef VectorT {\bfseries Vector\+Type}
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a0bbf3ee257647b0cf272b0d998d4c111}\label{classLinearSystemBuilderT_a0bbf3ee257647b0cf272b0d998d4c111}} 
+typedef \mbox{\hyperlink{classLinearSystemT}{Linear\+SystemT}}$<$ Matrix\+Type, \mbox{\hyperlink{structVectorType}{Vector\+Type}} $>$ {\bfseries Linear\+System\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_ad9e9e67bb2ee3a3e5de1af3e71c2728f}\label{classLinearSystemBuilderT_ad9e9e67bb2ee3a3e5de1af3e71c2728f}} 
+{\bfseries Linear\+System\+BuilderT} (Matrix\+Type $\ast$matrix, \mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$rhs, \mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$x)
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a5acc9ba7ae2140b678e7336dc2f9ee1a}\label{classLinearSystemBuilderT_a5acc9ba7ae2140b678e7336dc2f9ee1a}} 
+void \mbox{\hyperlink{classLinearSystemBuilderT_a5acc9ba7ae2140b678e7336dc2f9ee1a}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialise. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a2321178853c1c18d5688232c33b0c470}\label{classLinearSystemBuilderT_a2321178853c1c18d5688232c33b0c470}} 
+void {\bfseries start} ()
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a4b77fa4dc516b37dc21eab91ebab71c8}\label{classLinearSystemBuilderT_a4b77fa4dc516b37dc21eab91ebab71c8}} 
+void {\bfseries free\+Data} ()
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_ae026210bf6a5ae26e07e7d995d33e4cd}\label{classLinearSystemBuilderT_ae026210bf6a5ae26e07e7d995d33e4cd}} 
+void {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a90d216212eca5ed9fa0c15bc409a8dbc}\label{classLinearSystemBuilderT_a90d216212eca5ed9fa0c15bc409a8dbc}} 
+Integer {\bfseries connect} (\mbox{\hyperlink{classLinearSystemT}{Linear\+System\+Type}} $\ast$system)
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_ac6f371ad28b7cbcc0d4b5864bc4b96ce}\label{classLinearSystemBuilderT_ac6f371ad28b7cbcc0d4b5864bc4b96ce}} 
+bool {\bfseries commit\+Solution} (ILinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_adfc6949ac6030c39c9ecc849eeda59cc}\label{classLinearSystemBuilderT_adfc6949ac6030c39c9ecc849eeda59cc}} 
+bool {\bfseries commit\+Solution} (\mbox{\hyperlink{classLinearSystemT}{Linear\+System\+Type}} $\ast$system)
+\item 
+\mbox{\Hypertarget{classLinearSystemBuilderT_a10fa3b27d1831e8f85047b03f110abd1}\label{classLinearSystemBuilderT_a10fa3b27d1831e8f85047b03f110abd1}} 
+Integer {\bfseries visit} (\mbox{\hyperlink{classLinearSystemT}{Linear\+System\+Type}} $\ast$system)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename MatrixT, typename VectorT$>$\newline
+class Linear\+System\+Builder\+T$<$ Matrix\+T, Vector\+T $>$}
+
+
+
+Definition at line 72 of file Local\+Linear\+System\+T.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/Local\+Linear\+System\+T.\+h\end{DoxyCompactItemize}

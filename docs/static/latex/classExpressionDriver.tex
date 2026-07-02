@@ -1,0 +1,80 @@
+\hypertarget{classExpressionDriver}{}\doxysection{Expression\+Driver Class Reference}
+\label{classExpressionDriver}\index{ExpressionDriver@{ExpressionDriver}}
+
+
+Expression driver core.  
+
+
+
+
+{\ttfamily \#include $<$Expression\+Driver.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structExpressionDriver_1_1Error}{Error}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classExpressionDriver_aaf91c2b226e066293f1359860dbeeceb}\label{classExpressionDriver_aaf91c2b226e066293f1359860dbeeceb}} 
+void \mbox{\hyperlink{classExpressionDriver_aaf91c2b226e066293f1359860dbeeceb}{parse}} (const std\+::string \&\mbox{\hyperlink{classExpressionDriver_acdadfc7a077f597be230ca6c0f0a0ae0}{expression}})
+\begin{DoxyCompactList}\small\item\em Parse the expression. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_ac74f706dd814e3e0bf7b9b6570a9eee2}\label{classExpressionDriver_ac74f706dd814e3e0bf7b9b6570a9eee2}} 
+void \mbox{\hyperlink{classExpressionDriver_ac74f706dd814e3e0bf7b9b6570a9eee2}{error}} (const \mbox{\hyperlink{classep_1_1location}{ep\+::location}} \&l, const std\+::string \&m)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structExpressionDriver_1_1Error}{Error}} handling (print location and error message) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_abc42436667f7945ab64771219d18433d}\label{classExpressionDriver_abc42436667f7945ab64771219d18433d}} 
+void \mbox{\hyperlink{classExpressionDriver_abc42436667f7945ab64771219d18433d}{error}} (const std\+::string \&m)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structExpressionDriver_1_1Error}{Error}} handling (print error message only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_acdadfc7a077f597be230ca6c0f0a0ae0}\label{classExpressionDriver_acdadfc7a077f597be230ca6c0f0a0ae0}} 
+std\+::string \& \mbox{\hyperlink{classExpressionDriver_acdadfc7a077f597be230ca6c0f0a0ae0}{expression}} ()
+\begin{DoxyCompactList}\small\item\em Return parsed expression. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_ac74c4546df0d8a3956707677299a6590}\label{classExpressionDriver_ac74c4546df0d8a3956707677299a6590}} 
+\mbox{\hyperlink{classexpression__parser_1_1Expression}{expression\+\_\+parser\+::\+Expression}} \mbox{\hyperlink{classExpressionDriver_ac74c4546df0d8a3956707677299a6590}{variable}} (const char \&v)
+\begin{DoxyCompactList}\small\item\em Return variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_a066c8fedd6fa06d49eaa469350444bc9}\label{classExpressionDriver_a066c8fedd6fa06d49eaa469350444bc9}} 
+expression\+\_\+parser\+::\+Function\+Ptr \mbox{\hyperlink{classExpressionDriver_a066c8fedd6fa06d49eaa469350444bc9}{function}} (const std\+::string \&f)
+\begin{DoxyCompactList}\small\item\em Return function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_a29f8acff99445e13b2560d86ea51f4a7}\label{classExpressionDriver_a29f8acff99445e13b2560d86ea51f4a7}} 
+Real \mbox{\hyperlink{classExpressionDriver_a29f8acff99445e13b2560d86ea51f4a7}{constant}} (std\+::string c)
+\begin{DoxyCompactList}\small\item\em Return constant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_aa3e18b12fa08d4689f38749df83e24b3}\label{classExpressionDriver_aa3e18b12fa08d4689f38749df83e24b3}} 
+const \mbox{\hyperlink{classexpression__parser_1_1Expression}{expression\+\_\+parser\+::\+Expression}} \& \mbox{\hyperlink{classExpressionDriver_aa3e18b12fa08d4689f38749df83e24b3}{get\+Result}} ()
+\begin{DoxyCompactList}\small\item\em Return result. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_a7947e13c960f844fae0f6b8d863640b1}\label{classExpressionDriver_a7947e13c960f844fae0f6b8d863640b1}} 
+\mbox{\hyperlink{classexpression__parser_1_1Expression}{expression\+\_\+parser\+::\+Expression}} \& \mbox{\hyperlink{classExpressionDriver_a7947e13c960f844fae0f6b8d863640b1}{result}} ()
+\begin{DoxyCompactList}\small\item\em Return result (internal use only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_a74aa79438654ef59fe9985603c275105}\label{classExpressionDriver_a74aa79438654ef59fe9985603c275105}} 
+std\+::stack$<$ \mbox{\hyperlink{classexpression__parser_1_1Expression}{expression\+\_\+parser\+::\+Expression\+Ptr}} $>$ \& \mbox{\hyperlink{classExpressionDriver_a74aa79438654ef59fe9985603c275105}{nodes}} ()
+\begin{DoxyCompactList}\small\item\em Return stack. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_a01ab84f3fba57775635b109952cea485}\label{classExpressionDriver_a01ab84f3fba57775635b109952cea485}} 
+void \mbox{\hyperlink{classExpressionDriver_a01ab84f3fba57775635b109952cea485}{set\+Trace\+Scanning}} (bool value)
+\begin{DoxyCompactList}\small\item\em Set trace scanning. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_a111e8305e0ee030de6ea24ea952a9790}\label{classExpressionDriver_a111e8305e0ee030de6ea24ea952a9790}} 
+void \mbox{\hyperlink{classExpressionDriver_a111e8305e0ee030de6ea24ea952a9790}{set\+Trace\+Parsing}} (bool value)
+\begin{DoxyCompactList}\small\item\em Set trace parsing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionDriver_a9de69369002188716fbfe045582ef67c}\label{classExpressionDriver_a9de69369002188716fbfe045582ef67c}} 
+void \mbox{\hyperlink{classExpressionDriver_a9de69369002188716fbfe045582ef67c}{clear\+\_\+stack}} ()
+\begin{DoxyCompactList}\small\item\em Clear stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Expression driver core. 
+
+\begin{DoxyAuthor}{Author}
+Daniele A. Di Pietro 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2007-\/08-\/10 
+\end{DoxyDate}
+
+
+Definition at line 27 of file Expression\+Driver.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/Expression\+Driver.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/expression\+\_\+scanner.\+cc\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/Expression\+Driver.\+cc\end{DoxyCompactItemize}

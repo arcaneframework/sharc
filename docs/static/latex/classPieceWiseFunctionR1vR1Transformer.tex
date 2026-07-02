@@ -1,0 +1,74 @@
+\hypertarget{classPieceWiseFunctionR1vR1Transformer}{}\doxysection{Piece\+Wise\+Function\+R1v\+R1\+Transformer Class Reference}
+\label{classPieceWiseFunctionR1vR1Transformer}\index{PieceWiseFunctionR1vR1Transformer@{PieceWiseFunctionR1vR1Transformer}}
+
+
+Inherits \mbox{\hyperlink{classIFunctionR1vR1Transformer}{IFunction\+R1v\+R1\+Transformer}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPieceWiseFunctionR1vR1Transformer_a7c63ca03dcfbd9fe536494e3f9f1ca81}{Piece\+Wise\+Function\+R1v\+R1\+Transformer}} (ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructor\+: one constructor for each elementary transformation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1Transformer_a1e57b69ba041fc9a00008ebb591d84a3}\label{classPieceWiseFunctionR1vR1Transformer_a1e57b69ba041fc9a00008ebb591d84a3}} 
+\mbox{\hyperlink{classPieceWiseFunctionR1vR1Transformer_a1e57b69ba041fc9a00008ebb591d84a3}{Piece\+Wise\+Function\+R1v\+R1\+Transformer}} (ITrace\+Mng $\ast$trace\+\_\+mng, const Real \&new\+\_\+xmin, const Real \&new\+\_\+xmax, const Real \&new\+\_\+ymin, const Real \&new\+\_\+ymax)
+\begin{DoxyCompactList}\small\item\em Shift Rescaled. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1Transformer_aac5200596c515a76f54a96269f1334ff}\label{classPieceWiseFunctionR1vR1Transformer_aac5200596c515a76f54a96269f1334ff}} 
+virtual \mbox{\hyperlink{classPieceWiseFunctionR1vR1Transformer_aac5200596c515a76f54a96269f1334ff}{$\sim$\+Piece\+Wise\+Function\+R1v\+R1\+Transformer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIFunctionR1vR1}{IFunction\+R1v\+R1}} $\ast$ \mbox{\hyperlink{classPieceWiseFunctionR1vR1Transformer_a911c5376bf219491b0cb293a43569cd1}{create\+Transformed\+IFunction}} (const \mbox{\hyperlink{classIFunctionR1vR1}{IFunction\+R1v\+R1}} $\ast$const original\+\_\+ifunction) const
+\begin{DoxyCompactList}\small\item\em Create transformed \mbox{\hyperlink{classIFunction}{IFunction}} for \mbox{\hyperlink{classIPieceWiseFunction}{IPiece\+Wise\+Function}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 25 of file Piece\+Wise\+Function\+R1v\+R1\+Transformer.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1Transformer_a7c63ca03dcfbd9fe536494e3f9f1ca81}\label{classPieceWiseFunctionR1vR1Transformer_a7c63ca03dcfbd9fe536494e3f9f1ca81}} 
+\index{PieceWiseFunctionR1vR1Transformer@{PieceWiseFunctionR1vR1Transformer}!PieceWiseFunctionR1vR1Transformer@{PieceWiseFunctionR1vR1Transformer}}
+\index{PieceWiseFunctionR1vR1Transformer@{PieceWiseFunctionR1vR1Transformer}!PieceWiseFunctionR1vR1Transformer@{PieceWiseFunctionR1vR1Transformer}}
+\doxysubsubsection{\texorpdfstring{PieceWiseFunctionR1vR1Transformer()}{PieceWiseFunctionR1vR1Transformer()}}
+{\footnotesize\ttfamily Piece\+Wise\+Function\+R1v\+R1\+Transformer\+::\+Piece\+Wise\+Function\+R1v\+R1\+Transformer (\begin{DoxyParamCaption}\item[{ITrace\+Mng $\ast$}]{trace\+\_\+mng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor\+: one constructor for each elementary transformation. 
+
+Clone 
+
+Definition at line 31 of file Piece\+Wise\+Function\+R1v\+R1\+Transformer.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1Transformer_a911c5376bf219491b0cb293a43569cd1}\label{classPieceWiseFunctionR1vR1Transformer_a911c5376bf219491b0cb293a43569cd1}} 
+\index{PieceWiseFunctionR1vR1Transformer@{PieceWiseFunctionR1vR1Transformer}!createTransformedIFunction@{createTransformedIFunction}}
+\index{createTransformedIFunction@{createTransformedIFunction}!PieceWiseFunctionR1vR1Transformer@{PieceWiseFunctionR1vR1Transformer}}
+\doxysubsubsection{\texorpdfstring{createTransformedIFunction()}{createTransformedIFunction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIFunctionR1vR1}{IFunction\+R1v\+R1}} $\ast$ Piece\+Wise\+Function\+R1v\+R1\+Transformer\+::create\+Transformed\+IFunction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIFunctionR1vR1}{IFunction\+R1v\+R1}} $\ast$const}]{original\+\_\+ifunction }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Create transformed \mbox{\hyperlink{classIFunction}{IFunction}} for \mbox{\hyperlink{classIPieceWiseFunction}{IPiece\+Wise\+Function}}. 
+
+Cast in \mbox{\hyperlink{classIPieceWiseFunction}{IPiece\+Wise\+Function}}
+
+get info on original piecewise
+
+Switch on interpolator type
+
+Implements \mbox{\hyperlink{classIFunctionR1vR1Transformer_ac68f342d3a432d201228bad96b853f3c}{IFunction\+R1v\+R1\+Transformer}}.
+
+
+
+Definition at line 9 of file Piece\+Wise\+Function\+R1v\+R1\+Transformer.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/Piece\+Wise\+Function\+R1v\+R1\+Transformer.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/Piece\+Wise\+Function\+R1v\+R1\+Transformer.\+cc\end{DoxyCompactItemize}

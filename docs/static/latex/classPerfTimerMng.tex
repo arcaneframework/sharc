@@ -1,0 +1,53 @@
+\hypertarget{classPerfTimerMng}{}\doxysection{Perf\+Timer\+Mng$<$ PhaseT $>$ Class Template Reference}
+\label{classPerfTimerMng}\index{PerfTimerMng$<$ PhaseT $>$@{PerfTimerMng$<$ PhaseT $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_acba2c0a60a4a9decf55409f7fa22b71d}\label{classPerfTimerMng_acba2c0a60a4a9decf55409f7fa22b71d}} 
+typedef PhaseT {\bfseries Phase\+Type}
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_a61ba2b79be137b8b59fe26bb0d9c6c6a}\label{classPerfTimerMng_a61ba2b79be137b8b59fe26bb0d9c6c6a}} 
+typedef std\+::pair$<$ double, boost\+::timer $>$ {\bfseries Count\+Type}
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_ae18f3e8d866eafd61db50ebf40201f15}\label{classPerfTimerMng_ae18f3e8d866eafd61db50ebf40201f15}} 
+typedef std\+::map$<$ Phase\+Type, Count\+Type $>$ {\bfseries Count\+List\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_ac21dbeeca951a0b4ba933c8f3c5808aa}\label{classPerfTimerMng_ac21dbeeca951a0b4ba933c8f3c5808aa}} 
+void {\bfseries init} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_aa4054e42011f01d34a8ffa78009cb487}\label{classPerfTimerMng_aa4054e42011f01d34a8ffa78009cb487}} 
+void {\bfseries start} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_abf68c08819ffd3bb929fb60d17adc8f9}\label{classPerfTimerMng_abf68c08819ffd3bb929fb60d17adc8f9}} 
+void {\bfseries stop} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_a7cf02f45cd64d538b4728aa470c32ba5}\label{classPerfTimerMng_a7cf02f45cd64d538b4728aa470c32ba5}} 
+double {\bfseries get\+Last\+Value} ()
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_adff7be1902e223d9b01d024c1599d29e}\label{classPerfTimerMng_adff7be1902e223d9b01d024c1599d29e}} 
+double {\bfseries get\+Value} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_ad9ce31e3c3bc2662cf05971feb3e8d6e}\label{classPerfTimerMng_ad9ce31e3c3bc2662cf05971feb3e8d6e}} 
+void {\bfseries print\+Info} () const
+\item 
+\mbox{\Hypertarget{classPerfTimerMng_a37a7f3102cfedf22ff060d012abaa262}\label{classPerfTimerMng_a37a7f3102cfedf22ff060d012abaa262}} 
+void {\bfseries print\+Info} (std\+::ostream \&stream) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename PhaseT$>$\newline
+class Perf\+Timer\+Mng$<$ Phase\+T $>$}
+
+
+
+Definition at line 23 of file Perf\+Timer\+Mng.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/\+Perf\+Tools/Perf\+Timer\+Mng.\+h\end{DoxyCompactItemize}

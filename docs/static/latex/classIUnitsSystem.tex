@@ -1,0 +1,204 @@
+\hypertarget{classIUnitsSystem}{}\doxysection{IUnits\+System Class Reference}
+\label{classIUnitsSystem}\index{IUnitsSystem@{IUnitsSystem}}
+
+
+Inherited by \mbox{\hyperlink{classCarnotUnitsSystem}{Carnot\+Units\+System}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}\label{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}} 
+typedef IUnits\+System\+Property\+::e\+Property \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}}
+\begin{DoxyCompactList}\small\item\em Rappel du type d\textquotesingle{}unit{\ucr} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIUnitsSystem_afced8e33e16ebd269ccc9de5546dbf2b}\label{classIUnitsSystem_afced8e33e16ebd269ccc9de5546dbf2b}} 
+\mbox{\hyperlink{classIUnitsSystem_afced8e33e16ebd269ccc9de5546dbf2b}{IUnits\+System}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_af9635ca1e230c77a266458547752b239}\label{classIUnitsSystem_af9635ca1e230c77a266458547752b239}} 
+virtual \mbox{\hyperlink{classIUnitsSystem_af9635ca1e230c77a266458547752b239}{$\sim$\+IUnits\+System}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_aad1417b6fe5ac135816011292d81c638}\label{classIUnitsSystem_aad1417b6fe5ac135816011292d81c638}} 
+virtual void \mbox{\hyperlink{classIUnitsSystem_aad1417b6fe5ac135816011292d81c638}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_a8f4b0880b1476a507916ecdb36902392}\label{classIUnitsSystem_a8f4b0880b1476a507916ecdb36902392}} 
+virtual bool \mbox{\hyperlink{classIUnitsSystem_a8f4b0880b1476a507916ecdb36902392}{has\+Mult\+Factor}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Existence d\textquotesingle{}un facteur pour passer en unit{\ucr} standart (local-\/$>$SI) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_a99061a426e11e3f0a2f2acf1ebf5bb27}\label{classIUnitsSystem_a99061a426e11e3f0a2f2acf1ebf5bb27}} 
+virtual Real \mbox{\hyperlink{classIUnitsSystem_a99061a426e11e3f0a2f2acf1ebf5bb27}{get\+Mult\+Factor}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Facteur pour passer en unit{\ucr} standart (local-\/$>$SI) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_ad2c416befb428c57670861e49eaa75cd}\label{classIUnitsSystem_ad2c416befb428c57670861e49eaa75cd}} 
+virtual bool \mbox{\hyperlink{classIUnitsSystem_ad2c416befb428c57670861e49eaa75cd}{has\+Const\+Factor}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Existence d\textquotesingle{}un terme pour passer en unit{\ucr} standart (local-\/$>$SI) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_a53f433ed2c02e4aa04b1f7102c61b3d1}\label{classIUnitsSystem_a53f433ed2c02e4aa04b1f7102c61b3d1}} 
+virtual Real \mbox{\hyperlink{classIUnitsSystem_a53f433ed2c02e4aa04b1f7102c61b3d1}{get\+Const\+Factor}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Terme pour passer en unit{\ucr} standart (local-\/$>$SI) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_a05cdfc4b0d4d48eae9497e5926be2f52}\label{classIUnitsSystem_a05cdfc4b0d4d48eae9497e5926be2f52}} 
+virtual bool \mbox{\hyperlink{classIUnitsSystem_a05cdfc4b0d4d48eae9497e5926be2f52}{has\+Mult\+Factor\+To}} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Existence d\textquotesingle{}un facteur pour passer dans un autre syst{\ucr}me (local-\/$>$system) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_a74ac6df2e83cbe107386fc4f76cd3d4e}\label{classIUnitsSystem_a74ac6df2e83cbe107386fc4f76cd3d4e}} 
+virtual Real \mbox{\hyperlink{classIUnitsSystem_a74ac6df2e83cbe107386fc4f76cd3d4e}{get\+Mult\+Factor\+To}} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Facteur pour passer dans un autre syst{\ucr}me (local-\/$>$system) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_ad00123bd867f999d5ecdd5d1e4ef11b4}\label{classIUnitsSystem_ad00123bd867f999d5ecdd5d1e4ef11b4}} 
+virtual bool \mbox{\hyperlink{classIUnitsSystem_ad00123bd867f999d5ecdd5d1e4ef11b4}{has\+Const\+Factor\+To}} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Existence d\textquotesingle{}un terme pour passer dans un autre syst{\ucr}me (local-\/$>$system) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_a7889bc0b4221ec1063222e50181a4ffb}\label{classIUnitsSystem_a7889bc0b4221ec1063222e50181a4ffb}} 
+virtual Real \mbox{\hyperlink{classIUnitsSystem_a7889bc0b4221ec1063222e50181a4ffb}{get\+Const\+Factor\+To}} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)=0
+\begin{DoxyCompactList}\small\item\em Terme pour passer dans un autre syst{\ucr}me (local-\/$>$system) \end{DoxyCompactList}\item 
+virtual Real \mbox{\hyperlink{classIUnitsSystem_a391f9e5647a1b72daf23cc354ff1c784}{convert}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit, Real val)=0
+\begin{DoxyCompactList}\small\item\em Conversion en SI. \end{DoxyCompactList}\item 
+virtual Real \mbox{\hyperlink{classIUnitsSystem_adbc499de9875a8a60d87f30584fb89b3}{unconvert}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit, Real val)=0
+\begin{DoxyCompactList}\small\item\em inverse de convert Conversion en locale {\ucr} partir de SI \end{DoxyCompactList}\item 
+virtual Real \mbox{\hyperlink{classIUnitsSystem_ae203b28010ddef85acc577dbc597d53c}{convert\+To}} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit, Real val)=0
+\begin{DoxyCompactList}\small\item\em Conversion dans un syst{\ucr}me d\textquotesingle{}unit{\ucr} donn{\ucr} \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIUnitsSystem_aaa2d9dbe508fbe4caed593932b11940c}{convert}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit, Array\+View$<$ Real $>$ buf)=0
+\begin{DoxyCompactList}\small\item\em Conversion en SI. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIUnitsSystem_a77050560be13bf5490d8fed4dc22d5de}{unconvert}} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit, Array\+View$<$ Real $>$ buf)=0
+\begin{DoxyCompactList}\small\item\em inverse de convert Conversion en locale {\ucr} partir de SI \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIUnitsSystem_a509f5d3b1a59d352ac88ecfdc3d19aea}{convert\+To}} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit, Array\+View$<$ Real $>$ buf)=0
+\begin{DoxyCompactList}\small\item\em Conversion dans un syst{\ucr}me d\textquotesingle{}unit{\ucr} donn{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUnitsSystem_a5824c2cc013038de5800725c39e2b05e}\label{classIUnitsSystem_a5824c2cc013038de5800725c39e2b05e}} 
+virtual String {\bfseries get\+Short\+Name} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)
+\item 
+\mbox{\Hypertarget{classIUnitsSystem_a11d15b800c9a8c9fc6467f0a12e8f009}\label{classIUnitsSystem_a11d15b800c9a8c9fc6467f0a12e8f009}} 
+virtual String {\bfseries get\+Long\+Name} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIUnitsSystem_afed965e24569068ce259339b8f11d879}\label{classIUnitsSystem_afed965e24569068ce259339b8f11d879}} 
+static String {\bfseries get\+SIUnit\+Short\+Name} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)
+\item 
+\mbox{\Hypertarget{classIUnitsSystem_add4bdb6da822577874122516a47c57f1}\label{classIUnitsSystem_add4bdb6da822577874122516a47c57f1}} 
+static String {\bfseries get\+SIUnit\+Long\+Name} (\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}} unit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 151 of file IUnits\+System.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIUnitsSystem_aaa2d9dbe508fbe4caed593932b11940c}\label{classIUnitsSystem_aaa2d9dbe508fbe4caed593932b11940c}} 
+\index{IUnitsSystem@{IUnitsSystem}!convert@{convert}}
+\index{convert@{convert}!IUnitsSystem@{IUnitsSystem}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void IUnits\+System\+::convert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}}}]{unit,  }\item[{Array\+View$<$ Real $>$}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Conversion en SI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & est suppos{\ucr} en unit{\ucr} locale \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classCarnotUnitsSystem_a6f93fd28afc1e8ae124ee50e638d2b76}{Carnot\+Units\+System}}.
+
+\mbox{\Hypertarget{classIUnitsSystem_a391f9e5647a1b72daf23cc354ff1c784}\label{classIUnitsSystem_a391f9e5647a1b72daf23cc354ff1c784}} 
+\index{IUnitsSystem@{IUnitsSystem}!convert@{convert}}
+\index{convert@{convert}!IUnitsSystem@{IUnitsSystem}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual Real IUnits\+System\+::convert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}}}]{unit,  }\item[{Real}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Conversion en SI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & est suppos{\ucr} en unit{\ucr} locale \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classCarnotUnitsSystem_adee4641d0220ae74d66b0bcb20233a05}{Carnot\+Units\+System}}.
+
+\mbox{\Hypertarget{classIUnitsSystem_a509f5d3b1a59d352ac88ecfdc3d19aea}\label{classIUnitsSystem_a509f5d3b1a59d352ac88ecfdc3d19aea}} 
+\index{IUnitsSystem@{IUnitsSystem}!convertTo@{convertTo}}
+\index{convertTo@{convertTo}!IUnitsSystem@{IUnitsSystem}}
+\doxysubsubsection{\texorpdfstring{convertTo()}{convertTo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void IUnits\+System\+::convert\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$}]{system,  }\item[{\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}}}]{unit,  }\item[{Array\+View$<$ Real $>$}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Conversion dans un syst{\ucr}me d\textquotesingle{}unit{\ucr} donn{\ucr} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & est suppos{\ucr} en unit{\ucr} locale \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classCarnotUnitsSystem_a87d80ade6b74d632e794a40a922a3731}{Carnot\+Units\+System}}.
+
+\mbox{\Hypertarget{classIUnitsSystem_ae203b28010ddef85acc577dbc597d53c}\label{classIUnitsSystem_ae203b28010ddef85acc577dbc597d53c}} 
+\index{IUnitsSystem@{IUnitsSystem}!convertTo@{convertTo}}
+\index{convertTo@{convertTo}!IUnitsSystem@{IUnitsSystem}}
+\doxysubsubsection{\texorpdfstring{convertTo()}{convertTo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual Real IUnits\+System\+::convert\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$}]{system,  }\item[{\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}}}]{unit,  }\item[{Real}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Conversion dans un syst{\ucr}me d\textquotesingle{}unit{\ucr} donn{\ucr} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & est suppos{\ucr} en unit{\ucr} locale \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classCarnotUnitsSystem_a83b4b7fdcc01d0ecfdc0a610cb36cddc}{Carnot\+Units\+System}}.
+
+\mbox{\Hypertarget{classIUnitsSystem_a77050560be13bf5490d8fed4dc22d5de}\label{classIUnitsSystem_a77050560be13bf5490d8fed4dc22d5de}} 
+\index{IUnitsSystem@{IUnitsSystem}!unconvert@{unconvert}}
+\index{unconvert@{unconvert}!IUnitsSystem@{IUnitsSystem}}
+\doxysubsubsection{\texorpdfstring{unconvert()}{unconvert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void IUnits\+System\+::unconvert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}}}]{unit,  }\item[{Array\+View$<$ Real $>$}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+inverse de convert Conversion en locale {\ucr} partir de SI 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & est suppos{\ucr} en unit{\ucr} SI \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classCarnotUnitsSystem_ad7de505f4b003a1417d3dfa36f58b10c}{Carnot\+Units\+System}}.
+
+\mbox{\Hypertarget{classIUnitsSystem_adbc499de9875a8a60d87f30584fb89b3}\label{classIUnitsSystem_adbc499de9875a8a60d87f30584fb89b3}} 
+\index{IUnitsSystem@{IUnitsSystem}!unconvert@{unconvert}}
+\index{unconvert@{unconvert}!IUnitsSystem@{IUnitsSystem}}
+\doxysubsubsection{\texorpdfstring{unconvert()}{unconvert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual Real IUnits\+System\+::unconvert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{Unit\+Type}}}]{unit,  }\item[{Real}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+inverse de convert Conversion en locale {\ucr} partir de SI 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & est suppos{\ucr} en unit{\ucr} SI \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classCarnotUnitsSystem_a6318c15cbf9c23ddd55ad4af7f5936e9}{Carnot\+Units\+System}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Units/IUnits\+System.\+h\end{DoxyCompactItemize}

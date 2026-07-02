@@ -1,0 +1,169 @@
+\hypertarget{classIXMPropertyBuilderImpl}{}\doxysection{IXMProperty\+Builder\+Impl Class Reference}
+\label{classIXMPropertyBuilderImpl}\index{IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1BaseProperty}{Base\+Property}}
+\item 
+class \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1ModifiedProperties}{Modified\+Properties}}
+\begin{DoxyCompactList}\small\item\em Ensemble de propri{\ucr}t{\ucr}s modifi{\ucr}s par IXMProperty\+Builder. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1ModifiedProperty}{Modified\+Property}}
+\begin{DoxyCompactList}\small\item\em Classe d\textquotesingle{}information sur une propri{\ucr}t{\ucr} modifi{\ucr}e par IXMProperty\+Builder. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription}{Property\+Description}}
+\item 
+class \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyValues}{Property\+Values}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIXMPropertyBuilderImpl_a6db756e51e8cd233300e3a1f94500262}{IXMProperty\+Builder\+Impl}} (IMesh $\ast$const mesh)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe, cas maillage evolutif. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a97b90bbefe53278ed388dac533e1f5c3}\label{classIXMPropertyBuilderImpl_a97b90bbefe53278ed388dac533e1f5c3}} 
+virtual \mbox{\hyperlink{classIXMPropertyBuilderImpl_a97b90bbefe53278ed388dac533e1f5c3}{$\sim$\+IXMProperty\+Builder\+Impl}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a751265751058fc00bae260f69ae7caa1}\label{classIXMPropertyBuilderImpl_a751265751058fc00bae260f69ae7caa1}} 
+void \mbox{\hyperlink{classIXMPropertyBuilderImpl_a751265751058fc00bae260f69ae7caa1}{set\+Mesh\+Directory}} (const Arcane\+::\+String \&mesh\+\_\+directory\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Positionne le repertoire de maillage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_ab37453af6bafcf4c7641dfa0339763b0}\label{classIXMPropertyBuilderImpl_ab37453af6bafcf4c7641dfa0339763b0}} 
+bool \mbox{\hyperlink{classIXMPropertyBuilderImpl_ab37453af6bafcf4c7641dfa0339763b0}{set\+Property}} ()
+\begin{DoxyCompactList}\small\item\em Remplit les propri{\ucr}t{\ucr}s {\ucr} remplir de l\textquotesingle{}{\ucr}v{\ucr}nement courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a3e2c0882fb59645c3a3a1e8618492b9e}\label{classIXMPropertyBuilderImpl_a3e2c0882fb59645c3a3a1e8618492b9e}} 
+const Arcane\+::\+Variable\+Item\+Byte \mbox{\hyperlink{classIXMPropertyBuilderImpl_a3e2c0882fb59645c3a3a1e8618492b9e}{property\+Filled\+Item\+Variable}} (const String \&property\+\_\+name, bool \&has\+\_\+filled\+\_\+items) const
+\begin{DoxyCompactList}\small\item\em Retourne une propri{\ucr}t{\ucr} d{\ucr}crivant l\textquotesingle{}{\ucr}tat de remplissage de la propri{\ucr}t{\ucr}s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_aa6d3669bf93950dfcd7a6d753fd7f29d}\label{classIXMPropertyBuilderImpl_aa6d3669bf93950dfcd7a6d753fd7f29d}} 
+bool \mbox{\hyperlink{classIXMPropertyBuilderImpl_aa6d3669bf93950dfcd7a6d753fd7f29d}{has\+Property\+Changed}} (const Arcane\+::\+String \&property\+\_\+name) const
+\begin{DoxyCompactList}\small\item\em Indique si la propri{\ucr}t{\ucr} a chang{\ucr} au cours de l\textquotesingle{}{\ucr}v{\ucr}nement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_af51e2d5bbd1e2fad91a486223b70049f}\label{classIXMPropertyBuilderImpl_af51e2d5bbd1e2fad91a486223b70049f}} 
+void \mbox{\hyperlink{classIXMPropertyBuilderImpl_af51e2d5bbd1e2fad91a486223b70049f}{print\+Infos}} () const
+\begin{DoxyCompactList}\small\item\em Affichage des infos pour le debug. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a9113510e318f1b98fd448b8aa42f06ba}\label{classIXMPropertyBuilderImpl_a9113510e318f1b98fd448b8aa42f06ba}} 
+void \mbox{\hyperlink{classIXMPropertyBuilderImpl_a9113510e318f1b98fd448b8aa42f06ba}{create\+And\+Fill\+Properties}} (const \mbox{\hyperlink{structIXMPropertyDataList}{IXMProperty\+Data\+List}} \&properties, const \mbox{\hyperlink{classIXMUidToLidMng}{IXMUid\+To\+Lid\+Mng}} \&aid\+\_\+to\+\_\+lids)
+\begin{DoxyCompactList}\small\item\em Creation des proprietes dans le cas d\textquotesingle{}un maillage statique. Toutes les autres methodes concernent le maillage evolutif. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a09f0ba8033545e5dd26016d6a7a98d1e}\label{classIXMPropertyBuilderImpl_a09f0ba8033545e5dd26016d6a7a98d1e}} 
+typedef std\+::list$<$ \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription}{Property\+Description}} $\ast$ $>$ {\bfseries Description\+Container}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_af195ad4d3ae3daca5e427b18d6935e85}\label{classIXMPropertyBuilderImpl_af195ad4d3ae3daca5e427b18d6935e85}} 
+typedef std\+::map$<$ String, bool $>$ {\bfseries Property\+Conformity\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a57444a46b006c2ec5b94eee0901826ac}\label{classIXMPropertyBuilderImpl_a57444a46b006c2ec5b94eee0901826ac}} 
+void {\bfseries \+\_\+create\+Property\+Data} (const \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription}{Property\+Description}} \&description)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_ab780cdb3190a39de1d485f55d56a86f0}\label{classIXMPropertyBuilderImpl_ab780cdb3190a39de1d485f55d56a86f0}} 
+bool {\bfseries \+\_\+handle\+Error\+Status} (bool has\+\_\+error, const String \&message)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a2551d5bad4e650c27c92fd4ae182fa4e}\label{classIXMPropertyBuilderImpl_a2551d5bad4e650c27c92fd4ae182fa4e}} 
+void {\bfseries \+\_\+store\+Property\+Variable\+Ref} (Arcane\+::\+Variable\+Ref $\ast$const created\+\_\+property\+\_\+variable\+\_\+ref)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a065a1ae899ca7fe62d2083eedd30eb29}\label{classIXMPropertyBuilderImpl_a065a1ae899ca7fe62d2083eedd30eb29}} 
+void {\bfseries \+\_\+add\+Modified\+Property} (const Arc\+Geo\+Sim\+::\+IXMProperty\+Builder\+Impl\+::\+Property\+Description \&property\+\_\+description)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_af353f5a3775ae6956093861ccc0aafab}\label{classIXMPropertyBuilderImpl_af353f5a3775ae6956093861ccc0aafab}} 
+bool {\bfseries \+\_\+is\+Property\+Initialized} (const \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription}{Property\+Description}} \&description, const Arcane\+::\+Item\+Group \&item\+\_\+group)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a2430672e23032c9d4ca9f7c1b91a59fb}\label{classIXMPropertyBuilderImpl_a2430672e23032c9d4ca9f7c1b91a59fb}} 
+\mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1ModifiedProperties}{Modified\+Properties}} \mbox{\hyperlink{classIXMPropertyBuilderImpl_a2430672e23032c9d4ca9f7c1b91a59fb}{m\+\_\+current\+\_\+modified\+\_\+properties}}
+\begin{DoxyCompactList}\small\item\em Propriete modifiee au cours de l\textquotesingle{}evenement courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a7b96b11ee5751d62e0071b50db01f8c7}\label{classIXMPropertyBuilderImpl_a7b96b11ee5751d62e0071b50db01f8c7}} 
+\mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1ModifiedProperties}{Modified\+Properties}} \mbox{\hyperlink{classIXMPropertyBuilderImpl_a7b96b11ee5751d62e0071b50db01f8c7}{m\+\_\+modified\+\_\+property\+\_\+history}}
+\begin{DoxyCompactList}\small\item\em Historiques des proprietes modifies au travers des evenements. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_abee2d81f3c94a3e6cd5ec81db38e28cf}\label{classIXMPropertyBuilderImpl_abee2d81f3c94a3e6cd5ec81db38e28cf}} 
+Description\+Container \mbox{\hyperlink{classIXMPropertyBuilderImpl_abee2d81f3c94a3e6cd5ec81db38e28cf}{m\+\_\+current\+\_\+property\+\_\+description}}
+\begin{DoxyCompactList}\small\item\em Descriptions de toutes les propri{\ucr}t{\ucr}s de l\textquotesingle{}{\ucr}v{\ucr}nement courant. \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{classIXMPropertyBuilderImpl_a729de972011c581c779b66b7abc106ba}{m\+\_\+event\+\_\+begin\+\_\+time}}
+\begin{DoxyCompactList}\small\item\em Temps initial de l\textquotesingle{}{\ucr}v{\ucr}nement courant. \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{classIXMPropertyBuilderImpl_a1ecc57271b131e556316174e2ebac5de}{m\+\_\+event\+\_\+end\+\_\+time}}
+\begin{DoxyCompactList}\small\item\em Temps final de l\textquotesingle{}{\ucr}v{\ucr}nement courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a1680adbcd8002de78f25ca5f070234c3}\label{classIXMPropertyBuilderImpl_a1680adbcd8002de78f25ca5f070234c3}} 
+bool {\bfseries m\+\_\+is\+\_\+event\+\_\+loaded} = false
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a8f6f3a3cd5d59dba0d03348e092a37de}\label{classIXMPropertyBuilderImpl_a8f6f3a3cd5d59dba0d03348e092a37de}} 
+bool {\bfseries m\+\_\+is\+\_\+event\+\_\+conform} = false
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_ad112c16a9bfb4ff2cda1b7b863c55815}\label{classIXMPropertyBuilderImpl_ad112c16a9bfb4ff2cda1b7b863c55815}} 
+bool {\bfseries m\+\_\+is\+\_\+property\+\_\+loaded} = false
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_aa57d3870c0970a35f6961771cd341c4d}\label{classIXMPropertyBuilderImpl_aa57d3870c0970a35f6961771cd341c4d}} 
+Property\+Conformity\+Type \mbox{\hyperlink{classIXMPropertyBuilderImpl_aa57d3870c0970a35f6961771cd341c4d}{m\+\_\+is\+\_\+property\+\_\+conform}}
+\begin{DoxyCompactList}\small\item\em Conformit{\ucr} de chacune des propri{\ucr}t{\ucr}s de l\textquotesingle{}{\ucr}v{\ucr}nement courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a0d82c2ef8c01f8334ceef292231bac40}\label{classIXMPropertyBuilderImpl_a0d82c2ef8c01f8334ceef292231bac40}} 
+bool {\bfseries m\+\_\+has\+\_\+face\+\_\+property}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_aa17273032143279d9eba04b062242573}\label{classIXMPropertyBuilderImpl_aa17273032143279d9eba04b062242573}} 
+IMesh $\ast$ {\bfseries m\+\_\+mesh} = nullptr
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a9d0e71db60d7e9e0fca789bd91aaae74}\label{classIXMPropertyBuilderImpl_a9d0e71db60d7e9e0fca789bd91aaae74}} 
+ITrace\+Mng $\ast$ {\bfseries m\+\_\+trace\+\_\+mng} = nullptr
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_abc16598f15f0be30b34a090131a5f66e}\label{classIXMPropertyBuilderImpl_abc16598f15f0be30b34a090131a5f66e}} 
+Arcane\+::\+String {\bfseries m\+\_\+mesh\+\_\+directory\+\_\+name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 51 of file IXMProperty\+Builder.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a6db756e51e8cd233300e3a1f94500262}\label{classIXMPropertyBuilderImpl_a6db756e51e8cd233300e3a1f94500262}} 
+\index{IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}!IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}}
+\index{IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}!IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}}
+\doxysubsubsection{\texorpdfstring{IXMPropertyBuilderImpl()}{IXMPropertyBuilderImpl()}}
+{\footnotesize\ttfamily IXMProperty\+Builder\+Impl\+::\+IXMProperty\+Builder\+Impl (\begin{DoxyParamCaption}\item[{IMesh $\ast$const}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe, cas maillage evolutif. 
+
+Constructeur de la classe, cas maillage static 
+
+Definition at line 59 of file IXMProperty\+Builder.\+cc.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a729de972011c581c779b66b7abc106ba}\label{classIXMPropertyBuilderImpl_a729de972011c581c779b66b7abc106ba}} 
+\index{IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}!m\_event\_begin\_time@{m\_event\_begin\_time}}
+\index{m\_event\_begin\_time@{m\_event\_begin\_time}!IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}}
+\doxysubsubsection{\texorpdfstring{m\_event\_begin\_time}{m\_event\_begin\_time}}
+{\footnotesize\ttfamily Real IXMProperty\+Builder\+Impl\+::m\+\_\+event\+\_\+begin\+\_\+time\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Temps initial de l\textquotesingle{}{\ucr}v{\ucr}nement courant. 
+
+Utilis{\ucr}s pour l\textquotesingle{}interpolation. 
+
+Definition at line 169 of file IXMProperty\+Builder.\+h.
+
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_a1ecc57271b131e556316174e2ebac5de}\label{classIXMPropertyBuilderImpl_a1ecc57271b131e556316174e2ebac5de}} 
+\index{IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}!m\_event\_end\_time@{m\_event\_end\_time}}
+\index{m\_event\_end\_time@{m\_event\_end\_time}!IXMPropertyBuilderImpl@{IXMPropertyBuilderImpl}}
+\doxysubsubsection{\texorpdfstring{m\_event\_end\_time}{m\_event\_end\_time}}
+{\footnotesize\ttfamily Real IXMProperty\+Builder\+Impl\+::m\+\_\+event\+\_\+end\+\_\+time\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Temps final de l\textquotesingle{}{\ucr}v{\ucr}nement courant. 
+
+Utilis{\ucr} pour l\textquotesingle{}interpolation. 
+
+Definition at line 170 of file IXMProperty\+Builder.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMProperty\+Builder.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMProperty\+Builder.\+cc\end{DoxyCompactItemize}

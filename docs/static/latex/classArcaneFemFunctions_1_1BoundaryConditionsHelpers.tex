@@ -1,0 +1,38 @@
+\hypertarget{classArcaneFemFunctions_1_1BoundaryConditionsHelpers}{}\doxysection{Arcane\+Fem\+Functions\+::Boundary\+Conditions\+Helpers Class Reference}
+\label{classArcaneFemFunctions_1_1BoundaryConditionsHelpers}\index{ArcaneFemFunctions::BoundaryConditionsHelpers@{ArcaneFemFunctions::BoundaryConditionsHelpers}}
+
+
+Provides methods to help build boundary conditions in 2D/3D.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_af1001265363a53bc7f390f57796ea96f}\label{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_af1001265363a53bc7f390f57796ea96f}} 
+static void {\bfseries apply\+Dirichlet\+To\+Node\+Group\+Rhs\+Only} (const Int32 dof\+\_\+index, Real value, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, Variable\+Do\+FReal \&rhs\+\_\+values, Node\+Group \&node\+\_\+group)
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_a87d63d9f2c16d735d1f746a5c1146591}\label{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_a87d63d9f2c16d735d1f746a5c1146591}} 
+static void {\bfseries apply\+Dirichlet\+To\+Node\+Group\+Via\+Penalty} (const Int32 dof\+\_\+index, Real value, Real penalty, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, Variable\+Do\+FReal \&rhs\+\_\+values, Node\+Group \&node\+\_\+group)
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_ae26ebd48bf941816f0f0b14f84e47011}\label{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_ae26ebd48bf941816f0f0b14f84e47011}} 
+static void {\bfseries apply\+Dirichlet\+To\+Node\+Group\+Via\+Row\+Elimination} (const Int32 dof\+\_\+index, Real value, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, Variable\+Do\+FReal \&rhs\+\_\+values, Node\+Group \&node\+\_\+group)
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_af96df1bc66ad86d30e78b4c5c5a6052b}\label{classArcaneFemFunctions_1_1BoundaryConditionsHelpers_af96df1bc66ad86d30e78b4c5c5a6052b}} 
+static void {\bfseries apply\+Dirichlet\+To\+Node\+Group\+Via\+Row\+Column\+Elimination} (const Int32 dof\+\_\+index, Real value, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, Variable\+Do\+FReal \&rhs\+\_\+values, Node\+Group \&node\+\_\+group)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods to help build boundary conditions in 2D/3D. 
+
+Definition at line 1165 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

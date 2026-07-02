@@ -1,0 +1,58 @@
+\hypertarget{location_8hh}{}\doxysection{/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/location.hh File Reference}
+\label{location_8hh}\index{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/ExpressionParser/location.hh@{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/ExpressionParser/location.hh}}
+
+
+Define the \mbox{\hyperlink{classep_1_1location}{ep\+::location}} class.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}position.\+hh\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classep_1_1location}{ep\+::location}}
+\begin{DoxyCompactList}\small\item\em Abstract a location. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{location_8hh_aa436aa9fd14b500b98f3ec53d34d2a83}\label{location_8hh_aa436aa9fd14b500b98f3ec53d34d2a83}} 
+const location \mbox{\hyperlink{location_8hh_aa436aa9fd14b500b98f3ec53d34d2a83}{ep\+::operator+}} (const location \&begin, const location \&end)
+\begin{DoxyCompactList}\small\item\em Join two location objects to create a location. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{location_8hh_aea7f62342cf569ab23e26c176188bcb9}\label{location_8hh_aea7f62342cf569ab23e26c176188bcb9}} 
+const location \mbox{\hyperlink{location_8hh_aea7f62342cf569ab23e26c176188bcb9}{ep\+::operator+}} (const location \&begin, unsigned int width)
+\begin{DoxyCompactList}\small\item\em Add two location objects. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{location_8hh_a46e60d8f376950e69cb6e00248f9d398}\label{location_8hh_a46e60d8f376950e69cb6e00248f9d398}} 
+location \& \mbox{\hyperlink{location_8hh_a46e60d8f376950e69cb6e00248f9d398}{ep\+::operator+=}} (location \&res, unsigned int width)
+\begin{DoxyCompactList}\small\item\em Add and assign a location. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{location_8hh_ad4c62f2fd75d0cf87b740c21769f2329}{ep\+::operator$<$$<$}} (std\+::ostream \&ostr, const location \&loc)
+\begin{DoxyCompactList}\small\item\em Intercept output stream redirection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Define the \mbox{\hyperlink{classep_1_1location}{ep\+::location}} class. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{location_8hh_ad4c62f2fd75d0cf87b740c21769f2329}\label{location_8hh_ad4c62f2fd75d0cf87b740c21769f2329}} 
+\index{location.hh@{location.hh}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!location.hh@{location.hh}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& ep\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{const \mbox{\hyperlink{classep_1_1location}{location}} \&}]{loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Intercept output stream redirection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ostr} & the destination output stream \\
+\hline
+{\em loc} & a reference to the location to redirect\\
+\hline
+\end{DoxyParams}
+Avoid duplicate information. 
+
+Definition at line 128 of file location.\+hh.
+

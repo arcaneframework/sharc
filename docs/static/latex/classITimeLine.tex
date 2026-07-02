@@ -1,0 +1,49 @@
+\hypertarget{classITimeLine}{}\doxysection{ITime\+Line Class Reference}
+\label{classITimeLine}\index{ITimeLine@{ITimeLine}}
+
+
+Inherits \mbox{\hyperlink{classTimeStep_1_1IObservable}{Time\+Step\+::\+IObservable}}.
+
+
+
+Inherited by \mbox{\hyperlink{classTimeLineForcedByEvents}{Time\+Line\+Forced\+By\+Events}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classITimeLine_a37597303e0831849f0a76536b1553f0a}\label{classITimeLine_a37597303e0831849f0a76536b1553f0a}} 
+virtual void {\bfseries init} ()=0
+\item 
+\mbox{\Hypertarget{classITimeLine_acbf7ebd27ab5be77e01a3240e565577b}\label{classITimeLine_acbf7ebd27ab5be77e01a3240e565577b}} 
+virtual bool \mbox{\hyperlink{classITimeLine_acbf7ebd27ab5be77e01a3240e565577b}{is\+Step\+Replayed}} () const =0
+\begin{DoxyCompactList}\small\item\em True if time step is replayed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLine_aa150fb85a2dcf2bbe2c9ef5da0899a5c}\label{classITimeLine_aa150fb85a2dcf2bbe2c9ef5da0899a5c}} 
+virtual \mbox{\hyperlink{classITimeEvolution}{ITime\+Evolution}} \& \mbox{\hyperlink{classITimeLine_aa150fb85a2dcf2bbe2c9ef5da0899a5c}{evolution}} ()=0
+\begin{DoxyCompactList}\small\item\em Time evolution (for time step computers) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLine_ae67bd7107358bbaa57747600b5555a72}\label{classITimeLine_ae67bd7107358bbaa57747600b5555a72}} 
+virtual \mbox{\hyperlink{classIEventCalendar}{IEvent\+Calendar}} \& \mbox{\hyperlink{classITimeLine_ae67bd7107358bbaa57747600b5555a72}{calendar}} ()=0
+\begin{DoxyCompactList}\small\item\em Calendar (for events) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLine_a6dbf428a966e41b895af09fa57b7b4ba}\label{classITimeLine_a6dbf428a966e41b895af09fa57b7b4ba}} 
+virtual \mbox{\hyperlink{classTimeStep_1_1EntryPoints}{Time\+Step\+::\+Entry\+Points}} \& \mbox{\hyperlink{classITimeLine_a6dbf428a966e41b895af09fa57b7b4ba}{user\+Entry\+Points}} ()=0
+\begin{DoxyCompactList}\small\item\em User time step entry points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLine_af74f7b1dca7bbe6f9c74489b90b51d75}\label{classITimeLine_af74f7b1dca7bbe6f9c74489b90b51d75}} 
+virtual void \mbox{\hyperlink{classITimeLine_af74f7b1dca7bbe6f9c74489b90b51d75}{notify}} (const \mbox{\hyperlink{classTimeStep_1_1EntryPoint}{Time\+Step\+::\+Entry\+Point}} \&entry\+\_\+point)=0
+\begin{DoxyCompactList}\small\item\em Notification of events at user entry points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLine_a1b9443d413b33338591f26203ca62e4e}\label{classITimeLine_a1b9443d413b33338591f26203ca62e4e}} 
+virtual void {\bfseries compute\+Restored\+Next\+Time} ()=0
+\item 
+\mbox{\Hypertarget{classITimeLine_ace2902178878db150a3cdf40f98461f6}\label{classITimeLine_ace2902178878db150a3cdf40f98461f6}} 
+virtual void {\bfseries compute\+Restored\+Previous\+Time} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 28 of file ITime\+Line.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/ITime\+Line.\+h\end{DoxyCompactItemize}

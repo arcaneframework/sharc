@@ -1,0 +1,74 @@
+\hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h}{}\doxysection{/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Functions/\+Math\+Func.h File Reference}
+\label{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h}\index{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Expressions/FunctionParser/FunctorUtils/Functions/MathFunc.h@{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Expressions/FunctionParser/FunctorUtils/Functions/MathFunc.h}}
+
+
+Operations mathematiques standard applicables aux tableaux.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h_ad954495193a6a949af501495315c5abd}{MATHFUNC}}(NAME,  FCT,  DFCT)
+\begin{DoxyCompactList}\small\item\em Operations mathematiques sur les tableaux. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h_ab24c0564bbe92d85faa7d5420b7cc69f}\label{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h_ab24c0564bbe92d85faa7d5420b7cc69f}} 
+{\bfseries MATHFUNC} (sin\+Array, sin, left.\+get\+Derived\+Value(ligne, colonne) $\ast$std\+::cos(left.\+get\+Value(ligne))) MATHFUNC(asin\+Array
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h_af242b43b751956cb62729e67f2546faf}\label{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h_af242b43b751956cb62729e67f2546faf}} 
+{\bfseries asin}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Operations mathematiques standard applicables aux tableaux. 
+
+\begin{DoxyDate}{Date}
+01/04/2008 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Xavier TUNC 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h_ad954495193a6a949af501495315c5abd}\label{Expressions_2FunctionParser_2FunctorUtils_2Functions_2MathFunc_8h_ad954495193a6a949af501495315c5abd}} 
+\index{MathFunc.h@{MathFunc.h}!MATHFUNC@{MATHFUNC}}
+\index{MATHFUNC@{MATHFUNC}!MathFunc.h@{MathFunc.h}}
+\doxysubsubsection{\texorpdfstring{MATHFUNC}{MATHFUNC}}
+{\footnotesize\ttfamily \#define MATHFUNC(\begin{DoxyParamCaption}\item[{}]{NAME,  }\item[{}]{FCT,  }\item[{}]{DFCT }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)}
+\DoxyCodeLine{    class NAME \{ \(\backslash\)}
+\DoxyCodeLine{        public : \(\backslash\)}
+\DoxyCodeLine{            typedef \textcolor{keyword}{typename} T::value\_type value\_type; \(\backslash\)}
+\DoxyCodeLine{            static \textcolor{keyword}{inline} value\_type getValue(\textcolor{keyword}{const} T \& left, \textcolor{keyword}{const} T \& right, \textcolor{keywordtype}{int} index) \(\backslash\)}
+\DoxyCodeLine{            \{ \(\backslash\)}
+\DoxyCodeLine{                return std::FCT(left.getValue(index));  \(\backslash\)}
+\DoxyCodeLine{            \} \(\backslash\)}
+\DoxyCodeLine{            static \textcolor{keyword}{inline} value\_type getDerivedValue(\textcolor{keyword}{const} T \& left, \textcolor{keyword}{const} T \& right, \textcolor{keywordtype}{int} ligne, \textcolor{keywordtype}{int} colonne) \(\backslash\)}
+\DoxyCodeLine{            \{ \textcolor{keywordflow}{return} DFCT;\}; \(\backslash\)}
+\DoxyCodeLine{    \}; \(\backslash\)}
+\DoxyCodeLine{template <typename T> \(\backslash\)}
+\DoxyCodeLine{inline \mbox{\hyperlink{classExpr}{Expr<T , NAME<T>}}, T > FCT(\textcolor{keyword}{const} T \& a) \{ \(\backslash\)}
+\DoxyCodeLine{    typedef NAME<T> value\_type; \(\backslash\)}
+\DoxyCodeLine{    return \mbox{\hyperlink{classExpr}{Expr<T , NAME<T>}}, T > (a,a); \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+
+\end{DoxyCode}
+
+
+Operations mathematiques sur les tableaux. 
+
+Definition des operations mathematiques applicables aux tableaux. ~\newline
+Les operations sin, asin, sinh, cos, acos, acosh, tan, atan, atanh, exp, sqrt, log, log10 et abs sont implementes. ~\newline
+ Macro permettant de generer les operations mathematiques 
+
+Definition at line 17 of file Math\+Func.\+h.
+

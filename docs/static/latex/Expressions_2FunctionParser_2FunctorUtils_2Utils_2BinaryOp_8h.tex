@@ -1,0 +1,195 @@
+\hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h}{}\doxysection{/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Utils/\+Binary\+Op.h File Reference}
+\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h}\index{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Expressions/FunctionParser/FunctorUtils/Utils/BinaryOp.h@{/tmp/opencode/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Expressions/FunctionParser/FunctorUtils/Utils/BinaryOp.h}}
+
+
+Definitions des operateurs.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classBinaryAdd}{Binary\+Add$<$ L, R $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBinaryAdd}{Binary\+Add}} \+: Operation d\textquotesingle{}addition entre 2 types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBinaryMinus}{Binary\+Minus$<$ L, R $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBinaryMinus}{Binary\+Minus}} \+: Operation de soustraction entre 2 types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply$<$ L, R $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}} \+: Operation de multiplication entre 2 types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBinaryDiv}{Binary\+Div$<$ L, R $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBinaryDiv}{Binary\+Div}} \+: Operation de division entre 2 types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBinaryPow}{Binary\+Pow$<$ T, power $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}} \+: Operation de puissance entre 2 types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classBinarySum}{Binary\+Sum}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBinarySum}{Binary\+Sum}} \+: Operation d\textquotesingle{}addition entre deux \mbox{\hyperlink{structReal3}{Real3}} (et/ou expression) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a355203a9e85053cff7063ad18de6d1ba}{PUISSANCE}}(power)
+\begin{DoxyCompactList}\small\item\em Macro pour generaliser la fonction get\+Value() dans les autres cas (class \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}}) \end{DoxyCompactList}\item 
+\#define {\bfseries BINSUM}(type,  type2)
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_aebce488c27251fd52c4d96647ddca575}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_aebce488c27251fd52c4d96647ddca575}} 
+\#define \mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_aebce488c27251fd52c4d96647ddca575}{Bin\+Op}}(op,  type)
+\begin{DoxyCompactList}\small\item\em Macro pour generer les differentes operations pour tous les types possibles (tableaux, expressions, etc). \end{DoxyCompactList}\item 
+\#define {\bfseries BINOPSCG}(op,  type)
+\item 
+\#define {\bfseries BINOPSCD}(op,  type)
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a55a9eebe1c3f2350656ef397b2d83df6}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a55a9eebe1c3f2350656ef397b2d83df6}} 
+\#define {\bfseries BINOP\+\_\+\+FAD}(op,  type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a365d3a89452fb7a5df69e60f87170941}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a365d3a89452fb7a5df69e60f87170941}} 
+{\bfseries Bin\+Op} (operator+,\mbox{\hyperlink{classBinaryAdd}{Binary\+Add}}) Bin\+Op(operator-\/
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_ac52b0eb180a1b91c027627f667731c0f}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_ac52b0eb180a1b91c027627f667731c0f}} 
+\mbox{\hyperlink{classBinaryMinus}{Binary\+Minus}} {\bfseries Bin\+Op} (operator$\ast$,\mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}}) Bin\+Op(operator/
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definitions des operateurs. 
+
+\begin{DoxyDate}{Date}
+01/04/2008 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Xavier TUNC
+\end{DoxyAuthor}
+Definition de cinq classes pour traiter toutes les operations courantes sur des tableaux. ~\newline
+La classe \mbox{\hyperlink{classBinaryAdd}{Binary\+Add}} est la classe utilisee dans le cas d\textquotesingle{}une addition (membre a membre) entre deux tableaux/expressions. ~\newline
+La classe \mbox{\hyperlink{classBinaryMinus}{Binary\+Minus}} est la classe utilisee dans le cas d\textquotesingle{}une soustraction (membre a membre) entre deux tableaux/expressions. ~\newline
+La classe \mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}} est la classe utilisee dans le cas d\textquotesingle{}une multiplication (membre a membre) entre deux tableaux/expressions. ~\newline
+La classe \mbox{\hyperlink{classBinaryDiv}{Binary\+Div}} est la classe utilisee dans le cas d\textquotesingle{}une division (membre a membre) entre deux tableaux/expressions. ~\newline
+La classe \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}} est la classe utilisee dans le cas d\textquotesingle{}un tableau eleve a la puissance n. ~\newline
+Si on effectue une operation entre deux tableaux/expressions, cette operation s\textquotesingle{}effectuera toujours membre a membre. ~\newline
+Si on effectue une operation entre un tableau/expression et un scalaire, cette operation s\textquotesingle{}effectuera sur tous les membres du tableau/expression. ~\newline
+ 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_aada94b0066eaaab6e3d2172726267c0d}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_aada94b0066eaaab6e3d2172726267c0d}} 
+\index{BinaryOp.h@{BinaryOp.h}!BINOPSCD@{BINOPSCD}}
+\index{BINOPSCD@{BINOPSCD}!BinaryOp.h@{BinaryOp.h}}
+\doxysubsubsection{\texorpdfstring{BINOPSCD}{BINOPSCD}}
+{\footnotesize\ttfamily \#define BINOPSCD(\begin{DoxyParamCaption}\item[{}]{op,  }\item[{}]{type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} A,\textcolor{keyword}{typename} B> \(\backslash\)}
+\DoxyCodeLine{inline \mbox{\hyperlink{classExprD}{ExprD<Array<A>}}, type<Array<A>, \mbox{\hyperlink{classCst}{Cst<B>}} >, \mbox{\hyperlink{classCst}{Cst<B>}} > \(\backslash\)}
+\DoxyCodeLine{op (\textcolor{keyword}{const} \mbox{\hyperlink{classArray}{Array<A>}} \& L , \textcolor{keyword}{const} B R) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  typedef type<Array<A>, \mbox{\hyperlink{classCst}{Cst<B>}} > value\_type ; \(\backslash\)}
+\DoxyCodeLine{  return \mbox{\hyperlink{classExprD}{ExprD<Array<A>}} , value\_type, \mbox{\hyperlink{classCst}{Cst<B>}} > ( L,\mbox{\hyperlink{classCst}{Cst<B>}}(R)) ; \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+\DoxyCodeLine{template <typename A, typename xpr1, typename xpr2, typename xpr3> \(\backslash\)}
+\DoxyCodeLine{inline \mbox{\hyperlink{classExprD}{ExprD< Expr<xpr1,xpr2,xpr3>}}, type<Expr<xpr1,xpr2,xpr3>,\mbox{\hyperlink{classCst}{Cst<A>}} > , \mbox{\hyperlink{classCst}{Cst<A>}} > \(\backslash\)}
+\DoxyCodeLine{op (\textcolor{keyword}{const} \mbox{\hyperlink{classExprD}{ExprD<xpr1,xpr2,xpr3>}} \& L , \textcolor{keyword}{const} A R) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  typedef type<Expr<xpr1,xpr2,xpr3> ,\mbox{\hyperlink{classCst}{Cst<A>}} > value\_type ; \(\backslash\)}
+\DoxyCodeLine{  return \mbox{\hyperlink{classExprD}{ExprD< Expr<xpr1,xpr2,xpr3>}}, value\_type , \mbox{\hyperlink{classCst}{Cst<A>}} > (L,\mbox{\hyperlink{classCst}{Cst<A>}} (R)) ; \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+\DoxyCodeLine{template <typename A, typename xpr1, typename xpr2, typename xpr3> \(\backslash\)}
+\DoxyCodeLine{inline \mbox{\hyperlink{classExprD}{ExprD< ExprG<xpr1,xpr2,xpr3>}}, type<ExprG<xpr1,xpr2,xpr3>,\mbox{\hyperlink{classCst}{Cst<A>}} > , \mbox{\hyperlink{classCst}{Cst<A>}} > \(\backslash\)}
+\DoxyCodeLine{op (\textcolor{keyword}{const} \mbox{\hyperlink{classExprG}{ExprG<xpr1,xpr2,xpr3>}} \& L , \textcolor{keyword}{const} A R) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  typedef type<ExprG<xpr1,xpr2,xpr3> ,\mbox{\hyperlink{classCst}{Cst<A>}} > value\_type ; \(\backslash\)}
+\DoxyCodeLine{  return \mbox{\hyperlink{classExprD}{ExprD< ExprG<xpr1,xpr2,xpr3>}}, value\_type , \mbox{\hyperlink{classCst}{Cst<A>}} > (L,\mbox{\hyperlink{classCst}{Cst<A>}} (R)) ; \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_acd7f247a3600309ba5efc20563da7716}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_acd7f247a3600309ba5efc20563da7716}} 
+\index{BinaryOp.h@{BinaryOp.h}!BINOPSCG@{BINOPSCG}}
+\index{BINOPSCG@{BINOPSCG}!BinaryOp.h@{BinaryOp.h}}
+\doxysubsubsection{\texorpdfstring{BINOPSCG}{BINOPSCG}}
+{\footnotesize\ttfamily \#define BINOPSCG(\begin{DoxyParamCaption}\item[{}]{op,  }\item[{}]{type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} A,\textcolor{keyword}{typename} B> \(\backslash\)}
+\DoxyCodeLine{inline \mbox{\hyperlink{classExprG}{ExprG<Cst<B>}}, type<Cst<B>, \mbox{\hyperlink{classArray}{Array<A>}} >, \mbox{\hyperlink{classArray}{Array<A>}} > \(\backslash\)}
+\DoxyCodeLine{op (\textcolor{keyword}{const} B L , \textcolor{keyword}{const} \mbox{\hyperlink{classArray}{Array<A>}} \& R) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  typedef type<Cst<B>, \mbox{\hyperlink{classArray}{Array<A>}} > value\_type ; \(\backslash\)}
+\DoxyCodeLine{  return \mbox{\hyperlink{classExprG}{ExprG< Cst<B>}}, value\_type, \mbox{\hyperlink{classArray}{Array<A>}} > (\mbox{\hyperlink{classCst}{Cst<B>}}(L) ,R) ; \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+\DoxyCodeLine{template <typename A, typename xpr1, typename xpr2, typename xpr3> \(\backslash\)}
+\DoxyCodeLine{inline \mbox{\hyperlink{classExprG}{ExprG< Cst<A>}}, type<Cst<A>, \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} > , \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} > \(\backslash\)}
+\DoxyCodeLine{op (\textcolor{keyword}{const} A L , \textcolor{keyword}{const} \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} \& R) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  typedef type<Cst<A>, \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} > value\_type ; \(\backslash\)}
+\DoxyCodeLine{  return \mbox{\hyperlink{classExprG}{ExprG< Cst<A>}}, value\_type , \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} > (\mbox{\hyperlink{classCst}{Cst<A>}} (L), R) ; \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+\DoxyCodeLine{template <typename A, typename xpr1, typename xpr2, typename xpr3> \(\backslash\)}
+\DoxyCodeLine{inline \mbox{\hyperlink{classExprG}{ExprG< Cst<A>}}, type<Cst<A>, \mbox{\hyperlink{classExprD}{ExprD<xpr1,xpr2,xpr3>}} > , \mbox{\hyperlink{classExprD}{ExprD<xpr1,xpr2,xpr3>}} > \(\backslash\)}
+\DoxyCodeLine{op (\textcolor{keyword}{const} A L , \textcolor{keyword}{const} \mbox{\hyperlink{classExprD}{ExprD<xpr1,xpr2,xpr3>}} \& R) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  typedef type<Cst<A>, \mbox{\hyperlink{classExprD}{ExprD<xpr1,xpr2,xpr3>}} > value\_type ; \(\backslash\)}
+\DoxyCodeLine{  return \mbox{\hyperlink{classExprG}{ExprG< Cst<A>}}, value\_type , \mbox{\hyperlink{classExprD}{ExprD<xpr1,xpr2,xpr3>}} > (\mbox{\hyperlink{classCst}{Cst<A>}} (L), R) ; \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a4f85a5bb90e9238d18c4af97dd0e3a9b}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a4f85a5bb90e9238d18c4af97dd0e3a9b}} 
+\index{BinaryOp.h@{BinaryOp.h}!BINSUM@{BINSUM}}
+\index{BINSUM@{BINSUM}!BinaryOp.h@{BinaryOp.h}}
+\doxysubsubsection{\texorpdfstring{BINSUM}{BINSUM}}
+{\footnotesize\ttfamily \#define BINSUM(\begin{DoxyParamCaption}\item[{}]{type,  }\item[{}]{type2 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} type(\textcolor{keyword}{const} \mbox{\hyperlink{structReal3}{Real3}} \& re1, \textcolor{keyword}{const} \mbox{\hyperlink{structReal3}{Real3}} \& re2) \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    return re1.type2 + re2.type2 ; \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{template <typename xpr1,typename xpr2, typename xpr3> \(\backslash\)}
+\DoxyCodeLine{static \textcolor{keyword}{inline} \textcolor{keywordtype}{double} type(\textcolor{keyword}{const} \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} \& re1, \textcolor{keyword}{const} \mbox{\hyperlink{structReal3}{Real3}} \& re2) \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    return re1.type() + re2.type2 ; \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{template <typename xpr1,typename xpr2, typename xpr3> \(\backslash\)}
+\DoxyCodeLine{static \textcolor{keyword}{inline} \textcolor{keywordtype}{double} type(\textcolor{keyword}{const} \mbox{\hyperlink{structReal3}{Real3}} \& re1, \textcolor{keyword}{const} \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} \& re2) \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    return re1.type2 + re2.type() ; \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{template <typename xpr1,typename xpr2, typename xpr3, typename xpr4,typename xpr5, typename xpr6> \(\backslash\)}
+\DoxyCodeLine{static \textcolor{keyword}{inline} \textcolor{keywordtype}{double} type(\textcolor{keyword}{const} \mbox{\hyperlink{classExpr}{Expr<xpr1,xpr2,xpr3>}} \& re1, \textcolor{keyword}{const} \mbox{\hyperlink{classExpr}{Expr<xpr4,xpr5,xpr6>}} \& re2) \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    return re1.type() + re2.type() ; \(\backslash\)}
+\DoxyCodeLine{  \}\(\backslash\)}
+
+\end{DoxyCode}
+
+
+Definition at line 338 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a355203a9e85053cff7063ad18de6d1ba}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h_a355203a9e85053cff7063ad18de6d1ba}} 
+\index{BinaryOp.h@{BinaryOp.h}!PUISSANCE@{PUISSANCE}}
+\index{PUISSANCE@{PUISSANCE}!BinaryOp.h@{BinaryOp.h}}
+\doxysubsubsection{\texorpdfstring{PUISSANCE}{PUISSANCE}}
+{\footnotesize\ttfamily \#define PUISSANCE(\begin{DoxyParamCaption}\item[{}]{power }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \textcolor{keyword}{inline} value\_type getValue(\textcolor{keyword}{const} T \& left, \textcolor{keyword}{const} power \& right, \textcolor{keywordtype}{int} index) \(\backslash\)}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{  if (right.getValue(index)==(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}) right.getValue(index)) \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    return left.getValue(index)*\mbox{\hyperlink{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}{BinaryPow::getValue}}(left,right.getValue(index)-\/1,index) ; \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{  else \(\backslash\)}
+\DoxyCodeLine{  \{ \(\backslash\)}
+\DoxyCodeLine{    return std::pow(left.getValue(index),right.getValue(index)) ; \(\backslash\)}
+\DoxyCodeLine{  \} \(\backslash\)}
+\DoxyCodeLine{\} \(\backslash\)}
+
+\end{DoxyCode}
+
+
+Macro pour generaliser la fonction get\+Value() dans les autres cas (class \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}}) 
+
+
+
+Definition at line 248 of file Binary\+Op.\+h.
+

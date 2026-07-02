@@ -1,0 +1,88 @@
+\hypertarget{structOut}{}\doxysection{Out$<$ T $>$ Struct Template Reference}
+\label{structOut}\index{Out$<$ T $>$@{Out$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{structdetails_1_1SignatureTraitsT}{details\+::\+Signature\+Traits\+T$<$ T... $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structOut_a10aee2f92ed2395dedbb64fc3fa3d810}\label{structOut_a10aee2f92ed2395dedbb64fc3fa3d810}} 
+typedef \mbox{\hyperlink{structdetails_1_1SignatureTraitsT}{details\+::\+Signature\+TraitsT}}$<$ T... $>$ {\bfseries Base}
+\item 
+\mbox{\Hypertarget{structOut_a6c8bb5a3eb22c5917fedc9d7dd47a074}\label{structOut_a6c8bb5a3eb22c5917fedc9d7dd47a074}} 
+typedef Base\+::\+Property\+Types {\bfseries Property\+Types}
+\item 
+\mbox{\Hypertarget{structOut_aca134769fd4adafc8498176b3220c840}\label{structOut_aca134769fd4adafc8498176b3220c840}} 
+typedef boost\+::mpl\+::transform$<$ typename Base\+::\+Argument\+Types, \mbox{\hyperlink{structdetails_1_1ArgumentToFuncSigOutType}{details\+::\+Argument\+To\+Func\+Sig\+Out\+Type}}$<$ boost\+::mpl\+::\+\_\+ $>$ $>$\+::type {\bfseries Func\+Sig\+Types}
+\item 
+\mbox{\Hypertarget{structOut_a1f1067eb87872fa7b37c989fc3df8859}\label{structOut_a1f1067eb87872fa7b37c989fc3df8859}} 
+typedef boost\+::mpl\+::transform$<$ typename Base\+::\+Argument\+Types, \mbox{\hyperlink{structdetails_1_1ArgumentToFuncSigDerivType}{details\+::\+Argument\+To\+Func\+Sig\+Deriv\+Type}}$<$ boost\+::mpl\+::\+\_\+ $>$ $>$\+::type {\bfseries Func\+Sig\+Deriv\+Types}
+\item 
+\mbox{\Hypertarget{structOut_a65dbb51b8482d1cfdc48425e1eb91654}\label{structOut_a65dbb51b8482d1cfdc48425e1eb91654}} 
+typedef \mbox{\hyperlink{structmpl_1_1merge}{mpl\+::merge}}$<$ Func\+Sig\+Types, Func\+Sig\+Deriv\+Types $>$\+::type {\bfseries Deriv\+Func\+Sig\+Types}
+\item 
+\mbox{\Hypertarget{structOut_a3418404f021151b515a158f5ca20f306}\label{structOut_a3418404f021151b515a158f5ca20f306}} 
+typedef \mbox{\hyperlink{structmpl_1_1merge}{mpl\+::merge}}$<$ Value\+Types, Derivative\+Value\+Types $>$\+::type {\bfseries Value\+And\+Derivative\+Types}
+\item 
+\mbox{\Hypertarget{structOut_a1565cffdbeb91b0c0ad6c991948301da}\label{structOut_a1565cffdbeb91b0c0ad6c991948301da}} 
+typedef \mbox{\hyperlink{structmpl_1_1merge}{mpl\+::merge}}$<$ Variable\+Types, Derivative\+Variable\+Types $>$\+::type {\bfseries Variable\+And\+Derivative\+Types}
+\item 
+\mbox{\Hypertarget{structOut_ad5edd691bf09b2bd02fdacc645710eef}\label{structOut_ad5edd691bf09b2bd02fdacc645710eef}} 
+typedef \mbox{\hyperlink{structmpl_1_1merge}{mpl\+::merge}}$<$ Partial\+Variable\+Types, Derivative\+Partial\+Variable\+Types $>$\+::type {\bfseries Partial\+Variable\+And\+Derivative\+Types}
+\item 
+\mbox{\Hypertarget{structOut_a0c38772216f1cebf14a124719ec7f784}\label{structOut_a0c38772216f1cebf14a124719ec7f784}} 
+typedef \mbox{\hyperlink{structmpl_1_1merge}{mpl\+::merge}}$<$ Array\+Types, Derivative\+Array\+Types $>$\+::type {\bfseries Array\+And\+Derivative\+Types}
+\item 
+\mbox{\Hypertarget{structOut_aaf8b48760a20106f398ac2b79d97b4db}\label{structOut_aaf8b48760a20106f398ac2b79d97b4db}} 
+typedef \mbox{\hyperlink{structmpl_1_1merge}{mpl\+::merge}}$<$ Scalar\+Types, Derivative\+Scalar\+Types $>$\+::type {\bfseries Scalar\+And\+Derivative\+Types}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structOut_a0862252a04b1a6228a8d033f583ec372}\label{structOut_a0862252a04b1a6228a8d033f583ec372}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structStateContainer}{State\+Container}}, Value, Value\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a7fb0484c68bce0c428c9fc3c564cbc91}\label{structOut_a7fb0484c68bce0c428c9fc3c564cbc91}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structStateContainer}{State\+Container}}, Deriv, Derivative\+Value\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a0c724063ba47b89107b5260c455b6683}\label{structOut_a0c724063ba47b89107b5260c455b6683}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structGenericVariableContainer}{Generic\+Variable\+Container}}, Value, Variable\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a888e0d31576bad5077cb40535b2f3d43}\label{structOut_a888e0d31576bad5077cb40535b2f3d43}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structGenericVariableContainer}{Generic\+Variable\+Container}}, Deriv, Derivative\+Variable\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a19141b1d8a1ec277cb1959e189cf2915}\label{structOut_a19141b1d8a1ec277cb1959e189cf2915}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structGenericPartialVariableContainer}{Generic\+Partial\+Variable\+Container}}, Value, Partial\+Variable\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a52feb29759da3d20f79a36095ce103c4}\label{structOut_a52feb29759da3d20f79a36095ce103c4}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structGenericPartialVariableContainer}{Generic\+Partial\+Variable\+Container}}, Deriv, Derivative\+Partial\+Variable\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a1f68ce43e78388c967c72e58b8fad49c}\label{structOut_a1f68ce43e78388c967c72e58b8fad49c}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structArrayContainer}{Array\+Container}}, Value, Array\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a775e41ca484f49cc217d52c5564f2c03}\label{structOut_a775e41ca484f49cc217d52c5564f2c03}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structArrayContainer}{Array\+Container}}, Deriv, Derivative\+Array\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a46f0108b1e693996dde155c08b26228c}\label{structOut_a46f0108b1e693996dde155c08b26228c}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structScalarContainer}{Scalar\+Container}}, Value, Scalar\+Types)
+\item 
+\mbox{\Hypertarget{structOut_a8bb88e25a3d20b22c5131e66660cfb98}\label{structOut_a8bb88e25a3d20b22c5131e66660cfb98}} 
+{\bfseries TRANSFORM} (\mbox{\hyperlink{structScalarContainer}{Scalar\+Container}}, Deriv, Derivative\+Scalar\+Types)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename... T$>$\newline
+struct Out$<$ T $>$}
+
+
+
+Definition at line 206 of file Signature\+Traits.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Signature\+Traits.\+h\end{DoxyCompactItemize}

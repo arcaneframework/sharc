@@ -1,0 +1,197 @@
+\hypertarget{classArcaneFemFunctions_1_1FeOperation3D}{}\doxysection{Arcane\+Fem\+Functions\+::Fe\+Operation3D Class Reference}
+\label{classArcaneFemFunctions_1_1FeOperation3D}\index{ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}}
+
+
+Provides methods for finite element operations in 3D.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation3D_1_1Hexa8GaussPointInfo}{Hexa8\+Gauss\+Point\+Info}}
+\begin{DoxyCompactList}\small\item\em Holds information for a Hexa8 element at a single Gauss point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structReal4}{Real4}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation3D_a9fe2e5d79bb1b967c02e1d083f699877}{compute\+Gradient\+XTetra4}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the X gradients of basis functions 𝐍 for ℙ1 Tetrahedron. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal4}{Real4}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation3D_aabbb79017560ea34a8deed97ae2d4378}{compute\+Gradient\+YTetra4}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the Y gradients of basis functions 𝐍 for ℙ1 Tetrahedron. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal4}{Real4}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation3D_a913330042d24d1c09b805bfa779dd21c}{compute\+Gradient\+ZTetra4}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the 𝑧 gradients of basis functions 𝐍 for ℙ1 Tetrahedron. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation3D_a18ce8f1f0d0b6a1c72470ba9b5cf88a2}\label{classArcaneFemFunctions_1_1FeOperation3D_a18ce8f1f0d0b6a1c72470ba9b5cf88a2}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Gradient\+Tetra4} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Node\+Real u)
+\item 
+static \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation3D_1_1Hexa8GaussPointInfo}{Hexa8\+Gauss\+Point\+Info}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation3D_af9b3f653f6750e4b98587903249c204e}{compute\+Gradients\+And\+Jacobian\+Hexa8}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord, Real xi, Real eta, Real zeta)
+\begin{DoxyCompactList}\small\item\em Computes shape function gradients and the Jacobian determinant for a Hexa8 element. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation3D_a768f626b681eb8b7380ff919680c6399}{compute\+Gradient\+Hexa8}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord, const Variable\+Node\+Real \&u)
+\begin{DoxyCompactList}\small\item\em Computes the gradient of a scalar field \textquotesingle{}u\textquotesingle{} for a Hexa8 element. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$ 8 $>$ \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation3D_a9bf455ec51ee80908c523790cc92ffbb}{compute\+Shape\+Functions\+Hexa8}} (Real xi, Real eta, Real zeta)
+\begin{DoxyCompactList}\small\item\em Computes the shape functions for a Hexa8 element at a given point (ξ,η,ζ). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for finite element operations in 3D. 
+
+This class includes static methods for calculating gradients of basis functions and integrals for P1 triangles in 3D finite element analysis.
+
+Reference Tetra4 element in \mbox{\hyperlink{namespaceArcane}{Arcane}} \begin{DoxyVerb}          3 o
+           /|\
+          / | \
+         /  |  \
+        /   o 2 \
+       / .    .  \
+    0 o-----------o 1
+\end{DoxyVerb}
+ 
+
+Definition at line 782 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation3D_a768f626b681eb8b7380ff919680c6399}\label{classArcaneFemFunctions_1_1FeOperation3D_a768f626b681eb8b7380ff919680c6399}} 
+\index{ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}!computeGradientHexa8@{computeGradientHexa8}}
+\index{computeGradientHexa8@{computeGradientHexa8}!ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}}
+\doxysubsubsection{\texorpdfstring{computeGradientHexa8()}{computeGradientHexa8()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fe\+Operation3\+D\+::compute\+Gradient\+Hexa8 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{const Variable\+Node\+Real \&}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the gradient of a scalar field \textquotesingle{}u\textquotesingle{} for a Hexa8 element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The Hexa8 cell entity. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the mesh nodes. \\
+\hline
+{\em u} & The scalar variable 𝑢 defined at the nodes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{structReal3}{Real3}} vector of the gradient ∇𝑢 = \{∂𝑢/∂𝑥, ∂𝑢/∂𝑦, ∂𝑢/∂𝑧\} at the cell center. 
+\end{DoxyReturn}
+
+
+Definition at line 1090 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation3D_af9b3f653f6750e4b98587903249c204e}\label{classArcaneFemFunctions_1_1FeOperation3D_af9b3f653f6750e4b98587903249c204e}} 
+\index{ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}!computeGradientsAndJacobianHexa8@{computeGradientsAndJacobianHexa8}}
+\index{computeGradientsAndJacobianHexa8@{computeGradientsAndJacobianHexa8}!ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}}
+\doxysubsubsection{\texorpdfstring{computeGradientsAndJacobianHexa8()}{computeGradientsAndJacobianHexa8()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation3D_1_1Hexa8GaussPointInfo}{Hexa8\+Gauss\+Point\+Info}} Arcane\+Fem\+Functions\+::\+Fe\+Operation3\+D\+::compute\+Gradients\+And\+Jacobian\+Hexa8 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Real}]{xi,  }\item[{Real}]{eta,  }\item[{Real}]{zeta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes shape function gradients and the Jacobian determinant for a Hexa8 element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The Hexa8 cell entity. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the mesh nodes. \\
+\hline
+{\em xi} & The ξ coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+{\em eta} & The η coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+{\em zeta} & The ζ coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation3D_1_1Hexa8GaussPointInfo}{Hexa8\+Gauss\+Point\+Info}} struct containing the gradients and Jacobian determinant. 
+\end{DoxyReturn}
+
+
+Definition at line 988 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation3D_a9fe2e5d79bb1b967c02e1d083f699877}\label{classArcaneFemFunctions_1_1FeOperation3D_a9fe2e5d79bb1b967c02e1d083f699877}} 
+\index{ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}!computeGradientXTetra4@{computeGradientXTetra4}}
+\index{computeGradientXTetra4@{computeGradientXTetra4}!ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}}
+\doxysubsubsection{\texorpdfstring{computeGradientXTetra4()}{computeGradientXTetra4()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal4}{Real4}} Arcane\+Fem\+Functions\+::\+Fe\+Operation3\+D\+::compute\+Gradient\+XTetra4 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the X gradients of basis functions 𝐍 for ℙ1 Tetrahedron. 
+
+This method calculates gradient operator ∂/∂𝑥 of 𝑁ᵢ for a given ℙ1 cell with i = 1,..,4 for the four shape function 𝑁ᵢ hence output is a vector of size 4 \begin{DoxyVerb}    ∂𝐍/∂𝑥 = [ ∂𝑁₁/∂𝑥  ∂𝑁₂/∂𝑥  ∂𝑁₃/∂𝑥  ∂𝑁₄/∂𝑥 ]
+
+    ∂𝐍/∂𝑥 = 1/(6𝑉) [ dx0  dx1  dx2  dx3 ]
+\end{DoxyVerb}
+ where\+: dx0 = (n1.\+y $\ast$ (n3.\+z -\/ n2.\+z) + n2.\+y $\ast$ (n1.\+z -\/ n3.\+z) + n3.\+y $\ast$ (n2.\+z -\/ n1.\+z)), dx1 = (n0.\+y $\ast$ (n2.\+z -\/ n3.\+z) + n2.\+y $\ast$ (n3.\+z -\/ n0.\+z) + n3.\+y $\ast$ (n0.\+z -\/ n2.\+z)), dx2 = (n0.\+y $\ast$ (n3.\+z -\/ n1.\+z) + n1.\+y $\ast$ (n0.\+z -\/ n3.\+z) + n3.\+y $\ast$ (n1.\+z -\/ n0.\+z)), dx3 = (n0.\+y $\ast$ (n1.\+z -\/ n2.\+z) + n1.\+y $\ast$ (n2.\+z -\/ n0.\+z) + n2.\+y $\ast$ (n0.\+z -\/ n1.\+z)). 
+
+Definition at line 807 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation3D_aabbb79017560ea34a8deed97ae2d4378}\label{classArcaneFemFunctions_1_1FeOperation3D_aabbb79017560ea34a8deed97ae2d4378}} 
+\index{ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}!computeGradientYTetra4@{computeGradientYTetra4}}
+\index{computeGradientYTetra4@{computeGradientYTetra4}!ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}}
+\doxysubsubsection{\texorpdfstring{computeGradientYTetra4()}{computeGradientYTetra4()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal4}{Real4}} Arcane\+Fem\+Functions\+::\+Fe\+Operation3\+D\+::compute\+Gradient\+YTetra4 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the Y gradients of basis functions 𝐍 for ℙ1 Tetrahedron. 
+
+This method calculates gradient operator ∂/∂𝑦 of 𝑁ᵢ for a given ℙ1 cell with i = 1,..,4 for the four shape functions 𝑁ᵢ, hence the output is a vector of size 4. \begin{DoxyVerb}    ∂𝐍/∂𝑦 = [ ∂𝑁₁/∂𝑦  ∂𝑁₂/∂𝑦  ∂𝑁₃/∂𝑦  ∂𝑁₄/∂𝑦 ]
+
+    ∂𝐍/∂𝑦 = 1/(6𝑉) [ dy0  dy1  dy2  dy3 ]
+\end{DoxyVerb}
+ where\+: dy0 = (n1.\+z $\ast$ (n3.\+x -\/ n2.\+x) + n2.\+z $\ast$ (n1.\+x -\/ n3.\+x) + n3.\+z $\ast$ (n2.\+x -\/ n1.\+x)), dy1 = (n0.\+z $\ast$ (n2.\+x -\/ n3.\+x) + n2.\+z $\ast$ (n3.\+x -\/ n0.\+x) + n3.\+z $\ast$ (n0.\+x -\/ n2.\+x)), dy2 = (n0.\+z $\ast$ (n3.\+x -\/ n1.\+x) + n1.\+z $\ast$ (n0.\+x -\/ n3.\+x) + n3.\+z $\ast$ (n1.\+x -\/ n0.\+x)), dy3 = (n0.\+z $\ast$ (n1.\+x -\/ n2.\+x) + n1.\+z $\ast$ (n2.\+x -\/ n0.\+x) + n2.\+z $\ast$ (n0.\+x -\/ n1.\+x)). 
+
+Definition at line 852 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation3D_a913330042d24d1c09b805bfa779dd21c}\label{classArcaneFemFunctions_1_1FeOperation3D_a913330042d24d1c09b805bfa779dd21c}} 
+\index{ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}!computeGradientZTetra4@{computeGradientZTetra4}}
+\index{computeGradientZTetra4@{computeGradientZTetra4}!ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}}
+\doxysubsubsection{\texorpdfstring{computeGradientZTetra4()}{computeGradientZTetra4()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal4}{Real4}} Arcane\+Fem\+Functions\+::\+Fe\+Operation3\+D\+::compute\+Gradient\+ZTetra4 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the 𝑧 gradients of basis functions 𝐍 for ℙ1 Tetrahedron. 
+
+This method calculates gradient operator ∂/∂𝑧 of 𝑁ᵢ for a given ℙ1 cell with i = 1,..,4 for the four shape functions 𝑁ᵢ, hence the output is a vector of size 4. \begin{DoxyVerb}    ∂𝐍/∂𝑧 = [ ∂𝑁₁/∂𝑧  ∂𝑁₂/∂𝑧  ∂𝑁₃/∂𝑧  ∂𝑁₄/∂𝑧 ]
+
+    ∂𝐍/∂𝑧 = 1/(6𝑉) [ dz0  dz1  dz2  dz3 ]
+\end{DoxyVerb}
+ where\+: dz0 = (n1.\+x $\ast$ (n3.\+y -\/ n2.\+y) + n2.\+x $\ast$ (n1.\+y -\/ n3.\+y) + n3.\+x $\ast$ (n2.\+y -\/ n1.\+y)), dz1 = (n0.\+x $\ast$ (n2.\+y -\/ n3.\+y) + n2.\+x $\ast$ (n3.\+y -\/ n0.\+y) + n3.\+x $\ast$ (n0.\+y -\/ n2.\+y)), dz2 = (n0.\+x $\ast$ (n3.\+y -\/ n1.\+y) + n1.\+x $\ast$ (n0.\+y -\/ n3.\+y) + n3.\+x $\ast$ (n1.\+y -\/ n0.\+y)), dz3 = (n0.\+x $\ast$ (n1.\+y -\/ n2.\+y) + n1.\+x $\ast$ (n2.\+y -\/ n0.\+y) + n2.\+x $\ast$ (n0.\+y -\/ n1.\+y)). 
+
+Definition at line 897 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation3D_a9bf455ec51ee80908c523790cc92ffbb}\label{classArcaneFemFunctions_1_1FeOperation3D_a9bf455ec51ee80908c523790cc92ffbb}} 
+\index{ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}!computeShapeFunctionsHexa8@{computeShapeFunctionsHexa8}}
+\index{computeShapeFunctionsHexa8@{computeShapeFunctionsHexa8}!ArcaneFemFunctions::FeOperation3D@{ArcaneFemFunctions::FeOperation3D}}
+\doxysubsubsection{\texorpdfstring{computeShapeFunctionsHexa8()}{computeShapeFunctionsHexa8()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$8$>$ Arcane\+Fem\+Functions\+::\+Fe\+Operation3\+D\+::compute\+Shape\+Functions\+Hexa8 (\begin{DoxyParamCaption}\item[{Real}]{xi,  }\item[{Real}]{eta,  }\item[{Real}]{zeta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the shape functions for a Hexa8 element at a given point (ξ,η,ζ). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & The ξ coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+{\em eta} & The η coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+{\em zeta} & The ζ coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector$<$8$>$}} containing the shape functions \{𝑁₁, 𝑁₂, 𝑁₃, 𝑁₄, 𝑁₅, 𝑁₆, 𝑁₇, 𝑁₈\}. 
+\end{DoxyReturn}
+
+
+Definition at line 1137 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

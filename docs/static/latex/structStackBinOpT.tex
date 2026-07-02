@@ -1,0 +1,60 @@
+\hypertarget{structStackBinOpT}{}\doxysection{Stack\+Bin\+OpT$<$ Bin\+Op $>$ Struct Template Reference}
+\label{structStackBinOpT}\index{StackBinOpT$<$ BinOp $>$@{StackBinOpT$<$ BinOp $>$}}
+
+
+Inherits \mbox{\hyperlink{structIStackOp}{IStack\+Op}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structStackBinOpT_a593fa60efb28288f8988279d116e30d5}\label{structStackBinOpT_a593fa60efb28288f8988279d116e30d5}} 
+void \mbox{\hyperlink{structStackBinOpT_a593fa60efb28288f8988279d116e30d5}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack)
+\begin{DoxyCompactList}\small\item\em defaut apply (by block) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structStackBinOpT_a18b26d4e5a09307398289539cbcba62f}\label{structStackBinOpT_a18b26d4e5a09307398289539cbcba62f}} 
+void \mbox{\hyperlink{structStackBinOpT_a18b26d4e5a09307398289539cbcba62f}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack, const Integer n)
+\begin{DoxyCompactList}\small\item\em restricted apply (not by block) \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{structStackBinOpT_a6bd375ec6b291fd5f88377e816f2d8b8}{size}} () const
+\begin{DoxyCompactList}\small\item\em operator depth \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structStackBinOpT_a2d87b5a43cff39ff1893a954f02ed283}\label{structStackBinOpT_a2d87b5a43cff39ff1893a954f02ed283}} 
+void \mbox{\hyperlink{structStackBinOpT_a2d87b5a43cff39ff1893a954f02ed283}{set\+Reference}} (const Integer i, const Integer pos)
+\begin{DoxyCompactList}\small\item\em set operand references \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structStackBinOpT_a84cb72dfb8eb737c6dc81f2a55cb9677}\label{structStackBinOpT_a84cb72dfb8eb737c6dc81f2a55cb9677}} 
+Integer {\bfseries get\+Reference} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Bin\+Op$>$\newline
+struct Stack\+Bin\+Op\+T$<$ Bin\+Op $>$}
+
+
+
+Definition at line 426 of file Function\+Parser.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structStackBinOpT_a6bd375ec6b291fd5f88377e816f2d8b8}\label{structStackBinOpT_a6bd375ec6b291fd5f88377e816f2d8b8}} 
+\index{StackBinOpT$<$ BinOp $>$@{StackBinOpT$<$ BinOp $>$}!size@{size}}
+\index{size@{size}!StackBinOpT$<$ BinOp $>$@{StackBinOpT$<$ BinOp $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Bin\+Op $>$ \\
+Integer \mbox{\hyperlink{structStackBinOpT}{Stack\+Bin\+OpT}}$<$ \mbox{\hyperlink{Utils_2FunctorUtils_2Utils_2BinaryOp_8h_a12da14d8d231a71bdcd304bbf1b6edbd}{Bin\+Op}} $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+operator depth 
+
+how many value must be un-\/stacked to apply this operator; -\/1 means variable or constante 
+
+Implements \mbox{\hyperlink{structIStackOp_a2f567be749b325cf2e9e37096717df17}{IStack\+Op}}.
+
+
+
+Definition at line 495 of file Function\+Parser.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/Function\+Parser.\+h\end{DoxyCompactItemize}

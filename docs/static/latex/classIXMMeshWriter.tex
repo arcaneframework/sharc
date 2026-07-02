@@ -1,0 +1,76 @@
+\hypertarget{classIXMMeshWriter}{}\doxysection{IXMMesh\+Writer Class Reference}
+\label{classIXMMeshWriter}\index{IXMMeshWriter@{IXMMeshWriter}}
+
+
+Inherits Arcane\+::\+IData\+Writer, and Arc\+Geo\+Sim\+::\+IXMData\+Receiver.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a995f2bec2d9530664008557ceca33ceb}\label{classIXMMeshWriter_a995f2bec2d9530664008557ceca33ceb}} 
+\mbox{\hyperlink{classIXMMeshWriter_a995f2bec2d9530664008557ceca33ceb}{IXMMesh\+Writer}} (IMesh $\ast$mesh, IXml\+Document\+Holder $\ast$ixm\+\_\+doc, const String \&directory\+\_\+name, const e\+IXMMesh\+Write\+Info \&write\+\_\+mesh, const bool write\+\_\+faces\+\_\+infos, const Integer event\+\_\+number, bool event\+\_\+initialized, bool write\+\_\+only\+\_\+active\+\_\+cells)
+\begin{DoxyCompactList}\small\item\em Ecrivain du maillage =$>$ appel par IPost\+Processor\+Writer (notify\+Begin\+Write() et notify\+End\+Write()) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a221366b7d6c65b4dbaa71f21a5d55e80}\label{classIXMMeshWriter_a221366b7d6c65b4dbaa71f21a5d55e80}} 
+void {\bfseries begin\+Mesh\+Write} (const String \&file\+\_\+name, const String \&format, Item\+Group\+Collection \&groups, Variable\+Collection \&vars)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a9e80dd3bf11c6fff7876d23263ac7abf}\label{classIXMMeshWriter_a9e80dd3bf11c6fff7876d23263ac7abf}} 
+void {\bfseries write\+Mesh\+To\+File} (const String \&format)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a5e13226e2585f3d04983503171e8024a}\label{classIXMMeshWriter_a5e13226e2585f3d04983503171e8024a}} 
+void {\bfseries write\+Current\+Mesh} (const String \&format, bool first\+\_\+event)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a49e65df7dc346386b9ff4c68a9940d78}\label{classIXMMeshWriter_a49e65df7dc346386b9ff4c68a9940d78}} 
+void {\bfseries write\+Event\+To\+File} (const String \&file\+\_\+name, const Real \&begin\+\_\+time, const Real \&end\+\_\+time, const Integer \&event\+\_\+number)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a9f736b4b9c65de05849199f611ac2d7a}\label{classIXMMeshWriter_a9f736b4b9c65de05849199f611ac2d7a}} 
+void {\bfseries write\+Void\+Event\+To\+File} (const String \&file\+\_\+name, const Real \&begin\+\_\+time, const Real \&end\+\_\+time, const Integer \&event\+\_\+number)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a1e14a1001369a33dedab8f0575e53cb3}\label{classIXMMeshWriter_a1e14a1001369a33dedab8f0575e53cb3}} 
+void {\bfseries end\+Mesh\+Write} ()
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_ac9ede630bfb1ab97965dde7f9a02e1f2}\label{classIXMMeshWriter_ac9ede630bfb1ab97965dde7f9a02e1f2}} 
+void {\bfseries write\+Mesh\+Increment} (const String \&format)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a6f7da48fc5a8c301ca2b56a1e87d4dcb}\label{classIXMMeshWriter_a6f7da48fc5a8c301ca2b56a1e87d4dcb}} 
+void {\bfseries write\+Void\+Mesh} (const String \&format)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a06bdfdf3e01f1b67f8ab1d718770fbf1}\label{classIXMMeshWriter_a06bdfdf3e01f1b67f8ab1d718770fbf1}} 
+void {\bfseries update\+Ixm\+Doc} (const Integer \&event\+\_\+number)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_af0c46f6d5f14369e5ec6a757d7f481c4}\label{classIXMMeshWriter_af0c46f6d5f14369e5ec6a757d7f481c4}} 
+void \mbox{\hyperlink{classIXMMeshWriter_af0c46f6d5f14369e5ec6a757d7f481c4}{begin\+Write}} (const Variable\+Collection \&vars)
+\begin{DoxyCompactList}\small\item\em Ecrivain des variables \+: appel par IVariable\+Mng (\mbox{\hyperlink{classIXMMeshWriter_af0c46f6d5f14369e5ec6a757d7f481c4}{begin\+Write()}}, write(ivar,idata), end\+Write()) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a850a9bec9de9976491593a99435af736}\label{classIXMMeshWriter_a850a9bec9de9976491593a99435af736}} 
+void {\bfseries end\+Write} ()
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a7231c6efebc0e8f8fcc634b0146ab41e}\label{classIXMMeshWriter_a7231c6efebc0e8f8fcc634b0146ab41e}} 
+void \mbox{\hyperlink{classIXMMeshWriter_a7231c6efebc0e8f8fcc634b0146ab41e}{set\+Meta\+Data}} (const String \&meta\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Positionne les infos des m{\ucr}ta-\/donn{\ucr}es. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a3e968f1a4002be19da113779e2f4221d}\label{classIXMMeshWriter_a3e968f1a4002be19da113779e2f4221d}} 
+void {\bfseries set\+Write\+Face\+Infos} (const bool \&write\+\_\+faces\+\_\+infos)
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a2bdb105747f7d643268fa494a0a2307b}\label{classIXMMeshWriter_a2bdb105747f7d643268fa494a0a2307b}} 
+void \mbox{\hyperlink{classIXMMeshWriter_a2bdb105747f7d643268fa494a0a2307b}{write}} (Arcane\+::\+IVariable $\ast$var, Arcane\+::\+IData $\ast$data)
+\begin{DoxyCompactList}\small\item\em Ecrit les donn{\ucr}es {\itshape data} de la variable {\itshape var}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a1ab9bbcb92d119955dc628d19c3e8339}\label{classIXMMeshWriter_a1ab9bbcb92d119955dc628d19c3e8339}} 
+void {\bfseries get\+Mesh\+Type} (const Arcane\+::\+String \&mesh\+\_\+type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMMeshWriter_a72d81173116644431098a6eef5796dd1}\label{classIXMMeshWriter_a72d81173116644431098a6eef5796dd1}} 
+const String {\bfseries get\+Grand\+Parent\+Name} (Xml\+Node current\+Node)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 37 of file IXMMesh\+Writer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM4/IXMMesh\+Writer.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM4/IXMMesh\+Writer.\+cc\end{DoxyCompactItemize}

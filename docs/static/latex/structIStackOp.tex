@@ -1,0 +1,55 @@
+\hypertarget{structIStackOp}{}\doxysection{IStack\+Op Struct Reference}
+\label{structIStackOp}\index{IStackOp@{IStackOp}}
+
+
+Inherited by \mbox{\hyperlink{structIRefOp}{IRef\+Op}}, \mbox{\hyperlink{structStackBinOpT}{Stack\+Bin\+Op\+T$<$ Bin\+Op $>$}}, and \mbox{\hyperlink{structStackFuncOpT}{Stack\+Func\+Op\+T$<$ Func\+Op $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIStackOp_a56c2ed0d62b367a04c99e350f418ebe3}\label{structIStackOp_a56c2ed0d62b367a04c99e350f418ebe3}} 
+virtual \mbox{\hyperlink{structIStackOp_a56c2ed0d62b367a04c99e350f418ebe3}{$\sim$\+IStack\+Op}} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIStackOp_a73d6c21549cde0b053cdd87e598c83b2}\label{structIStackOp_a73d6c21549cde0b053cdd87e598c83b2}} 
+virtual void \mbox{\hyperlink{structIStackOp_a73d6c21549cde0b053cdd87e598c83b2}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack)=0
+\begin{DoxyCompactList}\small\item\em defaut apply (by block) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIStackOp_af0433271abd3ea93a349819ea083c12e}\label{structIStackOp_af0433271abd3ea93a349819ea083c12e}} 
+virtual void \mbox{\hyperlink{structIStackOp_af0433271abd3ea93a349819ea083c12e}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack, const Integer n)=0
+\begin{DoxyCompactList}\small\item\em restricted apply (not by block) \end{DoxyCompactList}\item 
+virtual Integer \mbox{\hyperlink{structIStackOp_a2f567be749b325cf2e9e37096717df17}{size}} () const =0
+\begin{DoxyCompactList}\small\item\em operator depth \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIStackOp_abcd441fe8bb9a3c3612c493dc48e9b61}\label{structIStackOp_abcd441fe8bb9a3c3612c493dc48e9b61}} 
+virtual void \mbox{\hyperlink{structIStackOp_abcd441fe8bb9a3c3612c493dc48e9b61}{set\+Reference}} (const Integer i, const Integer pos)=0
+\begin{DoxyCompactList}\small\item\em set operand references \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIStackOp_a1fa5f41898e4053eccf19916096ae563}\label{structIStackOp_a1fa5f41898e4053eccf19916096ae563}} 
+virtual Integer {\bfseries get\+Reference} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 147 of file Function\+Parser.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structIStackOp_a2f567be749b325cf2e9e37096717df17}\label{structIStackOp_a2f567be749b325cf2e9e37096717df17}} 
+\index{IStackOp@{IStackOp}!size@{size}}
+\index{size@{size}!IStackOp@{IStackOp}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily virtual Integer IStack\+Op\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+operator depth 
+
+how many value must be un-\/stacked to apply this operator; -\/1 means variable or constante 
+
+Implemented in \mbox{\hyperlink{structStackFuncOpT_af917b28998d86a3633affa4fc9b54ec6}{Stack\+Func\+Op\+T$<$ Func\+Op $>$}}, \mbox{\hyperlink{structStackBinOpT_a6bd375ec6b291fd5f88377e816f2d8b8}{Stack\+Bin\+Op\+T$<$ Bin\+Op $>$}}, and \mbox{\hyperlink{structVariableRefOp_ab8fb03731c6ca829c3d1067d8b277950}{Variable\+Ref\+Op}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/Function\+Parser.\+h\end{DoxyCompactItemize}

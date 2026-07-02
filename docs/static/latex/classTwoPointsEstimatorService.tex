@@ -1,0 +1,52 @@
+\hypertarget{classTwoPointsEstimatorService}{}\doxysection{Two\+Points\+Estimator\+Service Class Reference}
+\label{classTwoPointsEstimatorService}\index{TwoPointsEstimatorService@{TwoPointsEstimatorService}}
+
+
+Inherits Arcane\+Two\+Points\+Estimator\+Object, and \mbox{\hyperlink{classIAMRDataModel}{IAMRData\+Model}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_a1aa139b5f981616747b3ce1b835bae4b}\label{classTwoPointsEstimatorService_a1aa139b5f981616747b3ce1b835bae4b}} 
+\mbox{\hyperlink{classTwoPointsEstimatorService_a1aa139b5f981616747b3ce1b835bae4b}{Two\+Points\+Estimator\+Service}} (const Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_a49877863c48db9392b193f1069db2aec}\label{classTwoPointsEstimatorService_a49877863c48db9392b193f1069db2aec}} 
+void {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_a564ae6ce9d2cfb12350e7ec8e5de9dfe}\label{classTwoPointsEstimatorService_a564ae6ce9d2cfb12350e7ec8e5de9dfe}} 
+void {\bfseries init} (IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_a5c36eb2657c1b8157d1321f27404957f}\label{classTwoPointsEstimatorService_a5c36eb2657c1b8157d1321f27404957f}} 
+void {\bfseries register\+Data} (\mbox{\hyperlink{classIMeshAdapter}{IMesh\+Adapter}} $\ast$adapter)
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_aa8d108ff807293533e9e67428a68723f}\label{classTwoPointsEstimatorService_aa8d108ff807293533e9e67428a68723f}} 
+void {\bfseries update} (IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_a22dfaef90453939220e4897f7e117ea3}\label{classTwoPointsEstimatorService_a22dfaef90453939220e4897f7e117ea3}} 
+void {\bfseries compute\+Derivative} (const Variable\+Cell\+Real \&variable, const Variable\+Cell\+Real \&variable\+\_\+tn, Real dt, Variable\+Cell\+Real \&variable\+\_\+result, IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_ac91eb05de587f5796d469d1c0eba7679}\label{classTwoPointsEstimatorService_ac91eb05de587f5796d469d1c0eba7679}} 
+void {\bfseries first\+Order\+Spatial\+Derivative} (const Variable\+Cell\+Real \&variable, Variable\+Cell\+Real \&variable\+\_\+in\+\_\+space, IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_a5646a35ef1206d7b25c57f76b9adad2e}\label{classTwoPointsEstimatorService_a5646a35ef1206d7b25c57f76b9adad2e}} 
+void {\bfseries first\+Order\+Time\+Derivative} (const Variable\+Cell\+Real \&variable, const Variable\+Cell\+Real \&variable\+\_\+tn, Real dt, Variable\+Cell\+Real \&variable\+\_\+dt, IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_ac71aa469352d0edffbf50ba1afa48de6}\label{classTwoPointsEstimatorService_ac71aa469352d0edffbf50ba1afa48de6}} 
+void {\bfseries mixed\+Derivative} (const Variable\+Cell\+Real \&variable, const Variable\+Cell\+Real \&variable\+\_\+tn, Real dt, Variable\+Cell\+Real \&variable\+\_\+mixed, IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classTwoPointsEstimatorService_a434383f13912136cd963b1915da565fb}\label{classTwoPointsEstimatorService_a434383f13912136cd963b1915da565fb}} 
+Real {\bfseries norm\+L2} (IMesh $\ast$mesh, const Variable\+Cell\+Real \&estimateur)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 29 of file Two\+Points\+Estimator\+Service.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Estimator/Two\+Points\+Estimator\+Service.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Estimator/Two\+Points\+Estimator\+Service.\+cc\end{DoxyCompactItemize}

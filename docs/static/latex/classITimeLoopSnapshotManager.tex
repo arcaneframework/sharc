@@ -1,0 +1,57 @@
+\hypertarget{classITimeLoopSnapshotManager}{}\doxysection{ITime\+Loop\+Snapshot\+Manager Class Reference}
+\label{classITimeLoopSnapshotManager}\index{ITimeLoopSnapshotManager@{ITimeLoopSnapshotManager}}
+
+
+Inherited by \mbox{\hyperlink{classTimeLoopSnapshotManager}{Time\+Loop\+Snapshot\+Manager}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a8a518c3aead5f9f0c4a67f35c4267d41}\label{classITimeLoopSnapshotManager_a8a518c3aead5f9f0c4a67f35c4267d41}} 
+virtual void {\bfseries init} ()=0
+\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a40489042ceb5d4d6f92c7663ac97783f}\label{classITimeLoopSnapshotManager_a40489042ceb5d4d6f92c7663ac97783f}} 
+virtual void {\bfseries set\+Verbosity} (bool verbosity)=0
+\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_afd3de2afb1858c8f8e28945cd0a26366}\label{classITimeLoopSnapshotManager_afd3de2afb1858c8f8e28945cd0a26366}} 
+virtual bool {\bfseries verbosity} () const =0
+\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a7960d59bd57776662f467edca8871417}\label{classITimeLoopSnapshotManager_a7960d59bd57776662f467edca8871417}} 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classITimeLoopSnapshotManager_a7960d59bd57776662f467edca8871417}{snap}} (T \&v)
+\begin{DoxyCompactList}\small\item\em Enregistrement par template car plus simple pour construire le clone. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_ad48be2499fb5d9803024c27ffb873a2d}\label{classITimeLoopSnapshotManager_ad48be2499fb5d9803024c27ffb873a2d}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries snap} (T \&v, T \&\mbox{\hyperlink{classITimeLoopSnapshotManager_a78a5e18cac810caba6a7ef3485e6291b}{snapshot}})
+\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a78a5e18cac810caba6a7ef3485e6291b}\label{classITimeLoopSnapshotManager_a78a5e18cac810caba6a7ef3485e6291b}} 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{classITimeLoopSnapshotManager_a78a5e18cac810caba6a7ef3485e6291b}{snapshot}} (const T \&v) const
+\begin{DoxyCompactList}\small\item\em Accession du clone par template. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a16848c008f4e7a362c27ae9564f0edfb}\label{classITimeLoopSnapshotManager_a16848c008f4e7a362c27ae9564f0edfb}} 
+virtual void {\bfseries save} ()=0
+\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_ac7603807b707dc0f529e334af40ddeda}\label{classITimeLoopSnapshotManager_ac7603807b707dc0f529e334af40ddeda}} 
+virtual void {\bfseries restore} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a496d7b4a02979123f78efc40224582fa}\label{classITimeLoopSnapshotManager_a496d7b4a02979123f78efc40224582fa}} 
+virtual Arcane\+::\+String \mbox{\hyperlink{classITimeLoopSnapshotManager_a496d7b4a02979123f78efc40224582fa}{\+\_\+own\+Naming\+Rule}} (Arcane\+::\+String name) const =0
+\begin{DoxyCompactList}\small\item\em R{\ucr}gle interne de nommage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a3a986cac898c0717259edef26321922d}\label{classITimeLoopSnapshotManager_a3a986cac898c0717259edef26321922d}} 
+virtual void \mbox{\hyperlink{classITimeLoopSnapshotManager_a3a986cac898c0717259edef26321922d}{\+\_\+snap}} (Arcane\+::\+IVariable $\ast$v, Arcane\+::\+Variable\+Ref $\ast$\mbox{\hyperlink{classITimeLoopSnapshotManager_a78a5e18cac810caba6a7ef3485e6291b}{snapshot}}, bool is\+\_\+own)=0
+\begin{DoxyCompactList}\small\item\em Enregistrement interne. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classITimeLoopSnapshotManager_a8667de58c539cc3afb600068ae52edac}\label{classITimeLoopSnapshotManager_a8667de58c539cc3afb600068ae52edac}} 
+virtual Arcane\+::\+IVariable $\ast$ \mbox{\hyperlink{classITimeLoopSnapshotManager_a8667de58c539cc3afb600068ae52edac}{\+\_\+snapshot}} (Arcane\+::\+IVariable $\ast$v) const =0
+\begin{DoxyCompactList}\small\item\em Accession du clone. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 20 of file ITime\+Loop\+Snapshot\+Manager.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Appli/ITime\+Loop\+Snapshot\+Manager.\+h\end{DoxyCompactItemize}

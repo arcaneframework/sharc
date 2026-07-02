@@ -1,0 +1,83 @@
+\hypertarget{classDualRandomIterator}{}\doxysection{Dual\+Random\+Iterator$<$ IteratorA, IteratorB $>$ Class Template Reference}
+\label{classDualRandomIterator}\index{DualRandomIterator$<$ IteratorA, IteratorB $>$@{DualRandomIterator$<$ IteratorA, IteratorB $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a4d3898247d000060d5e8686f5dbe19d0}\label{classDualRandomIterator_a4d3898247d000060d5e8686f5dbe19d0}} 
+typedef tuple\+\_\+namespace\+::tuple$<$ TypeA, TypeB $>$ {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a69bba25beab43adb2fbe7f323f4755b0}\label{classDualRandomIterator_a69bba25beab43adb2fbe7f323f4755b0}} 
+typedef ptrdiff\+\_\+t {\bfseries difference\+\_\+type}
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_abfe513528ea805558f75123d5cf286a5}\label{classDualRandomIterator_abfe513528ea805558f75123d5cf286a5}} 
+typedef value\+\_\+type $\ast$ {\bfseries pointer}
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a6d4c98b7dfbd2a28eb51e9a457b0bec5}\label{classDualRandomIterator_a6d4c98b7dfbd2a28eb51e9a457b0bec5}} 
+typedef tuple\+\_\+namespace\+::tuple$<$ TypeA \&, TypeB \& $>$ {\bfseries reference}
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_aed2a390dc9ce7511f75c45dc30079b53}\label{classDualRandomIterator_aed2a390dc9ce7511f75c45dc30079b53}} 
+typedef std\+::random\+\_\+access\+\_\+iterator\+\_\+tag {\bfseries iterator\+\_\+category}
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_aceb9bb991f2d3d760e21901bfd34631c}\label{classDualRandomIterator_aceb9bb991f2d3d760e21901bfd34631c}} 
+typedef tuple\+\_\+namespace\+::tuple$<$ const TypeA \&, const TypeB \& $>$ {\bfseries const\+\_\+reference}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a5ca86bd377bed4ed4cbd1bed5bb2ac14}\label{classDualRandomIterator_a5ca86bd377bed4ed4cbd1bed5bb2ac14}} 
+{\bfseries Dual\+Random\+Iterator} (IteratorA i, IteratorB j)
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a7e1973158b8fcb9291d2571fd2e9ee6f}\label{classDualRandomIterator_a7e1973158b8fcb9291d2571fd2e9ee6f}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \& {\bfseries operator++} ()
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a8db6228ec8efbaa74d379367dfc9871f}\label{classDualRandomIterator_a8db6228ec8efbaa74d379367dfc9871f}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \& {\bfseries operator-\/-\/} ()
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a7ccd71e9749ca8568e43ced422c8bfdc}\label{classDualRandomIterator_a7ccd71e9749ca8568e43ced422c8bfdc}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} {\bfseries operator++} (int)
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a25fc7d359341d0f2280262e3952d1bfa}\label{classDualRandomIterator_a25fc7d359341d0f2280262e3952d1bfa}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} {\bfseries operator-\/-\/} (int)
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a0eddcf870ffa0725c0c9087d14464218}\label{classDualRandomIterator_a0eddcf870ffa0725c0c9087d14464218}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a03019b8af1188ad175f7b3dbf8136b5b}\label{classDualRandomIterator_a03019b8af1188ad175f7b3dbf8136b5b}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a88beb274d83294adc232ccfd35905cac}\label{classDualRandomIterator_a88beb274d83294adc232ccfd35905cac}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a784da811bf0326ceb6df45628430f287}\label{classDualRandomIterator_a784da811bf0326ceb6df45628430f287}} 
+reference {\bfseries operator$\ast$} () const
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_ad8599fda59902bf22033eef985dad7ba}\label{classDualRandomIterator_ad8599fda59902bf22033eef985dad7ba}} 
+difference\+\_\+type {\bfseries operator-\/} (const \mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_ac6a462f889d98fa9b777e0fea8a19e67}\label{classDualRandomIterator_ac6a462f889d98fa9b777e0fea8a19e67}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \& {\bfseries operator+=} (const difference\+\_\+type n)
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a615284b1c46a84d8eb6f91d1b9db9219}\label{classDualRandomIterator_a615284b1c46a84d8eb6f91d1b9db9219}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} \& {\bfseries operator-\/=} (const difference\+\_\+type n)
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_a27eb7c06b5176c23ec1c72484a69fadf}\label{classDualRandomIterator_a27eb7c06b5176c23ec1c72484a69fadf}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} {\bfseries operator+} (const difference\+\_\+type n) const
+\item 
+\mbox{\Hypertarget{classDualRandomIterator_ae883cc93ecd0a93394feea5a79b8d749}\label{classDualRandomIterator_ae883cc93ecd0a93394feea5a79b8d749}} 
+\mbox{\hyperlink{classDualRandomIterator}{Dual\+Random\+Iterator}} {\bfseries operator-\/} (const difference\+\_\+type n) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename IteratorA, typename IteratorB$>$\newline
+class Dual\+Random\+Iterator$<$ Iterator\+A, Iterator\+B $>$}
+
+
+
+Definition at line 52 of file Tuple\+Random\+Iterator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Tuple\+Random\+Iterator.\+h\end{DoxyCompactItemize}

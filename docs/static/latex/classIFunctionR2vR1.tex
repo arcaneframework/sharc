@@ -1,0 +1,65 @@
+\hypertarget{classIFunctionR2vR1}{}\doxysection{IFunction\+R2v\+R1 Class Reference}
+\label{classIFunctionR2vR1}\index{IFunctionR2vR1@{IFunctionR2vR1}}
+
+
+Inherits \mbox{\hyperlink{classIIFunction}{IIFunction}}.
+
+
+
+Inherited by \mbox{\hyperlink{classPieceWiseFunctionR2vR1T}{Piece\+Wise\+Function\+R2v\+R1\+T$<$ Bi\+Linear\+Interpolator $>$}}, \mbox{\hyperlink{classExpressionBuilderR2vR1Core}{Expression\+Builder\+R2v\+R1\+Core}}, and \mbox{\hyperlink{classPieceWiseFunctionR2vR1T}{Piece\+Wise\+Function\+R2v\+R1\+T$<$ T $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIFunctionR2vR1_a20b95007f93ce29c2cbcb649cf98f778}\label{classIFunctionR2vR1_a20b95007f93ce29c2cbcb649cf98f778}} 
+Integer \mbox{\hyperlink{classIFunctionR2vR1_a20b95007f93ce29c2cbcb649cf98f778}{get\+In\+Dimension}} () const
+\begin{DoxyCompactList}\small\item\em Getting dimension of in-\/space. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctionR2vR1_a51105e9ae995d1ccf6c4debb0087150e}\label{classIFunctionR2vR1_a51105e9ae995d1ccf6c4debb0087150e}} 
+Integer \mbox{\hyperlink{classIFunctionR2vR1_a51105e9ae995d1ccf6c4debb0087150e}{get\+Out\+Dimension}} () const
+\begin{DoxyCompactList}\small\item\em Getting dimension of out-\/space. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIFunctionR2vR1_a7b52b9eab1fcd465e4cbd9f0c67013e3}{eval}} (const Arcane\+::\+Real \&var0, const Arcane\+::\+Real \&var1, Arcane\+::\+Real \&res0)=0
+\begin{DoxyCompactList}\small\item\em Point-\/wise evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctionR2vR1_a37f8c9ebaea6bf804083531c83e2dee3}\label{classIFunctionR2vR1_a37f8c9ebaea6bf804083531c83e2dee3}} 
+virtual void \mbox{\hyperlink{classIFunctionR2vR1_a37f8c9ebaea6bf804083531c83e2dee3}{eval}} (const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var0, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var1, Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&res0)=0
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctionR2vR1_ac57cbc62ee18199bd5b4aabb847f58bb}\label{classIFunctionR2vR1_ac57cbc62ee18199bd5b4aabb847f58bb}} 
+virtual void \mbox{\hyperlink{classIFunctionR2vR1_ac57cbc62ee18199bd5b4aabb847f58bb}{eval}} (Arcane\+::\+Real\+Const\+Array\+View var0, Arcane\+::\+Real\+Const\+Array\+View var1, Arcane\+::\+Real\+Array\+View res0)=0
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctionR2vR1_aeca88a76c44286b73cbe32413670e596}\label{classIFunctionR2vR1_aeca88a76c44286b73cbe32413670e596}} 
+virtual void \mbox{\hyperlink{classIFunctionR2vR1_aeca88a76c44286b73cbe32413670e596}{eval}} (const Arcane\+::\+Real \&var0, const Arcane\+::\+Real \&var1, Arcane\+::\+Real \&res0, Arcane\+::\+Real \&diffres0, Arcane\+::\+Real \&diffres1)=0
+\begin{DoxyCompactList}\small\item\em Coupled function and derivative scalar evaluation (temporary\+: derivation handling in \mbox{\hyperlink{classIFunction}{IFunction}} still to be defined) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctionR2vR1_a11e8e924bf22f255c068477509eab29d}\label{classIFunctionR2vR1_a11e8e924bf22f255c068477509eab29d}} 
+virtual Arcane\+::\+Real \mbox{\hyperlink{classIFunctionR2vR1_a11e8e924bf22f255c068477509eab29d}{eval}} (const Arcane\+::\+Real \&var0, const Arcane\+::\+Real \&var1)=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structScalar}{Scalar}} return for point-\/wise evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctionR2vR1_a9b30148f5a02d4d6bd22ee0681563c2c}\label{classIFunctionR2vR1_a9b30148f5a02d4d6bd22ee0681563c2c}} 
+virtual void \mbox{\hyperlink{classIFunctionR2vR1_a9b30148f5a02d4d6bd22ee0681563c2c}{eval}} ()=0
+\begin{DoxyCompactList}\small\item\em Eval vectorized data service function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 34 of file IFunction\+R2v\+R1.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIFunctionR2vR1_a7b52b9eab1fcd465e4cbd9f0c67013e3}\label{classIFunctionR2vR1_a7b52b9eab1fcd465e4cbd9f0c67013e3}} 
+\index{IFunctionR2vR1@{IFunctionR2vR1}!eval@{eval}}
+\index{eval@{eval}!IFunctionR2vR1@{IFunctionR2vR1}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily virtual void IFunction\+R2v\+R1\+::eval (\begin{DoxyParamCaption}\item[{const Arcane\+::\+Real \&}]{var0,  }\item[{const Arcane\+::\+Real \&}]{var1,  }\item[{Arcane\+::\+Real \&}]{res0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Point-\/wise evaluation. 
+
+An optimized syntax will be introduce for single return evaluation 
+
+Implemented in \mbox{\hyperlink{classExpressionBuilderR2vR1Core_adc52abc30f9456d581e1bef82031ec64}{Expression\+Builder\+R2v\+R1\+Core}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/IFunction\+R2v\+R1.\+h\end{DoxyCompactItemize}

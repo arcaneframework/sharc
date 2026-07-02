@@ -1,0 +1,60 @@
+\hypertarget{structaudi_1_1mult}{}\doxysection{audi\+::mult$<$ L, R $>$ Struct Template Reference}
+\label{structaudi_1_1mult}\index{audi::mult$<$ L, R $>$@{audi::mult$<$ L, R $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ mult$<$ L, R $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a9c01dac7a9b50f0667d160de3f12655e}\label{structaudi_1_1mult_a9c01dac7a9b50f0667d160de3f12655e}} 
+using {\bfseries Left} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ L $>$\+::value, const L, const L \& $>$\+::type
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a96f981c1c6f4e8dc21b7b1a800603815}\label{structaudi_1_1mult_a96f981c1c6f4e8dc21b7b1a800603815}} 
+using {\bfseries Right} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ R $>$\+::value, const R, const R \& $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a2b731782c9271c6ef4bac90c0bede8a6}\label{structaudi_1_1mult_a2b731782c9271c6ef4bac90c0bede8a6}} 
+{\bfseries mult} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ L $>$ \&l, const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ R $>$ \&r)
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a54cedefb69726cf878ec436f00c181a4}\label{structaudi_1_1mult_a54cedefb69726cf878ec436f00c181a4}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a3d067abe7a1fbd86efd3280e69c833ca}\label{structaudi_1_1mult_a3d067abe7a1fbd86efd3280e69c833ca}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a11c75cb16e3db1a129221ea5b0cd71ea}\label{structaudi_1_1mult_a11c75cb16e3db1a129221ea5b0cd71ea}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a2e56a5103a001a8f9f5da57898756f01}\label{structaudi_1_1mult_a2e56a5103a001a8f9f5da57898756f01}} 
+Left {\bfseries m\+\_\+l}
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_aebf9777370d9715308ec72809538fe9f}\label{structaudi_1_1mult_aebf9777370d9715308ec72809538fe9f}} 
+Right {\bfseries m\+\_\+r}
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a40160c2b536dedef8044dad9a7f71173}\label{structaudi_1_1mult_a40160c2b536dedef8044dad9a7f71173}} 
+decltype(m\+\_\+l.\+value()) const {\bfseries m\+\_\+lv}
+\item 
+\mbox{\Hypertarget{structaudi_1_1mult_a521d7067116aaf5e13a27004e1d3824f}\label{structaudi_1_1mult_a521d7067116aaf5e13a27004e1d3824f}} 
+decltype(m\+\_\+r.\+value()) const {\bfseries m\+\_\+rv}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename L, typename R$>$\newline
+struct audi\+::mult$<$ L, R $>$}
+
+
+
+Definition at line 7 of file mult.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/mult.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hypertarget{classBoundaryConditionMngService}{}\doxysection{Boundary\+Condition\+Mng\+Service Class Reference}
+\label{classBoundaryConditionMngService}\index{BoundaryConditionMngService@{BoundaryConditionMngService}}
+
+
+Inherits Arcane\+Boundary\+Condition\+Mng\+Object.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_ac7df6c8dfc0b213cfde5ca4e142c489b}\label{classBoundaryConditionMngService_ac7df6c8dfc0b213cfde5ca4e142c489b}} 
+typedef std\+::vector$<$ Boundary\+Condition\+Ptr $>$ \mbox{\hyperlink{classBoundaryConditionMngService_ac7df6c8dfc0b213cfde5ca4e142c489b}{Boundary\+Condition\+Ptr\+Array}}
+\begin{DoxyCompactList}\small\item\em Boundary condition array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_a9c9317e6e4ec33239b87c65808e45c36}\label{classBoundaryConditionMngService_a9c9317e6e4ec33239b87c65808e45c36}} 
+typedef std\+::map$<$ String, Boundary\+Condition\+Ptr $>$ \mbox{\hyperlink{classBoundaryConditionMngService_a9c9317e6e4ec33239b87c65808e45c36}{Tag2\+Boundary\+Condition\+Ptr\+Map}}
+\begin{DoxyCompactList}\small\item\em Tag to boundary condition map. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_a7546cb8c944bd7f30795613f3334a530}\label{classBoundaryConditionMngService_a7546cb8c944bd7f30795613f3334a530}} 
+typedef std\+::map$<$ Face, Boundary\+Condition\+Ptr, \mbox{\hyperlink{structItemComparator}{Item\+Comparator}} $>$ \mbox{\hyperlink{classBoundaryConditionMngService_a7546cb8c944bd7f30795613f3334a530}{Face2\+Boundary\+Condition\+Ptr\+Map}}
+\begin{DoxyCompactList}\small\item\em Face unique id to boundary condition map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_a561a13bf55c99c439a18039a341b6da0}\label{classBoundaryConditionMngService_a561a13bf55c99c439a18039a341b6da0}} 
+\mbox{\hyperlink{classBoundaryConditionMngService_a561a13bf55c99c439a18039a341b6da0}{Boundary\+Condition\+Mng\+Service}} (const Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_a8bbbf6880de8058969c78ff909282087}\label{classBoundaryConditionMngService_a8bbbf6880de8058969c78ff909282087}} 
+virtual \mbox{\hyperlink{classBoundaryConditionMngService_a8bbbf6880de8058969c78ff909282087}{$\sim$\+Boundary\+Condition\+Mng\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_a215133a1c9c5571eb19024fa8cdd7c9d}\label{classBoundaryConditionMngService_a215133a1c9c5571eb19024fa8cdd7c9d}} 
+virtual Version\+Info \mbox{\hyperlink{classBoundaryConditionMngService_a215133a1c9c5571eb19024fa8cdd7c9d}{version\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Return version info. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_aef5d0ce4ae74f6ce2066b1beadb15a4b}\label{classBoundaryConditionMngService_aef5d0ce4ae74f6ce2066b1beadb15a4b}} 
+void \mbox{\hyperlink{classBoundaryConditionMngService_aef5d0ce4ae74f6ce2066b1beadb15a4b}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_ae7e4bf41ecbf0d953db8dd58cb427594}\label{classBoundaryConditionMngService_ae7e4bf41ecbf0d953db8dd58cb427594}} 
+Boundary\+Condition\+Ptr \mbox{\hyperlink{classBoundaryConditionMngService_ae7e4bf41ecbf0d953db8dd58cb427594}{boundary\+Condition}} (const String \&tag)
+\begin{DoxyCompactList}\small\item\em Return boundary condition with selected tag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_a228f40ed3bf42594228ff75a82608265}\label{classBoundaryConditionMngService_a228f40ed3bf42594228ff75a82608265}} 
+Boundary\+Condition\+Ptr \mbox{\hyperlink{classBoundaryConditionMngService_a228f40ed3bf42594228ff75a82608265}{get\+Boundary\+Condition}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Given an iterator to a boundary face, return a pointer to the corresponding boundary condition. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_a9dd57cb901cf5f9bef85cfa211ecc4e5}\label{classBoundaryConditionMngService_a9dd57cb901cf5f9bef85cfa211ecc4e5}} 
+Face\+Group \mbox{\hyperlink{classBoundaryConditionMngService_a9dd57cb901cf5f9bef85cfa211ecc4e5}{get\+Faces\+Of\+Type}} (\mbox{\hyperlink{structBoundaryConditionTypes_a50774ae5760986b073c07fba26809c56}{Boundary\+Condition\+Types\+::e\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Return the group of faces with boundary condition of the type passed as an argument. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBoundaryConditionMngService_adeee643bf2000d74a5d7f167d069e168}\label{classBoundaryConditionMngService_adeee643bf2000d74a5d7f167d069e168}} 
+Face\+Group \mbox{\hyperlink{classBoundaryConditionMngService_adeee643bf2000d74a5d7f167d069e168}{get\+Faces\+Not\+Of\+Type}} (\mbox{\hyperlink{structBoundaryConditionTypes_a50774ae5760986b073c07fba26809c56}{Boundary\+Condition\+Types\+::e\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Return the group of faces with boundary condition of type different from the one passed as an argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 27 of file Boundary\+Condition\+Mng\+Service.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+BCs/Boundary\+Condition\+Mng\+Service.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+BCs/Boundary\+Condition\+Mng\+Service.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hypertarget{classIIndexManager_1_1EntryEnumerator}{}\doxysection{IIndex\+Manager\+::Entry\+Enumerator Class Reference}
+\label{classIIndexManager_1_1EntryEnumerator}\index{IIndexManager::EntryEnumerator@{IIndexManager::EntryEnumerator}}
+
+
+Classe d\textquotesingle{}{\ucr}num{\ucr}ration des {\itshape \mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}} connues.  
+
+
+
+
+{\ttfamily \#include $<$IIndex\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_a89379ca87cdf5ebc2c38d57f71a754aa}\label{classIIndexManager_1_1EntryEnumerator_a89379ca87cdf5ebc2c38d57f71a754aa}} 
+\mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_a89379ca87cdf5ebc2c38d57f71a754aa}{Entry\+Enumerator}} (const \mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator}{Entry\+Enumerator}} \&e)
+\begin{DoxyCompactList}\small\item\em Constructeur par copie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_a18ce9881ef75a93ec460fb5072ab1f5c}\label{classIIndexManager_1_1EntryEnumerator_a18ce9881ef75a93ec460fb5072ab1f5c}} 
+\mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_a18ce9881ef75a93ec460fb5072ab1f5c}{Entry\+Enumerator}} (\mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Constructeur par consultation de l\textquotesingle{}{\itshape Index\+Manager}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_a6e0e8062d5153f91eb6123523b945a92}\label{classIIndexManager_1_1EntryEnumerator_a6e0e8062d5153f91eb6123523b945a92}} 
+\mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_a6e0e8062d5153f91eb6123523b945a92}{Entry\+Enumerator}} (\mbox{\hyperlink{classIIndexManager_1_1EntryEnumeratorImpl}{Entry\+Enumerator\+Impl}} $\ast$impl)
+\begin{DoxyCompactList}\small\item\em Constructeur par impl{\ucr}mentation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_ae1f42e6b185433ea99576e334ecfa052}\label{classIIndexManager_1_1EntryEnumerator_ae1f42e6b185433ea99576e334ecfa052}} 
+void \mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_ae1f42e6b185433ea99576e334ecfa052}{operator++}} ()
+\begin{DoxyCompactList}\small\item\em Avance l\textquotesingle{}{\ucr}num{\ucr}rateur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_a9b3663bdecaec59156bac35bb3a1252e}\label{classIIndexManager_1_1EntryEnumerator_a9b3663bdecaec59156bac35bb3a1252e}} 
+bool \mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_a9b3663bdecaec59156bac35bb3a1252e}{has\+Next}} () const
+\begin{DoxyCompactList}\small\item\em Teste l\textquotesingle{}existence d\textquotesingle{}un {\ucr}l{\ucr}ment suivant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_a51952e2c4c34e4a2462e202b7998ecf5}\label{classIIndexManager_1_1EntryEnumerator_a51952e2c4c34e4a2462e202b7998ecf5}} 
+\mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}} \mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_a51952e2c4c34e4a2462e202b7998ecf5}{operator$\ast$}} () const
+\begin{DoxyCompactList}\small\item\em D{\ucr}r{\ucr}f{\ucr}rencement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_a13fcf885d097c538ed9b5395f81808b7}\label{classIIndexManager_1_1EntryEnumerator_a13fcf885d097c538ed9b5395f81808b7}} 
+\mbox{\hyperlink{classIIndexManager_1_1EntryImpl}{Entry\+Impl}} $\ast$ \mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_a13fcf885d097c538ed9b5395f81808b7}{operator-\/$>$}} () const
+\begin{DoxyCompactList}\small\item\em D{\ucr}r{\ucr}f{\ucr}rencement indirect. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_aaf63a504d7fd251faade9ed3ebdfd5d8}\label{classIIndexManager_1_1EntryEnumerator_aaf63a504d7fd251faade9ed3ebdfd5d8}} 
+Integer \mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator_aaf63a504d7fd251faade9ed3ebdfd5d8}{count}} () const
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}{\ucr}l{\ucr}ment dans l\textquotesingle{}{\ucr}num{\ucr}rateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryEnumerator_aee21bb90911158a733dce91de0ed831a}\label{classIIndexManager_1_1EntryEnumerator_aee21bb90911158a733dce91de0ed831a}} 
+Arcane\+::\+Auto\+RefT$<$ \mbox{\hyperlink{classIIndexManager_1_1EntryEnumeratorImpl}{Entry\+Enumerator\+Impl}} $>$ {\bfseries m\+\_\+impl}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe d\textquotesingle{}{\ucr}num{\ucr}ration des {\itshape \mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}} connues. 
+
+Classe de type proxy; la copie est peu couteuse et l\textquotesingle{}impl{\ucr}mentation variable 
+
+Definition at line 209 of file IIndex\+Manager.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/IIndex\+Manager.\+h\end{DoxyCompactItemize}

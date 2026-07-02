@@ -1,0 +1,351 @@
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse du code source \end{quote}
+\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md50}{}\doxysection{📋 Table des matières}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md50}
+
+\begin{DoxyItemize}
+\item \href{\#description}{\texttt{ Description}}
+\item \href{\#fonctionnalit\%C3\%A9s}{\texttt{ Fonctionnalités}}
+\item \href{\#pr\%C3\%A9requis}{\texttt{ Prérequis}}
+\item \href{\#installation}{\texttt{ Installation}}
+\item \href{\#utilisation}{\texttt{ Utilisation}}
+\item \href{\#api--interface}{\texttt{ API / Interface}}
+\item \href{\#architecture}{\texttt{ Architecture}}
+\item \href{\#d\%C3\%A9pendances}{\texttt{ Dépendances}}
+\item \href{\#configuration}{\texttt{ Configuration}}
+\item \href{\#ressources}{\texttt{ Ressources}}
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md51}{}\doxysection{Description}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md51}
+Le module {\ttfamily Sh\+Arc} est l\textquotesingle{}orchestrateur principal de l\textquotesingle{}application Sh\+Arc. Il ne porte pas directement la physique (modèles de flux diphasique, FEM, etc.), mais coordonne \+:
+
+
+\begin{DoxyItemize}
+\item les services Arc\+Geo\+Sim/\+Arcane de temps ({\ttfamily \mbox{\hyperlink{classITimeLine}{ITime\+Line}}}, {\ttfamily ITime\+Step\+Computer}),
+\item la gestion de la géométrie du maillage ({\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}),
+\item le système d\textquotesingle{}unités ({\ttfamily \mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}}}),
+\item le gestionnaire d\textquotesingle{}expressions ({\ttfamily \mbox{\hyperlink{classIExpressionMng}{IExpression\+Mng}}}),
+\item le post-\/traitement (sorties périodiques, fichiers de dépouillement),
+\item la validation de la simulation via des services {\ttfamily \mbox{\hyperlink{classIServiceValidator}{IService\+Validator}}}.
+\end{DoxyItemize}
+
+{\ttfamily \mbox{\hyperlink{classShArcModule}{Sh\+Arc\+Module}}} dérive de {\ttfamily Arcane\+Sh\+Arc\+Object}, implémente {\ttfamily \mbox{\hyperlink{classIAppServiceMng}{IApp\+Service\+Mng}}} (pour enregistrer/trouver les services applicatifs) et délègue des informations d\textquotesingle{}itération via {\ttfamily Arc\+Geo\+Sim\+::\+Delegate$<$Arc\+Geo\+Sim\+::\+IIteration\+Information$>$}. Il agit comme \char`\"{}time loop orchestrator\char`\"{} \+: initialisation, déroulement des pas de temps, déclenchement du post-\/processing, arrêt contrôlé de la boucle de calcul (succès/échec).\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md52}{}\doxysection{Fonctionnalités}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md52}
+
+\begin{DoxyItemize}
+\item ✅ Gestion centralisée des services applicatifs \+:
+\begin{DoxyItemize}
+\item time manager ({\ttfamily options()-\/$>$time\+Manager}),
+\item politique de pas de temps ({\ttfamily options()-\/$>$time\+Step\+Policy}),
+\item géométrie ({\ttfamily options()-\/$>$geometry}),
+\item système d\textquotesingle{}unités ({\ttfamily options()-\/$>$units\+System}),
+\item expression manager ({\ttfamily options()-\/$>$expression\+Mng}).
+\end{DoxyItemize}
+\item ✅ Intégration avec la boucle en temps \mbox{\hyperlink{namespaceArcane}{Arcane}} \+:
+\begin{DoxyItemize}
+\item détection du mode spécial {\ttfamily Forecast\+Compute},
+\item contrôle du {\ttfamily time\+Loop\+Mng()} pour arrêter proprement la simulation.
+\end{DoxyItemize}
+\item ✅ Support du maillage évolutif / connectivités \+:
+\begin{DoxyItemize}
+\item préparation de la connectivité \char`\"{}edge\char`\"{} si nécessaire ({\ttfamily options()-\/$>$has\+Edges()}),
+\item mise en place d\textquotesingle{}une politique de géométrie ({\ttfamily \mbox{\hyperlink{classNoOptimizationGeometryPolicy}{No\+Optimization\+Geometry\+Policy}}}) et mise à jour de la géométrie.
+\end{DoxyItemize}
+\item ✅ Orchestration du post-\/traitement \+:
+\begin{DoxyItemize}
+\item initialisation du post-\/processing (chemins de sortie, formats, variables),
+\item sorties périodiques en fonction d\textquotesingle{}un {\ttfamily output\+Period},
+\item sauvegarde de l\textquotesingle{}état à l\textquotesingle{}initialisation si demandé ({\ttfamily save\+Init()}),
+\item génération des fichiers de dépouillement et statistiques en fin de simulation.
+\end{DoxyItemize}
+\item ✅ Validation globale de la simulation \+:
+\begin{DoxyItemize}
+\item gestion d\textquotesingle{}une liste de {\ttfamily \mbox{\hyperlink{classIServiceValidator}{IService\+Validator}}},
+\item exécution de {\ttfamily validate()} sur chaque validateur,
+\item arrêt de la simulation en cas de validation échouée, avec message explicite.
+\end{DoxyItemize}
+\item ✅ Arrêt contrôlé de la boucle de calcul \+:
+\begin{DoxyItemize}
+\item arrêt sur nombre maximum d\textquotesingle{}itérations ({\ttfamily max\+Iteration}),
+\item arrêt lorsque la timeline n\textquotesingle{}est plus disponible,
+\item distinction entre \char`\"{}\+STOP PERFECT\char`\"{} (succès) et \char`\"{}\+STOP FAILED\char`\"{} (échec).
+\end{DoxyItemize}
+\item ✅ Journalisation détaillée du temps \+:
+\begin{DoxyItemize}
+\item fonction {\ttfamily time\+Step\+Information()} qui logge {\ttfamily T(n)}, {\ttfamily T(n+1)} et {\ttfamily Δt} avec une précision configurable.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md53}{}\doxysection{Prérequis}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md53}
+
+\begin{DoxyItemize}
+\item Langage \+: C++ (mêmes contraintes que le reste du projet Sh\+Arc).
+\item Frameworks \+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespaceArcane}{Arcane}} (modules, time loop, maillage, post-\/processing).
+\item Arc\+Geo\+Sim (services d\textquotesingle{}units, temps, géométrie, expressions, architecture \char`\"{}\+Delegate\char`\"{}).
+\end{DoxyItemize}
+\item Types et services utilisés \+:
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{AppService_8h_source}{Arc\+Geo\+Sim/\+Appli/\+App\+Service.\+h}}} pour la gestion des services.
+\item {\ttfamily \mbox{\hyperlink{IGeometryMng_8h_source}{Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+IGeometry\+Mng.\+h}}} et {\ttfamily \mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}}}.
+\item {\ttfamily \mbox{\hyperlink{ITimeLine_8h_source}{Arc\+Geo\+Sim/\+Time/\+ITime\+Line.\+h}}}, {\ttfamily \mbox{\hyperlink{classTimeEvolution}{Time\+Evolution}}}, {\ttfamily ITime\+Step\+Computer}.
+\item {\ttfamily \mbox{\hyperlink{IUnitsSystem_8h_source}{Arc\+Geo\+Sim/\+Physics/\+Units/\+IUnits\+System.\+h}}}.
+\item {\ttfamily \mbox{\hyperlink{IExpressionMng_8h_source}{Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+IExpression\+Mng.\+h}}}.
+\item {\ttfamily \mbox{\hyperlink{IServiceValidator_8h_source}{Arc\+Geo\+Sim/\+Tests/\+IService\+Validator.\+h}}}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Le module est déjà intégré dans la librairie {\ttfamily Sh\+Arc} via {\ttfamily src/\+CMake\+Lists.\+txt}. Aucun CMake\+Lists spécifique n\textquotesingle{}est à créer ici.\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md54}{}\doxysection{Installation}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md54}
+L\textquotesingle{}installation suit celle du projet Sh\+Arc. Le module {\ttfamily Sh\+Arc} est compilé avec le reste de la librairie {\ttfamily Sh\+Arc} \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Depuis la racine du projet sharc}
+\DoxyCodeLine{cmake -\/S . -\/B build-\/sharc \(\backslash\)}
+\DoxyCodeLine{  -\/DCMAKE\_BUILD\_TYPE=Release \(\backslash\)}
+\DoxyCodeLine{  -\/DBUILD\_SHARED\_LIBS=ON \(\backslash\)}
+\DoxyCodeLine{  -\/DARCANEFRAMEWORK\_ROOT=\$\{INSTALL\_DIR\} \(\backslash\)}
+\DoxyCodeLine{  -\/DCMAKE\_C\_COMPILER=mpicc \(\backslash\)}
+\DoxyCodeLine{  -\/DCMAKE\_CXX\_COMPILER=mpic++}
+\DoxyCodeLine{}
+\DoxyCodeLine{cmake -\/-\/build build-\/sharc}
+
+\end{DoxyCode}
+
+
+L\textquotesingle{}exécutable principal ({\ttfamily Sh\+Arc.\+exe}) est défini dans {\ttfamily src/\+Main/} et utilise ce module via ses fichiers {\ttfamily .axl} ({\ttfamily Sh\+Arc.\+axl}) et les cas {\ttfamily .arc}.\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md55}{}\doxysection{Utilisation}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md55}
+\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md56}{}\doxysubsection{Cycle de vie du module}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md56}
+La classe {\ttfamily \mbox{\hyperlink{classShArcModule}{Sh\+Arc\+Module}}} déclare les principales méthodes de cycle de vie \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classShArcModule}{ShArcModule}}}
+\DoxyCodeLine{  : \textcolor{keyword}{public} ArcaneShArcObject}
+\DoxyCodeLine{  , \textcolor{keyword}{public} \mbox{\hyperlink{classIAppServiceMng}{IAppServiceMng}}}
+\DoxyCodeLine{  , \textcolor{keyword}{public} ArcGeoSim::Delegate<ArcGeoSim::IIterationInformation>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{  \mbox{\hyperlink{classShArcModule}{ShArcModule}}(\textcolor{keyword}{const} Arcane::ModuleBuildInfo\& mbi);}
+\DoxyCodeLine{  \textcolor{keyword}{virtual} \string~\mbox{\hyperlink{classShArcModule}{ShArcModule}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} build();}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} prepareInit();}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} continueInit();}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} endInit();}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} beginTimeStep();}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} endTimeStep();}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} endSimulation();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Arcane::VersionInfo \mbox{\hyperlink{classShArcModule_a77d8363bc87a901dc10b5eb9ad05353c}{versionInfo}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} Arcane::VersionInfo(1,0,0); \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Séquence typique \+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily build()} ~\newline
+
+\begin{DoxyItemize}
+\item Détecte si la simulation est en mode {\ttfamily Forecast\+Compute} (time loop nommé \char`\"{}\+Forecast\+Compute\char`\"{}). ~\newline
+
+\item Prépare la connectivité du maillage pour le \char`\"{}worst case\char`\"{} (inclusion des arêtes) si nécessaire.
+\end{DoxyItemize}
+\item {\ttfamily prepare\+Init()} ~\newline
+
+\begin{DoxyItemize}
+\item Initialise le gestionnaire de services applicatifs ({\ttfamily initialize\+App\+Service\+Mng()}), ~\newline
+
+\item récupère {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}} et met en place une {\ttfamily \mbox{\hyperlink{classNoOptimizationGeometryPolicy}{No\+Optimization\+Geometry\+Policy}}}.
+\end{DoxyItemize}
+\item {\ttfamily init()} ~\newline
+
+\begin{DoxyItemize}
+\item Initialise la politique de pas de temps ({\ttfamily ITime\+Step\+Computer}) si configurée, ~\newline
+
+\item enregistre le compute de pas de temps auprès de la timeline ({\ttfamily \mbox{\hyperlink{classITimeLine_aa150fb85a2dcf2bbe2c9ef5da0899a5c}{ITime\+Line\+::evolution()}}}), ~\newline
+
+\item effectue une mise à jour initiale de la géométrie ({\ttfamily m\+\_\+geometry\+\_\+mng-\/$>$update(...)}), ~\newline
+
+\item initialise le post-\/processing ({\ttfamily post\+Processing\+Init()}), ~\newline
+
+\item appelle {\ttfamily init()} sur tous les validateurs ({\ttfamily options()-\/$>$validator}).
+\end{DoxyItemize}
+\item {\ttfamily end\+Init()} ~\newline
+
+\begin{DoxyItemize}
+\item Effectue une sauvegarde initiale ({\ttfamily save\+Init()}) si demandé dans les options de post-\/processing.
+\end{DoxyItemize}
+\item {\ttfamily begin\+Time\+Step()} ~\newline
+
+\begin{DoxyItemize}
+\item Vérifie que le module est correctement initialisé ({\ttfamily ARCANE\+\_\+\+ASSERT(m\+\_\+initialized)}).
+\end{DoxyItemize}
+\item {\ttfamily end\+Time\+Step()} ~\newline
+
+\begin{DoxyItemize}
+\item Gère le post-\/processing périodique en fonction de {\ttfamily output\+Period}, ~\newline
+
+\item teste les critères d\textquotesingle{}arrêt (max\+Iteration, timeline) et arrête la boucle de calcul via {\ttfamily time\+Loop\+Mng()-\/$>$stop\+Compute\+Loop(...)}.
+\end{DoxyItemize}
+\item {\ttfamily end\+Simulation()} ~\newline
+
+\begin{DoxyItemize}
+\item Appelle {\ttfamily post\+Processing\+Exit()} (sortie finale, statistiques, fermeture des writers), ~\newline
+
+\item lance la séquence de validation {\ttfamily \+\_\+validate()} qui arrête la simulation en \char`\"{}success\char`\"{} ou \char`\"{}failure\char`\"{}.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md57}{}\doxysubsection{Post-\/traitement}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md57}
+Le post-\/processing repose sur {\ttfamily \mbox{\hyperlink{classArcGeoSimPostProcessingBase}{Arc\+Geo\+Sim\+Post\+Processing\+Base}}} ({\ttfamily m\+\_\+post\+\_\+processing}) \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily post\+Processing\+Init()} \+:
+\begin{DoxyItemize}
+\item détermine le chemin de sortie ({\ttfamily output\+Path} ou {\ttfamily case\+Name()}),
+\item enregistre les post-\/processeurs (formats, variables) via {\ttfamily add\+Post\+Processing(...)},
+\item initialise {\ttfamily m\+\_\+next\+\_\+iteration} pour déterminer la prochaine sortie.
+\end{DoxyItemize}
+\item {\ttfamily post\+Processing\+Exit()} \+:
+\begin{DoxyItemize}
+\item sauvegarde les données au temps courant,
+\item affiche les statistiques d\textquotesingle{}exécution,
+\item ferme les writers ({\ttfamily IPost\+Processor\+Writer\+::close()}).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md58}{}\doxysubsection{Validation}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md58}
+La méthode {\ttfamily \+\_\+validate()} \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} ShArcModule::\_validate()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} hasError = \textcolor{keyword}{false};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keyword}{const} Integer count = options()-\/>validator.size();}
+\DoxyCodeLine{  \textcolor{keywordflow}{for}(Integer i=0;i<count;++i) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (options()-\/>validator[i]-\/>validate() != 0) \{}
+\DoxyCodeLine{      hasError = \textcolor{keyword}{true};}
+\DoxyCodeLine{      perror() << \textcolor{stringliteral}{"{}ShArc validator \#"{}} << i << \textcolor{stringliteral}{"{} failed"{}};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (hasError) \{}
+\DoxyCodeLine{    fatal() << \textcolor{stringliteral}{"{}ShArc validation failure : read details above"{}};}
+\DoxyCodeLine{    info() << \textcolor{stringliteral}{"{}STOP FAILED"{}};}
+\DoxyCodeLine{    subDomain()-\/>timeLoopMng()-\/>stopComputeLoop(\textcolor{keyword}{false},\textcolor{keyword}{true});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{    info() << \textcolor{stringliteral}{"{}STOP PERFECT"{}};}
+\DoxyCodeLine{    subDomain()-\/>timeLoopMng()-\/>stopComputeLoop(\textcolor{keyword}{true});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Ainsi, le module centralise les validations de fin de simulation et contrôle l\textquotesingle{}arrêt du calcul.\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md59}{}\doxysection{API / Interface publique}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md59}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+{\ttfamily Sh\+Arc\+Module\+::build()}   &méthode de module   &Prépare le mode {\ttfamily Forecast\+Compute} et les connectivités du maillage (edges).    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::prepare\+Init()}   &méthode de module   &Initialise les services applicatifs et la politique de géométrie ({\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}, {\ttfamily \mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}}}).    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::init()}   &méthode de module   &Initialise la politique de pas de temps, la mise à jour géométrique, le post-\/processing et les validateurs.    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::continue\+Init()}   &méthode de module   &Assure que la gestion des services est initialisée (pour des scénarios de ré-\/init).    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::end\+Init()}   &méthode de module   &Sauvegarde d\textquotesingle{}init ({\ttfamily save\+Init}) si configurée, via le post-\/processing.    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::begin\+Time\+Step()}   &méthode de module   &Vérifie que {\ttfamily Sh\+Arc} est initialisé avant d\textquotesingle{}entrer dans un pas de temps.    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::end\+Time\+Step()}   &méthode de module   &Gère les sorties périodiques, l\textquotesingle{}arrêt sur itération max ou sur timeline, et journalise \char`\"{}\+STOP PERFECT\char`\"{}.    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::end\+Simulation()}   &méthode de module   &Déclenche le post-\/processing final et appelle {\ttfamily \+\_\+validate()} pour décider du statut final.    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::time\+Step\+Information(nb\+\_\+loop)}   &méthode   &Affiche les informations de temps (T(n), T(n+1), Δt) avec un formatage précis.    \\\cline{1-3}
+{\ttfamily Sh\+Arc\+Module\+::update\+Geometry()}   &méthode   &Met à jour la géométrie via {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}} et la politique associée.    \\\cline{1-3}
+{\ttfamily \mbox{\hyperlink{classShArcModule_a77d8363bc87a901dc10b5eb9ad05353c}{Sh\+Arc\+Module\+::version\+Info()}}}   &méthode   &Retourne la version (1.\+0.\+0) du module Sh\+Arc.   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md60}{}\doxysection{Architecture}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md60}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{┌───────────────────────────────────────────────────────────────┐}
+\DoxyCodeLine{│                         ShArcModule                          │}
+\DoxyCodeLine{├───────────────────────────────────────────────────────────────┤}
+\DoxyCodeLine{│                                                               │}
+\DoxyCodeLine{│  ┌────────────────────┐    ┌─────────────────────────┐        │}
+\DoxyCodeLine{│  │ Time Manager       │    │ Time Step Policy        │        │}
+\DoxyCodeLine{│  │ (ITimeLine)        │    │ (ITimeStepComputer)     │        │}
+\DoxyCodeLine{│  └────────────────────┘    └─────────────────────────┘        │}
+\DoxyCodeLine{│          │                          │                         │}
+\DoxyCodeLine{│          ▼                          ▼                         │}
+\DoxyCodeLine{│  ┌────────────────────┐    ┌─────────────────────────┐        │}
+\DoxyCodeLine{│  │ GeometryMng        │    │ ExpressionMng           │        │}
+\DoxyCodeLine{│  │ (IGeometryMng)     │    │ (IExpressionMng)        │        │}
+\DoxyCodeLine{│  └────────────────────┘    └─────────────────────────┘        │}
+\DoxyCodeLine{│          │                          │                         │}
+\DoxyCodeLine{│          ▼                          ▼                         │}
+\DoxyCodeLine{│  ┌────────────────────┐    ┌─────────────────────────┐        │}
+\DoxyCodeLine{│  │ Units System       │    │ Validators              │        │}
+\DoxyCodeLine{│  │ (IUnitsSystem)     │    │ (IServiceValidator)     │        │}
+\DoxyCodeLine{│  └────────────────────┘    └─────────────────────────┘        │}
+\DoxyCodeLine{│                 │                     │                       │}
+\DoxyCodeLine{│                 ▼                     ▼                       │}
+\DoxyCodeLine{│          ┌───────────────────────────────────┐                │}
+\DoxyCodeLine{│          │ ArcGeoSimPostProcessingBase       │                │}
+\DoxyCodeLine{│          │ (post-\/processing, output, stats)  │                │}
+\DoxyCodeLine{│          └───────────────────────────────────┘                │}
+\DoxyCodeLine{│                                                               │}
+\DoxyCodeLine{└───────────────────────────────────────────────────────────────┘}
+\DoxyCodeLine{         │                        │}
+\DoxyCodeLine{         ▼                        ▼}
+\DoxyCodeLine{   Arcane TimeLoopMng       Services ArcGeoSim/AppService}
+\DoxyCodeLine{ (contrôle stop/continue)   (enregistrement \& lookup)}
+
+\end{DoxyCode}
+\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md61}{}\doxysection{Dépendances}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md61}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Dépendance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Usage    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Dépendance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Usage    }\\\cline{1-2}
+\endhead
+\mbox{\hyperlink{namespaceArcane}{Arcane}}   &Time loop ({\ttfamily ITime\+Loop\+Mng}, {\ttfamily ITime\+Loop}), maillage ({\ttfamily IMesh}), partitionnement, post-\/processing ({\ttfamily IPost\+Processor\+Writer}), logging.    \\\cline{1-2}
+Arc\+Geo\+Sim   &Gestion des services ({\ttfamily \mbox{\hyperlink{classAppService}{App\+Service}}}), unités ({\ttfamily \mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}}}), temps ({\ttfamily \mbox{\hyperlink{classITimeLine}{ITime\+Line}}}, {\ttfamily \mbox{\hyperlink{classTimeEvolution}{Time\+Evolution}}}, {\ttfamily ITime\+Step\+Computer}), géométrie ({\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}, {\ttfamily \mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}}}), expressions ({\ttfamily \mbox{\hyperlink{classIExpressionMng}{IExpression\+Mng}}}), architecture ({\ttfamily \mbox{\hyperlink{classDelegate}{Delegate}}}, {\ttfamily \mbox{\hyperlink{classIIterationInformation}{IIteration\+Information}}}), tests ({\ttfamily \mbox{\hyperlink{classIServiceValidator}{IService\+Validator}}}).   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md62}{}\doxysection{Configuration}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md62}
+Les options du module sont définies dans {\ttfamily Sh\+Arc.\+axl} et utilisées via {\ttfamily options()} \+:
+
+Exemples conceptuels d\textquotesingle{}options \+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Option   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Option   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+{\ttfamily time\+Manager}   &Service de gestion du temps ({\ttfamily \mbox{\hyperlink{classITimeLine}{ITime\+Line}}}), utilisé pour enregistrer le compute de pas de temps.    \\\cline{1-2}
+{\ttfamily time\+Step\+Policy}   &Politique de pas de temps ({\ttfamily IComputer}), appelée pour initialiser le pas de temps et enregistrée dans {\ttfamily \mbox{\hyperlink{classTimeEvolution}{Time\+Evolution}}}.    \\\cline{1-2}
+{\ttfamily geometry}   &Service de gestion de la géométrie ({\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}), utilisé pour charger/mettre à jour les propriétés géométriques.    \\\cline{1-2}
+{\ttfamily units\+System}   &Système d\textquotesingle{}unités pour la simulation (SI, mixte…), utilisé par les modules physiques.    \\\cline{1-2}
+{\ttfamily expression\+Mng}   &Gestionnaire d\textquotesingle{}expressions (parser, évaluations) pour IC/\+BC/\+Wells et autres lois.    \\\cline{1-2}
+{\ttfamily post\+Processing}   &Bloc de configuration du post-\/traitement (période de sortie, chemin, formats, variables).    \\\cline{1-2}
+{\ttfamily validator}   &Liste de services de validation, chacun exposant une méthode {\ttfamily validate()} retournant un code d\textquotesingle{}erreur.    \\\cline{1-2}
+{\ttfamily max\+Iteration}   &Nombre maximal d\textquotesingle{}itérations globales ; au-\/delà, la simulation est arrêtée.    \\\cline{1-2}
+{\ttfamily has\+Edges}   &Indique si la simulation requiert la connectivité \char`\"{}edges\char`\"{} pour le maillage (maillage évolutif ou discrétisations spécifiques).   \\\cline{1-2}
+\end{longtabu}
+
+
+Les valeurs exactes et la syntaxe des options sont à lire dans {\ttfamily Sh\+Arc.\+axl} et les cas {\ttfamily .arc} du projet.\hypertarget{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md63}{}\doxysection{Ressources}\label{md__tmp_opencode_sharc_src_ShArc_README_autotoc_md63}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/arcaneframework/sharc}{\texttt{ Sh\+Arc (Git\+Hub)}} — dépôt principal, README d\textquotesingle{}installation détaillé.
+\item Documentation Arcane/\+Arc\+Geo\+Sim dans {\ttfamily common/} et sur les pages projet (services, time loop, géométrie).
+\item Cas de test du projet (dans {\ttfamily test/}) montrant l\textquotesingle{}utilisation du module Sh\+Arc pour orchestrer différentes applications physiques (Two\+Phase\+Flow, CAWF, Exa\+Di\+Bench). 
+\end{DoxyItemize}

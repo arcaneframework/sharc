@@ -1,0 +1,54 @@
+\hypertarget{classArcNum_1_1ArrayProperty}{}\doxysection{Arc\+Num\+::Array\+Property Class Reference}
+\label{classArcNum_1_1ArrayProperty}\index{ArcNum::ArrayProperty@{ArcNum::ArrayProperty}}
+
+
+Inherited by \mbox{\hyperlink{classArcNum_1_1VariableArray}{Arc\+Num\+::\+Variable\+Array}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_ac8ea156e91a2f6430cc17b53dafc5eab}\label{classArcNum_1_1ArrayProperty_ac8ea156e91a2f6430cc17b53dafc5eab}} 
+typedef Arcane\+::\+Variable\+Ref\+ArrayT$<$ Arcane\+::\+Real $>$ {\bfseries Var\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_a5bec6cae8f83ebe8fbb16fb7a16cb18a}\label{classArcNum_1_1ArrayProperty_a5bec6cae8f83ebe8fbb16fb7a16cb18a}} 
+typedef Arcane\+::\+Variable\+Ref\+Array2T$<$ Arcane\+::\+Real $>$ {\bfseries Deriv\+Var\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_ab938d3705706e038244c9b50303dcda6}\label{classArcNum_1_1ArrayProperty_ab938d3705706e038244c9b50303dcda6}} 
+typedef Var\+Type\+::\+Const\+Return\+Reference\+Type {\bfseries Const\+Return\+Reference\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_a49b0c851f8f91ca16c18ffa1b8b47b55}\label{classArcNum_1_1ArrayProperty_a49b0c851f8f91ca16c18ffa1b8b47b55}} 
+typedef Deriv\+Var\+Type\+::\+Const\+Return\+Reference\+Type {\bfseries Derivatives\+Return\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_a90b6a10d23538103e707171ed077d651}\label{classArcNum_1_1ArrayProperty_a90b6a10d23538103e707171ed077d651}} 
+{\bfseries Array\+Property} (\mbox{\hyperlink{classArcNum_1_1ArrayProperty}{Array\+Property}} const \&rhs)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_a7e28f432fced86b69b411041255741da}\label{classArcNum_1_1ArrayProperty_a7e28f432fced86b69b411041255741da}} 
+{\footnotesize template$<$typename ItemT $>$ }\\Const\+Return\+Reference\+Type {\bfseries operator\mbox{[}$\,$\mbox{]}} (const \mbox{\hyperlink{classItemT}{ItemT}} \&iter) const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_a960b04d0614e262f599a9052042f355f}\label{classArcNum_1_1ArrayProperty_a960b04d0614e262f599a9052042f355f}} 
+{\footnotesize template$<$typename I $>$ }\\Derivatives\+Return\+Type {\bfseries stored\+Derivatives} (const I \&iter) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_a8ac9ee1cb4b89de6425fa9a97d88b864}\label{classArcNum_1_1ArrayProperty_a8ac9ee1cb4b89de6425fa9a97d88b864}} 
+Var\+Type $\ast$ {\bfseries m\+\_\+values} =nullptr
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ArrayProperty_abc6a21ae70750e58dc198a5ecd7d75ba}\label{classArcNum_1_1ArrayProperty_abc6a21ae70750e58dc198a5ecd7d75ba}} 
+Deriv\+Var\+Type $\ast$ {\bfseries m\+\_\+derivatives} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 17 of file Variable\+Array.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Contribution/\+Variable/Variable\+Array.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,90 @@
+\hypertarget{classBaseNonLinearModelT}{}\doxysection{Base\+Non\+Linear\+ModelT$<$ ModelT $>$ Class Template Reference}
+\label{classBaseNonLinearModelT}\index{BaseNonLinearModelT$<$ ModelT $>$@{BaseNonLinearModelT$<$ ModelT $>$}}
+
+
+Inherits \mbox{\hyperlink{classBaseNonLinearModel}{Base\+Non\+Linear\+Model}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a37724444224cce32583886f336d71dee}\label{classBaseNonLinearModelT_a37724444224cce32583886f336d71dee}} 
+typedef ModelT {\bfseries Model\+Type}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_ae23205e70f94e42057bd622a5bbb57ef}\label{classBaseNonLinearModelT_ae23205e70f94e42057bd622a5bbb57ef}} 
+typedef \mbox{\hyperlink{classBaseNonLinearModelT}{Base\+Non\+Linear\+ModelT}}$<$ Model\+Type $>$ {\bfseries This\+Type}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_ae8d05faf4d4132b2ff8e3b7dbc999a19}\label{classBaseNonLinearModelT_ae8d05faf4d4132b2ff8e3b7dbc999a19}} 
+typedef \mbox{\hyperlink{classVisitorT}{VisitorT}}$<$ Model\+Type $>$ \mbox{\hyperlink{classBaseNonLinearModelT_ae8d05faf4d4132b2ff8e3b7dbc999a19}{Visitor}}
+\begin{DoxyCompactList}\small\item\em Types to manage input and output data, pre and post operators. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_ab4e30fc1a63446055e39d1ccf8a52fc4}\label{classBaseNonLinearModelT_ab4e30fc1a63446055e39d1ccf8a52fc4}} 
+\mbox{\hyperlink{classBaseNonLinearModelT_ab4e30fc1a63446055e39d1ccf8a52fc4}{Base\+Non\+Linear\+ModelT}} (Model\+Type $\ast$model, String name)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_af92c0c8f526b6b201de61f42f2285b04}\label{classBaseNonLinearModelT_af92c0c8f526b6b201de61f42f2285b04}} 
+virtual \mbox{\hyperlink{classBaseNonLinearModelT_af92c0c8f526b6b201de61f42f2285b04}{$\sim$\+Base\+Non\+Linear\+ModelT}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a984cba00655631847e461fd3889288b4}\label{classBaseNonLinearModelT_a984cba00655631847e461fd3889288b4}} 
+String {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_aa96a837f2d2e7a345d17120ce8ba8593}\label{classBaseNonLinearModelT_aa96a837f2d2e7a345d17120ce8ba8593}} 
+void {\bfseries set\+Linear\+Solver} (\mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{IDirect\+Linear\+Solver\+Type}} $\ast$solver)
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_aa627034d52a4956b4926c5eba9d4f1e2}\label{classBaseNonLinearModelT_aa627034d52a4956b4926c5eba9d4f1e2}} 
+void {\bfseries set\+Linear\+Solver} (Alien\+::\+ILinear\+Solver $\ast$solver)
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a43cf5da71d20f050fbcebed2219faa02}\label{classBaseNonLinearModelT_a43cf5da71d20f050fbcebed2219faa02}} 
+Integer {\bfseries build\+Linearized\+System} ()
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a2efc66631ca80aca371c261779a84c4f}\label{classBaseNonLinearModelT_a2efc66631ca80aca371c261779a84c4f}} 
+Integer {\bfseries update\+Variable} ()
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_aa4b2d087b077f206396d8c4718af6598}\label{classBaseNonLinearModelT_aa4b2d087b077f206396d8c4718af6598}} 
+Real {\bfseries get\+Newton\+Residual} (Arc\+Geo\+Sim\+::\+Numerics\+::\+Norme$<$ Arc\+Geo\+Sim\+::\+Numerics\+::\+L0 $>$ \&norme)
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a4877f4e0e10dcca0b1bbf9708a42eeff}\label{classBaseNonLinearModelT_a4877f4e0e10dcca0b1bbf9708a42eeff}} 
+Real {\bfseries get\+Newton\+Residual} (Arc\+Geo\+Sim\+::\+Numerics\+::\+Norme$<$ Arc\+Geo\+Sim\+::\+Numerics\+::\+L1 $>$ \&norme)
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a2720a77f3d2dc6e357d1511605be8f29}\label{classBaseNonLinearModelT_a2720a77f3d2dc6e357d1511605be8f29}} 
+Real {\bfseries get\+Newton\+Residual} (Arc\+Geo\+Sim\+::\+Numerics\+::\+Norme$<$ Arc\+Geo\+Sim\+::\+Numerics\+::\+L2 $>$ \&norme)
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_afda25b74caf8f494566d4620c576bc85}\label{classBaseNonLinearModelT_afda25b74caf8f494566d4620c576bc85}} 
+Integer {\bfseries get\+Numerical\+Error} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_aac8dd8e3c05b64793d973b2a2a242ded}\label{classBaseNonLinearModelT_aac8dd8e3c05b64793d973b2a2a242ded}} 
+bool {\bfseries m\+\_\+initialized} = false
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_ad7f501b07dfeeae00652975d878b28b1}\label{classBaseNonLinearModelT_ad7f501b07dfeeae00652975d878b28b1}} 
+String {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a8f1762425d28e4c49916a412b647008a}\label{classBaseNonLinearModelT_a8f1762425d28e4c49916a412b647008a}} 
+Model\+Type $\ast$ {\bfseries m\+\_\+model} = nullptr
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_afcf5d71a33d0cb183a9013da9f77acb5}\label{classBaseNonLinearModelT_afcf5d71a33d0cb183a9013da9f77acb5}} 
+\mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{IDirect\+Linear\+Solver\+Type}} $\ast$ {\bfseries m\+\_\+linear\+\_\+solver} = nullptr
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_ae8fd6d214a1f42f936425bc4aa0aa9ec}\label{classBaseNonLinearModelT_ae8fd6d214a1f42f936425bc4aa0aa9ec}} 
+Alien\+::\+ILinear\+Solver $\ast$ {\bfseries m\+\_\+linear\+\_\+solver2} = nullptr
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModelT_a37266cf3910fb263c386b1f91f4ba7c4}\label{classBaseNonLinearModelT_a37266cf3910fb263c386b1f91f4ba7c4}} 
+Integer {\bfseries m\+\_\+error} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ModelT$>$\newline
+class Base\+Non\+Linear\+Model\+T$<$ Model\+T $>$}
+
+
+
+Definition at line 103 of file Non\+Linear\+Model\+T.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Impl/Non\+Linear\+Model\+T.\+h\end{DoxyCompactItemize}

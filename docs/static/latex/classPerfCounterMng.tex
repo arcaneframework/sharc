@@ -1,0 +1,62 @@
+\hypertarget{classPerfCounterMng}{}\doxysection{Perf\+Counter\+Mng$<$ PhaseT $>$ Class Template Reference}
+\label{classPerfCounterMng}\index{PerfCounterMng$<$ PhaseT $>$@{PerfCounterMng$<$ PhaseT $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a69795c8c24e31b3121ecf6492da51cc5}\label{classPerfCounterMng_a69795c8c24e31b3121ecf6492da51cc5}} 
+typedef unsigned long long int {\bfseries Value\+Type}
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_aa8029a3f03101e46bc9f949cfb1f05fd}\label{classPerfCounterMng_aa8029a3f03101e46bc9f949cfb1f05fd}} 
+typedef PhaseT {\bfseries Phase\+Type}
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_ab71fa42d99cac866bd1c0f403d0bdc30}\label{classPerfCounterMng_ab71fa42d99cac866bd1c0f403d0bdc30}} 
+typedef std\+::pair$<$ Value\+Type, Value\+Type $>$ {\bfseries Count\+Type}
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_ab5435478a3d43f804c8b608dabeba8ff}\label{classPerfCounterMng_ab5435478a3d43f804c8b608dabeba8ff}} 
+typedef std\+::map$<$ Phase\+Type, Count\+Type $>$ {\bfseries Count\+List\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a5edc09317c774f091558e84fd21e0af5}\label{classPerfCounterMng_a5edc09317c774f091558e84fd21e0af5}} 
+void {\bfseries init} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a880d3db6a98795552fd3bdf95fdce4ff}\label{classPerfCounterMng_a880d3db6a98795552fd3bdf95fdce4ff}} 
+void {\bfseries start} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_ad42640f934b5727f5e5c2bef05208c81}\label{classPerfCounterMng_ad42640f934b5727f5e5c2bef05208c81}} 
+void {\bfseries stop} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a7ac8f70f5be6306df841be04b98a0143}\label{classPerfCounterMng_a7ac8f70f5be6306df841be04b98a0143}} 
+Value\+Type {\bfseries get\+Last\+Value} ()
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a0cad705837f1e3db74431c54fcea272d}\label{classPerfCounterMng_a0cad705837f1e3db74431c54fcea272d}} 
+Value\+Type {\bfseries get\+Value} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a4da06a8f99beb60e3e256836bce8ee0d}\label{classPerfCounterMng_a4da06a8f99beb60e3e256836bce8ee0d}} 
+double {\bfseries get\+Value\+In\+Seconds} (Phase\+Type const \&phase)
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a491a72dbe121a71893fbdee7463782a9}\label{classPerfCounterMng_a491a72dbe121a71893fbdee7463782a9}} 
+void {\bfseries print\+Info} () const
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a8068ddad8a5d1ad7f748446e76e9d3cd}\label{classPerfCounterMng_a8068ddad8a5d1ad7f748446e76e9d3cd}} 
+void {\bfseries print\+Info} (std\+::ostream \&stream) const
+\item 
+\mbox{\Hypertarget{classPerfCounterMng_a679c43042805a3fcab1226f96509bc25}\label{classPerfCounterMng_a679c43042805a3fcab1226f96509bc25}} 
+int {\bfseries get\+Cpu\+Freq} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename PhaseT$>$\newline
+class Perf\+Counter\+Mng$<$ Phase\+T $>$}
+
+
+
+Definition at line 23 of file Perf\+Counter\+Mng.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/\+Perf\+Tools/Perf\+Counter\+Mng.\+h\end{DoxyCompactItemize}

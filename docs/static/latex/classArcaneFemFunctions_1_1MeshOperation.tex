@@ -1,0 +1,211 @@
+\hypertarget{classArcaneFemFunctions_1_1MeshOperation}{}\doxysection{Arcane\+Fem\+Functions\+::Mesh\+Operation Class Reference}
+\label{classArcaneFemFunctions_1_1MeshOperation}\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+
+
+Provides methods for various mesh-\/related operations.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a893ab75bb006f3973464e7e40cdbcca8}{compute\+Volume\+Tetra4}} (Item\+With\+Nodes item, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the volume of a tetrahedra defined by four nodes. \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a4f8e0354f35f2ecf21239e4c939d40f7}{compute\+Area\+Tria3}} (Item\+With\+Nodes item, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the area of a triangle defined by three nodes. \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a9c3b3bd23f505aab48465fcf343aa35d}{compute\+Area\+Quad4}} (Item\+With\+Nodes item, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the area of a quadrilateral defined by four nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_aeb41ea938ab0b9cdf93fc0addc7c2cd5}\label{classArcaneFemFunctions_1_1MeshOperation_aeb41ea938ab0b9cdf93fc0addc7c2cd5}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_aeb41ea938ab0b9cdf93fc0addc7c2cd5}{compute\+Volume\+Hexa8}} (Item\+With\+Nodes item, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the volume of a hexahedron defined by eight nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_ad61a4e67535d9ef76106251437328e6f}\label{classArcaneFemFunctions_1_1MeshOperation_ad61a4e67535d9ef76106251437328e6f}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_ad61a4e67535d9ef76106251437328e6f}{penta6\+Volume}} (Item\+With\+Nodes item, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the volume of a pentahedron (wedge or triangular prism) defined by six nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a73891d64ffe1d4b969ca97bd7b89889c}\label{classArcaneFemFunctions_1_1MeshOperation_a73891d64ffe1d4b969ca97bd7b89889c}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a73891d64ffe1d4b969ca97bd7b89889c}{pyramid5\+Volume}} (Item\+With\+Nodes item, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the volume of a pyramid defined by five nodes. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_adc8c51dfa1afc71e4d71ca79425426a8}{compute\+Bary\+Center\+Tria3}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the barycenter (centroid) of a triangle. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a7339de6f973c41b8e78869a3ef11d804}{compute\+Bary\+Center\+Tetra4}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the barycenter (centroid) of a tetrahedron. \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a4eb21db7f0664cf957a5c34dde7ae429}{compute\+Length\+Edge2}} (Item\+With\+Nodes item, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the length of the edge defined by a given face. \end{DoxyCompactList}\item 
+static Real2 \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a7cb30071a2533688c9fe44ecc3ca74f9}{compute\+Normal\+Edge2}} (Face face, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the normalized edge normal for a given face. \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_afc6c024e6597e7f036ebc71f06ed8111}{compute\+Fac\+Length\+Or\+Area}} (Face face, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the factor used for integration of 1D, 2D and 3D finite elements. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_ab65337c2cfdf79f8bb0195a06a00334a}{compute\+Normal\+Triangle}} (Face face, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the normalized triangle normal for a given face. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a65f1478a8af3591adbb5461f2f68be49}{compute\+Normal\+Quad}} (Face face, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the normalized quad normal for a given face. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a7b925826b42efb8072459cd39caa2069}\label{classArcaneFemFunctions_1_1MeshOperation_a7b925826b42efb8072459cd39caa2069}} 
+static Int32 \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a7b925826b42efb8072459cd39caa2069}{get\+Geom\+Dimension}} (Item\+With\+Nodes item)
+\begin{DoxyCompactList}\small\item\em Computes finite-\/element entity (Edge, Face or Cell) geometric dimension This method is used for the FEM 2D \& 3D needs (coming from PASSMO) for Jacobian \& elementary matrices computations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a537051395c6dbbe20d966a9f06469dac}\label{classArcaneFemFunctions_1_1MeshOperation_a537051395c6dbbe20d966a9f06469dac}} 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1MeshOperation_a537051395c6dbbe20d966a9f06469dac}{dir\+Vectors}} (Face face, const Variable\+Node\+Real3 \&node\+\_\+coord, Integer ndim, \mbox{\hyperlink{structReal3}{Real3}} \&e1, \mbox{\hyperlink{structReal3}{Real3}} \&e2, \mbox{\hyperlink{structReal3}{Real3}} \&e3)
+\begin{DoxyCompactList}\small\item\em Computes edge \& Face normal \& tangent vectors (normalized, direct oriented) This method is used for the FEM 2D \& 3D needs (coming from PASSMO) for geometric transformations (rotations, projections, ...) \mbox{\hyperlink{structIn}{In}} 2D, it assumes the edge lies in x-\/y plane (z coord = 0.) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for various mesh-\/related operations. 
+
+This class includes static methods for computing geometric properties of mesh elements, such as the area of triangles, the length of edges, and the normal vectors of edges. 
+
+Definition at line 111 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a9c3b3bd23f505aab48465fcf343aa35d}\label{classArcaneFemFunctions_1_1MeshOperation_a9c3b3bd23f505aab48465fcf343aa35d}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeAreaQuad4@{computeAreaQuad4}}
+\index{computeAreaQuad4@{computeAreaQuad4}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeAreaQuad4()}{computeAreaQuad4()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Area\+Quad4 (\begin{DoxyParamCaption}\item[{Item\+With\+Nodes}]{item,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the area of a quadrilateral defined by four nodes. 
+
+This method calculates the area of a quadrilateral by breaking it down into two triangles and using the determinant formula. The area is computed as half the value of the determinant of the matrix formed by the coordinates of the quadrilateral\textquotesingle{}s vertices. 
+
+Definition at line 174 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a4f8e0354f35f2ecf21239e4c939d40f7}\label{classArcaneFemFunctions_1_1MeshOperation_a4f8e0354f35f2ecf21239e4c939d40f7}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeAreaTria3@{computeAreaTria3}}
+\index{computeAreaTria3@{computeAreaTria3}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeAreaTria3()}{computeAreaTria3()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Area\+Tria3 (\begin{DoxyParamCaption}\item[{Item\+With\+Nodes}]{item,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the area of a triangle defined by three nodes. 
+
+This method calculates the area using the determinant formula for a triangle. The area is computed as half the value of the determinant of the matrix formed by the coordinates of the triangle\textquotesingle{}s vertices. 
+
+Definition at line 152 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a7339de6f973c41b8e78869a3ef11d804}\label{classArcaneFemFunctions_1_1MeshOperation_a7339de6f973c41b8e78869a3ef11d804}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeBaryCenterTetra4@{computeBaryCenterTetra4}}
+\index{computeBaryCenterTetra4@{computeBaryCenterTetra4}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeBaryCenterTetra4()}{computeBaryCenterTetra4()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Bary\+Center\+Tetra4 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the barycenter (centroid) of a tetrahedron. 
+
+This method calculates the barycenter of a tetrahedron defined by its nodes. The barycenter is computed as the average of the vertices\textquotesingle{} coordinates. 
+
+Definition at line 294 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_adc8c51dfa1afc71e4d71ca79425426a8}\label{classArcaneFemFunctions_1_1MeshOperation_adc8c51dfa1afc71e4d71ca79425426a8}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeBaryCenterTria3@{computeBaryCenterTria3}}
+\index{computeBaryCenterTria3@{computeBaryCenterTria3}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeBaryCenterTria3()}{computeBaryCenterTria3()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Bary\+Center\+Tria3 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the barycenter (centroid) of a triangle. 
+
+This method calculates the barycenter of a triangle defined by three nodes. The barycenter is computed as the average of the vertices\textquotesingle{} coordinates. 
+
+Definition at line 273 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_afc6c024e6597e7f036ebc71f06ed8111}\label{classArcaneFemFunctions_1_1MeshOperation_afc6c024e6597e7f036ebc71f06ed8111}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeFacLengthOrArea@{computeFacLengthOrArea}}
+\index{computeFacLengthOrArea@{computeFacLengthOrArea}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeFacLengthOrArea()}{computeFacLengthOrArea()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Fac\+Length\+Or\+Area (\begin{DoxyParamCaption}\item[{Face}]{face,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the factor used for integration of 1D, 2D and 3D finite elements. 
+
+This method calculates length or surface for a given finite-\/element (P1, P2, ...) and returns the associated factor for elementary integrals. 
+
+Definition at line 356 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a4eb21db7f0664cf957a5c34dde7ae429}\label{classArcaneFemFunctions_1_1MeshOperation_a4eb21db7f0664cf957a5c34dde7ae429}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeLengthEdge2@{computeLengthEdge2}}
+\index{computeLengthEdge2@{computeLengthEdge2}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeLengthEdge2()}{computeLengthEdge2()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Length\+Edge2 (\begin{DoxyParamCaption}\item[{Item\+With\+Nodes}]{item,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the length of the edge defined by a given face. 
+
+This method calculates Euclidean distance between the two nodes of the face. 
+
+Definition at line 316 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a7cb30071a2533688c9fe44ecc3ca74f9}\label{classArcaneFemFunctions_1_1MeshOperation_a7cb30071a2533688c9fe44ecc3ca74f9}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeNormalEdge2@{computeNormalEdge2}}
+\index{computeNormalEdge2@{computeNormalEdge2}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeNormalEdge2()}{computeNormalEdge2()}}
+{\footnotesize\ttfamily static Real2 Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Normal\+Edge2 (\begin{DoxyParamCaption}\item[{Face}]{face,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the normalized edge normal for a given face. 
+
+This method calculates normal vector to the edge defined by nodes of the face, normalizes it, and ensures the correct orientation. 
+
+Definition at line 333 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a65f1478a8af3591adbb5461f2f68be49}\label{classArcaneFemFunctions_1_1MeshOperation_a65f1478a8af3591adbb5461f2f68be49}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeNormalQuad@{computeNormalQuad}}
+\index{computeNormalQuad@{computeNormalQuad}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeNormalQuad()}{computeNormalQuad()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Normal\+Quad (\begin{DoxyParamCaption}\item[{Face}]{face,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the normalized quad normal for a given face. 
+
+This method calculates normal vector to the quad defined by nodes, of the face and normalizes it, and ensures the correct orientation. Newell\textquotesingle{}s Method is used to compute the normal vector for the quadrilateral. 
+
+Definition at line 434 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_ab65337c2cfdf79f8bb0195a06a00334a}\label{classArcaneFemFunctions_1_1MeshOperation_ab65337c2cfdf79f8bb0195a06a00334a}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeNormalTriangle@{computeNormalTriangle}}
+\index{computeNormalTriangle@{computeNormalTriangle}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeNormalTriangle()}{computeNormalTriangle()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Normal\+Triangle (\begin{DoxyParamCaption}\item[{Face}]{face,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the normalized triangle normal for a given face. 
+
+This method calculates normal vector to the triangle defined by nodes, of the face and normalizes it, and ensures the correct orientation. 
+
+Definition at line 395 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1MeshOperation_a893ab75bb006f3973464e7e40cdbcca8}\label{classArcaneFemFunctions_1_1MeshOperation_a893ab75bb006f3973464e7e40cdbcca8}} 
+\index{ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}!computeVolumeTetra4@{computeVolumeTetra4}}
+\index{computeVolumeTetra4@{computeVolumeTetra4}!ArcaneFemFunctions::MeshOperation@{ArcaneFemFunctions::MeshOperation}}
+\doxysubsubsection{\texorpdfstring{computeVolumeTetra4()}{computeVolumeTetra4()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Mesh\+Operation\+::compute\+Volume\+Tetra4 (\begin{DoxyParamCaption}\item[{Item\+With\+Nodes}]{item,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the volume of a tetrahedra defined by four nodes. 
+
+This method calculates the volume using the scalar triple product formula. We do the following\+:
+\begin{DoxyEnumerate}
+\item get the four nodes
+\item ge the vector representing the edges of tetrahedron
+\item compute volume using scalar triple product 
+\end{DoxyEnumerate}
+
+Definition at line 128 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

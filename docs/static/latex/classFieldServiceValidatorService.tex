@@ -1,0 +1,126 @@
+\hypertarget{classFieldServiceValidatorService}{}\doxysection{Field\+Service\+Validator\+Service Class Reference}
+\label{classFieldServiceValidatorService}\index{FieldServiceValidatorService@{FieldServiceValidatorService}}
+
+
+Inherits Arcane\+Field\+Service\+Validator\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFieldServiceValidatorService_a760361dcd81030b431d3e3efdd56d831}\label{classFieldServiceValidatorService_a760361dcd81030b431d3e3efdd56d831}} 
+\mbox{\hyperlink{classFieldServiceValidatorService_a760361dcd81030b431d3e3efdd56d831}{Field\+Service\+Validator\+Service}} (const Arcane\+::\+Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFieldServiceValidatorService_aec35b7b9af93d6f3d2f71fd67c07eaeb}\label{classFieldServiceValidatorService_aec35b7b9af93d6f3d2f71fd67c07eaeb}} 
+\mbox{\hyperlink{classFieldServiceValidatorService_aec35b7b9af93d6f3d2f71fd67c07eaeb}{$\sim$\+Field\+Service\+Validator\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFieldServiceValidatorService_aba1ba589992ee7199d11efdda0b58f66}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFieldServiceValidatorService_aa61e5e4b82a79608f044f42d3d830697}{validate}} ()
+\begin{DoxyCompactList}\small\item\em Apply service function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Var\+T1 , typename Var\+T2 $>$ }\\int \mbox{\hyperlink{classFieldServiceValidatorService_aa1544a7127c3eecbd39ccb17ef130e27}{validate\+Variable}} (Var\+T1 \&sol, Var\+T2 \&var)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 33 of file Field\+Service\+Validator\+Service.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFieldServiceValidatorService_aba1ba589992ee7199d11efdda0b58f66}\label{classFieldServiceValidatorService_aba1ba589992ee7199d11efdda0b58f66}} 
+\index{FieldServiceValidatorService@{FieldServiceValidatorService}!init@{init}}
+\index{init@{init}!FieldServiceValidatorService@{FieldServiceValidatorService}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Field\+Service\+Validator\+Service\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation. 
+
+Test initialization
+
+Get mesh group and check existence
+
+Initialize reference solution access using \mbox{\hyperlink{classIDataAccessor}{IData\+Accessor}}
+
+Find \mbox{\hyperlink{classIAppServiceMng}{IApp\+Service\+Mng}}
+
+Initialize checked variable accessor
+
+Look for a suitable geometric service
+
+\mbox{\hyperlink{classProperty}{Property}} computed for the whole variable
+
+Catch exception
+
+Definition at line 28 of file Field\+Service\+Validator\+Service.\+cc.
+
+\mbox{\Hypertarget{classFieldServiceValidatorService_aa61e5e4b82a79608f044f42d3d830697}\label{classFieldServiceValidatorService_aa61e5e4b82a79608f044f42d3d830697}} 
+\index{FieldServiceValidatorService@{FieldServiceValidatorService}!validate@{validate}}
+\index{validate@{validate}!FieldServiceValidatorService@{FieldServiceValidatorService}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily int Field\+Service\+Validator\+Service\+::validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Apply service function. 
+
+Get reference solution (to do first \+: throw parallel exception)
+
+Construct mesh variable for reference solution
+
+Get checked variable IVariable
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Construct mesh variable for reference one
+
+Construct mesh variable for checked one
+
+Definition at line 98 of file Field\+Service\+Validator\+Service.\+cc.
+
+\mbox{\Hypertarget{classFieldServiceValidatorService_aa1544a7127c3eecbd39ccb17ef130e27}\label{classFieldServiceValidatorService_aa1544a7127c3eecbd39ccb17ef130e27}} 
+\index{FieldServiceValidatorService@{FieldServiceValidatorService}!validateVariable@{validateVariable}}
+\index{validateVariable@{validateVariable}!FieldServiceValidatorService@{FieldServiceValidatorService}}
+\doxysubsubsection{\texorpdfstring{validateVariable()}{validateVariable()}}
+{\footnotesize\ttfamily template$<$typename Var\+T1 , typename Var\+T2 $>$ \\
+int Field\+Service\+Validator\+Service\+::validate\+Variable (\begin{DoxyParamCaption}\item[{Var\+T1 \&}]{sol,  }\item[{Var\+T2 \&}]{var }\end{DoxyParamCaption})}
+
+Define Error
+
+Definition at line 243 of file Field\+Service\+Validator\+Service.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Tests/\+Field\+Service\+Validator/Field\+Service\+Validator\+Service.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Tests/\+Field\+Service\+Validator/Field\+Service\+Validator\+Service.\+cc\end{DoxyCompactItemize}

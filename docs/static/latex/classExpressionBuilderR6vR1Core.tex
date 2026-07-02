@@ -1,0 +1,95 @@
+\hypertarget{classExpressionBuilderR6vR1Core}{}\doxysection{Expression\+Builder\+R6v\+R1\+Core Class Reference}
+\label{classExpressionBuilderR6vR1Core}\index{ExpressionBuilderR6vR1Core@{ExpressionBuilderR6vR1Core}}
+
+
+Inherits \mbox{\hyperlink{classIFunctionR6vR1}{IFunction\+R6v\+R1}}.
+
+
+
+Inherited by Expression\+Builder\+R6v\+R1\+Service.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_af3d7cbe78baeb990f6003230d7e00bf5}\label{classExpressionBuilderR6vR1Core_af3d7cbe78baeb990f6003230d7e00bf5}} 
+{\bfseries Expression\+Builder\+R6v\+R1\+Core} (\mbox{\hyperlink{structFunctionParser}{Function\+Parser}} $\ast$function\+\_\+parser, bool delegate\+\_\+destroy=false)
+\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_abe48a068a3c706373522aa517c4ab384}\label{classExpressionBuilderR6vR1Core_abe48a068a3c706373522aa517c4ab384}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_abe48a068a3c706373522aa517c4ab384}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a4eff64e4eb0cf5844c4186b60567bb57}\label{classExpressionBuilderR6vR1Core_a4eff64e4eb0cf5844c4186b60567bb57}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a4eff64e4eb0cf5844c4186b60567bb57}{set\+Parameter}} (const Arcane\+::\+String \&name, const Arcane\+::\+Real \&parameter)
+\begin{DoxyCompactList}\small\item\em Setting parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a39a0edce5cbe2c0397db5db9f5107d89}\label{classExpressionBuilderR6vR1Core_a39a0edce5cbe2c0397db5db9f5107d89}} 
+void {\bfseries set\+Parameter} (Arcane\+::\+Integer index, const Arcane\+::\+Real \&parameter)
+\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a2ed3a3a2da1ade6b92913e6d0b9cd2b9}\label{classExpressionBuilderR6vR1Core_a2ed3a3a2da1ade6b92913e6d0b9cd2b9}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a2ed3a3a2da1ade6b92913e6d0b9cd2b9}{nb\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a4b4bbe8cbb3fd35bdc9f4586d8823b1f}\label{classExpressionBuilderR6vR1Core_a4b4bbe8cbb3fd35bdc9f4586d8823b1f}} 
+Arcane\+::\+String \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a4b4bbe8cbb3fd35bdc9f4586d8823b1f}{parameter\+Name}} (Arcane\+::\+Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a93c4964e76e98664e5b3aeb7fb1c063a}\label{classExpressionBuilderR6vR1Core_a93c4964e76e98664e5b3aeb7fb1c063a}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a93c4964e76e98664e5b3aeb7fb1c063a}{set\+Variable}} (const Arcane\+::\+String \&name, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&variable)
+\begin{DoxyCompactList}\small\item\em Setting vectorized variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a8a3552c626d0b2b97b713bcbfb255197}\label{classExpressionBuilderR6vR1Core_a8a3552c626d0b2b97b713bcbfb255197}} 
+void {\bfseries set\+Variable} (Arcane\+::\+Integer index, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&variable)
+\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a54b0b33d1c64f48ad3e057c5cbb89543}\label{classExpressionBuilderR6vR1Core_a54b0b33d1c64f48ad3e057c5cbb89543}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a54b0b33d1c64f48ad3e057c5cbb89543}{nb\+Variable}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_af9dd58c5eaa5c216541c92af279735a7}\label{classExpressionBuilderR6vR1Core_af9dd58c5eaa5c216541c92af279735a7}} 
+Arcane\+::\+String \mbox{\hyperlink{classExpressionBuilderR6vR1Core_af9dd58c5eaa5c216541c92af279735a7}{variable\+Name}} (Arcane\+::\+Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a409b50d73ea39d6afe75f2d769b2ff72}\label{classExpressionBuilderR6vR1Core_a409b50d73ea39d6afe75f2d769b2ff72}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a409b50d73ea39d6afe75f2d769b2ff72}{set\+Evaluation\+Result}} (Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&result)
+\begin{DoxyCompactList}\small\item\em Setting evaluation vectorized result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{di variable}
+\label{_amgrp9b891d0d476eb766c3bec3466e651596}%
+Setting derivation vectorized result
+
+Derivation following \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a3bc9890ad5162f1b801ba415e47eeaca}\label{classExpressionBuilderR6vR1Core_a3bc9890ad5162f1b801ba415e47eeaca}} 
+\mbox{\hyperlink{structFunctionParser}{Function\+Parser}} $\ast$ \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a3bc9890ad5162f1b801ba415e47eeaca}{m\+\_\+function\+\_\+parser}}
+\begin{DoxyCompactList}\small\item\em Function parser. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a8d7f53975805897ae3089cfbd546842b}\label{classExpressionBuilderR6vR1Core_a8d7f53975805897ae3089cfbd546842b}} 
+bool \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a8d7f53975805897ae3089cfbd546842b}{m\+\_\+delegate\+\_\+destroy}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDelegate}{Delegate}} destruction of \mbox{\hyperlink{structFunctionParser}{Function\+Parser}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a3c33410f73f7c57abc216b22a0fd8ef6}\label{classExpressionBuilderR6vR1Core_a3c33410f73f7c57abc216b22a0fd8ef6}} 
+void {\bfseries set\+Derivation\+Result} (Arcane\+::\+Integer di, Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_ab7ef45eac3fc4fa59a1a00cfb424e19c}\label{classExpressionBuilderR6vR1Core_ab7ef45eac3fc4fa59a1a00cfb424e19c}} 
+void {\bfseries set\+Derivation\+Result} (const Arcane\+::\+String \&di, Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_ac788a8bbd84899e45dc71e31e18db2bb}\label{classExpressionBuilderR6vR1Core_ac788a8bbd84899e45dc71e31e18db2bb}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_ac788a8bbd84899e45dc71e31e18db2bb}{eval}} ()
+\begin{DoxyCompactList}\small\item\em Eval vectorized data service function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a02bbbab2e4a8bb80f0d251f547fc4162}\label{classExpressionBuilderR6vR1Core_a02bbbab2e4a8bb80f0d251f547fc4162}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a02bbbab2e4a8bb80f0d251f547fc4162}{cleanup}} ()
+\begin{DoxyCompactList}\small\item\em Cleanup. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a5965bffb548fcad37c0e370a13d95d26}\label{classExpressionBuilderR6vR1Core_a5965bffb548fcad37c0e370a13d95d26}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a5965bffb548fcad37c0e370a13d95d26}{eval}} (const Arcane\+::\+Real \&var0, const Arcane\+::\+Real \&var1, const Arcane\+::\+Real \&var2, const Arcane\+::\+Real \&var3, const Arcane\+::\+Real \&var4, const Arcane\+::\+Real \&var5, Arcane\+::\+Real \&res0)
+\begin{DoxyCompactList}\small\item\em Point-\/wise evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_ae0c222fffc5c658a6c392651f41db501}\label{classExpressionBuilderR6vR1Core_ae0c222fffc5c658a6c392651f41db501}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_ae0c222fffc5c658a6c392651f41db501}{eval}} (const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var0, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var1, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var2, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var3, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var4, const Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&var5, Arcane\+::\+Array$<$ Arcane\+::\+Real $>$ \&res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a5ca6ca598799ca72dff46b5def0080f3}\label{classExpressionBuilderR6vR1Core_a5ca6ca598799ca72dff46b5def0080f3}} 
+void \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a5ca6ca598799ca72dff46b5def0080f3}{eval}} (Arcane\+::\+Real\+Const\+Array\+View var0, Arcane\+::\+Real\+Const\+Array\+View var1, Arcane\+::\+Real\+Const\+Array\+View var2, Arcane\+::\+Real\+Const\+Array\+View var3, Arcane\+::\+Real\+Const\+Array\+View var4, Arcane\+::\+Real\+Const\+Array\+View var5, Arcane\+::\+Real\+Array\+View res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExpressionBuilderR6vR1Core_a3961ca5b453077be74ecf2f35f76a0a3}\label{classExpressionBuilderR6vR1Core_a3961ca5b453077be74ecf2f35f76a0a3}} 
+Arcane\+::\+Real \mbox{\hyperlink{classExpressionBuilderR6vR1Core_a3961ca5b453077be74ecf2f35f76a0a3}{eval}} (const Arcane\+::\+Real \&var0, const Arcane\+::\+Real \&var1, const Arcane\+::\+Real \&var2, const Arcane\+::\+Real \&var3, const Arcane\+::\+Real \&var4, const Arcane\+::\+Real \&var5)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structScalar}{Scalar}} return for point-\/wise evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 32 of file Expression\+Builder\+R6v\+R1\+Core.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Expression\+Builder/Expression\+Builder\+R6v\+R1\+Core.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Expression\+Builder/Expression\+Builder\+R6v\+R1\+Core.\+cc\end{DoxyCompactItemize}

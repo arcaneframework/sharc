@@ -1,0 +1,57 @@
+\hypertarget{structaudi_1_1unary__add__by__left}{}\doxysection{audi\+::unary\+\_\+add\+\_\+by\+\_\+left$<$ T $>$ Struct Template Reference}
+\label{structaudi_1_1unary__add__by__left}\index{audi::unary\_add\_by\_left$<$ T $>$@{audi::unary\_add\_by\_left$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ unary\+\_\+add\+\_\+by\+\_\+left$<$ T $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_a02bd2964780f5ba921a2ca02a09895fe}\label{structaudi_1_1unary__add__by__left_a02bd2964780f5ba921a2ca02a09895fe}} 
+using {\bfseries Operand} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ T $>$\+::value, const T, const T \& $>$\+::type
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_aad3e5fb26bea93576a53122b06fcc51e}\label{structaudi_1_1unary__add__by__left_aad3e5fb26bea93576a53122b06fcc51e}} 
+using {\bfseries data\+\_\+type} = decltype(m\+\_\+type.\+value())
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_a500c39a34a9dfae2f48fc2ddf1862d18}\label{structaudi_1_1unary__add__by__left_a500c39a34a9dfae2f48fc2ddf1862d18}} 
+{\bfseries unary\+\_\+add\+\_\+by\+\_\+left} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ T $>$ \&t, decltype(m\+\_\+type.\+value()) factor)
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_a2c4c41c6476cd1248c42cdfa2c501f1c}\label{structaudi_1_1unary__add__by__left_a2c4c41c6476cd1248c42cdfa2c501f1c}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_af4840d6fcad09adb4d3dacc5d567a564}\label{structaudi_1_1unary__add__by__left_af4840d6fcad09adb4d3dacc5d567a564}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_a512ccf90016515ed901f50bc4aeefce8}\label{structaudi_1_1unary__add__by__left_a512ccf90016515ed901f50bc4aeefce8}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_a18545baf6c7147ff1fe81936c9610b99}\label{structaudi_1_1unary__add__by__left_a18545baf6c7147ff1fe81936c9610b99}} 
+Operand {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_afb8c1d7f3fc3339baf8fd5aec6461bb4}\label{structaudi_1_1unary__add__by__left_afb8c1d7f3fc3339baf8fd5aec6461bb4}} 
+decltype(m\+\_\+type.\+value()) {\bfseries m\+\_\+factor}
+\item 
+\mbox{\Hypertarget{structaudi_1_1unary__add__by__left_aeb075f24e064c849d34c6ee148f2e774}\label{structaudi_1_1unary__add__by__left_aeb075f24e064c849d34c6ee148f2e774}} 
+decltype(m\+\_\+type.\+value()) {\bfseries m\+\_\+v}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct audi\+::unary\+\_\+add\+\_\+by\+\_\+left$<$ T $>$}
+
+
+
+Definition at line 39 of file unary\+\_\+add.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/unary\+\_\+add.\+h\end{DoxyCompactItemize}

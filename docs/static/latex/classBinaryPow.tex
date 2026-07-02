@@ -1,0 +1,218 @@
+\hypertarget{classBinaryPow}{}\doxysection{Binary\+Pow$<$ T, power $>$ Class Template Reference}
+\label{classBinaryPow}\index{BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}}
+
+
+\mbox{\hyperlink{classBinaryPow}{Binary\+Pow}} \+: Operation de puissance entre 2 types.  
+
+
+
+
+{\ttfamily \#include $<$Binary\+Op.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}\label{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}} 
+typedef T\+::value\+\_\+type \mbox{\hyperlink{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}{value\+\_\+typeL}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de gauche \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryPow_aa690984588dfca84e087914aee482f1c}\label{classBinaryPow_aa690984588dfca84e087914aee482f1c}} 
+typedef power\+::value\+\_\+type \mbox{\hyperlink{classBinaryPow_aa690984588dfca84e087914aee482f1c}{value\+\_\+typeR}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de droite \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}\label{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}} 
+typedef \mbox{\hyperlink{classPromote}{Promote}}$<$ \mbox{\hyperlink{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}{value\+\_\+typeL}}, \mbox{\hyperlink{classBinaryPow_aa690984588dfca84e087914aee482f1c}{value\+\_\+typeR}} $>$\+::type \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em type du resultat de l\textquotesingle{}operation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}\label{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}} 
+typedef T\+::value\+\_\+type \mbox{\hyperlink{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}{value\+\_\+typeL}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de gauche \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryPow_aa690984588dfca84e087914aee482f1c}\label{classBinaryPow_aa690984588dfca84e087914aee482f1c}} 
+typedef power\+::value\+\_\+type \mbox{\hyperlink{classBinaryPow_aa690984588dfca84e087914aee482f1c}{value\+\_\+typeR}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de droite \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}\label{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}} 
+typedef \mbox{\hyperlink{classPromote}{Promote}}$<$ \mbox{\hyperlink{classBinaryPow_ad245d6b734b25c1602a811f8f2fe00ab}{value\+\_\+typeL}}, \mbox{\hyperlink{classBinaryPow_aa690984588dfca84e087914aee482f1c}{value\+\_\+typeR}} $>$\+::type \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em type du resultat de l\textquotesingle{}operation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}{get\+Value}} (const T \&left, const \mbox{\hyperlink{classCst}{Cst}}$<$ int $>$ \&right, int index)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryPow_a11a464f8c0b0882f6bb755cfbd1cc4f6}\label{classBinaryPow_a11a464f8c0b0882f6bb755cfbd1cc4f6}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classArray}{Array}}$<$ int $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a190bb346a2ab93ed86de143055f9e5f4}\label{classBinaryPow_a190bb346a2ab93ed86de143055f9e5f4}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classFad}{Fad}}$<$ \mbox{\hyperlink{classCst}{Cst}}$<$ int $>$ $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a6a9ef7c98d82afe701b481132437ae50}\label{classBinaryPow_a6a9ef7c98d82afe701b481132437ae50}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classFad}{Fad}}$<$ \mbox{\hyperlink{classArray}{Array}}$<$ int $>$ $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a5084b0b598fcd9567ea3b6abd058d4b3}\label{classBinaryPow_a5084b0b598fcd9567ea3b6abd058d4b3}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const int right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a521f947bd9338e33cbdda5274d9cfb88}\label{classBinaryPow_a521f947bd9338e33cbdda5274d9cfb88}} 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a4da7ca7fbad60d0624f21264eb546dc8}\label{classBinaryPow_a4da7ca7fbad60d0624f21264eb546dc8}} 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a4bd0437efa619de9573d509472cb69bf}\label{classBinaryPow_a4bd0437efa619de9573d509472cb69bf}} 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&right, int index)
+\item 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow_a14ef1871b405a955b6252468beb6e09c}{get\+Derived\+Value}} (const T \&left, const power \&right, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de la derivee de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}{get\+Value}} (const T \&left, const \mbox{\hyperlink{classCst}{Cst}}$<$ int $>$ \&right, int index)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryPow_a11a464f8c0b0882f6bb755cfbd1cc4f6}\label{classBinaryPow_a11a464f8c0b0882f6bb755cfbd1cc4f6}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classArray}{Array}}$<$ int $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a190bb346a2ab93ed86de143055f9e5f4}\label{classBinaryPow_a190bb346a2ab93ed86de143055f9e5f4}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classFad}{Fad}}$<$ \mbox{\hyperlink{classCst}{Cst}}$<$ int $>$ $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a6a9ef7c98d82afe701b481132437ae50}\label{classBinaryPow_a6a9ef7c98d82afe701b481132437ae50}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classFad}{Fad}}$<$ \mbox{\hyperlink{classArray}{Array}}$<$ int $>$ $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a5084b0b598fcd9567ea3b6abd058d4b3}\label{classBinaryPow_a5084b0b598fcd9567ea3b6abd058d4b3}} 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const int right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a521f947bd9338e33cbdda5274d9cfb88}\label{classBinaryPow_a521f947bd9338e33cbdda5274d9cfb88}} 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a4da7ca7fbad60d0624f21264eb546dc8}\label{classBinaryPow_a4da7ca7fbad60d0624f21264eb546dc8}} 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&right, int index)
+\item 
+\mbox{\Hypertarget{classBinaryPow_a4bd0437efa619de9573d509472cb69bf}\label{classBinaryPow_a4bd0437efa619de9573d509472cb69bf}} 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} {\bfseries get\+Value} (const T \&left, const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&right, int index)
+\item 
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow_a14ef1871b405a955b6252468beb6e09c}{get\+Derived\+Value}} (const T \&left, const power \&right, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de la derivee de l\textquotesingle{}operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename power$>$\newline
+class Binary\+Pow$<$ T, power $>$}
+
+\mbox{\hyperlink{classBinaryPow}{Binary\+Pow}} \+: Operation de puissance entre 2 types. 
+
+Definit une methode static \mbox{\hyperlink{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}{get\+Value()}} qui renvoie le premier element eleve a la puissance du deuxieme element a l\textquotesingle{}index i. ~\newline
+Si la puissance est entiere, on calcule la puissance sans faire appel a la fonction pow de cmath 
+
+Definition at line 191 of file Binary\+Op.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBinaryPow_a14ef1871b405a955b6252468beb6e09c}\label{classBinaryPow_a14ef1871b405a955b6252468beb6e09c}} 
+\index{BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename power $>$ \\
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}}$<$ T, power $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{const T \&}]{left,  }\item[{const power \&}]{right,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de la derivee de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em ligne} & Premier index \\
+\hline
+{\em colonne} & Deuxieme index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 322 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryPow_a14ef1871b405a955b6252468beb6e09c}\label{classBinaryPow_a14ef1871b405a955b6252468beb6e09c}} 
+\index{BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename power $>$ \\
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}}$<$ T, power $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{const T \&}]{left,  }\item[{const power \&}]{right,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de la derivee de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em ligne} & Premier index \\
+\hline
+{\em colonne} & Deuxieme index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 317 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}\label{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}} 
+\index{BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename power $>$ \\
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}}$<$ T, power $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{const T \&}]{left,  }\item[{const \mbox{\hyperlink{classCst}{Cst}}$<$ int $>$ \&}]{right,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em index} & Index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 210 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}\label{classBinaryPow_a2ac7e94cf9f456f20eb979ac7987e76f}} 
+\index{BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!BinaryPow$<$ T, power $>$@{BinaryPow$<$ T, power $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename power $>$ \\
+static \mbox{\hyperlink{classBinaryPow_a7bbece40e287b3cd9fe2d98607334f08}{value\+\_\+type}} \mbox{\hyperlink{classBinaryPow}{Binary\+Pow}}$<$ T, power $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{const T \&}]{left,  }\item[{const \mbox{\hyperlink{classCst}{Cst}}$<$ int $>$ \&}]{right,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em index} & Index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 210 of file Binary\+Op.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Utils/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h}{Binary\+Op.\+h}}\end{DoxyCompactItemize}

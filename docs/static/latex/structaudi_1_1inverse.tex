@@ -1,0 +1,57 @@
+\hypertarget{structaudi_1_1inverse}{}\doxysection{audi\+::inverse$<$ T $>$ Struct Template Reference}
+\label{structaudi_1_1inverse}\index{audi::inverse$<$ T $>$@{audi::inverse$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ inverse$<$ T $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_a3881c65db0d9f3bbc6530112be698e7b}\label{structaudi_1_1inverse_a3881c65db0d9f3bbc6530112be698e7b}} 
+using {\bfseries Operand} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ T $>$\+::value, const T, const T \& $>$\+::type
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_a5a993684dd68dddb85c60521ac396298}\label{structaudi_1_1inverse_a5a993684dd68dddb85c60521ac396298}} 
+using {\bfseries data\+\_\+type} = decltype(m\+\_\+type.\+value())
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_a6c1a6d2033972b29f2e1cddcf6ffb905}\label{structaudi_1_1inverse_a6c1a6d2033972b29f2e1cddcf6ffb905}} 
+{\bfseries inverse} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ T $>$ \&t, decltype(m\+\_\+type.\+value()) factor)
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_aab172defae71c733ad20056ac2046fe3}\label{structaudi_1_1inverse_aab172defae71c733ad20056ac2046fe3}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_a4ee3a3d4cef527cee95d6b0a1bcfce72}\label{structaudi_1_1inverse_a4ee3a3d4cef527cee95d6b0a1bcfce72}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_ada45a322548e96a13e5b14ca403e5a8e}\label{structaudi_1_1inverse_ada45a322548e96a13e5b14ca403e5a8e}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_a546bb020aa550957d3293961e9255ea3}\label{structaudi_1_1inverse_a546bb020aa550957d3293961e9255ea3}} 
+Operand {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_a691ed57bb76beb6ecfbfa56967a5e813}\label{structaudi_1_1inverse_a691ed57bb76beb6ecfbfa56967a5e813}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+factor}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inverse_a7eec70f15b99d80c52f1e31c3bf4534f}\label{structaudi_1_1inverse_a7eec70f15b99d80c52f1e31c3bf4534f}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+v}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct audi\+::inverse$<$ T $>$}
+
+
+
+Definition at line 7 of file inverse.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/inverse.\+h\end{DoxyCompactItemize}

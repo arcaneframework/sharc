@@ -1,0 +1,138 @@
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse de la structure des cas \end{quote}
+\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md82}{}\doxysection{📋 Table des matières}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md82}
+
+\begin{DoxyItemize}
+\item \href{\#description}{\texttt{ Description}}
+\item \href{\#organisation-des-cas}{\texttt{ Organisation des cas}}
+\item \href{\#cas-de-base}{\texttt{ Cas de base}}
+\item \href{\#cas-avec-capillarit\%C3\%A9-et-puits}{\texttt{ Cas avec capillarité et puits}}
+\item \href{\#cas-spe10-benchmark}{\texttt{ Cas SPE10 (benchmark)}}
+\item \href{\#solveurs-lin\%C3\%A9aires-et-pr\%C3\%A9conditionneurs}{\texttt{ Solveurs linéaires et préconditionneurs}}
+\item \href{\#mesh-et-configuration-commune}{\texttt{ Mesh et configuration commune}}
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md83}{}\doxysection{Description}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md83}
+Le répertoire {\ttfamily test/\+Two\+Phase\+Flow\+Simulation/} contient la suite de cas de test pour le module {\ttfamily src/\+Two\+Phase\+Flow\+Simulation/}. Ces cas couvrent \+:
+
+
+\begin{DoxyItemize}
+\item des scénarios de base de simulation diphasique,
+\item des cas avec pression capillaire,
+\item des cas avec puits (sources/sinks),
+\item un ensemble de variantes du benchmark SPE10 utilisant différents solveurs linéaires et préconditionneurs.
+\end{DoxyItemize}
+
+Les fichiers {\ttfamily .arc} décrivent chacun un cas Arcane/\+Sh\+Arc complet \+: maillage ({\ttfamily .vt2}), système physique, conditions initiales, conditions aux limites, puits, paramètres numériques (Newton, schéma à deux points, solveur linéaire).\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md84}{}\doxysection{Organisation des cas}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md84}
+Contenu principal \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{test/TwoPhaseFlowSimulation/}
+\DoxyCodeLine{  mesh-\/10x1x1.vt2                      \# petit maillage de test}
+\DoxyCodeLine{  mesh-\/well.vt2                        \# maillage pour cas avec puits}
+\DoxyCodeLine{  SPE10-\/mesh-\/level0.vt2                \# maillage SPE10 (niveau 0)}
+\DoxyCodeLine{  SPE10-\/mesh-\/level0-\/well.vt2           \# maillage SPE10 avec puits}
+\DoxyCodeLine{}
+\DoxyCodeLine{  ShArc.config                         \# configuration ShArc utilisée par ces cas}
+\DoxyCodeLine{}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/with-\/capillary-\/pressure.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/well.arc}
+\DoxyCodeLine{}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/well.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/ilu0.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/cxr.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/cxr-\/sycl.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/hts-\/bcgs-\/ilu0.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/hts-\/bcgs-\/cpr.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/hypre-\/bcgs-\/ilu0.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/ifps-\/bcgs-\/ilu0.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/ifps-\/bcgs-\/cpr.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgs-\/bcgs-\/ilu0.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgs-\/bcgs-\/cpr.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgsgpu-\/bcgs-\/cpr.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/petsc-\/bcgs-\/ilu0.arc}
+\DoxyCodeLine{  use-\/case-\/two-\/phase-\/flow-\/spe10-\/tri-\/bcgs-\/ilu0.arc}
+\DoxyCodeLine{}
+\DoxyCodeLine{  RefUseCaseTwoPhaseFlow\_DebugNewtonMatrix\_1\_1.txt}
+\DoxyCodeLine{  RefUseCaseTwoPhaseFlow\_DebugNewtonVector\_1\_1.txt}
+
+\end{DoxyCode}
+\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md85}{}\doxysection{Cas de base}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md85}
+
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow.\+arc} ~\newline
+ Cas de base de simulation diphasique sur {\ttfamily mesh-\/10x1x1.\+vt2}. Sert de test rapide pour le module {\ttfamily Two\+Phase\+Flow\+Simulation} sans capillarité ni puits.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/with-\/capillary-\/pressure.\+arc} ~\newline
+ Cas similaire au précédent, avec activation des lois de pression capillaire ({\ttfamily Physical\+Laws/\+Capillary\+Pressure\+Law}). Permet de vérifier les contributions de capillarité et leur impact sur l’assemblage.
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md86}{}\doxysection{Cas avec capillarité et puits}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md86}
+
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/well.\+arc} ~\newline
+ Cas de base avec puits sur {\ttfamily mesh-\/well.\+vt2}. Utilise le service {\ttfamily Well\+Condition/\+Well} pour tester la gestion des puits (débits ou pressions imposées), indices de puits, mise à jour des flux puits.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/well.\+arc} ~\newline
+ Variante SPE10 avec puits, sur {\ttfamily SPE10-\/mesh-\/level0-\/well.\+vt2}.
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md87}{}\doxysection{Cas SPE10 (benchmark)}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md87}
+Les cas {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10$\ast$.arc} utilisent la géométrie et les propriétés du benchmark SPE10 (réservoir hétérogène) pour tester le solveur sur un cas réaliste à maillage plus coûteux.
+
+Cas génériques \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10.\+arc} ~\newline
+ Cas de référence SPE10 avec configuration par défaut (maillage {\ttfamily SPE10-\/mesh-\/level0.\+vt2}, système diphasique, capillarité, etc.).
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/well.\+arc} ~\newline
+ SPE10 avec puits (combinaison flux/pression, indices de puits, etc.).
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md88}{}\doxysection{Solveurs linéaires et préconditionneurs}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md88}
+Les variantes autour de SPE10 exploitent différents solveurs linéaires, préconditionneurs et backends. La nomenclature des fichiers {\ttfamily .arc} suit le schéma \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{use-\/case-\/two-\/phase-\/flow-\/spe10-\/<backend>-\/<iterative>-\/<precond>.arc}
+
+\end{DoxyCode}
+
+
+où \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $<$backend$>$} \+: backend ou stack de solveur (hypre, petsc, ifps, mcgs, hts, tri, bcgs, etc.),
+\item {\ttfamily $<$iterative$>$} \+: méthode itérative principale (souvent {\ttfamily bcgs} pour Bi\+CGStab),
+\item {\ttfamily $<$precond$>$} \+: préconditionneur (par ex. {\ttfamily ilu0}, {\ttfamily cpr}, {\ttfamily cxr}).
+\end{DoxyItemize}
+
+Exemples \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/ilu0.\+arc} ~\newline
+ Solveur Bi\+CGStab avec préconditionneur ILU(0) sur backend standard.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/cxr.\+arc} ~\newline
+ Variante avec préconditionneur CXR (Cross Approximation ? selon l’implémentation de backend Alien/\+Arc\+Geo\+Sim).
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/cxr-\/sycl.\+arc} ~\newline
+ Variante accélérée SYCL (GPU) pour CXR.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/hts-\/bcgs-\/ilu0.\+arc} / {\ttfamily ...-\/cpr.\+arc} ~\newline
+ Cas utilisant un backend HTS (High-\/\+Throughput Solver) avec Bi\+CGStab et préconditionneur ILU0 ou CPR.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/hypre-\/bcgs-\/ilu0.\+arc} ~\newline
+ Cas utilisant Hypre comme backend, Bi\+CGStab + ILU0.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/ifps-\/bcgs-\/ilu0.\+arc} / {\ttfamily ...-\/cpr.\+arc} ~\newline
+ Cas utilisant un backend IFPS (Ifp\+Solver) avec Bi\+CGStab et préconditionneur ILU0 ou CPR.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgs-\/bcgs-\/ilu0.\+arc} / {\ttfamily ...-\/cpr.\+arc} ~\newline
+ Cas utilisant un backend MCGS (Multi-\/grid / Multi-\/colour?) avec Bi\+CGStab, ILU0 ou CPR.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgsgpu-\/bcgs-\/cpr.\+arc} ~\newline
+ Variante GPU du backend MCGS avec CPR.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/petsc-\/bcgs-\/ilu0.\+arc} ~\newline
+ Cas avec backend PETSc, Bi\+CGStab + ILU0.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/tri-\/bcgs-\/ilu0.\+arc} ~\newline
+ Variante utilisant un backend Trilinos (tri$\ast$) avec Bi\+CGStab + ILU0.
+\end{DoxyItemize}
+
+Ces cas permettent de comparer performances, robustesse et comportement des différents solveurs/préconditionneurs sur un benchmark commun.\hypertarget{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md89}{}\doxysection{Mesh et configuration commune}\label{md__tmp_opencode_sharc_test_TwoPhaseFlowSimulation_README_autotoc_md89}
+Maillage simple pour test rapide (10×1×1 cellules).
+
+Maillage avec groupe(s) adapté(s) aux puits (groupes de cellules/faces pour {\ttfamily Well\+Condition}).
+
+Maillages de base pour le benchmark SPE10, avec ou sans puits.
+
+Fichier de configuration Sh\+Arc commun aux cas, définissant les modules à charger (Sh\+Arc, Two\+Phase\+Flow\+Simulation, services de maillage, services de solveur, etc.) et les options globales de simulation/post-\/processing. 

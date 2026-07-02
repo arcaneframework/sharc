@@ -1,0 +1,82 @@
+\hypertarget{classPropertyHolder}{}\doxysection{Property\+Holder$<$ Property, Value\+Type $>$ Class Template Reference}
+\label{classPropertyHolder}\index{PropertyHolder$<$ Property, ValueType $>$@{PropertyHolder$<$ Property, ValueType $>$}}
+
+
+template$<$class Property,class Value\+Type$>$ permettant de g{\ucr}rer une liste de propri{\ucr}t{\ucr}s de type Value\+Type associ{\ucr}s {\ucr} l\textquotesingle{}enum Property\+::e\+Property  
+
+
+
+
+{\ttfamily \#include $<$Property\+Holder.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPropertyHolder_ab96eacc547d85a0c0383f9d058bd9a83}\label{classPropertyHolder_ab96eacc547d85a0c0383f9d058bd9a83}} 
+typedef Property\+::e\+Property {\bfseries Property\+Type}
+\item 
+\mbox{\Hypertarget{classPropertyHolder_afad904c333276f56bcd236c13a187e10}\label{classPropertyHolder_afad904c333276f56bcd236c13a187e10}} 
+typedef std\+::map$<$ Property\+Type, Value\+Type $>$ {\bfseries Property\+List}
+\item 
+\mbox{\Hypertarget{classPropertyHolder_a7cf7202dd0e1888e37d1fa6c106e93aa}\label{classPropertyHolder_a7cf7202dd0e1888e37d1fa6c106e93aa}} 
+typedef Property\+List\+::iterator {\bfseries Property\+List\+Iter}
+\item 
+\mbox{\Hypertarget{classPropertyHolder_a01cd1350ac7e6cdb9e3a2174e659cb1b}\label{classPropertyHolder_a01cd1350ac7e6cdb9e3a2174e659cb1b}} 
+typedef Property\+List\+::const\+\_\+iterator {\bfseries Property\+List\+Const\+Iter}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPropertyHolder_a020a507ad6facfe513752068d5e58d61}\label{classPropertyHolder_a020a507ad6facfe513752068d5e58d61}} 
+{\bfseries Property\+Holder} (Arcane\+::\+String name=\char`\"{}Undefined\char`\"{})
+\item 
+\mbox{\Hypertarget{classPropertyHolder_a665365f35dc5dd2da0022841e9627a01}\label{classPropertyHolder_a665365f35dc5dd2da0022841e9627a01}} 
+bool \mbox{\hyperlink{classPropertyHolder_a665365f35dc5dd2da0022841e9627a01}{has\+Property}} (Property\+Type property) const
+\begin{DoxyCompactList}\small\item\em check if has one property \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyHolder_aa3ed22ff9aeb2ba12e7bf893cd5bffad}\label{classPropertyHolder_aa3ed22ff9aeb2ba12e7bf893cd5bffad}} 
+Value\+Type \mbox{\hyperlink{classPropertyHolder_aa3ed22ff9aeb2ba12e7bf893cd5bffad}{get\+Property}} (Property\+Type property, Value\+Type default\+\_\+value) const
+\begin{DoxyCompactList}\small\item\em return the value of one property, default\+Value if the property does not exist \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyHolder_ab7bcc1d4be491f38fcc84813157c2427}\label{classPropertyHolder_ab7bcc1d4be491f38fcc84813157c2427}} 
+Value\+Type \mbox{\hyperlink{classPropertyHolder_ab7bcc1d4be491f38fcc84813157c2427}{get\+Property}} (Property\+Type property, bool $\ast$\mbox{\hyperlink{classPropertyHolder_a665365f35dc5dd2da0022841e9627a01}{has\+Property}}, Value\+Type default\+\_\+value) const
+\begin{DoxyCompactList}\small\item\em return the value of one property and set if the property exists \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyHolder_aa4ea1747d3c0e818e158e7495cc6e147}\label{classPropertyHolder_aa4ea1747d3c0e818e158e7495cc6e147}} 
+Value\+Type {\bfseries get\+Property} (Property\+Type property, bool $\ast$\mbox{\hyperlink{classPropertyHolder_a665365f35dc5dd2da0022841e9627a01}{has\+Property}}) const
+\item 
+\mbox{\Hypertarget{classPropertyHolder_a25dde31d3e190b0ce54713cc558dc50d}\label{classPropertyHolder_a25dde31d3e190b0ce54713cc558dc50d}} 
+Arcane\+::\+String \mbox{\hyperlink{classPropertyHolder_a25dde31d3e190b0ce54713cc558dc50d}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em return the name of the property holder \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyHolder_a8d6b65dd131c40f35c5c0493ffc57359}\label{classPropertyHolder_a8d6b65dd131c40f35c5c0493ffc57359}} 
+void \mbox{\hyperlink{classPropertyHolder_a8d6b65dd131c40f35c5c0493ffc57359}{set\+Name}} (Arcane\+::\+String name)
+\begin{DoxyCompactList}\small\item\em set the name of the property holder \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyHolder_a3fb95dfaa27547646dab3bae510fb89d}\label{classPropertyHolder_a3fb95dfaa27547646dab3bae510fb89d}} 
+void \mbox{\hyperlink{classPropertyHolder_a3fb95dfaa27547646dab3bae510fb89d}{set\+Property}} (Property\+Type property, Value\+Type val)
+\begin{DoxyCompactList}\small\item\em set the value of one property \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyHolder_abcf39e43ef5145246bb42f0de943c28c}\label{classPropertyHolder_abcf39e43ef5145246bb42f0de943c28c}} 
+void \mbox{\hyperlink{classPropertyHolder_abcf39e43ef5145246bb42f0de943c28c}{set\+Default\+Value}} (Value\+Type val)
+\begin{DoxyCompactList}\small\item\em set the default\+Value to return when one property does not exist \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyHolder_a1560311f3307d41ba7afb08893518bdf}\label{classPropertyHolder_a1560311f3307d41ba7afb08893518bdf}} 
+void \mbox{\hyperlink{classPropertyHolder_a1560311f3307d41ba7afb08893518bdf}{print\+Info}} (Arcane\+::\+ITrace\+Mng $\ast$trace\+\_\+mng) const
+\begin{DoxyCompactList}\small\item\em Print properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Property, class Value\+Type$>$\newline
+class Property\+Holder$<$ Property, Value\+Type $>$}
+
+template$<$class Property,class Value\+Type$>$ permettant de g{\ucr}rer une liste de propri{\ucr}t{\ucr}s de type Value\+Type associ{\ucr}s {\ucr} l\textquotesingle{}enum Property\+::e\+Property 
+
+\begin{DoxyAuthor}{Author}
+Jean-\/\+Marc GRATIEN 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+Definition at line 26 of file Property\+Holder.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Property\+Holder.\+h\end{DoxyCompactItemize}

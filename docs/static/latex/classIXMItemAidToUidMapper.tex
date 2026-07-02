@@ -1,0 +1,73 @@
+\hypertarget{classIXMItemAidToUidMapper}{}\doxysection{IXMItem\+Aid\+To\+Uid\+Mapper Class Reference}
+\label{classIXMItemAidToUidMapper}\index{IXMItemAidToUidMapper@{IXMItemAidToUidMapper}}
+
+
+Classe de gestion des identifiants de face d{\ucr}crits par leurs abstract id (aid).  
+
+
+
+
+{\ttfamily \#include $<$IXMItem\+Aid\+Mapper.\+h$>$}
+
+
+
+Inherits Arcane\+::\+Trace\+Accessor.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIXMItemAidToUidMapper_a26e744be72def2f5df621f1b50881d40}{IXMItem\+Aid\+To\+Uid\+Mapper}} (Arcane\+::\+ITrace\+Mng $\ast$trace\+Mng, Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+IParallel\+Mng $\ast$parallel\+Mng, Arcane\+::\+Integer master\+Id, bool use\+Memory, Arcane\+::\+Variable\+Array\+Int64 $\ast$item\+\_\+aid\+\_\+memory, Arcane\+::e\+Item\+Kind item\+\_\+kind)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMItemAidToUidMapper_af3e0f1168bd590b4216403fae129a162}\label{classIXMItemAidToUidMapper_af3e0f1168bd590b4216403fae129a162}} 
+virtual \mbox{\hyperlink{classIXMItemAidToUidMapper_af3e0f1168bd590b4216403fae129a162}{$\sim$\+IXMItem\+Aid\+To\+Uid\+Mapper}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMItemAidToUidMapper_aa7a7e9efe78dcc96dbeb7aaf2228f84c}\label{classIXMItemAidToUidMapper_aa7a7e9efe78dcc96dbeb7aaf2228f84c}} 
+void {\bfseries item\+Abstract\+Id\+To\+Local\+Id} (Arcane\+::\+Int32\+Array\+View face\+\_\+local\+\_\+ids, const Arcane\+::\+Int64\+Const\+Array\+View face\+\_\+abstract\+\_\+ids, const bool do\+\_\+fatal=true) const
+\item 
+\mbox{\Hypertarget{classIXMItemAidToUidMapper_a0da48852f36f5c513e2400820aefb49b}\label{classIXMItemAidToUidMapper_a0da48852f36f5c513e2400820aefb49b}} 
+void \mbox{\hyperlink{classIXMItemAidToUidMapper_a0da48852f36f5c513e2400820aefb49b}{clear\+Aid\+Mapping}} ()
+\begin{DoxyCompactList}\small\item\em Nettoie le mapping. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMItemAidToUidMapper_adb2eba585336fd81f359719bae1b43a4}\label{classIXMItemAidToUidMapper_adb2eba585336fd81f359719bae1b43a4}} 
+void \mbox{\hyperlink{classIXMItemAidToUidMapper_adb2eba585336fd81f359719bae1b43a4}{build\+Aid\+To\+Lid\+Mapping}} (Arcane\+::\+Int64\+Const\+Array\+View abstract\+\_\+ids, Arcane\+::\+Const\+Array\+View$<$ Arcane\+::\+Local\+Id\+Type $>$ local\+\_\+ids, const bool do\+\_\+check, const bool is\+\_\+parallel=true)
+\begin{DoxyCompactList}\small\item\em Construit la correspondance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMItemAidToUidMapper_affcbae6671c51a4fb95d2f5338cfa433}\label{classIXMItemAidToUidMapper_affcbae6671c51a4fb95d2f5338cfa433}} 
+Int64 {\bfseries get\+Item\+Aid\+Max} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMItemAidToUidMapper_abe1575fbab445884b522b0a2dddb75d4}\label{classIXMItemAidToUidMapper_abe1575fbab445884b522b0a2dddb75d4}} 
+static const Arcane\+::\+String \mbox{\hyperlink{classIXMItemAidToUidMapper_abe1575fbab445884b522b0a2dddb75d4}{item\+Aid\+Memory\+Variable\+Name}} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::e\+Item\+Kind item\+\_\+kind)
+\begin{DoxyCompactList}\small\item\em Donne acces au nom de la variable de mapping pour les utilitaires mettant cette variable a disposition de l\textquotesingle{}utilisateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe de gestion des identifiants de face d{\ucr}crits par leurs abstract id (aid). 
+
+Cette classe n\textquotesingle{}a pas vocation {\ucr} {\ucr}tre un {\ucr}l{\ucr}ment de stockage qui est d{\ucr}l{\ucr}gu{\ucr} {\ucr} des variables \mbox{\hyperlink{namespaceArcane}{Arcane}} en vue de conserver une persistence des donn{\ucr}es. Cette classe permet de g{\ucr}rer la correspondance identifiant abstrait (aid) vers identifiant locaux (lid) Cette classe est {\ucr} usage interne. Ne doit {\ucr}tre utilis{\ucr}e que dans l\textquotesingle{}import ixm en maitrisant bien sa port{\ucr}e \+: la classe \mbox{\hyperlink{classIXMItemAidToUidMapper}{IXMItem\+Aid\+To\+Uid\+Mapper}} ne peut donner le mapping aid2lid qu\textquotesingle{}une fois que la m{\ucr}thode \mbox{\hyperlink{classIXMItemAidToUidMapper_adb2eba585336fd81f359719bae1b43a4}{build\+Aid\+To\+Lid\+Mapping()}} a {\ucr}t{\ucr} appel{\ucr}e et dans une zone de validit{\ucr} des local\+\_\+ids. D{\ucr}s que les local\+\_\+ids sont susceptibles de changer nettoyer la correspondance, \mbox{\hyperlink{classIXMItemAidToUidMapper_a0da48852f36f5c513e2400820aefb49b}{clear\+Aid\+Mapping()}} et la recharger quand n{\ucr}cessaire. Cette classe est pilotee par \mbox{\hyperlink{classIXMUidToLidMng}{IXMUid\+To\+Lid\+Mng}} pour traiter de fa{\ucr}on g{\ucr}n{\ucr}rique des items d{\ucr}crits dans le maillage par des identifiants uniques ou abstraits. 
+
+Definition at line 34 of file IXMItem\+Aid\+Mapper.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIXMItemAidToUidMapper_a26e744be72def2f5df621f1b50881d40}\label{classIXMItemAidToUidMapper_a26e744be72def2f5df621f1b50881d40}} 
+\index{IXMItemAidToUidMapper@{IXMItemAidToUidMapper}!IXMItemAidToUidMapper@{IXMItemAidToUidMapper}}
+\index{IXMItemAidToUidMapper@{IXMItemAidToUidMapper}!IXMItemAidToUidMapper@{IXMItemAidToUidMapper}}
+\doxysubsubsection{\texorpdfstring{IXMItemAidToUidMapper()}{IXMItemAidToUidMapper()}}
+{\footnotesize\ttfamily IXMItem\+Aid\+To\+Uid\+Mapper\+::\+IXMItem\+Aid\+To\+Uid\+Mapper (\begin{DoxyParamCaption}\item[{Arcane\+::\+ITrace\+Mng $\ast$}]{trace\+Mng,  }\item[{Arcane\+::\+IMesh $\ast$}]{mesh,  }\item[{Arcane\+::\+IParallel\+Mng $\ast$}]{parallel\+Mng,  }\item[{Arcane\+::\+Integer}]{master\+Id,  }\item[{bool}]{use\+Memory,  }\item[{Arcane\+::\+Variable\+Array\+Int64 $\ast$}]{item\+\_\+aid\+\_\+memory,  }\item[{Arcane\+::e\+Item\+Kind}]{item\+\_\+kind }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe. 
+
+La classe ne contient aucune donnee tant qu\textquotesingle{}une des methodes load n\textquotesingle{}est pas appelee 
+
+Definition at line 32 of file IXMItem\+Aid\+Mapper.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMItem\+Aid\+Mapper.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMItem\+Aid\+Mapper.\+cc\end{DoxyCompactItemize}

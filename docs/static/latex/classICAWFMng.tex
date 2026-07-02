@@ -1,0 +1,81 @@
+\hypertarget{classICAWFMng}{}\doxysection{ICAWFMng Class Reference}
+\label{classICAWFMng}\index{ICAWFMng@{ICAWFMng}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classICAWFMng_1_1ICouplingMesh}{ICoupling\+Mesh}}
+\item 
+class \mbox{\hyperlink{classICAWFMng_1_1ITimeIterStateOp}{ITime\+Iter\+State\+Op}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classICAWFMng_a99b77b497558dfc95880fbc7b628a294}\label{classICAWFMng_a99b77b497558dfc95880fbc7b628a294}} 
+virtual void {\bfseries init} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_ad25eba71c87e37132519f83010a7453a}\label{classICAWFMng_ad25eba71c87e37132519f83010a7453a}} 
+virtual void {\bfseries init} (\mbox{\hyperlink{classICAWFMng_1_1ICouplingMesh}{ICoupling\+Mesh}} $\ast$mesh)=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a6ce5dc428b1a31b19976457d9a996dd7}\label{classICAWFMng_a6ce5dc428b1a31b19976457d9a996dd7}} 
+virtual void {\bfseries init\+Mesh} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_acbba38a751106004a6ecd1b1fc3b8b50}\label{classICAWFMng_acbba38a751106004a6ecd1b1fc3b8b50}} 
+virtual void {\bfseries init\+Mesh} (Arcane\+::\+Const\+Array\+View$<$ Int64 $>$ uids)=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_aa214438e116c80b1c3bc456c3615b979}\label{classICAWFMng_aa214438e116c80b1c3bc456c3615b979}} 
+virtual void {\bfseries init\+Data} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_ac73077aeb109ce3a53395632a67b88cd}\label{classICAWFMng_ac73077aeb109ce3a53395632a67b88cd}} 
+virtual void {\bfseries start} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a409d976a4beedc9230a70a3c2cca0983}\label{classICAWFMng_a409d976a4beedc9230a70a3c2cca0983}} 
+virtual bool {\bfseries is\+App\+Leader} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a4b1873c12eef6818fafb5ab7275f32f8}\label{classICAWFMng_a4b1873c12eef6818fafb5ab7275f32f8}} 
+virtual void {\bfseries set\+App\+Mesh\+Filter} (Arcane\+::\+Const\+Array\+View$<$ Int64 $>$ uids)=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a7aa4d673f74c0bed8f92c402bc182e9e}\label{classICAWFMng_a7aa4d673f74c0bed8f92c402bc182e9e}} 
+virtual void {\bfseries activate\+Mesh\+Filter} (Arcane\+::\+String const \&mesh\+\_\+name, bool value)=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a8f0ea9c9495a08e28a441e6d65f0a6a1}\label{classICAWFMng_a8f0ea9c9495a08e28a441e6d65f0a6a1}} 
+virtual void {\bfseries update} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a1a1d0efa97d4fe4dd63f508459684ac2}\label{classICAWFMng_a1a1d0efa97d4fe4dd63f508459684ac2}} 
+virtual void {\bfseries finalize} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a7bd9036779151cd35d8411b4553a2ba8}\label{classICAWFMng_a7bd9036779151cd35d8411b4553a2ba8}} 
+virtual void {\bfseries start\+Time\+Step} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a6c7a376b6cee6c3a5363431d2109a2f5}\label{classICAWFMng_a6c7a376b6cee6c3a5363431d2109a2f5}} 
+virtual void {\bfseries end\+Time\+Step} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_ad858c84ab7506e662c891dbf46556b9f}\label{classICAWFMng_ad858c84ab7506e662c891dbf46556b9f}} 
+virtual Real {\bfseries initial\+Time\+Step} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a4a76e67118c68cf9f1e4d8490af03ace}\label{classICAWFMng_a4a76e67118c68cf9f1e4d8490af03ace}} 
+virtual Real {\bfseries new\+Time\+Step} (Real current\+\_\+dt)=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_af80498aa1b01828306f66b16e37926f6}\label{classICAWFMng_af80498aa1b01828306f66b16e37926f6}} 
+virtual bool {\bfseries is\+Coupling\+Ongoing} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_ac016957c411d3532018b84b99f3c4121}\label{classICAWFMng_ac016957c411d3532018b84b99f3c4121}} 
+virtual bool {\bfseries validate\+Current\+Time\+Step} ()=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_ae8e4aea64dfec027db0cb44f0bb57b65}\label{classICAWFMng_ae8e4aea64dfec027db0cb44f0bb57b65}} 
+virtual void {\bfseries set\+Time\+Iter\+State\+Op} (\mbox{\hyperlink{classICAWFMng_1_1ITimeIterStateOp}{ITime\+Iter\+State\+Op}} $\ast$op)=0
+\item 
+\mbox{\Hypertarget{classICAWFMng_a6ec22b4134ef9f6213e523b2f3561ee7}\label{classICAWFMng_a6ec22b4134ef9f6213e523b2f3561ee7}} 
+virtual void {\bfseries set\+Convergence} (bool values)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 20 of file ICAWFMng.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/\+CAWF/ICAWFMng.\+h\end{DoxyCompactItemize}

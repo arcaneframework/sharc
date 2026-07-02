@@ -1,0 +1,75 @@
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse du code source existant \end{quote}
+\hypertarget{md__tmp_opencode_sharc_src_CAWF_README_autotoc_md37}{}\doxysection{📋 Table des matières}\label{md__tmp_opencode_sharc_src_CAWF_README_autotoc_md37}
+
+\begin{DoxyItemize}
+\item \href{\#description}{\texttt{ Description}}
+\item \href{\#fonctionnalit\%C3\%A9s}{\texttt{ Fonctionnalités}}
+\item \href{\#pr\%C3\%A9requis}{\texttt{ Prérequis}}
+\item \href{\#installation}{\texttt{ Installation}}
+\item \href{\#utilisation}{\texttt{ Utilisation}}
+\item \href{\#api--interface}{\texttt{ API / Interface}}
+\item \href{\#architecture}{\texttt{ Architecture}}
+\item \href{\#d\%C3\%A9pendances}{\texttt{ Dépendances}}
+\item \href{\#configuration}{\texttt{ Configuration}}
+\item \href{\#ressources}{\texttt{ Ressources}}
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_src_CAWF_README_autotoc_md38}{}\doxysection{Description}\label{md__tmp_opencode_sharc_src_CAWF_README_autotoc_md38}
+Le répertoire {\ttfamily src/\+CAWF/} regroupe le cœur des solveurs éléments finis du projet Sh\+Arc, issus d\textquotesingle{}Arcane\+FEM / CAWF. Il fournit \+:
+
+
+\begin{DoxyItemize}
+\item des solveurs complets pour des PDEs classiques (élasticité linéaire, Poisson),
+\item un module de compaction géomécanique avec maillage dynamique,
+\item un ensemble d\textquotesingle{}utilitaires FEM ({\ttfamily FEMUtils/}) pour la gestion des degrés de liberté (DoF), des formats de matrices, des conditions aux limites, des outils de vérification,
+\item un gestionnaire de maillage dynamique ({\ttfamily Dynamic\+Mesh\+Mng/}) pour les cas évolutifs (ajout de couches, compaction).
+\begin{DoxyItemize}
+\item Formulation de Navier pour déformations élastiques isotropes.
+\item Support 2D/3D sur maillages non structurés.
+\item Gestion des conditions de Dirichlet, tractions, forces de volume.
+\item Implémentations CPU et SYCL ({\ttfamily \mbox{\hyperlink{FemModule_8cc_source}{Fem\+Module.\+cc}}}, {\ttfamily \mbox{\hyperlink{FemModuleSYCL_8cc_source}{Fem\+Module\+SYCL.\+cc}}}).
+\item Solveur Galerkin FEM pour l\textquotesingle{}équation de Poisson.
+\item Maillages 2D/3D généralistes (Gmsh 4.\+1).
+\item Conditions de Dirichlet et potentiellement Neumann.
+\item Documentation mathématique détaillée dans {\ttfamily Poisson/\+Readme.\+md}.
+\item Classe {\ttfamily \mbox{\hyperlink{classCompactionModule}{Compaction\+Module}}} avec interface orientée simulation \+:
+\begin{DoxyItemize}
+\item {\ttfamily init()} — initialisation du cas.
+\item {\ttfamily test()} — exécution du scénario de compaction.
+\item {\ttfamily update\+Top\+Boundary()}, {\ttfamily compute\+Density()}, {\ttfamily compute\+Pressure()}, {\ttfamily update\+Variables\+TN()}.
+\end{DoxyItemize}
+\item Gestion d\textquotesingle{}événements de couche (activation de nouvelles couches de cellules à intervalles de temps).
+\item Paramètres physiques (gravité, top/bottom boundary, périodes d\textquotesingle{}événements).
+\item Interface {\ttfamily IDynamic\+Mesh\+Mng} et service {\ttfamily \mbox{\hyperlink{DynamicMeshMngService_8cc_source}{Dynamic\+Mesh\+Mng\+Service.\+cc}}}.
+\item Gestion des mises à jour géométriques et de topologie pour les cas de compaction / maillages évolutifs.
+\item Formats de matrices et systèmes linéaires \+:
+\begin{DoxyItemize}
+\item {\ttfamily Csr\+Format\+Matrix.\{h,cc\}}
+\item {\ttfamily BSRFormat.\{h,cc\}}
+\item {\ttfamily \mbox{\hyperlink{CooFormatMatrix_8h_source}{Coo\+Format\+Matrix.\+h}}}
+\end{DoxyItemize}
+\item Implémentations de systèmes linéaires DoF ({\ttfamily Do\+FLinear\+System$\ast$}, {\ttfamily Do\+FLinear\+System\+Impl\+Base}, {\ttfamily IDo\+FLinear\+System\+Impl}) avec backends \+:
+\begin{DoxyItemize}
+\item Alien ({\ttfamily Alien\+Do\+FLinear\+System}, {\ttfamily Alien\+Do\+FLinear\+System\+Factory.\+axl}).
+\item PETSc ({\ttfamily PETSc\+Do\+FLinear\+System}, {\ttfamily PETSc\+Do\+FLinear\+System\+Factory.\+axl}).
+\item Hypre ({\ttfamily Hypre\+Do\+FLinear\+System}, {\ttfamily Hypre\+Do\+FLinear\+System\+Factory.\+axl}).
+\item Aleph ({\ttfamily Aleph\+Do\+FLinear\+System}, {\ttfamily Aleph\+Do\+FLinear\+System\+Factory.\+axl}).
+\item variantes GPU/\+SYCL ({\ttfamily \mbox{\hyperlink{AlienBSRFormatSYCL_8cc_source}{Alien\+BSRFormat\+SYCL.\+cc}}}, {\ttfamily Arcane\+Fem\+Functions\+Gpu.\{h,cc\}}).
+\end{DoxyItemize}
+\item Conditions aux limites FEM ({\ttfamily Fem\+Boundary\+Conditions.\{axl,cc\}}, {\ttfamily \mbox{\hyperlink{IArcaneFemBC_8h_source}{IArcane\+Fem\+BC.\+h}}}).
+\item Quadrature de Gauss, Do\+Fs sur cellules et noeuds ({\ttfamily Gauss\+Quadrature.$\ast$}, {\ttfamily Gauss\+Do\+Fs\+On\+Cells.$\ast$}, {\ttfamily Fem\+Do\+Fs\+On\+Nodes.$\ast$}).
+\item Outils de vérification des résultats \+:
+\begin{DoxyItemize}
+\item {\ttfamily check\+Node\+Result\+File(...)} pour comparer les résultats nodaux à des fichiers de référence (Real, Real2, \mbox{\hyperlink{structReal3}{Real3}}).
+\item {\ttfamily read\+File\+As\+Case\+Table(...)} pour transformer des fichiers en {\ttfamily Case\+Table}.
+\end{DoxyItemize}
+\item Utilitaires tensoriels/matrices ({\ttfamily \mbox{\hyperlink{FemUtils_8h_source}{Fem\+Utils.\+h}}}) avec types {\ttfamily Real\+Matrix}, {\ttfamily Real\+Vector}, {\ttfamily Tensor2}, opérations d\textquotesingle{}outer product, trace, norme, etc.
+\item \mbox{\hyperlink{namespaceArcane}{Arcane}} (maillage, variables, modules, Mat\+Vec\+::\+Matrix, I/O, Case\+Table).
+\item Arc\+Geo\+Sim (services applicatifs, apprentis solveurs, outils de géométrie, runners accélérateurs).
+\item Outils FEM spécifiques Arcane\+FEM (sous le namespace {\ttfamily Arcane\+::\+Fem\+Utils}).
+\item Alien (matrix/vector distributions, solveurs linéaires).
+\item PETSc, Hypre, Aleph (gestion de systèmes linéaires distribués).
+\item Support potentiel GPU/\+SYCL via {\ttfamily Arcane\+::accelerator\+::\+Runner} et implémentations dédiées.
+\item comparer les résultats nodaux (scalar, vectoriels) à des fichiers ASCII,
+\item avec gestion d\textquotesingle{}un epsilon relatif et d\textquotesingle{}un seuil minimal. 
+\end{DoxyItemize}
+\end{DoxyItemize}

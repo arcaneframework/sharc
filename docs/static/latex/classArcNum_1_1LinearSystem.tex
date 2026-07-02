@@ -1,0 +1,112 @@
+\hypertarget{classArcNum_1_1LinearSystem}{}\doxysection{Arc\+Num\+::Linear\+System Class Reference}
+\label{classArcNum_1_1LinearSystem}\index{ArcNum::LinearSystem@{ArcNum::LinearSystem}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcNum_1_1LinearSystem_1_1Block}{Block}}
+\item 
+struct \mbox{\hyperlink{structArcNum_1_1LinearSystem_1_1MeshGroupBlock}{Mesh\+Group\+Block}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a541ebea1a4eb711d013fb30de7f23b48}\label{classArcNum_1_1LinearSystem_a541ebea1a4eb711d013fb30de7f23b48}} 
+{\bfseries Linear\+System} (const \mbox{\hyperlink{classArcNum_1_1LinearSystem}{Linear\+System}} \&system)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a8105cbb143263e291e23e333b1a15288}\label{classArcNum_1_1LinearSystem_a8105cbb143263e291e23e333b1a15288}} 
+{\bfseries Linear\+System} (const \mbox{\hyperlink{structArcNum_1_1LinearSystem_1_1MeshGroupBlock}{Mesh\+Group\+Block}} \&groups, bool is\+\_\+reduced)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a5a3183a7b25aae6ca43be36b4f4c975f}\label{classArcNum_1_1LinearSystem_a5a3183a7b25aae6ca43be36b4f4c975f}} 
+\mbox{\hyperlink{classArcNum_1_1LinearSystem}{Linear\+System}} \& {\bfseries operator=} (const \mbox{\hyperlink{classArcNum_1_1LinearSystem}{Linear\+System}} \&system)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a8ccf952de48828c60479f76b7976e971}\label{classArcNum_1_1LinearSystem_a8ccf952de48828c60479f76b7976e971}} 
+void {\bfseries set\+Normalize\+Opt} (bool value)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a38a5b4cf25247a0b67bb90094c5d0fc8}\label{classArcNum_1_1LinearSystem_a38a5b4cf25247a0b67bb90094c5d0fc8}} 
+void {\bfseries set\+First\+Row\+Sum\+Opt} (bool value)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_af859c22331af93aa63ca7fc86cedb0f3}\label{classArcNum_1_1LinearSystem_af859c22331af93aa63ca7fc86cedb0f3}} 
+void {\bfseries set\+Diag\+Scaling\+Opt} (bool value)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a446abaa9f5f87c53a1ce003804c21680}\label{classArcNum_1_1LinearSystem_a446abaa9f5f87c53a1ce003804c21680}} 
+Arcane\+::\+Integer {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_ac7a368bfa2d16138164ed249c76de51d}\label{classArcNum_1_1LinearSystem_ac7a368bfa2d16138164ed249c76de51d}} 
+const Alien\+::\+Block\+Matrix \& {\bfseries matrix} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a299927c32c4d655b4f94c49936439f17}\label{classArcNum_1_1LinearSystem_a299927c32c4d655b4f94c49936439f17}} 
+Alien\+::\+Block\+Matrix \& {\bfseries matrix} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a6642f56a9964d0643dc5e700102eb7c4}\label{classArcNum_1_1LinearSystem_a6642f56a9964d0643dc5e700102eb7c4}} 
+const Alien\+::\+Block\+Vector \& {\bfseries rhs} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_ab46840cfe35761c210f4790b2bd45044}\label{classArcNum_1_1LinearSystem_ab46840cfe35761c210f4790b2bd45044}} 
+Alien\+::\+Block\+Vector \& {\bfseries rhs} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a29726d882ad98b2e5953c7aae7714df4}\label{classArcNum_1_1LinearSystem_a29726d882ad98b2e5953c7aae7714df4}} 
+const Alien\+::\+Block\+Vector \& {\bfseries solution} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a38fab0a517aff73304e8425d881b1457}\label{classArcNum_1_1LinearSystem_a38fab0a517aff73304e8425d881b1457}} 
+Alien\+::\+Block\+Vector \& {\bfseries solution} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a79ede6a58919349f1c2db97f43b39539}\label{classArcNum_1_1LinearSystem_a79ede6a58919349f1c2db97f43b39539}} 
+const Alien\+::\+Block \& {\bfseries block} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a46fc899328677c94282a27f7908d8d9b}\label{classArcNum_1_1LinearSystem_a46fc899328677c94282a27f7908d8d9b}} 
+Alien\+::\+Block \& {\bfseries block} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a2946d8063f0db78396b3c989d3cbbe7a}\label{classArcNum_1_1LinearSystem_a2946d8063f0db78396b3c989d3cbbe7a}} 
+const Alien\+::\+Arcane\+Tools\+::\+Space \& {\bfseries space} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_ad45c549a6137f9cdd9bfea7fe22e04ab}\label{classArcNum_1_1LinearSystem_ad45c549a6137f9cdd9bfea7fe22e04ab}} 
+Alien\+::\+Arcane\+Tools\+::\+Space \& {\bfseries space} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a0c5be8943249a6463ead1585fb0bb078}\label{classArcNum_1_1LinearSystem_a0c5be8943249a6463ead1585fb0bb078}} 
+const Alien\+::\+Matrix\+Distribution \& {\bfseries matrix\+Distribution} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a0ef513e562bd007f0fd574ede2a7823a}\label{classArcNum_1_1LinearSystem_a0ef513e562bd007f0fd574ede2a7823a}} 
+Alien\+::\+Matrix\+Distribution \& {\bfseries matrix\+Distribution} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_ac600c19ba7f986f00238bc1cb8cf3ad0}\label{classArcNum_1_1LinearSystem_ac600c19ba7f986f00238bc1cb8cf3ad0}} 
+const Alien\+::\+Arcane\+Tools\+::\+IIndex\+Manager\+::\+Vector\+Index\+Set {\bfseries index\+Set} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a8cb6e120f8ef92069b3471a1b2303e00}\label{classArcNum_1_1LinearSystem_a8cb6e120f8ef92069b3471a1b2303e00}} 
+Arcane\+::\+Const\+Array2\+View$<$ Arcane\+::\+Integer $>$ {\bfseries indexes} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a763d850f7a9ad26e4d3cbf3060c671c5}\label{classArcNum_1_1LinearSystem_a763d850f7a9ad26e4d3cbf3060c671c5}} 
+bool {\bfseries solve} (Alien\+::\+ILinear\+Solver $\ast$solver)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a692f377b88d560404149f2ed46f1b62a}\label{classArcNum_1_1LinearSystem_a692f377b88d560404149f2ed46f1b62a}} 
+void {\bfseries dump\+Solution} (Arcane\+::\+String name)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a45227c9fa684baf8fba2bf3686737054}\label{classArcNum_1_1LinearSystem_a45227c9fa684baf8fba2bf3686737054}} 
+void {\bfseries dump\+Matrix} (std\+::string name)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_aae56675347763aed419cfe90fc951a3e}\label{classArcNum_1_1LinearSystem_aae56675347763aed419cfe90fc951a3e}} 
+void {\bfseries dump\+Rhs} (Arcane\+::\+String name)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_adf86f3016bbebc39cf361ace56493fb8}\label{classArcNum_1_1LinearSystem_adf86f3016bbebc39cf361ace56493fb8}} 
+void {\bfseries dump\+Solution} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_aad6edcd142213a31dd7704bafef90573}\label{classArcNum_1_1LinearSystem_aad6edcd142213a31dd7704bafef90573}} 
+void {\bfseries dump\+Matrix} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_a89be6192652955e5e7a39b64b218d48d}\label{classArcNum_1_1LinearSystem_a89be6192652955e5e7a39b64b218d48d}} 
+void {\bfseries dump\+Rhs} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1LinearSystem_af08503d31e7656198bde942bc97cbd09}\label{classArcNum_1_1LinearSystem_af08503d31e7656198bde942bc97cbd09}} 
+bool {\bfseries with\+Elimination} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 44 of file Linear\+System.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Arc\+Num\+Tools/\+Linear\+Algebra/\+Linear\+System/Linear\+System.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Arc\+Num\+Tools/\+Linear\+Algebra/\+Linear\+System/Linear\+System.\+cc\end{DoxyCompactItemize}

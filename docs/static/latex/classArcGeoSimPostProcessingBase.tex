@@ -1,0 +1,88 @@
+\hypertarget{classArcGeoSimPostProcessingBase}{}\doxysection{Arc\+Geo\+Sim\+Post\+Processing\+Base Class Reference}
+\label{classArcGeoSimPostProcessingBase}\index{ArcGeoSimPostProcessingBase@{ArcGeoSimPostProcessingBase}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_a0452dd423d7d34418560c7027f8e9ff4}\label{classArcGeoSimPostProcessingBase_a0452dd423d7d34418560c7027f8e9ff4}} 
+\mbox{\hyperlink{classArcGeoSimPostProcessingBase_a0452dd423d7d34418560c7027f8e9ff4}{Arc\+Geo\+Sim\+Post\+Processing\+Base}} (Arcane\+::\+ISub\+Domain $\ast$sd, const Arcane\+::\+String name)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_a73016383efdcb019a6d4d8d96247622e}\label{classArcGeoSimPostProcessingBase_a73016383efdcb019a6d4d8d96247622e}} 
+virtual \mbox{\hyperlink{classArcGeoSimPostProcessingBase_a73016383efdcb019a6d4d8d96247622e}{$\sim$\+Arc\+Geo\+Sim\+Post\+Processing\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcGeoSimPostProcessingBase_a7aa80ed50c6dbd5e25390c3d5bb4d664}{init}} (Arcane\+::\+String output\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Variables $>$ }\\void \mbox{\hyperlink{classArcGeoSimPostProcessingBase_ae59c3f8cc73e8e5e6b12f214f575ba78}{add\+Post\+Processing}} (Arcane\+::\+IPost\+Processor\+Writer $\ast$writer, const Variables \&variables, const Arcane\+::\+String \&mesh\+\_\+name=m\+\_\+default\+\_\+mesh\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un post-\/processing et de variables d{\ucr}crites par leurs noms init\+\_\+variables sont les variables supplementaires a ecrire au temps initial (premier appel {\ucr} save\+At\+Time) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_ad4f38254a2d7fc287f8afa39c1fde222}\label{classArcGeoSimPostProcessingBase_ad4f38254a2d7fc287f8afa39c1fde222}} 
+{\footnotesize template$<$typename Variables $>$ }\\void {\bfseries add\+Post\+Processing} (Arcane\+::\+IPost\+Processor\+Writer $\ast$writer, const Variables \&variables, const Variables \&init\+\_\+variables, const Arcane\+::\+String \&mesh\+\_\+name=m\+\_\+default\+\_\+mesh\+\_\+name)
+\item 
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_aedecf657bc7a6873b884250269bd6c63}\label{classArcGeoSimPostProcessingBase_aedecf657bc7a6873b884250269bd6c63}} 
+{\footnotesize template$<$typename Variables $>$ }\\void \mbox{\hyperlink{classArcGeoSimPostProcessingBase_aedecf657bc7a6873b884250269bd6c63}{add\+Variables}} (const Variables \&variables)
+\begin{DoxyCompactList}\small\item\em Add variables to existing writers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcGeoSimPostProcessingBase_af8ff495ae22f0c759ec4d3acd2868812}{save\+At\+Time}} (Arcane\+::\+Real)
+\begin{DoxyCompactList}\small\item\em Demande un post-\/processing pour le temps fourni en argument. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_a76c91e657e8cb3f1711a364142947fae}\label{classArcGeoSimPostProcessingBase_a76c91e657e8cb3f1711a364142947fae}} 
+void {\bfseries save\+At\+Initial\+Time} (Arcane\+::\+Real)
+\item 
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_ade556cb7270915abe4ce1090f57b9bbf}\label{classArcGeoSimPostProcessingBase_ade556cb7270915abe4ce1090f57b9bbf}} 
+void \mbox{\hyperlink{classArcGeoSimPostProcessingBase_ade556cb7270915abe4ce1090f57b9bbf}{stats}} ()
+\begin{DoxyCompactList}\small\item\em Ecrit sur le canal standard les statistiques de post-\/processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 38 of file Arc\+Geo\+Sim\+Post\+Processing\+Base.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_ae59c3f8cc73e8e5e6b12f214f575ba78}\label{classArcGeoSimPostProcessingBase_ae59c3f8cc73e8e5e6b12f214f575ba78}} 
+\index{ArcGeoSimPostProcessingBase@{ArcGeoSimPostProcessingBase}!addPostProcessing@{addPostProcessing}}
+\index{addPostProcessing@{addPostProcessing}!ArcGeoSimPostProcessingBase@{ArcGeoSimPostProcessingBase}}
+\doxysubsubsection{\texorpdfstring{addPostProcessing()}{addPostProcessing()}}
+{\footnotesize\ttfamily template$<$typename Variables $>$ \\
+void Arc\+Geo\+Sim\+Post\+Processing\+Base\+::add\+Post\+Processing (\begin{DoxyParamCaption}\item[{Arcane\+::\+IPost\+Processor\+Writer $\ast$}]{writer,  }\item[{const Variables \&}]{variables,  }\item[{const Arcane\+::\+String \&}]{mesh\+\_\+name = {\ttfamily m\+\_\+default\+\_\+mesh\+\_\+name} }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}un post-\/processing et de variables d{\ucr}crites par leurs noms init\+\_\+variables sont les variables supplementaires a ecrire au temps initial (premier appel {\ucr} save\+At\+Time) 
+
+Le type g{\ucr}n{\ucr}rique des variables prises en arguement requiert uniquement qu\textquotesingle{}elles soient accessibles par un operateur\mbox{[}\mbox{]} 
+
+Definition at line 102 of file Arc\+Geo\+Sim\+Post\+Processing\+Base.\+h.
+
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_a7aa80ed50c6dbd5e25390c3d5bb4d664}\label{classArcGeoSimPostProcessingBase_a7aa80ed50c6dbd5e25390c3d5bb4d664}} 
+\index{ArcGeoSimPostProcessingBase@{ArcGeoSimPostProcessingBase}!init@{init}}
+\index{init@{init}!ArcGeoSimPostProcessingBase@{ArcGeoSimPostProcessingBase}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Arc\+Geo\+Sim\+Post\+Processing\+Base\+::init (\begin{DoxyParamCaption}\item[{Arcane\+::\+String}]{output\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Initialisation. 
+
+Initialise le chemin d\textquotesingle{}enregistrement 
+
+Definition at line 50 of file Arc\+Geo\+Sim\+Post\+Processing\+Base.\+cc.
+
+\mbox{\Hypertarget{classArcGeoSimPostProcessingBase_af8ff495ae22f0c759ec4d3acd2868812}\label{classArcGeoSimPostProcessingBase_af8ff495ae22f0c759ec4d3acd2868812}} 
+\index{ArcGeoSimPostProcessingBase@{ArcGeoSimPostProcessingBase}!saveAtTime@{saveAtTime}}
+\index{saveAtTime@{saveAtTime}!ArcGeoSimPostProcessingBase@{ArcGeoSimPostProcessingBase}}
+\doxysubsubsection{\texorpdfstring{saveAtTime()}{saveAtTime()}}
+{\footnotesize\ttfamily void Arc\+Geo\+Sim\+Post\+Processing\+Base\+::save\+At\+Time (\begin{DoxyParamCaption}\item[{Arcane\+::\+Real}]{ }\end{DoxyParamCaption})}
+
+
+
+Demande un post-\/processing pour le temps fourni en argument. 
+
+Non test{\ucr} si diff{\ucr}rent du temps courant ou non croissant au fil des appels 
+
+Definition at line 59 of file Arc\+Geo\+Sim\+Post\+Processing\+Base.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/Arc\+Geo\+Sim\+Post\+Processing\+Base.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/Arc\+Geo\+Sim\+Post\+Processing\+Base.\+cc\end{DoxyCompactItemize}

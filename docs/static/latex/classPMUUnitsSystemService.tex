@@ -1,0 +1,99 @@
+\hypertarget{classPMUUnitsSystemService}{}\doxysection{PMUUnits\+System\+Service Class Reference}
+\label{classPMUUnitsSystemService}\index{PMUUnitsSystemService@{PMUUnitsSystemService}}
+
+
+Interface du service du modu?le de resolution non lineaire.  
+
+
+
+
+{\ttfamily \#include $<$PMUUnits\+System.\+h$>$}
+
+
+
+Inherits Arcane\+PMUUnits\+System\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a3eeaca64220d741c6a829aba687b3d69}\label{classPMUUnitsSystemService_a3eeaca64220d741c6a829aba687b3d69}} 
+\mbox{\hyperlink{classPMUUnitsSystemService_a3eeaca64220d741c6a829aba687b3d69}{PMUUnits\+System\+Service}} (const Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a40035e5c95a5d25b6adadde4aa51c621}\label{classPMUUnitsSystemService_a40035e5c95a5d25b6adadde4aa51c621}} 
+virtual \mbox{\hyperlink{classPMUUnitsSystemService_a40035e5c95a5d25b6adadde4aa51c621}{$\sim$\+PMUUnits\+System\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a6daf761303c3f086d8ddbe4a020fb418}\label{classPMUUnitsSystemService_a6daf761303c3f086d8ddbe4a020fb418}} 
+void {\bfseries init} ()
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ D{\ucr}termination de coefficient vers SI}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a4452a64bf6d49f9ea79f4467d70eb661}\label{classPMUUnitsSystemService_a4452a64bf6d49f9ea79f4467d70eb661}} 
+bool {\bfseries has\+Mult\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a836a146a1254fdca78af837bdc99286b}\label{classPMUUnitsSystemService_a836a146a1254fdca78af837bdc99286b}} 
+Real {\bfseries get\+Mult\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a99bc29583b5e1f21a27d8e4f68ccdbe4}\label{classPMUUnitsSystemService_a99bc29583b5e1f21a27d8e4f68ccdbe4}} 
+bool {\bfseries has\+Const\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_acdc4491330246cab9cb69278e5fb856e}\label{classPMUUnitsSystemService_acdc4491330246cab9cb69278e5fb856e}} 
+Real {\bfseries get\+Const\+Factor} (Unit\+Type unit)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ D{\ucr}termination de coefficient vers syst{\ucr}me sp{\ucr}cifique}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a0166a4f933dd17f9a8bbcc3e864dd666}\label{classPMUUnitsSystemService_a0166a4f933dd17f9a8bbcc3e864dd666}} 
+bool {\bfseries has\+Mult\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a2b35b692c9b81eff8feae2dea55928e4}\label{classPMUUnitsSystemService_a2b35b692c9b81eff8feae2dea55928e4}} 
+Real {\bfseries get\+Mult\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a954fb50eaf6d0345512c3aab23b593b1}\label{classPMUUnitsSystemService_a954fb50eaf6d0345512c3aab23b593b1}} 
+bool {\bfseries has\+Const\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a34c904010411832819845693f8ca4abf}\label{classPMUUnitsSystemService_a34c904010411832819845693f8ca4abf}} 
+Real {\bfseries get\+Const\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Fonctions de conversion}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a3a075f7d7e8a5d19746f760ac8d67fac}\label{classPMUUnitsSystemService_a3a075f7d7e8a5d19746f760ac8d67fac}} 
+Real {\bfseries convert} (Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a46231c7fd8a8e0ee643644b631918d6b}\label{classPMUUnitsSystemService_a46231c7fd8a8e0ee643644b631918d6b}} 
+Real {\bfseries unconvert} (Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a6535471c194963d0c01d96823a64584f}\label{classPMUUnitsSystemService_a6535471c194963d0c01d96823a64584f}} 
+Real {\bfseries convert\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_afd3a8863ac290e5343b2002dec5e954f}\label{classPMUUnitsSystemService_afd3a8863ac290e5343b2002dec5e954f}} 
+void {\bfseries convert} (Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a9cb682230e6bbfee9363e3d3e669bb45}\label{classPMUUnitsSystemService_a9cb682230e6bbfee9363e3d3e669bb45}} 
+void {\bfseries unconvert} (Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a3f3ecd7a837bac5cafabd341ef4c6c03}\label{classPMUUnitsSystemService_a3f3ecd7a837bac5cafabd341ef4c6c03}} 
+void {\bfseries convert\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_ababfa13468f7e6779e856c40cbdddfb2}\label{classPMUUnitsSystemService_ababfa13468f7e6779e856c40cbdddfb2}} 
+String {\bfseries get\+Short\+Name} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classPMUUnitsSystemService_a4e54078c60c75a0076169b08fd8d99f0}\label{classPMUUnitsSystemService_a4e54078c60c75a0076169b08fd8d99f0}} 
+String {\bfseries get\+Long\+Name} (Unit\+Type unit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface du service du modu?le de resolution non lineaire. 
+
+Definition at line 19 of file PMUUnits\+System.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Units/PMUUnits\+System.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Units/PMUUnits\+System.\+cc\end{DoxyCompactItemize}

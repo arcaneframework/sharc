@@ -1,0 +1,89 @@
+\hypertarget{classVariableFolder}{}\doxysection{Variable\+Folder$<$ CK, IK $>$ Class Template Reference}
+\label{classVariableFolder}\index{VariableFolder$<$ CK, IK $>$@{VariableFolder$<$ CK, IK $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableFolder_a6399d0ffd3e5804b537342a326d3c291}\label{classVariableFolder_a6399d0ffd3e5804b537342a326d3c291}} 
+typedef \mbox{\hyperlink{structSupportTraits}{Support\+Traits}}$<$ IK $>$\+::Type {\bfseries Support}
+\item 
+\mbox{\Hypertarget{classVariableFolder_a0280948c9bdda37116154bad67eac60c}\label{classVariableFolder_a0280948c9bdda37116154bad67eac60c}} 
+typedef \mbox{\hyperlink{structAccessorTraits}{Accessor\+Traits}}$<$ CK, IK $>$\+::Type {\bfseries Accessor}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableFolder_a9cbbd6823dc0c28196d4c1fdb3199c6f}\label{classVariableFolder_a9cbbd6823dc0c28196d4c1fdb3199c6f}} 
+{\bfseries Variable\+Folder} (Arcane\+::\+String key, Arcane\+::\+IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classVariableFolder_a63b9d7db39dc5604c7b0e1b28bb38b91}\label{classVariableFolder_a63b9d7db39dc5604c7b0e1b28bb38b91}} 
+const Arcane\+::\+String \& {\bfseries key} () const
+\item 
+\mbox{\Hypertarget{classVariableFolder_af690cba8dfa4319bcce412e11f597558}\label{classVariableFolder_af690cba8dfa4319bcce412e11f597558}} 
+void {\bfseries set\+Support} (Support support)
+\item 
+\mbox{\Hypertarget{classVariableFolder_ab494c4b5dc195cae0f989660dbad77a0}\label{classVariableFolder_ab494c4b5dc195cae0f989660dbad77a0}} 
+void {\bfseries force\+Support} (Support support)
+\item 
+\mbox{\Hypertarget{classVariableFolder_a4cfec48b35b0fa4a7446d967edbd1ea0}\label{classVariableFolder_a4cfec48b35b0fa4a7446d967edbd1ea0}} 
+const Support \& {\bfseries support} () const
+\item 
+\mbox{\Hypertarget{classVariableFolder_a1d4b433132b43689d82ef5aa2a73b4d3}\label{classVariableFolder_a1d4b433132b43689d82ef5aa2a73b4d3}} 
+bool {\bfseries contains} (const \mbox{\hyperlink{classGump_1_1Property}{Gump\+::\+Property}} \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolder_a01a97a0f0f7658657b27c7ce30fae1cd}\label{classVariableFolder_a01a97a0f0f7658657b27c7ce30fae1cd}} 
+{\footnotesize template$<$Gump\+::\+Dimension D, typename T $>$ }\\void {\bfseries add\+Variable} (\mbox{\hyperlink{classGump_1_1PropertyT}{Gump\+::\+PropertyT}}$<$ D, T $>$ p, e\+Variable\+Properties desc=Single)
+\item 
+\mbox{\Hypertarget{classVariableFolder_a915e85748e3568a9852fb38d1bd25d85}\label{classVariableFolder_a915e85748e3568a9852fb38d1bd25d85}} 
+{\footnotesize template$<$typename E $>$ }\\void {\bfseries add\+Variable} (\mbox{\hyperlink{classGump_1_1UserProperty}{Gump\+::\+User\+Property}}$<$ E $>$ p, e\+Variable\+Properties desc=Single)
+\item 
+\mbox{\Hypertarget{classVariableFolder_ab6be5d43730fb3311a0df7d1fc0caa44}\label{classVariableFolder_ab6be5d43730fb3311a0df7d1fc0caa44}} 
+{\footnotesize template$<$Gump\+::\+Dimension D, typename T $>$ }\\void {\bfseries \+\_\+fill\+Zero} (\mbox{\hyperlink{classGump_1_1PropertyT}{Gump\+::\+PropertyT}}$<$ D, T $>$ p)
+\item 
+\mbox{\Hypertarget{classVariableFolder_a7858b465d6db89b8e5f46426e7332f2f}\label{classVariableFolder_a7858b465d6db89b8e5f46426e7332f2f}} 
+void {\bfseries add\+Variable} (const Arcane\+::\+Array$<$ \mbox{\hyperlink{classPropertyT}{Gump\+::\+Scalar\+Real\+Property}} $>$ \&p, e\+Variable\+Properties desc=Single)
+\item 
+\mbox{\Hypertarget{classVariableFolder_aa62201a430f7dfccbfd979a61217fe88}\label{classVariableFolder_aa62201a430f7dfccbfd979a61217fe88}} 
+{\footnotesize template$<$typename E $>$ }\\void {\bfseries add\+Variable} (const Arcane\+::\+Array$<$ \mbox{\hyperlink{classGump_1_1UserProperty}{Gump\+::\+User\+Property}}$<$ E $>$ $>$ \&p, e\+Variable\+Properties desc=Single)
+\item 
+\mbox{\Hypertarget{classVariableFolder_ad36b97a3d11290449d70dddbf476db0b}\label{classVariableFolder_ad36b97a3d11290449d70dddbf476db0b}} 
+\mbox{\hyperlink{classAccessor}{Accessor}} {\bfseries law\+Variable\+Accessor} () const
+\item 
+\mbox{\Hypertarget{classVariableFolder_a2ff368da362caccfee55e9b7a8cc7b59}\label{classVariableFolder_a2ff368da362caccfee55e9b7a8cc7b59}} 
+const Law\+::\+Variable\+Manager \& {\bfseries law\+Variable\+Manager} () const
+\item 
+\mbox{\Hypertarget{classVariableFolder_addee98a6c4a237f7ea046b69f0aefdfb}\label{classVariableFolder_addee98a6c4a237f7ea046b69f0aefdfb}} 
+void {\bfseries enable\+Verbosity} ()
+\item 
+\mbox{\Hypertarget{classVariableFolder_a59e1b9bf043fe07389591d46fa1ac39b}\label{classVariableFolder_a59e1b9bf043fe07389591d46fa1ac39b}} 
+void {\bfseries disable\+Verbosity} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableFolder_a98aee3e38a143561c79c2bdb60591fa1}\label{classVariableFolder_a98aee3e38a143561c79c2bdb60591fa1}} 
+bool {\bfseries m\+\_\+support\+\_\+is\+\_\+defined}
+\item 
+\mbox{\Hypertarget{classVariableFolder_a98009c82a25ca37e5c770d7040d0e359}\label{classVariableFolder_a98009c82a25ca37e5c770d7040d0e359}} 
+Arcane\+::\+String {\bfseries m\+\_\+key}
+\item 
+\mbox{\Hypertarget{classVariableFolder_a06c2629023b832d11c5e0e94fbf193ea}\label{classVariableFolder_a06c2629023b832d11c5e0e94fbf193ea}} 
+Support {\bfseries m\+\_\+support}
+\item 
+\mbox{\Hypertarget{classVariableFolder_a6bfe8042c701028b0d54810f5d362e55}\label{classVariableFolder_a6bfe8042c701028b0d54810f5d362e55}} 
+Law\+::\+Variable\+Manager {\bfseries m\+\_\+variables}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$Container\+Kind\+::e\+Type CK, Item\+Kind\+::e\+Type IK$>$\newline
+class Variable\+Folder$<$ CK, IK $>$}
+
+
+
+Definition at line 64 of file Variable\+Folder.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law2/\+Contribution/Variable\+Folder.\+h\end{DoxyCompactItemize}

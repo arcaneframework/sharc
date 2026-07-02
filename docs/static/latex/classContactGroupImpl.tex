@@ -1,0 +1,92 @@
+\hypertarget{classContactGroupImpl}{}\doxysection{Contact\+Group\+Impl Class Reference}
+\label{classContactGroupImpl}\index{ContactGroupImpl@{ContactGroupImpl}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContactGroupImpl_a12281b67269b2267b2ca7f0d718a91b1}{Contact\+Group\+Impl}} (\mbox{\hyperlink{classIContactFamily}{IContact\+Family}} $\ast$\mbox{\hyperlink{classContactGroupImpl_aaea76938115bc03028a51a6cb63f0f1c}{family}}, Arcane\+::\+Int32\+Shared\+Array lids, const String \&\mbox{\hyperlink{classContactGroupImpl_a8c0da6fe50631f40031693650e67ea82}{name}}, const bool protect)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classContactGroupImpl_a8ecae6197d65e8250901dd5abe1bd4ac}{$\sim$\+Contact\+Group\+Impl}} ()
+\begin{DoxyCompactList}\small\item\em Recopie le tableau des lids $\ast$/ \mbox{\hyperlink{classContactGroupImpl}{Contact\+Group\+Impl}}(Family\+Type $\ast$ family, const Int32\+Const\+Array\+View \& lids, const String \& name, const bool protect) \+: m\+\_\+family(family) , m\+\_\+local\+\_\+ids(lids) , m\+\_\+name(name) , m\+\_\+protect(protect) \{\}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_a177202fcf23819210b2fc103f4b9bac1}\label{classContactGroupImpl_a177202fcf23819210b2fc103f4b9bac1}} 
+\mbox{\hyperlink{classContactEnumerator}{Contact\+Enumerator}} \mbox{\hyperlink{classContactGroupImpl_a177202fcf23819210b2fc103f4b9bac1}{enumerator}} () const
+\begin{DoxyCompactList}\small\item\em Enumerateur du groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_a25c7b69372a79c69d0066e0b83e3ae9d}\label{classContactGroupImpl_a25c7b69372a79c69d0066e0b83e3ae9d}} 
+void \mbox{\hyperlink{classContactGroupImpl_a25c7b69372a79c69d0066e0b83e3ae9d}{set\+Items}} (Const\+Array\+View$<$ Int32 $>$ lids)
+\begin{DoxyCompactList}\small\item\em D{\ucr}finition du groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_ad6c27771803c0bf66c650cb55a78f199}\label{classContactGroupImpl_ad6c27771803c0bf66c650cb55a78f199}} 
+void \mbox{\hyperlink{classContactGroupImpl_ad6c27771803c0bf66c650cb55a78f199}{add\+Items}} (Const\+Array\+View$<$ Int32 $>$ lids)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}items. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_a6d4a80016deb8e0feb4cb504b80be492}\label{classContactGroupImpl_a6d4a80016deb8e0feb4cb504b80be492}} 
+Integer \mbox{\hyperlink{classContactGroupImpl_a6d4a80016deb8e0feb4cb504b80be492}{size}} () const
+\begin{DoxyCompactList}\small\item\em Taille du groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_a6037694a272aff70ff45928930d5ea9f}\label{classContactGroupImpl_a6037694a272aff70ff45928930d5ea9f}} 
+bool \mbox{\hyperlink{classContactGroupImpl_a6037694a272aff70ff45928930d5ea9f}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Teste si le groupe est vide. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_a8c0da6fe50631f40031693650e67ea82}\label{classContactGroupImpl_a8c0da6fe50631f40031693650e67ea82}} 
+String \mbox{\hyperlink{classContactGroupImpl_a8c0da6fe50631f40031693650e67ea82}{name}} () const
+\begin{DoxyCompactList}\small\item\em Nom du groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_aaea76938115bc03028a51a6cb63f0f1c}\label{classContactGroupImpl_aaea76938115bc03028a51a6cb63f0f1c}} 
+\mbox{\hyperlink{classIContactFamily}{IContact\+Family}} $\ast$ \mbox{\hyperlink{classContactGroupImpl_aaea76938115bc03028a51a6cb63f0f1c}{family}} () const
+\begin{DoxyCompactList}\small\item\em Famille du groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactGroupImpl_a69802788caa7278cda43eefc3017a3fe}\label{classContactGroupImpl_a69802788caa7278cda43eefc3017a3fe}} 
+Int32\+Const\+Array\+View \mbox{\hyperlink{classContactGroupImpl_a69802788caa7278cda43eefc3017a3fe}{items\+Local\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Local\+Ids du groupe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactGroupImpl_aa8e6d34ce2e661fe8d58c765873e10bd}\label{classContactGroupImpl_aa8e6d34ce2e661fe8d58c765873e10bd}} 
+\mbox{\hyperlink{classIContactFamily}{IContact\+Family}} $\ast$ {\bfseries m\+\_\+family}
+\item 
+\mbox{\Hypertarget{classContactGroupImpl_a4c6ae8ee2fa250e33c5c9ee8769f424b}\label{classContactGroupImpl_a4c6ae8ee2fa250e33c5c9ee8769f424b}} 
+Arcane\+::\+Int32\+Shared\+Array {\bfseries m\+\_\+local\+\_\+ids}
+\item 
+\mbox{\Hypertarget{classContactGroupImpl_a9516abd8f32ec638076956df83e20472}\label{classContactGroupImpl_a9516abd8f32ec638076956df83e20472}} 
+String {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{classContactGroupImpl_a00f2fcb6d12efa9beaea3230f9b2d2af}\label{classContactGroupImpl_a00f2fcb6d12efa9beaea3230f9b2d2af}} 
+bool {\bfseries m\+\_\+protect}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 21 of file Contact\+Group\+Impl.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classContactGroupImpl_a12281b67269b2267b2ca7f0d718a91b1}\label{classContactGroupImpl_a12281b67269b2267b2ca7f0d718a91b1}} 
+\index{ContactGroupImpl@{ContactGroupImpl}!ContactGroupImpl@{ContactGroupImpl}}
+\index{ContactGroupImpl@{ContactGroupImpl}!ContactGroupImpl@{ContactGroupImpl}}
+\doxysubsubsection{\texorpdfstring{ContactGroupImpl()}{ContactGroupImpl()}}
+{\footnotesize\ttfamily Contact\+Group\+Impl\+::\+Contact\+Group\+Impl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIContactFamily}{IContact\+Family}} $\ast$}]{family,  }\item[{Arcane\+::\+Int32\+Shared\+Array}]{lids,  }\item[{const String \&}]{name,  }\item[{const bool}]{protect }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe. 
+
+Conserve la r{\ucr}f{\ucr}rence sur le tableau des lids 
+
+Definition at line 17 of file Contact\+Group\+Impl.\+cc.
+
+\mbox{\Hypertarget{classContactGroupImpl_a8ecae6197d65e8250901dd5abe1bd4ac}\label{classContactGroupImpl_a8ecae6197d65e8250901dd5abe1bd4ac}} 
+\index{ContactGroupImpl@{ContactGroupImpl}!````~ContactGroupImpl@{$\sim$ContactGroupImpl}}
+\index{````~ContactGroupImpl@{$\sim$ContactGroupImpl}!ContactGroupImpl@{ContactGroupImpl}}
+\doxysubsubsection{\texorpdfstring{$\sim$ContactGroupImpl()}{~ContactGroupImpl()}}
+{\footnotesize\ttfamily Contact\+Group\+Impl\+::$\sim$\+Contact\+Group\+Impl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Recopie le tableau des lids $\ast$/ \mbox{\hyperlink{classContactGroupImpl}{Contact\+Group\+Impl}}(Family\+Type $\ast$ family, const Int32\+Const\+Array\+View \& lids, const String \& name, const bool protect) \+: m\+\_\+family(family) , m\+\_\+local\+\_\+ids(lids) , m\+\_\+name(name) , m\+\_\+protect(protect) \{\}. 
+
+/$\ast$$\ast$ Destructeur de la classe 
+
+Definition at line 37 of file Contact\+Group\+Impl.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Group\+Impl.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Group\+Impl.\+cc\end{DoxyCompactItemize}

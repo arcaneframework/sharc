@@ -1,0 +1,124 @@
+\hypertarget{classIGeometry}{}\doxysection{IGeometry Class Reference}
+\label{classIGeometry}\index{IGeometry@{IGeometry}}
+
+
+Inherited by \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 2, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 3, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ Dimension, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classPolyhedralGeometry}{Polyhedral\+Geometry}}, and \mbox{\hyperlink{classStaticGeometry}{Static\+Geometry}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIGeometry_a8e070c048ca479cd50368f7d21738761}\label{classIGeometry_a8e070c048ca479cd50368f7d21738761}} 
+\mbox{\hyperlink{classIGeometry_a8e070c048ca479cd50368f7d21738761}{IGeometry}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometry_ac46feb36e3b55d6510215bf96baf5bb3}\label{classIGeometry_ac46feb36e3b55d6510215bf96baf5bb3}} 
+virtual \mbox{\hyperlink{classIGeometry_ac46feb36e3b55d6510215bf96baf5bb3}{$\sim$\+IGeometry}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometry_afe1e8dbe22a90aa1c91c02ed9eef9739}\label{classIGeometry_afe1e8dbe22a90aa1c91c02ed9eef9739}} 
+virtual \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classIGeometry_afe1e8dbe22a90aa1c91c02ed9eef9739}{compute\+Center}} (const Item\+With\+Nodes \&item)=0
+\begin{DoxyCompactList}\small\item\em Calcul du centre de masse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometry_afe1b89b217557ce68649d7cf69a8dd4c}\label{classIGeometry_afe1b89b217557ce68649d7cf69a8dd4c}} 
+virtual \mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Center} (const Item\+With\+Nodes \&item, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&coords)=0
+\item 
+virtual \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classIGeometry_a44f3002889d8d9b9b8b0e6205aa54d17}{compute\+Oriented\+Measure}} (const Item\+With\+Nodes \&item)=0
+\begin{DoxyCompactList}\small\item\em Calcul de la mesure orient{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometry_a5ae83cd468c2876c0037f438bc0a92e3}\label{classIGeometry_a5ae83cd468c2876c0037f438bc0a92e3}} 
+virtual Real \mbox{\hyperlink{classIGeometry_a5ae83cd468c2876c0037f438bc0a92e3}{compute\+Measure}} (const Item\+With\+Nodes \&item)=0
+\begin{DoxyCompactList}\small\item\em Calcul de la mesure (sans orientation) \end{DoxyCompactList}\item 
+virtual Real \mbox{\hyperlink{classIGeometry_a7b9ed2677c1ed6995f1ca5bc765ab28b}{compute\+Length}} (const Item\+With\+Nodes \&item)=0
+\begin{DoxyCompactList}\small\item\em Calcul de la longueur. \end{DoxyCompactList}\item 
+virtual Real \mbox{\hyperlink{classIGeometry_a26c50bb4402ce5f4afbca09a2daa7a0b}{compute\+Area}} (const Item\+With\+Nodes \&item)=0
+\begin{DoxyCompactList}\small\item\em Calcul de l\textquotesingle{}aire. \end{DoxyCompactList}\item 
+virtual Real \mbox{\hyperlink{classIGeometry_a33bbeb3570a018f7d76ffc6a10e59682}{compute\+Volume}} (const Item\+With\+Nodes \&item)=0
+\begin{DoxyCompactList}\small\item\em Calcul du volume. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classIGeometry_a727af88bd22defac0416aed48dc0e4fa}{compute\+Oriented\+Area}} (Integer n, const \mbox{\hyperlink{structReal3}{Real3}} $\ast$coords)=0
+\begin{DoxyCompactList}\small\item\em Uniquement pour les Items surfaciques $\ast$/ ~\newline
+ virtual \mbox{\hyperlink{structReal3}{Real3}} compute\+Surface\+Center(\+Integer n, const Real3 $\ast$ coords) = 0;. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometry_acd25a1fa72cb4a08feea17571be8622b}\label{classIGeometry_acd25a1fa72cb4a08feea17571be8622b}} 
+virtual Real \mbox{\hyperlink{classIGeometry_acd25a1fa72cb4a08feea17571be8622b}{compute\+Length}} (const \mbox{\hyperlink{structReal3}{Real3}} \&m, const \mbox{\hyperlink{structReal3}{Real3}} \&n)=0
+\begin{DoxyCompactList}\small\item\em Calcul de longueur d\textquotesingle{}un segment d{\ucr}fini par deux points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file IGeometry.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIGeometry_a26c50bb4402ce5f4afbca09a2daa7a0b}\label{classIGeometry_a26c50bb4402ce5f4afbca09a2daa7a0b}} 
+\index{IGeometry@{IGeometry}!computeArea@{computeArea}}
+\index{computeArea@{computeArea}!IGeometry@{IGeometry}}
+\doxysubsubsection{\texorpdfstring{computeArea()}{computeArea()}}
+{\footnotesize\ttfamily virtual Real IGeometry\+::compute\+Area (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calcul de l\textquotesingle{}aire. 
+
+Uniquement pour les Items surfaciques 
+
+Implemented in \mbox{\hyperlink{classTemisGeometry2T_a50919d9daf754b4a437241c61359b9a6}{Temis\+Geometry2\+T$<$ Coordinates\+Variable $>$}}, \mbox{\hyperlink{classTemisGeometryT_a26e252686e4f5f7f96140fcc57c6bb33}{Temis\+Geometry\+T$<$ Coordinates\+Variable $>$}}, \mbox{\hyperlink{classStaticGeometry_ac7bae21456473b408ee6ef3aec7bbcfb}{Static\+Geometry}}, \mbox{\hyperlink{classPolyhedralGeometry_a23a8f9bad59b17338f492765682fadd7}{Polyhedral\+Geometry}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_a6045f89da0488387c0e570111715140f}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ Dimension, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_a6045f89da0488387c0e570111715140f}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 2, Coordinates\+Variable $>$}}, and \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_a6045f89da0488387c0e570111715140f}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 3, Coordinates\+Variable $>$}}.
+
+\mbox{\Hypertarget{classIGeometry_a7b9ed2677c1ed6995f1ca5bc765ab28b}\label{classIGeometry_a7b9ed2677c1ed6995f1ca5bc765ab28b}} 
+\index{IGeometry@{IGeometry}!computeLength@{computeLength}}
+\index{computeLength@{computeLength}!IGeometry@{IGeometry}}
+\doxysubsubsection{\texorpdfstring{computeLength()}{computeLength()}}
+{\footnotesize\ttfamily virtual Real IGeometry\+::compute\+Length (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calcul de la longueur. 
+
+Uniquement pour les Items lin{\ucr}{\ucr}ques 
+
+Implemented in \mbox{\hyperlink{classStaticGeometry_a2d5b14ad68fb96c6f3fbca5b428114ed}{Static\+Geometry}}, \mbox{\hyperlink{classPolyhedralGeometry_aaf5e145a51c0295f47315cc09ebc3513}{Polyhedral\+Geometry}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_aadf7c95e32ce3efe37e64e5690c44c5d}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ Dimension, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_aadf7c95e32ce3efe37e64e5690c44c5d}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 2, Coordinates\+Variable $>$}}, and \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_aadf7c95e32ce3efe37e64e5690c44c5d}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 3, Coordinates\+Variable $>$}}.
+
+\mbox{\Hypertarget{classIGeometry_a727af88bd22defac0416aed48dc0e4fa}\label{classIGeometry_a727af88bd22defac0416aed48dc0e4fa}} 
+\index{IGeometry@{IGeometry}!computeOrientedArea@{computeOrientedArea}}
+\index{computeOrientedArea@{computeOrientedArea}!IGeometry@{IGeometry}}
+\doxysubsubsection{\texorpdfstring{computeOrientedArea()}{computeOrientedArea()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structReal3}{Real3}} IGeometry\+::compute\+Oriented\+Area (\begin{DoxyParamCaption}\item[{Integer}]{n,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} $\ast$}]{coords }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Uniquement pour les Items surfaciques $\ast$/ ~\newline
+ virtual \mbox{\hyperlink{structReal3}{Real3}} compute\+Surface\+Center(\+Integer n, const Real3 $\ast$ coords) = 0;. 
+
+! Calcul de l\textquotesingle{}aire orient{\ucr}e (ie normale) /$\ast$! Uniquement pour les Items surfaciques 
+
+Implemented in \mbox{\hyperlink{classStaticGeometry_a5e88532753a97287212406b8aae6c1ee}{Static\+Geometry}}, \mbox{\hyperlink{classPolyhedralGeometry_ac7015876fd16b1221b20352c498f7104}{Polyhedral\+Geometry}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_a402802fe72561327a6166dec1817a614}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ Dimension, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_a402802fe72561327a6166dec1817a614}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 2, Coordinates\+Variable $>$}}, and \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_a402802fe72561327a6166dec1817a614}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 3, Coordinates\+Variable $>$}}.
+
+\mbox{\Hypertarget{classIGeometry_a44f3002889d8d9b9b8b0e6205aa54d17}\label{classIGeometry_a44f3002889d8d9b9b8b0e6205aa54d17}} 
+\index{IGeometry@{IGeometry}!computeOrientedMeasure@{computeOrientedMeasure}}
+\index{computeOrientedMeasure@{computeOrientedMeasure}!IGeometry@{IGeometry}}
+\doxysubsubsection{\texorpdfstring{computeOrientedMeasure()}{computeOrientedMeasure()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structReal3}{Real3}} IGeometry\+::compute\+Oriented\+Measure (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calcul de la mesure orient{\ucr}e. 
+
+Dans le cas d\textquotesingle{}un {\ucr}l{\ucr}ment plan, ceci correspond {\ucr} la normale moyenne unitaire $\ast$ mesure de l\textquotesingle{}{\ucr}l{\ucr}ment et dans le cas d\textquotesingle{}un simple {\ucr}l{\ucr}ment volumique nous obtenons volume $\ast$ z (ou z=(0,0,1)) 
+
+Implemented in \mbox{\hyperlink{classTemisGeometry2T_a89b4577768c27e00ce7d3f9c3bb8645a}{Temis\+Geometry2\+T$<$ Coordinates\+Variable $>$}}, \mbox{\hyperlink{classTemisGeometryT_a9c4d2e382cf6a52e4be4d91795ded685}{Temis\+Geometry\+T$<$ Coordinates\+Variable $>$}}, \mbox{\hyperlink{classStaticGeometry_a284e548d17f15a8ef15aae87d5410c12}{Static\+Geometry}}, \mbox{\hyperlink{classPolyhedralGeometry_a8f2634036f9f2b612248400329140921}{Polyhedral\+Geometry}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_ad5aa0d32de2c63d051f792051e7b97c1}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ Dimension, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_ad5aa0d32de2c63d051f792051e7b97c1}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 2, Coordinates\+Variable $>$}}, and \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_ad5aa0d32de2c63d051f792051e7b97c1}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 3, Coordinates\+Variable $>$}}.
+
+\mbox{\Hypertarget{classIGeometry_a33bbeb3570a018f7d76ffc6a10e59682}\label{classIGeometry_a33bbeb3570a018f7d76ffc6a10e59682}} 
+\index{IGeometry@{IGeometry}!computeVolume@{computeVolume}}
+\index{computeVolume@{computeVolume}!IGeometry@{IGeometry}}
+\doxysubsubsection{\texorpdfstring{computeVolume()}{computeVolume()}}
+{\footnotesize\ttfamily virtual Real IGeometry\+::compute\+Volume (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calcul du volume. 
+
+Uniquement pour les Items volumiques 
+
+Implemented in \mbox{\hyperlink{classTemisGeometry2T_a576729d5f30f630ad9f4db8661be90b0}{Temis\+Geometry2\+T$<$ Coordinates\+Variable $>$}}, \mbox{\hyperlink{classTemisGeometryT_a8ada9c1936a00fa785b578eea3d716a5}{Temis\+Geometry\+T$<$ Coordinates\+Variable $>$}}, \mbox{\hyperlink{classStaticGeometry_a5102aea3b8e7247314d61f436695b19a}{Static\+Geometry}}, \mbox{\hyperlink{classPolyhedralGeometry_a025255c40de67fba18374b68a98af82a}{Polyhedral\+Geometry}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_ad0d2cb9059d74780be44a4b211cab2cb}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ Dimension, Coordinates\+Variable $>$}}, \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_ad0d2cb9059d74780be44a4b211cab2cb}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 2, Coordinates\+Variable $>$}}, and \mbox{\hyperlink{classEuclidianGeometry_1_1EuclidianGeometryT_ad0d2cb9059d74780be44a4b211cab2cb}{Euclidian\+Geometry\+::\+Euclidian\+Geometry\+T$<$ 3, Coordinates\+Variable $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/IGeometry.\+h\end{DoxyCompactItemize}

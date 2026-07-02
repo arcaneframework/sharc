@@ -1,0 +1,83 @@
+\hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl}{}\doxysection{Arcane\+::Fem\+Utils\+::Csr\+Do\+FLinear\+System\+Impl Class Reference}
+\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl}\index{Arcane::FemUtils::CsrDoFLinearSystemImpl@{Arcane::FemUtils::CsrDoFLinearSystemImpl}}
+
+
+Inherits \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase}{Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+Impl\+Base}}.
+
+
+
+Inherited by Arcane\+::\+Fem\+Utils\+::\+Hypre\+Do\+FLinear\+System\+Impl, and Arcane\+::\+Fem\+Utils\+::\+PETSc\+Do\+FLinear\+System\+Impl.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a316383ceba3997e1a2d99f820a13f8dd}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a316383ceba3997e1a2d99f820a13f8dd}} 
+{\bfseries Csr\+Do\+FLinear\+System\+Impl} (IItem\+Family $\ast$dof\+\_\+family, const String \&solver\+\_\+name)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a7dd6d76a9837e4ac8371de0d575ce15e}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a7dd6d76a9837e4ac8371de0d575ce15e}} 
+Int32 {\bfseries index\+Value} (Do\+FLocal\+Id row\+\_\+lid, Do\+FLocal\+Id column\+\_\+lid)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ad714b127961eb3cf35984a3ea9aed73c}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ad714b127961eb3cf35984a3ea9aed73c}} 
+void {\bfseries matrix\+Add\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_aaa7b65723d298b554d779c4887cc8b4a}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_aaa7b65723d298b554d779c4887cc8b4a}} 
+void {\bfseries matrix\+Set\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_aa827a0243b9564f6baff20bd1cac0668}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_aa827a0243b9564f6baff20bd1cac0668}} 
+void {\bfseries eliminate\+Row} (Do\+FLocal\+Id row, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ad6c799dd3293ab46b1e85a58840b6076}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ad6c799dd3293ab46b1e85a58840b6076}} 
+void {\bfseries eliminate\+Row\+Column} (Do\+FLocal\+Id row, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a7d126d7a987f9e0e56603513858c98de}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a7d126d7a987f9e0e56603513858c98de}} 
+void {\bfseries apply\+Matrix\+Transformation} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ac8aee247681c5fd0378760f64c0e89b3}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ac8aee247681c5fd0378760f64c0e89b3}} 
+void {\bfseries apply\+RHSTransformation} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a5dc1886fdb9967b9c085b2f8c31d6e67}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a5dc1886fdb9967b9c085b2f8c31d6e67}} 
+void {\bfseries clear\+Values} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a103a65a9cb7832249c2a940e36e356c4}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a103a65a9cb7832249c2a940e36e356c4}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \& {\bfseries get\+CSRValues} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_aeb09294674bb5ebeb95fcce041030071}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_aeb09294674bb5ebeb95fcce041030071}} 
+void {\bfseries set\+CSRValues} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \&csr\+\_\+view) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a80acaba36825ff7e115a182a7ccfeb7c}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a80acaba36825ff7e115a182a7ccfeb7c}} 
+bool {\bfseries has\+Set\+CSRValues} () const override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ac7c8965e0f37f88cd72d5263148d171d}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_ac7c8965e0f37f88cd72d5263148d171d}} 
+void {\bfseries \+\_\+apply\+Forced\+Values\+To\+Lhs} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a7f43d6c6fc1de3d1bd054d88a7a829da}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a7f43d6c6fc1de3d1bd054d88a7a829da}} 
+void {\bfseries \+\_\+fill\+Row\+Column\+Elimination\+Infos} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a26437528036bca7ce0aadaf1aacf1e77}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a26437528036bca7ce0aadaf1aacf1e77}} 
+void {\bfseries \+\_\+apply\+Row\+Elimination\+On\+Matrix} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a125d9b24befb267451c1df81ef796647}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a125d9b24befb267451c1df81ef796647}} 
+void {\bfseries \+\_\+apply\+Row\+Column\+Elimination\+On\+Matrix} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a3edc9a6ba8c6c3cd32bdd85e422f5534}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_a3edc9a6ba8c6c3cd32bdd85e422f5534}} 
+void {\bfseries \+\_\+apply\+Row\+Or\+Row\+Column\+Elimination\+On\+RHS} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_acdb7fa105f007a9e7fb1252131a26f8b}\label{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl_acdb7fa105f007a9e7fb1252131a26f8b}} 
+void {\bfseries \+\_\+apply\+Row\+Or\+Row\+Column\+Elimination\+On\+Matrix} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 36 of file Csr\+Do\+FLinear\+System\+Impl.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/internal/Csr\+Do\+FLinear\+System\+Impl.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Csr\+Do\+FLinear\+System\+Impl.\+cc\end{DoxyCompactItemize}

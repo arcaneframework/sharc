@@ -1,0 +1,118 @@
+\hypertarget{classConstantInterpolator}{}\doxysection{Constant\+Interpolator Class Reference}
+\label{classConstantInterpolator}\index{ConstantInterpolator@{ConstantInterpolator}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConstantInterpolator_a33edad952f42a379b4f6154acb5352b5}\label{classConstantInterpolator_a33edad952f42a379b4f6154acb5352b5}} 
+enum \mbox{\hyperlink{classConstantInterpolator_a33edad952f42a379b4f6154acb5352b5}{e\+Prolongation\+Type}} \{ {\bfseries Constant\+Prolongation}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of outside-\/bound prolongation allowed by the interpolator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantInterpolator_af9f416b6839ec0d40830efae6ffd16ca}\label{classConstantInterpolator_af9f416b6839ec0d40830efae6ffd16ca}} 
+typedef Real {\bfseries Interval\+Data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConstantInterpolator_a9ca4a30fd9aa627c42966c947a258e6b}\label{classConstantInterpolator_a9ca4a30fd9aa627c42966c947a258e6b}} 
+\mbox{\hyperlink{classConstantInterpolator_a9ca4a30fd9aa627c42966c947a258e6b}{Constant\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantInterpolator_ab522f796c6ee01f5a46e61fd62875c7f}\label{classConstantInterpolator_ab522f796c6ee01f5a46e61fd62875c7f}} 
+virtual \mbox{\hyperlink{classConstantInterpolator_ab522f796c6ee01f5a46e61fd62875c7f}{$\sim$\+Constant\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Real \mbox{\hyperlink{classConstantInterpolator_aa4fbfad3701ef7bfbebccee0a65c560f}{interpolate}} (const Real $\ast$x, const Real $\ast$y, const Interval\+Data $\ast$coef, const Real v)
+\begin{DoxyCompactList}\small\item\em Static inline linear interpolation method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantInterpolator_a20956d267c336bb59abb0f8efa5d5506}\label{classConstantInterpolator_a20956d267c336bb59abb0f8efa5d5506}} 
+static Real \mbox{\hyperlink{classConstantInterpolator_a20956d267c336bb59abb0f8efa5d5506}{differentiate}} (const Real $\ast$const x, const Real $\ast$const y, const Interval\+Data $\ast$const coef, const Real v)
+\begin{DoxyCompactList}\small\item\em Static inline linear interpolation \+: get derivative. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantInterpolator_a02a39e2aad7d88a2e1fca414dce5db94}\label{classConstantInterpolator_a02a39e2aad7d88a2e1fca414dce5db94}} 
+static void \mbox{\hyperlink{classConstantInterpolator_a02a39e2aad7d88a2e1fca414dce5db94}{compute\+Interval\+Coef}} (const Real $\ast$const x\+\_\+left\+\_\+bound, const Real $\ast$const y\+\_\+left\+\_\+bound, const Integer \&interval\+\_\+number, Interval\+Data $\ast$const interval\+\_\+coeff)
+\begin{DoxyCompactList}\small\item\em Static interval coefficient precalculation method. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classConstantInterpolator_a677dd8d4dc8b60f545f5ee6d8f33c3a9}{update\+Ghost\+Points}} (const \mbox{\hyperlink{classConstantInterpolator_a33edad952f42a379b4f6154acb5352b5}{e\+Prolongation\+Type}} \&prolongation\+\_\+type, Real $\ast$const x\+\_\+begin, Real $\ast$const x\+\_\+end, Real $\ast$const y\+\_\+begin, Real $\ast$const y\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Static inline update ghost cells value method. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classConstantInterpolator_a2647dd2d37ad7793b45d3a8fbf490d7d}{update\+Ghost\+Intervals}} (const \mbox{\hyperlink{classConstantInterpolator_a33edad952f42a379b4f6154acb5352b5}{e\+Prolongation\+Type}} \&prolongation\+\_\+type, Real $\ast$const x\+\_\+begin, Real $\ast$const x\+\_\+end, Real $\ast$const y\+\_\+begin, Real $\ast$const y\+\_\+end, Real $\ast$const interval\+\_\+begin, Real $\ast$const interval\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Static inline update ghost value method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantInterpolator_afec3ae684e71720175d35c5654d3f9a3}\label{classConstantInterpolator_afec3ae684e71720175d35c5654d3f9a3}} 
+static const Interval\+Data \& \mbox{\hyperlink{classConstantInterpolator_afec3ae684e71720175d35c5654d3f9a3}{get\+Forbidden\+Interval}} (const Real \&forbidden\+\_\+interval\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Static interval coefficient setting method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantInterpolator_a36f75ab56e6b46231cbedc3a5a02de88}\label{classConstantInterpolator_a36f75ab56e6b46231cbedc3a5a02de88}} 
+static Interval\+Data \mbox{\hyperlink{classConstantInterpolator_a36f75ab56e6b46231cbedc3a5a02de88}{get\+Default\+Interval}} ()
+\begin{DoxyCompactList}\small\item\em Static interval coefficient setting method \+: get default interval coefficient for initialization. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classConstantInterpolator_a40479ca4b2efca5c68d6c6277f44c53d}{get\+Connected\+Interval\+Number}} (Integer \&nb\+\_\+left\+\_\+interval, Integer \&nb\+\_\+right\+\_\+interval)
+\begin{DoxyCompactList}\small\item\em Static method giving number of intervals connected at the right and left of one inserted point for constant interpolation two intervals created but no one modified (coef = 0 everywhere) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantInterpolator_a771adbe9b7171686d189eeb7e3991058}\label{classConstantInterpolator_a771adbe9b7171686d189eeb7e3991058}} 
+static void \mbox{\hyperlink{classConstantInterpolator_a771adbe9b7171686d189eeb7e3991058}{get\+Interpolator\+Type}} (Piece\+Wise\+Function\+Type\+::e\+Interpolator\+Type \&interpolator\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Static method giving type of interpolator using enumeration defined in \mbox{\hyperlink{IPieceWiseFunction_8h_source}{IPiece\+Wise\+Function.\+h}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file Constant\+Interpolator.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConstantInterpolator_a40479ca4b2efca5c68d6c6277f44c53d}\label{classConstantInterpolator_a40479ca4b2efca5c68d6c6277f44c53d}} 
+\index{ConstantInterpolator@{ConstantInterpolator}!getConnectedIntervalNumber@{getConnectedIntervalNumber}}
+\index{getConnectedIntervalNumber@{getConnectedIntervalNumber}!ConstantInterpolator@{ConstantInterpolator}}
+\doxysubsubsection{\texorpdfstring{getConnectedIntervalNumber()}{getConnectedIntervalNumber()}}
+{\footnotesize\ttfamily static void Constant\+Interpolator\+::get\+Connected\+Interval\+Number (\begin{DoxyParamCaption}\item[{Integer \&}]{nb\+\_\+left\+\_\+interval,  }\item[{Integer \&}]{nb\+\_\+right\+\_\+interval }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static method giving number of intervals connected at the right and left of one inserted point for constant interpolation two intervals created but no one modified (coef = 0 everywhere) 
+
+interval \mbox{[}a b\mbox{[}
+
+Definition at line 118 of file Constant\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classConstantInterpolator_aa4fbfad3701ef7bfbebccee0a65c560f}\label{classConstantInterpolator_aa4fbfad3701ef7bfbebccee0a65c560f}} 
+\index{ConstantInterpolator@{ConstantInterpolator}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!ConstantInterpolator@{ConstantInterpolator}}
+\doxysubsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily static Real Constant\+Interpolator\+::interpolate (\begin{DoxyParamCaption}\item[{const Real $\ast$}]{x,  }\item[{const Real $\ast$}]{y,  }\item[{const Interval\+Data $\ast$}]{coef,  }\item[{const Real}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline linear interpolation method. 
+
+Constant mode\+:
+
+Definition at line 44 of file Constant\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classConstantInterpolator_a2647dd2d37ad7793b45d3a8fbf490d7d}\label{classConstantInterpolator_a2647dd2d37ad7793b45d3a8fbf490d7d}} 
+\index{ConstantInterpolator@{ConstantInterpolator}!updateGhostIntervals@{updateGhostIntervals}}
+\index{updateGhostIntervals@{updateGhostIntervals}!ConstantInterpolator@{ConstantInterpolator}}
+\doxysubsubsection{\texorpdfstring{updateGhostIntervals()}{updateGhostIntervals()}}
+{\footnotesize\ttfamily static void Constant\+Interpolator\+::update\+Ghost\+Intervals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classConstantInterpolator_a33edad952f42a379b4f6154acb5352b5}{e\+Prolongation\+Type}} \&}]{prolongation\+\_\+type,  }\item[{Real $\ast$const}]{x\+\_\+begin,  }\item[{Real $\ast$const}]{x\+\_\+end,  }\item[{Real $\ast$const}]{y\+\_\+begin,  }\item[{Real $\ast$const}]{y\+\_\+end,  }\item[{Real $\ast$const}]{interval\+\_\+begin,  }\item[{Real $\ast$const}]{interval\+\_\+end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline update ghost value method. 
+
+Interval ghost cells \+: infinite constant prolongation
+
+Definition at line 87 of file Constant\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classConstantInterpolator_a677dd8d4dc8b60f545f5ee6d8f33c3a9}\label{classConstantInterpolator_a677dd8d4dc8b60f545f5ee6d8f33c3a9}} 
+\index{ConstantInterpolator@{ConstantInterpolator}!updateGhostPoints@{updateGhostPoints}}
+\index{updateGhostPoints@{updateGhostPoints}!ConstantInterpolator@{ConstantInterpolator}}
+\doxysubsubsection{\texorpdfstring{updateGhostPoints()}{updateGhostPoints()}}
+{\footnotesize\ttfamily static void Constant\+Interpolator\+::update\+Ghost\+Points (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classConstantInterpolator_a33edad952f42a379b4f6154acb5352b5}{e\+Prolongation\+Type}} \&}]{prolongation\+\_\+type,  }\item[{Real $\ast$const}]{x\+\_\+begin,  }\item[{Real $\ast$const}]{x\+\_\+end,  }\item[{Real $\ast$const}]{y\+\_\+begin,  }\item[{Real $\ast$const}]{y\+\_\+end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline update ghost cells value method. 
+
+x and y Ghost cells = \mbox{\hyperlink{classTable}{Table}} first point
+
+Definition at line 69 of file Constant\+Interpolator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/\+Constant\+Piece\+Wise\+Function/Constant\+Interpolator.\+h\end{DoxyCompactItemize}

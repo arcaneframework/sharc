@@ -1,0 +1,176 @@
+\hypertarget{classArcane_1_1FemUtils_1_1BSRFormat}{}\doxysection{Arcane\+::Fem\+Utils\+::BSRFormat Class Reference}
+\label{classArcane_1_1FemUtils_1_1BSRFormat}\index{Arcane::FemUtils::BSRFormat@{Arcane::FemUtils::BSRFormat}}
+
+
+A class for assembling Block Sparse Row (BSR) matrices from mesh data.  
+
+
+
+
+{\ttfamily \#include $<$BSRFormat.\+h$>$}
+
+
+
+Inherits Arcane\+::\+Trace\+Accessor.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_ad838af3fbf46b20da084a0cfec0138e6}\label{classArcane_1_1FemUtils_1_1BSRFormat_ad838af3fbf46b20da084a0cfec0138e6}} 
+{\bfseries BSRFormat} (ITrace\+Mng $\ast$tm, Run\+Queue \&queue, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a9193fc39c187959fca84fd5bb09d6c28}\label{classArcane_1_1FemUtils_1_1BSRFormat_a9193fc39c187959fca84fd5bb09d6c28}} 
+void {\bfseries initialize} (IMesh $\ast$mesh, Int8 nb\+\_\+dof, bool does\+\_\+linear\+\_\+system\+\_\+use\+\_\+csr, bool use\+\_\+atomic\+\_\+free=false)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a01cf7f213dbfed98b9ab3328fa0311ce}\label{classArcane_1_1FemUtils_1_1BSRFormat_a01cf7f213dbfed98b9ab3328fa0311ce}} 
+void {\bfseries to\+Linear\+System} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a0158263adf36bc2fac02da467309e612}\label{classArcane_1_1FemUtils_1_1BSRFormat_a0158263adf36bc2fac02da467309e612}} 
+void {\bfseries compute\+Nz\+Per\+Row\+Array} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_aca7e20d59f920977bc7d47cf8ce1ed4b}\label{classArcane_1_1FemUtils_1_1BSRFormat_aca7e20d59f920977bc7d47cf8ce1ed4b}} 
+void {\bfseries compute\+Neighbors\+Atomic\+Free} (Small\+Span$<$ Int32 $>$ \&neighbors\+\_\+ss)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a942fbc9c7dd387a421e0b091558f1263}\label{classArcane_1_1FemUtils_1_1BSRFormat_a942fbc9c7dd387a421e0b091558f1263}} 
+void {\bfseries compute\+Row\+Index\+Atomic\+Free} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_ab58141d577fb9e456d066cf56de49f21}\label{classArcane_1_1FemUtils_1_1BSRFormat_ab58141d577fb9e456d066cf56de49f21}} 
+void {\bfseries compute\+Columns\+Atomic\+Free} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a2ebe2d0be621f7a28f73129c433b7753}\label{classArcane_1_1FemUtils_1_1BSRFormat_a2ebe2d0be621f7a28f73129c433b7753}} 
+void {\bfseries compute\+Sparsity\+Atomic\+Free} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_ae09c2f764d604455c1181c01d588bef0}\label{classArcane_1_1FemUtils_1_1BSRFormat_ae09c2f764d604455c1181c01d588bef0}} 
+void {\bfseries compute\+Sorted\+Edges} (Int8 edges\+\_\+per\+\_\+element, Int64 nb\+\_\+edge\+\_\+total, Small\+Span$<$ UInt64 $>$ \&sorted\+\_\+edges\+\_\+ss)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_adb130499a6f94c98029a41ccba478c33}\label{classArcane_1_1FemUtils_1_1BSRFormat_adb130499a6f94c98029a41ccba478c33}} 
+void {\bfseries compute\+Neighbors} (Int8 edges\+\_\+per\+\_\+element, Int64 nb\+\_\+edge\+\_\+total, Num\+Array$<$ Int32, MDDim1 $>$ \&neighbors, Small\+Span$<$ UInt64 $>$ \&sorted\+\_\+edges\+\_\+ss)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a880e9ee563cf2959309be90ab24ca67c}\label{classArcane_1_1FemUtils_1_1BSRFormat_a880e9ee563cf2959309be90ab24ca67c}} 
+void {\bfseries compute\+Row\+Index} (Int8 edges\+\_\+per\+\_\+element, Int64 nb\+\_\+edge\+\_\+total, Small\+Span$<$ UInt64 $>$ \&sorted\+\_\+edges\+\_\+ss)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a47adcb4d0a1c33fcb06750ac6ef0a279}\label{classArcane_1_1FemUtils_1_1BSRFormat_a47adcb4d0a1c33fcb06750ac6ef0a279}} 
+void {\bfseries compute\+Columns} (Int8 edges\+\_\+per\+\_\+element, Int64 nb\+\_\+edge\+\_\+total, Small\+Span$<$ uint64\+\_\+t $>$ \&sorted\+\_\+edges\+\_\+ss)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a663d729428e45f524a7c688d117eb21a}\label{classArcane_1_1FemUtils_1_1BSRFormat_a663d729428e45f524a7c688d117eb21a}} 
+void {\bfseries compute\+Sparsity\+Atomic} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_ae2923f622def0bbfe6f52809deaeb791}\label{classArcane_1_1FemUtils_1_1BSRFormat_ae2923f622def0bbfe6f52809deaeb791}} 
+void {\bfseries compute\+Sparsity} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a287291c52240c07bc9a26e6dff01cd74}\label{classArcane_1_1FemUtils_1_1BSRFormat_a287291c52240c07bc9a26e6dff01cd74}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1BSRMatrix}{BSRMatrix}} \& {\bfseries matrix} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a015b923fa8707efddf69288e4f48534b}\label{classArcane_1_1FemUtils_1_1BSRFormat_a015b923fa8707efddf69288e4f48534b}} 
+void {\bfseries reset\+Matrix\+Values} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_ac6d93d22c19e6ca83751ab3346ccff60}\label{classArcane_1_1FemUtils_1_1BSRFormat_ac6d93d22c19e6ca83751ab3346ccff60}} 
+void {\bfseries dump\+Matrix} (const String \&filename)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a7d97fed9fe3c78510d5e1427b5fd72cc}\label{classArcane_1_1FemUtils_1_1BSRFormat_a7d97fed9fe3c78510d5e1427b5fd72cc}} 
+{\footnotesize template$<$class Function $>$ }\\void {\bfseries assemble\+Bilinear\+Ordered\+Per\+Block} (Function compute\+\_\+element\+\_\+matrix)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a677f917d42dc238a228295baadade5a2}\label{classArcane_1_1FemUtils_1_1BSRFormat_a677f917d42dc238a228295baadade5a2}} 
+{\footnotesize template$<$class Function $>$ }\\void {\bfseries assemble\+Bilinear\+Ordered\+Per\+Row} (Function compute\+\_\+element\+\_\+matrix)
+\item 
+{\footnotesize template$<$class Function $>$ }\\void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1BSRFormat_ab40b83069f7e3687258becfc1f3ca01e}{assemble\+Bilinear\+Atomic}} (Function compute\+\_\+element\+\_\+matrix)
+\begin{DoxyCompactList}\small\item\em Assembles the global BSR matrix for a bilinear operator, cell-\/wise. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a042b4adcd932b6b200604b2f6bf05a75}\label{classArcane_1_1FemUtils_1_1BSRFormat_a042b4adcd932b6b200604b2f6bf05a75}} 
+{\footnotesize template$<$class Function $>$ }\\void {\bfseries assemble\+Bilinear\+Ordered\+Per\+Block\+Atomic\+Free} (Function compute\+\_\+element\+\_\+vectors)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a767201a827f5bd52be86dcda60e0894c}\label{classArcane_1_1FemUtils_1_1BSRFormat_a767201a827f5bd52be86dcda60e0894c}} 
+{\footnotesize template$<$class Function $>$ }\\void {\bfseries assemble\+Bilinear\+Ordered\+Per\+Row\+Atomic\+Free} (Function compute\+\_\+element\+\_\+vectors)
+\item 
+{\footnotesize template$<$class Function $>$ }\\void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1BSRFormat_a8d688f9f1a53070ad55129d0e3a32fa8}{assemble\+Bilinear\+Atomic\+Free}} (Function compute\+\_\+element\+\_\+vectors)
+\begin{DoxyCompactList}\small\item\em Assembles the global BSR matrix for a bilinear operator, node-\/wise. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a3c63ad01e982485773b6000a8dba1538}\label{classArcane_1_1FemUtils_1_1BSRFormat_a3c63ad01e982485773b6000a8dba1538}} 
+{\footnotesize template$<$class Function $>$ }\\void {\bfseries assemble\+Bilinear} (Function compute\+\_\+element\+\_\+matrix)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_af078e5a4de9111824894d821a54b34fb}\label{classArcane_1_1FemUtils_1_1BSRFormat_af078e5a4de9111824894d821a54b34fb}} 
+static ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE UInt64 {\bfseries pack} (Int32 n0, Int32 n1)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_afae15c81ada6f2db718dc3bfd34afd90}\label{classArcane_1_1FemUtils_1_1BSRFormat_afae15c81ada6f2db718dc3bfd34afd90}} 
+static ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void {\bfseries unpack} (UInt64 packed\+\_\+edge, Int32 \&n0, Int32 \&n1)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a285c10797ab422e8a7fd307c7f249c0d}\label{classArcane_1_1FemUtils_1_1BSRFormat_a285c10797ab422e8a7fd307c7f249c0d}} 
+static ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void {\bfseries register\+Edge\+In\+Columns} (Int32 src, Int32 dst, Accelerator\+::\+Num\+Array\+View$<$ Data\+View\+Getter\+Setter$<$ Int32 $>$, MDDim1, Default\+Layout $>$ offsets, Accelerator\+::\+Num\+Array\+View$<$ Data\+View\+Getter$<$ Int32 $>$, MDDim1, Default\+Layout $>$ row\+\_\+index, Accelerator\+::\+Num\+Array\+View$<$ Data\+View\+Getter\+Setter$<$ Int32 $>$, MDDim1, Default\+Layout $>$ columns)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for assembling Block Sparse Row (BSR) matrices from mesh data. 
+
+The {\ttfamily \mbox{\hyperlink{classArcane_1_1FemUtils_1_1BSRFormat}{BSRFormat}}} class is designed to construct and manage BSR matrices using mesh connectivity and degree-\/of-\/freedom (DoF) information.
+
+\mbox{\hyperlink{structIn}{In}} 2D, the sparsity is computed based on node-\/face connectivity, while in 3D, node-\/node connectivity is used.
+
+\begin{DoxyNote}{Note}
+This class uses \mbox{\hyperlink{namespaceArcane}{Arcane}}\textquotesingle{}s accelerator api and will use GPU is possible. It uses a {\ttfamily \mbox{\hyperlink{classArcane_1_1FemUtils_1_1BSRMatrix}{BSRMatrix}}} under the hood for representation and operations.
+
+This class keep a reference on the instance of Fem\+Do\+FOn\+Nodes used in the constructor. So this instance of Fem\+Do\+FOn\+Nodes must live until the instance of this class is destroyed. 
+\end{DoxyNote}
+
+
+Definition at line 156 of file BSRFormat.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_ab40b83069f7e3687258becfc1f3ca01e}\label{classArcane_1_1FemUtils_1_1BSRFormat_ab40b83069f7e3687258becfc1f3ca01e}} 
+\index{Arcane::FemUtils::BSRFormat@{Arcane::FemUtils::BSRFormat}!assembleBilinearAtomic@{assembleBilinearAtomic}}
+\index{assembleBilinearAtomic@{assembleBilinearAtomic}!Arcane::FemUtils::BSRFormat@{Arcane::FemUtils::BSRFormat}}
+\doxysubsubsection{\texorpdfstring{assembleBilinearAtomic()}{assembleBilinearAtomic()}}
+{\footnotesize\ttfamily template$<$class Function $>$ \\
+void Arcane\+::\+Fem\+Utils\+::\+BSRFormat\+::assemble\+Bilinear\+Atomic (\begin{DoxyParamCaption}\item[{Function}]{compute\+\_\+element\+\_\+matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assembles the global BSR matrix for a bilinear operator, cell-\/wise. 
+
+This function constructs the Block Sparse Row (BSR) matrix by iterating over mesh cells and accumulating contributions from element-\/level matrices. It uses a user-\/defined callback to compute the local matrix for each cell and updates the global matrix with atomic operations to ensure parallel safety.\hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md31}{}\doxyparagraph{Parameters\+:}\label{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md31}
+
+\begin{DoxyItemize}
+\item {\ttfamily compute\+\_\+element\+\_\+matrix}\+: A callback function that computes the local matrix for a given cell. It must return a matrix compatible with the expected block size.
+\end{DoxyItemize}\hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md32}{}\doxyparagraph{Key Details\+:}\label{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md32}
+
+\begin{DoxyItemize}
+\item Uses cell-\/to-\/node connectivity from the mesh and DoF mappings for assembly.
+\item Employs atomic operations to safely handle concurrent updates in parallel execution.
+\item Handles block structure updates for {\ttfamily block\+Size x block\+Size} dimensions. 
+\end{DoxyItemize}
+
+Definition at line 391 of file BSRFormat.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_a8d688f9f1a53070ad55129d0e3a32fa8}\label{classArcane_1_1FemUtils_1_1BSRFormat_a8d688f9f1a53070ad55129d0e3a32fa8}} 
+\index{Arcane::FemUtils::BSRFormat@{Arcane::FemUtils::BSRFormat}!assembleBilinearAtomicFree@{assembleBilinearAtomicFree}}
+\index{assembleBilinearAtomicFree@{assembleBilinearAtomicFree}!Arcane::FemUtils::BSRFormat@{Arcane::FemUtils::BSRFormat}}
+\doxysubsubsection{\texorpdfstring{assembleBilinearAtomicFree()}{assembleBilinearAtomicFree()}}
+{\footnotesize\ttfamily template$<$class Function $>$ \\
+void Arcane\+::\+Fem\+Utils\+::\+BSRFormat\+::assemble\+Bilinear\+Atomic\+Free (\begin{DoxyParamCaption}\item[{Function}]{compute\+\_\+element\+\_\+vectors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assembles the global BSR matrix for a bilinear operator, node-\/wise. 
+
+This function constructs the Block Sparse Row (BSR) matrix by iterating over mesh nodes and accumulating contributions from element-\/level matrices. It uses a user-\/defined callback to compute the local vectors for each cell and updates the global matrix.\hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md33}{}\doxyparagraph{Parameters\+:}\label{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md33}
+
+\begin{DoxyItemize}
+\item {\ttfamily compute\+\_\+element\+\_\+vectors}\+: A callback function that computes the local vectors for a given cell. It must return a vectors compatible with the expected block size.
+\end{DoxyItemize}\hypertarget{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md34}{}\doxyparagraph{Key Details\+:}\label{classArcane_1_1FemUtils_1_1BSRFormat_autotoc_md34}
+
+\begin{DoxyItemize}
+\item Uses cell-\/to-\/node, node-\/to-\/cell connectivity from the mesh and DoF mappings for assembly.
+\item Handles block structure updates for {\ttfamily block\+Size x block\+Size} dimensions. 
+\end{DoxyItemize}
+
+Definition at line 555 of file BSRFormat.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/BSRFormat.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/BSRFormat.\+cc\end{DoxyCompactItemize}

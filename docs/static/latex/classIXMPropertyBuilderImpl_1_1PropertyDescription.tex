@@ -1,0 +1,163 @@
+\hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription}{}\doxysection{IXMProperty\+Builder\+Impl\+::Property\+Description Class Reference}
+\label{classIXMPropertyBuilderImpl_1_1PropertyDescription}\index{IXMPropertyBuilderImpl::PropertyDescription@{IXMPropertyBuilderImpl::PropertyDescription}}
+
+
+Inherits \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1BaseProperty}{IXMProperty\+Builder\+Impl\+::\+Base\+Property}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_aeb4042741f8cc26893d14186424a8c4b}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_aeb4042741f8cc26893d14186424a8c4b}} 
+using {\bfseries Base\+Type} = \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1BaseProperty}{Base\+Property}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_ab5bad9daa735a8111b91a2c7a1ef2282}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_ab5bad9daa735a8111b91a2c7a1ef2282}} 
+{\bfseries Property\+Description} (Arcane\+::\+IMesh $\ast$const mesh) noexcept(false)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a63fc7317984928418395c03954a77d70}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a63fc7317984928418395c03954a77d70}} 
+{\bfseries Property\+Description} (const \mbox{\hyperlink{structIXMPropertyData}{IXMProperty\+Data}} \&property, Arcane\+::\+IMesh $\ast$const mesh) noexcept(false)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_ad16ce7065d945b3422c3e5cb743e65d1}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_ad16ce7065d945b3422c3e5cb743e65d1}} 
+void {\bfseries create\+Property\+Values} (const \mbox{\hyperlink{structIXMPropertyValuesData}{IXMProperty\+Values\+Data}} \&values, const Int64\+Array \&support, const \mbox{\hyperlink{classIXMUidToLidMng}{IXMUid\+To\+Lid\+Mng}} \&aid\+\_\+to\+\_\+lids, const Arcane\+::\+String \&mesh\+\_\+directory\+\_\+name) noexcept(false)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a5a8c7fc6fa4ec6aa561c86532a74e7f1}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a5a8c7fc6fa4ec6aa561c86532a74e7f1}} 
+IVariable $\ast$ {\bfseries filled\+Item\+Variable} () const
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_ac5cab21dae2e5dd719733edde2b7c846}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_ac5cab21dae2e5dd719733edde2b7c846}} 
+void {\bfseries save\+Initial\+Property\+Variable} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_ade4ed048dfb70525d9df6bac6f22358a}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_ade4ed048dfb70525d9df6bac6f22358a}} 
+virtual void {\bfseries save\+Modified\+Items} (const Item\+Group \&modified\+\_\+items)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a666830eb43b72a71f676ae33c644e262}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a666830eb43b72a71f676ae33c644e262}} 
+const String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a943f00e16b262da2660e72aa06fada1c}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a943f00e16b262da2660e72aa06fada1c}} 
+\mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyValues}{Property\+Values}} $\ast$ {\bfseries setted\+Property\+Values} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a7c4e605c25e4ef68910d457c2aaf6d26}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a7c4e605c25e4ef68910d457c2aaf6d26}} 
+\mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyValues}{Property\+Values}} $\ast$ {\bfseries evolving\+Property\+Values} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a2d63d597fc56ae8a65120200eee26a9c}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a2d63d597fc56ae8a65120200eee26a9c}} 
+Item\+Group {\bfseries group} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_abee85236b850ba06085cf4549f985436}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_abee85236b850ba06085cf4549f985436}} 
+e\+Item\+Kind {\bfseries item\+Kind} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a70f2cbf79778724aa9901fd71f80d682}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a70f2cbf79778724aa9901fd71f80d682}} 
+const String {\bfseries data\+Type} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_aaf4e02e222e43b9e2244b0378a17101b}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_aaf4e02e222e43b9e2244b0378a17101b}} 
+IVariable $\ast$const {\bfseries variable} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a577a7a22d745a67ec8129184994a0663}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a577a7a22d745a67ec8129184994a0663}} 
+void {\bfseries print\+Infos} () const
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a8a05298bfb7e3d62a26aaee5c7e5528e}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a8a05298bfb7e3d62a26aaee5c7e5528e}} 
+Arcane\+::\+Variable\+Ref $\ast$ {\bfseries created\+Property\+Variable\+Ref} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a5cf804a7bdf93c1f24b8d99e6eafc141}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a5cf804a7bdf93c1f24b8d99e6eafc141}} 
+Arcane\+::\+Integer {\bfseries array\+Size} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a2f54ace871a9fd79bc9289e6eb308e5b}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a2f54ace871a9fd79bc9289e6eb308e5b}} 
+bool {\bfseries is\+Global} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_aab16ee2aeb50d56f53b291e2627c222a}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_aab16ee2aeb50d56f53b291e2627c222a}} 
+static const String {\bfseries modified\+Items\+Variable\+Name} (const String \&property\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_aec4a2420b1d55f224da476097c01fc8f}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_aec4a2420b1d55f224da476097c01fc8f}} 
+void {\bfseries \+\_\+load\+Property\+Variable} (const bool check\+\_\+property\+\_\+existence) noexcept(false)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a570c04c6830edc416ac126e877e41b12}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a570c04c6830edc416ac126e877e41b12}} 
+void {\bfseries \+\_\+load\+Mesh\+Variable} (const bool check\+\_\+property\+\_\+existence) noexcept(false)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a34f5aac2cb7cf6b2f6feb18bdc5287d1}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a34f5aac2cb7cf6b2f6feb18bdc5287d1}} 
+void {\bfseries \+\_\+load\+Global\+Variable} (const bool check\+\_\+property\+\_\+existence) noexcept(false)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_ab256da95e56357450988c11f38eee923}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_ab256da95e56357450988c11f38eee923}} 
+void {\bfseries \+\_\+check\+Property\+Description} () const noexcept(false)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a22a20ff645f7409b3d63d20d36d9116a}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a22a20ff645f7409b3d63d20d36d9116a}} 
+{\footnotesize template$<$class Property\+Values\+Data $>$ }\\bool {\bfseries \+\_\+is\+Property\+Empty} (const Property\+Values\+Data \&values\+\_\+list, const Arcane\+::\+Int64\+Array \&support) const
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_abd36d8e4ceff3089bfef8c4c2f020416}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_abd36d8e4ceff3089bfef8c4c2f020416}} 
+void {\bfseries \+\_\+delete\+Initial\+Property\+Variable} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_afe397050bc1df7b8620a716ed70c678d}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_afe397050bc1df7b8620a716ed70c678d}} 
+void {\bfseries \+\_\+delete\+Property\+Values} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a78ebb0eb055bb44b5a4bf12752daae12}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a78ebb0eb055bb44b5a4bf12752daae12}} 
+void {\bfseries \+\_\+set\+Property\+Dimension} (const Arcane\+::\+Integer \&property\+\_\+data\+\_\+array\+\_\+size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a0595d8961ec396ce781b5ac85c949edd}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a0595d8961ec396ce781b5ac85c949edd}} 
+String {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_ae5cc98ef765c4724808993fad26a0da1}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_ae5cc98ef765c4724808993fad26a0da1}} 
+String {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_afc55a347363d9c13da87eb422bd37dd0}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_afc55a347363d9c13da87eb422bd37dd0}} 
+String {\bfseries m\+\_\+group\+\_\+name}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a17753b47da8a0348ff11fa6904ebdc90}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a17753b47da8a0348ff11fa6904ebdc90}} 
+String {\bfseries m\+\_\+kind}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_ac6178bd9e3c592b6f8237af9268ba16a}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_ac6178bd9e3c592b6f8237af9268ba16a}} 
+IVariable $\ast$ \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription_ac6178bd9e3c592b6f8237af9268ba16a}{m\+\_\+property\+\_\+variable}} = nullptr
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structVariable}{Variable}} \mbox{\hyperlink{namespaceArcane}{Arcane}} de la propri{\ucr}t{\ucr} courante. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_aa1b131e4043bdda805076a3b25574787}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_aa1b131e4043bdda805076a3b25574787}} 
+IVariable $\ast$ \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription_aa1b131e4043bdda805076a3b25574787}{m\+\_\+initial\+\_\+property\+\_\+variable}} = nullptr
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structVariable}{Variable}} copie de la propri{\ucr}t{\ucr} au d{\ucr}but de l\textquotesingle{}{\ucr}v{\ucr}nement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a8331f04ff0e9dbb682cb5d7d2e3cebb4}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a8331f04ff0e9dbb682cb5d7d2e3cebb4}} 
+\mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyValues}{Property\+Values}} $\ast$ \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription_a8331f04ff0e9dbb682cb5d7d2e3cebb4}{m\+\_\+setted\+\_\+property\+\_\+values}} = nullptr
+\begin{DoxyCompactList}\small\item\em Jeu de Valeurs de la propri{\ucr}t{\ucr} lue courante. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a0f47544a1761f42b105501d4b92b8c2c}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a0f47544a1761f42b105501d4b92b8c2c}} 
+\mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyValues}{Property\+Values}} $\ast$ \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription_a0f47544a1761f42b105501d4b92b8c2c}{m\+\_\+evolving\+\_\+property\+\_\+values}} = nullptr
+\begin{DoxyCompactList}\small\item\em Jeu de Valeurs de la propri{\ucr}t{\ucr} interpol{\ucr}e courante. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_aca87450745ea184a8a40d8ebeebfcc7c}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_aca87450745ea184a8a40d8ebeebfcc7c}} 
+IVariable $\ast$ \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription_aca87450745ea184a8a40d8ebeebfcc7c}{m\+\_\+filled\+\_\+item\+\_\+variable}} = nullptr
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structVariable}{Variable}} indiquant les {\ucr}l{\ucr}ments remplis (mis {\ucr} true). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a36fada8512b67d1b8c5d23d4b3ce6a1b}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a36fada8512b67d1b8c5d23d4b3ce6a1b}} 
+ITrace\+Mng $\ast$ {\bfseries m\+\_\+trace\+\_\+mng} = nullptr
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_af2600d4e458f64ce5c0263fa9bc2dc99}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_af2600d4e458f64ce5c0263fa9bc2dc99}} 
+bool {\bfseries m\+\_\+is\+\_\+initial\+\_\+property\+\_\+saved} = false
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a1a94f72770d2aedee1be46d35673e77a}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a1a94f72770d2aedee1be46d35673e77a}} 
+Integer {\bfseries m\+\_\+dimension}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_af5a82043d1bfb827b878cb44a248ca2a}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_af5a82043d1bfb827b878cb44a248ca2a}} 
+Integer {\bfseries m\+\_\+array\+\_\+size}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a6fcb754eed837c63c4e8159a391af3b3}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a6fcb754eed837c63c4e8159a391af3b3}} 
+\mbox{\hyperlink{classVariableRef}{Variable\+Ref}} $\ast$ \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription_a6fcb754eed837c63c4e8159a391af3b3}{m\+\_\+created\+\_\+property\+\_\+variable\+\_\+ref}} = nullptr
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classVariableRef}{Variable\+Ref}} \mbox{\hyperlink{namespaceArcane}{Arcane}} de la propri{\ucr}t{\ucr}s Utilis{\ucr} uniquement si la propri{\ucr}t{\ucr}s est cr{\ucr}che. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a9b29d7e000d2a91c1894eaaf5ec6e9f9}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a9b29d7e000d2a91c1894eaaf5ec6e9f9}} 
+Arcane\+::\+Item\+Group {\bfseries m\+\_\+group}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1PropertyDescription_a0e022ded3bc4c9a345d59b3b185ef732}\label{classIXMPropertyBuilderImpl_1_1PropertyDescription_a0e022ded3bc4c9a345d59b3b185ef732}} 
+bool {\bfseries m\+\_\+is\+\_\+global}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 257 of file IXMProperty\+Builder.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMProperty\+Builder.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMProperty\+Builder.\+cc\end{DoxyCompactItemize}

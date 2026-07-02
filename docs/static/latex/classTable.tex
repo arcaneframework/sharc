@@ -1,0 +1,53 @@
+\hypertarget{classTable}{}\doxysection{Table Class Reference}
+\label{classTable}\index{Table@{Table}}
+
+
+Interface des visitor.  
+
+
+
+
+{\ttfamily \#include $<$Table.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTable_a3707835051184cbc6d15120e068ff509}\label{classTable_a3707835051184cbc6d15120e068ff509}} 
+\mbox{\hyperlink{classTable_a3707835051184cbc6d15120e068ff509}{Table}} (String name, Integer size, Real $\ast$x, Real $\ast$y)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTable_a610566987d3c423e2e086857e3d67060}\label{classTable_a610566987d3c423e2e086857e3d67060}} 
+{\bfseries Table} (String name, Integer size, Real $\ast$x, Real $\ast$y, bool invx)
+\item 
+\mbox{\Hypertarget{classTable_ac7541d139723d710fb7c39b1898d6e87}\label{classTable_ac7541d139723d710fb7c39b1898d6e87}} 
+virtual \mbox{\hyperlink{classTable_ac7541d139723d710fb7c39b1898d6e87}{$\sim$\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTable_a3364ab5ec98e013efdc2fc3ce174acd2}\label{classTable_a3364ab5ec98e013efdc2fc3ce174acd2}} 
+virtual \mbox{\hyperlink{classTable}{Table}} $\ast$ {\bfseries get\+Inverse\+Function} (String name)
+\item 
+\mbox{\Hypertarget{classTable_a1dc8229a0948d0855f5702ab18bce8d2}\label{classTable_a1dc8229a0948d0855f5702ab18bce8d2}} 
+virtual void {\bfseries invY} ()
+\item 
+\mbox{\Hypertarget{classTable_a281650d9a7ccf28f613173d89a1ff1da}\label{classTable_a281650d9a7ccf28f613173d89a1ff1da}} 
+virtual void {\bfseries multX} (Real factor)
+\item 
+\mbox{\Hypertarget{classTable_af19f0a931b567a18e8d0470da9514486}\label{classTable_af19f0a931b567a18e8d0470da9514486}} 
+virtual void {\bfseries multY} (Real factor)
+\item 
+\mbox{\Hypertarget{classTable_a7d59883cee810ca21ba94b3851c5fa8f}\label{classTable_a7d59883cee810ca21ba94b3851c5fa8f}} 
+Real {\bfseries eval} (const Real x)
+\item 
+\mbox{\Hypertarget{classTable_a3e7170704c0f47fe0bb6a5279d8f79fd}\label{classTable_a3e7170704c0f47fe0bb6a5279d8f79fd}} 
+void {\bfseries eval} (Real $\ast$y, Real $\ast$dy, const Real x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface des visitor. 
+
+Definition at line 15 of file Table.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Table.\+h\end{DoxyCompactItemize}

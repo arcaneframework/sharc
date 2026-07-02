@@ -1,0 +1,81 @@
+\hypertarget{classEigenLUSolver}{}\doxysection{Eigen\+LUSolver$<$ N $>$ Class Template Reference}
+\label{classEigenLUSolver}\index{EigenLUSolver$<$ N $>$@{EigenLUSolver$<$ N $>$}}
+
+
+Inherits \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{Local\+Direct\+Solver\+Namespace\+::\+ILinear\+Solver}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEigenLUSolver_a74c4db3c4851b5d0572aed903acf6928}\label{classEigenLUSolver_a74c4db3c4851b5d0572aed903acf6928}} 
+typedef Eigen\+::\+Matrix$<$ Real, N, N, Eigen\+::\+Row\+Major $>$ {\bfseries Matrix\+Type}
+\item 
+\mbox{\Hypertarget{classEigenLUSolver_a28c54362e4bf6feff6f35d6bb4d0b8aa}\label{classEigenLUSolver_a28c54362e4bf6feff6f35d6bb4d0b8aa}} 
+typedef Eigen\+::\+Matrix$<$ Real, N, 1 $>$ {\bfseries Vector\+Type}
+\item 
+\mbox{\Hypertarget{classEigenLUSolver_af4f1a0bd9816ac42f36b92a8a6d1c590}\label{classEigenLUSolver_af4f1a0bd9816ac42f36b92a8a6d1c590}} 
+typedef \mbox{\hyperlink{classLinearSystemT}{Linear\+SystemT}}$<$ Matrix\+Type, \mbox{\hyperlink{structVectorType}{Vector\+Type}} $>$ {\bfseries Linear\+System\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEigenLUSolver_a74a3574157dde150c6af0e1e522e7bbe}\label{classEigenLUSolver_a74a3574157dde150c6af0e1e522e7bbe}} 
+\mbox{\hyperlink{classEigenLUSolver_a74a3574157dde150c6af0e1e522e7bbe}{Eigen\+LUSolver}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_ae7a2b4ebd772871143e448218994cbde}\label{classEigenLUSolver_ae7a2b4ebd772871143e448218994cbde}} 
+virtual \mbox{\hyperlink{classEigenLUSolver_ae7a2b4ebd772871143e448218994cbde}{$\sim$\+Eigen\+LUSolver}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_ab9d9f5f22a2a3248ed834a22c4c22b03}\label{classEigenLUSolver_ab9d9f5f22a2a3248ed834a22c4c22b03}} 
+String \mbox{\hyperlink{classEigenLUSolver_ab9d9f5f22a2a3248ed834a22c4c22b03}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Retourne le nom du solveur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_ad0147f67cd617c3db77d730af4d82929}\label{classEigenLUSolver_ad0147f67cd617c3db77d730af4d82929}} 
+void \mbox{\hyperlink{classEigenLUSolver_ad0147f67cd617c3db77d730af4d82929}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_ae70c5d08187663e7a275552bd44706f5}\label{classEigenLUSolver_ae70c5d08187663e7a275552bd44706f5}} 
+void \mbox{\hyperlink{classEigenLUSolver_ae70c5d08187663e7a275552bd44706f5}{set\+Linear\+System\+Builder}} (\mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder}} $\ast$builder)
+\begin{DoxyCompactList}\small\item\em Associe un build {\ucr} ce solveur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_adfffc3cc536cdba64061ccf5e7cec90c}\label{classEigenLUSolver_adfffc3cc536cdba64061ccf5e7cec90c}} 
+ILinear\+System $\ast$ \mbox{\hyperlink{classEigenLUSolver_adfffc3cc536cdba64061ccf5e7cec90c}{get\+Linear\+System}} ()
+\begin{DoxyCompactList}\small\item\em Retourne le syst{\ucr}me lin{\ucr}aire associ{\ucr} {\ucr} ce solveur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_ae49a38468a0d5cf8ec563562adad13da}\label{classEigenLUSolver_ae49a38468a0d5cf8ec563562adad13da}} 
+bool \mbox{\hyperlink{classEigenLUSolver_ae49a38468a0d5cf8ec563562adad13da}{build\+Linear\+System}} (Integer next\+Build\+Stage=Build\+Type\+::e\+Build\+Matrix$\vert$Build\+Type\+::e\+Build\+Rhs)
+\begin{DoxyCompactList}\small\item\em Construit le system lineaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_a24f4d816ff28324b991e91383e8f490d}\label{classEigenLUSolver_a24f4d816ff28324b991e91383e8f490d}} 
+bool \mbox{\hyperlink{classEigenLUSolver_a24f4d816ff28324b991e91383e8f490d}{build\+Linear\+System}} (ILinear\+System $\ast$system, Integer next\+Build\+Stage=Build\+Type\+::e\+Build\+Matrix$\vert$Build\+Type\+::e\+Build\+Rhs)
+\begin{DoxyCompactList}\small\item\em Building linear system Tempory patch to enable solving several systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Etapes d\textquotesingle{}une r{\ucr}solution}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEigenLUSolver_ae5599430366bc162addf7b7613e7c1dc}\label{classEigenLUSolver_ae5599430366bc162addf7b7613e7c1dc}} 
+void \mbox{\hyperlink{classEigenLUSolver_ae5599430366bc162addf7b7613e7c1dc}{start}} ()
+\begin{DoxyCompactList}\small\item\em D{\ucr}but de boucle locale (avant solve) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_a36d483f5be9557307c22807355eed9a7}\label{classEigenLUSolver_a36d483f5be9557307c22807355eed9a7}} 
+void \mbox{\hyperlink{classEigenLUSolver_a36d483f5be9557307c22807355eed9a7}{end}} ()
+\begin{DoxyCompactList}\small\item\em Fin de boucle locale (apr{\ucr}s solve) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_a24e214383b259f54dd7c5f4a38fa8b07}\label{classEigenLUSolver_a24e214383b259f54dd7c5f4a38fa8b07}} 
+bool \mbox{\hyperlink{classEigenLUSolver_a24e214383b259f54dd7c5f4a38fa8b07}{solve}} ()
+\begin{DoxyCompactList}\small\item\em R{\ucr}solution du system lineaire associ{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_a013b48c36fdca01eb50c3c709ddd8e47}\label{classEigenLUSolver_a013b48c36fdca01eb50c3c709ddd8e47}} 
+const ILinear\+Solver\+::\+Status \& \mbox{\hyperlink{classEigenLUSolver_a013b48c36fdca01eb50c3c709ddd8e47}{get\+Status}} () const
+\begin{DoxyCompactList}\small\item\em Etat final apr{\ucr}s r{\ucr}solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_ae75184967b0585ae458a5e3f82030b1f}\label{classEigenLUSolver_ae75184967b0585ae458a5e3f82030b1f}} 
+bool \mbox{\hyperlink{classEigenLUSolver_ae75184967b0585ae458a5e3f82030b1f}{get\+Solution}} ()
+\begin{DoxyCompactList}\small\item\em Applique la proc{\ucr}dure d\textquotesingle{}extraction de la solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEigenLUSolver_a79ffa0bfe2151b3539366f201cbe84eb}\label{classEigenLUSolver_a79ffa0bfe2151b3539366f201cbe84eb}} 
+void \mbox{\hyperlink{classEigenLUSolver_a79ffa0bfe2151b3539366f201cbe84eb}{set\+Null\+Space\+Constant\+Option}} (bool flag)
+\begin{DoxyCompactList}\small\item\em option to imposed extra constraint to solution \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$int N$>$\newline
+class Eigen\+LUSolver$<$ N $>$}
+
+
+
+Definition at line 15 of file Eigen\+LUSolver.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/Eigen\+LUSolver.\+h\end{DoxyCompactItemize}

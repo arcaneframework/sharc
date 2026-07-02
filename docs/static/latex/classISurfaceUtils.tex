@@ -1,0 +1,82 @@
+\hypertarget{classISurfaceUtils}{}\doxysection{ISurface\+Utils Class Reference}
+\label{classISurfaceUtils}\index{ISurfaceUtils@{ISurfaceUtils}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structISurfaceUtils_1_1FaceFaceContact}{Face\+Face\+Contact}}
+\item 
+struct \mbox{\hyperlink{structISurfaceUtils_1_1NodeFaceContact}{Node\+Face\+Contact}}
+\begin{DoxyCompactList}\small\item\em Structure d{\ucr}crivant le contact Node-\/\+Face. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classISurfaceUtils_af6255e94b74accf212ffbfe40040ed8e}\label{classISurfaceUtils_af6255e94b74accf212ffbfe40040ed8e}} 
+enum {\bfseries Node\+Face\+Projection} \{ {\bfseries Direct\+Projection}
+, {\bfseries Reverse\+Projection}
+ \}
+\item 
+\mbox{\Hypertarget{classISurfaceUtils_a2dae4f57b93221aa1b6c385d8c37523f}\label{classISurfaceUtils_a2dae4f57b93221aa1b6c385d8c37523f}} 
+typedef Shared\+Array$<$ \mbox{\hyperlink{structISurfaceUtils_1_1NodeFaceContact}{Node\+Face\+Contact}} $>$ {\bfseries Node\+Face\+Contact\+List}
+\item 
+\mbox{\Hypertarget{classISurfaceUtils_a8e2ed01f86403fef35cbfa38a01ef357}\label{classISurfaceUtils_a8e2ed01f86403fef35cbfa38a01ef357}} 
+typedef Shared\+Array$<$ \mbox{\hyperlink{structISurfaceUtils_1_1FaceFaceContact}{Face\+Face\+Contact}} $>$ {\bfseries Face\+Face\+Contact\+List}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classISurfaceUtils_a713e3791888156e74da8ae39681e280b}\label{classISurfaceUtils_a713e3791888156e74da8ae39681e280b}} 
+\mbox{\hyperlink{classISurfaceUtils_a713e3791888156e74da8ae39681e280b}{ISurface\+Utils}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISurfaceUtils_aaa8d44030a5386bc8b61c44ec0e3fb22}\label{classISurfaceUtils_aaa8d44030a5386bc8b61c44ec0e3fb22}} 
+virtual \mbox{\hyperlink{classISurfaceUtils_aaa8d44030a5386bc8b61c44ec0e3fb22}{$\sim$\+ISurface\+Utils}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISurfaceUtils_af12d1f63298fb0297bbee6d8aa12f622}\label{classISurfaceUtils_af12d1f63298fb0297bbee6d8aa12f622}} 
+virtual void \mbox{\hyperlink{classISurfaceUtils_af12d1f63298fb0297bbee6d8aa12f622}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISurfaceUtils_a198b82f3a899512dec7984d0235aa26e}\label{classISurfaceUtils_a198b82f3a899512dec7984d0235aa26e}} 
+virtual \mbox{\hyperlink{classISurface}{ISurface}} $\ast$ \mbox{\hyperlink{classISurfaceUtils_a198b82f3a899512dec7984d0235aa26e}{create\+Surface}} (Face\+Group face\+\_\+group)=0
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation d\textquotesingle{}une nouvelle surface {\ucr} partir d\textquotesingle{}un groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISurfaceUtils_a82e044dd03b873ec502a2f6b82ce8e1c}\label{classISurfaceUtils_a82e044dd03b873ec502a2f6b82ce8e1c}} 
+virtual \mbox{\hyperlink{classISurfacePair}{ISurface\+Pair}} $\ast$ \mbox{\hyperlink{classISurfaceUtils_a82e044dd03b873ec502a2f6b82ce8e1c}{create\+Surface\+Pair}} (\mbox{\hyperlink{classISurface}{ISurface}} $\ast$master, \mbox{\hyperlink{classISurface}{ISurface}} $\ast$slave)=0
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation d\textquotesingle{}un appariement de surfaces. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classISurfaceUtils_a39fc42bbd700dc11b18a9080f2141bb5}{compute\+Surface\+Contact}} (\mbox{\hyperlink{classISurfacePair}{ISurface\+Pair}} $\ast$surface\+\_\+pair, Node\+Face\+Contact\+List \&contact, const Node\+Face\+Projection direction)=0
+\begin{DoxyCompactList}\small\item\em compute for each node of a surface the nearest face on the other surface ~\newline
+ \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classISurfaceUtils_a2218ac35994b15dd1fc5ba3f161424b3}{compute\+Surface\+Contact}} (\mbox{\hyperlink{classISurfacePair}{ISurface\+Pair}} $\ast$surface\+\_\+pair, Face\+Face\+Contact\+List \&contact)=0
+\begin{DoxyCompactList}\small\item\em compute for each face of master surface the nearest face of slave surface \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file ISurface\+Utils.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classISurfaceUtils_a2218ac35994b15dd1fc5ba3f161424b3}\label{classISurfaceUtils_a2218ac35994b15dd1fc5ba3f161424b3}} 
+\index{ISurfaceUtils@{ISurfaceUtils}!computeSurfaceContact@{computeSurfaceContact}}
+\index{computeSurfaceContact@{computeSurfaceContact}!ISurfaceUtils@{ISurfaceUtils}}
+\doxysubsubsection{\texorpdfstring{computeSurfaceContact()}{computeSurfaceContact()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ISurface\+Utils\+::compute\+Surface\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classISurfacePair}{ISurface\+Pair}} $\ast$}]{surface\+\_\+pair,  }\item[{Face\+Face\+Contact\+List \&}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+compute for each face of master surface the nearest face of slave surface 
+
+where surface\+\_\+pair describe (master,slave) surfaces pair \mbox{\Hypertarget{classISurfaceUtils_a39fc42bbd700dc11b18a9080f2141bb5}\label{classISurfaceUtils_a39fc42bbd700dc11b18a9080f2141bb5}} 
+\index{ISurfaceUtils@{ISurfaceUtils}!computeSurfaceContact@{computeSurfaceContact}}
+\index{computeSurfaceContact@{computeSurfaceContact}!ISurfaceUtils@{ISurfaceUtils}}
+\doxysubsubsection{\texorpdfstring{computeSurfaceContact()}{computeSurfaceContact()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ISurface\+Utils\+::compute\+Surface\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classISurfacePair}{ISurface\+Pair}} $\ast$}]{surface\+\_\+pair,  }\item[{Node\+Face\+Contact\+List \&}]{contact,  }\item[{const Node\+Face\+Projection}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+compute for each node of a surface the nearest face on the other surface ~\newline
+ 
+
+surfaces are given by a pair (surface1, surface2) {\itshape direction} defines if surface1 is the source (Direction) or the target (Reverse\+Projection) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/ISurface\+Utils.\+h\end{DoxyCompactItemize}

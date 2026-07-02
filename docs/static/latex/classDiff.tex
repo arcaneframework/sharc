@@ -1,0 +1,95 @@
+\hypertarget{classDiff}{}\doxysection{Diff$<$ Var $>$ Class Template Reference}
+\label{classDiff}\index{Diff$<$ Var $>$@{Diff$<$ Var $>$}}
+
+
+\mbox{\hyperlink{classIFunctor}{IFunctor}} \+: Functor pour manipuler les differentes equations.  
+
+
+
+
+{\ttfamily \#include $<$Var\+Vect.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructeur}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDiff_a48b54cb84d7dca83ca43b6171bdcfba5}\label{classDiff_a48b54cb84d7dca83ca43b6171bdcfba5}} 
+{\bfseries Diff} (Var listeV, int $\ast$listD, double $\ast$$\ast$derivedV, int nbV)
+\item 
+\mbox{\Hypertarget{classDiff_a48b54cb84d7dca83ca43b6171bdcfba5}\label{classDiff_a48b54cb84d7dca83ca43b6171bdcfba5}} 
+{\bfseries Diff} (Var listeV, int $\ast$listD, double $\ast$$\ast$derivedV, int nbV)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Destructeur}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDiff_ac07adfc477968f0b720a603304a420bf}\label{classDiff_ac07adfc477968f0b720a603304a420bf}} 
+{\bfseries $\sim$\+Diff} ()
+\item 
+\mbox{\Hypertarget{classDiff_ac07adfc477968f0b720a603304a420bf}\label{classDiff_ac07adfc477968f0b720a603304a420bf}} 
+{\bfseries $\sim$\+Diff} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDiff_a94cd89ef6d56759528f5a7b313f8375b}\label{classDiff_a94cd89ef6d56759528f5a7b313f8375b}} 
+Var \mbox{\hyperlink{classDiff_a94cd89ef6d56759528f5a7b313f8375b}{m\+\_\+var\+Vect}}
+\begin{DoxyCompactList}\small\item\em La matrice encapsulant la variable et les parametres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDiff_a31a53bf35f9ae65be5db95381be916cb}\label{classDiff_a31a53bf35f9ae65be5db95381be916cb}} 
+double $\ast$$\ast$ \mbox{\hyperlink{classDiff_a31a53bf35f9ae65be5db95381be916cb}{m\+\_\+derived\+Value}}
+\begin{DoxyCompactList}\small\item\em La matrice contenant la valeur de la derivee. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDiff_aa52c1e0e18f934f501758ca8ba2dd885}\label{classDiff_aa52c1e0e18f934f501758ca8ba2dd885}} 
+int $\ast$ \mbox{\hyperlink{classDiff_aa52c1e0e18f934f501758ca8ba2dd885}{m\+\_\+list\+Derived}}
+\begin{DoxyCompactList}\small\item\em Le tableau indiquant par rapport a quels parametres on va deriveer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDiff_a1a02c0c8a2a6e19feecb9b7dda84fa2c}\label{classDiff_a1a02c0c8a2a6e19feecb9b7dda84fa2c}} 
+int \mbox{\hyperlink{classDiff_a1a02c0c8a2a6e19feecb9b7dda84fa2c}{m\+\_\+nb\+Var}}
+\begin{DoxyCompactList}\small\item\em Le nombre de parametres par rapport auxquels on va deriver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Var$>$\newline
+class Diff$<$ Var $>$}
+
+\mbox{\hyperlink{classIFunctor}{IFunctor}} \+: Functor pour manipuler les differentes equations. 
+
+\mbox{\hyperlink{classDiff}{Diff}} \+: Structure permettant d\textquotesingle{}evaluer une fonction et ses derivees.
+
+Classe mere des classes fonctions. ~\newline
+Permet de manipuler les differentes equations. ~\newline
+Implemente les methodes virtuelles eval et eval\+Diff. ~\newline
+\begin{DoxyWarning}{Warning}
+class virtuelle pure. ~\newline
+ La classe \mbox{\hyperlink{classDiff}{Diff}} encapsule la liste des valeurs des parametres, la valeur de la variable que l\textquotesingle{}on souhaite calculer, la valeur de la derivee que l\textquotesingle{}on va calculer, le nombre de parametres par rapport auxquels on va deriver, ainsi que leur identifiant. ~\newline
+L\textquotesingle{}attribut m\+\_\+list\+Vect est une matrice encapsulant ces valeurs. ~\newline
+La premiere ligne correspond systematiquement a la variable que l\textquotesingle{}on veut evaluer. ~\newline
+Les autres lignes correspondent aux differentes valeurs des parametres necessaires pour evaluer la variable. ~\newline
+Cet attribut doit etre de taille \mbox{[}1+nb\+Parametres\mbox{]}x\mbox{[}taille du vecteur\mbox{]} (le 1 vient de la variable). ~\newline
+La taille du vecteur peut etre 1, dans le cas d\textquotesingle{}une evaluation scalaire. ~\newline
+L\textquotesingle{}attribut m\+\_\+size\+Vect est un tableau contenant la taille de la variable et de tous les parametres. ~\newline
+Sa taille est \mbox{[}1+nb\+Parametres\mbox{]}. ~\newline
+La premiere valeur correspond a la taille de la variable et les autres a celles des differents parametres. ~\newline
+L\textquotesingle{}attribut m\+\_\+derived\+Value est une matrice correspondant a la derivee de la variable. ~\newline
+Sa taille est \mbox{[}taille du vecteur\mbox{]}x\mbox{[}m\+\_\+nb\+Var\mbox{]} .~\newline
+L\textquotesingle{}attribut m\+\_\+nb\+Var indique le nombre de parametres par rapport auxquels on va deriver. ~\newline
+L\textquotesingle{}attribut m\+\_\+list\+Derived precise quels sont les parametres par rapport auxquels on derive. ~\newline
+Sa taille est \mbox{[}m\+\_\+nb\+Var\mbox{]}. Si m\+\_\+list\+Derived\mbox{[}i\mbox{]} vaut 1, on derive par rapport a cette variable, s\textquotesingle{}il vaut 0, on ne derive pas. ~\newline
+ La classe \mbox{\hyperlink{classDiff}{Diff}} est une structure permettant d\textquotesingle{}evaluer une fonction et ses derivee. Elle est templatisee de sorte de prendre une structure de type \mbox{\hyperlink{classVarVect}{Var\+Vect}} (ou equivalente) en parametre, permettant d\textquotesingle{}evaluer une fonction. Pour evaluer les derivees de la fonction, elle definit plusieurs autres attributs. ~\newline
+L\textquotesingle{}attribut m\+\_\+var\+Vect est de type \mbox{\hyperlink{classVarVect}{Var\+Vect}}. Se referer a la doc de \mbox{\hyperlink{classVarVect}{Var\+Vect}} pour plus de details. ~\newline
+L\textquotesingle{}attribut m\+\_\+derived\+Value est une matrice correspondant a la derivee de la variable. ~\newline
+Sa taille est \mbox{[}taille du vecteur\mbox{]}x\mbox{[}m\+\_\+nb\+Var\mbox{]} .~\newline
+L\textquotesingle{}attribut m\+\_\+nb\+Var indique le nombre de parametres par rapport auxquels on va deriver. ~\newline
+L\textquotesingle{}attribut m\+\_\+list\+Derived precise quels sont les parametres par rapport auxquels on derive. ~\newline
+Sa taille est \mbox{[}m\+\_\+nb\+Var\mbox{]}. Si m\+\_\+list\+Derived\mbox{[}i\mbox{]} vaut 1, on derive par rapport a cette variable, s\textquotesingle{}il vaut 0, on ne derive pas. ~\newline
+
+\end{DoxyWarning}
+
+
+Definition at line 67 of file Var\+Vect.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2IFunctor_8h}{IFunctor.\+h}}\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Type/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Type_2VarVect_8h}{Var\+Vect.\+h}}\end{DoxyCompactItemize}

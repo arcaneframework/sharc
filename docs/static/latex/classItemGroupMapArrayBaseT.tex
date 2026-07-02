@@ -1,0 +1,160 @@
+\hypertarget{classItemGroupMapArrayBaseT}{}\doxysection{Item\+Group\+Map\+Array\+BaseT$<$ Value\+TypeT $>$ Class Template Reference}
+\label{classItemGroupMapArrayBaseT}\index{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}}
+
+
+Classe de base pour les Item\+Group\+Map\+Array.  
+
+
+
+
+{\ttfamily \#include $<$Item\+Group\+Map.\+h$>$}
+
+
+
+Inherits \mbox{\hyperlink{classItemGroupMapAbstractT}{Item\+Group\+Map\+Abstract\+T$<$ Value\+Type\+T $\ast$ $>$}}.
+
+
+
+Inherited by \mbox{\hyperlink{classItemGroupMapArrayT}{Item\+Group\+Map\+Array\+T$<$ Item\+Kind, Value\+Type\+T $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_acd070878dc1de5636721ee3b48e40a1e}\label{classItemGroupMapArrayBaseT_acd070878dc1de5636721ee3b48e40a1e}} 
+typedef Array\+View$<$ Value\+TypeT $>$ {\bfseries Array\+Type}
+\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_ab18befb0c4c22b8c3635580bb5fa1aff}\label{classItemGroupMapArrayBaseT_ab18befb0c4c22b8c3635580bb5fa1aff}} 
+typedef Const\+Array\+View$<$ Value\+TypeT $>$ {\bfseries Const\+Array\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a80aa1f725954017ea0a96d9956f8cd91}\label{classItemGroupMapArrayBaseT_a80aa1f725954017ea0a96d9956f8cd91}} 
+\mbox{\hyperlink{classItemGroupMapArrayBaseT_a80aa1f725954017ea0a96d9956f8cd91}{Item\+Group\+Map\+Array\+BaseT}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par d{\ucr}faut. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_ab2dfae77bd6683bce6371d49dc5c2336}\label{classItemGroupMapArrayBaseT_ab2dfae77bd6683bce6371d49dc5c2336}} 
+\mbox{\hyperlink{classItemGroupMapArrayBaseT_ab2dfae77bd6683bce6371d49dc5c2336}{Item\+Group\+Map\+Array\+BaseT}} (const Arcane\+::\+Item\+Group \&\mbox{\hyperlink{classItemGroupMapAbstract_afc1930519045bf5ae52a87e24887dfe0}{group}}, const Integer array\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Constructeur {\ucr} partir d\textquotesingle{}un groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a01e654cbba316ccad6578d2aad8802c1}\label{classItemGroupMapArrayBaseT_a01e654cbba316ccad6578d2aad8802c1}} 
+virtual \mbox{\hyperlink{classItemGroupMapArrayBaseT_a01e654cbba316ccad6578d2aad8802c1}{$\sim$\+Item\+Group\+Map\+Array\+BaseT}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a66f4528f7349a18fd519c85b66e4a10b}\label{classItemGroupMapArrayBaseT_a66f4528f7349a18fd519c85b66e4a10b}} 
+void \mbox{\hyperlink{classItemGroupMapArrayBaseT_a66f4528f7349a18fd519c85b66e4a10b}{init}} (const Arcane\+::\+Item\+Group \&\mbox{\hyperlink{classItemGroupMapAbstract_afc1930519045bf5ae52a87e24887dfe0}{group}}, const Integer array\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Initialisation sur un nouveau groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_aad56c26c5adbf92a60ed9023121373d7}\label{classItemGroupMapArrayBaseT_aad56c26c5adbf92a60ed9023121373d7}} 
+void \mbox{\hyperlink{classItemGroupMapArrayBaseT_aad56c26c5adbf92a60ed9023121373d7}{init}} (const Arcane\+::\+Item\+Group \&\mbox{\hyperlink{classItemGroupMapAbstract_afc1930519045bf5ae52a87e24887dfe0}{group}})
+\begin{DoxyCompactList}\small\item\em Initialisation sans changement de taille des tableaux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a609b0996d914936b1fc5a3aafb6de2d6}\label{classItemGroupMapArrayBaseT_a609b0996d914936b1fc5a3aafb6de2d6}} 
+void \mbox{\hyperlink{classItemGroupMapArrayBaseT_a609b0996d914936b1fc5a3aafb6de2d6}{fill}} (const Value\+TypeT \&v)
+\begin{DoxyCompactList}\small\item\em Remplit la structure avec une valeur constante. \end{DoxyCompactList}\item 
+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT_a0f3733eced5557b9bf00473d34dc98e5}{operator\mbox{[}$\,$\mbox{]}}} (const \mbox{\hyperlink{classItem}{Item}} \&item)
+\begin{DoxyCompactList}\small\item\em Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s {\ucr} partir d\textquotesingle{}un item. \end{DoxyCompactList}\item 
+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT_a117b05b47c8de422f1e6065219289893}{operator\mbox{[}$\,$\mbox{]}}} (const Arcane\+::\+Item\+Group\+Range\+Iterator \&iter)
+\begin{DoxyCompactList}\small\item\em Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s {\ucr} partir d\textquotesingle{}un Item\+Group\+Range\+IteratorT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a3687b96e958ea5d821477969db282f18}\label{classItemGroupMapArrayBaseT_a3687b96e958ea5d821477969db282f18}} 
+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT_a3687b96e958ea5d821477969db282f18}{operator\mbox{[}$\,$\mbox{]}}} (const Arcane\+::\+Item\+Enumerator \&iter)
+\begin{DoxyCompactList}\small\item\em Recherche la valeur correspondant {\ucr} l\textquotesingle{}item associ{\ucr} {\ucr} un {\ucr}num{\ucr}rateur. \end{DoxyCompactList}\item 
+Const\+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT_ac417f78c173f4bfb96ab4104c310c701}{operator\mbox{[}$\,$\mbox{]}}} (const \mbox{\hyperlink{classItem}{Item}} \&item) const
+\begin{DoxyCompactList}\small\item\em Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s en mode constant {\ucr} partir d\textquotesingle{}un item. \end{DoxyCompactList}\item 
+Const\+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT_a92bae7f42fa0d5619b90f8728c4d47a6}{operator\mbox{[}$\,$\mbox{]}}} (const Arcane\+::\+Item\+Group\+Range\+Iterator \&iter) const
+\begin{DoxyCompactList}\small\item\em Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s en mode constant {\ucr} partir d\textquotesingle{}un Item\+Group\+Range\+IteratorT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a77a0907f4ad42d310ddfdf90b4942dc3}\label{classItemGroupMapArrayBaseT_a77a0907f4ad42d310ddfdf90b4942dc3}} 
+const Const\+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT_a77a0907f4ad42d310ddfdf90b4942dc3}{operator\mbox{[}$\,$\mbox{]}}} (const Arcane\+::\+Item\+Enumerator \&iter) const
+\begin{DoxyCompactList}\small\item\em Recherche la valeur correspondant {\ucr} l\textquotesingle{}item associ{\ucr} {\ucr} un {\ucr}num{\ucr}rateur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_acf2f9ab487f55e13ea6d66e96df88db5}\label{classItemGroupMapArrayBaseT_acf2f9ab487f55e13ea6d66e96df88db5}} 
+bool {\bfseries has\+Key} (const \mbox{\hyperlink{classItem}{Item}} \&item) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a8546267c11a1dec827fbc6eeb1bf7d70}\label{classItemGroupMapArrayBaseT_a8546267c11a1dec827fbc6eeb1bf7d70}} 
+typedef \mbox{\hyperlink{classItemGroupMapAbstractT}{Item\+Group\+Map\+AbstractT}}$<$ Value\+TypeT $\ast$ $>$ {\bfseries Base\+Class}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a9e2dc0a93f9aa95d572b29a2f6ea3417}\label{classItemGroupMapArrayBaseT_a9e2dc0a93f9aa95d572b29a2f6ea3417}} 
+Integer {\bfseries m\+\_\+array\+\_\+size}
+\item 
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a56fcd4165bb629ac86d7b5d7d6aa2257}\label{classItemGroupMapArrayBaseT_a56fcd4165bb629ac86d7b5d7d6aa2257}} 
+Shared\+Array$<$ Value\+TypeT $>$ {\bfseries m\+\_\+array\+\_\+data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Value\+TypeT$>$\newline
+class Item\+Group\+Map\+Array\+Base\+T$<$ Value\+Type\+T $>$}
+
+Classe de base pour les Item\+Group\+Map\+Array. 
+
+Definition at line 505 of file Item\+Group\+Map.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a117b05b47c8de422f1e6065219289893}\label{classItemGroupMapArrayBaseT_a117b05b47c8de422f1e6065219289893}} 
+\index{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Value\+TypeT $>$ \\
+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT}{Item\+Group\+Map\+Array\+BaseT}}$<$ Value\+TypeT $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const Arcane\+::\+Item\+Group\+Range\+Iterator \&}]{iter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s {\ucr} partir d\textquotesingle{}un Item\+Group\+Range\+IteratorT. 
+
+Retourne une exception si l\textquotesingle{}item n\textquotesingle{}est pas r{\ucr}f{\ucr}renc{\ucr} 
+
+Definition at line 579 of file Item\+Group\+Map.\+h.
+
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a92bae7f42fa0d5619b90f8728c4d47a6}\label{classItemGroupMapArrayBaseT_a92bae7f42fa0d5619b90f8728c4d47a6}} 
+\index{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename Value\+TypeT $>$ \\
+Const\+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT}{Item\+Group\+Map\+Array\+BaseT}}$<$ Value\+TypeT $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const Arcane\+::\+Item\+Group\+Range\+Iterator \&}]{iter }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s en mode constant {\ucr} partir d\textquotesingle{}un Item\+Group\+Range\+IteratorT. 
+
+Retourne une exception si l\textquotesingle{}item n\textquotesingle{}est pas r{\ucr}f{\ucr}renc{\ucr} 
+
+Definition at line 600 of file Item\+Group\+Map.\+h.
+
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_a0f3733eced5557b9bf00473d34dc98e5}\label{classItemGroupMapArrayBaseT_a0f3733eced5557b9bf00473d34dc98e5}} 
+\index{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Value\+TypeT $>$ \\
+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT}{Item\+Group\+Map\+Array\+BaseT}}$<$ Value\+TypeT $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classItem}{Item}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s {\ucr} partir d\textquotesingle{}un item. 
+
+Retourne une exception si l\textquotesingle{}item n\textquotesingle{}est pas r{\ucr}f{\ucr}renc{\ucr} 
+
+Definition at line 572 of file Item\+Group\+Map.\+h.
+
+\mbox{\Hypertarget{classItemGroupMapArrayBaseT_ac417f78c173f4bfb96ab4104c310c701}\label{classItemGroupMapArrayBaseT_ac417f78c173f4bfb96ab4104c310c701}} 
+\index{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ItemGroupMapArrayBaseT$<$ ValueTypeT $>$@{ItemGroupMapArrayBaseT$<$ ValueTypeT $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Value\+TypeT $>$ \\
+Const\+Array\+Type \mbox{\hyperlink{classItemGroupMapArrayBaseT}{Item\+Group\+Map\+Array\+BaseT}}$<$ Value\+TypeT $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classItem}{Item}} \&}]{item }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Op{\ucr}rateur d\textquotesingle{}acc{\ucr}s en mode constant {\ucr} partir d\textquotesingle{}un item. 
+
+Retourne une exception si l\textquotesingle{}item n\textquotesingle{}est pas r{\ucr}f{\ucr}renc{\ucr} 
+
+Definition at line 593 of file Item\+Group\+Map.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Item\+Group\+Map.\+h\end{DoxyCompactItemize}

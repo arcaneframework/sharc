@@ -1,0 +1,69 @@
+\hypertarget{classIIndexManager_1_1EntryImpl}{}\doxysection{IIndex\+Manager\+::Entry\+Impl Class Reference}
+\label{classIIndexManager_1_1EntryImpl}\index{IIndexManager::EntryImpl@{IIndexManager::EntryImpl}}
+
+
+Interface d\textquotesingle{}impl{\ucr}mentation de {\itshape \mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}}.  
+
+
+
+
+{\ttfamily \#include $<$IIndex\+Manager.\+h$>$}
+
+
+
+Inherited by Basic\+Index\+Manager\+::\+My\+Entry\+Impl.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_afa4ad7b8aa7442eab1dbcb7843ddbdcf}\label{classIIndexManager_1_1EntryImpl_afa4ad7b8aa7442eab1dbcb7843ddbdcf}} 
+virtual \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_afa4ad7b8aa7442eab1dbcb7843ddbdcf}{$\sim$\+Entry\+Impl}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a9348a5896a4bcb08b1c4b34436531fdc}\label{classIIndexManager_1_1EntryImpl_a9348a5896a4bcb08b1c4b34436531fdc}} 
+virtual Arcane\+::\+Const\+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a9348a5896a4bcb08b1c4b34436531fdc}{get\+Own\+Indexes}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne la liste des Index de l\textquotesingle{}\mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a7f7664170bf74e3abdb5af921bbbfd5b}\label{classIIndexManager_1_1EntryImpl_a7f7664170bf74e3abdb5af921bbbfd5b}} 
+virtual Arcane\+::\+Const\+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a7f7664170bf74e3abdb5af921bbbfd5b}{get\+All\+Indexes}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne la liste des Index de l\textquotesingle{}\mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}} (own + ghost) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a61ccd224eb2496f0c4fc81cb9bc5669c}\label{classIIndexManager_1_1EntryImpl_a61ccd224eb2496f0c4fc81cb9bc5669c}} 
+virtual Arcane\+::\+Const\+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a61ccd224eb2496f0c4fc81cb9bc5669c}{get\+Own\+Local\+Ids}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne la liste des Items de l\textquotesingle{}\mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a059eb39554a09da9b62d230c3aba21b5}\label{classIIndexManager_1_1EntryImpl_a059eb39554a09da9b62d230c3aba21b5}} 
+virtual Arcane\+::\+Const\+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a059eb39554a09da9b62d230c3aba21b5}{get\+All\+Local\+Ids}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne la liste des Items de l\textquotesingle{}\mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}} (own + ghost) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a3c6381a388c9f6371a484ef4e7be5910}\label{classIIndexManager_1_1EntryImpl_a3c6381a388c9f6371a484ef4e7be5910}} 
+virtual String \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a3c6381a388c9f6371a484ef4e7be5910}{get\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne le nom de l\textquotesingle{}entr{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a6720197a440f4d2b422eb6fdf4330b69}\label{classIIndexManager_1_1EntryImpl_a6720197a440f4d2b422eb6fdf4330b69}} 
+virtual Integer \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a6720197a440f4d2b422eb6fdf4330b69}{get\+Kind}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne le type de support de l\textquotesingle{}\mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a4fe2e415cca63eeffe04140a8708b3ef}\label{classIIndexManager_1_1EntryImpl_a4fe2e415cca63eeffe04140a8708b3ef}} 
+virtual const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} \& \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a4fe2e415cca63eeffe04140a8708b3ef}{get\+Family}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne la famille abstraite de l\textquotesingle{}\mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a5cbf126eea6cf21c4699ecbc24beb07d}\label{classIIndexManager_1_1EntryImpl_a5cbf126eea6cf21c4699ecbc24beb07d}} 
+virtual void \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a5cbf126eea6cf21c4699ecbc24beb07d}{add\+Tag}} (const String \&tagname, const String \&tagvalue)=0
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un tag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a63bb2854bac58e6ee6b8fcfb662e0366}\label{classIIndexManager_1_1EntryImpl_a63bb2854bac58e6ee6b8fcfb662e0366}} 
+virtual void \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a63bb2854bac58e6ee6b8fcfb662e0366}{remove\+Tag}} (const String \&tagname)=0
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un tag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a127c1b81270e95e55a71fbbb35ef8c60}\label{classIIndexManager_1_1EntryImpl_a127c1b81270e95e55a71fbbb35ef8c60}} 
+virtual bool \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a127c1b81270e95e55a71fbbb35ef8c60}{has\+Tag}} (const String \&tagname)=0
+\begin{DoxyCompactList}\small\item\em Test d\textquotesingle{}existance d\textquotesingle{}un tag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_a5f6941003e8a8357c1b18aa39305eed2}\label{classIIndexManager_1_1EntryImpl_a5f6941003e8a8357c1b18aa39305eed2}} 
+virtual String \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_a5f6941003e8a8357c1b18aa39305eed2}{tag\+Value}} (const String \&tagname)=0
+\begin{DoxyCompactList}\small\item\em Lecture d\textquotesingle{}un tag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1EntryImpl_aa1186cdf8813a475e60951c262b700f9}\label{classIIndexManager_1_1EntryImpl_aa1186cdf8813a475e60951c262b700f9}} 
+virtual \mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} $\ast$ \mbox{\hyperlink{classIIndexManager_1_1EntryImpl_aa1186cdf8813a475e60951c262b700f9}{manager}} () const =0
+\begin{DoxyCompactList}\small\item\em R{\ucr}f{\ucr}rentiel du manager associ{\ucr} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface d\textquotesingle{}impl{\ucr}mentation de {\itshape \mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}}}. 
+
+Definition at line 89 of file IIndex\+Manager.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/IIndex\+Manager.\+h\end{DoxyCompactItemize}

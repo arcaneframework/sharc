@@ -1,0 +1,112 @@
+\hypertarget{structDiscreteOperatorProperty}{}\doxysection{Discrete\+Operator\+Property Struct Reference}
+\label{structDiscreteOperatorProperty}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6}{e\+Option}} \{ \newline
+{\bfseries O\+\_\+\+NONE} = 0
+, {\bfseries O\+\_\+\+DISABLE\+\_\+\+STENCIL\+\_\+\+COMPUTATION} = (1 $<$$<$ 0)
+, \mbox{\hyperlink{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6a91319bc011494ecff7081720004cf2fc}{O\+\_\+\+DISABLE\+\_\+\+CELL\+\_\+\+GROUP\+\_\+\+COMPUTATION}} = (1 $<$$<$ 1)
+, \mbox{\hyperlink{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6afaf96fc11370d1d6ac06505a114bdfc2}{O\+\_\+\+DISABLE\+\_\+\+FACE\+\_\+\+GROUP\+\_\+\+COMPUTATION}} = (1 $<$$<$ 2)
+, \newline
+\mbox{\hyperlink{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6a24a32251095e42f4ec28c2b89f902f79}{O\+\_\+\+FACES\+\_\+\+ITEMGROUP}} = (1 $<$$<$ 3)
+, \mbox{\hyperlink{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6ac34c6d1aeb0d4a4dd3e13b5aba384f06}{O\+\_\+\+FACES\+\_\+\+ITEMVECTOR}} = (1 $<$$<$ 4)
+ \}
+\item 
+enum \mbox{\hyperlink{structDiscreteOperatorProperty_a62244463920a6d153fa6e8581513b1a5}{e\+Property}} \{ {\bfseries P\+\_\+\+NONE} = 0
+, {\bfseries P\+\_\+\+CELLS} = (1 $<$$<$ 0)
+, \mbox{\hyperlink{structDiscreteOperatorProperty_a62244463920a6d153fa6e8581513b1a5ac1087521fca7035f1bcd7e7273b1a788}{P\+\_\+\+FACES}} = (1 $<$$<$ 1)
+ \}
+\item 
+enum \mbox{\hyperlink{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ff}{e\+Status}} \{ \newline
+{\bfseries S\+\_\+\+NONE} = 0
+, {\bfseries S\+\_\+\+INITIALIZED} = (1 $<$$<$ 0)
+, \mbox{\hyperlink{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffa542fa90dc562b26b565aeb3969eedc27}{S\+\_\+\+PREPARED}} = (1 $<$$<$ 1)
+, \mbox{\hyperlink{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffaf7407c5e036b51baedf3f4749171cff7}{S\+\_\+\+FORMED}} = (1 $<$$<$ 2)
+, \newline
+\mbox{\hyperlink{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffa53fc9802700289d085f3eccad29da016}{S\+\_\+\+FINALIZED}} = (1 $<$$<$ 3)
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file Discrete\+Operator\+Property.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6}\label{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6}} 
+\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!eOption@{eOption}}
+\index{eOption@{eOption}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}
+\doxysubsubsection{\texorpdfstring{eOption}{eOption}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6}{Discrete\+Operator\+Property\+::e\+Option}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O\_DISABLE\_CELL\_GROUP\_COMPUTATION@{O\_DISABLE\_CELL\_GROUP\_COMPUTATION}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!O\_DISABLE\_CELL\_GROUP\_COMPUTATION@{O\_DISABLE\_CELL\_GROUP\_COMPUTATION}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6a91319bc011494ecff7081720004cf2fc}\label{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6a91319bc011494ecff7081720004cf2fc}} 
+O\+\_\+\+DISABLE\+\_\+\+CELL\+\_\+\+GROUP\+\_\+\+COMPUTATION&Disable stencil computation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O\_DISABLE\_FACE\_GROUP\_COMPUTATION@{O\_DISABLE\_FACE\_GROUP\_COMPUTATION}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!O\_DISABLE\_FACE\_GROUP\_COMPUTATION@{O\_DISABLE\_FACE\_GROUP\_COMPUTATION}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6afaf96fc11370d1d6ac06505a114bdfc2}\label{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6afaf96fc11370d1d6ac06505a114bdfc2}} 
+O\+\_\+\+DISABLE\+\_\+\+FACE\+\_\+\+GROUP\+\_\+\+COMPUTATION&Disable cell group computation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O\_FACES\_ITEMGROUP@{O\_FACES\_ITEMGROUP}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!O\_FACES\_ITEMGROUP@{O\_FACES\_ITEMGROUP}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6a24a32251095e42f4ec28c2b89f902f79}\label{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6a24a32251095e42f4ec28c2b89f902f79}} 
+O\+\_\+\+FACES\+\_\+\+ITEMGROUP&Disable face group computation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O\_FACES\_ITEMVECTOR@{O\_FACES\_ITEMVECTOR}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!O\_FACES\_ITEMVECTOR@{O\_FACES\_ITEMVECTOR}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6ac34c6d1aeb0d4a4dd3e13b5aba384f06}\label{structDiscreteOperatorProperty_ab26a87a55a9460e7ea2900d3c36ef8b6ac34c6d1aeb0d4a4dd3e13b5aba384f06}} 
+O\+\_\+\+FACES\+\_\+\+ITEMVECTOR&Store faces as an item group. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 20 of file Discrete\+Operator\+Property.\+h.
+
+\mbox{\Hypertarget{structDiscreteOperatorProperty_a62244463920a6d153fa6e8581513b1a5}\label{structDiscreteOperatorProperty_a62244463920a6d153fa6e8581513b1a5}} 
+\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!eProperty@{eProperty}}
+\index{eProperty@{eProperty}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}
+\doxysubsubsection{\texorpdfstring{eProperty}{eProperty}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structDiscreteOperatorProperty_a62244463920a6d153fa6e8581513b1a5}{Discrete\+Operator\+Property\+::e\+Property}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_FACES@{P\_FACES}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!P\_FACES@{P\_FACES}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_a62244463920a6d153fa6e8581513b1a5ac1087521fca7035f1bcd7e7273b1a788}\label{structDiscreteOperatorProperty_a62244463920a6d153fa6e8581513b1a5ac1087521fca7035f1bcd7e7273b1a788}} 
+P\+\_\+\+FACES&The group of all cells. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 29 of file Discrete\+Operator\+Property.\+h.
+
+\mbox{\Hypertarget{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ff}\label{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ff}} 
+\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!eStatus@{eStatus}}
+\index{eStatus@{eStatus}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}
+\doxysubsubsection{\texorpdfstring{eStatus}{eStatus}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ff}{Discrete\+Operator\+Property\+::e\+Status}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_PREPARED@{S\_PREPARED}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!S\_PREPARED@{S\_PREPARED}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffa542fa90dc562b26b565aeb3969eedc27}\label{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffa542fa90dc562b26b565aeb3969eedc27}} 
+S\+\_\+\+PREPARED&Service initialized. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_FORMED@{S\_FORMED}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!S\_FORMED@{S\_FORMED}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffaf7407c5e036b51baedf3f4749171cff7}\label{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffaf7407c5e036b51baedf3f4749171cff7}} 
+S\+\_\+\+FORMED&Service prepared. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_FINALIZED@{S\_FINALIZED}!DiscreteOperatorProperty@{DiscreteOperatorProperty}}\index{DiscreteOperatorProperty@{DiscreteOperatorProperty}!S\_FINALIZED@{S\_FINALIZED}}}\mbox{\Hypertarget{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffa53fc9802700289d085f3eccad29da016}\label{structDiscreteOperatorProperty_a8f40850a5d7df267ad6b34487575f3ffa53fc9802700289d085f3eccad29da016}} 
+S\+\_\+\+FINALIZED&Operator has been formed at least once after last prepare. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 35 of file Discrete\+Operator\+Property.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/Discrete\+Operator\+Property.\+h\end{DoxyCompactItemize}

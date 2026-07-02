@@ -1,0 +1,60 @@
+\hypertarget{classArcNum_1_1ScalarVarProperty}{}\doxysection{Arc\+Num\+::Scalar\+Var\+Property$<$ K $>$ Class Template Reference}
+\label{classArcNum_1_1ScalarVarProperty}\index{ArcNum::ScalarVarProperty$<$ K $>$@{ArcNum::ScalarVarProperty$<$ K $>$}}
+
+
+Inherited by \mbox{\hyperlink{classArcNum_1_1Variable}{Arc\+Num\+::\+Variable$<$ K $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_ac7130f4d05f9fdfa181b86913155d8f0}\label{classArcNum_1_1ScalarVarProperty_ac7130f4d05f9fdfa181b86913155d8f0}} 
+typedef \mbox{\hyperlink{classArcane_1_1MeshVariableScalarRefT}{Arcane\+::\+Mesh\+Variable\+Scalar\+RefT}}$<$ K, Arcane\+::\+Real $>$ {\bfseries Var\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_a1b580fbe21603ded00a1f16feec27b29}\label{classArcNum_1_1ScalarVarProperty_a1b580fbe21603ded00a1f16feec27b29}} 
+typedef Arcane\+::\+Mesh\+Variable\+Array\+RefT$<$ K, Arcane\+::\+Real $>$ {\bfseries Deriv\+Var\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_ab685eeef12acdc54dc62c1623d007066}\label{classArcNum_1_1ScalarVarProperty_ab685eeef12acdc54dc62c1623d007066}} 
+typedef Var\+Type\+::\+Const\+Return\+Reference\+Type {\bfseries Const\+Return\+Reference\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_a6d78383a9a98f45ec9a9fa8022456b23}\label{classArcNum_1_1ScalarVarProperty_a6d78383a9a98f45ec9a9fa8022456b23}} 
+typedef Deriv\+Var\+Type\+::\+Const\+Return\+Reference\+Type {\bfseries Derivatives\+Return\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_aeea916b9c03916d87227afafc454d3f5}\label{classArcNum_1_1ScalarVarProperty_aeea916b9c03916d87227afafc454d3f5}} 
+{\bfseries Scalar\+Var\+Property} (\mbox{\hyperlink{classArcane_1_1MeshVariableScalarRefT}{Var\+Type}} $\ast$values)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_a6a31beaeff2eef6e9f53a25612bc132a}\label{classArcNum_1_1ScalarVarProperty_a6a31beaeff2eef6e9f53a25612bc132a}} 
+{\bfseries Scalar\+Var\+Property} (\mbox{\hyperlink{classArcNum_1_1ScalarVarProperty}{Scalar\+Var\+Property}} const \&rhs)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_a45818ac6bfc1a964143ea80e8d497cfc}\label{classArcNum_1_1ScalarVarProperty_a45818ac6bfc1a964143ea80e8d497cfc}} 
+{\footnotesize template$<$typename ItemT $>$ }\\Const\+Return\+Reference\+Type {\bfseries operator\mbox{[}$\,$\mbox{]}} (\mbox{\hyperlink{classItemT}{ItemT}} const \&iter) const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_a8915c48c068cbe5bfbba7d26beddf5fe}\label{classArcNum_1_1ScalarVarProperty_a8915c48c068cbe5bfbba7d26beddf5fe}} 
+{\footnotesize template$<$typename I $>$ }\\Derivatives\+Return\+Type {\bfseries stored\+Derivatives} (const I \&iter) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_a964734f7b60855aebf8d2ce7df25773a}\label{classArcNum_1_1ScalarVarProperty_a964734f7b60855aebf8d2ce7df25773a}} 
+\mbox{\hyperlink{classArcane_1_1MeshVariableScalarRefT}{Var\+Type}} $\ast$ {\bfseries m\+\_\+values} = nullptr
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarVarProperty_a4cf27d3b2a7073894b36fe262fb7584f}\label{classArcNum_1_1ScalarVarProperty_a4cf27d3b2a7073894b36fe262fb7584f}} 
+Deriv\+Var\+Type $\ast$ {\bfseries m\+\_\+derivatives} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename K$>$\newline
+class Arc\+Num\+::\+Scalar\+Var\+Property$<$ K $>$}
+
+
+
+Definition at line 18 of file Variable.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Contribution/\+Variable/Variable.\+h\end{DoxyCompactItemize}

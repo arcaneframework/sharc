@@ -1,0 +1,67 @@
+\hypertarget{classParallel_1_1MCKernel_1_1BaseOperator}{}\doxysection{Parallel\+::MCKernel$<$ stdscheduler $>$\+::Base\+Operator$<$ PartitionT $>$ Class Template Reference}
+\label{classParallel_1_1MCKernel_1_1BaseOperator}\index{Parallel::MCKernel$<$ stdscheduler $>$::BaseOperator$<$ PartitionT $>$@{Parallel::MCKernel$<$ stdscheduler $>$::BaseOperator$<$ PartitionT $>$}}
+
+
+Inherited by \mbox{\hyperlink{classParallel_1_1MCKernel_1_1ItemTask}{Parallel\+::\+MCKernel$<$ stdscheduler $>$\+::\+Item\+Task$<$ Partition\+T, Instance\+T, Item\+T $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a416d7d10d138c57d690fa2adf4b82a6c}\label{classParallel_1_1MCKernel_1_1BaseOperator_a416d7d10d138c57d690fa2adf4b82a6c}} 
+typedef PartitionT {\bfseries Partition\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a7aa8f5d726c78eb8b94e169dcd2f4905}\label{classParallel_1_1MCKernel_1_1BaseOperator_a7aa8f5d726c78eb8b94e169dcd2f4905}} 
+{\bfseries Base\+Operator} (std\+::string const \&name, Partition\+Type \&partitioner, int partition\+\_\+id, ITrace\+Mng $\ast$trace\+\_\+mng=NULL)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a21ae2cfa9a9a60ae0522a6c5bbcdf46f}\label{classParallel_1_1MCKernel_1_1BaseOperator_a21ae2cfa9a9a60ae0522a6c5bbcdf46f}} 
+std\+::string const  \& {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a6f9a19879a88025aeae18110e58a3c88}\label{classParallel_1_1MCKernel_1_1BaseOperator_a6f9a19879a88025aeae18110e58a3c88}} 
+void {\bfseries start\+Counter} (std\+::string const \&phase)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a5cb2dd7c0dec11075743e49b36c6ab7b}\label{classParallel_1_1MCKernel_1_1BaseOperator_a5cb2dd7c0dec11075743e49b36c6ab7b}} 
+void {\bfseries stop\+Counter} (std\+::string const \&phase)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_ae8b29665bf1997a92555bb5008d0686f}\label{classParallel_1_1MCKernel_1_1BaseOperator_ae8b29665bf1997a92555bb5008d0686f}} 
+void {\bfseries print\+Perf\+Info} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a6deff86190409a38f5b1e23b90589fde}\label{classParallel_1_1MCKernel_1_1BaseOperator_a6deff86190409a38f5b1e23b90589fde}} 
+std\+::ostream \& {\bfseries info} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a34e326aaedfed01f8dd84b599be30b94}\label{classParallel_1_1MCKernel_1_1BaseOperator_a34e326aaedfed01f8dd84b599be30b94}} 
+Partition\+Type \& {\bfseries m\+\_\+partition}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a69bf83638af935695fef7c44320ac0ac}\label{classParallel_1_1MCKernel_1_1BaseOperator_a69bf83638af935695fef7c44320ac0ac}} 
+int {\bfseries m\+\_\+partition\+\_\+id}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_add11ec1b2474063a4c5a3839b14f8319}\label{classParallel_1_1MCKernel_1_1BaseOperator_add11ec1b2474063a4c5a3839b14f8319}} 
+std\+::string {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a7effc41ae1ff589214856e49cf064416}\label{classParallel_1_1MCKernel_1_1BaseOperator_a7effc41ae1ff589214856e49cf064416}} 
+ITrace\+Mng $\ast$ {\bfseries m\+\_\+trace\+\_\+mng}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1BaseOperator_a411d898088ef0585d25dbbe4d67671d3}\label{classParallel_1_1MCKernel_1_1BaseOperator_a411d898088ef0585d25dbbe4d67671d3}} 
+Run\+Time\+System\+::\+Perf\+Counter\+Mng$<$ std\+::string $>$ {\bfseries m\+\_\+perf\+\_\+timer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$bool stdscheduler = false$>$\newline
+template$<$typename PartitionT$>$\newline
+class Parallel\+::\+MCKernel$<$ stdscheduler $>$\+::\+Base\+Operator$<$ Partition\+T $>$}
+
+
+
+Definition at line 91 of file MCKernel.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/\+Run\+Time\+System/MCKernel.\+h\end{DoxyCompactItemize}

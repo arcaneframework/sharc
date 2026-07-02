@@ -1,0 +1,68 @@
+\hypertarget{classVarVect}{}\doxysection{Var\+Vect Class Reference}
+\label{classVarVect}\index{VarVect@{VarVect}}
+
+
+\mbox{\hyperlink{classVarVect}{Var\+Vect}} \+: Structure permettant d\textquotesingle{}evaluer une fonction.  
+
+
+
+
+{\ttfamily \#include $<$Var\+Vect.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructeurs}\par
+{\em Constructeur }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVarVect_a709bf6dfca7026852335619881520d36}\label{classVarVect_a709bf6dfca7026852335619881520d36}} 
+{\bfseries Var\+Vect} (int nb\+Param, double $\ast$$\ast$listeV, int $\ast$size)
+\item 
+\mbox{\Hypertarget{classVarVect_a709bf6dfca7026852335619881520d36}\label{classVarVect_a709bf6dfca7026852335619881520d36}} 
+{\bfseries Var\+Vect} (int nb\+Param, double $\ast$$\ast$listeV, int $\ast$size)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Destructeur}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVarVect_a9b21c67b11887280f30ef2a2edb21f2e}\label{classVarVect_a9b21c67b11887280f30ef2a2edb21f2e}} 
+{\bfseries $\sim$\+Var\+Vect} ()
+\item 
+\mbox{\Hypertarget{classVarVect_a9b21c67b11887280f30ef2a2edb21f2e}\label{classVarVect_a9b21c67b11887280f30ef2a2edb21f2e}} 
+{\bfseries $\sim$\+Var\+Vect} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVarVect_a463cab0d12f0e2cb82d5b95aa5393b35}\label{classVarVect_a463cab0d12f0e2cb82d5b95aa5393b35}} 
+double $\ast$$\ast$ \mbox{\hyperlink{classVarVect_a463cab0d12f0e2cb82d5b95aa5393b35}{m\+\_\+list\+Vect}}
+\begin{DoxyCompactList}\small\item\em Matrice encapsulant les valeurs de la variable et des parametres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVarVect_a127d5ddad1ab95513aca3aebd53df5b4}\label{classVarVect_a127d5ddad1ab95513aca3aebd53df5b4}} 
+int $\ast$ \mbox{\hyperlink{classVarVect_a127d5ddad1ab95513aca3aebd53df5b4}{m\+\_\+size\+Vect}}
+\begin{DoxyCompactList}\small\item\em Tableau encapsulant la taille de la variable et des parametres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVarVect_af9d93ea64e962d9bcf0ce172436535fa}\label{classVarVect_af9d93ea64e962d9bcf0ce172436535fa}} 
+int \mbox{\hyperlink{classVarVect_af9d93ea64e962d9bcf0ce172436535fa}{m\+\_\+nb\+Param}}
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}arguments ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classVarVect}{Var\+Vect}} \+: Structure permettant d\textquotesingle{}evaluer une fonction. 
+
+La classe \mbox{\hyperlink{classVarVect}{Var\+Vect}} encapsule la liste des valeurs des parametres, ainsi que la valeur de la variable que l\textquotesingle{}on souhaite calculer. ~\newline
+L\textquotesingle{}attribut m\+\_\+list\+Vect est une matrice encapsulant ces valeurs. ~\newline
+La premiere ligne correspond systematiquement a la variable que l\textquotesingle{}on veut evaluer. ~\newline
+Les autres lignes correspondent aux differentes valeurs des parametres necessaires pour evaluer la variable. ~\newline
+Cet attribut doit etre de taille \mbox{[}1+nb\+Parametres\mbox{]}x\mbox{[}taille du vecteur\mbox{]} (le 1 vient de la variable). ~\newline
+La taille du vecteur peut etre 1, dans le cas d\textquotesingle{}une evaluation scalaire. ~\newline
+L\textquotesingle{}attribut m\+\_\+size\+Vect est un tableau contenant la taille de la variable et de tous les parametres. ~\newline
+Sa taille est \mbox{[}1+nb\+Parametres\mbox{]}. ~\newline
+La premiere valeur correspond a la taille de la variable et les autres a celles des differents parametres. ~\newline
+
+
+Definition at line 27 of file Var\+Vect.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Type/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Type_2VarVect_8h}{Var\+Vect.\+h}}\end{DoxyCompactItemize}

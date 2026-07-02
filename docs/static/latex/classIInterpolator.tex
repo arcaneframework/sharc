@@ -1,0 +1,52 @@
+\hypertarget{classIInterpolator}{}\doxysection{IInterpolator Class Reference}
+\label{classIInterpolator}\index{IInterpolator@{IInterpolator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIInterpolator_ae5571237b307293db75caeed5e668d52}\label{classIInterpolator_ae5571237b307293db75caeed5e668d52}} 
+\mbox{\hyperlink{classIInterpolator_ae5571237b307293db75caeed5e668d52}{IInterpolator}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIInterpolator_a4a1739668f19cedd4763f2c249f54d55}\label{classIInterpolator_a4a1739668f19cedd4763f2c249f54d55}} 
+virtual \mbox{\hyperlink{classIInterpolator_a4a1739668f19cedd4763f2c249f54d55}{$\sim$\+IInterpolator}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Setters and getters}\par
+{\em ! }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIInterpolator_a84e612533d870785ee2b8f682da4a976}\label{classIInterpolator_a84e612533d870785ee2b8f682da4a976}} 
+virtual Integer \mbox{\hyperlink{classIInterpolator_a84e612533d870785ee2b8f682da4a976}{get\+Cell\+Geometric\+Properties}} ()=0
+\begin{DoxyCompactList}\small\item\em Required cell geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIInterpolator_a8157dbe0bb6c3c7c9a67862d477d665a}\label{classIInterpolator_a8157dbe0bb6c3c7c9a67862d477d665a}} 
+virtual Integer \mbox{\hyperlink{classIInterpolator_a8157dbe0bb6c3c7c9a67862d477d665a}{get\+Face\+Geometric\+Properties}} ()=0
+\begin{DoxyCompactList}\small\item\em Required face geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIInterpolator_a6ba1b6497b87c00b03e33acf37bcd5d1}\label{classIInterpolator_a6ba1b6497b87c00b03e33acf37bcd5d1}} 
+virtual void \mbox{\hyperlink{classIInterpolator_a6ba1b6497b87c00b03e33acf37bcd5d1}{set\+Source\+Field}} (const Mesh\+Variable\+Ref $\ast$source)=0
+\begin{DoxyCompactList}\small\item\em Set source field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIInterpolator_af9cec11ce5a004a4910a57d6df84e789}\label{classIInterpolator_af9cec11ce5a004a4910a57d6df84e789}} 
+virtual void \mbox{\hyperlink{classIInterpolator_af9cec11ce5a004a4910a57d6df84e789}{set\+Target\+Field}} (Mesh\+Variable\+Ref $\ast$target)=0
+\begin{DoxyCompactList}\small\item\em Set target field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Members}\par
+{\em ! }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIInterpolator_afcab999d416617fd7796f3bc2ce0face}\label{classIInterpolator_afcab999d416617fd7796f3bc2ce0face}} 
+virtual void \mbox{\hyperlink{classIInterpolator_afcab999d416617fd7796f3bc2ce0face}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize the service. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIInterpolator_a97f591bd77cd86d6c2bfb035e0b3f340}\label{classIInterpolator_a97f591bd77cd86d6c2bfb035e0b3f340}} 
+virtual void {\bfseries prepare} ()=0
+\item 
+\mbox{\Hypertarget{classIInterpolator_aacd209633fd767b9a5609f2cc81c3a43}\label{classIInterpolator_aacd209633fd767b9a5609f2cc81c3a43}} 
+virtual void \mbox{\hyperlink{classIInterpolator_aacd209633fd767b9a5609f2cc81c3a43}{interpolate}} ()=0
+\begin{DoxyCompactList}\small\item\em Perform interpolation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 19 of file IInterpolator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Interpolator/IInterpolator.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\hypertarget{classPWFBoostTools}{}\doxysection{PWFBoost\+Tools Class Reference}
+\label{classPWFBoostTools}\index{PWFBoostTools@{PWFBoostTools}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a38bb30752a1527e440d1be9a06800bdd}\label{classPWFBoostTools_a38bb30752a1527e440d1be9a06800bdd}} 
+typedef boost\+::multi\+\_\+array$<$ Arcane\+::\+Real, 2 $>$ {\bfseries PWFArray2}
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_ab7c5f65c7c0a5f4e0b3c9120cd50b759}\label{classPWFBoostTools_ab7c5f65c7c0a5f4e0b3c9120cd50b759}} 
+typedef PWFArray2\+::array\+\_\+view$<$ 2 $>$\+::type {\bfseries PWFArray2\+View}
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a013653212f0d90eda9748f54b397bb95}\label{classPWFBoostTools_a013653212f0d90eda9748f54b397bb95}} 
+typedef PWFArray2\+::index\+\_\+range {\bfseries Matrix\+Range}
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a7624aaced22fe0e6de3cd9799f8f787b}\label{classPWFBoostTools_a7624aaced22fe0e6de3cd9799f8f787b}} 
+typedef PWFArray2\+::index\+\_\+gen {\bfseries Matrix\+Indice}
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a1a5d9f0265cbf834aa00ab4e8fe070c1}\label{classPWFBoostTools_a1a5d9f0265cbf834aa00ab4e8fe070c1}} 
+typedef PWFArray2\+::extent\+\_\+gen {\bfseries Matrix\+Extent}
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_aac52b5759088484f837b91e1a151a406}\label{classPWFBoostTools_aac52b5759088484f837b91e1a151a406}} 
+typedef PWFArray2\+::array\+\_\+view$<$ 1 $>$\+::type {\bfseries PWFArray\+View}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a549788d603bb27cc6d831afeeb80bced}\label{classPWFBoostTools_a549788d603bb27cc6d831afeeb80bced}} 
+Arcane\+::\+Integer {\bfseries dim1\+Size} (PWFArray2 \&data)
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_afd39af1b39f4295a5935c7c27a399c86}\label{classPWFBoostTools_afd39af1b39f4295a5935c7c27a399c86}} 
+Arcane\+::\+Integer {\bfseries dim2\+Size} (PWFArray2 \&data)
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a0431f45f5302852680082456af33385a}\label{classPWFBoostTools_a0431f45f5302852680082456af33385a}} 
+void {\bfseries resize} (PWFArray2 \&data, const Arcane\+::\+Integer row\+\_\+size, const Arcane\+::\+Integer column\+\_\+size)
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a34c95a1b0f6bc8fea3f74ce11a2ab656}\label{classPWFBoostTools_a34c95a1b0f6bc8fea3f74ce11a2ab656}} 
+PWFArray2\+View {\bfseries view} (PWFArray2 \&data, const Arcane\+::\+Integer dim1\+\_\+first\+\_\+index, const Arcane\+::\+Integer dim1\+\_\+last\+\_\+index, const Arcane\+::\+Integer dim2\+\_\+first\+\_\+index, const Arcane\+::\+Integer dim2\+\_\+last\+\_\+index)
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a28c566e2eb2a4816d41d41158b318da3}\label{classPWFBoostTools_a28c566e2eb2a4816d41d41158b318da3}} 
+void {\bfseries fill\+Dim1} (PWFArray2 \&data, const Arcane\+::\+Integer dim2\+\_\+index, const Arcane\+::\+Real value)
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_a991d2a817346bd9f5f4a49ad236785ca}\label{classPWFBoostTools_a991d2a817346bd9f5f4a49ad236785ca}} 
+void {\bfseries fill\+Dim2} (PWFArray2 \&data, const Arcane\+::\+Integer dim1\+\_\+index, const Arcane\+::\+Real value)
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_af97c775e115e348720ac077f94afe75e}\label{classPWFBoostTools_af97c775e115e348720ac077f94afe75e}} 
+void {\bfseries print} (PWFArray2 data, ostream \&o)
+\item 
+\mbox{\Hypertarget{classPWFBoostTools_ae7c923e8f670f7463cd4adf4dd49d7ba}\label{classPWFBoostTools_ae7c923e8f670f7463cd4adf4dd49d7ba}} 
+void {\bfseries fill} (PWFArray2 \&data, const Arcane\+::\+Real value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file PWFBoost\+Tools.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/PWFBoost\+Tools.\+h\end{DoxyCompactItemize}

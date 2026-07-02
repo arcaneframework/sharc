@@ -1,0 +1,122 @@
+\hypertarget{classFunctionManager}{}\doxysection{Function\+Manager Class Reference}
+\label{classFunctionManager}\index{FunctionManager@{FunctionManager}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}}
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonctions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFunctionManager_a96109801cad7cee0dbeeef058bf12bc8}\label{classFunctionManager_a96109801cad7cee0dbeeef058bf12bc8}} 
+{\bfseries Function\+Manager} (bool fatal\+\_\+if\+\_\+unregistered=false, bool verbose=true)
+\item 
+\mbox{\Hypertarget{classFunctionManager_a752d8c92aa721e6520a9640ca540f9ab}\label{classFunctionManager_a752d8c92aa721e6520a9640ca540f9ab}} 
+void \mbox{\hyperlink{classFunctionManager_a752d8c92aa721e6520a9640ca540f9ab}{enable\+Verbosity}} ()
+\begin{DoxyCompactList}\small\item\em Enclenche le mode verbose. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_abaebf4fc9d036bb18add1cc00b1ce2ae}\label{classFunctionManager_abaebf4fc9d036bb18add1cc00b1ce2ae}} 
+void \mbox{\hyperlink{classFunctionManager_abaebf4fc9d036bb18add1cc00b1ce2ae}{disable\+Verbosity}} ()
+\begin{DoxyCompactList}\small\item\em Enclenche le mode silencieux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a2f633fbd6a3f85fd2fb07d4e2d688076}\label{classFunctionManager_a2f633fbd6a3f85fd2fb07d4e2d688076}} 
+\mbox{\hyperlink{classFunctionManager}{Function\+Manager}} \& \mbox{\hyperlink{classFunctionManager_a2f633fbd6a3f85fd2fb07d4e2d688076}{operator$<$$<$}} (Function\+Ptr f)
+\begin{DoxyCompactList}\small\item\em Enregistrement d\textquotesingle{}une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_aff87a8ef04910c1aa91673b359ee1440}\label{classFunctionManager_aff87a8ef04910c1aa91673b359ee1440}} 
+void \mbox{\hyperlink{classFunctionManager_aff87a8ef04910c1aa91673b359ee1440}{register\+Or\+Replace}} (Function\+Ptr f)
+\begin{DoxyCompactList}\small\item\em Enregistrement d\textquotesingle{}une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a380eab02c14ed3c4f28e9974688300c8}\label{classFunctionManager_a380eab02c14ed3c4f28e9974688300c8}} 
+bool \mbox{\hyperlink{classFunctionManager_a380eab02c14ed3c4f28e9974688300c8}{contains}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Accession d\textquotesingle{}une fonction par son identifiant unique. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_add348ffe856a34c3812e8ac46b95ff17}\label{classFunctionManager_add348ffe856a34c3812e8ac46b95ff17}} 
+const \mbox{\hyperlink{classIFunction}{IFunction}} \& \mbox{\hyperlink{classFunctionManager_add348ffe856a34c3812e8ac46b95ff17}{operator\mbox{[}$\,$\mbox{]}}} (Integer i) const
+\begin{DoxyCompactList}\small\item\em Accession d\textquotesingle{}une fonction par son identifiant unique. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a69fdbe51060af38e989d3d81127266e1}\label{classFunctionManager_a69fdbe51060af38e989d3d81127266e1}} 
+const \mbox{\hyperlink{classIFunction}{IFunction}} \& \mbox{\hyperlink{classFunctionManager_a69fdbe51060af38e989d3d81127266e1}{operator\mbox{[}$\,$\mbox{]}}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Accession d\textquotesingle{}une fonction calculant une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_aedc6e2a6e9c1a4d12dbcb7e643d779bf}\label{classFunctionManager_aedc6e2a6e9c1a4d12dbcb7e643d779bf}} 
+Integer \mbox{\hyperlink{classFunctionManager_aedc6e2a6e9c1a4d12dbcb7e643d779bf}{size}} () const
+\begin{DoxyCompactList}\small\item\em Nombre de fonctions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a05584c5b97088c78e9b0f5920ce242bd}\label{classFunctionManager_a05584c5b97088c78e9b0f5920ce242bd}} 
+\mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}} \mbox{\hyperlink{classFunctionManager_a05584c5b97088c78e9b0f5920ce242bd}{functions}} () const
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_ac03239632352884e4524cafbd7f9daa3}\label{classFunctionManager_ac03239632352884e4524cafbd7f9daa3}} 
+\mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}} \mbox{\hyperlink{classFunctionManager_ac03239632352884e4524cafbd7f9daa3}{parameters}} () const
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonction parametres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_aadc766a140d6c67deee0e011b2a16abd}\label{classFunctionManager_aadc766a140d6c67deee0e011b2a16abd}} 
+\mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}} \mbox{\hyperlink{classFunctionManager_aadc766a140d6c67deee0e011b2a16abd}{functions}} (Arcane\+::\+Integer\+Const\+Array\+View ids) const
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a69599c7a89223965e601fb435688c266}\label{classFunctionManager_a69599c7a89223965e601fb435688c266}} 
+\mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}} \mbox{\hyperlink{classFunctionManager_a69599c7a89223965e601fb435688c266}{functions}} (Arcane\+::\+Integer\+Const\+Array\+View idx\+\_\+input, Arcane\+::\+Integer\+Const\+Array\+View idx\+\_\+ouput) const
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonction // reflexion api pour function manager. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a5b13cfcfa1698b4c55c0a3cf4306763a}\label{classFunctionManager_a5b13cfcfa1698b4c55c0a3cf4306763a}} 
+const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classFunctionManager_a5b13cfcfa1698b4c55c0a3cf4306763a}{dependencies}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Dependances d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a4afc5c0aebb6060ed6b2320e660f953f}\label{classFunctionManager_a4afc5c0aebb6060ed6b2320e660f953f}} 
+void \mbox{\hyperlink{classFunctionManager_a4afc5c0aebb6060ed6b2320e660f953f}{recompute\+Dependencies}} ()
+\begin{DoxyCompactList}\small\item\em Recalcul des dependances des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_aff7ea29eb25a7c337005ce2598d3fea8}\label{classFunctionManager_aff7ea29eb25a7c337005ce2598d3fea8}} 
+{\bfseries Function\+Manager} (bool fatal\+\_\+if\+\_\+unregistered=false, bool verbose=true, Derivatives\+Mode dependencies\+\_\+mode=e\+Direct)
+\item 
+\mbox{\Hypertarget{classFunctionManager_a752d8c92aa721e6520a9640ca540f9ab}\label{classFunctionManager_a752d8c92aa721e6520a9640ca540f9ab}} 
+void \mbox{\hyperlink{classFunctionManager_a752d8c92aa721e6520a9640ca540f9ab}{enable\+Verbosity}} ()
+\begin{DoxyCompactList}\small\item\em Enclenche le mode verbose. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_abaebf4fc9d036bb18add1cc00b1ce2ae}\label{classFunctionManager_abaebf4fc9d036bb18add1cc00b1ce2ae}} 
+void \mbox{\hyperlink{classFunctionManager_abaebf4fc9d036bb18add1cc00b1ce2ae}{disable\+Verbosity}} ()
+\begin{DoxyCompactList}\small\item\em Enclenche le mode silencieux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a426d2179577ecbb41dc1ba47b72bb075}\label{classFunctionManager_a426d2179577ecbb41dc1ba47b72bb075}} 
+\mbox{\hyperlink{classFunctionManager}{Function\+Manager}} \& \mbox{\hyperlink{classFunctionManager_a426d2179577ecbb41dc1ba47b72bb075}{operator$<$$<$}} (Function\+Ptr f)
+\begin{DoxyCompactList}\small\item\em Enregistrement d\textquotesingle{}une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_aff87a8ef04910c1aa91673b359ee1440}\label{classFunctionManager_aff87a8ef04910c1aa91673b359ee1440}} 
+void \mbox{\hyperlink{classFunctionManager_aff87a8ef04910c1aa91673b359ee1440}{register\+Or\+Replace}} (Function\+Ptr f)
+\begin{DoxyCompactList}\small\item\em Enregistrement d\textquotesingle{}une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a380eab02c14ed3c4f28e9974688300c8}\label{classFunctionManager_a380eab02c14ed3c4f28e9974688300c8}} 
+bool \mbox{\hyperlink{classFunctionManager_a380eab02c14ed3c4f28e9974688300c8}{contains}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Accession d\textquotesingle{}une fonction par son identifiant unique. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a970ae9ef66bdc95b8669616b1435afe0}\label{classFunctionManager_a970ae9ef66bdc95b8669616b1435afe0}} 
+const \mbox{\hyperlink{classIFunction}{IFunction}} \& \mbox{\hyperlink{classFunctionManager_a970ae9ef66bdc95b8669616b1435afe0}{operator\mbox{[}$\,$\mbox{]}}} (Integer i) const
+\begin{DoxyCompactList}\small\item\em Accession d\textquotesingle{}une fonction par son identifiant unique. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a97a323eed75381d5e878a954c1ab6b5a}\label{classFunctionManager_a97a323eed75381d5e878a954c1ab6b5a}} 
+const \mbox{\hyperlink{classIFunction}{IFunction}} \& \mbox{\hyperlink{classFunctionManager_a97a323eed75381d5e878a954c1ab6b5a}{operator\mbox{[}$\,$\mbox{]}}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Accession d\textquotesingle{}une fonction calculant une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_aedc6e2a6e9c1a4d12dbcb7e643d779bf}\label{classFunctionManager_aedc6e2a6e9c1a4d12dbcb7e643d779bf}} 
+Integer \mbox{\hyperlink{classFunctionManager_aedc6e2a6e9c1a4d12dbcb7e643d779bf}{size}} () const
+\begin{DoxyCompactList}\small\item\em Nombre de fonctions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a0131fa4f19063b6b8a7fcff550a02ebe}\label{classFunctionManager_a0131fa4f19063b6b8a7fcff550a02ebe}} 
+\mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}} \mbox{\hyperlink{classFunctionManager_a0131fa4f19063b6b8a7fcff550a02ebe}{functions}} () const
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a659471034ce41bf4364636f6a5efe8a1}\label{classFunctionManager_a659471034ce41bf4364636f6a5efe8a1}} 
+\mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}} \mbox{\hyperlink{classFunctionManager_a659471034ce41bf4364636f6a5efe8a1}{parameters}} () const
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonction parametres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a35c418365bdc88f72f1b9fde84378b41}\label{classFunctionManager_a35c418365bdc88f72f1b9fde84378b41}} 
+\mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Enumerator}} \mbox{\hyperlink{classFunctionManager_a35c418365bdc88f72f1b9fde84378b41}{functions}} (Arcane\+::\+Integer\+Const\+Array\+View ids, Derivatives\+Mode dependencies\+\_\+mode=e\+Direct) const
+\begin{DoxyCompactList}\small\item\em Enumerateur de fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a514171f25da1dfed5d6d22dcf9de770e}\label{classFunctionManager_a514171f25da1dfed5d6d22dcf9de770e}} 
+bool {\bfseries is\+Root} (const \mbox{\hyperlink{classIFunction}{IFunction}} \&f) const
+\item 
+\mbox{\Hypertarget{classFunctionManager_a5b13cfcfa1698b4c55c0a3cf4306763a}\label{classFunctionManager_a5b13cfcfa1698b4c55c0a3cf4306763a}} 
+const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classFunctionManager_a5b13cfcfa1698b4c55c0a3cf4306763a}{dependencies}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Dependances d une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a0adfc0b725308a66a8832f69b053a940}\label{classFunctionManager_a0adfc0b725308a66a8832f69b053a940}} 
+const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classFunctionManager_a0adfc0b725308a66a8832f69b053a940}{dependencies}} (const \mbox{\hyperlink{classIFunction}{IFunction}} \&f) const
+\begin{DoxyCompactList}\small\item\em Dependances d une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_af3987c595020372d82c47069fde4fe55}\label{classFunctionManager_af3987c595020372d82c47069fde4fe55}} 
+const std\+::map$<$ Law\+::\+Property, Law\+::\+Property\+Vector $>$ \mbox{\hyperlink{classFunctionManager_af3987c595020372d82c47069fde4fe55}{dependencies\+Graph}} (const \mbox{\hyperlink{classIFunction}{IFunction}} \&f) const
+\begin{DoxyCompactList}\small\item\em Dependances des proprietes composees d une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_a9e127d1fe0ece8bdd27f57d001af8711}\label{classFunctionManager_a9e127d1fe0ece8bdd27f57d001af8711}} 
+void \mbox{\hyperlink{classFunctionManager_a9e127d1fe0ece8bdd27f57d001af8711}{recompute\+Dependencies}} () const
+\begin{DoxyCompactList}\small\item\em Recalcule des dependances des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionManager_ac21f12594cf083c911fc5ceba7f509a2}\label{classFunctionManager_ac21f12594cf083c911fc5ceba7f509a2}} 
+void \mbox{\hyperlink{classFunctionManager_ac21f12594cf083c911fc5ceba7f509a2}{print\+Dot\+Graph}} (std\+::ostream \&nout, const bool verbose=true) const
+\begin{DoxyCompactList}\small\item\em Ecrit le graphe au format .dot (complet si verbeux sinon plus proche implementation plutot pour debug) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 63 of file Function\+Manager.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Function\+Manager.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Function\+Manager.\+cc\end{DoxyCompactItemize}

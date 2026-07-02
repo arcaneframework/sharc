@@ -1,0 +1,74 @@
+\hypertarget{classVariableFolderAccessor}{}\doxysection{Variable\+Folder\+Accessor$<$ CK, IK $>$ Class Template Reference}
+\label{classVariableFolderAccessor}\index{VariableFolderAccessor$<$ CK, IK $>$@{VariableFolderAccessor$<$ CK, IK $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a7efb23165c73189ea43ac9edbc1decbf}\label{classVariableFolderAccessor_a7efb23165c73189ea43ac9edbc1decbf}} 
+using {\bfseries Accessor\+Type} = \mbox{\hyperlink{structAccessorTraits}{Accessor\+Traits}}$<$ CK, IK $>$
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_abc6261306eb1130fe252f2db403cf69a}\label{classVariableFolderAccessor_abc6261306eb1130fe252f2db403cf69a}} 
+{\footnotesize template$<$typename P $>$ }\\using {\bfseries Value\+Type} = typename Accessor\+Type\+::template Value\+Type$<$ typename \mbox{\hyperlink{structGumpToLaw}{Gump\+To\+Law}}$<$ P $>$\+::type $>$
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a08a1aefaf59e5353b29351e234c80eb9}\label{classVariableFolderAccessor_a08a1aefaf59e5353b29351e234c80eb9}} 
+{\footnotesize template$<$typename P $>$ }\\using {\bfseries Deriv\+Type} = typename Accessor\+Type\+::template Deriv\+Type$<$ typename \mbox{\hyperlink{structGumpToLaw}{Gump\+To\+Law}}$<$ P $>$\+::type $>$
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_acac693d6e6e911a9f435fa554267306d}\label{classVariableFolderAccessor_acac693d6e6e911a9f435fa554267306d}} 
+{\footnotesize template$<$typename P $>$ }\\using {\bfseries Law\+Value\+Type} = typename Accessor\+Type\+::template Value\+Type$<$ P $>$
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a4c16fb1afaa4830580c00bf3cd25bd37}\label{classVariableFolderAccessor_a4c16fb1afaa4830580c00bf3cd25bd37}} 
+{\footnotesize template$<$typename P $>$ }\\using {\bfseries Law\+Deriv\+Type} = typename Accessor\+Type\+::template Deriv\+Type$<$ P $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a970c1a42bc4428901d0a6e05bfe6dd5c}\label{classVariableFolderAccessor_a970c1a42bc4428901d0a6e05bfe6dd5c}} 
+{\bfseries Variable\+Folder\+Accessor} (const \mbox{\hyperlink{classVariableFolder}{Variable\+Folder}}$<$ CK, IK $>$ \&folder)
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a3e21cf2af8a971c9a8920098a6671520}\label{classVariableFolderAccessor_a3e21cf2af8a971c9a8920098a6671520}} 
+{\footnotesize template$<$Gump\+::\+Dimension D, typename T $>$ }\\bool {\bfseries contains} (const \mbox{\hyperlink{classGump_1_1PropertyT}{Gump\+::\+PropertyT}}$<$ D, T $>$ \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a5546416b39c39e0d34b069deaa8656a8}\label{classVariableFolderAccessor_a5546416b39c39e0d34b069deaa8656a8}} 
+{\footnotesize template$<$Dimension D, typename T $>$ }\\Law\+Value\+Type$<$ \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ D, T $>$ $>$ \& {\bfseries get\+Values} (const \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ D, T $>$ \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a4a75365f23405b8462192dc20998d558}\label{classVariableFolderAccessor_a4a75365f23405b8462192dc20998d558}} 
+{\footnotesize template$<$Gump\+::\+Dimension D, typename T $>$ }\\Value\+Type$<$ \mbox{\hyperlink{classGump_1_1PropertyT}{Gump\+::\+PropertyT}}$<$ D, T $>$ $>$ \& {\bfseries get\+Values} (const \mbox{\hyperlink{classGump_1_1PropertyT}{Gump\+::\+PropertyT}}$<$ D, T $>$ \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a2e7551de60e03f071ec8fdd5581d42e4}\label{classVariableFolderAccessor_a2e7551de60e03f071ec8fdd5581d42e4}} 
+{\footnotesize template$<$Gump\+::\+Dimension D, typename T $>$ }\\Deriv\+Type$<$ \mbox{\hyperlink{classGump_1_1PropertyT}{Gump\+::\+PropertyT}}$<$ D, T $>$ $>$ \& {\bfseries get\+Derivatives} (const \mbox{\hyperlink{classGump_1_1PropertyT}{Gump\+::\+PropertyT}}$<$ D, T $>$ \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a44134107ba32efa8a3749fae95be6b5a}\label{classVariableFolderAccessor_a44134107ba32efa8a3749fae95be6b5a}} 
+{\footnotesize template$<$Dimension D, typename T $>$ }\\Law\+Deriv\+Type$<$ \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ D, T $>$ $>$ \& {\bfseries get\+Derivatives} (const \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ D, T $>$ \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a4c3c5487a077d8035f730650fa24fe97}\label{classVariableFolderAccessor_a4c3c5487a077d8035f730650fa24fe97}} 
+{\footnotesize template$<$typename P , typename E $>$ }\\Value\+Type$<$ typename P\+::\+Base $>$ \& {\bfseries get\+Values} (const \mbox{\hyperlink{classGump_1_1EntityT}{Gump\+::\+EntityT}}$<$ E $>$ \&e) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_afa25797017172bdeaf63a9018581aad6}\label{classVariableFolderAccessor_afa25797017172bdeaf63a9018581aad6}} 
+{\footnotesize template$<$typename P , typename E $>$ }\\Deriv\+Type$<$ typename P\+::\+Base $>$ \& {\bfseries get\+Derivatives} (const \mbox{\hyperlink{classGump_1_1EntityT}{Gump\+::\+EntityT}}$<$ E $>$ \&e) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a2f36be7758a0869185f246dbec363778}\label{classVariableFolderAccessor_a2f36be7758a0869185f246dbec363778}} 
+{\footnotesize template$<$typename P , typename E $>$ }\\\mbox{\hyperlink{classGump_1_1Pack}{Gump\+::\+Pack}}$<$ E, Value\+Type$<$ typename P\+::\+Base $>$ $>$ {\bfseries get\+Values} (\mbox{\hyperlink{classGump_1_1EnumeratorT}{Gump\+::\+EnumeratorT}}$<$ E $>$ e) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_ac9174b8e74bec2fe2d77114207771b9a}\label{classVariableFolderAccessor_ac9174b8e74bec2fe2d77114207771b9a}} 
+{\footnotesize template$<$typename E $>$ }\\Value\+Type$<$ \mbox{\hyperlink{classPropertyT}{Gump\+::\+Scalar\+Real\+Property}} $>$ \& {\bfseries get\+Values} (const \mbox{\hyperlink{classGump_1_1UserProperty}{Gump\+::\+User\+Property}}$<$ E $>$ \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a1a4109f33c3cf8fd3d2c3965924d3dde}\label{classVariableFolderAccessor_a1a4109f33c3cf8fd3d2c3965924d3dde}} 
+{\footnotesize template$<$typename E $>$ }\\Deriv\+Type$<$ \mbox{\hyperlink{classPropertyT}{Gump\+::\+Scalar\+Real\+Property}} $>$ \& {\bfseries get\+Derivatives} (const \mbox{\hyperlink{classGump_1_1UserProperty}{Gump\+::\+User\+Property}}$<$ E $>$ \&p) const
+\item 
+\mbox{\Hypertarget{classVariableFolderAccessor_a8814cb1de933ea73cb1e28dce7431df3}\label{classVariableFolderAccessor_a8814cb1de933ea73cb1e28dce7431df3}} 
+{\footnotesize template$<$typename E $>$ }\\\mbox{\hyperlink{classGump_1_1Pack}{Gump\+::\+Pack}}$<$ E, Value\+Type$<$ \mbox{\hyperlink{classPropertyT}{Gump\+::\+Scalar\+Real\+Property}} $>$ $>$ {\bfseries get\+Values} (const Arcane\+::\+Array$<$ \mbox{\hyperlink{classGump_1_1UserProperty}{Gump\+::\+User\+Property}}$<$ E $>$ $>$ \&p) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$Container\+Kind\+::e\+Type CK, Item\+Kind\+::e\+Type IK$>$\newline
+class Variable\+Folder\+Accessor$<$ CK, IK $>$}
+
+
+
+Definition at line 21 of file Variable\+Folder\+Accessor.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law2/\+Contribution/Variable\+Folder\+Accessor.\+h\end{DoxyCompactItemize}

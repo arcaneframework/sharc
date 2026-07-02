@@ -1,0 +1,83 @@
+\hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl}{}\doxysection{Arcane\+::Fem\+Utils\+::Alien\+Do\+FLinear\+System\+Impl Class Reference}
+\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl}\index{Arcane::FemUtils::AlienDoFLinearSystemImpl@{Arcane::FemUtils::AlienDoFLinearSystemImpl}}
+
+
+Inherits \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase}{Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+Impl\+Base}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a3aaca6f19dcfa3c43e5a5c471406c376}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a3aaca6f19dcfa3c43e5a5c471406c376}} 
+{\bfseries Alien\+Do\+FLinear\+System\+Impl} (IItem\+Family $\ast$dof\+\_\+family, const String \&solver\+\_\+name)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a2f58cc3fc456da9975a03a60acc0f597}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a2f58cc3fc456da9975a03a60acc0f597}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1AlienBSRFormat}{Alien\+BSRFormat}} $\ast$ {\bfseries bsr} (ITrace\+Mng $\ast$trace\+\_\+mng, Run\+Queue \&queue, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a774961409d7b2b12aecff5cf20be7327}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a774961409d7b2b12aecff5cf20be7327}} 
+Int32 {\bfseries index\+Value} (Do\+FLocal\+Id row\+\_\+lid, Do\+FLocal\+Id column\+\_\+lid)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a66788402e99da0f2ad94963e4323bf5b}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a66788402e99da0f2ad94963e4323bf5b}} 
+void {\bfseries matrix\+Add\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_af047195c1f15c9e95100132eae9f437b}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_af047195c1f15c9e95100132eae9f437b}} 
+void {\bfseries matrix\+Set\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a620ef9ac28ba97c05ad2eee7ea577ee3}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a620ef9ac28ba97c05ad2eee7ea577ee3}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \& {\bfseries get\+CSRValues} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_af0c63abeadb4791d92e06c44ca71225c}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_af0c63abeadb4791d92e06c44ca71225c}} 
+void {\bfseries set\+CSRValues} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \&csr\+\_\+view) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ad14f3709fc318f301eb7ff71b355c9b5}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ad14f3709fc318f301eb7ff71b355c9b5}} 
+bool {\bfseries has\+Set\+CSRValues} () const override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ab98e8d129be1260dfd2f639cd3c3cc03}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ab98e8d129be1260dfd2f639cd3c3cc03}} 
+void {\bfseries eliminate\+Row} (Do\+FLocal\+Id row, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ade89eedf19974dbba2418ce2bec80788}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ade89eedf19974dbba2418ce2bec80788}} 
+void {\bfseries eliminate\+Row\+Column} (Do\+FLocal\+Id row, Real value) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a6cd19463c8a0beb5d57b2c399d7ec025}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a6cd19463c8a0beb5d57b2c399d7ec025}} 
+void {\bfseries apply\+Matrix\+Transformation} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ab4ccd5105b13ed0f2c6f9d924d804408}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ab4ccd5105b13ed0f2c6f9d924d804408}} 
+void {\bfseries apply\+RHSTransformation} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a650608c4bdf6478ac8cc7b53508bd725}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a650608c4bdf6478ac8cc7b53508bd725}} 
+void {\bfseries clear\+Values} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_abd106649fd60d51bd59f7a03682fc6f2}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_abd106649fd60d51bd59f7a03682fc6f2}} 
+void {\bfseries start\+System\+Assembly} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a83873e500ef16abb85ce1b1312c6ab7d}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a83873e500ef16abb85ce1b1312c6ab7d}} 
+void {\bfseries end\+System\+Assembly} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ae6c264f7ec7b9a6b6749f2ba307724fc}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ae6c264f7ec7b9a6b6749f2ba307724fc}} 
+void {\bfseries solve} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a6adbc512e5d9662e0128386262a31488}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_a6adbc512e5d9662e0128386262a31488}} 
+void {\bfseries set\+Solver\+Command\+Line\+Arguments} (const Command\+Line\+Arguments \&args) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_af7317d8f60a3482d766605527df082e8}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_af7317d8f60a3482d766605527df082e8}} 
+void {\bfseries set\+Solver} (Alien\+::\+ILinear\+Solver $\ast$s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ac591af0e395d74ea0d95f648a98205f3}\label{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl_ac591af0e395d74ea0d95f648a98205f3}} 
+Case\+Options\+Alien\+Do\+FLinear\+System\+Factory $\ast$ {\bfseries options} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 91 of file Alien\+Do\+FLinear\+System.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Alien\+Do\+FLinear\+System.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Alien\+Do\+FLinear\+System.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,93 @@
+\hypertarget{classep_1_1ExpressionParserImpl}{}\doxysection{ep\+::Expression\+Parser\+Impl Class Reference}
+\label{classep_1_1ExpressionParserImpl}\index{ep::ExpressionParserImpl@{ep::ExpressionParserImpl}}
+
+
+A Bison parser.  
+
+
+
+
+{\ttfamily \#include $<$expression\+\_\+parser.\+hh$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionep_1_1ExpressionParserImpl_1_1semantic__type}{semantic\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Symbol semantic values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structep_1_1ExpressionParserImpl_1_1token}{token}}
+\begin{DoxyCompactList}\small\item\em Tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_a12dec089d19fd9261ea510f1156c1946}\label{classep_1_1ExpressionParserImpl_a12dec089d19fd9261ea510f1156c1946}} 
+typedef \mbox{\hyperlink{classep_1_1location}{location}} \mbox{\hyperlink{classep_1_1ExpressionParserImpl_a12dec089d19fd9261ea510f1156c1946}{location\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Symbol locations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_a241768c8f229c9b93fb7a19f1775e308}\label{classep_1_1ExpressionParserImpl_a241768c8f229c9b93fb7a19f1775e308}} 
+typedef token\+::yytokentype \mbox{\hyperlink{classep_1_1ExpressionParserImpl_a241768c8f229c9b93fb7a19f1775e308}{token\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Token type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_a952b9f6beb9710246459a926b646eef5}\label{classep_1_1ExpressionParserImpl_a952b9f6beb9710246459a926b646eef5}} 
+typedef int \mbox{\hyperlink{classep_1_1ExpressionParserImpl_a952b9f6beb9710246459a926b646eef5}{debug\+\_\+level\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type for debugging levels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_a55d016170b120ebb0b315635705fe3e6}\label{classep_1_1ExpressionParserImpl_a55d016170b120ebb0b315635705fe3e6}} 
+\mbox{\hyperlink{classep_1_1ExpressionParserImpl_a55d016170b120ebb0b315635705fe3e6}{Expression\+Parser\+Impl}} (\mbox{\hyperlink{classExpressionDriver}{Expression\+Driver}} \&driver\+\_\+yyarg)
+\begin{DoxyCompactList}\small\item\em Build a parser object. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classep_1_1ExpressionParserImpl_aedf9ae6240b7c346875a06a931e94c21}{parse}} ()
+\begin{DoxyCompactList}\small\item\em Parse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_aa4a9a2e39bfc0fc2cd232aec0f0db837}\label{classep_1_1ExpressionParserImpl_aa4a9a2e39bfc0fc2cd232aec0f0db837}} 
+std\+::ostream \& \mbox{\hyperlink{classep_1_1ExpressionParserImpl_aa4a9a2e39bfc0fc2cd232aec0f0db837}{debug\+\_\+stream}} () const
+\begin{DoxyCompactList}\small\item\em The current debugging stream. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_a7c17b452fb630966ba4d0a6ab521892e}\label{classep_1_1ExpressionParserImpl_a7c17b452fb630966ba4d0a6ab521892e}} 
+void \mbox{\hyperlink{classep_1_1ExpressionParserImpl_a7c17b452fb630966ba4d0a6ab521892e}{set\+\_\+debug\+\_\+stream}} (std\+::ostream \&)
+\begin{DoxyCompactList}\small\item\em Set the current debugging stream. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_ab2c1402c6b7c444e9fd85aec7201985c}\label{classep_1_1ExpressionParserImpl_ab2c1402c6b7c444e9fd85aec7201985c}} 
+\mbox{\hyperlink{classep_1_1ExpressionParserImpl_a952b9f6beb9710246459a926b646eef5}{debug\+\_\+level\+\_\+type}} \mbox{\hyperlink{classep_1_1ExpressionParserImpl_ab2c1402c6b7c444e9fd85aec7201985c}{debug\+\_\+level}} () const
+\begin{DoxyCompactList}\small\item\em The current debugging level. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_a3f745dba04ea2d1956888de24ed91f0e}\label{classep_1_1ExpressionParserImpl_a3f745dba04ea2d1956888de24ed91f0e}} 
+void \mbox{\hyperlink{classep_1_1ExpressionParserImpl_a3f745dba04ea2d1956888de24ed91f0e}{set\+\_\+debug\+\_\+level}} (\mbox{\hyperlink{classep_1_1ExpressionParserImpl_a952b9f6beb9710246459a926b646eef5}{debug\+\_\+level\+\_\+type}} l)
+\begin{DoxyCompactList}\small\item\em Set the current debugging level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Bison parser. 
+
+Definition at line 112 of file expression\+\_\+parser.\+hh.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classep_1_1ExpressionParserImpl_aedf9ae6240b7c346875a06a931e94c21}\label{classep_1_1ExpressionParserImpl_aedf9ae6240b7c346875a06a931e94c21}} 
+\index{ep::ExpressionParserImpl@{ep::ExpressionParserImpl}!parse@{parse}}
+\index{parse@{parse}!ep::ExpressionParserImpl@{ep::ExpressionParserImpl}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily int ep\+::\+Expression\+Parser\+Impl\+::parse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Parse. 
+
+\begin{DoxyReturn}{Returns}
+0 iff parsing succeeded. 
+\end{DoxyReturn}
+Look-\/ahead and look-\/ahead in internal form.
+
+Semantic value of the look-\/ahead.
+
+Location of the look-\/ahead.
+
+The locations where the error started and ended.
+
+\$\$.
+
+\$.
+
+Definition at line 251 of file expression\+\_\+parser.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/expression\+\_\+parser.\+hh\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/expression\+\_\+parser.\+cc\end{DoxyCompactItemize}

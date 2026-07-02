@@ -1,0 +1,287 @@
+\hypertarget{classBasicIndexManager}{}\doxysection{Basic\+Index\+Manager Class Reference}
+\label{classBasicIndexManager}\index{BasicIndexManager@{BasicIndexManager}}
+
+
+{\ttfamily \#include $<$Basic\+Index\+Manager.\+h$>$}
+
+
+
+Inherits \mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classBasicIndexManager_1_1ItemAbstractFamily}{Item\+Abstract\+Family}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBasicIndexManager_af9b6d0537649bc76c2a2de035e1a03d3}\label{classBasicIndexManager_af9b6d0537649bc76c2a2de035e1a03d3}} 
+\mbox{\hyperlink{classBasicIndexManager_af9b6d0537649bc76c2a2de035e1a03d3}{Basic\+Index\+Manager}} (Arcane\+::\+IParallel\+Mng $\ast$\mbox{\hyperlink{classBasicIndexManager_af6f5ecc8ff4bab5b8ba27f05bb38c898}{parallel\+Mng}})
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_afb7f646fd68c9fbe31c2c7863146336f}\label{classBasicIndexManager_afb7f646fd68c9fbe31c2c7863146336f}} 
+virtual \mbox{\hyperlink{classBasicIndexManager_afb7f646fd68c9fbe31c2c7863146336f}{$\sim$\+Basic\+Index\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_ab774e7098fcb5d45b891100ffe1ab1d8}\label{classBasicIndexManager_ab774e7098fcb5d45b891100ffe1ab1d8}} 
+void \mbox{\hyperlink{classBasicIndexManager_ab774e7098fcb5d45b891100ffe1ab1d8}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_afe7e656700d9d1a4b0734f3c11a451c6}\label{classBasicIndexManager_afe7e656700d9d1a4b0734f3c11a451c6}} 
+bool \mbox{\hyperlink{classBasicIndexManager_afe7e656700d9d1a4b0734f3c11a451c6}{is\+Prepared}} () const
+\begin{DoxyCompactList}\small\item\em Indique si la phase de pr{\ucr}paration est achev{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_aff30cd20272e2ddcdd2f5cf77fa4c1c9}\label{classBasicIndexManager_aff30cd20272e2ddcdd2f5cf77fa4c1c9}} 
+void \mbox{\hyperlink{classBasicIndexManager_aff30cd20272e2ddcdd2f5cf77fa4c1c9}{set\+Trace\+Mng}} (Arcane\+::\+ITrace\+Mng $\ast$trace\+Mng)
+\begin{DoxyCompactList}\small\item\em D{\ucr}finit le gestionnaire de trace. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBasicIndexManager_a07898336e9244ecf85681cf177e2ea0a}{prepare}} ()
+\begin{DoxyCompactList}\small\item\em Pr{\ucr}paration \+: fixe l\textquotesingle{}indexation (fin des d{\ucr}finitions) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBasicIndexManager_a8a1a1b162b12949f108e4c5c4750ce52}{stats}} (Integer \&\mbox{\hyperlink{classBasicIndexManager_a7cbd896b6e884b79f7706a45d92522b5}{global\+Size}}, Integer \&\mbox{\hyperlink{classBasicIndexManager_a323f19dfea761e59d2778bebc9cbb548}{min\+Local\+Index}}, Integer \&\mbox{\hyperlink{classBasicIndexManager_a9f49d5de9e3e9cbb622df15ad0bd1cdf}{local\+Size}}) const
+\begin{DoxyCompactList}\small\item\em Statistiques d\textquotesingle{}indexation. \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classBasicIndexManager_a7cbd896b6e884b79f7706a45d92522b5}{global\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la taille globale. \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classBasicIndexManager_a323f19dfea761e59d2778bebc9cbb548}{min\+Local\+Index}} () const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}indice minimum local. \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classBasicIndexManager_a9f49d5de9e3e9cbb622df15ad0bd1cdf}{local\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}indice minimum local. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_aefa57c1788b742e085480626749ff52e}\label{classBasicIndexManager_aefa57c1788b742e085480626749ff52e}} 
+\mbox{\hyperlink{classIIndexManager_1_1EntryEnumerator}{Entry\+Enumerator}} \mbox{\hyperlink{classBasicIndexManager_aefa57c1788b742e085480626749ff52e}{enumerate\+Entry}} () const
+\begin{DoxyCompactList}\small\item\em Construction d\textquotesingle{}un enumerateur sur les {\itshape Entry}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_ae6b9485bba24850ccd843629c55dce53}\label{classBasicIndexManager_ae6b9485bba24850ccd843629c55dce53}} 
+\mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \mbox{\hyperlink{classBasicIndexManager_ae6b9485bba24850ccd843629c55dce53}{build\+Scalar\+Index\+Set}} (const String name, Arcane\+::\+IItem\+Family $\ast$item\+\_\+family)
+\begin{DoxyCompactList}\small\item\em Construit une nouvelle entr{\ucr}e scalaire sur des items du maillage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_a078522bede1f2df93a987b68b332018b}\label{classBasicIndexManager_a078522bede1f2df93a987b68b332018b}} 
+void {\bfseries define\+Index} (\mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \&set, const Arcane\+::\+Item\+Group \&item\+Group)
+\item 
+\mbox{\Hypertarget{classBasicIndexManager_ad030a379b3630232d86bfbbd423e9b21}\label{classBasicIndexManager_ad030a379b3630232d86bfbbd423e9b21}} 
+\mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} {\bfseries build\+Scalar\+Index\+Set} (const String name, const Arcane\+::\+Item\+Group \&item\+Group)
+\item 
+\mbox{\Hypertarget{classBasicIndexManager_a22f22aab8d1468944af904e3e8ca6a54}\label{classBasicIndexManager_a22f22aab8d1468944af904e3e8ca6a54}} 
+\mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \mbox{\hyperlink{classBasicIndexManager_a22f22aab8d1468944af904e3e8ca6a54}{build\+Scalar\+Index\+Set}} (const String name, const Arcane\+::\+Integer\+Const\+Array\+View local\+Ids, const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} \&family)
+\begin{DoxyCompactList}\small\item\em Construit une nouvelle entr{\ucr}e scalaire sur un ensemble d\textquotesingle{}entit{\ucr}s abstraites. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_ab2c7bc542bd3cc6246123721702d98f7}\label{classBasicIndexManager_ab2c7bc542bd3cc6246123721702d98f7}} 
+\mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \mbox{\hyperlink{classBasicIndexManager_ab2c7bc542bd3cc6246123721702d98f7}{build\+Scalar\+Index\+Set}} (const String name, const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} \&family)
+\begin{DoxyCompactList}\small\item\em Construit une nouvelle entr{\ucr}e scalaire sur l\textquotesingle{}ensemble des entit{\ucr}s d\textquotesingle{}une familles abstraite. \end{DoxyCompactList}\item 
+Vector\+Index\+Set \mbox{\hyperlink{classBasicIndexManager_aad1080cc8ca7809364e8aab67d63e47e}{build\+Vector\+Index\+Set}} (const String name, const Arcane\+::\+Item\+Group \&item\+Group, const Integer n)
+\begin{DoxyCompactList}\small\item\em Construit une nouvelle entr{\ucr}e vectorielle sur des items du maillage. \end{DoxyCompactList}\item 
+Vector\+Index\+Set \mbox{\hyperlink{classBasicIndexManager_a2cc8d2da482afa2a674d0dea3f7cd35b}{build\+Vector\+Index\+Set}} (const String name, const Arcane\+::\+Integer\+Const\+Array\+View local\+Ids, const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} \&family, const Integer n)
+\begin{DoxyCompactList}\small\item\em Construit une nouvelle entr{\ucr}e vectoriellesur un ensemble d\textquotesingle{}entit{\ucr}s abstraites. \end{DoxyCompactList}\item 
+Vector\+Index\+Set \mbox{\hyperlink{classBasicIndexManager_a8779e010b89d8ead37f9942d83fe149e}{build\+Vector\+Index\+Set}} (const String name, const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} \&family, const Integer n)
+\begin{DoxyCompactList}\small\item\em Construit une nouvelle entr{\ucr}e scalaire sur l\textquotesingle{}ensemble des entit{\ucr}s d\textquotesingle{}une familles abstraite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBasicIndexManager_accc3bbcac6125af80b1ddd1f92e78244}{remove\+Index}} (const \mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \&entry, const Arcane\+::\+Item\+Group \&item\+Group)
+\begin{DoxyCompactList}\small\item\em Demande de d{\ucr}-\/indexation d\textquotesingle{}une partie d\textquotesingle{}une entr{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_a82026cd94163aa0027fab3ed02937e94}\label{classBasicIndexManager_a82026cd94163aa0027fab3ed02937e94}} 
+Integer {\bfseries get\+Index} (const \mbox{\hyperlink{classIIndexManager_1_1Entry}{Entry}} \&entry, const Arcane\+::\+Item \&item) const
+\item 
+\mbox{\Hypertarget{classBasicIndexManager_a8eeb1c1a5b85f51e2dac868167b11d64}\label{classBasicIndexManager_a8eeb1c1a5b85f51e2dac868167b11d64}} 
+void \mbox{\hyperlink{classBasicIndexManager_a8eeb1c1a5b85f51e2dac868167b11d64}{get\+Index}} (const \mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \&entry, const Arcane\+::\+Item\+Vector\+View \&items, Array\+View$<$ Integer $>$ indexes) const
+\begin{DoxyCompactList}\small\item\em Consultation vectorielle d\textquotesingle{}indexation d\textquotesingle{}une entr{\ucr}e (apr{\ucr}s prepare) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_ad3fefc7cdea864beb116ce9566475a23}\label{classBasicIndexManager_ad3fefc7cdea864beb116ce9566475a23}} 
+Arcane\+::\+Integer\+Shared\+Array \mbox{\hyperlink{classBasicIndexManager_ad3fefc7cdea864beb116ce9566475a23}{get\+Indexes}} (const \mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \&entry) const
+\begin{DoxyCompactList}\small\item\em Fournit une table de translation index{\ucr} par les items. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_aa1f659730f42eb2a4f19993a943afab8}\label{classBasicIndexManager_aa1f659730f42eb2a4f19993a943afab8}} 
+Arcane\+::\+Shared\+Array2$<$ Integer $>$ \mbox{\hyperlink{classBasicIndexManager_aa1f659730f42eb2a4f19993a943afab8}{get\+Indexes}} (const Vector\+Index\+Set \&entries) const
+\begin{DoxyCompactList}\small\item\em Fournit une table de translation vectorielle index{\ucr} par les items puis par les entr{\ucr}es. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_af6f5ecc8ff4bab5b8ba27f05bb38c898}\label{classBasicIndexManager_af6f5ecc8ff4bab5b8ba27f05bb38c898}} 
+Arcane\+::\+IParallel\+Mng $\ast$ \mbox{\hyperlink{classBasicIndexManager_af6f5ecc8ff4bab5b8ba27f05bb38c898}{parallel\+Mng}} () const
+\begin{DoxyCompactList}\small\item\em Donne le gestionnaire parall{\ucr}le ayant servi {\ucr} l\textquotesingle{}indexation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_adf7e98a0484da3674739e59a9b5fe36a}\label{classBasicIndexManager_adf7e98a0484da3674739e59a9b5fe36a}} 
+void \mbox{\hyperlink{classBasicIndexManager_adf7e98a0484da3674739e59a9b5fe36a}{set\+Max\+Null\+Index\+Opt}} (bool flag)
+\begin{DoxyCompactList}\small\item\em define null index \+: default = -\/1, if true null\+\_\+index = max\+\_\+index+1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBasicIndexManager_afc892338b4d89b05649506f7f7fac233}\label{classBasicIndexManager_afc892338b4d89b05649506f7f7fac233}} 
+Integer \mbox{\hyperlink{classBasicIndexManager_afc892338b4d89b05649506f7f7fac233}{null\+Index}} () const
+\begin{DoxyCompactList}\small\item\em return value of null index \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBasicIndexManager_ae121a2b1f1efe1bd880e44c4ba8fd3e6}{keep\+Alive}} (const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} $\ast$family)
+\begin{DoxyCompactList}\small\item\em Permet de g{\ucr}rer la mort d\textquotesingle{}une famille associ{\ucr}e {\ucr} l\textquotesingle{}index-\/manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Il est possible d\textquotesingle{}optimiser les acc{\ucr}s vectorielles en raprochant les structures internes des interfaces critiques (en particulier get\+Index vectoriel) \end{DoxyRefDesc}
+
+
+Definition at line 29 of file Basic\+Index\+Manager.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBasicIndexManager_a2cc8d2da482afa2a674d0dea3f7cd35b}\label{classBasicIndexManager_a2cc8d2da482afa2a674d0dea3f7cd35b}} 
+\index{BasicIndexManager@{BasicIndexManager}!buildVectorIndexSet@{buildVectorIndexSet}}
+\index{buildVectorIndexSet@{buildVectorIndexSet}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{buildVectorIndexSet()}{buildVectorIndexSet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Vector\+Index\+Set Basic\+Index\+Manager\+::build\+Vector\+Index\+Set (\begin{DoxyParamCaption}\item[{const String}]{name,  }\item[{const Arcane\+::\+Integer\+Const\+Array\+View}]{local\+Ids,  }\item[{const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} \&}]{family,  }\item[{const Integer}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Construit une nouvelle entr{\ucr}e vectoriellesur un ensemble d\textquotesingle{}entit{\ucr}s abstraites. 
+
+L\textquotesingle{}impl{\ucr}mentation actuelle consid{\ucr}re le multi-\/scalaire comme du vectoriel 
+
+Implements \mbox{\hyperlink{classIIndexManager_a86bc455536a4a1c6279aba40bf5f180b}{IIndex\+Manager}}.
+
+\mbox{\Hypertarget{classBasicIndexManager_aad1080cc8ca7809364e8aab67d63e47e}\label{classBasicIndexManager_aad1080cc8ca7809364e8aab67d63e47e}} 
+\index{BasicIndexManager@{BasicIndexManager}!buildVectorIndexSet@{buildVectorIndexSet}}
+\index{buildVectorIndexSet@{buildVectorIndexSet}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{buildVectorIndexSet()}{buildVectorIndexSet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily IIndex\+Manager\+::\+Vector\+Index\+Set Basic\+Index\+Manager\+::build\+Vector\+Index\+Set (\begin{DoxyParamCaption}\item[{const String}]{name,  }\item[{const Arcane\+::\+Item\+Group \&}]{item\+Group,  }\item[{const Integer}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Construit une nouvelle entr{\ucr}e vectorielle sur des items du maillage. 
+
+L\textquotesingle{}impl{\ucr}mentation actuelle consid{\ucr}re le multi-\/scalaire comme du vectoriel 
+
+Implements \mbox{\hyperlink{classIIndexManager_a2f0413f1b83b34d24fd325f16fe4fb11}{IIndex\+Manager}}.
+
+
+
+Definition at line 1381 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_a8779e010b89d8ead37f9942d83fe149e}\label{classBasicIndexManager_a8779e010b89d8ead37f9942d83fe149e}} 
+\index{BasicIndexManager@{BasicIndexManager}!buildVectorIndexSet@{buildVectorIndexSet}}
+\index{buildVectorIndexSet@{buildVectorIndexSet}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{buildVectorIndexSet()}{buildVectorIndexSet()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily IIndex\+Manager\+::\+Vector\+Index\+Set Basic\+Index\+Manager\+::build\+Vector\+Index\+Set (\begin{DoxyParamCaption}\item[{const String}]{name,  }\item[{const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} \&}]{family,  }\item[{const Integer}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Construit une nouvelle entr{\ucr}e scalaire sur l\textquotesingle{}ensemble des entit{\ucr}s d\textquotesingle{}une familles abstraite. 
+
+L\textquotesingle{}impl{\ucr}mentation actuelle consid{\ucr}re le multi-\/scalaire comme du vectoriel 
+
+Implements \mbox{\hyperlink{classIIndexManager_a066abeb64a8470fa33742619bffc78c5}{IIndex\+Manager}}.
+
+
+
+Definition at line 1423 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_a7cbd896b6e884b79f7706a45d92522b5}\label{classBasicIndexManager_a7cbd896b6e884b79f7706a45d92522b5}} 
+\index{BasicIndexManager@{BasicIndexManager}!globalSize@{globalSize}}
+\index{globalSize@{globalSize}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{globalSize()}{globalSize()}}
+{\footnotesize\ttfamily Integer Basic\+Index\+Manager\+::global\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne la taille globale. 
+
+Uniquement valide apr{\ucr}s {\itshape prepare} 
+
+Implements \mbox{\hyperlink{classIIndexManager_a09f9983df74d18069ab25279e111b34d}{IIndex\+Manager}}.
+
+
+
+Definition at line 1259 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_ae121a2b1f1efe1bd880e44c4ba8fd3e6}\label{classBasicIndexManager_ae121a2b1f1efe1bd880e44c4ba8fd3e6}} 
+\index{BasicIndexManager@{BasicIndexManager}!keepAlive@{keepAlive}}
+\index{keepAlive@{keepAlive}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{keepAlive()}{keepAlive()}}
+{\footnotesize\ttfamily void Basic\+Index\+Manager\+::keep\+Alive (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} $\ast$}]{family }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Permet de g{\ucr}rer la mort d\textquotesingle{}une famille associ{\ucr}e {\ucr} l\textquotesingle{}index-\/manager. 
+
+M{\ucr}thode de bas niveau pour les impl{\ucr}mentationsde IAbstract\+Family, usuellement dans le desctructeur des impl{\ucr}mentations ext{\ucr}rieures de IAbstract\+Family 
+
+Implements \mbox{\hyperlink{classIIndexManager_a061ed7d79ad0fa513c507e04efc3722a}{IIndex\+Manager}}.
+
+
+
+Definition at line 1440 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_a9f49d5de9e3e9cbb622df15ad0bd1cdf}\label{classBasicIndexManager_a9f49d5de9e3e9cbb622df15ad0bd1cdf}} 
+\index{BasicIndexManager@{BasicIndexManager}!localSize@{localSize}}
+\index{localSize@{localSize}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{localSize()}{localSize()}}
+{\footnotesize\ttfamily Integer Basic\+Index\+Manager\+::local\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne l\textquotesingle{}indice minimum local. 
+
+Uniquement valide apr{\ucr}s {\itshape prepare} 
+
+Implements \mbox{\hyperlink{classIIndexManager_aea0ea3b30816ce42760e43243f57e8f2}{IIndex\+Manager}}.
+
+
+
+Definition at line 1283 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_a323f19dfea761e59d2778bebc9cbb548}\label{classBasicIndexManager_a323f19dfea761e59d2778bebc9cbb548}} 
+\index{BasicIndexManager@{BasicIndexManager}!minLocalIndex@{minLocalIndex}}
+\index{minLocalIndex@{minLocalIndex}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{minLocalIndex()}{minLocalIndex()}}
+{\footnotesize\ttfamily Integer Basic\+Index\+Manager\+::min\+Local\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne l\textquotesingle{}indice minimum local. 
+
+Uniquement valide apr{\ucr}s {\itshape prepare} 
+
+Implements \mbox{\hyperlink{classIIndexManager_a23802cf66ebd57f5f1f2ca0b22e22f54}{IIndex\+Manager}}.
+
+
+
+Definition at line 1271 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_a07898336e9244ecf85681cf177e2ea0a}\label{classBasicIndexManager_a07898336e9244ecf85681cf177e2ea0a}} 
+\index{BasicIndexManager@{BasicIndexManager}!prepare@{prepare}}
+\index{prepare@{prepare}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{prepare()}{prepare()}}
+{\footnotesize\ttfamily void Basic\+Index\+Manager\+::prepare (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pr{\ucr}paration \+: fixe l\textquotesingle{}indexation (fin des d{\ucr}finitions) 
+
+$<$ \mbox{\hyperlink{classTable}{Table}} des index d\textquotesingle{}entr{\ucr}{\ucr}{\ucr}es ($>$=0\+:local, $<$0\+:global) en phase1
+
+Implements \mbox{\hyperlink{classIIndexManager_a55c9dbd3946642ca82014c0d16a6a4fa}{IIndex\+Manager}}.
+
+
+
+Definition at line 624 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_accc3bbcac6125af80b1ddd1f92e78244}\label{classBasicIndexManager_accc3bbcac6125af80b1ddd1f92e78244}} 
+\index{BasicIndexManager@{BasicIndexManager}!removeIndex@{removeIndex}}
+\index{removeIndex@{removeIndex}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{removeIndex()}{removeIndex()}}
+{\footnotesize\ttfamily void Basic\+Index\+Manager\+::remove\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIIndexManager_1_1Entry}{Scalar\+Index\+Set}} \&}]{entry,  }\item[{const Arcane\+::\+Item\+Group \&}]{item\+Group }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Demande de d{\ucr}-\/indexation d\textquotesingle{}une partie d\textquotesingle{}une entr{\ucr}e. 
+
+Utilisable uniquement avant prepare 
+
+Implements \mbox{\hyperlink{classIIndexManager_a2199dd0c923ffdfa37c2316072031302}{IIndex\+Manager}}.
+
+
+
+Definition at line 591 of file Basic\+Index\+Manager.\+cc.
+
+\mbox{\Hypertarget{classBasicIndexManager_a8a1a1b162b12949f108e4c5c4750ce52}\label{classBasicIndexManager_a8a1a1b162b12949f108e4c5c4750ce52}} 
+\index{BasicIndexManager@{BasicIndexManager}!stats@{stats}}
+\index{stats@{stats}!BasicIndexManager@{BasicIndexManager}}
+\doxysubsubsection{\texorpdfstring{stats()}{stats()}}
+{\footnotesize\ttfamily void Basic\+Index\+Manager\+::stats (\begin{DoxyParamCaption}\item[{Integer \&}]{global\+Size,  }\item[{Integer \&}]{min\+Local\+Index,  }\item[{Integer \&}]{local\+Size }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Statistiques d\textquotesingle{}indexation. 
+
+Uniquement valide apr{\ucr}s {\itshape prepare} 
+
+Implements \mbox{\hyperlink{classIIndexManager_a78c4f39484bc312296fe20eb1e7cb6f4}{IIndex\+Manager}}.
+
+
+
+Definition at line 1243 of file Basic\+Index\+Manager.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Basic\+Index\+Manager.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Basic\+Index\+Manager.\+cc\end{DoxyCompactItemize}

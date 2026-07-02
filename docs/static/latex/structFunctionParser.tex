@@ -1,0 +1,136 @@
+\hypertarget{structFunctionParser}{}\doxysection{Function\+Parser Struct Reference}
+\label{structFunctionParser}\index{FunctionParser@{FunctionParser}}
+
+
+Inherits grammar$<$ Function\+Parser, global\+\_\+closure\+::context\+\_\+t $>$, and \mbox{\hyperlink{structFunctionParserData}{Function\+Parser\+Data}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structFunctionParser_1_1definition}{definition}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structFunctionParser_a0fa644d5da10361a240ade3b7ff6b54b}\label{structFunctionParser_a0fa644d5da10361a240ade3b7ff6b54b}} 
+void \mbox{\hyperlink{structFunctionParser_a0fa644d5da10361a240ade3b7ff6b54b}{set\+Variable}} (const std\+::string \&st, const Real $\ast$x, Integer size)
+\begin{DoxyCompactList}\small\item\em Fonction pour setter la valeur d\textquotesingle{}une variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_a5821a9169bf3a8332c390a01f83b3b06}\label{structFunctionParser_a5821a9169bf3a8332c390a01f83b3b06}} 
+void {\bfseries set\+Variable} (const String \&st, const Real $\ast$x, Integer size)
+\item 
+\mbox{\Hypertarget{structFunctionParser_a2772185ccc2e5506b846b6bda30b8683}\label{structFunctionParser_a2772185ccc2e5506b846b6bda30b8683}} 
+void \mbox{\hyperlink{structFunctionParser_a2772185ccc2e5506b846b6bda30b8683}{set\+Parameter}} (const String \&st, Real x)
+\begin{DoxyCompactList}\small\item\em Fonction pour setter la valeur d\textquotesingle{}un parametre. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_ae35e8d5994d0734972c614a53e43af57}\label{structFunctionParser_ae35e8d5994d0734972c614a53e43af57}} 
+void \mbox{\hyperlink{structFunctionParser_ae35e8d5994d0734972c614a53e43af57}{set\+Constant}} (const String \&st, Real x)
+\begin{DoxyCompactList}\small\item\em Fonction pour setter la valeur d\textquotesingle{}une constante. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_a15a5129b55b1451df6adc71d5589dacb}\label{structFunctionParser_a15a5129b55b1451df6adc71d5589dacb}} 
+void \mbox{\hyperlink{structFunctionParser_a15a5129b55b1451df6adc71d5589dacb}{set\+Evaluation\+Result}} (Real $\ast$x, Integer size)
+\begin{DoxyCompactList}\small\item\em Initialisation du vecteur r{\ucr}sultat d\textquotesingle{}{\ucr}valuation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_ac9437708c012a4026370abdb59d8c8a2}\label{structFunctionParser_ac9437708c012a4026370abdb59d8c8a2}} 
+void \mbox{\hyperlink{structFunctionParser_ac9437708c012a4026370abdb59d8c8a2}{set\+Derivation\+Result}} (const String \&di, Real $\ast$x, Integer size)
+\begin{DoxyCompactList}\small\item\em Initialisation du vecteur r{\ucr}sultat d\textquotesingle{}{\ucr}valuation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_a782adde4b9fa7949090f08005e607460}\label{structFunctionParser_a782adde4b9fa7949090f08005e607460}} 
+void \mbox{\hyperlink{structFunctionParser_a782adde4b9fa7949090f08005e607460}{init}} (\mbox{\hyperlink{classIExpressionMng}{IExpression\+Mng}} $\ast$global\+\_\+expression\+\_\+mng, \mbox{\hyperlink{classIExpressionMng}{IExpression\+Mng}} $\ast$local\+\_\+expression\+\_\+mng, ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_ab997801eec3f69cc4c983f6005f7c211}\label{structFunctionParser_ab997801eec3f69cc4c983f6005f7c211}} 
+bool \mbox{\hyperlink{structFunctionParser_ab997801eec3f69cc4c983f6005f7c211}{check}} () const
+\begin{DoxyCompactList}\small\item\em Check integrity and fully qualified evaluator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structFunctionParser_a67f125dedd29dc467c1816508676fca9}{eval}} ()
+\begin{DoxyCompactList}\small\item\em Evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_a0f39176b2d6d08a83539385689d1a334}\label{structFunctionParser_a0f39176b2d6d08a83539385689d1a334}} 
+void \mbox{\hyperlink{structFunctionParser_a0f39176b2d6d08a83539385689d1a334}{cleanup}} ()
+\begin{DoxyCompactList}\small\item\em Nettoyage post-\/{\ucr}valuation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structFunctionParser_ae2cdbc565a026ee6db3aa016ce4271cb}{parse\+String}} (const String \&s)
+\begin{DoxyCompactList}\small\item\em Fonction pour Parser une chaine de caractere (declaration de cte/var et equation) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structFunctionParser_a9e01abfc9cbe6192edf5651105d9ce4c}\label{structFunctionParser_a9e01abfc9cbe6192edf5651105d9ce4c}} 
+Integer {\bfseries get\+Nb\+Variable} () const
+\item 
+\mbox{\Hypertarget{structFunctionParser_a949d66e27d8e410c7200cbd2e85d9e00}\label{structFunctionParser_a949d66e27d8e410c7200cbd2e85d9e00}} 
+const std\+::string \& {\bfseries get\+Variable} (const Integer i) const
+\item 
+\mbox{\Hypertarget{structFunctionParser_a1edb58719e3d10b1bd952b822060add8}\label{structFunctionParser_a1edb58719e3d10b1bd952b822060add8}} 
+Integer {\bfseries get\+Nb\+Constant} () const
+\item 
+\mbox{\Hypertarget{structFunctionParser_a12f9ff548ff5a92b8eb5b6eddfaeae55}\label{structFunctionParser_a12f9ff548ff5a92b8eb5b6eddfaeae55}} 
+const std\+::string \& {\bfseries get\+Constant} (const Integer i) const
+\item 
+\mbox{\Hypertarget{structFunctionParser_a6d5ea8a62eb6e6f0ad46beefe3754b7a}\label{structFunctionParser_a6d5ea8a62eb6e6f0ad46beefe3754b7a}} 
+Integer {\bfseries get\+Nb\+Parameter} () const
+\item 
+\mbox{\Hypertarget{structFunctionParser_ae9d21e7b5f37c359a28c01694092a9b7}\label{structFunctionParser_ae9d21e7b5f37c359a28c01694092a9b7}} 
+const std\+::string \& {\bfseries get\+Parameter} (const Integer i) const
+\item 
+\mbox{\Hypertarget{structFunctionParser_a84c4f8a63eec07994994c6103cc3445a}\label{structFunctionParser_a84c4f8a63eec07994994c6103cc3445a}} 
+ITrace\+Mng $\ast$ {\bfseries get\+Trace\+Mng} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structFunctionParser_a4916ca7f4fd41c051ad56fab0cd5d2ea}\label{structFunctionParser_a4916ca7f4fd41c051ad56fab0cd5d2ea}} 
+std\+::string {\bfseries m\+\_\+equation}
+\item 
+\mbox{\Hypertarget{structFunctionParser_a848dcd6567dfad3258be5a179a746d28}\label{structFunctionParser_a848dcd6567dfad3258be5a179a746d28}} 
+Integer {\bfseries m\+\_\+depth}
+\item 
+\mbox{\Hypertarget{structFunctionParser_a778395a991ddc7d3363558f1c380f475}\label{structFunctionParser_a778395a991ddc7d3363558f1c380f475}} 
+\mbox{\hyperlink{classDataStack}{Data\+Stack}} {\bfseries m\+\_\+data\+\_\+stack}
+\item 
+\mbox{\Hypertarget{structFunctionParser_a73026b1081e1f12429647b1ee0f07291}\label{structFunctionParser_a73026b1081e1f12429647b1ee0f07291}} 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIStackOp}{IStack\+Op}} $>$ $>$ {\bfseries m\+\_\+op\+\_\+stack}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 768 of file Function\+Parser.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structFunctionParser_a67f125dedd29dc467c1816508676fca9}\label{structFunctionParser_a67f125dedd29dc467c1816508676fca9}} 
+\index{FunctionParser@{FunctionParser}!eval@{eval}}
+\index{eval@{eval}!FunctionParser@{FunctionParser}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily bool Function\+Parser\+::eval (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Evaluation. 
+
+\begin{DoxyReturn}{Returns}
+\+: true si succ{\ucr}s 
+\end{DoxyReturn}
+
+
+Definition at line 198 of file Function\+Parser.\+cc.
+
+\mbox{\Hypertarget{structFunctionParser_ae2cdbc565a026ee6db3aa016ce4271cb}\label{structFunctionParser_ae2cdbc565a026ee6db3aa016ce4271cb}} 
+\index{FunctionParser@{FunctionParser}!parseString@{parseString}}
+\index{parseString@{parseString}!FunctionParser@{FunctionParser}}
+\doxysubsubsection{\texorpdfstring{parseString()}{parseString()}}
+{\footnotesize\ttfamily bool Function\+Parser\+::parse\+String (\begin{DoxyParamCaption}\item[{const String \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Fonction pour Parser une chaine de caractere (declaration de cte/var et equation) 
+
+\begin{DoxyReturn}{Returns}
+\+: true si succ{\ucr}s 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]envisager un retour sans fatal, avec stockage interne de l\textquotesingle{}erreur (consultable a posteriori) \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]envisager un retour sans fatal, avec stockage interne de l\textquotesingle{}erreur (consultable a posteriori) \end{DoxyRefDesc}
+
+
+Definition at line 377 of file Function\+Parser.\+cc.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/Function\+Parser.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/Function\+Parser.\+cc\end{DoxyCompactItemize}

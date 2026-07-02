@@ -1,0 +1,111 @@
+\hypertarget{classFemModulePoisson}{}\doxysection{Fem\+Module\+Poisson Class Reference}
+\label{classFemModulePoisson}\index{FemModulePoisson@{FemModulePoisson}}
+
+
+A module for finite element method.  
+
+
+
+
+{\ttfamily \#include $<$Fem\+Poisson\+Module.\+h$>$}
+
+
+
+Inherits Arcane\+Fem\+Poisson\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFemModulePoisson_a3b47a74e62789d580da2a80fd4c44977}\label{classFemModulePoisson_a3b47a74e62789d580da2a80fd4c44977}} 
+{\bfseries Fem\+Module\+Poisson} (const Module\+Build\+Info \&mbi)
+\item 
+void \mbox{\hyperlink{classFemModulePoisson_a78a40032ccbee596b760c2a302799450}{start\+Init}} () override
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classFemModulePoisson}{Fem\+Module\+Poisson}} at the start of the simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFemModulePoisson_a044148fb14bd4cc124ba751b11fea973}{compute}} () override
+\begin{DoxyCompactList}\small\item\em Method called at the beginning of the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModulePoisson_a12c55266b56ae5ed563c88e13ce6e870}\label{classFemModulePoisson_a12c55266b56ae5ed563c88e13ce6e870}} 
+Version\+Info \mbox{\hyperlink{classFemModulePoisson_a12c55266b56ae5ed563c88e13ce6e870}{version\+Info}} () const override
+\begin{DoxyCompactList}\small\item\em Method called at each iteration. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModulePoisson_abebde0793ed126cb14881d9e629bf9a3}\label{classFemModulePoisson_abebde0793ed126cb14881d9e629bf9a3}} 
+void \mbox{\hyperlink{classFemModulePoisson_abebde0793ed126cb14881d9e629bf9a3}{\+\_\+assemble\+Bilinear\+Operator}} ()
+\begin{DoxyCompactList}\small\item\em Calls the right function for LHS assembly given as mesh type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFemModulePoisson_af8de4df6526ea1669d0bf2797e53176b}{\+\_\+assemble\+Linear\+Operator\+Gpu}} ()
+\begin{DoxyCompactList}\small\item\em FEM linear operator for the current simulation step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A module for finite element method. 
+
+This class handles the initialization and computation for finite element method (FEM) simulations, providing methods to set up and solve linear systems, assemble FEM operators, and perform result checks. 
+
+Definition at line 64 of file Fem\+Poisson\+Module.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFemModulePoisson_af8de4df6526ea1669d0bf2797e53176b}\label{classFemModulePoisson_af8de4df6526ea1669d0bf2797e53176b}} 
+\index{FemModulePoisson@{FemModulePoisson}!\_assembleLinearOperatorGpu@{\_assembleLinearOperatorGpu}}
+\index{\_assembleLinearOperatorGpu@{\_assembleLinearOperatorGpu}!FemModulePoisson@{FemModulePoisson}}
+\doxysubsubsection{\texorpdfstring{\_assembleLinearOperatorGpu()}{\_assembleLinearOperatorGpu()}}
+{\footnotesize\ttfamily void Fem\+Module\+Poisson\+::\+\_\+assemble\+Linear\+Operator\+Gpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+FEM linear operator for the current simulation step. 
+
+GPU compatible. Currently working with Hypre\+Do\+FLinear\+System.
+
+This method constructs the linear system by assembling the LHS matrix and RHS vector, applying various boundary conditions and source terms.
+
+Steps involved\+:
+\begin{DoxyEnumerate}
+\item The RHS vector is initialized to zero before applying any conditions.
+\item If Neumann BC are specified applied to the RHS.
+\item If Dirichlet BC/\+Point are specified apply to the LHS \& RHS. 
+\end{DoxyEnumerate}
+
+Definition at line 184 of file Fem\+Poisson\+Module.\+cc.
+
+\mbox{\Hypertarget{classFemModulePoisson_a044148fb14bd4cc124ba751b11fea973}\label{classFemModulePoisson_a044148fb14bd4cc124ba751b11fea973}} 
+\index{FemModulePoisson@{FemModulePoisson}!compute@{compute}}
+\index{compute@{compute}!FemModulePoisson@{FemModulePoisson}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily void Fem\+Module\+Poisson\+::compute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Method called at the beginning of the simulation. 
+
+Performs the main computation for the \mbox{\hyperlink{classFemModulePoisson}{Fem\+Module\+Poisson}}.
+
+This method\+:
+\begin{DoxyEnumerate}
+\item Stops the time loop after 1 iteration since the equation is steady state.
+\item Resets, configures, and initializes the linear system.
+\item Executes the stationary solve. 
+\end{DoxyEnumerate}
+
+Definition at line 57 of file Fem\+Poisson\+Module.\+cc.
+
+\mbox{\Hypertarget{classFemModulePoisson_a78a40032ccbee596b760c2a302799450}\label{classFemModulePoisson_a78a40032ccbee596b760c2a302799450}} 
+\index{FemModulePoisson@{FemModulePoisson}!startInit@{startInit}}
+\index{startInit@{startInit}!FemModulePoisson@{FemModulePoisson}}
+\doxysubsubsection{\texorpdfstring{startInit()}{startInit()}}
+{\footnotesize\ttfamily void Fem\+Module\+Poisson\+::start\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Initializes the \mbox{\hyperlink{classFemModulePoisson}{Fem\+Module\+Poisson}} at the start of the simulation. 
+
+This method initializes degrees of freedom (Do\+Fs) on nodes. 
+
+Definition at line 26 of file Fem\+Poisson\+Module.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+Poisson/Fem\+Poisson\+Module.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+Poisson/Element\+Matrix.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+Poisson/Element\+Matrix\+Hex\+Quad.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+Poisson/Fem\+Poisson\+Module.\+cc\end{DoxyCompactItemize}

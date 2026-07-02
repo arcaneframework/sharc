@@ -1,0 +1,94 @@
+\hypertarget{classMeshCellAccessor}{}\doxysection{Mesh\+Cell\+Accessor Class Reference}
+\label{classMeshCellAccessor}\index{MeshCellAccessor@{MeshCellAccessor}}
+
+
+Class \mbox{\hyperlink{classMeshCellAccessor}{Mesh\+Cell\+Accessor}} \mbox{\hyperlink{classAccessor}{Accessor}} to the mesh.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Cell\+Accessor.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMeshCellAccessor_ae970e11967d2ec034432d76386f84680}\label{classMeshCellAccessor_ae970e11967d2ec034432d76386f84680}} 
+\mbox{\hyperlink{classMeshCellAccessor_ae970e11967d2ec034432d76386f84680}{Mesh\+Cell\+Accessor}} (IMesh $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshCellAccessor_a9e682b20f96ce85d7812a595f6ee264b}\label{classMeshCellAccessor_a9e682b20f96ce85d7812a595f6ee264b}} 
+virtual \mbox{\hyperlink{classMeshCellAccessor_a9e682b20f96ce85d7812a595f6ee264b}{$\sim$\+Mesh\+Cell\+Accessor}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} \mbox{\hyperlink{classMeshCellAccessor_aec8a382f846d14b279d7f4f356ea8ba0}{get\+Bounding\+Box}} (bool force\+\_\+compute=false)
+\item 
+void \mbox{\hyperlink{classMeshCellAccessor_a11e67c14918af7dad658b941f48073c5}{get\+Cell\+Bounding\+Box}} (Integer elt\+\_\+idx, \mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} \&bbox)
+\begin{DoxyCompactList}\small\item\em Get the element bounding box found at the elt\+\_\+idx argument. \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classMeshCellAccessor_a09fd21164bf164c44cecc604daeccf38}{nb\+Elements}} ()
+\item 
+\mbox{\Hypertarget{classMeshCellAccessor_adb0ce9247ba5dd0a3b4349e351698f57}\label{classMeshCellAccessor_adb0ce9247ba5dd0a3b4349e351698f57}} 
+IMesh $\ast$ {\bfseries get\+Mesh} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \mbox{\hyperlink{classMeshCellAccessor}{Mesh\+Cell\+Accessor}} \mbox{\hyperlink{classAccessor}{Accessor}} to the mesh. 
+
+This is imported from Open\+Flow\textquotesingle{}s Unstructured\+Mesh3\+DCell\+Accessor, Mesh\+Accessor3D and Abstract\+Mesh\+Accessor2 classes. 
+
+Definition at line 20 of file Mesh\+Cell\+Accessor.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMeshCellAccessor_aec8a382f846d14b279d7f4f356ea8ba0}\label{classMeshCellAccessor_aec8a382f846d14b279d7f4f356ea8ba0}} 
+\index{MeshCellAccessor@{MeshCellAccessor}!getBoundingBox@{getBoundingBox}}
+\index{getBoundingBox@{getBoundingBox}!MeshCellAccessor@{MeshCellAccessor}}
+\doxysubsubsection{\texorpdfstring{getBoundingBox()}{getBoundingBox()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} Mesh\+Cell\+Accessor\+::get\+Bounding\+Box (\begin{DoxyParamCaption}\item[{bool}]{force\+\_\+compute = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the bounding box of the mesh processed by this accessor 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file Mesh\+Cell\+Accessor.\+cc.
+
+\mbox{\Hypertarget{classMeshCellAccessor_a11e67c14918af7dad658b941f48073c5}\label{classMeshCellAccessor_a11e67c14918af7dad658b941f48073c5}} 
+\index{MeshCellAccessor@{MeshCellAccessor}!getCellBoundingBox@{getCellBoundingBox}}
+\index{getCellBoundingBox@{getCellBoundingBox}!MeshCellAccessor@{MeshCellAccessor}}
+\doxysubsubsection{\texorpdfstring{getCellBoundingBox()}{getCellBoundingBox()}}
+{\footnotesize\ttfamily void Mesh\+Cell\+Accessor\+::get\+Cell\+Bounding\+Box (\begin{DoxyParamCaption}\item[{Integer}]{elt\+\_\+idx,  }\item[{\mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} \&}]{bbox }\end{DoxyParamCaption})}
+
+
+
+Get the element bounding box found at the elt\+\_\+idx argument. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em elt\+\_\+idx} & Index of the element accessed \\
+\hline
+\mbox{\texttt{ out}}  & {\em Bounding} & box of the element corresponding to the index \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Mesh\+Cell\+Accessor.\+cc.
+
+\mbox{\Hypertarget{classMeshCellAccessor_a09fd21164bf164c44cecc604daeccf38}\label{classMeshCellAccessor_a09fd21164bf164c44cecc604daeccf38}} 
+\index{MeshCellAccessor@{MeshCellAccessor}!nbElements@{nbElements}}
+\index{nbElements@{nbElements}!MeshCellAccessor@{MeshCellAccessor}}
+\doxysubsubsection{\texorpdfstring{nbElements()}{nbElements()}}
+{\footnotesize\ttfamily Integer Mesh\+Cell\+Accessor\+::nb\+Elements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Number of elements of the mesh accessed by the accessor 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Mesh\+Cell\+Accessor.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Mesh\+Cell\+Accessor.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Mesh\+Cell\+Accessor.\+cc\end{DoxyCompactItemize}

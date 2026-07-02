@@ -1,0 +1,107 @@
+\hypertarget{classArrayMngT}{}\doxysection{Array\+MngT$<$ Data\+Type $>$ Class Template Reference}
+\label{classArrayMngT}\index{ArrayMngT$<$ DataType $>$@{ArrayMngT$<$ DataType $>$}}
+
+
+Inherits Arc\+Geo\+Sim\+::\+Array\+Mng.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArrayMngT_a5502f5e0b4a741e98497c8b9fbf5dca7}{Array\+MngT}} (Arcane\+::\+ISub\+Domain $\ast$subdomain)
+\begin{DoxyCompactList}\small\item\em Classe de manipulation de tableaux de type Data\+Type. Impl{\ucr}mente ITyped\+Data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_adeaf7b3250b96fa08add660b64141355}\label{classArrayMngT_adeaf7b3250b96fa08add660b64141355}} 
+virtual \mbox{\hyperlink{classArrayMngT_adeaf7b3250b96fa08add660b64141355}{$\sim$\+Array\+MngT}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_aadac933658efc503a766340afa265907}\label{classArrayMngT_aadac933658efc503a766340afa265907}} 
+Data\+Key \mbox{\hyperlink{classArrayMngT_aadac933658efc503a766340afa265907}{extract\+Data}} (IData $\ast$const data, const Int32\+Const\+Array\+View \&data\+\_\+indexes)
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction du tableau d\textquotesingle{}une IData {\itshape data}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_a03079d5cf19dbc5aa66713e6148a9308}\label{classArrayMngT_a03079d5cf19dbc5aa66713e6148a9308}} 
+void {\bfseries extract\+Data} (Data\+Key \&data\+\_\+key, Arcane\+::\+IData $\ast$const data, const Int32\+Const\+Array\+View \&data\+\_\+indexes)
+\item 
+\mbox{\Hypertarget{classArrayMngT_a4500c0b847ce7e5001a6edfcf8bf9d32}\label{classArrayMngT_a4500c0b847ce7e5001a6edfcf8bf9d32}} 
+Data\+Key \mbox{\hyperlink{classArrayMngT_a4500c0b847ce7e5001a6edfcf8bf9d32}{extract\+Data\+From\+String}} (const String \&data\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction du tableau d\textquotesingle{}un string {\itshape data\+\_\+string}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_ad9ceaf3363a73b0b00d44c7203ea6383}\label{classArrayMngT_ad9ceaf3363a73b0b00d44c7203ea6383}} 
+Data\+Key \mbox{\hyperlink{classArrayMngT_ad9ceaf3363a73b0b00d44c7203ea6383}{collective\+Extract\+Data\+From\+File}} (const String \&hdf5\+\_\+filename, const String \&hdf5\+\_\+file\+\_\+position, Arc\+Geo\+Sim\+::\+Parallel\+Utils \&parallel\+\_\+utils)
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction du tableau d\textquotesingle{}un fichier HDF5 {\itshape filename}. La position dans le fichier est donnee par {\itshape file\+\_\+position} Cette operation est parallele. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_a0bbe12bb2b42426e41bc0c55a26f1ffa}\label{classArrayMngT_a0bbe12bb2b42426e41bc0c55a26f1ffa}} 
+Data\+Key \mbox{\hyperlink{classArrayMngT_a0bbe12bb2b42426e41bc0c55a26f1ffa}{extract\+Sub\+Data}} (const Data\+Key \&data\+\_\+key, const \mbox{\hyperlink{classArray}{Array}}$<$ Integer $>$ \&extracted\+\_\+value\+\_\+indexes)
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction d\textquotesingle{}un sous tableau pr{\ucr}cedemment cr{\ucr}{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_adf841288f2012f9123908fc3f4a14431}\label{classArrayMngT_adf841288f2012f9123908fc3f4a14431}} 
+void \mbox{\hyperlink{classArrayMngT_adf841288f2012f9123908fc3f4a14431}{fill\+Data}} (IData $\ast$const data, const Int32\+Const\+Array\+View \&data\+\_\+indexes, const Data\+Key \&source\+\_\+value\+\_\+key) const
+\begin{DoxyCompactList}\small\item\em Copie les valeurs du tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape source\+\_\+value\+\_\+key} dans l\textquotesingle{}IData {\itshape data} aux positions {\itshape data\+\_\+indexes} La taille du tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape source\+\_\+value\+\_\+key} doit {\ucr}tre {\ucr}gale {\ucr} la taille de {\itshape data\+\_\+indexes}. \end{DoxyCompactList}\item 
+Data\+Interpolated\+Point \mbox{\hyperlink{classArrayMngT_ae5f6ef548c34f5e46493cea02b37c1db}{interpolate\+Data}} (const Real \&interpolation\+\_\+time, const Data\+Interpolation\+Point \&first\+\_\+point, const Data\+Interpolation\+Point \&second\+\_\+point)
+\begin{DoxyCompactList}\small\item\em Interpole deux tableaux stock{\ucr}s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_a0d225b28d50c6ccd9716b43c498c9378}\label{classArrayMngT_a0d225b28d50c6ccd9716b43c498c9378}} 
+void \mbox{\hyperlink{classArrayMngT_a0d225b28d50c6ccd9716b43c498c9378}{delete\+Data}} (const Data\+Key \&data\+\_\+key)
+\begin{DoxyCompactList}\small\item\em D{\ucr}truit le tableau r{\ucr}f{\ucr}renc{\ucr} par la cl{\ucr} {\itshape data\+\_\+key}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_a334c13b334c80deda34094315baf2e27}\label{classArrayMngT_a334c13b334c80deda34094315baf2e27}} 
+Integer \mbox{\hyperlink{classArrayMngT_a334c13b334c80deda34094315baf2e27}{data\+Size}} (const Data\+Key \&data\+\_\+key) const
+\begin{DoxyCompactList}\small\item\em Donne la taille d\textquotesingle{}un tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape data\+\_\+key}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_aa5828c8554ee97b96846c72b9464b082}\label{classArrayMngT_aa5828c8554ee97b96846c72b9464b082}} 
+void \mbox{\hyperlink{classArrayMngT_aa5828c8554ee97b96846c72b9464b082}{print}} (std\+::ostream \&o, const Data\+Key \&data\+\_\+key) const
+\begin{DoxyCompactList}\small\item\em Affiche la taille et le contenu du tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape data\+\_\+key}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_a0af01f6329d430c40149d3fdb5d53f74}\label{classArrayMngT_a0af01f6329d430c40149d3fdb5d53f74}} 
+Arcane\+::\+Shared\+Array$<$ Data\+Type $>$ \mbox{\hyperlink{classArrayMngT_a0af01f6329d430c40149d3fdb5d53f74}{array}} (const Data\+Key \&data\+\_\+key) const
+\begin{DoxyCompactList}\small\item\em Retourne le tableau concret typ{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_aab6330e8eb396f22000df3254c674747}\label{classArrayMngT_aab6330e8eb396f22000df3254c674747}} 
+Data\+Key \mbox{\hyperlink{classArrayMngT_aab6330e8eb396f22000df3254c674747}{register\+Array}} (const Arcane\+::\+Shared\+Array$<$ Data\+Type $>$ \&\mbox{\hyperlink{classArrayMngT_a0af01f6329d430c40149d3fdb5d53f74}{array}})
+\begin{DoxyCompactList}\small\item\em Enregistre le tableau concret type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_ac523fa63b7d80a030a60387a8f17cc5f}\label{classArrayMngT_ac523fa63b7d80a030a60387a8f17cc5f}} 
+Arcane\+::e\+Data\+Type \mbox{\hyperlink{classArrayMngT_ac523fa63b7d80a030a60387a8f17cc5f}{data\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Retourne le type de la donnee. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMngT_a85663d18648a41fa1c1a9b076bb2d14c}\label{classArrayMngT_a85663d18648a41fa1c1a9b076bb2d14c}} 
+\mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Array\+Mng\+::\+Data\+Key}} {\bfseries extract\+Data\+From\+String} (const String \&data\+\_\+string)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Data\+Type$>$\newline
+class Array\+Mng\+T$<$ Data\+Type $>$}
+
+
+
+Definition at line 29 of file Array\+Mng\+T.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArrayMngT_a5502f5e0b4a741e98497c8b9fbf5dca7}\label{classArrayMngT_a5502f5e0b4a741e98497c8b9fbf5dca7}} 
+\index{ArrayMngT$<$ DataType $>$@{ArrayMngT$<$ DataType $>$}!ArrayMngT@{ArrayMngT}}
+\index{ArrayMngT@{ArrayMngT}!ArrayMngT$<$ DataType $>$@{ArrayMngT$<$ DataType $>$}}
+\doxysubsubsection{\texorpdfstring{ArrayMngT()}{ArrayMngT()}}
+{\footnotesize\ttfamily template$<$class Data\+Type $>$ \\
+\mbox{\hyperlink{classArrayMngT}{Array\+MngT}}$<$ Data\+Type $>$\+::\mbox{\hyperlink{classArrayMngT}{Array\+MngT}} (\begin{DoxyParamCaption}\item[{Arcane\+::\+ISub\+Domain $\ast$}]{subdomain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Classe de manipulation de tableaux de type Data\+Type. Impl{\ucr}mente ITyped\+Data. 
+
+Constructeur de la classe 
+
+Definition at line 35 of file Array\+Mng\+T.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArrayMngT_ae5f6ef548c34f5e46493cea02b37c1db}\label{classArrayMngT_ae5f6ef548c34f5e46493cea02b37c1db}} 
+\index{ArrayMngT$<$ DataType $>$@{ArrayMngT$<$ DataType $>$}!interpolateData@{interpolateData}}
+\index{interpolateData@{interpolateData}!ArrayMngT$<$ DataType $>$@{ArrayMngT$<$ DataType $>$}}
+\doxysubsubsection{\texorpdfstring{interpolateData()}{interpolateData()}}
+{\footnotesize\ttfamily template$<$class Data\+Type $>$ \\
+Array\+Mng\+::\+Data\+Interpolated\+Point \mbox{\hyperlink{classArrayMngT}{Array\+MngT}}$<$ Data\+Type $>$\+::interpolate\+Data (\begin{DoxyParamCaption}\item[{const Real \&}]{interpolation\+\_\+time,  }\item[{const Data\+Interpolation\+Point \&}]{first\+\_\+point,  }\item[{const Data\+Interpolation\+Point \&}]{second\+\_\+point }\end{DoxyParamCaption})}
+
+
+
+Interpole deux tableaux stock{\ucr}s. 
+
+Les points {\itshape first\+\_\+point} et {\itshape second\+\_\+point} fournissent, par l\textquotesingle{}interm{\ucr}diaire des cl{\ucr}s deux tableux de valeurs ainsi que l\textquotesingle{}abscisse correspondant {\ucr} ces valeurs. L\textquotesingle{}interpolation est r{\ucr}alis{\ucr}e au point {\itshape interpolation\+\_\+point}. Un nouveau tableau contenant les donn{\ucr}es interpol{\ucr}es est cr{\ucr}{\ucr}. Sa cl{\ucr} est retourn{\ucr}e 
+
+Definition at line 361 of file Array\+Mng\+TImpl.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Array\+Mng\+T.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Array\+Mng\+TImpl.\+h\end{DoxyCompactItemize}

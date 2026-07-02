@@ -1,0 +1,67 @@
+\hypertarget{classLocalDirectSolver}{}\doxysection{Local\+Direct\+Solver Class Reference}
+\label{classLocalDirectSolver}\index{LocalDirectSolver@{LocalDirectSolver}}
+
+
+Inherits Alien\+::\+ILinear\+Solver.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a46964454dcd126d1e1e3fc35934e0c16}\label{classLocalDirectSolver_a46964454dcd126d1e1e3fc35934e0c16}} 
+\mbox{\hyperlink{classLocalDirectSolver_a46964454dcd126d1e1e3fc35934e0c16}{Local\+Direct\+Solver}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a80315c68b99497fb9dfe3960a35390c4}\label{classLocalDirectSolver_a80315c68b99497fb9dfe3960a35390c4}} 
+virtual \mbox{\hyperlink{classLocalDirectSolver_a80315c68b99497fb9dfe3960a35390c4}{$\sim$\+Local\+Direct\+Solver}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_ad12f88475bf853b6b9b69be93b284295}\label{classLocalDirectSolver_ad12f88475bf853b6b9b69be93b284295}} 
+String {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classLocalDirectSolver_aaa8d28482e8815bf8f40ff7ad6506472}\label{classLocalDirectSolver_aaa8d28482e8815bf8f40ff7ad6506472}} 
+void \mbox{\hyperlink{classLocalDirectSolver_aaa8d28482e8815bf8f40ff7ad6506472}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a6720765c0e98dd2eeec7720da6903a38}\label{classLocalDirectSolver_a6720765c0e98dd2eeec7720da6903a38}} 
+void \mbox{\hyperlink{classLocalDirectSolver_a6720765c0e98dd2eeec7720da6903a38}{set\+Linear\+System\+Builder}} (\mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder}} $\ast$builder)
+\begin{DoxyCompactList}\small\item\em Associe un build {\ucr} ce solveur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a059620f35ce114a8db391da56b1ee30c}\label{classLocalDirectSolver_a059620f35ce114a8db391da56b1ee30c}} 
+ILinear\+System $\ast$ \mbox{\hyperlink{classLocalDirectSolver_a059620f35ce114a8db391da56b1ee30c}{get\+Linear\+System}} ()
+\begin{DoxyCompactList}\small\item\em Retourne le syst{\ucr}me lin{\ucr}aire associ{\ucr} {\ucr} ce solveur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a8bbf56f9fede376d371763672d9c6a24}\label{classLocalDirectSolver_a8bbf56f9fede376d371763672d9c6a24}} 
+bool \mbox{\hyperlink{classLocalDirectSolver_a8bbf56f9fede376d371763672d9c6a24}{build\+Linear\+System}} (Integer next\+Build\+Stage=Build\+Type\+::e\+Build\+Matrix$\vert$Build\+Type\+::e\+Build\+Rhs)
+\begin{DoxyCompactList}\small\item\em Construit le system lineaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a6eb7ea7d67ac2c6ea147fa23c51a59e1}\label{classLocalDirectSolver_a6eb7ea7d67ac2c6ea147fa23c51a59e1}} 
+bool {\bfseries build\+Linear\+System} (ILinear\+System $\ast$system, Integer next\+Build\+Stage=Build\+Type\+::e\+Build\+Matrix$\vert$Build\+Type\+::e\+Build\+Rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Etapes d\textquotesingle{}une r{\ucr}solution}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a4900e2b9806882aa4d3f5ec5051fad65}\label{classLocalDirectSolver_a4900e2b9806882aa4d3f5ec5051fad65}} 
+void \mbox{\hyperlink{classLocalDirectSolver_a4900e2b9806882aa4d3f5ec5051fad65}{start}} ()
+\begin{DoxyCompactList}\small\item\em D{\ucr}but de boucle locale (avant solve) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_acd76f411f97f8e5ee18f19d5d2ab2b48}\label{classLocalDirectSolver_acd76f411f97f8e5ee18f19d5d2ab2b48}} 
+void \mbox{\hyperlink{classLocalDirectSolver_acd76f411f97f8e5ee18f19d5d2ab2b48}{end}} ()
+\begin{DoxyCompactList}\small\item\em Fin de boucle locale (apr{\ucr}s solve) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a7006791c12c7c8edb2644e2bf4e78d9a}\label{classLocalDirectSolver_a7006791c12c7c8edb2644e2bf4e78d9a}} 
+bool \mbox{\hyperlink{classLocalDirectSolver_a7006791c12c7c8edb2644e2bf4e78d9a}{solve}} ()
+\begin{DoxyCompactList}\small\item\em R{\ucr}solution du system lineaire associ{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a354a45a6c94b9883b932816d8b221c68}\label{classLocalDirectSolver_a354a45a6c94b9883b932816d8b221c68}} 
+const Alien\+::\+ILinear\+Solver\+::\+Status \& \mbox{\hyperlink{classLocalDirectSolver_a354a45a6c94b9883b932816d8b221c68}{get\+Status}} () const
+\begin{DoxyCompactList}\small\item\em Etat final apr{\ucr}s r{\ucr}solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_acb2482e12b3041a8a9ef34a7e940ee19}\label{classLocalDirectSolver_acb2482e12b3041a8a9ef34a7e940ee19}} 
+bool \mbox{\hyperlink{classLocalDirectSolver_acb2482e12b3041a8a9ef34a7e940ee19}{get\+Solution}} ()
+\begin{DoxyCompactList}\small\item\em Applique la proc{\ucr}dure d\textquotesingle{}extraction de la solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolver_a9629122ec58a4bce263f033b47df2cbd}\label{classLocalDirectSolver_a9629122ec58a4bce263f033b47df2cbd}} 
+void {\bfseries set\+Null\+Space\+Constant\+Option} (bool flag)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 112 of file Local\+Direct\+Solver.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/Local\+Direct\+Solver.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/Local\+Direct\+Solver.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,106 @@
+\hypertarget{classDivKGradGradMScheme}{}\doxysection{Div\+KGrad\+Grad\+MScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$ Class Template Reference}
+\label{classDivKGradGradMScheme}\index{DivKGradGradMScheme$<$ TCellStencilBuilder, TFaceStencilBuilder, TCellCoefficientArrayBuilder, TFaceCoefficientArrayBuilder $>$@{DivKGradGradMScheme$<$ TCellStencilBuilder, TFaceStencilBuilder, TCellCoefficientArrayBuilder, TFaceCoefficientArrayBuilder $>$}}
+
+
+Inherits \mbox{\hyperlink{classIDivKGradDiscreteOperator}{IDiv\+KGrad\+Discrete\+Operator}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDivKGradGradMScheme_1_1Error}{Error}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a251b11371a473d74f148d3a30f4d203c}\label{classDivKGradGradMScheme_a251b11371a473d74f148d3a30f4d203c}} 
+enum {\bfseries Error\+Code} \{ {\bfseries E\+\_\+\+Not\+Initialized} = 0
+, {\bfseries E\+\_\+\+Cell\+Gradient\+Computation} = 2
+, {\bfseries E\+\_\+\+Unknown\+Property} = 5
+, {\bfseries E\+\_\+\+Failed\+LInterpolation} = 6
+ \}
+\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a51f70c97a1ab11aeb08b4f5b8da319c9}\label{classDivKGradGradMScheme_a51f70c97a1ab11aeb08b4f5b8da319c9}} 
+enum {\bfseries Property} \{ {\bfseries P\+\_\+\+Epsilon}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a2603e50b3c58a53b37074ab2305f1bdd}\label{classDivKGradGradMScheme_a2603e50b3c58a53b37074ab2305f1bdd}} 
+\mbox{\hyperlink{classDivKGradGradMScheme_a2603e50b3c58a53b37074ab2305f1bdd}{Div\+KGrad\+Grad\+MScheme}} (ITrace\+Mng $\ast$a\+\_\+trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a2d268859fcae136bae2ea843de0e249e}\label{classDivKGradGradMScheme_a2d268859fcae136bae2ea843de0e249e}} 
+virtual \mbox{\hyperlink{classDivKGradGradMScheme_a2d268859fcae136bae2ea843de0e249e}{$\sim$\+Div\+KGrad\+Grad\+MScheme}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a5190aff3f8cd8272a9f0a3af5993f168}\label{classDivKGradGradMScheme_a5190aff3f8cd8272a9f0a3af5993f168}} 
+void \mbox{\hyperlink{classDivKGradGradMScheme_a5190aff3f8cd8272a9f0a3af5993f168}{prepare}} (IMesh $\ast$mesh, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_ac32ebb07ce9add310e1f559d8a1ee12d}\label{classDivKGradGradMScheme_ac32ebb07ce9add310e1f559d8a1ee12d}} 
+ARCANE\+\_\+\+DEPRECATED void \mbox{\hyperlink{classDivKGradGradMScheme_ac32ebb07ce9add310e1f559d8a1ee12d}{prepare}} (const Face\+Group \&internal\+\_\+faces, const Face\+Group \&boundary\+\_\+faces, Face\+Group \&c\+\_\+internal\+\_\+faces, Face\+Group \&cf\+\_\+internal\+\_\+faces, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a4b3c300026412da1a41f5fd17894d94d}\label{classDivKGradGradMScheme_a4b3c300026412da1a41f5fd17894d94d}} 
+void \mbox{\hyperlink{classDivKGradGradMScheme_a4b3c300026412da1a41f5fd17894d94d}{finalize}} ()
+\begin{DoxyCompactList}\small\item\em Reset the operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a215d5d88cc5fca9eba8a529ef3e28b31}\label{classDivKGradGradMScheme_a215d5d88cc5fca9eba8a529ef3e28b31}} 
+Integer \mbox{\hyperlink{classDivKGradGradMScheme_a215d5d88cc5fca9eba8a529ef3e28b31}{get\+Cell\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required cell geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_afb7989f418914abf95c96bcf6cb360d7}\label{classDivKGradGradMScheme_afb7989f418914abf95c96bcf6cb360d7}} 
+Integer \mbox{\hyperlink{classDivKGradGradMScheme_afb7989f418914abf95c96bcf6cb360d7}{get\+Face\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required face geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a792f62f5eda0f763ad847ce3b6ea8b73}\label{classDivKGradGradMScheme_a792f62f5eda0f763ad847ce3b6ea8b73}} 
+const Integer \& \mbox{\hyperlink{classDivKGradGradMScheme_a792f62f5eda0f763ad847ce3b6ea8b73}{status}} () const
+\begin{DoxyCompactList}\small\item\em Return the current status. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a09ba293d1a36a6163f69bf688000e5ef}\label{classDivKGradGradMScheme_a09ba293d1a36a6163f69bf688000e5ef}} 
+const Face\+Group \& \mbox{\hyperlink{classDivKGradGradMScheme_a09ba293d1a36a6163f69bf688000e5ef}{faces}} () const
+\begin{DoxyCompactList}\small\item\em Return faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_adb6e310e55a31789002aac787f633505}\label{classDivKGradGradMScheme_adb6e310e55a31789002aac787f633505}} 
+const Cell\+Group \& \mbox{\hyperlink{classDivKGradGradMScheme_adb6e310e55a31789002aac787f633505}{cells}} () const
+\begin{DoxyCompactList}\small\item\em Return cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a9db773e1415d05cf727a3e792c949de6}\label{classDivKGradGradMScheme_a9db773e1415d05cf727a3e792c949de6}} 
+const Face\+Group \& \mbox{\hyperlink{classDivKGradGradMScheme_a9db773e1415d05cf727a3e792c949de6}{boundary\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return boundary faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_af7a962cfe16c6a8535db148f1189d3c2}\label{classDivKGradGradMScheme_af7a962cfe16c6a8535db148f1189d3c2}} 
+const Face\+Group \& \mbox{\hyperlink{classDivKGradGradMScheme_af7a962cfe16c6a8535db148f1189d3c2}{internal\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return internal faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a5d805f83443bd8ceb463bf2445ec9434}\label{classDivKGradGradMScheme_a5d805f83443bd8ceb463bf2445ec9434}} 
+void \mbox{\hyperlink{classDivKGradGradMScheme_a5d805f83443bd8ceb463bf2445ec9434}{set}} (\mbox{\hyperlink{classProperty}{Property}} a\+\_\+property, const Real \&a\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Set property. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_abfa4ad9b00543ec392c035f5628398cd}\label{classDivKGradGradMScheme_abfa4ad9b00543ec392c035f5628398cd}} 
+{\footnotesize template$<$typename Variable\+TypeT $>$ }\\void \mbox{\hyperlink{classDivKGradGradMScheme_abfa4ad9b00543ec392c035f5628398cd}{form\+Discrete\+OperatorT}} (const Variable\+TypeT \&kappa)
+\begin{DoxyCompactList}\small\item\em Form discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a783dc5bb7d2f92102ab6ea2caaa830fd}\label{classDivKGradGradMScheme_a783dc5bb7d2f92102ab6ea2caaa830fd}} 
+bool \mbox{\hyperlink{classDivKGradGradMScheme_a783dc5bb7d2f92102ab6ea2caaa830fd}{two\+Point\+Boundary}} ()
+\begin{DoxyCompactList}\small\item\em Two-\/point boundary treatment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a0c641942d6f217c47c46f2852f431d8c}\label{classDivKGradGradMScheme_a0c641942d6f217c47c46f2852f431d8c}} 
+virtual void \mbox{\hyperlink{classDivKGradGradMScheme_a0c641942d6f217c47c46f2852f431d8c}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a5f574722ee3a3779cfe589e4a2b3c555}\label{classDivKGradGradMScheme_a5f574722ee3a3779cfe589e4a2b3c555}} 
+virtual void \mbox{\hyperlink{classDivKGradGradMScheme_a5f574722ee3a3779cfe589e4a2b3c555}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a4cead3a7f6f9801c371e240986e578b5}\label{classDivKGradGradMScheme_a4cead3a7f6f9801c371e240986e578b5}} 
+virtual void \mbox{\hyperlink{classDivKGradGradMScheme_a4cead3a7f6f9801c371e240986e578b5}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3x3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_ab2ee3635d1fa9f53076f68cbd09e95b6}\label{classDivKGradGradMScheme_ab2ee3635d1fa9f53076f68cbd09e95b6}} 
+\mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}} $\ast$ {\bfseries m\+\_\+geometry\+\_\+service}
+\item 
+\mbox{\Hypertarget{classDivKGradGradMScheme_a3e16d46bd28ccd073b3de3ef0d2d6e1e}\label{classDivKGradGradMScheme_a3e16d46bd28ccd073b3de3ef0d2d6e1e}} 
+Integer {\bfseries m\+\_\+status}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TCell\+Stencil\+Builder, typename TFace\+Stencil\+Builder, typename TCell\+Coefficient\+Array\+Builder, typename TFace\+Coefficient\+Array\+Builder$>$\newline
+class Div\+KGrad\+Grad\+MScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}
+
+
+
+Definition at line 32 of file Div\+KGrad\+Grad\+MScheme.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+Grad\+MImpl/Div\+KGrad\+Grad\+MScheme.\+h\end{DoxyCompactItemize}

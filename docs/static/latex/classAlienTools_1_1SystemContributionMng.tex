@@ -1,0 +1,85 @@
+\hypertarget{classAlienTools_1_1SystemContributionMng}{}\doxysection{Alien\+Tools\+::System\+Contribution\+Mng$<$ ValueT, IndexT, dim\+\_\+value $>$ Class Template Reference}
+\label{classAlienTools_1_1SystemContributionMng}\index{AlienTools::SystemContributionMng$<$ ValueT, IndexT, dim\_value $>$@{AlienTools::SystemContributionMng$<$ ValueT, IndexT, dim\_value $>$}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAlienTools_1_1SystemContributionMng_1_1LocalSystem}{Local\+System}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a7c9693d9f4772bacf36993f8fb20858a}\label{classAlienTools_1_1SystemContributionMng_a7c9693d9f4772bacf36993f8fb20858a}} 
+typedef IndexT {\bfseries index\+\_\+type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a645cead59b3fc764a144c02da62d1f0d}\label{classAlienTools_1_1SystemContributionMng_a645cead59b3fc764a144c02da62d1f0d}} 
+typedef ValueT {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a75e310fce0a4480be31f1b91691146f2}\label{classAlienTools_1_1SystemContributionMng_a75e310fce0a4480be31f1b91691146f2}} 
+typedef Alien\+::\+IIndex\+Manager {\bfseries Index\+Manager\+Type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a977118ce4e80eee449ef8628c33259e6}\label{classAlienTools_1_1SystemContributionMng_a977118ce4e80eee449ef8628c33259e6}} 
+typedef Alien\+::\+IIndex\+Manager\+::\+Scalar\+Index\+Set {\bfseries Scalar\+Index\+Set\+Type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_aa58bc4444d52823fa9b180ef57f2c858}\label{classAlienTools_1_1SystemContributionMng_aa58bc4444d52823fa9b180ef57f2c858}} 
+typedef Alien\+::\+IIndex\+Manager\+::\+Vector\+Index\+Set {\bfseries Vector\+Index\+Set\+Type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a671ffcc06999db7abf2c9057365c47ef}\label{classAlienTools_1_1SystemContributionMng_a671ffcc06999db7abf2c9057365c47ef}} 
+typedef \mbox{\hyperlink{classAlienTools_1_1BoundaryConditionMng}{Boundary\+Condition\+Mng}}$<$ value\+\_\+type, index\+\_\+type, dim $>$ {\bfseries Boundary\+Condition\+Mng\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_ae497a508658cace1398c1af2ed63c961}\label{classAlienTools_1_1SystemContributionMng_ae497a508658cace1398c1af2ed63c961}} 
+{\bfseries System\+Contribution\+Mng} (Alien\+::\+Integer max\+Number\+Of\+Nodes\+Per\+Cell, Alien\+::\+IIndex\+Manager $\ast$index\+\_\+manager, Vector\+Index\+Set\+Type \&index\+\_\+sets, Alien\+::\+Array2\+View$<$ index\+\_\+type $>$ indexes)
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a5e4e3224702bfe4a6228c8fd0a22e546}\label{classAlienTools_1_1SystemContributionMng_a5e4e3224702bfe4a6228c8fd0a22e546}} 
+Alien\+::\+Array\+View$<$ value\+\_\+type $>$ {\bfseries matrix\+Buffer} ()
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_ab1d5b8d4498df2cc7a4c3d99d27554dd}\label{classAlienTools_1_1SystemContributionMng_ab1d5b8d4498df2cc7a4c3d99d27554dd}} 
+Alien\+::\+Array\+View$<$ value\+\_\+type $>$ {\bfseries rhs\+Buffer} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_afae819b7ce44bd6d605ebf9fb94bc3b6}\label{classAlienTools_1_1SystemContributionMng_afae819b7ce44bd6d605ebf9fb94bc3b6}} 
+Alien\+::\+Integer {\bfseries m\+\_\+max\+Number\+Of\+Nodes\+Per\+Cell} = 0
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_af53c99ae87fc95866985a13fa8bd4443}\label{classAlienTools_1_1SystemContributionMng_af53c99ae87fc95866985a13fa8bd4443}} 
+Alien\+::\+Unique\+Array$<$ value\+\_\+type $>$ {\bfseries m\+\_\+matrix\+\_\+buffer}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_ac4d809d559c28b6fcf6a71788ab6e3be}\label{classAlienTools_1_1SystemContributionMng_ac4d809d559c28b6fcf6a71788ab6e3be}} 
+Alien\+::\+Unique\+Array$<$ value\+\_\+type $>$ {\bfseries m\+\_\+rhs\+\_\+buffer}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a92edf213cf675af3a741d41df7e18b84}\label{classAlienTools_1_1SystemContributionMng_a92edf213cf675af3a741d41df7e18b84}} 
+Index\+Manager\+Type $\ast$ {\bfseries m\+\_\+index\+\_\+manager} = nullptr
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a54eb88647392bb4a41fffff35eff0d8f}\label{classAlienTools_1_1SystemContributionMng_a54eb88647392bb4a41fffff35eff0d8f}} 
+Vector\+Index\+Set\+Type {\bfseries m\+\_\+index\+\_\+sets}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a8db4d189521a00477126111e392531fb}\label{classAlienTools_1_1SystemContributionMng_a8db4d189521a00477126111e392531fb}} 
+Alien\+::\+Array2\+View$<$ index\+\_\+type $>$ {\bfseries m\+\_\+indexes}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_ab93956de645d6a34de20115ded3eff99}\label{classAlienTools_1_1SystemContributionMng_ab93956de645d6a34de20115ded3eff99}} 
+\mbox{\hyperlink{classAlienTools_1_1BoundaryConditionMng}{Boundary\+Condition\+Mng\+Type}} {\bfseries m\+\_\+boundary\+\_\+condition\+\_\+mng}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_a77435d241a576d223f3ebb1df219e33f}\label{classAlienTools_1_1SystemContributionMng_a77435d241a576d223f3ebb1df219e33f}} 
+static const int {\bfseries dim} = dim\+\_\+value
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ValueT = Arcane\+::\+Real, typename IndexT = Arcane\+::\+Integer, int dim\+\_\+value = 3$>$\newline
+class Alien\+Tools\+::\+System\+Contribution\+Mng$<$ Value\+T, Index\+T, dim\+\_\+value $>$}
+
+
+
+Definition at line 57 of file Local\+System\+Contribution.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Local\+System\+Contribution.\+h\end{DoxyCompactItemize}

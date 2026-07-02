@@ -1,0 +1,44 @@
+\hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D}{}\doxysection{Arcane\+::Fem\+Utils\+::Gpu\+::Boundary\+Conditions2D Class Reference}
+\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D}\index{Arcane::FemUtils::Gpu::BoundaryConditions2D@{Arcane::FemUtils::Gpu::BoundaryConditions2D}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D_ad2bf66454e9512db6db951e7d7090fd0}{apply\+Constant\+Source\+To\+Rhs}} (Real qdot, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+variable\+\_\+na, IMesh $\ast$mesh, Accelerator\+::\+Run\+Queue $\ast$queue)
+\begin{DoxyCompactList}\small\item\em Applies a constant source term to the RHS vector. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D_ab2ad95c37078738b93b482e7c266d03e}{apply\+Neumann\+To\+Rhs}} (\mbox{\hyperlink{classBC_1_1INeumannBoundaryCondition}{BC\+::\+INeumann\+Boundary\+Condition}} $\ast$bs, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+variable\+\_\+na, IMesh $\ast$mesh, Accelerator\+::\+Run\+Queue $\ast$queue)
+\begin{DoxyCompactList}\small\item\em Applies Neumann conditions to the right-\/hand side (RHS) values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 760 of file Arcane\+Fem\+Functions\+Gpu.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D_ad2bf66454e9512db6db951e7d7090fd0}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D_ad2bf66454e9512db6db951e7d7090fd0}} 
+\index{Arcane::FemUtils::Gpu::BoundaryConditions2D@{Arcane::FemUtils::Gpu::BoundaryConditions2D}!applyConstantSourceToRhs@{applyConstantSourceToRhs}}
+\index{applyConstantSourceToRhs@{applyConstantSourceToRhs}!Arcane::FemUtils::Gpu::BoundaryConditions2D@{Arcane::FemUtils::Gpu::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyConstantSourceToRhs()}{applyConstantSourceToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+::\+Fem\+Utils\+::\+Gpu\+::\+Boundary\+Conditions2\+D\+::apply\+Constant\+Source\+To\+Rhs (\begin{DoxyParamCaption}\item[{Real}]{qdot,  }\item[{const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&}]{dofs\+\_\+on\+\_\+nodes,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+variable\+\_\+na,  }\item[{IMesh $\ast$}]{mesh,  }\item[{Accelerator\+::\+Run\+Queue $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies a constant source term to the RHS vector. 
+
+This method adds a constant source term {\ttfamily qdot} to the RHS vector for each node in the mesh. The contribution to each node is weighted by the area of the cell and evenly distributed among the number of nodes of the cell. \mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D_ab2ad95c37078738b93b482e7c266d03e}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions2D_ab2ad95c37078738b93b482e7c266d03e}} 
+\index{Arcane::FemUtils::Gpu::BoundaryConditions2D@{Arcane::FemUtils::Gpu::BoundaryConditions2D}!applyNeumannToRhs@{applyNeumannToRhs}}
+\index{applyNeumannToRhs@{applyNeumannToRhs}!Arcane::FemUtils::Gpu::BoundaryConditions2D@{Arcane::FemUtils::Gpu::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyNeumannToRhs()}{applyNeumannToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+::\+Fem\+Utils\+::\+Gpu\+::\+Boundary\+Conditions2\+D\+::apply\+Neumann\+To\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1INeumannBoundaryCondition}{BC\+::\+INeumann\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&}]{dofs\+\_\+on\+\_\+nodes,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+variable\+\_\+na,  }\item[{IMesh $\ast$}]{mesh,  }\item[{Accelerator\+::\+Run\+Queue $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies Neumann conditions to the right-\/hand side (RHS) values. 
+
+This method updates the RHS values of the finite element method equations based on the provided Neumann boundary condition. The boundary condition can specify a value or its components along the x and y directions. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions\+Gpu.\+h\end{DoxyCompactItemize}

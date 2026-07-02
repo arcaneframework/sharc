@@ -1,0 +1,73 @@
+\hypertarget{classcomp}{}\doxysection{comp$<$ Fct1, Fct2 $>$ Class Template Reference}
+\label{classcomp}\index{comp$<$ Fct1, Fct2 $>$@{comp$<$ Fct1, Fct2 $>$}}
+
+
+Inherits \mbox{\hyperlink{classIFunctor}{IFunctor$<$ Var\+Vect $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcomp_afad74705ed8f5f776cc9fa8a13cbc8b1}\label{classcomp_afad74705ed8f5f776cc9fa8a13cbc8b1}} 
+{\bfseries comp} (int size, int nb\+Var)
+\item 
+\mbox{\Hypertarget{classcomp_a4d68c54c93f3902e9f0485b1f09450e6}\label{classcomp_a4d68c54c93f3902e9f0485b1f09450e6}} 
+void \mbox{\hyperlink{classcomp_a4d68c54c93f3902e9f0485b1f09450e6}{eval}} (\mbox{\hyperlink{classVarVect}{Var\+Vect}} \&v)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_a93bd7f16cf9f73a5d0af3ecb3322bfbf}\label{classcomp_a93bd7f16cf9f73a5d0af3ecb3322bfbf}} 
+virtual value\+\_\+type \mbox{\hyperlink{classcomp_a93bd7f16cf9f73a5d0af3ecb3322bfbf}{eval}} (value\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_aa8465b97fb3aa21acf855a3b799dcb9c}\label{classcomp_aa8465b97fb3aa21acf855a3b799dcb9c}} 
+virtual value\+\_\+type \mbox{\hyperlink{classcomp_aa8465b97fb3aa21acf855a3b799dcb9c}{eval}} (value\+\_\+type, value\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_a1dbd8b31ecb38ffcd829f7122670d468}\label{classcomp_a1dbd8b31ecb38ffcd829f7122670d468}} 
+virtual value\+\_\+type \mbox{\hyperlink{classcomp_a1dbd8b31ecb38ffcd829f7122670d468}{eval}} (value\+\_\+type, value\+\_\+type, value\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_aa44b810ce4a77eb61ac52301e1a284df}\label{classcomp_aa44b810ce4a77eb61ac52301e1a284df}} 
+virtual void \mbox{\hyperlink{classcomp_aa44b810ce4a77eb61ac52301e1a284df}{eval\+Diff}} (\mbox{\hyperlink{classDiff}{Diff}}$<$ \mbox{\hyperlink{classVarVect}{Var\+Vect}} $>$ \&dv)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_a145dd53059e1eee9f6b119f4977199e0}\label{classcomp_a145dd53059e1eee9f6b119f4977199e0}} 
+virtual void \mbox{\hyperlink{classcomp_a145dd53059e1eee9f6b119f4977199e0}{eval\+Diff}} (value\+\_\+type \&val\+Out, value\+\_\+type $\ast$d\+Val\+Out, value\+\_\+type val\+In)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_a029e13d540214db3542107ef2f3d3a91}\label{classcomp_a029e13d540214db3542107ef2f3d3a91}} 
+virtual void \mbox{\hyperlink{classcomp_a029e13d540214db3542107ef2f3d3a91}{eval\+Diff}} (value\+\_\+type \&, value\+\_\+type $\ast$, value\+\_\+type, value\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_a82a90c3873ee3dc97b4c5f59c2c58933}\label{classcomp_a82a90c3873ee3dc97b4c5f59c2c58933}} 
+virtual void \mbox{\hyperlink{classcomp_a82a90c3873ee3dc97b4c5f59c2c58933}{eval\+Diff}} (value\+\_\+type \&, value\+\_\+type $\ast$, value\+\_\+type, value\+\_\+type, value\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcomp_ae94b9a084194917e3a10241cc53d9e20}\label{classcomp_ae94b9a084194917e3a10241cc53d9e20}} 
+virtual void {\bfseries init\+Parameter} (Point\+Type minB, Point\+Type maxB, Point\+Type left\+ExtB, Point\+Type right\+ExtB)
+\item 
+\mbox{\Hypertarget{classcomp_a876bbcd87fbc8d1bc47e3a86ca64138f}\label{classcomp_a876bbcd87fbc8d1bc47e3a86ca64138f}} 
+virtual void {\bfseries set\+Key\+Val} (value\+\_\+type $\ast$key\+Val)
+\item 
+\mbox{\Hypertarget{classcomp_a4a35771b339e589adee13737950527ca}\label{classcomp_a4a35771b339e589adee13737950527ca}} 
+virtual void {\bfseries set\+Default\+Cte} (value\+\_\+type cte)
+\item 
+\mbox{\Hypertarget{classcomp_ac043e364212977511c6801ecc31ca1cc}\label{classcomp_ac043e364212977511c6801ecc31ca1cc}} 
+virtual void {\bfseries set\+Default\+Exposant} (value\+\_\+type exp)
+\item 
+\mbox{\Hypertarget{classcomp_ada2e5724009500577dd077c6786aa694}\label{classcomp_ada2e5724009500577dd077c6786aa694}} 
+virtual void {\bfseries set\+Default\+Sgr} (value\+\_\+type sgr)
+\item 
+\mbox{\Hypertarget{classcomp_aa2166de17a9aa9984f26e9644fcf8d89}\label{classcomp_aa2166de17a9aa9984f26e9644fcf8d89}} 
+virtual void {\bfseries set\+Default\+Swr} (value\+\_\+type swr)
+\item 
+\mbox{\Hypertarget{classcomp_a0b36791876bbdfe20e14cf265b0b87fb}\label{classcomp_a0b36791876bbdfe20e14cf265b0b87fb}} 
+virtual bool {\bfseries eval\+Norm} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Fct1, typename Fct2$>$\newline
+class comp$<$ Fct1, Fct2 $>$}
+
+
+
+Definition at line 95 of file IFunctor.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2IFunctor_8h}{IFunctor.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,78 @@
+\hypertarget{classLinearSystemT}{}\doxysection{Linear\+SystemT$<$ MatrixT, VectorT $>$ Class Template Reference}
+\label{classLinearSystemT}\index{LinearSystemT$<$ MatrixT, VectorT $>$@{LinearSystemT$<$ MatrixT, VectorT $>$}}
+
+
+Inherits ILinear\+System.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a7e79e86ec9945ab6d86fffd3f433128b}\label{classLinearSystemT_a7e79e86ec9945ab6d86fffd3f433128b}} 
+typedef MatrixT {\bfseries Matrix\+Type}
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a1284cdae30286a73ba18dfc201c49e35}\label{classLinearSystemT_a1284cdae30286a73ba18dfc201c49e35}} 
+typedef VectorT {\bfseries Vector\+Type}
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a0269463cf19e3bcba9369723f44c5354}\label{classLinearSystemT_a0269463cf19e3bcba9369723f44c5354}} 
+typedef \mbox{\hyperlink{classLinearSystemT}{Linear\+SystemT}}$<$ Matrix\+Type, \mbox{\hyperlink{structVectorType}{Vector\+Type}} $>$ {\bfseries This\+Type}
+\item 
+\mbox{\Hypertarget{classLinearSystemT_ace682de88a0369770eda1927419db8f7}\label{classLinearSystemT_ace682de88a0369770eda1927419db8f7}} 
+typedef \mbox{\hyperlink{classVisitorT}{VisitorT}}$<$ \mbox{\hyperlink{classLinearSystemT}{This\+Type}} $>$ {\bfseries Visitor\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinearSystemT_af15224dba6bf51a6310e9277008c46e6}\label{classLinearSystemT_af15224dba6bf51a6310e9277008c46e6}} 
+{\bfseries Linear\+SystemT} (Matrix\+Type $\ast$matrix, \mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$x, \mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$rhs)
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a5e7ff312592776ecaeca6aabdd52de2b}\label{classLinearSystemT_a5e7ff312592776ecaeca6aabdd52de2b}} 
+ILinear\+System $\ast$ {\bfseries as\+ILinear\+System} ()
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a113f39f1f1fc805c422de383667743d8}\label{classLinearSystemT_a113f39f1f1fc805c422de383667743d8}} 
+void \mbox{\hyperlink{classLinearSystemT_a113f39f1f1fc805c422de383667743d8}{init}} ()
+\begin{DoxyCompactList}\small\item\em initialise le system lin{\ucr}aire \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLinearSystemT_a1a4b998a5d47845604798e55c996a408}\label{classLinearSystemT_a1a4b998a5d47845604798e55c996a408}} 
+bool \mbox{\hyperlink{classLinearSystemT_a1a4b998a5d47845604798e55c996a408}{accept}} (\mbox{\hyperlink{classILinearSystemVisitor}{ILinear\+System\+Visitor}} $\ast$visitor)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}ajouter des op{\ucr}rateurs au l\textquotesingle{}interface \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLinearSystemT_a1af45aa14d6b138d343d0636b39b8f34}\label{classLinearSystemT_a1af45aa14d6b138d343d0636b39b8f34}} 
+void \mbox{\hyperlink{classLinearSystemT_a1af45aa14d6b138d343d0636b39b8f34}{start}} ()
+\begin{DoxyCompactList}\small\item\em d{\ucr}mare une {\ucr}tape de r{\ucr}solution de syst{\ucr}me lin{\ucr}aire \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLinearSystemT_ab01b14883843000455298e46b6ce1dae}\label{classLinearSystemT_ab01b14883843000455298e46b6ce1dae}} 
+void \mbox{\hyperlink{classLinearSystemT_ab01b14883843000455298e46b6ce1dae}{end}} ()
+\begin{DoxyCompactList}\small\item\em finalise une {\ucr}tape de r{\ucr}solution et lib{\ucr}re les objets interm{\ucr}diaires \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLinearSystemT_a21d63ba1322c3551f559a3eab3718ebf}\label{classLinearSystemT_a21d63ba1322c3551f559a3eab3718ebf}} 
+virtual const char $\ast$ \mbox{\hyperlink{classLinearSystemT_a21d63ba1322c3551f559a3eab3718ebf}{name}} () const
+\begin{DoxyCompactList}\small\item\em retourne le nom du type de syst{\ucr}me \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLinearSystemT_aa914da466cd3a92cacd8030b5dd9296d}\label{classLinearSystemT_aa914da466cd3a92cacd8030b5dd9296d}} 
+Matrix\+Type $\ast$ {\bfseries get\+Matrix} ()
+\item 
+\mbox{\Hypertarget{classLinearSystemT_acbbd165bc9a2c85c822cd83d93a71886}\label{classLinearSystemT_acbbd165bc9a2c85c822cd83d93a71886}} 
+\mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$ {\bfseries getX} ()
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a955ded2e1ead31ad8308edc78dc3fb03}\label{classLinearSystemT_a955ded2e1ead31ad8308edc78dc3fb03}} 
+\mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$ {\bfseries get\+Rhs} ()
+\item 
+\mbox{\Hypertarget{classLinearSystemT_ae20cb76f9228b3dd4e254e8a8942fa52}\label{classLinearSystemT_ae20cb76f9228b3dd4e254e8a8942fa52}} 
+void {\bfseries set\+Matrix} (Matrix\+Type $\ast$matrix)
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a188451ec9279384b52912a7a578391b5}\label{classLinearSystemT_a188451ec9279384b52912a7a578391b5}} 
+void {\bfseries setX} (\mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$x)
+\item 
+\mbox{\Hypertarget{classLinearSystemT_a0f91154296b9753b06aafb628bc54f96}\label{classLinearSystemT_a0f91154296b9753b06aafb628bc54f96}} 
+void {\bfseries set\+Rhs} (\mbox{\hyperlink{structVectorType}{Vector\+Type}} $\ast$rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename MatrixT, typename VectorT$>$\newline
+class Linear\+System\+T$<$ Matrix\+T, Vector\+T $>$}
+
+
+
+Definition at line 11 of file Local\+Linear\+System\+T.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/Local\+Linear\+System\+T.\+h\end{DoxyCompactItemize}

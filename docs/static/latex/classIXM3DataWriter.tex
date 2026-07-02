@@ -1,0 +1,40 @@
+\hypertarget{classIXM3DataWriter}{}\doxysection{IXM3\+Data\+Writer Class Reference}
+\label{classIXM3DataWriter}\index{IXM3DataWriter@{IXM3DataWriter}}
+
+
+Inherits IData\+Writer.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXM3DataWriter_a233f9ce7652ebf77ccd3c94f303d0898}\label{classIXM3DataWriter_a233f9ce7652ebf77ccd3c94f303d0898}} 
+\mbox{\hyperlink{classIXM3DataWriter_a233f9ce7652ebf77ccd3c94f303d0898}{IXM3\+Data\+Writer}} (Post\+Processor\+Writer\+Base $\ast$post\+\_\+pro\+\_\+base, IMesh $\ast$mesh, const Integer event\+\_\+number, const bool event\+\_\+initialized, const bool want\+\_\+face\+\_\+aid)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXM3DataWriter_ab0108fa814a5e01694b5cd211489f2cb}\label{classIXM3DataWriter_ab0108fa814a5e01694b5cd211489f2cb}} 
+virtual \mbox{\hyperlink{classIXM3DataWriter_ab0108fa814a5e01694b5cd211489f2cb}{$\sim$\+IXM3\+Data\+Writer}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXM3DataWriter_ac7d3d27bdfe74991f2e57867512b8e5c}\label{classIXM3DataWriter_ac7d3d27bdfe74991f2e57867512b8e5c}} 
+void \mbox{\hyperlink{classIXM3DataWriter_ac7d3d27bdfe74991f2e57867512b8e5c}{begin\+Write}} (const Variable\+Collection \&vars)
+\begin{DoxyCompactList}\small\item\em Add current event to global events file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXM3DataWriter_a0452cde47c8b7d94fa3e1087475e9252}\label{classIXM3DataWriter_a0452cde47c8b7d94fa3e1087475e9252}} 
+void \mbox{\hyperlink{classIXM3DataWriter_a0452cde47c8b7d94fa3e1087475e9252}{write}} (IVariable $\ast$var, IData $\ast$data)
+\begin{DoxyCompactList}\small\item\em Write the data {\itshape data} of {\itshape var} variable in the current event doc. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXM3DataWriter_a03f1d8fe34eb5e5ad1c78898fdb5cedc}\label{classIXM3DataWriter_a03f1d8fe34eb5e5ad1c78898fdb5cedc}} 
+void \mbox{\hyperlink{classIXM3DataWriter_a03f1d8fe34eb5e5ad1c78898fdb5cedc}{end\+Write}} ()
+\begin{DoxyCompactList}\small\item\em Write current event doc and free memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXM3DataWriter_a7bb9df12048b897c5a1f9f530a3cdfc9}\label{classIXM3DataWriter_a7bb9df12048b897c5a1f9f530a3cdfc9}} 
+void \mbox{\hyperlink{classIXM3DataWriter_a7bb9df12048b897c5a1f9f530a3cdfc9}{set\+Meta\+Data}} (const String \&meta\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Set meta data (xml info created by Variable\+Mng node $<$arcane-\/checkpoint-\/metadata$>$. Stored but not used at present. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 24 of file IXM3\+Data\+Writer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM3/IXM3\+Data\+Writer.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM3/IXM3\+Data\+Writer.\+cc\end{DoxyCompactItemize}

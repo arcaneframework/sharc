@@ -1,0 +1,4 @@
+var structNotMatchingSurfaceProperty_1_1Support_3_01NotMatchingSurfaceProperty_1_1PDoubleCorefinementDistance_01_4 =
+[
+    [ "type", "structNotMatchingSurfaceProperty_1_1Support_3_01NotMatchingSurfaceProperty_1_1PDoubleCorefinementDistance_01_4.html#ad569b0160106f8eb8efd37a43fb454f6", null ]
+];

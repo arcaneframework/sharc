@@ -1,0 +1,79 @@
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse du code source \end{quote}
+\hypertarget{md__tmp_opencode_sharc_src_ExaDiBench_README_autotoc_md48}{}\doxysection{📋 Table des matières}\label{md__tmp_opencode_sharc_src_ExaDiBench_README_autotoc_md48}
+
+\begin{DoxyItemize}
+\item \href{\#description}{\texttt{ Description}}
+\item \href{\#fonctionnalit\%C3\%A9s}{\texttt{ Fonctionnalités}}
+\item \href{\#pr\%C3\%A9requis}{\texttt{ Prérequis}}
+\item \href{\#installation}{\texttt{ Installation}}
+\item \href{\#utilisation}{\texttt{ Utilisation}}
+\item \href{\#api--interface}{\texttt{ API / Interface}}
+\item \href{\#architecture}{\texttt{ Architecture}}
+\item \href{\#d\%C3\%A9pendances}{\texttt{ Dépendances}}
+\item \href{\#configuration}{\texttt{ Configuration}}
+\item \href{\#ressources}{\texttt{ Ressources}}
+\end{DoxyItemize}\hypertarget{md__tmp_opencode_sharc_src_ExaDiBench_README_autotoc_md49}{}\doxysection{Description}\label{md__tmp_opencode_sharc_src_ExaDiBench_README_autotoc_md49}
+Le module {\ttfamily Exa\+Di\+Bench} fournit un banc de test géométrique et maillage pour Sh\+Arc / Arc\+Geo\+Sim. Il est utilisé pour des scénarios de benchmark (Exa\+Di\+Bench) qui mesurent notamment \+:
+
+
+\begin{DoxyItemize}
+\item la robustesse de l’infrastructure de maillage Arcane/\+Arc\+Geo\+Sim,
+\item la précision et la cohérence des propriétés géométriques (volume, surface, centre),
+\item le comportement de l’export de maillage vers différents formats (VTK legacy, MSH, IXM),
+\item la sensibilité des quantités géométriques à de petites perturbations aléatoires des coordonnées.
+\begin{DoxyItemize}
+\item VTK legacy ({\ttfamily Vtk\+Legacy\+Mesh\+Writer}) si {\ttfamily export\+Vtk} est activé.
+\item Gmsh {\ttfamily .msh} ({\ttfamily Msh\+New\+Mesh\+Writer}) si {\ttfamily export\+Msh} est activé.
+\item IXM ({\ttfamily \mbox{\hyperlink{classIXMMeshWriter}{IXMMesh\+Writer}}}) si {\ttfamily export\+Ixm} est activé.
+\item Construction de {\ttfamily Border\+Nodes} et {\ttfamily Border\+Faces} à partir des faces de domaine.
+\item Vérification que le groupe {\ttfamily Outer\+Faces} correspond au groupe des faces de bord calculées.
+\item Volume des cellules ({\ttfamily IGeometry\+Property\+::\+PVolume}).
+\item Aire des faces de bord ({\ttfamily IGeometry\+Property\+::\+PArea}).
+\item Centres de cellules ({\ttfamily IGeometry\+Property\+::\+PCenter}).
+\item Possibilité d’utiliser un stockage externe pour ces propriétés.
+\item Déplacement des noeuds internes par une perturbation aléatoire de norme contrôlée ({\ttfamily factor}).
+\item Mise à jour de la géométrie après perturbation.
+\item {\ttfamily volume\+Compute()} \+: somme des volumes des cellules, avec comparaison à la mesure calculée par {\ttfamily \mbox{\hyperlink{classIGeometry}{IGeometry}}}.
+\item {\ttfamily surface\+Compute()} \+: somme des aires des faces de bord, avec comparaison à {\ttfamily \mbox{\hyperlink{classIGeometry}{IGeometry}}}.
+\item {\ttfamily center\+Compute()} \+: moyenne des centres de cellules.
+\item Affichage de l’amplitude locale (min/max) des volumes et aires.
+\item \mbox{\hyperlink{namespaceArcane}{Arcane}} (maillage, services, IMesh\+Writer, time loop, IParallel\+Mng).
+\item Arc\+Geo\+Sim (\mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}, \mbox{\hyperlink{classIGeometry}{IGeometry}}, \mbox{\hyperlink{classPolyhedralGeometry}{Polyhedral\+Geometry}}, \mbox{\hyperlink{classItemGroupBuilder}{Item\+Group\+Builder}}). Arc\+Geo\+Sim / \mbox{\hyperlink{namespaceArcaneInfra}{Arcane\+Infra}}.
+\begin{DoxyItemize}
+\item Exporte le maillage dans les formats demandés ({\ttfamily export\+Vtk}, {\ttfamily export\+Msh}, {\ttfamily export\+Ixm}).
+\item Applique un raffinement éventuel via {\ttfamily refine\+Mesh(level)} (actuellement non implémenté).
+\item Construit les groupes {\ttfamily Border\+Nodes} et {\ttfamily Border\+Faces} à partir des faces de domaine.
+\item Vérifie la cohérence du groupe {\ttfamily Outer\+Faces}.
+\item Initialise {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}} et {\ttfamily \mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}}} ({\ttfamily \mbox{\hyperlink{classNoOptimizationGeometryPolicy}{No\+Optimization\+Geometry\+Policy}}}).
+\item Ajoute les propriétés géométriques (volume, aire, centre) et les met à jour.
+\item Calcule et affiche le volume, la surface et le centre globaux (après réduction parallèle).
+\item Réinitialise le checker de noeuds de bord si nécessaire.
+\item Perturbe les coordonnées des noeuds internes (non-\/bord) avec un déplacement aléatoire de norme contrôlée par {\ttfamily factor} \+:
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{VariableNodeReal3\& coords = PRIMARYMESH\_CAST(mesh())-\/>nodesCoordinates();}
+\DoxyCodeLine{ENUMERATE\_NODE(inode,ownNodes()) \{}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (not m\_border\_node\_checker.hasKey(*inode)) \{}
+\DoxyCodeLine{    \textcolor{keyword}{const} Real r = drand48()*factor;}
+\DoxyCodeLine{    \textcolor{keyword}{const} Real theta = twopi*drand48();}
+\DoxyCodeLine{    \textcolor{keyword}{const} Real phi = twopi*drand48();}
+\DoxyCodeLine{    coords[inode] += r * \mbox{\hyperlink{structReal3}{Real3}}(cos(theta), sin(theta)*cos(phi), sin(theta)*sin(phi));}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{coords.synchronize();}
+\DoxyCodeLine{options()-\/>geometry()-\/>update(m\_geometry\_policy);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Recalcule volume, surface et centre après perturbation.
+\item Pour l’instant se contente de logguer un message \char`\"{}not yet implemented\char`\"{}.
+\item Fonction placeholder pour restaurer l’état d’un maillage (actuellement simple log message). 
+\end{DoxyItemize}

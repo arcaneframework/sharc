@@ -1,0 +1,119 @@
+\hypertarget{classConstantFunction}{}\doxysection{Constant\+Function Class Reference}
+\label{classConstantFunction}\index{ConstantFunction@{ConstantFunction}}
+
+
+Inherits \mbox{\hyperlink{classIFunctionR1vR1}{IFunction\+R1v\+R1}}.
+
+
+
+Inherited by \mbox{\hyperlink{classConstantFunctionService}{Constant\+Function\+Service}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConstantFunction_a0fcf4ca6c6fb4a5a34c9725c51566728}\label{classConstantFunction_a0fcf4ca6c6fb4a5a34c9725c51566728}} 
+\mbox{\hyperlink{classConstantFunction_a0fcf4ca6c6fb4a5a34c9725c51566728}{Constant\+Function}} (ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a54945e21e0e85bc19ea8c55ded123149}\label{classConstantFunction_a54945e21e0e85bc19ea8c55ded123149}} 
+virtual \mbox{\hyperlink{classConstantFunction_a54945e21e0e85bc19ea8c55ded123149}{$\sim$\+Constant\+Function}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a991d876b1799e31fd785691ae601310c}\label{classConstantFunction_a991d876b1799e31fd785691ae601310c}} 
+void \mbox{\hyperlink{classConstantFunction_a991d876b1799e31fd785691ae601310c}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a99b775ec1e971c90b219e5984b40df9d}\label{classConstantFunction_a99b775ec1e971c90b219e5984b40df9d}} 
+void \mbox{\hyperlink{classConstantFunction_a99b775ec1e971c90b219e5984b40df9d}{set\+Parameter}} (const String \&name, const Real \&parameter)
+\begin{DoxyCompactList}\small\item\em Setting parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a95fc9691244536482dc0720abff36ada}\label{classConstantFunction_a95fc9691244536482dc0720abff36ada}} 
+void {\bfseries set\+Parameter} (Integer index, const Real \&parameter)
+\item 
+\mbox{\Hypertarget{classConstantFunction_a4d732ce341f6b01ba04adce0d20cc4b9}\label{classConstantFunction_a4d732ce341f6b01ba04adce0d20cc4b9}} 
+Integer \mbox{\hyperlink{classConstantFunction_a4d732ce341f6b01ba04adce0d20cc4b9}{nb\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_affd12deb4376e78d4a18bdfbcb5df341}\label{classConstantFunction_affd12deb4376e78d4a18bdfbcb5df341}} 
+String \mbox{\hyperlink{classConstantFunction_affd12deb4376e78d4a18bdfbcb5df341}{parameter\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_ad3b941314e4e104e50bd1831082abd16}\label{classConstantFunction_ad3b941314e4e104e50bd1831082abd16}} 
+void \mbox{\hyperlink{classConstantFunction_ad3b941314e4e104e50bd1831082abd16}{set\+Variable}} (const String \&name, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\begin{DoxyCompactList}\small\item\em Setting vectorized variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a53ef1df40343b571e0e4746f64592cd8}\label{classConstantFunction_a53ef1df40343b571e0e4746f64592cd8}} 
+void {\bfseries set\+Variable} (Integer index, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\item 
+\mbox{\Hypertarget{classConstantFunction_ab92aa268c88c5a56e35db441dad60794}\label{classConstantFunction_ab92aa268c88c5a56e35db441dad60794}} 
+Integer \mbox{\hyperlink{classConstantFunction_ab92aa268c88c5a56e35db441dad60794}{nb\+Variable}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a1da49ce42a8e7b15e1710d6e0cc843be}\label{classConstantFunction_a1da49ce42a8e7b15e1710d6e0cc843be}} 
+String \mbox{\hyperlink{classConstantFunction_a1da49ce42a8e7b15e1710d6e0cc843be}{variable\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a15a28c9fba70f59475b46084c932816f}\label{classConstantFunction_a15a28c9fba70f59475b46084c932816f}} 
+void \mbox{\hyperlink{classConstantFunction_a15a28c9fba70f59475b46084c932816f}{set\+Evaluation\+Result}} (\mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\begin{DoxyCompactList}\small\item\em Setting evaluation vectorized result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{di variable}
+\label{_amgrp9b891d0d476eb766c3bec3466e651596}%
+Setting derivation vectorized result
+
+Derivation following \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConstantFunction_abfe91b47f556d1770784823aa2512990}\label{classConstantFunction_abfe91b47f556d1770784823aa2512990}} 
+ITrace\+Mng $\ast$ \mbox{\hyperlink{classConstantFunction_abfe91b47f556d1770784823aa2512990}{m\+\_\+trace\+\_\+mng}}
+\begin{DoxyCompactList}\small\item\em Trace manager. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_aa71ed8d93c4893515e2fbd6d7c3a3208}\label{classConstantFunction_aa71ed8d93c4893515e2fbd6d7c3a3208}} 
+String \mbox{\hyperlink{classConstantFunction_aa71ed8d93c4893515e2fbd6d7c3a3208}{m\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structVariable}{Variable}} name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_af625020bef577cb3e2000057127f8d72}\label{classConstantFunction_af625020bef577cb3e2000057127f8d72}} 
+Real {\bfseries m\+\_\+value}
+\item 
+\mbox{\Hypertarget{classConstantFunction_ab8528bab946e8ce1c2b538bd01c10248}\label{classConstantFunction_ab8528bab946e8ce1c2b538bd01c10248}} 
+Real\+Array\+View {\bfseries m\+\_\+eval\+\_\+result}
+\item 
+\mbox{\Hypertarget{classConstantFunction_a4301d1baf45112e7004aae3b6e740d66}\label{classConstantFunction_a4301d1baf45112e7004aae3b6e740d66}} 
+Real\+Array\+View {\bfseries m\+\_\+diff\+\_\+result}
+\item 
+\mbox{\Hypertarget{classConstantFunction_a0967e6e8dba608b6770f228b67053a7c}\label{classConstantFunction_a0967e6e8dba608b6770f228b67053a7c}} 
+void {\bfseries set\+Derivation\+Result} (Integer di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classConstantFunction_a0565a086a8546e587c4759d209d6a6ef}\label{classConstantFunction_a0565a086a8546e587c4759d209d6a6ef}} 
+void {\bfseries set\+Derivation\+Result} (const String \&di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classConstantFunction_a5f1753d29e1881d973ee4bda36c43d3b}\label{classConstantFunction_a5f1753d29e1881d973ee4bda36c43d3b}} 
+void \mbox{\hyperlink{classConstantFunction_a5f1753d29e1881d973ee4bda36c43d3b}{eval}} ()
+\begin{DoxyCompactList}\small\item\em Eval vectorized data service function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_af2b321f59c8ecf4d761cee1ce05cd9db}\label{classConstantFunction_af2b321f59c8ecf4d761cee1ce05cd9db}} 
+void \mbox{\hyperlink{classConstantFunction_af2b321f59c8ecf4d761cee1ce05cd9db}{cleanup}} ()
+\begin{DoxyCompactList}\small\item\em Cleanup. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a6446e595725a8b57d5179e0135a13435}\label{classConstantFunction_a6446e595725a8b57d5179e0135a13435}} 
+Real \mbox{\hyperlink{classConstantFunction_a6446e595725a8b57d5179e0135a13435}{eval}} (const Real \&var0)
+\begin{DoxyCompactList}\small\item\em Point-\/wise evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_afa649f684047d5bc46d239f2cab88e64}\label{classConstantFunction_afa649f684047d5bc46d239f2cab88e64}} 
+void {\bfseries eval} (const Real \&var0, Real \&res0)
+\item 
+\mbox{\Hypertarget{classConstantFunction_ade7872dab64aa0cf2f4c09d5d2419e1c}\label{classConstantFunction_ade7872dab64aa0cf2f4c09d5d2419e1c}} 
+void \mbox{\hyperlink{classConstantFunction_ade7872dab64aa0cf2f4c09d5d2419e1c}{eval}} (const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&var0, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a7ae19758fe7c77fc506e782cc21ad61d}\label{classConstantFunction_a7ae19758fe7c77fc506e782cc21ad61d}} 
+void \mbox{\hyperlink{classConstantFunction_a7ae19758fe7c77fc506e782cc21ad61d}{eval}} (const Const\+Array\+View$<$ Real $>$ var0, Array\+View$<$ Real $>$ res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a20cc78ba0041233a5a3c728884b001ec}\label{classConstantFunction_a20cc78ba0041233a5a3c728884b001ec}} 
+void \mbox{\hyperlink{classConstantFunction_a20cc78ba0041233a5a3c728884b001ec}{eval}} (const Real \&var0, Real \&res0, Real \&diffres0)
+\begin{DoxyCompactList}\small\item\em Coupled function and derivative scalar evaluation (temporary\+: derivation handling in \mbox{\hyperlink{classIFunction}{IFunction}} still to be defined) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_a64ff6cbf2eb4fcf08ba1b921659e9fc1}\label{classConstantFunction_a64ff6cbf2eb4fcf08ba1b921659e9fc1}} 
+Real \mbox{\hyperlink{classConstantFunction_a64ff6cbf2eb4fcf08ba1b921659e9fc1}{diff\+Eval}} (const Real \&variable)
+\begin{DoxyCompactList}\small\item\em Point-\/wise derivation (temporary\+: derivation handling in \mbox{\hyperlink{classIFunction}{IFunction}} still to be defined) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_af1a65985e962f45b0610b2343477816b}\label{classConstantFunction_af1a65985e962f45b0610b2343477816b}} 
+void \mbox{\hyperlink{classConstantFunction_af1a65985e962f45b0610b2343477816b}{set\+Variable\+Name}} (const String \&name)
+\begin{DoxyCompactList}\small\item\em Setting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantFunction_ab9e6f14aa3a7bef6a9e025079848d3fc}\label{classConstantFunction_ab9e6f14aa3a7bef6a9e025079848d3fc}} 
+void \mbox{\hyperlink{classConstantFunction_ab9e6f14aa3a7bef6a9e025079848d3fc}{set\+Constant}} (const Real \&value)
+\begin{DoxyCompactList}\small\item\em Setting constant value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 19 of file Constant\+Function.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Constant\+Function/Constant\+Function.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Constant\+Function/Constant\+Function.\+cc\end{DoxyCompactItemize}

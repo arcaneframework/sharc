@@ -1,0 +1,58 @@
+\hypertarget{classDataToTransfer}{}\doxysection{Data\+To\+Transfer Class Reference}
+\label{classDataToTransfer}\index{DataToTransfer@{DataToTransfer}}
+
+
+Inherited by \mbox{\hyperlink{classVariableCellArrayReal3DataToTransfer}{Variable\+Cell\+Array\+Real3\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableCellArrayRealDataToTransfer}{Variable\+Cell\+Array\+Real\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableCellArrayRealExtensiveDataToTransfer}{Variable\+Cell\+Array\+Real\+Extensive\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableCellIntegerDataToTransfer}{Variable\+Cell\+Integer\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableCellReal3DataToTransfer}{Variable\+Cell\+Real3\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableCellReal3x3DataToTransfer}{Variable\+Cell\+Real3x3\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableCellRealDataToTransfer}{Variable\+Cell\+Real\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableFaceArrayRealDataToTransfer}{Variable\+Face\+Array\+Real\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableFaceInt64DataToTransfer}{Variable\+Face\+Int64\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableFaceIntegerDataToTransfer}{Variable\+Face\+Integer\+Data\+To\+Transfer}}, \mbox{\hyperlink{classVariableFaceRealDataToTransfer}{Variable\+Face\+Real\+Data\+To\+Transfer}}, and \mbox{\hyperlink{classVariableParticleCellRealDataToTransfer}{Variable\+Particle\+Cell\+Real\+Data\+To\+Transfer}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataToTransfer_a624a8d5322344703ed7d148147de23e5}\label{classDataToTransfer_a624a8d5322344703ed7d148147de23e5}} 
+enum {\bfseries e\+Data\+Kind} \{ {\bfseries PK\+\_\+\+Variable}
+, {\bfseries PK\+\_\+\+Vector}
+, {\bfseries PK\+\_\+\+Tensor}
+, {\bfseries PK\+\_\+\+Array}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataToTransfer_adfcbe8a7b70a26bf5cbc4171159da4d8}\label{classDataToTransfer_adfcbe8a7b70a26bf5cbc4171159da4d8}} 
+\mbox{\hyperlink{classDataToTransfer_adfcbe8a7b70a26bf5cbc4171159da4d8}{Data\+To\+Transfer}} (String name, e\+Data\+Kind data\+\_\+kind)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDataToTransfer_a4abe7e8713d4eb13557b5bca76001864}\label{classDataToTransfer_a4abe7e8713d4eb13557b5bca76001864}} 
+virtual \mbox{\hyperlink{classDataToTransfer_a4abe7e8713d4eb13557b5bca76001864}{$\sim$\+Data\+To\+Transfer}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDataToTransfer_a0e07dba764a64aec3aa39966cd4d5313}\label{classDataToTransfer_a0e07dba764a64aec3aa39966cd4d5313}} 
+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{classDataToTransfer_a8c2c8a8cd1adf28617c4fee43a906f0c}\label{classDataToTransfer_a8c2c8a8cd1adf28617c4fee43a906f0c}} 
+e\+Data\+Kind {\bfseries kind} () const
+\item 
+\mbox{\Hypertarget{classDataToTransfer_a2d6cd7671087bc0b708f0abe27666e4c}\label{classDataToTransfer_a2d6cd7671087bc0b708f0abe27666e4c}} 
+virtual void {\bfseries interpolate\+P0} (\mbox{\hyperlink{classArray}{Array}}$<$ Item\+Internal $\ast$ $>$ \&parents)
+\item 
+\mbox{\Hypertarget{classDataToTransfer_a823de798a0c87c5dfe4a41ce3a705389}\label{classDataToTransfer_a823de798a0c87c5dfe4a41ce3a705389}} 
+virtual void {\bfseries upscale\+P0} (\mbox{\hyperlink{classArray}{Array}}$<$ Item\+Internal $\ast$ $>$ \&parents)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataToTransfer_aefb05ec25dc2e833f04fe0405046b242}\label{classDataToTransfer_aefb05ec25dc2e833f04fe0405046b242}} 
+String {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{classDataToTransfer_aa184defcb6a5d1d5aac50f9dbd9514ec}\label{classDataToTransfer_aa184defcb6a5d1d5aac50f9dbd9514ec}} 
+e\+Data\+Kind {\bfseries m\+\_\+data\+\_\+kind}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 23 of file Data\+To\+Transfer.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+AMRData\+Transfer/Data\+To\+Transfer.\+h\end{DoxyCompactItemize}

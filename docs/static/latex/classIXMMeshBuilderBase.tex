@@ -1,0 +1,275 @@
+\hypertarget{classIXMMeshBuilderBase}{}\doxysection{IXMMesh\+Builder\+Base Class Reference}
+\label{classIXMMeshBuilderBase}\index{IXMMeshBuilderBase@{IXMMeshBuilderBase}}
+
+
+Inherits Arcane\+::\+Trace\+Accessor.
+
+
+
+Inherited by \mbox{\hyperlink{classIXMStaticMeshBuilder}{IXMStatic\+Mesh\+Builder}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedCellData}{Changed\+Cell\+Data}}
+\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedEdgeData}{Changed\+Edge\+Data}}
+\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedFaceData}{Changed\+Face\+Data}}
+\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedNodeData}{Changed\+Node\+Data}}
+\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionDescription}{Connection\+Description}}
+\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionItems}{Connection\+Items}}
+\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1GroupChangeInfo}{Group\+Change\+Info}}
+\begin{DoxyCompactList}\small\item\em Structure interne de gestion des groupes. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structIXMMeshBuilderBase_1_1RemovedCellData}{Removed\+Cell\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIXMMeshBuilderBase_a38b3ebb087cf2104369c9554080861aa}{IXMMesh\+Builder\+Base}} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+ITrace\+Mng $\ast$trace\+Mng, Arcane\+::\+IParallel\+Mng $\ast$parallel\+Mng, IXMMesh\+Type mesh\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Classe d\textquotesingle{}implementation a usage interne uniquement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aa7149005fcd4cd1ee871094b621f988b}\label{classIXMMeshBuilderBase_aa7149005fcd4cd1ee871094b621f988b}} 
+virtual \mbox{\hyperlink{classIXMMeshBuilderBase_aa7149005fcd4cd1ee871094b621f988b}{$\sim$\+IXMMesh\+Builder\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ae398f5daff08deaf3b9ad4f3270d4b74}\label{classIXMMeshBuilderBase_ae398f5daff08deaf3b9ad4f3270d4b74}} 
+void {\bfseries static\+Init} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aef4ae1a8bc8aad42397615e183bdf2b6}\label{classIXMMeshBuilderBase_aef4ae1a8bc8aad42397615e183bdf2b6}} 
+void {\bfseries evolutive\+Init} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a7a016d233dbebf9e01648515fe8aaca7}\label{classIXMMeshBuilderBase_a7a016d233dbebf9e01648515fe8aaca7}} 
+bool \mbox{\hyperlink{classIXMMeshBuilderBase_a7a016d233dbebf9e01648515fe8aaca7}{manage\+Cell\+Operations}} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh, const \mbox{\hyperlink{structIXMItemData}{IXMCell\+Data}} \&new\+\_\+cells, const \mbox{\hyperlink{structIXMItemData}{IXMCell\+Data}} \&removed\+\_\+cells, const \mbox{\hyperlink{structIXMItemData}{IXMCell\+Data}} \&changed\+\_\+cells, const \mbox{\hyperlink{structIXMCellIncrementPartitionInfo}{IXMCell\+Increment\+Partition\+Info}} \&cell\+\_\+partition\+\_\+info=\mbox{\hyperlink{structIXMCellIncrementPartitionInfo}{IXMCell\+Increment\+Partition\+Info}}(), const bool check=false)
+\begin{DoxyCompactList}\small\item\em Gestion des operations de base sur les cellules. Peut decrire un increment de maillage evolutif ou une creation de maillage statique. Dans ce dernier cas les tableaux removed\+\_\+cells et changed sont vides et on ne donne pas le cell\+\_\+partition\+\_\+info Le booleen retourne indique si la topologie a change. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ab80f38b302184cbe68dd6f79194d538e}\label{classIXMMeshBuilderBase_ab80f38b302184cbe68dd6f79194d538e}} 
+bool \mbox{\hyperlink{classIXMMeshBuilderBase_ab80f38b302184cbe68dd6f79194d538e}{manage\+Updated\+Nodes}} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh, const \mbox{\hyperlink{structIXMItemData}{IXMNode\+Data}} \&added\+\_\+nodes, const \mbox{\hyperlink{structIXMItemData}{IXMCloned\+Node\+Data}} \&cloned\+\_\+nodes, const bool check=false)
+\begin{DoxyCompactList}\small\item\em Gestion des operations de noeuds. Utilisable pour maillage evolutif ou statique. Dans le cas statique, la structure cloned\+\_\+nodes sera vide. Le booleen retourne indique si la topologie a change. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ae08d3ecbc55b9a76224094571e04b4cb}\label{classIXMMeshBuilderBase_ae08d3ecbc55b9a76224094571e04b4cb}} 
+bool \mbox{\hyperlink{classIXMMeshBuilderBase_ae08d3ecbc55b9a76224094571e04b4cb}{manage\+Group}} (Arcane\+::\+IMesh $\ast$mesh, const \mbox{\hyperlink{structIXMGroupData}{IXMGroup\+Data}} group\+\_\+data, const Arcane\+::\+String \&group\+\_\+operation, const \mbox{\hyperlink{classIXMUidToLidMng}{IXMUid\+To\+Lid\+Mng}} \&uid2lid\+\_\+mng, const bool check=false)
+\begin{DoxyCompactList}\small\item\em Gestion des operations de noeuds. Utilisable pour maillage evolutif ou statique. Dans le cas statique, la chaine group\+\_\+operation sera vide. Le booleen retourne indique si la topologie a change. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ade248a950173c27d6b344a80eea0bec4}\label{classIXMMeshBuilderBase_ade248a950173c27d6b344a80eea0bec4}} 
+void \mbox{\hyperlink{classIXMMeshBuilderBase_ade248a950173c27d6b344a80eea0bec4}{add\+Connections}} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh, const \mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&connection\+\_\+data, \mbox{\hyperlink{classIXMUidToLidMng}{IXMUid\+To\+Lid\+Mng}} \&uid2lid\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Ajout des connections. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ac025b1369a55f772ccc836e6fe18c3f9}\label{classIXMMeshBuilderBase_ac025b1369a55f772ccc836e6fe18c3f9}} 
+void \mbox{\hyperlink{classIXMMeshBuilderBase_ac025b1369a55f772ccc836e6fe18c3f9}{apply\+Mesh\+Partition\+Constraints}} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Ajout de contraintes sur le partionneur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a2b744be54765f75edd8b0c981fafeca0}\label{classIXMMeshBuilderBase_a2b744be54765f75edd8b0c981fafeca0}} 
+Arcane\+::\+Cell\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a2b744be54765f75edd8b0c981fafeca0}{to\+Remove\+Cells}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des cellules en cours de suppression. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a638f68b4a92dbe6d4d2e70e252e193ce}\label{classIXMMeshBuilderBase_a638f68b4a92dbe6d4d2e70e252e193ce}} 
+Arcane\+::\+Cell\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a638f68b4a92dbe6d4d2e70e252e193ce}{new\+Cells}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des nouvelles cellules. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a9ce77c912eb97a416d4dbf2b713b171f}\label{classIXMMeshBuilderBase_a9ce77c912eb97a416d4dbf2b713b171f}} 
+Arcane\+::\+Node\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a9ce77c912eb97a416d4dbf2b713b171f}{new\+Nodes}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des nouveaux noeuds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aeb5e30cc91c75244b8599490099ea03d}\label{classIXMMeshBuilderBase_aeb5e30cc91c75244b8599490099ea03d}} 
+Arcane\+::\+Node\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_aeb5e30cc91c75244b8599490099ea03d}{twin\+Nodes}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des noeuds jumeaux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a49ef4e4cd21e834dc1d79980fb01511d}\label{classIXMMeshBuilderBase_a49ef4e4cd21e834dc1d79980fb01511d}} 
+Arcane\+::\+Face\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a49ef4e4cd21e834dc1d79980fb01511d}{new\+Faces}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des nouvelles faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_abf3965606ef1d3fcbd994665c8b0ac08}\label{classIXMMeshBuilderBase_abf3965606ef1d3fcbd994665c8b0ac08}} 
+Arcane\+::\+Face\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_abf3965606ef1d3fcbd994665c8b0ac08}{twin\+Faces}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des faces jumelles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ae33fbddb17bd7da9e6b078af6329846c}\label{classIXMMeshBuilderBase_ae33fbddb17bd7da9e6b078af6329846c}} 
+Arcane\+::\+Cell\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_ae33fbddb17bd7da9e6b078af6329846c}{updated\+Cells}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des cellules topologiquement modifiees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_acbf875741c76b8f33cda1a51c1d09203}\label{classIXMMeshBuilderBase_acbf875741c76b8f33cda1a51c1d09203}} 
+Arcane\+::\+Node\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_acbf875741c76b8f33cda1a51c1d09203}{updated\+Nodes}} ()
+\begin{DoxyCompactList}\small\item\em Groupe des noeuds topologiquement modifies. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a9f1374ab3aad7c8c9c2c3f29b6f0536f}\label{classIXMMeshBuilderBase_a9f1374ab3aad7c8c9c2c3f29b6f0536f}} 
+Arcane\+::\+Item\+Group\+Collection \mbox{\hyperlink{classIXMMeshBuilderBase_a9f1374ab3aad7c8c9c2c3f29b6f0536f}{changed\+Groups}} ()
+\begin{DoxyCompactList}\small\item\em Ensemble des groupes ayant ete modifies. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a461b0c44845796cbe78688d4d82d9241}\label{classIXMMeshBuilderBase_a461b0c44845796cbe78688d4d82d9241}} 
+bool \mbox{\hyperlink{classIXMMeshBuilderBase_a461b0c44845796cbe78688d4d82d9241}{has\+Changed\+Group}} (const Item\+Group group)
+\begin{DoxyCompactList}\small\item\em Indique si un groupe a change (hors groupe globaux) \end{DoxyCompactList}\item 
+Arcane\+::\+Integer \mbox{\hyperlink{classIXMMeshBuilderBase_aa2951ebf0cc76e768b4b8d68d43ac5cc}{group\+Change\+Types}} (const Item\+Group group)
+\begin{DoxyCompactList}\small\item\em Indique les types de changement sur un groupe donne (hors groupes globaux) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aa43979190b2049be0df296f9eb55a3e7}\label{classIXMMeshBuilderBase_aa43979190b2049be0df296f9eb55a3e7}} 
+Arcane\+::\+Item\+Vector \mbox{\hyperlink{classIXMMeshBuilderBase_aa43979190b2049be0df296f9eb55a3e7}{group\+Changes}} (const Item\+Group group, Evolutive\+Mesh\+Property\+::e\+Group\+Event event, const bool check)
+\begin{DoxyCompactList}\small\item\em Liste des items constituants la modification lie a l\textquotesingle{}evenement \char`\"{}event\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ab34b612ac76d5135ab0fc22c16ffc198}\label{classIXMMeshBuilderBase_ab34b612ac76d5135ab0fc22c16ffc198}} 
+{\footnotesize template$<$class First\+Dual\+Item\+Kind $>$ }\\void {\bfseries \+\_\+build\+Link\+InfoT} (const Arcane\+::\+Item\+Vector\+ViewT$<$ First\+Dual\+Item\+Kind $>$ \&connection\+\_\+first\+\_\+items, const \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionItems}{Connection\+Items}} \&connection\+\_\+second\+\_\+items, const Connection\+Descriptions \&connection\+\_\+description, const Arcane\+::\+Integer first\+\_\+item\+\_\+type, Arcane\+::\+Int64\+Shared\+Array \&link\+\_\+infos, Arc\+Geo\+Sim\+::\+IXMTools\+::\+IXMConnection\+Data \&connection\+\_\+mapping\+\_\+info) const
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_abf8d39440c50db0554f568dae604c63c}\label{classIXMMeshBuilderBase_abf8d39440c50db0554f568dae604c63c}} 
+{\footnotesize template$<$class First\+Dual\+Item\+Kind , class Second\+Dual\+Item\+Kind $>$ }\\void {\bfseries \+\_\+build\+Link\+Info\+BaseT} (const Arcane\+::\+Item\+Vector\+ViewT$<$ First\+Dual\+Item\+Kind $>$ \&connection\+\_\+first\+\_\+items, const Arcane\+::\+Item\+Vector\+ViewT$<$ Second\+Dual\+Item\+Kind $>$ \&connection\+\_\+second\+\_\+items, const Connection\+Descriptions \&connection\+\_\+descriptions, const Arcane\+::\+Integer connection\+\_\+type, Arcane\+::\+Int64\+Shared\+Array \&link\+\_\+infos, Arc\+Geo\+Sim\+::\+IXMTools\+::\+IXMConnection\+Data \&connection\+\_\+mapping\+\_\+info) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_acd0b22ab869451ca3787f7ab6e96ab70}\label{classIXMMeshBuilderBase_acd0b22ab869451ca3787f7ab6e96ab70}} 
+typedef std\+::map$<$ Arcane\+::\+Item\+Group\+Impl $\ast$, \mbox{\hyperlink{structIXMMeshBuilderBase_1_1GroupChangeInfo}{Group\+Change\+Info}} $>$ \mbox{\hyperlink{classIXMMeshBuilderBase_acd0b22ab869451ca3787f7ab6e96ab70}{Group\+Change\+Map}}
+\begin{DoxyCompactList}\small\item\em Type interne des modifications de groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a51e60c6357682f387b6c8d4e451e5a5d}\label{classIXMMeshBuilderBase_a51e60c6357682f387b6c8d4e451e5a5d}} 
+typedef std\+::set$<$ Arcane\+::\+IItem\+Family $\ast$ $>$ {\bfseries IItem\+Family\+Set}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aae967d08f7ad1d9c77ad195c0de85cae}\label{classIXMMeshBuilderBase_aae967d08f7ad1d9c77ad195c0de85cae}} 
+typedef Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionDescription}{Connection\+Description}} $>$ {\bfseries Connection\+Description\+Array}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_abdfa7ac19a69d06ce0ed2341c718829c}\label{classIXMMeshBuilderBase_abdfa7ac19a69d06ce0ed2341c718829c}} 
+typedef Arcane\+::\+Integer {\bfseries Connection\+Type}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a61d0ffdd8ff3efb816e4008ad2e2e00f}\label{classIXMMeshBuilderBase_a61d0ffdd8ff3efb816e4008ad2e2e00f}} 
+typedef std\+::map$<$ Connection\+Type, Connection\+Description\+Array $>$ {\bfseries Connection\+Descriptions}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a81944a0aefb8b87887b1b870ebb229b4}\label{classIXMMeshBuilderBase_a81944a0aefb8b87887b1b870ebb229b4}} 
+void {\bfseries \+\_\+find\+All\+Cell\+Child\+Families} (Arcane\+::\+IItem\+Family $\ast$family, Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedCellData}{Changed\+Cell\+Data}} $>$ \&child\+\_\+array, IItem\+Family\+Set \&scanned\+\_\+families)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aee6fd65253eada21d64c35f2a0ec8471}\label{classIXMMeshBuilderBase_aee6fd65253eada21d64c35f2a0ec8471}} 
+void {\bfseries \+\_\+find\+All\+Face\+Child\+Families} (Arcane\+::\+IItem\+Family $\ast$family, Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedFaceData}{Changed\+Face\+Data}} $>$ \&child\+\_\+array, IItem\+Family\+Set \&scanned\+\_\+families)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aad24803ea278ecdf7d046d4c757b3b58}\label{classIXMMeshBuilderBase_aad24803ea278ecdf7d046d4c757b3b58}} 
+void {\bfseries \+\_\+find\+All\+Node\+Child\+Families} (Arcane\+::\+IItem\+Family $\ast$family, Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedNodeData}{Changed\+Node\+Data}} $>$ \&child\+\_\+array, IItem\+Family\+Set \&scanned\+\_\+families)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a7ab9eb1baa04f0d2515d041df7f9a60f}\label{classIXMMeshBuilderBase_a7ab9eb1baa04f0d2515d041df7f9a60f}} 
+void {\bfseries \+\_\+find\+All\+Edge\+Child\+Families} (Arcane\+::\+IItem\+Family $\ast$family, Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ChangedEdgeData}{Changed\+Edge\+Data}} $>$ \&child\+\_\+array, IItem\+Family\+Set \&scanned\+\_\+families)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_abacd0928cd08be86dd33eeac4134343d}\label{classIXMMeshBuilderBase_abacd0928cd08be86dd33eeac4134343d}} 
+void {\bfseries \+\_\+find\+All\+Cell\+Child\+Families} (Arcane\+::\+IItem\+Family $\ast$family, Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{structIXMMeshBuilderBase_1_1RemovedCellData}{Removed\+Cell\+Data}} $>$ \&child\+\_\+array, IItem\+Family\+Set \&scanned\+\_\+families)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ae1dfae951b65a682b376d50a91b016c6}\label{classIXMMeshBuilderBase_ae1dfae951b65a682b376d50a91b016c6}} 
+Arcane\+::\+Int32\+Shared\+Array {\bfseries \+\_\+add\+Cells} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh, const bool need\+\_\+edge, const Arcane\+::\+Int64\+Const\+Array\+View cell\+\_\+uids, const Arcane\+::\+Int64\+Const\+Array\+View cell\+\_\+infos, const Arcane\+::\+Int64\+Const\+Array\+View cell\+\_\+connectivity\+\_\+infos, const Arcane\+::\+Int32\+Const\+Array\+View cell\+\_\+connectivity\+\_\+owners)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a22b4efb7c8eabfbb77fb2308f2838b7b}\label{classIXMMeshBuilderBase_a22b4efb7c8eabfbb77fb2308f2838b7b}} 
+void {\bfseries \+\_\+update\+Neighbor\+Owners} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh, Arcane\+::\+Cell\+Group cell\+Group)
+\item 
+void \mbox{\hyperlink{classIXMMeshBuilderBase_a78665f6542ff11f7b5628d9a679fa978}{\+\_\+extract\+Connection\+Info}} (Arcane\+::\+IPrimary\+Mesh $\ast$mesh, const \mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&connection\+\_\+data, const \mbox{\hyperlink{classIXMUidToLidMng}{IXMUid\+To\+Lid\+Mng}} \&uid2lid\+\_\+mng, \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionItems}{Connection\+Items}} \&connection\+\_\+items, Connection\+Descriptions \&connection\+\_\+descriptions)
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a464affc54d52eccdd8e912a91612eaa3}\label{classIXMMeshBuilderBase_a464affc54d52eccdd8e912a91612eaa3}} 
+void {\bfseries \+\_\+build\+Dual\+Node\+Info} (const \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionItems}{Connection\+Items}} \&connection\+\_\+items, Arcane\+::\+Int64\+Shared\+Array \&dual\+\_\+node\+\_\+infos) const
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ac742717ea34c6cb8b73e7fd6b0ff1ed2}\label{classIXMMeshBuilderBase_ac742717ea34c6cb8b73e7fd6b0ff1ed2}} 
+void {\bfseries \+\_\+build\+Link\+Info} (const \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionItems}{Connection\+Items}} \&connection\+\_\+items, const Connection\+Descriptions \&connection\+\_\+description, Arcane\+::\+Int64\+Shared\+Array \&link\+\_\+infos, \mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&connection\+\_\+mapping\+\_\+info) const
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_af56f5d4181c347919c2055118d80a057}\label{classIXMMeshBuilderBase_af56f5d4181c347919c2055118d80a057}} 
+{\footnotesize template$<$class Dual\+Item\+Kind $>$ }\\void {\bfseries \+\_\+build\+Dual\+Node\+InfoT} (const Arcane\+::\+Item\+Vector\+ViewT$<$ Dual\+Item\+Kind $>$ \&connection\+\_\+items, Arcane\+::\+Int64\+Shared\+Array \&dual\+\_\+node\+\_\+infos, const Arcane\+::\+Integer \&dual\+\_\+node\+\_\+type) const
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_abe1df808cf3c81db4c4a35fc5c7ed888}\label{classIXMMeshBuilderBase_abe1df808cf3c81db4c4a35fc5c7ed888}} 
+{\footnotesize template$<$class First\+Dual\+Item\+Kind $>$ }\\void {\bfseries \+\_\+build\+Link\+InfoT} (const Arcane\+::\+Item\+Vector\+ViewT$<$ First\+Dual\+Item\+Kind $>$ \&connection\+\_\+first\+\_\+items, const \mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionItems}{Connection\+Items}} \&connection\+\_\+second\+\_\+items, const Connection\+Descriptions \&connection\+\_\+description, const Arcane\+::\+Integer first\+\_\+item\+\_\+type, Arcane\+::\+Int64\+Shared\+Array \&link\+\_\+infos, \mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&connection\+\_\+mapping\+\_\+info) const
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aaacd979ea80cdb4d0c0dbb96f79ba3aa}\label{classIXMMeshBuilderBase_aaacd979ea80cdb4d0c0dbb96f79ba3aa}} 
+{\footnotesize template$<$class First\+Dual\+Item\+Kind , class Second\+Dual\+Item\+Kind $>$ }\\void {\bfseries \+\_\+build\+Link\+Info\+BaseT} (const Arcane\+::\+Item\+Vector\+ViewT$<$ First\+Dual\+Item\+Kind $>$ \&connection\+\_\+first\+\_\+items, const Arcane\+::\+Item\+Vector\+ViewT$<$ Second\+Dual\+Item\+Kind $>$ \&connection\+\_\+second\+\_\+items, const Connection\+Descriptions \&connection\+\_\+description, const Arcane\+::\+Integer connection\+\_\+type, Arcane\+::\+Int64\+Shared\+Array \&link\+\_\+infos, \mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&connection\+\_\+mapping\+\_\+info) const
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ab6e75b5777cd9ebd2d01aae2e63ca4ee}\label{classIXMMeshBuilderBase_ab6e75b5777cd9ebd2d01aae2e63ca4ee}} 
+void {\bfseries \+\_\+create\+All\+Connection\+Group} (Arcane\+::\+Int64\+Const\+Array\+View connection\+\_\+uids, Arcane\+::\+IMesh $\ast$mesh)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ad390dc127dfb249014d3d01b7a883439}\label{classIXMMeshBuilderBase_ad390dc127dfb249014d3d01b7a883439}} 
+Arcane\+::\+IMesh $\ast$ {\bfseries m\+\_\+mesh}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a78e8fe00310f5c705489d83a309584c6}\label{classIXMMeshBuilderBase_a78e8fe00310f5c705489d83a309584c6}} 
+Arcane\+::\+IParallel\+Mng $\ast$ {\bfseries m\+\_\+parallel\+\_\+mng}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aef10cd0763a3711bcfa6ee70c6353d29}\label{classIXMMeshBuilderBase_aef10cd0763a3711bcfa6ee70c6353d29}} 
+Arcane\+::\+Cell\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_aef10cd0763a3711bcfa6ee70c6353d29}{m\+\_\+old\+\_\+cells}}
+\begin{DoxyCompactList}\small\item\em Cellules en passe d\textquotesingle{}etre supprimees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a3e0d6be68169fa1253007c2519f0f488}\label{classIXMMeshBuilderBase_a3e0d6be68169fa1253007c2519f0f488}} 
+Arcane\+::\+Cell\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a3e0d6be68169fa1253007c2519f0f488}{m\+\_\+new\+\_\+cells}}
+\begin{DoxyCompactList}\small\item\em Nouvelles cellules. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a3729738a2ca441a32577d281258bae5d}\label{classIXMMeshBuilderBase_a3729738a2ca441a32577d281258bae5d}} 
+Arcane\+::\+Node\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a3729738a2ca441a32577d281258bae5d}{m\+\_\+new\+\_\+nodes}}
+\begin{DoxyCompactList}\small\item\em Nouveaux noeuds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ab8b51bad535e7640d40bc188595fd96a}\label{classIXMMeshBuilderBase_ab8b51bad535e7640d40bc188595fd96a}} 
+Arcane\+::\+Node\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_ab8b51bad535e7640d40bc188595fd96a}{m\+\_\+twin\+\_\+nodes}}
+\begin{DoxyCompactList}\small\item\em Noeuds jumeaux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aa550aad4e062f3b9e5f3a90fb561b041}\label{classIXMMeshBuilderBase_aa550aad4e062f3b9e5f3a90fb561b041}} 
+Arcane\+::\+Edge\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_aa550aad4e062f3b9e5f3a90fb561b041}{m\+\_\+new\+\_\+edges}}
+\begin{DoxyCompactList}\small\item\em Nouvelles aretes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ae37d0b1add88b663ef5de5d5eb598608}\label{classIXMMeshBuilderBase_ae37d0b1add88b663ef5de5d5eb598608}} 
+Arcane\+::\+Edge\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_ae37d0b1add88b663ef5de5d5eb598608}{m\+\_\+twin\+\_\+edges}}
+\begin{DoxyCompactList}\small\item\em Aretes jumelles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a2ccb210f26f7ee1d828f175b4f6354e3}\label{classIXMMeshBuilderBase_a2ccb210f26f7ee1d828f175b4f6354e3}} 
+Arcane\+::\+Face\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a2ccb210f26f7ee1d828f175b4f6354e3}{m\+\_\+new\+\_\+faces}}
+\begin{DoxyCompactList}\small\item\em Nouvelles faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a9446861ee8e357e3574e75f9734c750c}\label{classIXMMeshBuilderBase_a9446861ee8e357e3574e75f9734c750c}} 
+Arcane\+::\+Face\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a9446861ee8e357e3574e75f9734c750c}{m\+\_\+twin\+\_\+faces}}
+\begin{DoxyCompactList}\small\item\em Faces jumelles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a61f5a8c28625e8325cfcbd114e4043ae}\label{classIXMMeshBuilderBase_a61f5a8c28625e8325cfcbd114e4043ae}} 
+Arcane\+::\+Cell\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a61f5a8c28625e8325cfcbd114e4043ae}{m\+\_\+updated\+\_\+cells}}
+\begin{DoxyCompactList}\small\item\em Cellules modifiees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a194589dc1ef9a93a8caefcfa5aacfea6}\label{classIXMMeshBuilderBase_a194589dc1ef9a93a8caefcfa5aacfea6}} 
+Arcane\+::\+Node\+Group \mbox{\hyperlink{classIXMMeshBuilderBase_a194589dc1ef9a93a8caefcfa5aacfea6}{m\+\_\+updated\+\_\+nodes}}
+\begin{DoxyCompactList}\small\item\em Noeuds modifies (topologie) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a66897ba9cbabdc58f3036f729e96ea8e}\label{classIXMMeshBuilderBase_a66897ba9cbabdc58f3036f729e96ea8e}} 
+bool {\bfseries m\+\_\+is\+\_\+initialized}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ac06b7ea9bbe49e0f7a1a5278dc0a9318}\label{classIXMMeshBuilderBase_ac06b7ea9bbe49e0f7a1a5278dc0a9318}} 
+Arc\+Geo\+Sim\+::\+Parallel\+Utils {\bfseries m\+\_\+parallel\+\_\+utils}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aa1834f8e1d69ec76a24549f907b81247}\label{classIXMMeshBuilderBase_aa1834f8e1d69ec76a24549f907b81247}} 
+IXMMesh\+Type {\bfseries m\+\_\+mesh\+\_\+type}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a2fca8235b502d9ec776e2970e0f9b7c1}\label{classIXMMeshBuilderBase_a2fca8235b502d9ec776e2970e0f9b7c1}} 
+Arcane\+::\+Item\+Group\+Collection {\bfseries m\+\_\+changed\+\_\+group\+\_\+collection}
+\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_af24c5e300439575720c09ea8440917f5}\label{classIXMMeshBuilderBase_af24c5e300439575720c09ea8440917f5}} 
+\mbox{\hyperlink{classIXMMeshBuilderBase_acd0b22ab869451ca3787f7ab6e96ab70}{Group\+Change\+Map}} \mbox{\hyperlink{classIXMMeshBuilderBase_af24c5e300439575720c09ea8440917f5}{m\+\_\+changed\+\_\+groups}}
+\begin{DoxyCompactList}\small\item\em Groupe modifie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMMeshBuilderBase_ae2afa2934244be951d7c7181acc36d28}\label{classIXMMeshBuilderBase_ae2afa2934244be951d7c7181acc36d28}} 
+Connection\+Descriptions {\bfseries m\+\_\+connection\+\_\+description}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 53 of file IXMMesh\+Builder\+Base.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a38b3ebb087cf2104369c9554080861aa}\label{classIXMMeshBuilderBase_a38b3ebb087cf2104369c9554080861aa}} 
+\index{IXMMeshBuilderBase@{IXMMeshBuilderBase}!IXMMeshBuilderBase@{IXMMeshBuilderBase}}
+\index{IXMMeshBuilderBase@{IXMMeshBuilderBase}!IXMMeshBuilderBase@{IXMMeshBuilderBase}}
+\doxysubsubsection{\texorpdfstring{IXMMeshBuilderBase()}{IXMMeshBuilderBase()}}
+{\footnotesize\ttfamily IXMMesh\+Builder\+Base\+::\+IXMMesh\+Builder\+Base (\begin{DoxyParamCaption}\item[{Arcane\+::\+IMesh $\ast$}]{mesh,  }\item[{Arcane\+::\+ITrace\+Mng $\ast$}]{trace\+Mng,  }\item[{Arcane\+::\+IParallel\+Mng $\ast$}]{parallel\+Mng,  }\item[{IXMMesh\+Type}]{mesh\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Classe d\textquotesingle{}implementation a usage interne uniquement. 
+
+L\textquotesingle{}API doit manipuler les classes IXMEvolutive\+Mesh\+Builder ou IXMMesh\+Builder. Constructeur de la classe 
+
+Definition at line 68 of file IXMMesh\+Builder\+Base.\+cc.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIXMMeshBuilderBase_a78665f6542ff11f7b5628d9a679fa978}\label{classIXMMeshBuilderBase_a78665f6542ff11f7b5628d9a679fa978}} 
+\index{IXMMeshBuilderBase@{IXMMeshBuilderBase}!\_extractConnectionInfo@{\_extractConnectionInfo}}
+\index{\_extractConnectionInfo@{\_extractConnectionInfo}!IXMMeshBuilderBase@{IXMMeshBuilderBase}}
+\doxysubsubsection{\texorpdfstring{\_extractConnectionInfo()}{\_extractConnectionInfo()}}
+{\footnotesize\ttfamily void IXMMesh\+Builder\+Base\+::\+\_\+extract\+Connection\+Info (\begin{DoxyParamCaption}\item[{Arcane\+::\+IPrimary\+Mesh $\ast$}]{mesh,  }\item[{const \mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&}]{connection\+\_\+data,  }\item[{const \mbox{\hyperlink{classIXMUidToLidMng}{IXMUid\+To\+Lid\+Mng}} \&}]{uid2lid\+\_\+mng,  }\item[{\mbox{\hyperlink{structIXMMeshBuilderBase_1_1ConnectionItems}{Connection\+Items}} \&}]{connection\+\_\+items,  }\item[{Connection\+Descriptions \&}]{connection\+\_\+descriptions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{[}0\mbox{]} = empty; \mbox{[}1\mbox{]} = nodes, \mbox{[}2\mbox{]} = edges, \mbox{[}3\mbox{]} = faces, \mbox{[}4\mbox{]} = cells, \mbox{[}5\mbox{]} = Particle
+
+Definition at line 2535 of file IXMMesh\+Builder\+Base.\+cc.
+
+\mbox{\Hypertarget{classIXMMeshBuilderBase_aa2951ebf0cc76e768b4b8d68d43ac5cc}\label{classIXMMeshBuilderBase_aa2951ebf0cc76e768b4b8d68d43ac5cc}} 
+\index{IXMMeshBuilderBase@{IXMMeshBuilderBase}!groupChangeTypes@{groupChangeTypes}}
+\index{groupChangeTypes@{groupChangeTypes}!IXMMeshBuilderBase@{IXMMeshBuilderBase}}
+\doxysubsubsection{\texorpdfstring{groupChangeTypes()}{groupChangeTypes()}}
+{\footnotesize\ttfamily Arcane\+::\+Integer IXMMesh\+Builder\+Base\+::group\+Change\+Types (\begin{DoxyParamCaption}\item[{const Item\+Group}]{group }\end{DoxyParamCaption})}
+
+
+
+Indique les types de changement sur un groupe donne (hors groupes globaux) 
+
+Les modifications sont donnees comme ou logique ($\vert$) de e\+Group\+Event 
+
+Definition at line 255 of file IXMMesh\+Builder\+Base.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMMesh\+Builder\+Base.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMMesh\+Builder\+Base.\+cc\end{DoxyCompactItemize}

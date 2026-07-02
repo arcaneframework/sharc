@@ -1,0 +1,66 @@
+\hypertarget{classBlockSizes}{}\doxysection{Block\+Sizes Class Reference}
+\label{classBlockSizes}\index{BlockSizes@{BlockSizes}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBlockSizes_a4e9764cf19cbc162ba2d668f9e225a95}\label{classBlockSizes_a4e9764cf19cbc162ba2d668f9e225a95}} 
+typedef \mbox{\hyperlink{classVMap}{VMap}}$<$ Integer, Integer $>$ {\bfseries Value\+Per\+Block}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBlockSizes_aa179259104b8b953c0241b88facceb77}{prepare}} (const \mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} \&index\+\_\+mng, Arcane\+::\+Integer\+Const\+Array\+View block\+\_\+sizes)
+\item 
+\mbox{\Hypertarget{classBlockSizes_a5ccdf14cebf83ad28e9ae619a3fab045}\label{classBlockSizes_a5ccdf14cebf83ad28e9ae619a3fab045}} 
+const \mbox{\hyperlink{classVMap}{Value\+Per\+Block}} \& {\bfseries sizes} () const
+\item 
+\mbox{\Hypertarget{classBlockSizes_afeb06346c9ebea2868ba1662fc82e722}\label{classBlockSizes_afeb06346c9ebea2868ba1662fc82e722}} 
+Integer {\bfseries size} (Integer index) const
+\item 
+\mbox{\Hypertarget{classBlockSizes_a9e7f14c6220c04c8f237017e23da178f}\label{classBlockSizes_a9e7f14c6220c04c8f237017e23da178f}} 
+Integer {\bfseries size\+From\+Local\+Index} (Integer index) const
+\item 
+\mbox{\Hypertarget{classBlockSizes_a9655527afebf51bcbe719d8a9f052940}\label{classBlockSizes_a9655527afebf51bcbe719d8a9f052940}} 
+Integer {\bfseries offset} (Integer index) const
+\item 
+\mbox{\Hypertarget{classBlockSizes_a5feb0fa301fe0d40ae061886e3963fee}\label{classBlockSizes_a5feb0fa301fe0d40ae061886e3963fee}} 
+Integer {\bfseries offset\+From\+Local\+Index} (Integer index) const
+\item 
+\mbox{\Hypertarget{classBlockSizes_a5a86e2b937f608f3e0c837ebef51a676}\label{classBlockSizes_a5a86e2b937f608f3e0c837ebef51a676}} 
+Integer {\bfseries local\+Size} () const
+\item 
+\mbox{\Hypertarget{classBlockSizes_a4f96fdb2af19c20c9bd828964c5f885d}\label{classBlockSizes_a4f96fdb2af19c20c9bd828964c5f885d}} 
+Integer {\bfseries max\+Size} () const
+\item 
+\mbox{\Hypertarget{classBlockSizes_a9ed85370e0b44ed3ccc1349c5a185e15}\label{classBlockSizes_a9ed85370e0b44ed3ccc1349c5a185e15}} 
+Arcane\+::\+Integer\+Const\+Array\+View {\bfseries size\+Of\+Local\+Index} () const
+\item 
+\mbox{\Hypertarget{classBlockSizes_a50fd9eacfb6c4223de05f92d1e972209}\label{classBlockSizes_a50fd9eacfb6c4223de05f92d1e972209}} 
+Arcane\+::\+Integer\+Const\+Array\+View {\bfseries offset\+Of\+Local\+Index} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 35 of file Block\+Sizes.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBlockSizes_aa179259104b8b953c0241b88facceb77}\label{classBlockSizes_aa179259104b8b953c0241b88facceb77}} 
+\index{BlockSizes@{BlockSizes}!prepare@{prepare}}
+\index{prepare@{prepare}!BlockSizes@{BlockSizes}}
+\doxysubsubsection{\texorpdfstring{prepare()}{prepare()}}
+{\footnotesize\ttfamily void Block\+Sizes\+::prepare (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} \&}]{index\+\_\+mng,  }\item[{Arcane\+::\+Integer\+Const\+Array\+View}]{block\+\_\+sizes }\end{DoxyParamCaption})}
+
+Arcane\+::\+ITrace\+Mng$\ast$ trace = parallel\+\_\+mng-\/$>$trace\+Mng();
+
+Definition at line 74 of file Block\+Sizes.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Block\+Sizes.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Block\+Sizes.\+cc\end{DoxyCompactItemize}

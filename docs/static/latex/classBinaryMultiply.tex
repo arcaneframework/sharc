@@ -1,0 +1,175 @@
+\hypertarget{classBinaryMultiply}{}\doxysection{Binary\+Multiply$<$ L, R $>$ Class Template Reference}
+\label{classBinaryMultiply}\index{BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}}
+
+
+\mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}} \+: Operation de multiplication entre 2 types.  
+
+
+
+
+{\ttfamily \#include $<$Binary\+Op.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}\label{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}} 
+typedef L\+::value\+\_\+type \mbox{\hyperlink{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}{value\+\_\+typeL}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de gauche \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}\label{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}} 
+typedef R\+::value\+\_\+type \mbox{\hyperlink{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}{value\+\_\+typeR}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de droite \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}\label{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}} 
+typedef \mbox{\hyperlink{classPromote}{Promote}}$<$ \mbox{\hyperlink{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}{value\+\_\+typeL}}, \mbox{\hyperlink{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}{value\+\_\+typeR}} $>$\+::type \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em type du resultat de l\textquotesingle{}operation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}\label{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}} 
+typedef L\+::value\+\_\+type \mbox{\hyperlink{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}{value\+\_\+typeL}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de gauche \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}\label{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}} 
+typedef R\+::value\+\_\+type \mbox{\hyperlink{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}{value\+\_\+typeR}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de droite \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}\label{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}} 
+typedef \mbox{\hyperlink{classPromote}{Promote}}$<$ \mbox{\hyperlink{classBinaryMultiply_a11bc975f50bf50a4cb6d2e4718da9b04}{value\+\_\+typeL}}, \mbox{\hyperlink{classBinaryMultiply_a052da619a53b9e01c1f14e5259ad877c}{value\+\_\+typeR}} $>$\+::type \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em type du resultat de l\textquotesingle{}operation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply_ae309b54bbd287d1dc53e25ff45758c19}{get\+Value}} (const L \&left, const R \&right, int index)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply_a5f1c634886794c6ae2215213c8f9711d}{get\+Derived\+Value}} (const L \&left, const R \&right, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de la derivee de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply_ae309b54bbd287d1dc53e25ff45758c19}{get\+Value}} (const L \&left, const R \&right, int index)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply_a5f1c634886794c6ae2215213c8f9711d}{get\+Derived\+Value}} (const L \&left, const R \&right, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de la derivee de l\textquotesingle{}operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename L, typename R$>$\newline
+class Binary\+Multiply$<$ L, R $>$}
+
+\mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}} \+: Operation de multiplication entre 2 types. 
+
+Definit une methode static \mbox{\hyperlink{classBinaryMultiply_ae309b54bbd287d1dc53e25ff45758c19}{get\+Value()}} qui renvoie le produit entre les deux elements passes par reference a l\textquotesingle{}index i 
+
+Definition at line 108 of file Binary\+Op.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBinaryMultiply_a5f1c634886794c6ae2215213c8f9711d}\label{classBinaryMultiply_a5f1c634886794c6ae2215213c8f9711d}} 
+\index{BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}}$<$ L, R $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de la derivee de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em ligne} & Premier index \\
+\hline
+{\em colonne} & Deuxieme index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 138 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryMultiply_a5f1c634886794c6ae2215213c8f9711d}\label{classBinaryMultiply_a5f1c634886794c6ae2215213c8f9711d}} 
+\index{BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}}$<$ L, R $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de la derivee de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em ligne} & Premier index \\
+\hline
+{\em colonne} & Deuxieme index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 139 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryMultiply_ae309b54bbd287d1dc53e25ff45758c19}\label{classBinaryMultiply_ae309b54bbd287d1dc53e25ff45758c19}} 
+\index{BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}}$<$ L, R $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em index} & Index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 125 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryMultiply_ae309b54bbd287d1dc53e25ff45758c19}\label{classBinaryMultiply_ae309b54bbd287d1dc53e25ff45758c19}} 
+\index{BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!BinaryMultiply$<$ L, R $>$@{BinaryMultiply$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryMultiply_a2c6aaff2baa920b6fd22a9ea887760b5}{value\+\_\+type}} \mbox{\hyperlink{classBinaryMultiply}{Binary\+Multiply}}$<$ L, R $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em index} & Index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 126 of file Binary\+Op.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Utils/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h}{Binary\+Op.\+h}}\end{DoxyCompactItemize}

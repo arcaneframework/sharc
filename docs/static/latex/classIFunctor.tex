@@ -1,0 +1,94 @@
+\hypertarget{classIFunctor}{}\doxysection{IFunctor$<$ Var\+Vect $>$ Class Template Reference}
+\label{classIFunctor}\index{IFunctor$<$ VarVect $>$@{IFunctor$<$ VarVect $>$}}
+
+
+Inherited by \mbox{\hyperlink{classHat}{Hat$<$ fct\+Type $>$}}, and \mbox{\hyperlink{classcomp}{comp$<$ Fct1, Fct2 $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIFunctor_a9fa529d8a88a9f42c46f80ba09c0df46}\label{classIFunctor_a9fa529d8a88a9f42c46f80ba09c0df46}} 
+typedef double {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{classIFunctor_aa3a6dce70d896366a4ef25d5ad2bbea9}\label{classIFunctor_aa3a6dce70d896366a4ef25d5ad2bbea9}} 
+typedef std\+::pair$<$ value\+\_\+type, value\+\_\+type $>$ {\bfseries Point\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructeur}\par
+{\em Constructeur }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIFunctor_aafa7bd917270ce37e65f117f78e7d397}\label{classIFunctor_aafa7bd917270ce37e65f117f78e7d397}} 
+{\bfseries IFunctor} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Destructeur}\par
+{\em Destructeur }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIFunctor_afec33381c1222ecfda7467d770558efa}\label{classIFunctor_afec33381c1222ecfda7467d770558efa}} 
+virtual {\bfseries $\sim$\+IFunctor} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Autres}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIFunctor_abad68db03ac1323caf2164ab5847c683}\label{classIFunctor_abad68db03ac1323caf2164ab5847c683}} 
+virtual void \mbox{\hyperlink{classIFunctor_abad68db03ac1323caf2164ab5847c683}{eval}} (\mbox{\hyperlink{classVarVect}{Var\+Vect}} \&)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_a0d2ed823af9e2a9730504f75000fcc2b}\label{classIFunctor_a0d2ed823af9e2a9730504f75000fcc2b}} 
+virtual value\+\_\+type \mbox{\hyperlink{classIFunctor_a0d2ed823af9e2a9730504f75000fcc2b}{eval}} (value\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_ada6b69101c931c91385e14ea79f385cb}\label{classIFunctor_ada6b69101c931c91385e14ea79f385cb}} 
+virtual value\+\_\+type \mbox{\hyperlink{classIFunctor_ada6b69101c931c91385e14ea79f385cb}{eval}} (value\+\_\+type, value\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_a7551e1984c3c291c8afcf66355ca2d2b}\label{classIFunctor_a7551e1984c3c291c8afcf66355ca2d2b}} 
+virtual value\+\_\+type \mbox{\hyperlink{classIFunctor_a7551e1984c3c291c8afcf66355ca2d2b}{eval}} (value\+\_\+type, value\+\_\+type, value\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_aa01465d7a54111d4fff5340181736cda}\label{classIFunctor_aa01465d7a54111d4fff5340181736cda}} 
+virtual void \mbox{\hyperlink{classIFunctor_aa01465d7a54111d4fff5340181736cda}{eval\+Diff}} (\mbox{\hyperlink{classDiff}{Diff}}$<$ \mbox{\hyperlink{classVarVect}{Var\+Vect}} $>$ \&)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_ad7587499ebbd6f8dd53620e056125b28}\label{classIFunctor_ad7587499ebbd6f8dd53620e056125b28}} 
+virtual void \mbox{\hyperlink{classIFunctor_ad7587499ebbd6f8dd53620e056125b28}{eval\+Diff}} (value\+\_\+type \&, value\+\_\+type $\ast$, value\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_a6d26bd1034fdf8c7833b0e02497006b8}\label{classIFunctor_a6d26bd1034fdf8c7833b0e02497006b8}} 
+virtual void \mbox{\hyperlink{classIFunctor_a6d26bd1034fdf8c7833b0e02497006b8}{eval\+Diff}} (value\+\_\+type \&, value\+\_\+type $\ast$, value\+\_\+type, value\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_a49c0bf1c8ae2dd273e95c55f89df4137}\label{classIFunctor_a49c0bf1c8ae2dd273e95c55f89df4137}} 
+virtual void \mbox{\hyperlink{classIFunctor_a49c0bf1c8ae2dd273e95c55f89df4137}{eval\+Diff}} (value\+\_\+type \&, value\+\_\+type $\ast$, value\+\_\+type, value\+\_\+type, value\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFunctor_afb30c9a3633e7c70a44c49fd1e0b94ee}\label{classIFunctor_afb30c9a3633e7c70a44c49fd1e0b94ee}} 
+virtual void {\bfseries init\+Parameter} (Point\+Type minB, Point\+Type maxB, Point\+Type left\+ExtB, Point\+Type right\+ExtB)
+\item 
+\mbox{\Hypertarget{classIFunctor_ae2fafb7d2119de8ab333517e22503b10}\label{classIFunctor_ae2fafb7d2119de8ab333517e22503b10}} 
+virtual void {\bfseries set\+Key\+Val} (value\+\_\+type $\ast$key\+Val)
+\item 
+\mbox{\Hypertarget{classIFunctor_aad91a1e8135178cd920fb6f7a1f0091e}\label{classIFunctor_aad91a1e8135178cd920fb6f7a1f0091e}} 
+virtual void {\bfseries set\+Default\+Cte} (value\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIFunctor_a3f2ff6d31489c34c01860430b2a8a81c}\label{classIFunctor_a3f2ff6d31489c34c01860430b2a8a81c}} 
+virtual void {\bfseries set\+Default\+Exposant} (value\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIFunctor_aa2d600a9a3c47e810ed6ab50affdcf5f}\label{classIFunctor_aa2d600a9a3c47e810ed6ab50affdcf5f}} 
+virtual void {\bfseries set\+Default\+Sgr} (value\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIFunctor_a93cf5cc0b416c7a15ebf765d9008d2ba}\label{classIFunctor_a93cf5cc0b416c7a15ebf765d9008d2ba}} 
+virtual void {\bfseries set\+Default\+Swr} (value\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIFunctor_a64c45962fc86998f65381e0017614974}\label{classIFunctor_a64c45962fc86998f65381e0017614974}} 
+virtual bool {\bfseries eval\+Norm} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Var\+Vect$>$\newline
+class IFunctor$<$ Var\+Vect $>$}
+
+
+
+Definition at line 26 of file IFunctor.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2IFunctor_8h}{IFunctor.\+h}}\end{DoxyCompactItemize}

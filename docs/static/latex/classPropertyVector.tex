@@ -1,0 +1,176 @@
+\hypertarget{classPropertyVector}{}\doxysection{Property\+Vector Class Reference}
+\label{classPropertyVector}\index{PropertyVector@{PropertyVector}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPropertyVector_a0c0943830d02321f80cf216ce945f5b5}\label{classPropertyVector_a0c0943830d02321f80cf216ce945f5b5}} 
+{\bfseries Property\+Vector} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&p)
+\item 
+\mbox{\Hypertarget{classPropertyVector_ad0f4f0a6230ee0f90f01f9a67f24def1}\label{classPropertyVector_ad0f4f0a6230ee0f90f01f9a67f24def1}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& {\bfseries operator=} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&p)
+\item 
+\mbox{\Hypertarget{classPropertyVector_a19a6e8f2354b1c4d54a332381627379d}\label{classPropertyVector_a19a6e8f2354b1c4d54a332381627379d}} 
+{\bfseries Property\+Vector} (Arcane\+::\+Const\+Array\+View$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ \mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\item 
+\mbox{\Hypertarget{classPropertyVector_ade5eb597da874d186bee390051565c2c}\label{classPropertyVector_ade5eb597da874d186bee390051565c2c}} 
+bool \mbox{\hyperlink{classPropertyVector_ade5eb597da874d186bee390051565c2c}{operator==}} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&v) const
+\begin{DoxyCompactList}\small\item\em Comparaison. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a81df66fff5c9ed21e724f18652cbc3b8}\label{classPropertyVector_a81df66fff5c9ed21e724f18652cbc3b8}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&v) const
+\item 
+\mbox{\Hypertarget{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}\label{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}{size}} () const
+\begin{DoxyCompactList}\small\item\em Nombre de proprietes du vecteur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_ada990c108f32af92f5eee4ff179a8b50}\label{classPropertyVector_ada990c108f32af92f5eee4ff179a8b50}} 
+void \mbox{\hyperlink{classPropertyVector_ada990c108f32af92f5eee4ff179a8b50}{reserve}} (Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}{size}})
+\begin{DoxyCompactList}\small\item\em Reservation de memoire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_ab5634a356a1c4e14ba6391e1eb40fe6b}\label{classPropertyVector_ab5634a356a1c4e14ba6391e1eb40fe6b}} 
+void \mbox{\hyperlink{classPropertyVector_ab5634a356a1c4e14ba6391e1eb40fe6b}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Vide le vecteur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_acce40a787144d29ef0fb0a65290d3039}\label{classPropertyVector_acce40a787144d29ef0fb0a65290d3039}} 
+const \mbox{\hyperlink{classProperty}{Property}} \& \mbox{\hyperlink{classPropertyVector_acce40a787144d29ef0fb0a65290d3039}{operator\mbox{[}$\,$\mbox{]}}} (Integer i) const
+\begin{DoxyCompactList}\small\item\em Acces a la ieme propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_af6e37d87c97541ba914733a372a1b96b}\label{classPropertyVector_af6e37d87c97541ba914733a372a1b96b}} 
+\mbox{\hyperlink{classProperty}{Property}} \& \mbox{\hyperlink{classPropertyVector_af6e37d87c97541ba914733a372a1b96b}{get}} (Arcane\+::\+Integer i)
+\begin{DoxyCompactList}\small\item\em Acces a la ieme propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_adb50bc037f9f9b128ecec5f0b60a2492}\label{classPropertyVector_adb50bc037f9f9b128ecec5f0b60a2492}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_adb50bc037f9f9b128ecec5f0b60a2492}{operator\mbox{[}$\,$\mbox{]}}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Position de la propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a4031e03c7591a95cdcb3e88c7439be83}\label{classPropertyVector_a4031e03c7591a95cdcb3e88c7439be83}} 
+bool \mbox{\hyperlink{classPropertyVector_a4031e03c7591a95cdcb3e88c7439be83}{contains}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Test si appartient au vecteur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a87c8e0b44abba05a9d73d5abe7102714}\label{classPropertyVector_a87c8e0b44abba05a9d73d5abe7102714}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classPropertyVector_a87c8e0b44abba05a9d73d5abe7102714}{operator$<$$<$}} (const \mbox{\hyperlink{classProperty}{Property}} \&p)
+\begin{DoxyCompactList}\small\item\em Ajout incremental d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a301b3163619d29230353a46b277b66a4}\label{classPropertyVector_a301b3163619d29230353a46b277b66a4}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classPropertyVector_a301b3163619d29230353a46b277b66a4}{operator$<$$<$}} (Arcane\+::\+Const\+Array\+View$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ \mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\begin{DoxyCompactList}\small\item\em Ajout incremental d\textquotesingle{}un tableau de proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_af809c763939c76c4ab53d275880b17c2}\label{classPropertyVector_af809c763939c76c4ab53d275880b17c2}} 
+{\footnotesize template$<$Dimension D, typename T $>$ }\\\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classPropertyVector_af809c763939c76c4ab53d275880b17c2}{operator$<$$<$}} (const Arcane\+::\+Array$<$ \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ D, T $>$ $>$ \&\mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\begin{DoxyCompactList}\small\item\em Ajout incremental d\textquotesingle{}un tableau de proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a43facc435dc82dbce0687008f5d3912f}\label{classPropertyVector_a43facc435dc82dbce0687008f5d3912f}} 
+bool \mbox{\hyperlink{classPropertyVector_a43facc435dc82dbce0687008f5d3912f}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Test si le vecteur est vide. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}\label{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}} 
+Arcane\+::\+Const\+Array\+View$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ \mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}} () const
+\begin{DoxyCompactList}\small\item\em Liste des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a67509a3d98a69d17e230f48a4b7a4985}\label{classPropertyVector_a67509a3d98a69d17e230f48a4b7a4985}} 
+Arcane\+::\+Integer\+Const\+Array\+View \mbox{\hyperlink{classPropertyVector_a67509a3d98a69d17e230f48a4b7a4985}{index}} () const
+\begin{DoxyCompactList}\small\item\em Index des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a353e36d52e953269d39f229094760276}\label{classPropertyVector_a353e36d52e953269d39f229094760276}} 
+Arcane\+::\+Integer\+Const\+Array\+View \mbox{\hyperlink{classPropertyVector_a353e36d52e953269d39f229094760276}{property\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Taille des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a678ad56ea229216d8d74fd35350415f7}\label{classPropertyVector_a678ad56ea229216d8d74fd35350415f7}} 
+Arcane\+::\+Integer\+Const\+Array\+View \mbox{\hyperlink{classPropertyVector_a678ad56ea229216d8d74fd35350415f7}{offset}} () const
+\begin{DoxyCompactList}\small\item\em Tableau des offset. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a0a6c1cf9257aa8fd571c435a54dffec2}\label{classPropertyVector_a0a6c1cf9257aa8fd571c435a54dffec2}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a0a6c1cf9257aa8fd571c435a54dffec2}{offset}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Offset d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a46750d27ea096a5c31dc0ed5c100b34a}\label{classPropertyVector_a46750d27ea096a5c31dc0ed5c100b34a}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a46750d27ea096a5c31dc0ed5c100b34a}{size}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Taille d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a18a6ca4de53ae504a26d723c2689443c}\label{classPropertyVector_a18a6ca4de53ae504a26d723c2689443c}} 
+void \mbox{\hyperlink{classPropertyVector_a18a6ca4de53ae504a26d723c2689443c}{resize}} (const \mbox{\hyperlink{classProperty}{Property}} \&p, Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}{size}})
+\begin{DoxyCompactList}\small\item\em Retaille une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a3ace2f7355db64acfcad7b7942e8ed63}\label{classPropertyVector_a3ace2f7355db64acfcad7b7942e8ed63}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a3ace2f7355db64acfcad7b7942e8ed63}{data\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Taille des donnees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_acda3c239008c6249636dcd66739184ff}\label{classPropertyVector_acda3c239008c6249636dcd66739184ff}} 
+void \mbox{\hyperlink{classPropertyVector_acda3c239008c6249636dcd66739184ff}{copy}} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&\mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\begin{DoxyCompactList}\small\item\em Recopie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a98c44242b2bfee1aeda90a4d1f399174}\label{classPropertyVector_a98c44242b2bfee1aeda90a4d1f399174}} 
+{\bfseries operator Arcane\+::\+Const\+Array\+View$<$ Property $>$} () const
+\item 
+\mbox{\Hypertarget{classPropertyVector_a0c0943830d02321f80cf216ce945f5b5}\label{classPropertyVector_a0c0943830d02321f80cf216ce945f5b5}} 
+{\bfseries Property\+Vector} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&p)
+\item 
+\mbox{\Hypertarget{classPropertyVector_ad0f4f0a6230ee0f90f01f9a67f24def1}\label{classPropertyVector_ad0f4f0a6230ee0f90f01f9a67f24def1}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& {\bfseries operator=} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&p)
+\item 
+\mbox{\Hypertarget{classPropertyVector_a19a6e8f2354b1c4d54a332381627379d}\label{classPropertyVector_a19a6e8f2354b1c4d54a332381627379d}} 
+{\bfseries Property\+Vector} (Arcane\+::\+Const\+Array\+View$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ \mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\item 
+\mbox{\Hypertarget{classPropertyVector_ade5eb597da874d186bee390051565c2c}\label{classPropertyVector_ade5eb597da874d186bee390051565c2c}} 
+bool \mbox{\hyperlink{classPropertyVector_ade5eb597da874d186bee390051565c2c}{operator==}} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&v) const
+\begin{DoxyCompactList}\small\item\em Comparaison. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a81df66fff5c9ed21e724f18652cbc3b8}\label{classPropertyVector_a81df66fff5c9ed21e724f18652cbc3b8}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&v) const
+\item 
+\mbox{\Hypertarget{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}\label{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}{size}} () const
+\begin{DoxyCompactList}\small\item\em Nombre de proprietes du vecteur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_ada990c108f32af92f5eee4ff179a8b50}\label{classPropertyVector_ada990c108f32af92f5eee4ff179a8b50}} 
+void \mbox{\hyperlink{classPropertyVector_ada990c108f32af92f5eee4ff179a8b50}{reserve}} (Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}{size}})
+\begin{DoxyCompactList}\small\item\em Reservation de memoire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_ab5634a356a1c4e14ba6391e1eb40fe6b}\label{classPropertyVector_ab5634a356a1c4e14ba6391e1eb40fe6b}} 
+void \mbox{\hyperlink{classPropertyVector_ab5634a356a1c4e14ba6391e1eb40fe6b}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Vide le vecteur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_acce40a787144d29ef0fb0a65290d3039}\label{classPropertyVector_acce40a787144d29ef0fb0a65290d3039}} 
+const \mbox{\hyperlink{classProperty}{Property}} \& \mbox{\hyperlink{classPropertyVector_acce40a787144d29ef0fb0a65290d3039}{operator\mbox{[}$\,$\mbox{]}}} (Integer i) const
+\begin{DoxyCompactList}\small\item\em Acces a la ieme propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_af6e37d87c97541ba914733a372a1b96b}\label{classPropertyVector_af6e37d87c97541ba914733a372a1b96b}} 
+\mbox{\hyperlink{classProperty}{Property}} \& \mbox{\hyperlink{classPropertyVector_af6e37d87c97541ba914733a372a1b96b}{get}} (Arcane\+::\+Integer i)
+\begin{DoxyCompactList}\small\item\em Acces a la ieme propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_adb50bc037f9f9b128ecec5f0b60a2492}\label{classPropertyVector_adb50bc037f9f9b128ecec5f0b60a2492}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_adb50bc037f9f9b128ecec5f0b60a2492}{operator\mbox{[}$\,$\mbox{]}}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Position de la propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a4031e03c7591a95cdcb3e88c7439be83}\label{classPropertyVector_a4031e03c7591a95cdcb3e88c7439be83}} 
+bool \mbox{\hyperlink{classPropertyVector_a4031e03c7591a95cdcb3e88c7439be83}{contains}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Test si appartient au vecteur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a87c8e0b44abba05a9d73d5abe7102714}\label{classPropertyVector_a87c8e0b44abba05a9d73d5abe7102714}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classPropertyVector_a87c8e0b44abba05a9d73d5abe7102714}{operator$<$$<$}} (const \mbox{\hyperlink{classProperty}{Property}} \&p)
+\begin{DoxyCompactList}\small\item\em Ajout incremental d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a328958d75792e39854363e038769f688}\label{classPropertyVector_a328958d75792e39854363e038769f688}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classPropertyVector_a328958d75792e39854363e038769f688}{operator$<$$<$}} (const \mbox{\hyperlink{classGump_1_1Property}{Gump\+::\+Property}} \&gp)
+\begin{DoxyCompactList}\small\item\em Ajout incremental d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a301b3163619d29230353a46b277b66a4}\label{classPropertyVector_a301b3163619d29230353a46b277b66a4}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classPropertyVector_a301b3163619d29230353a46b277b66a4}{operator$<$$<$}} (Arcane\+::\+Const\+Array\+View$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ \mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\begin{DoxyCompactList}\small\item\em Ajout incremental d\textquotesingle{}un tableau de proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_af809c763939c76c4ab53d275880b17c2}\label{classPropertyVector_af809c763939c76c4ab53d275880b17c2}} 
+{\footnotesize template$<$Dimension D, typename T $>$ }\\\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \& \mbox{\hyperlink{classPropertyVector_af809c763939c76c4ab53d275880b17c2}{operator$<$$<$}} (const Arcane\+::\+Array$<$ \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ D, T $>$ $>$ \&\mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\begin{DoxyCompactList}\small\item\em Ajout incremental d\textquotesingle{}un tableau de proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a43facc435dc82dbce0687008f5d3912f}\label{classPropertyVector_a43facc435dc82dbce0687008f5d3912f}} 
+bool \mbox{\hyperlink{classPropertyVector_a43facc435dc82dbce0687008f5d3912f}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Test si le vecteur est vide. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}\label{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}} 
+Arcane\+::\+Const\+Array\+View$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ \mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}} () const
+\begin{DoxyCompactList}\small\item\em Liste des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a67509a3d98a69d17e230f48a4b7a4985}\label{classPropertyVector_a67509a3d98a69d17e230f48a4b7a4985}} 
+Arcane\+::\+Integer\+Const\+Array\+View \mbox{\hyperlink{classPropertyVector_a67509a3d98a69d17e230f48a4b7a4985}{index}} () const
+\begin{DoxyCompactList}\small\item\em Index des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a353e36d52e953269d39f229094760276}\label{classPropertyVector_a353e36d52e953269d39f229094760276}} 
+Arcane\+::\+Integer\+Const\+Array\+View \mbox{\hyperlink{classPropertyVector_a353e36d52e953269d39f229094760276}{property\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Taille des proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a678ad56ea229216d8d74fd35350415f7}\label{classPropertyVector_a678ad56ea229216d8d74fd35350415f7}} 
+Arcane\+::\+Integer\+Const\+Array\+View \mbox{\hyperlink{classPropertyVector_a678ad56ea229216d8d74fd35350415f7}{offset}} () const
+\begin{DoxyCompactList}\small\item\em Tableau des offset. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a0a6c1cf9257aa8fd571c435a54dffec2}\label{classPropertyVector_a0a6c1cf9257aa8fd571c435a54dffec2}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a0a6c1cf9257aa8fd571c435a54dffec2}{offset}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Offset d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a46750d27ea096a5c31dc0ed5c100b34a}\label{classPropertyVector_a46750d27ea096a5c31dc0ed5c100b34a}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a46750d27ea096a5c31dc0ed5c100b34a}{size}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Taille d\textquotesingle{}une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a18a6ca4de53ae504a26d723c2689443c}\label{classPropertyVector_a18a6ca4de53ae504a26d723c2689443c}} 
+void \mbox{\hyperlink{classPropertyVector_a18a6ca4de53ae504a26d723c2689443c}{resize}} (const \mbox{\hyperlink{classProperty}{Property}} \&p, Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a88bc06ca3f4510d91bba1061b3a01898}{size}})
+\begin{DoxyCompactList}\small\item\em Retaille une propriete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a3ace2f7355db64acfcad7b7942e8ed63}\label{classPropertyVector_a3ace2f7355db64acfcad7b7942e8ed63}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classPropertyVector_a3ace2f7355db64acfcad7b7942e8ed63}{data\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Taille des donnees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_acda3c239008c6249636dcd66739184ff}\label{classPropertyVector_acda3c239008c6249636dcd66739184ff}} 
+void \mbox{\hyperlink{classPropertyVector_acda3c239008c6249636dcd66739184ff}{copy}} (const \mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \&\mbox{\hyperlink{classPropertyVector_a2508ce79bcacd19236cea5503dcd1910}{properties}})
+\begin{DoxyCompactList}\small\item\em Recopie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPropertyVector_a98c44242b2bfee1aeda90a4d1f399174}\label{classPropertyVector_a98c44242b2bfee1aeda90a4d1f399174}} 
+{\bfseries operator Arcane\+::\+Const\+Array\+View$<$ Property $>$} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 50 of file Property\+Vector.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Property\+Vector.\+h\end{DoxyCompactItemize}

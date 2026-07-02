@@ -1,0 +1,195 @@
+\hypertarget{classIXMV4MeshReader}{}\doxysection{IXMV4\+Mesh\+Reader Class Reference}
+\label{classIXMV4MeshReader}\index{IXMV4MeshReader@{IXMV4MeshReader}}
+
+
+Inherits \mbox{\hyperlink{classIIXMMeshReader}{IIXMMesh\+Reader}}.
+
+
+
+Inherited by \mbox{\hyperlink{classIXMV4__1MeshReader}{IXMV4\+\_\+1\+Mesh\+Reader}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a184a3658acba6a70c0280031878409b1}\label{classIXMV4MeshReader_a184a3658acba6a70c0280031878409b1}} 
+\mbox{\hyperlink{classIXMV4MeshReader_a184a3658acba6a70c0280031878409b1}{IXMV4\+Mesh\+Reader}} (Arcane\+::\+IIOMng $\ast$io\+\_\+mng, Arcane\+::\+IParallel\+Mng $\ast$parallel\+\_\+mng, Arcane\+::\+ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a146c7a6b6038785ae08c6891713231d2}\label{classIXMV4MeshReader_a146c7a6b6038785ae08c6891713231d2}} 
+virtual \mbox{\hyperlink{classIXMV4MeshReader_a146c7a6b6038785ae08c6891713231d2}{$\sim$\+IXMV4\+Mesh\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+Arcane\+::\+String \mbox{\hyperlink{classIXMV4MeshReader_aba8b162cbf3f7b42eff44e4f82a6ca1f}{load\+Mesh\+File}} (const \mbox{\hyperlink{classIXMMeshFile}{IXMMesh\+File}} mesh\+\_\+file)
+\begin{DoxyCompactList}\small\item\em === Interface \mbox{\hyperlink{classIIXMMeshReaderBase}{IIXMMesh\+Reader\+Base}} === \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a7e64a4ff0fa6090c198a88945ee33b9d}\label{classIXMV4MeshReader_a7e64a4ff0fa6090c198a88945ee33b9d}} 
+Arcane\+::\+String \mbox{\hyperlink{classIXMV4MeshReader_a7e64a4ff0fa6090c198a88945ee33b9d}{mesh\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Type de grille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a910fe37002255c5c0883cd6e6d3175a7}\label{classIXMV4MeshReader_a910fe37002255c5c0883cd6e6d3175a7}} 
+\mbox{\hyperlink{structIXMMeshDimension}{IXMMesh\+Dimension}} \mbox{\hyperlink{classIXMV4MeshReader_a910fe37002255c5c0883cd6e6d3175a7}{mesh\+Dimension}} ()
+\begin{DoxyCompactList}\small\item\em Dimension de la grille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_ab612e5b2a1fc1715a854c85fc93ee764}\label{classIXMV4MeshReader_ab612e5b2a1fc1715a854c85fc93ee764}} 
+bool \mbox{\hyperlink{classIXMV4MeshReader_ab612e5b2a1fc1715a854c85fc93ee764}{has\+Mesh\+Data}} ()
+\begin{DoxyCompactList}\small\item\em === Interface IIXMEvolutive\+Mesh\+Reader === \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIXMV4MeshReader_a1280f4a35e2880b495398a6f7e11e8a6}{read\+Cell\+Data}} (\mbox{\hyperlink{structIXMItemData}{IXMCell\+Data}} \&cell\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)
+\begin{DoxyCompactList}\small\item\em === Interface \mbox{\hyperlink{classIIXMStaticMeshReader}{IIXMStatic\+Mesh\+Reader}} === \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a757ad8687a2e365a9e3f264f09eb780a}\label{classIXMV4MeshReader_a757ad8687a2e365a9e3f264f09eb780a}} 
+void {\bfseries read\+Node\+Data} (\mbox{\hyperlink{structIXMItemData}{IXMNode\+Data}} \&node\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a83c90321c69cb16fe875d87fd5da917d}\label{classIXMV4MeshReader_a83c90321c69cb16fe875d87fd5da917d}} 
+void \mbox{\hyperlink{classIXMV4MeshReader_a83c90321c69cb16fe875d87fd5da917d}{collective\+Read\+Group\+Data}} (IXMGroup\+Data\+List \&group\+\_\+data\+\_\+list, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils)
+\begin{DoxyCompactList}\small\item\em Lecture collective des informations de groupes et de proprietes \+: tous les processus doivent lire ces informations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a088e1516847333c85d6a782e7bb2a135}\label{classIXMV4MeshReader_a088e1516847333c85d6a782e7bb2a135}} 
+void {\bfseries collective\+Read\+Property\+Data} (\mbox{\hyperlink{structIXMPropertyDataList}{IXMProperty\+Data\+List}} \&property\+\_\+data\+\_\+list, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a1c31a60c8e06ff957a5e5707a2a2cbb0}\label{classIXMV4MeshReader_a1c31a60c8e06ff957a5e5707a2a2cbb0}} 
+void \mbox{\hyperlink{classIXMV4MeshReader_a1c31a60c8e06ff957a5e5707a2a2cbb0}{read\+Face\+Data}} (\mbox{\hyperlink{structIXMFaceData}{IXMFace\+Data}} \&face\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)
+\begin{DoxyCompactList}\small\item\em === Interface \mbox{\hyperlink{classIIXMMeshReaderBase}{IIXMMesh\+Reader\+Base}} === \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a852782ef19ed72a37fa631b8d33bbb66}\label{classIXMV4MeshReader_a852782ef19ed72a37fa631b8d33bbb66}} 
+void \mbox{\hyperlink{classIXMV4MeshReader_a852782ef19ed72a37fa631b8d33bbb66}{read\+Edge\+Data}} (\mbox{\hyperlink{structIXMItemData}{IXMEdge\+Data}} \&edge\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Lecture des données de edges. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a2b11feb6bf6c60d071b09e7b9c9d5872}\label{classIXMV4MeshReader_a2b11feb6bf6c60d071b09e7b9c9d5872}} 
+void \mbox{\hyperlink{classIXMV4MeshReader_a2b11feb6bf6c60d071b09e7b9c9d5872}{read\+Connection\+Data}} (\mbox{\hyperlink{structIXMItemData}{IXMConnection\+Data}} \&connection\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Lecture des données de connexions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a971f98eabb4e245013603a9b423c86ba}\label{classIXMV4MeshReader_a971f98eabb4e245013603a9b423c86ba}} 
+void {\bfseries read\+Particle\+Data} (IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a5bb995ff4506c61d1cd4dbdd3484f222}\label{classIXMV4MeshReader_a5bb995ff4506c61d1cd4dbdd3484f222}} 
+void {\bfseries read\+Particle\+Data} (Arc\+Geo\+Sim\+::\+IXMTools\+::\+IXMParticle\+Data \&particle\+\_\+data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a133c67a021f2166502395f9e78a45d0f}\label{classIXMV4MeshReader_a133c67a021f2166502395f9e78a45d0f}} 
+void {\bfseries \+\_\+read\+Cell\+Infos} (const Arcane\+::\+Xml\+Node\+List \&cell\+\_\+list\+\_\+node, const String \&block\+\_\+name, Item\+Type\+Mng $\ast$type\+Mng, Arcane\+::\+Int64\+Array \&cell\+\_\+uids, Arcane\+::\+Int64\+Array \&cell\+\_\+infos, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a0a78f4dcb1dcffb39947e332ad7548e7}\label{classIXMV4MeshReader_a0a78f4dcb1dcffb39947e332ad7548e7}} 
+void {\bfseries \+\_\+read\+Edge\+Infos} (const Arcane\+::\+Xml\+Node\+List \&edge\+\_\+list\+\_\+node, const String \&block\+\_\+name, Item\+Type\+Mng $\ast$type\+Mng, Arcane\+::\+Int64\+Array \&edge\+\_\+uids, Arcane\+::\+Int64\+Array \&edge\+\_\+infos, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_afa3100921ea15da802a2e7821a30f564}\label{classIXMV4MeshReader_afa3100921ea15da802a2e7821a30f564}} 
+void {\bfseries \+\_\+broadcast\+Group\+Data} (Arcane\+::\+Xml\+Node \&root\+\_\+node, Arcane\+::\+IXml\+Document\+Holder $\ast$group\+\_\+holder, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils, const Arcane\+::\+String \&mesh\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a6de05347ca8d4dfdac37c9ef8436b61a}\label{classIXMV4MeshReader_a6de05347ca8d4dfdac37c9ef8436b61a}} 
+void {\bfseries \+\_\+broadcast\+Group\+Ids} (Arcane\+::\+Int64\+Shared\+Array \&group\+\_\+ids, const Arcane\+::\+Xml\+Node \&group\+\_\+node, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_abbc6cd45a09efe1adaed5d1c5a8f9ad2}\label{classIXMV4MeshReader_abbc6cd45a09efe1adaed5d1c5a8f9ad2}} 
+void {\bfseries \+\_\+read\+Group\+Ids} (Arcane\+::\+Int64\+Shared\+Array \&group\+\_\+ids, const Arcane\+::\+Xml\+Node \&group\+\_\+ids\+\_\+node, const Arcane\+::\+String \&group\+\_\+name)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_af736afb90fb8c3a34e1e04a8cd99b016}\label{classIXMV4MeshReader_af736afb90fb8c3a34e1e04a8cd99b016}} 
+void {\bfseries \+\_\+broadcast\+Property\+Data} (Arcane\+::\+Xml\+Node \&property\+\_\+node, Arcane\+::\+IXml\+Document\+Holder $\ast$property\+\_\+holder, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils, const Arcane\+::\+String \&mesh\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a4cb25b745c8d3c7c4fafa510ee1ef6b7}\label{classIXMV4MeshReader_a4cb25b745c8d3c7c4fafa510ee1ef6b7}} 
+void {\bfseries \+\_\+broadcast\+Property\+Support} (Arcane\+::\+Int64\+Shared\+Array \&property\+\_\+support, const Arcane\+::\+Xml\+Node \&property\+\_\+node, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a764295a9ec3145d80d063c5ced02ee5e}\label{classIXMV4MeshReader_a764295a9ec3145d80d063c5ced02ee5e}} 
+void {\bfseries \+\_\+read\+Property\+Support} (Arcane\+::\+Int64\+Shared\+Array \&property\+\_\+support, const Arcane\+::\+Xml\+Node \&support\+\_\+node, const Arcane\+::\+String \&property\+\_\+name)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a86bf096226310e7b4bce7c80392c07a4}\label{classIXMV4MeshReader_a86bf096226310e7b4bce7c80392c07a4}} 
+void {\bfseries \+\_\+read\+Node\+Coord\+Update} (const Arcane\+::\+Xml\+Node \&coord\+Node, \mbox{\hyperlink{structIXMItemData}{IXMNode\+Data}} \&node\+\_\+data, const Arcane\+::\+String \&message, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_aead4acc44aba88dbe0c60283e2d81dd3}\label{classIXMV4MeshReader_aead4acc44aba88dbe0c60283e2d81dd3}} 
+void {\bfseries \+\_\+read\+Group\+Data} (\mbox{\hyperlink{structIXMGroupData}{IXMGroup\+Data}} \&group\+\_\+data, const Arcane\+::\+Xml\+Node \&group\+\_\+node, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} \&parallel\+\_\+utils)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a73cc3e45e3cb218f85f13398fab70840}\label{classIXMV4MeshReader_a73cc3e45e3cb218f85f13398fab70840}} 
+virtual void {\bfseries \+\_\+read\+Topology\+Node} (Arcane\+::\+Xml\+Node \&topology\+\_\+node, const Arcane\+::\+String mesh\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a110b5221005412e278d7d2731473ee88}\label{classIXMV4MeshReader_a110b5221005412e278d7d2731473ee88}} 
+virtual void {\bfseries \+\_\+read\+Property\+Node} (Arcane\+::\+Xml\+Node \&property\+\_\+node, const Arcane\+::\+String mesh\+\_\+type)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a8c96adf7f9fff40a001c57e2ef7fe9e5}\label{classIXMV4MeshReader_a8c96adf7f9fff40a001c57e2ef7fe9e5}} 
+virtual void {\bfseries \+\_\+get\+Topology\+Node} (Arcane\+::\+Xml\+Node \&root\+\_\+node)
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_ab21150f0c039866487371d33346bde5a}\label{classIXMV4MeshReader_ab21150f0c039866487371d33346bde5a}} 
+{\footnotesize template$<$typename Property\+Data\+List $>$ }\\void {\bfseries \+\_\+read\+Property\+Data} (Property\+Data\+List \&property, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} \&parallel\+\_\+utils)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a1f870be064645b0841662b7c7b6c4a9c}\label{classIXMV4MeshReader_a1f870be064645b0841662b7c7b6c4a9c}} 
+Arcane\+::\+IIOMng $\ast$ {\bfseries m\+\_\+io\+\_\+mng} = nullptr
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a6e4aacbd90ba32e855de746a2dcb5c5f}\label{classIXMV4MeshReader_a6e4aacbd90ba32e855de746a2dcb5c5f}} 
+Arcane\+::\+IParallel\+Mng $\ast$ {\bfseries m\+\_\+parallel\+\_\+mng} = nullptr
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_ad1aa7161114c1a5fed2e971d85c25753}\label{classIXMV4MeshReader_ad1aa7161114c1a5fed2e971d85c25753}} 
+Arcane\+::\+ITrace\+Mng $\ast$ {\bfseries m\+\_\+trace\+\_\+mng} = nullptr
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a7725cb766b727a2269032ed4cc5ccf13}\label{classIXMV4MeshReader_a7725cb766b727a2269032ed4cc5ccf13}} 
+Arcane\+::\+IXml\+Document\+Holder $\ast$ {\bfseries m\+\_\+xmldoc} = nullptr
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_abbf65e210b6331080cd20a7b6d52e256}\label{classIXMV4MeshReader_abbf65e210b6331080cd20a7b6d52e256}} 
+Arcane\+::\+String {\bfseries m\+\_\+grid\+\_\+type}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a4149d4e9c283183fb4fbe6c5690b3750}\label{classIXMV4MeshReader_a4149d4e9c283183fb4fbe6c5690b3750}} 
+\mbox{\hyperlink{structIXMMeshDimension}{IXMMesh\+Dimension}} {\bfseries m\+\_\+grid\+\_\+dimension}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a813562ab06908ddc30afea5ff3874a9f}\label{classIXMV4MeshReader_a813562ab06908ddc30afea5ff3874a9f}} 
+\mbox{\hyperlink{classIXMMeshVersion}{IXMMesh\+Version}} {\bfseries m\+\_\+supported\+\_\+version}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_aa3b84c8d78f3e0ad854448c806b6450d}\label{classIXMV4MeshReader_aa3b84c8d78f3e0ad854448c806b6450d}} 
+bool {\bfseries m\+\_\+has\+\_\+mesh\+\_\+data} = false
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a0052d928821d5d3a42093b7e99a21a87}\label{classIXMV4MeshReader_a0052d928821d5d3a42093b7e99a21a87}} 
+Arcane\+::\+Xml\+Node {\bfseries m\+\_\+grid\+\_\+root}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a3ab9771424ef06d6cc281055a31edaa8}\label{classIXMV4MeshReader_a3ab9771424ef06d6cc281055a31edaa8}} 
+Arcane\+::\+Xml\+Node {\bfseries m\+\_\+mesh\+\_\+data}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_ab34c692c02f589007dd8715339abf760}\label{classIXMV4MeshReader_ab34c692c02f589007dd8715339abf760}} 
+Arcane\+::\+Xml\+Node\+List {\bfseries m\+\_\+events\+\_\+data}
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a51c213dcb90a03de98c8caeee84313ad}\label{classIXMV4MeshReader_a51c213dcb90a03de98c8caeee84313ad}} 
+Integer {\bfseries m\+\_\+nb\+\_\+events\+\_\+data\+\_\+size} = 0
+\item 
+\mbox{\Hypertarget{classIXMV4MeshReader_a20bc6a01dd796e2c061ceb382e0d85f3}\label{classIXMV4MeshReader_a20bc6a01dd796e2c061ceb382e0d85f3}} 
+Arcane\+::\+String {\bfseries m\+\_\+mesh\+\_\+file\+\_\+directory\+\_\+name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 22 of file IXMV4\+Mesh\+Reader.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIXMV4MeshReader_aba8b162cbf3f7b42eff44e4f82a6ca1f}\label{classIXMV4MeshReader_aba8b162cbf3f7b42eff44e4f82a6ca1f}} 
+\index{IXMV4MeshReader@{IXMV4MeshReader}!loadMeshFile@{loadMeshFile}}
+\index{loadMeshFile@{loadMeshFile}!IXMV4MeshReader@{IXMV4MeshReader}}
+\doxysubsubsection{\texorpdfstring{loadMeshFile()}{loadMeshFile()}}
+{\footnotesize\ttfamily Arcane\+::\+String IXMV4\+Mesh\+Reader\+::load\+Mesh\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIXMMeshFile}{IXMMesh\+File}}}]{mesh\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+=== Interface \mbox{\hyperlink{classIIXMMeshReaderBase}{IIXMMesh\+Reader\+Base}} === 
+
+Chargement du fichier de maillage. Retourne le r{\ucr}pertoire du fichier de maillage 
+
+Implements \mbox{\hyperlink{classIIXMMeshReaderBase_ad0461fa4a00c54c74de3c1bc63aa2fb1}{IIXMMesh\+Reader\+Base}}.
+
+
+
+Definition at line 72 of file IXMV4\+Mesh\+Reader.\+cc.
+
+\mbox{\Hypertarget{classIXMV4MeshReader_a1280f4a35e2880b495398a6f7e11e8a6}\label{classIXMV4MeshReader_a1280f4a35e2880b495398a6f7e11e8a6}} 
+\index{IXMV4MeshReader@{IXMV4MeshReader}!readCellData@{readCellData}}
+\index{readCellData@{readCellData}!IXMV4MeshReader@{IXMV4MeshReader}}
+\doxysubsubsection{\texorpdfstring{readCellData()}{readCellData()}}
+{\footnotesize\ttfamily void IXMV4\+Mesh\+Reader\+::read\+Cell\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIXMItemData}{IXMCell\+Data}} \&}]{cell\+\_\+data,  }\item[{const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&}]{check\+\_\+mesh\+\_\+info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+=== Interface \mbox{\hyperlink{classIIXMStaticMeshReader}{IIXMStatic\+Mesh\+Reader}} === 
+
+Lecture des donnees du maillage 
+
+Implements \mbox{\hyperlink{classIIXMStaticMeshReader_a9b390634010a3578b1b0ade486251a49}{IIXMStatic\+Mesh\+Reader}}.
+
+
+
+Definition at line 305 of file IXMV4\+Mesh\+Reader.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMV4\+Mesh\+Reader.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMV4\+Mesh\+Reader.\+cc\end{DoxyCompactItemize}

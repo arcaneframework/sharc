@@ -1,0 +1,94 @@
+\hypertarget{classBaseNonLinearModel}{}\doxysection{Base\+Non\+Linear\+Model Class Reference}
+\label{classBaseNonLinearModel}\index{BaseNonLinearModel@{BaseNonLinearModel}}
+
+
+Inherits \mbox{\hyperlink{classINonLinearModel}{INon\+Linear\+Model}}.
+
+
+
+Inherited by \mbox{\hyperlink{classBaseNonLinearModelT}{Base\+Non\+Linear\+Model\+T$<$ Model\+T $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a90ac6f4af37c8f62fec469536c528128}\label{classBaseNonLinearModel_a90ac6f4af37c8f62fec469536c528128}} 
+typedef \mbox{\hyperlink{classNonLinearSystemT}{Non\+Linear\+SystemT}}$<$ \mbox{\hyperlink{classBaseNonLinearModel}{Base\+Non\+Linear\+Model}} $>$ {\bfseries Non\+Linear\+System\+Type}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a0e67c433d0e277902868d17bd8137004}\label{classBaseNonLinearModel_a0e67c433d0e277902868d17bd8137004}} 
+typedef Arc\+Geo\+Sim\+::\+Numerics\+::\+Norme$<$ Arc\+Geo\+Sim\+::\+Numerics\+::\+L0 $>$ {\bfseries Norme\+L0}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a0dbc59d185ad7d345799bd09aae4f0e7}\label{classBaseNonLinearModel_a0dbc59d185ad7d345799bd09aae4f0e7}} 
+typedef Arc\+Geo\+Sim\+::\+Numerics\+::\+Norme$<$ Arc\+Geo\+Sim\+::\+Numerics\+::\+L1 $>$ {\bfseries Norme\+L1}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a605ae4e0057ad7a6874993232f9bfc02}\label{classBaseNonLinearModel_a605ae4e0057ad7a6874993232f9bfc02}} 
+typedef Arc\+Geo\+Sim\+::\+Numerics\+::\+Norme$<$ Arc\+Geo\+Sim\+::\+Numerics\+::\+L2 $>$ {\bfseries Norme\+L2}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_aa35fa5be68cf5ae59ace4968872d7fe6}\label{classBaseNonLinearModel_aa35fa5be68cf5ae59ace4968872d7fe6}} 
+using {\bfseries ILinear\+System\+Builder\+Type} = \mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder}}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_aead5aacabca0a256df1e2383cc016bda}\label{classBaseNonLinearModel_aead5aacabca0a256df1e2383cc016bda}} 
+using {\bfseries IDirect\+Linear\+Solver\+Type} = \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{Local\+Direct\+Solver\+Namespace\+::\+ILinear\+Solver}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a2b9e42c0b78880b61338f06d68920170}\label{classBaseNonLinearModel_a2b9e42c0b78880b61338f06d68920170}} 
+\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$ {\bfseries get\+Non\+Linear\+System} ()
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_aafb95aec2ebd22aaf13d8ad348eb54bc}\label{classBaseNonLinearModel_aafb95aec2ebd22aaf13d8ad348eb54bc}} 
+\mbox{\hyperlink{classINonLinearSystemBuilder}{INon\+Linear\+System\+Builder}} $\ast$ {\bfseries get\+Non\+Linear\+System\+Builder} ()
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a7af814540779979e0067c87ac468b4ac}\label{classBaseNonLinearModel_a7af814540779979e0067c87ac468b4ac}} 
+virtual \mbox{\hyperlink{classINonLinearSystemVisitor}{INon\+Linear\+System\+Visitor}} $\ast$ {\bfseries get\+Variable\+Updater} ()
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_aea374a4c965eac9b36edc2098f554082}\label{classBaseNonLinearModel_aea374a4c965eac9b36edc2098f554082}} 
+virtual void {\bfseries set\+Linear\+Solver} (\mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{IDirect\+Linear\+Solver\+Type}} $\ast$solver)=0
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a53e81cb9fae9e97824a7914368ec6e73}\label{classBaseNonLinearModel_a53e81cb9fae9e97824a7914368ec6e73}} 
+virtual void {\bfseries set\+Linear\+Solver} (Alien\+::\+ILinear\+Solver $\ast$solver)=0
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_ad8976c14cac311c44fdbd00e3a18245e}\label{classBaseNonLinearModel_ad8976c14cac311c44fdbd00e3a18245e}} 
+virtual \mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder\+Type}} $\ast$ {\bfseries get\+Linear\+System\+Builder} ()
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_af8494549d175c0e79d74fbd771ca707d}\label{classBaseNonLinearModel_af8494549d175c0e79d74fbd771ca707d}} 
+virtual Integer {\bfseries build\+Linearized\+System} ()=0
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a775e257a457c87f6b56f0a03f09a727e}\label{classBaseNonLinearModel_a775e257a457c87f6b56f0a03f09a727e}} 
+virtual Integer {\bfseries update\+Variable} ()=0
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a215e2af42406ccf6a9f704959f2bbf0a}\label{classBaseNonLinearModel_a215e2af42406ccf6a9f704959f2bbf0a}} 
+virtual Real {\bfseries get\+Newton\+Residual} (Norme\+L0 \&norme)=0
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_afcd4efef3b50e4b965c6cc022498b28e}\label{classBaseNonLinearModel_afcd4efef3b50e4b965c6cc022498b28e}} 
+virtual Real {\bfseries get\+Newton\+Residual} (Norme\+L1 \&norme)=0
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_aa942d985e7d1d6479c69908c7c91122f}\label{classBaseNonLinearModel_aa942d985e7d1d6479c69908c7c91122f}} 
+virtual Real {\bfseries get\+Newton\+Residual} (Norme\+L2 \&norme)=0
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a1f787d510a01a53d042480229fdea632}\label{classBaseNonLinearModel_a1f787d510a01a53d042480229fdea632}} 
+virtual Integer {\bfseries get\+Numerical\+Error} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a313f0293da81d851b30f6d82a723bdaa}\label{classBaseNonLinearModel_a313f0293da81d851b30f6d82a723bdaa}} 
+\mbox{\hyperlink{classNonLinearSystemT}{Non\+Linear\+System\+Type}} $\ast$ {\bfseries m\+\_\+non\+\_\+linear\+\_\+system} = nullptr
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_a080ae7c55867c8811926bba8c39afd29}\label{classBaseNonLinearModel_a080ae7c55867c8811926bba8c39afd29}} 
+\mbox{\hyperlink{classINonLinearSystemBuilder}{INon\+Linear\+System\+Builder}} $\ast$ {\bfseries m\+\_\+non\+\_\+linear\+\_\+system\+\_\+builder} = nullptr
+\item 
+\mbox{\Hypertarget{classBaseNonLinearModel_ab43d694657737d79a473c820efc47f6b}\label{classBaseNonLinearModel_ab43d694657737d79a473c820efc47f6b}} 
+\mbox{\hyperlink{classINonLinearSystemVisitor}{INon\+Linear\+System\+Visitor}} $\ast$ {\bfseries m\+\_\+variable\+\_\+updater} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 43 of file Non\+Linear\+Model\+T.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Impl/Non\+Linear\+Model\+T.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,264 @@
+\hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature}{}\doxysection{Arcane\+Fem\+Functions\+::Fem\+Gauss\+Quadrature Class Reference}
+\label{classArcaneFemFunctions_1_1FemGaussQuadrature}\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+
+
+Provides methods for Gauss quadrature.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_acbb796428f6c578cb5b7cfc2850e8578}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_acbb796428f6c578cb5b7cfc2850e8578}} 
+static Integer \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_acbb796428f6c578cb5b7cfc2850e8578}{get\+Nb\+Gauss\+Pointsfrom\+Order}} (Int16 cell\+\_\+type, Integer ninteg)
+\begin{DoxyCompactList}\small\item\em Provides the number of Gauss Points for a given finite element type, depending on the integration order chosen by user (coming fro PASSMO). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a352a8810b9c20dd5dd4e8a16920ff07d}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a352a8810b9c20dd5dd4e8a16920ff07d}} 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a352a8810b9c20dd5dd4e8a16920ff07d}{get\+Gauss\+Ref\+Position}} (Item\+With\+Nodes cell, Integer ninteg, Integer rank)
+\begin{DoxyCompactList}\small\item\em Provides the position of a Gauss Point in the reference (local) element for a given finite element, depending on the rank of the point in the element loop (coming fro PASSMO). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a262d2d96b7c0781dceb520f3c57e9e69}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a262d2d96b7c0781dceb520f3c57e9e69}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a262d2d96b7c0781dceb520f3c57e9e69}{get\+Gauss\+Weight}} (Item\+With\+Nodes cell, Integer ninteg, Integer rank)
+\begin{DoxyCompactList}\small\item\em Provides the integration weight of a Gauss Point for a given finite element, depending on the rank of the point in the element loop (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_ac0d9fe0fab37f8191bb621ae68f385a4}{get\+Ref\+Position}} (Integer indx, Integer ordre)
+\begin{DoxyCompactList}\small\item\em Provides the position of a Gauss Point in the reference (local) element coordinates, depending on the index of the Gauss Point and integration order chosen by user (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a897884133e6f573600ac6695c755686f}{get\+Weight}} (Integer indx, Integer ordre)
+\begin{DoxyCompactList}\small\item\em Provides the integration weight depending on the index of the Gauss Point and integration order chosen by user (coming fro PASSMO). \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_ad9f7e81e18502f15012ab77699394cea}{line\+Ref\+Position}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the reference coordinates of a Gauss Point for edge elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a57036ec88d0384a2c6e1dbae1b63aa71}{tri\+Ref\+Position}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the reference coordinates of a Gauss Point for triangle elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_af463fddb0396a724411f1c1f0bbdc466}{quad\+Ref\+Position}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the reference coordinates of a Gauss Point for quadrangle elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_af5b75a01c23ac0673b278756b5e3aa21}{hexa\+Ref\+Position}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the reference coordinates of a Gauss Point for hexaedron elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a40b1438c80bb6f9b61c5c46cdf5ecaa8}{tetra\+Ref\+Position}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}})
+\begin{DoxyCompactList}\small\item\em Provides the reference coordinates of a Gauss Point for tetraedron elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a7fa7ebd555b4e8ea3675d3f541f6ae7e}{penta\+Ref\+Position}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the reference coordinates of a Gauss Point for wedge (pentaedron) elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a2ff05ea6626e8b174d1244b7d7da4bb6}{line\+Weight}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the integration weight of a Gauss Point for edge elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_af6b5a4d40c013ac987642800f9af613c}{tri\+Weight}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the integration weight of a Gauss Point for triangle elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a70c43828efae061a3202882af0eb7cfd}{quad\+Weight}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the integration weight of a Gauss Point for quadrangle elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_ab86c5f863015687fe2e5c826ac708484}{hexa\+Weight}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the integration weight of a Gauss Point for hexadron elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_a46a8a7d3a655623da4db8fe20fcbae66}{tetra\+Weight}} (\mbox{\hyperlink{classInteger3}{Integer3}}, \mbox{\hyperlink{classInteger3}{Integer3}})
+\begin{DoxyCompactList}\small\item\em Provides the integration weight of a Gauss Point for tetraedron elements (coming fro PASSMO). \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemGaussQuadrature_af908ef6996706d0810d23d4d5d7083fe}{penta\+Weight}} (\mbox{\hyperlink{classInteger3}{Integer3}} indices, \mbox{\hyperlink{classInteger3}{Integer3}} ordre)
+\begin{DoxyCompactList}\small\item\em Provides the integration weight of a Gauss Point for wedge (pentaedron) elements (coming fro PASSMO). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for Gauss quadrature. 
+
+This class includes static methods for computing Gauss-\/\+Legendre integration depending on finite element types (coming from PASSMO). 
+
+Definition at line 4076 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_ac0d9fe0fab37f8191bb621ae68f385a4}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_ac0d9fe0fab37f8191bb621ae68f385a4}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!getRefPosition@{getRefPosition}}
+\index{getRefPosition@{getRefPosition}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{getRefPosition()}{getRefPosition()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::get\+Ref\+Position (\begin{DoxyParamCaption}\item[{Integer}]{indx,  }\item[{Integer}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the position of a Gauss Point in the reference (local) element coordinates, depending on the index of the Gauss Point and integration order chosen by user (coming fro PASSMO). 
+
+This method is generic (not depending on the finite element type) and is called by specialized methods (depending on FE type) 
+
+Definition at line 4355 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a897884133e6f573600ac6695c755686f}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a897884133e6f573600ac6695c755686f}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::get\+Weight (\begin{DoxyParamCaption}\item[{Integer}]{indx,  }\item[{Integer}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the integration weight depending on the index of the Gauss Point and integration order chosen by user (coming fro PASSMO). 
+
+This method is generic (not depending on the finite element type) and is called by specialized methods (depending on FE type) 
+
+Definition at line 4398 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_af5b75a01c23ac0673b278756b5e3aa21}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_af5b75a01c23ac0673b278756b5e3aa21}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!hexaRefPosition@{hexaRefPosition}}
+\index{hexaRefPosition@{hexaRefPosition}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{hexaRefPosition()}{hexaRefPosition()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::hexa\+Ref\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the reference coordinates of a Gauss Point for hexaedron elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4486 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_ab86c5f863015687fe2e5c826ac708484}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_ab86c5f863015687fe2e5c826ac708484}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!hexaWeight@{hexaWeight}}
+\index{hexaWeight@{hexaWeight}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{hexaWeight()}{hexaWeight()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::hexa\+Weight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the integration weight of a Gauss Point for hexadron elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4577 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_ad9f7e81e18502f15012ab77699394cea}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_ad9f7e81e18502f15012ab77699394cea}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!lineRefPosition@{lineRefPosition}}
+\index{lineRefPosition@{lineRefPosition}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{lineRefPosition()}{lineRefPosition()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::line\+Ref\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the reference coordinates of a Gauss Point for edge elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4442 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a2ff05ea6626e8b174d1244b7d7da4bb6}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a2ff05ea6626e8b174d1244b7d7da4bb6}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!lineWeight@{lineWeight}}
+\index{lineWeight@{lineWeight}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{lineWeight()}{lineWeight()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::line\+Weight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the integration weight of a Gauss Point for edge elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4535 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a7fa7ebd555b4e8ea3675d3f541f6ae7e}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a7fa7ebd555b4e8ea3675d3f541f6ae7e}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!pentaRefPosition@{pentaRefPosition}}
+\index{pentaRefPosition@{pentaRefPosition}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{pentaRefPosition()}{pentaRefPosition()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::penta\+Ref\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the reference coordinates of a Gauss Point for wedge (pentaedron) elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4516 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_af908ef6996706d0810d23d4d5d7083fe}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_af908ef6996706d0810d23d4d5d7083fe}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!pentaWeight@{pentaWeight}}
+\index{pentaWeight@{pentaWeight}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{pentaWeight()}{pentaWeight()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::penta\+Weight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the integration weight of a Gauss Point for wedge (pentaedron) elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4606 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_af463fddb0396a724411f1c1f0bbdc466}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_af463fddb0396a724411f1c1f0bbdc466}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!quadRefPosition@{quadRefPosition}}
+\index{quadRefPosition@{quadRefPosition}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{quadRefPosition()}{quadRefPosition()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::quad\+Ref\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the reference coordinates of a Gauss Point for quadrangle elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4470 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a70c43828efae061a3202882af0eb7cfd}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a70c43828efae061a3202882af0eb7cfd}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!quadWeight@{quadWeight}}
+\index{quadWeight@{quadWeight}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{quadWeight()}{quadWeight()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::quad\+Weight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the integration weight of a Gauss Point for quadrangle elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4561 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a40b1438c80bb6f9b61c5c46cdf5ecaa8}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a40b1438c80bb6f9b61c5c46cdf5ecaa8}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!tetraRefPosition@{tetraRefPosition}}
+\index{tetraRefPosition@{tetraRefPosition}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{tetraRefPosition()}{tetraRefPosition()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::tetra\+Ref\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the reference coordinates of a Gauss Point for tetraedron elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4502 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a46a8a7d3a655623da4db8fe20fcbae66}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a46a8a7d3a655623da4db8fe20fcbae66}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!tetraWeight@{tetraWeight}}
+\index{tetraWeight@{tetraWeight}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{tetraWeight()}{tetraWeight()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::tetra\+Weight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the integration weight of a Gauss Point for tetraedron elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4593 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_a57036ec88d0384a2c6e1dbae1b63aa71}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_a57036ec88d0384a2c6e1dbae1b63aa71}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!triRefPosition@{triRefPosition}}
+\index{triRefPosition@{triRefPosition}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{triRefPosition()}{triRefPosition()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::tri\+Ref\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the reference coordinates of a Gauss Point for triangle elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4455 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemGaussQuadrature_af6b5a4d40c013ac987642800f9af613c}\label{classArcaneFemFunctions_1_1FemGaussQuadrature_af6b5a4d40c013ac987642800f9af613c}} 
+\index{ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}!triWeight@{triWeight}}
+\index{triWeight@{triWeight}!ArcaneFemFunctions::FemGaussQuadrature@{ArcaneFemFunctions::FemGaussQuadrature}}
+\doxysubsubsection{\texorpdfstring{triWeight()}{triWeight()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Gauss\+Quadrature\+::tri\+Weight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{indices,  }\item[{\mbox{\hyperlink{classInteger3}{Integer3}}}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides the integration weight of a Gauss Point for triangle elements (coming fro PASSMO). 
+
+This method takes the indices and integration orders chosen by user as inputs (in (1, 2, 3 directions depending on the space dimension) 
+
+Definition at line 4548 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\hypertarget{classArrayVariableAccessorService}{}\doxysection{Array\+Variable\+Accessor\+Service Class Reference}
+\label{classArrayVariableAccessorService}\index{ArrayVariableAccessorService@{ArrayVariableAccessorService}}
+
+
+Inherits Arcane\+Array\+Variable\+Accessor\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArrayVariableAccessorService_a43d0495137fc5b58fccd1f57a0d91fc0}\label{classArrayVariableAccessorService_a43d0495137fc5b58fccd1f57a0d91fc0}} 
+\mbox{\hyperlink{classArrayVariableAccessorService_a43d0495137fc5b58fccd1f57a0d91fc0}{Array\+Variable\+Accessor\+Service}} (const Arcane\+::\+Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayVariableAccessorService_a77bf59b7d592e55cbb2fad5c126770e6}\label{classArrayVariableAccessorService_a77bf59b7d592e55cbb2fad5c126770e6}} 
+virtual \mbox{\hyperlink{classArrayVariableAccessorService_a77bf59b7d592e55cbb2fad5c126770e6}{$\sim$\+Array\+Variable\+Accessor\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArrayVariableAccessorService_a355b2b73d86eadad12f6b7477d689656}{init}} (const Item\+Group \&group)
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+IVariable $\ast$ \mbox{\hyperlink{classArrayVariableAccessorService_a1d5bd0186e60efb7792de3bc54d22cc4}{variable}} (const Item\+Group \&group)
+\begin{DoxyCompactList}\small\item\em Apply service function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file Array\+Variable\+Accessor\+Service.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArrayVariableAccessorService_a355b2b73d86eadad12f6b7477d689656}\label{classArrayVariableAccessorService_a355b2b73d86eadad12f6b7477d689656}} 
+\index{ArrayVariableAccessorService@{ArrayVariableAccessorService}!init@{init}}
+\index{init@{init}!ArrayVariableAccessorService@{ArrayVariableAccessorService}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Array\+Variable\+Accessor\+Service\+::init (\begin{DoxyParamCaption}\item[{const Item\+Group \&}]{group }\end{DoxyParamCaption})}
+
+
+
+Initialisation. 
+
+\mbox{\hyperlink{structVariable}{Variable}} manager
+
+\mbox{\hyperlink{structVariable}{Variable}} name
+
+Find variable
+
+Check compatibility
+
+Check group compatibility
+
+Definition at line 23 of file Array\+Variable\+Accessor\+Service.\+cc.
+
+\mbox{\Hypertarget{classArrayVariableAccessorService_a1d5bd0186e60efb7792de3bc54d22cc4}\label{classArrayVariableAccessorService_a1d5bd0186e60efb7792de3bc54d22cc4}} 
+\index{ArrayVariableAccessorService@{ArrayVariableAccessorService}!variable@{variable}}
+\index{variable@{variable}!ArrayVariableAccessorService@{ArrayVariableAccessorService}}
+\doxysubsubsection{\texorpdfstring{variable()}{variable()}}
+{\footnotesize\ttfamily IVariable $\ast$ Array\+Variable\+Accessor\+Service\+::variable (\begin{DoxyParamCaption}\item[{const Item\+Group \&}]{group }\end{DoxyParamCaption})}
+
+
+
+Apply service function. 
+
+Extract element from array
+
+Store extracted element number
+
+Extract component from mesh array variable
+
+Check conformity
+
+Create the associated IVariable
+
+Check compatibility
+
+Definition at line 63 of file Array\+Variable\+Accessor\+Service.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Tests/\+Utils/\+Array\+Variable\+Accessor/Array\+Variable\+Accessor\+Service.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Tests/\+Utils/\+Array\+Variable\+Accessor/Array\+Variable\+Accessor\+Service.\+cc\end{DoxyCompactItemize}

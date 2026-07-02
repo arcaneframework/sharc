@@ -1,0 +1,93 @@
+\hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl}{}\doxysection{Arcane\+::Fem\+Utils\+::IDo\+FLinear\+System\+Impl Class Reference}
+\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl}\index{Arcane::FemUtils::IDoFLinearSystemImpl@{Arcane::FemUtils::IDoFLinearSystemImpl}}
+
+
+Inherited by \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase}{Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+Impl\+Base}}, and Arcane\+::\+Fem\+Utils\+::\+Sequential\+Do\+FLinear\+System\+Impl.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a55efaab2dfadb45431f4e0552e717912}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a55efaab2dfadb45431f4e0552e717912}} 
+virtual void {\bfseries matrix\+Add\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a2bf079434a3e2d5e5a14e9d084f83e25}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a2bf079434a3e2d5e5a14e9d084f83e25}} 
+virtual void {\bfseries matrix\+Set\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_ad7d7fe6b08d5657483b408d653b14a7c}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_ad7d7fe6b08d5657483b408d653b14a7c}} 
+virtual void {\bfseries eliminate\+Row} (Do\+FLocal\+Id row, Real value)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a9db333eb62a222ed34807b7fb73227a9}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a9db333eb62a222ed34807b7fb73227a9}} 
+virtual void {\bfseries eliminate\+Row\+Column} (Do\+FLocal\+Id row, Real value)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a90a10dcbfb3c857a497aeb4b65b59303}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a90a10dcbfb3c857a497aeb4b65b59303}} 
+virtual void {\bfseries apply\+Matrix\+Transformation} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_af76590fabeddbd1bea85530766675da9}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_af76590fabeddbd1bea85530766675da9}} 
+virtual void {\bfseries apply\+RHSTransformation} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a8744ac5f829f48aa2ca1ce4107aee11c}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a8744ac5f829f48aa2ca1ce4107aee11c}} 
+virtual void {\bfseries solve} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_af57e6b8bda33a0f15e3cd1296859591b}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_af57e6b8bda33a0f15e3cd1296859591b}} 
+virtual Variable\+Do\+FReal \& {\bfseries solution\+Variable} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a4cae69958a3b2d76feaec738ff7d6f6e}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a4cae69958a3b2d76feaec738ff7d6f6e}} 
+virtual Variable\+Do\+FReal \& {\bfseries rhs\+Variable} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_ab0d9aa7b96c5d45675c3e6d6a4015a83}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_ab0d9aa7b96c5d45675c3e6d6a4015a83}} 
+virtual void {\bfseries set\+Solver\+Command\+Line\+Arguments} (const Command\+Line\+Arguments \&args)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a275ea829374a7e1ccf15e47a64ec20cb}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a275ea829374a7e1ccf15e47a64ec20cb}} 
+virtual void {\bfseries clear\+Values} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a83778c619ac9d3e71b1fc8a7b00767f8}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a83778c619ac9d3e71b1fc8a7b00767f8}} 
+virtual void {\bfseries set\+CSRValues} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \&csr\+\_\+view)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a887ad5d9b4d3da42ea05476e0c291e8a}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a887ad5d9b4d3da42ea05476e0c291e8a}} 
+virtual \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \& {\bfseries get\+CSRValues} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a59a6845805ace7b97f3913bb5fedb41c}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a59a6845805ace7b97f3913bb5fedb41c}} 
+virtual Variable\+Do\+FReal \& {\bfseries get\+Forced\+Value} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a3c9d8fc3bbc388133e26cd714354dd55}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a3c9d8fc3bbc388133e26cd714354dd55}} 
+virtual Variable\+Do\+FBool \& {\bfseries get\+Forced\+Info} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a821a1055e07a2655fa69edab647b05b2}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a821a1055e07a2655fa69edab647b05b2}} 
+virtual Variable\+Do\+FByte \& {\bfseries get\+Elimination\+Info} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a50f5e8bd48d9c0573fff47281d7b6a5e}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a50f5e8bd48d9c0573fff47281d7b6a5e}} 
+virtual Variable\+Do\+FReal \& {\bfseries get\+Elimination\+Value} ()=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a92471b64242db204146c475299c23a2b}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a92471b64242db204146c475299c23a2b}} 
+virtual bool {\bfseries has\+Set\+CSRValues} () const =0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a8eb4b4c11fe44281dd322e053548e8af}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a8eb4b4c11fe44281dd322e053548e8af}} 
+virtual void {\bfseries set\+Constant\+Matrix\+Sparsity} (bool val)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a804329298ad2b86fee437c46642769af}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a804329298ad2b86fee437c46642769af}} 
+virtual void {\bfseries set\+Constant\+Matrix\+Values} (bool val)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a7242e68adce2cec6464ffdb4242d1183}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a7242e68adce2cec6464ffdb4242d1183}} 
+virtual bool {\bfseries is\+Matrix\+Sparsity\+Constant} () const =0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a130f512f3def0a6569d90586921b86bc}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a130f512f3def0a6569d90586921b86bc}} 
+virtual bool {\bfseries is\+Matrix\+Values\+Constant} () const =0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_ad46652ed6766d7c82b2f06bced1e03e4}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_ad46652ed6766d7c82b2f06bced1e03e4}} 
+virtual void {\bfseries set\+Runner} (const Runner \&r)=0
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a61c27ecb59cae2c560414490d1542ae7}\label{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl_a61c27ecb59cae2c560414490d1542ae7}} 
+virtual Runner {\bfseries runner} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 37 of file IDo\+FLinear\+System\+Impl.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/internal/IDo\+FLinear\+System\+Impl.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{classDivKGradLScheme}{}\doxysection{Div\+KGrad\+LScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$ Class Template Reference}
+\label{classDivKGradLScheme}\index{DivKGradLScheme$<$ TCellStencilBuilder, TFaceStencilBuilder, TCellCoefficientArrayBuilder, TFaceCoefficientArrayBuilder $>$@{DivKGradLScheme$<$ TCellStencilBuilder, TFaceStencilBuilder, TCellCoefficientArrayBuilder, TFaceCoefficientArrayBuilder $>$}}
+
+
+Inherits \mbox{\hyperlink{classIDivKGradOLGSchemes}{IDiv\+KGrad\+OLGSchemes$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a2ef1235999fa6f085bd702ccfb36d410}\label{classDivKGradLScheme_a2ef1235999fa6f085bd702ccfb36d410}} 
+typedef \mbox{\hyperlink{classDivKGradLScheme}{Div\+KGrad\+LScheme}}$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$ {\bfseries This\+Class}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a041d45fcb5bf4638550e2ad3916a7548}\label{classDivKGradLScheme_a041d45fcb5bf4638550e2ad3916a7548}} 
+typedef \mbox{\hyperlink{classIDivKGradOLGSchemes}{IDiv\+KGrad\+OLGSchemes}}$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$ {\bfseries Base\+Class}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a20d72830f6762efae2db911472f714d3}\label{classDivKGradLScheme_a20d72830f6762efae2db911472f714d3}} 
+typedef TCell\+Stencil\+Builder {\bfseries Cell\+Stencil\+Builder\+Type}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a6c90727c027416cee8083a8862736e5b}\label{classDivKGradLScheme_a6c90727c027416cee8083a8862736e5b}} 
+typedef TFace\+Stencil\+Builder {\bfseries Face\+Stencil\+Builder\+Type}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_ad489ac38dbf35557c1dae76570118bfe}\label{classDivKGradLScheme_ad489ac38dbf35557c1dae76570118bfe}} 
+typedef TCell\+Coefficient\+Array\+Builder {\bfseries Cell\+Coefficient\+Array\+Builder\+Type}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_ab4668a027ea0210bf75574488a78a521}\label{classDivKGradLScheme_ab4668a027ea0210bf75574488a78a521}} 
+typedef TFace\+Coefficient\+Array\+Builder {\bfseries Face\+Coefficient\+Array\+Builder\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_aeae2447ab25092d0fab93828ef58a19f}\label{classDivKGradLScheme_aeae2447ab25092d0fab93828ef58a19f}} 
+{\bfseries Div\+KGrad\+LScheme} (ITrace\+Mng $\ast$a\+\_\+trace\+\_\+mng)
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a41ad611d2ac6f2cdc4f76d093664194c}\label{classDivKGradLScheme_a41ad611d2ac6f2cdc4f76d093664194c}} 
+{\footnotesize template$<$Integer N, typename Variable\+TypeT $>$ }\\void \mbox{\hyperlink{classDivKGradLScheme_a41ad611d2ac6f2cdc4f76d093664194c}{form\+Discrete\+OperatorT}} (const Variable\+TypeT \&kappa)
+\begin{DoxyCompactList}\small\item\em Form discrete operator. N is the space dimension. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a721011bef410d7750d1e53a2ccc91ebe}\label{classDivKGradLScheme_a721011bef410d7750d1e53a2ccc91ebe}} 
+typedef \mbox{\hyperlink{structOperatorImplementationT}{Operator\+ImplementationT}}$<$ \mbox{\hyperlink{structOperatorImplementationTraitsT}{Operator\+Implementation\+TraitsT}}$<$ \mbox{\hyperlink{classDivKGradLScheme}{This\+Class}} $>$\+::type $>$ {\bfseries Implementation\+Type}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a731c24283170c8aafe1a38fd3a63bdf4}\label{classDivKGradLScheme_a731c24283170c8aafe1a38fd3a63bdf4}} 
+typedef Implementation\+Type\+::\+Comparator\+Type {\bfseries Comparator\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_aeb9fd4ae3039ef68403ad04a93b1cb70}\label{classDivKGradLScheme_aeb9fd4ae3039ef68403ad04a93b1cb70}} 
+\mbox{\hyperlink{structOperatorImplementationT}{Operator\+ImplementationT}}$<$ \mbox{\hyperlink{structOperatorImplementationTraitsT}{Operator\+Implementation\+TraitsT}}$<$ \mbox{\hyperlink{classDivKGradLScheme}{This\+Class}} $>$\+::type $>$ {\bfseries m\+\_\+implementation}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDivKGradLScheme_a25e371c97641af821462664528705548}\label{classDivKGradLScheme_a25e371c97641af821462664528705548}} 
+struct {\bfseries Operator\+Implementation\+T$<$ Operator\+Implementation\+Traits\+T$<$ This\+Class $>$\+::type $>$}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TCell\+Stencil\+Builder, typename TFace\+Stencil\+Builder, typename TCell\+Coefficient\+Array\+Builder, typename TFace\+Coefficient\+Array\+Builder$>$\newline
+class Div\+KGrad\+LScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}
+
+
+
+Definition at line 24 of file Div\+KGrad\+LScheme.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+OLGSchemes\+Impl/Div\+KGrad\+LScheme.\+h\end{DoxyCompactItemize}

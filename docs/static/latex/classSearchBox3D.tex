@@ -1,0 +1,89 @@
+\hypertarget{classSearchBox3D}{}\doxysection{Search\+Box3D Class Reference}
+\label{classSearchBox3D}\index{SearchBox3D@{SearchBox3D}}
+
+
+Classe de distribution spaciale de points (via k-\/D tree) puis de recherche rapide de points dans la boite associ{\ucr}e.  
+
+
+
+
+{\ttfamily \#include $<$Search\+Box3\+D.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSearchBox3D_1_1Box3D}{Box3D}}
+\begin{DoxyCompactList}\small\item\em Boite de R3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSearchBox3D_a196516c0c9e09b1385f63fa0079c5cd7}\label{classSearchBox3D_a196516c0c9e09b1385f63fa0079c5cd7}} 
+\mbox{\hyperlink{classSearchBox3D_a196516c0c9e09b1385f63fa0079c5cd7}{Search\+Box3D}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSearchBox3D_a518203615303385378484907f9fe2346}\label{classSearchBox3D_a518203615303385378484907f9fe2346}} 
+virtual \mbox{\hyperlink{classSearchBox3D_a518203615303385378484907f9fe2346}{$\sim$\+Search\+Box3D}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSearchBox3D_ac6206cbd73526ec9c1a10d54d4212338}{init}} (const Integer size, const Integer $\ast$node\+\_\+list, const \mbox{\hyperlink{structReal3}{Real3}} $\ast$coord\+\_\+list, const \mbox{\hyperlink{classSearchBox3D_1_1Box3D}{Box3D}} \&box0, const Real \&epsilon)
+\begin{DoxyCompactList}\small\item\em Initialisation de la structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSearchBox3D_a2b1f9b3c777ab82531434aaaa13e232a}\label{classSearchBox3D_a2b1f9b3c777ab82531434aaaa13e232a}} 
+bool \mbox{\hyperlink{classSearchBox3D_a2b1f9b3c777ab82531434aaaa13e232a}{is\+In\+Box}} (const \mbox{\hyperlink{structReal3}{Real3}} \&point) const
+\begin{DoxyCompactList}\small\item\em test l\textquotesingle{}appartenance d\textquotesingle{}un point {\ucr} la boite englobante \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classSearchBox3D_a42a1ba9c6d8c39c6324b5cb023ae1968}{get\+Nearest\+Point\+Id}} (const \mbox{\hyperlink{structReal3}{Real3}} \&point)
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}identifiant du point le plus proche du point propos{\ucr} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe de distribution spaciale de points (via k-\/D tree) puis de recherche rapide de points dans la boite associ{\ucr}e. 
+
+Definition at line 23 of file Search\+Box3\+D.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSearchBox3D_a42a1ba9c6d8c39c6324b5cb023ae1968}\label{classSearchBox3D_a42a1ba9c6d8c39c6324b5cb023ae1968}} 
+\index{SearchBox3D@{SearchBox3D}!getNearestPointId@{getNearestPointId}}
+\index{getNearestPointId@{getNearestPointId}!SearchBox3D@{SearchBox3D}}
+\doxysubsubsection{\texorpdfstring{getNearestPointId()}{getNearestPointId()}}
+{\footnotesize\ttfamily Integer Search\+Box3\+D\+::get\+Nearest\+Point\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{point }\end{DoxyParamCaption})}
+
+
+
+Retourne l\textquotesingle{}identifiant du point le plus proche du point propos{\ucr} 
+
+La proximit{\ucr} est d{\ucr}finie au sens de m{\ucr}me cellule de k-\/D tree L\textquotesingle{}identifiant correspond {\ucr} un identifiant de node\+\_\+list fourni {\ucr} la m{\ucr}thode \mbox{\hyperlink{classSearchBox3D_ac6206cbd73526ec9c1a10d54d4212338}{init()}} 
+
+Definition at line 423 of file Search\+Box3\+D.\+cc.
+
+\mbox{\Hypertarget{classSearchBox3D_ac6206cbd73526ec9c1a10d54d4212338}\label{classSearchBox3D_ac6206cbd73526ec9c1a10d54d4212338}} 
+\index{SearchBox3D@{SearchBox3D}!init@{init}}
+\index{init@{init}!SearchBox3D@{SearchBox3D}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Search\+Box3\+D\+::init (\begin{DoxyParamCaption}\item[{const Integer}]{size,  }\item[{const Integer $\ast$}]{node\+\_\+list,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} $\ast$}]{coord\+\_\+list,  }\item[{const \mbox{\hyperlink{classSearchBox3D_1_1Box3D}{Box3D}} \&}]{box0,  }\item[{const Real \&}]{epsilon }\end{DoxyParamCaption})}
+
+
+
+Initialisation de la structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & nombre de points {\ucr} injecter \\
+\hline
+{\em node\+\_\+list} & index des points {\ucr} injecter \\
+\hline
+{\em coord\+\_\+list} & table de tous les coordonn{\ucr}es du maillage (non limit{\ucr} aux node\+\_\+list) \\
+\hline
+{\em box0} & boite englobante propos{\ucr}e (non v{\ucr}rifi{\ucr}e pendant l\textquotesingle{}init) \\
+\hline
+{\em epsilon} & tolerance relative appliqu{\ucr}e sur la boite englobante \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file Search\+Box3\+D.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Search\+Box3\+D.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Search\+Box3\+D.\+cc\end{DoxyCompactItemize}

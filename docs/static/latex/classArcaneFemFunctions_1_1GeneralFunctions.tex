@@ -1,0 +1,86 @@
+\hypertarget{classArcaneFemFunctions_1_1GeneralFunctions}{}\doxysection{Arcane\+Fem\+Functions\+::General\+Functions Class Reference}
+\label{classArcaneFemFunctions_1_1GeneralFunctions}\index{ArcaneFemFunctions::GeneralFunctions@{ArcaneFemFunctions::GeneralFunctions}}
+
+
+Provides general purpose fuctions.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1GeneralFunctions_a536ca8befa6eb6b59fff8ef1a5895634}{print\+Arcane\+Fem\+Time}} (ITrace\+Mng $\ast$tm, const String \&label, const Real \&value)
+\begin{DoxyCompactList}\small\item\em Logs the execution time with Arcane\+Fem-\/\+Timer. \end{DoxyCompactList}\item 
+static Command\+Line\+Arguments \mbox{\hyperlink{classArcaneFemFunctions_1_1GeneralFunctions_aa23f53e97fba9c1e3ea6b2d855c73d7d}{get\+Petsc\+Flags\+From\+Commandline}} (const String \&petsc\+\_\+flags)
+\begin{DoxyCompactList}\small\item\em Parses PETSc command-\/line flags into a Command\+Line\+Arguments object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides general purpose fuctions. 
+
+Definition at line 52 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1GeneralFunctions_aa23f53e97fba9c1e3ea6b2d855c73d7d}\label{classArcaneFemFunctions_1_1GeneralFunctions_aa23f53e97fba9c1e3ea6b2d855c73d7d}} 
+\index{ArcaneFemFunctions::GeneralFunctions@{ArcaneFemFunctions::GeneralFunctions}!getPetscFlagsFromCommandline@{getPetscFlagsFromCommandline}}
+\index{getPetscFlagsFromCommandline@{getPetscFlagsFromCommandline}!ArcaneFemFunctions::GeneralFunctions@{ArcaneFemFunctions::GeneralFunctions}}
+\doxysubsubsection{\texorpdfstring{getPetscFlagsFromCommandline()}{getPetscFlagsFromCommandline()}}
+{\footnotesize\ttfamily static Command\+Line\+Arguments Arcane\+Fem\+Functions\+::\+General\+Functions\+::get\+Petsc\+Flags\+From\+Commandline (\begin{DoxyParamCaption}\item[{const String \&}]{petsc\+\_\+flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Parses PETSc command-\/line flags into a Command\+Line\+Arguments object. 
+
+This method processes a space-\/separated string of PETSc flags and converts it into a list of individual arguments. We do the following\+:
+\begin{DoxyEnumerate}
+\item Convert the input String to a standard C++ string.
+\item Use a string stream to tokenize the input based on spaces.
+\item Store the tokens in a String\+List.
+\item Return a Command\+Line\+Arguments object constructed from the String\+List.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$tt$>$petsc\+\_\+flags$<$/tt$>$} & space-\/separated string containing PETSc CLI flags. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Command\+Line\+Arguments object containing the parsed flags. 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1GeneralFunctions_a536ca8befa6eb6b59fff8ef1a5895634}\label{classArcaneFemFunctions_1_1GeneralFunctions_a536ca8befa6eb6b59fff8ef1a5895634}} 
+\index{ArcaneFemFunctions::GeneralFunctions@{ArcaneFemFunctions::GeneralFunctions}!printArcaneFemTime@{printArcaneFemTime}}
+\index{printArcaneFemTime@{printArcaneFemTime}!ArcaneFemFunctions::GeneralFunctions@{ArcaneFemFunctions::GeneralFunctions}}
+\doxysubsubsection{\texorpdfstring{printArcaneFemTime()}{printArcaneFemTime()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+General\+Functions\+::print\+Arcane\+Fem\+Time (\begin{DoxyParamCaption}\item[{ITrace\+Mng $\ast$}]{tm,  }\item[{const String \&}]{label,  }\item[{const Real \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Logs the execution time with Arcane\+Fem-\/\+Timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & The \mbox{\hyperlink{namespaceArcane}{Arcane}} trace manager for logging. \\
+\hline
+{\em label} & A short description of the event being timed. \\
+\hline
+{\em value} & The elapsed time associated with the event. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

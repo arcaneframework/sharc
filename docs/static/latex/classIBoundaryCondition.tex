@@ -1,0 +1,54 @@
+\hypertarget{classIBoundaryCondition}{}\doxysection{IBoundary\+Condition Class Reference}
+\label{classIBoundaryCondition}\index{IBoundaryCondition@{IBoundaryCondition}}
+
+
+Base class for boundary conditions.  
+
+
+
+
+{\ttfamily \#include $<$IBoundary\+Condition.\+h$>$}
+
+
+
+Inherited by \mbox{\hyperlink{classScalarBoundaryCondition}{Scalar\+Boundary\+Condition}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIBoundaryCondition_a6cf0e2fcd50bebe5c49bdfda000cb965}\label{classIBoundaryCondition_a6cf0e2fcd50bebe5c49bdfda000cb965}} 
+typedef std\+::pair$<$ Real, Real $>$ \mbox{\hyperlink{classIBoundaryCondition_a6cf0e2fcd50bebe5c49bdfda000cb965}{Weight\+Type}}
+\begin{DoxyCompactList}\small\item\em Weight type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIBoundaryCondition_ae068029b29cf2434ec2c38ee0c6e036b}\label{classIBoundaryCondition_ae068029b29cf2434ec2c38ee0c6e036b}} 
+virtual \mbox{\hyperlink{structBoundaryConditionTypes_a50774ae5760986b073c07fba26809c56}{Boundary\+Condition\+Types\+::e\+Type}} \mbox{\hyperlink{classIBoundaryCondition_ae068029b29cf2434ec2c38ee0c6e036b}{get\+Type}} ()=0
+\begin{DoxyCompactList}\small\item\em Return boundary condition type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIBoundaryCondition_a48aeb6701c7490378c215756c9cadb81}\label{classIBoundaryCondition_a48aeb6701c7490378c215756c9cadb81}} 
+virtual Real \mbox{\hyperlink{classIBoundaryCondition_a48aeb6701c7490378c215756c9cadb81}{eval}} (const \mbox{\hyperlink{structReal3}{Real3}} \&x=\mbox{\hyperlink{structReal3}{Real3}}(0, 0, 0), Real t=0)=0
+\begin{DoxyCompactList}\small\item\em Evaluate boundary condition. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIBoundaryCondition_a54413ff70301ddbc980bfc12025cee7a}\label{classIBoundaryCondition_a54413ff70301ddbc980bfc12025cee7a}} 
+virtual Integer \mbox{\hyperlink{classIBoundaryCondition_a54413ff70301ddbc980bfc12025cee7a}{get\+Type}} ()=0
+\begin{DoxyCompactList}\small\item\em Return boundary condition type ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for boundary conditions. 
+
+\begin{DoxyAuthor}{Author}
+Daniele Di Pietro \href{mailto:daniele-antonio.di-pietro@ifp.fr}{\texttt{ daniele-\/antonio.\+di-\/pietro@ifp.\+fr}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2007-\/07-\/26 
+\end{DoxyDate}
+
+
+Definition at line 26 of file IBoundary\+Condition.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+BCs/IBoundary\+Condition.\+h\end{DoxyCompactItemize}

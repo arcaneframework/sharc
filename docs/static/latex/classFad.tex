@@ -1,0 +1,756 @@
+\hypertarget{classFad}{}\doxysection{Fad$<$ T $>$ Class Template Reference}
+\label{classFad}\index{Fad$<$ T $>$@{Fad$<$ T $>$}}
+
+
+\mbox{\hyperlink{classFad}{Fad}} \+: Differenciation automatique pour un tableau de type {\itshape T}.  
+
+
+
+
+{\ttfamily \#include $<$Fad.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFad_a49f511576cc81fccbc4bbb9e633d139c}\label{classFad_a49f511576cc81fccbc4bbb9e633d139c}} 
+typedef T\+::value\+\_\+type \mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type des elements de la derivee. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_a49f511576cc81fccbc4bbb9e633d139c}\label{classFad_a49f511576cc81fccbc4bbb9e633d139c}} 
+typedef T\+::value\+\_\+type \mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type des elements de la derivee. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructeurs}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFad_a8cc727e870308055707bfa0ae32c6edd}{Fad}} (int nb\+Inconnues)
+\begin{DoxyCompactList}\small\item\em Construit un FAD a partir du nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a72ae4f1375faff19c7c0967e3b3ca940}{Fad}} (T \&value, int nb\+Inconnues, int own)
+\begin{DoxyCompactList}\small\item\em Construit un FAD a partir d\textquotesingle{}un tableau et de son nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a08d12fbed546783c7e41bf8ef36c2ff4}{Fad}} (T \&value, \mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} $\ast$$\ast$value\+Der, int nb\+Inconnues)
+\begin{DoxyCompactList}\small\item\em Construit un FAD a partir d\textquotesingle{}un tableau, d\textquotesingle{}une matrice de derivee et de son nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_ad4d19a9e632a91aafb7fc0ea8c194e3f}{Fad}} (const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Constructeur par recopie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a8cc727e870308055707bfa0ae32c6edd}{Fad}} (int nb\+Inconnues)
+\begin{DoxyCompactList}\small\item\em Construit un FAD a partir du nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a72ae4f1375faff19c7c0967e3b3ca940}{Fad}} (T \&value, int nb\+Inconnues, int own)
+\begin{DoxyCompactList}\small\item\em Construit un FAD a partir d\textquotesingle{}un tableau et de son nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a08d12fbed546783c7e41bf8ef36c2ff4}{Fad}} (T \&value, \mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} $\ast$$\ast$value\+Der, int nb\+Inconnues)
+\begin{DoxyCompactList}\small\item\em Construit un FAD a partir d\textquotesingle{}un tableau, d\textquotesingle{}une matrice de derivee et de son nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_ad4d19a9e632a91aafb7fc0ea8c194e3f}{Fad}} (const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Constructeur par recopie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Destructeur}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFad_a25299786bb6a5f3d2332393a44f2673d}\label{classFad_a25299786bb6a5f3d2332393a44f2673d}} 
+{\bfseries $\sim$\+Fad} ()
+\item 
+\mbox{\Hypertarget{classFad_a25299786bb6a5f3d2332393a44f2673d}\label{classFad_a25299786bb6a5f3d2332393a44f2673d}} 
+{\bfseries $\sim$\+Fad} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Surcharges d\textquotesingle{}operateurs}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFad_a88b0da8dc79b2392003b5b87837a0924}{operator=}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}un \mbox{\hyperlink{classArray}{Array}} de type T. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_a2aa619cd58fe337a88eca96db86ca444}\label{classFad_a2aa619cd58fe337a88eca96db86ca444}} 
+void {\bfseries operator=} (\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} $\ast$$\ast$value)
+\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\void \mbox{\hyperlink{classFad_a74939206e5e18f314ee4299523d16e8c}{operator=}} (const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\void \mbox{\hyperlink{classFad_ad8fe6c3792a7306c327781a24965bc7a}{operator=}} (const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\void \mbox{\hyperlink{classFad_aa37a5a8e26f7e439531cb847837cd2fa}{operator=}} (const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFad_a00c9891067a60c8faed4f57845cd5e57}{operator=}} (const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}un FAD de type T. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFad_a88b0da8dc79b2392003b5b87837a0924}{operator=}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}un \mbox{\hyperlink{classArray}{Array}} de type T. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFad_a2aa619cd58fe337a88eca96db86ca444}{operator=}} (\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} $\ast$$\ast$value)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour le tableau de derivees. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\void \mbox{\hyperlink{classFad_a74939206e5e18f314ee4299523d16e8c}{operator=}} (const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\void \mbox{\hyperlink{classFad_ad8fe6c3792a7306c327781a24965bc7a}{operator=}} (const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\void \mbox{\hyperlink{classFad_aa37a5a8e26f7e439531cb847837cd2fa}{operator=}} (const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFad_a00c9891067a60c8faed4f57845cd5e57}{operator=}} (const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}un FAD de type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Accesseurs}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}\label{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}} 
+int \mbox{\hyperlink{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la taille du tableau. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}{get\+Value}} (int i) const
+\begin{DoxyCompactList}\small\item\em Retourne la valeur du tableau a l\textquotesingle{}index i. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad_a721c21bf2a04e0e8515ed85c73079fa8}{get\+Derived\+Value}} (int ligne, int colonne) const
+\begin{DoxyCompactList}\small\item\em Retourne la valeur de la derivee du tableau a l\textquotesingle{}index ligne,colonne. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_afd5f7d46b8631ec1344761180371037a}\label{classFad_afd5f7d46b8631ec1344761180371037a}} 
+int \mbox{\hyperlink{classFad_afd5f7d46b8631ec1344761180371037a}{get\+Nb\+Inconnues}} () const
+\begin{DoxyCompactList}\small\item\em Retourne le nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}\label{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}} 
+int \mbox{\hyperlink{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la taille du tableau. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}{get\+Value}} (int i) const
+\begin{DoxyCompactList}\small\item\em Retourne la valeur du tableau a l\textquotesingle{}index i. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad_a721c21bf2a04e0e8515ed85c73079fa8}{get\+Derived\+Value}} (int ligne, int colonne) const
+\begin{DoxyCompactList}\small\item\em Retourne la valeur de la derivee du tableau a l\textquotesingle{}index ligne,colonne. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_afd5f7d46b8631ec1344761180371037a}\label{classFad_afd5f7d46b8631ec1344761180371037a}} 
+int \mbox{\hyperlink{classFad_afd5f7d46b8631ec1344761180371037a}{get\+Nb\+Inconnues}} () const
+\begin{DoxyCompactList}\small\item\em Retourne le nombre d\textquotesingle{}inconnues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Autres}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFad_a12a93c403358b48075ada9bcc34612d6}{eval\+Diff}} (int pos)
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Active\char`\"{} le calcul de la derivee \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_a978ad643817ea8080d4786817d56ca6f}\label{classFad_a978ad643817ea8080d4786817d56ca6f}} 
+void \mbox{\hyperlink{classFad_a978ad643817ea8080d4786817d56ca6f}{affiche}} () const
+\begin{DoxyCompactList}\small\item\em Affichage du FAD. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_a23089a38e16827d0cfaab41124c4674a}\label{classFad_a23089a38e16827d0cfaab41124c4674a}} 
+void \mbox{\hyperlink{classFad_a23089a38e16827d0cfaab41124c4674a}{delete\+Fad}} ()
+\begin{DoxyCompactList}\small\item\em Fonction pour delete le m\+\_\+dval. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}\label{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}} 
+void \mbox{\hyperlink{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}{copy}} (const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Copie du \mbox{\hyperlink{classFad}{Fad}} value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFad_a12a93c403358b48075ada9bcc34612d6}{eval\+Diff}} (int pos)
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Active\char`\"{} le calcul de la derivee \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_a978ad643817ea8080d4786817d56ca6f}\label{classFad_a978ad643817ea8080d4786817d56ca6f}} 
+void \mbox{\hyperlink{classFad_a978ad643817ea8080d4786817d56ca6f}{affiche}} () const
+\begin{DoxyCompactList}\small\item\em Affichage du FAD. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_a23089a38e16827d0cfaab41124c4674a}\label{classFad_a23089a38e16827d0cfaab41124c4674a}} 
+void \mbox{\hyperlink{classFad_a23089a38e16827d0cfaab41124c4674a}{delete\+Fad}} ()
+\begin{DoxyCompactList}\small\item\em Fonction pour delete le m\+\_\+dval. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}\label{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}} 
+void \mbox{\hyperlink{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}{copy}} (const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Copie du \mbox{\hyperlink{classFad}{Fad}} value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Fad$<$ T $>$}
+
+\mbox{\hyperlink{classFad}{Fad}} \+: Differenciation automatique pour un tableau de type {\itshape T}. 
+
+Cette classe encapsule un \mbox{\hyperlink{classArray}{Array}} et la valeur de sa derivee. ~\newline
+ La methode \mbox{\hyperlink{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}{get\+Size()}} permet de recuperer la taille du tableau. ~\newline
+La methode \mbox{\hyperlink{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}{get\+Value()}} permet de recuperer la valeur du tableau a l\textquotesingle{}index i. ~\newline
+La methode \mbox{\hyperlink{classFad_a721c21bf2a04e0e8515ed85c73079fa8}{get\+Derived\+Value()}} permet de recuperer la valeur de la derivee a l\textquotesingle{}index i,j. ~\newline
+La methode get\+Pos() permet de recuperer la position de la variable, son \char`\"{}identifiant\char`\"{}. ~\newline
+La methode \mbox{\hyperlink{classFad_a12a93c403358b48075ada9bcc34612d6}{eval\+Diff()}} permet \char`\"{}d\textquotesingle{}activer\char`\"{} le calcul de derivee. ~\newline
+ Cette classe encapsule un \mbox{\hyperlink{classArray}{Array}} et la valeur de sa derivee. ~\newline
+ La methode \mbox{\hyperlink{classFad_a7c188cfdebbd3a99d70cbcef74c322f1}{get\+Size()}} permet de recuperer la taille du tableau. ~\newline
+La methode \mbox{\hyperlink{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}{get\+Value()}} permet de recuperer la valeur du tableau a l\textquotesingle{}index i. ~\newline
+La methode \mbox{\hyperlink{classFad_a721c21bf2a04e0e8515ed85c73079fa8}{get\+Derived\+Value()}} permet de recuperer la valeur de la derivee a l\textquotesingle{}index i,j. ~\newline
+La methode \mbox{\hyperlink{classFad_a12a93c403358b48075ada9bcc34612d6}{eval\+Diff()}} permet \char`\"{}d\textquotesingle{}activer\char`\"{} le calcul de derivee. ~\newline
+
+
+Definition at line 23 of file Fad.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFad_a8cc727e870308055707bfa0ae32c6edd}\label{classFad_a8cc727e870308055707bfa0ae32c6edd}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{int}]{nb\+Inconnues }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un FAD a partir du nombre d\textquotesingle{}inconnues. 
+
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0.~\newline
+m\+\_\+nb\+Inconnues est initialise a nb\+Inconnues. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Inconnues} & Nombre d\textquotesingle{}inconnues \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a72ae4f1375faff19c7c0967e3b3ca940}\label{classFad_a72ae4f1375faff19c7c0967e3b3ca940}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{T \&}]{value,  }\item[{int}]{nb\+Inconnues,  }\item[{int}]{own }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un FAD a partir d\textquotesingle{}un tableau et de son nombre d\textquotesingle{}inconnues. 
+
+m\+\_\+array reference le tableau passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0 .~\newline
+m\+\_\+nb\+Inconnues est initialise a nb\+Inconnues 
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{\hyperlink{classArray}{Array}} de type T. \\
+\hline
+{\em nb\+Inconnues} & Le nombre de parametres par rapport auquels on va deriver \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a08d12fbed546783c7e41bf8ef36c2ff4}\label{classFad_a08d12fbed546783c7e41bf8ef36c2ff4}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{T \&}]{value,  }\item[{\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} $\ast$$\ast$}]{value\+Der,  }\item[{int}]{nb\+Inconnues }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un FAD a partir d\textquotesingle{}un tableau, d\textquotesingle{}une matrice de derivee et de son nombre d\textquotesingle{}inconnues. 
+
+m\+\_\+array reference le tableau passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0 .~\newline
+m\+\_\+nb\+Inconnues est initialise a nb\+Inconnues. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{\hyperlink{classArray}{Array}} de type T. \\
+\hline
+{\em value\+Der} & La matrice de derivees de value \\
+\hline
+{\em nb\+Inconnues} & Le nombre de parametres par rapport auquels on va deriver \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_ad4d19a9e632a91aafb7fc0ea8c194e3f}\label{classFad_ad4d19a9e632a91aafb7fc0ea8c194e3f}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par recopie. 
+
+Recopie le FAD value passe en parametre. ~\newline
+Fait appel a la methode \mbox{\hyperlink{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}{copy()}}. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & FAD de type T \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a8cc727e870308055707bfa0ae32c6edd}\label{classFad_a8cc727e870308055707bfa0ae32c6edd}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{int}]{nb\+Inconnues }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un FAD a partir du nombre d\textquotesingle{}inconnues. 
+
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0.~\newline
+m\+\_\+nb\+Inconnues est initialise a nb\+Inconnues. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Inconnues} & Nombre d\textquotesingle{}inconnues \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a72ae4f1375faff19c7c0967e3b3ca940}\label{classFad_a72ae4f1375faff19c7c0967e3b3ca940}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{T \&}]{value,  }\item[{int}]{nb\+Inconnues,  }\item[{int}]{own }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un FAD a partir d\textquotesingle{}un tableau et de son nombre d\textquotesingle{}inconnues. 
+
+m\+\_\+array reference le tableau passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0 .~\newline
+m\+\_\+nb\+Inconnues est initialise a nb\+Inconnues 
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{\hyperlink{classArray}{Array}} de type T. \\
+\hline
+{\em nb\+Inconnues} & Le nombre de parametres par rapport auquels on va deriver \\
+\hline
+{\em own} & Si la classe own le tableau de derivee \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a08d12fbed546783c7e41bf8ef36c2ff4}\label{classFad_a08d12fbed546783c7e41bf8ef36c2ff4}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{T \&}]{value,  }\item[{\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} $\ast$$\ast$}]{value\+Der,  }\item[{int}]{nb\+Inconnues }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un FAD a partir d\textquotesingle{}un tableau, d\textquotesingle{}une matrice de derivee et de son nombre d\textquotesingle{}inconnues. 
+
+m\+\_\+array reference le tableau passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0 .~\newline
+m\+\_\+nb\+Inconnues est initialise a nb\+Inconnues. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{\hyperlink{classArray}{Array}} de type T. \\
+\hline
+{\em value\+Der} & La matrice de derivees de value \\
+\hline
+{\em nb\+Inconnues} & Le nombre de parametres par rapport auquels on va deriver \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_ad4d19a9e632a91aafb7fc0ea8c194e3f}\label{classFad_ad4d19a9e632a91aafb7fc0ea8c194e3f}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!Fad@{Fad}}
+\index{Fad@{Fad}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Fad()}{Fad()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::\mbox{\hyperlink{classFad}{Fad}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par recopie. 
+
+Recopie le FAD value passe en parametre. ~\newline
+Fait appel a la methode \mbox{\hyperlink{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}{copy()}}. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & FAD de type T \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file Fad.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFad_a12a93c403358b48075ada9bcc34612d6}\label{classFad_a12a93c403358b48075ada9bcc34612d6}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!evalDiff@{evalDiff}}
+\index{evalDiff@{evalDiff}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{evalDiff()}{evalDiff()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::eval\+Diff (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\char`\"{}\+Active\char`\"{} le calcul de la derivee 
+
+Active le calcul de la derivee en affectant une value autre que -\/2 a m\+\_\+pos. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Position de la variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 488 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a12a93c403358b48075ada9bcc34612d6}\label{classFad_a12a93c403358b48075ada9bcc34612d6}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!evalDiff@{evalDiff}}
+\index{evalDiff@{evalDiff}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{evalDiff()}{evalDiff()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::eval\+Diff (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\char`\"{}\+Active\char`\"{} le calcul de la derivee 
+
+Active le calcul de la derivee en affectant une value autre que -\/2 a m\+\_\+pos. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Position de la variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 494 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a721c21bf2a04e0e8515ed85c73079fa8}\label{classFad_a721c21bf2a04e0e8515ed85c73079fa8}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retourne la valeur de la derivee du tableau a l\textquotesingle{}index ligne,colonne. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ligne} & Premier index de la valeur recherchee \\
+\hline
+{\em colonne} & Deuxieme index de la valeur recherchee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Ne verifie pas si ligne et colonnes sont valables 
+\end{DoxyWarning}
+
+
+Definition at line 461 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a721c21bf2a04e0e8515ed85c73079fa8}\label{classFad_a721c21bf2a04e0e8515ed85c73079fa8}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retourne la valeur de la derivee du tableau a l\textquotesingle{}index ligne,colonne. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ligne} & Premier index de la valeur recherchee \\
+\hline
+{\em colonne} & Deuxieme index de la valeur recherchee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Ne verifie pas si ligne et colonnes sont valables 
+\end{DoxyWarning}
+
+
+Definition at line 467 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}\label{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retourne la valeur du tableau a l\textquotesingle{}index i. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur recherchee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Ne verifie pas si i est valable pour le tableau 
+\end{DoxyWarning}
+
+
+Definition at line 450 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}\label{classFad_a0d5a7b7585708d885b2c3ae8da5dd6aa}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retourne la valeur du tableau a l\textquotesingle{}index i. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur recherchee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Ne verifie pas si i est valable pour le tableau 
+\end{DoxyWarning}
+
+
+Definition at line 456 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a74939206e5e18f314ee4299523d16e8c}\label{classFad_a74939206e5e18f314ee4299523d16e8c}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ 
+
+m\+\_\+array reference le tableau de l\textquotesingle{}expression passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/1. ~\newline
+m\+\_\+dval est alloue (si necessaire) puis calcule. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Expression de type $<$xpr1, xpr2, xpr3$>$ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 193 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a74939206e5e18f314ee4299523d16e8c}\label{classFad_a74939206e5e18f314ee4299523d16e8c}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ 
+
+m\+\_\+array reference le tableau de l\textquotesingle{}expression passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/1. ~\newline
+m\+\_\+dval est alloue (si necessaire) puis calcule. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Expression de type $<$xpr1, xpr2, xpr3$>$ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 199 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_ad8fe6c3792a7306c327781a24965bc7a}\label{classFad_ad8fe6c3792a7306c327781a24965bc7a}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ 
+
+m\+\_\+array reference le tableau de l\textquotesingle{}expression passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/1. ~\newline
+m\+\_\+dval est alloue puis recopier. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & Expression de type $<$xpr1, xpr2, xpr3$>$. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 273 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_ad8fe6c3792a7306c327781a24965bc7a}\label{classFad_ad8fe6c3792a7306c327781a24965bc7a}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ 
+
+m\+\_\+array reference le tableau de l\textquotesingle{}expression passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/1. ~\newline
+m\+\_\+dval est alloue puis recopier. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & Expression de type $<$xpr1, xpr2, xpr3$>$. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 279 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_aa37a5a8e26f7e439531cb847837cd2fa}\label{classFad_aa37a5a8e26f7e439531cb847837cd2fa}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ 
+
+m\+\_\+array reference le tableau de l\textquotesingle{}expression passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/1. ~\newline
+m\+\_\+dval est alloue puis recopier. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & Expression de type $<$xpr1, xpr2, xpr3$>$. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 353 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_aa37a5a8e26f7e439531cb847837cd2fa}\label{classFad_aa37a5a8e26f7e439531cb847837cd2fa}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}une Expression de type $<$xpr1, xpr2, xpr3$>$ 
+
+m\+\_\+array reference le tableau de l\textquotesingle{}expression passe en parametre. ~\newline
+m\+\_\+pos est initialise a -\/1. ~\newline
+m\+\_\+dval est alloue puis recopier. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & Expression de type $<$xpr1, xpr2, xpr3$>$. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 359 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a00c9891067a60c8faed4f57845cd5e57}\label{classFad_a00c9891067a60c8faed4f57845cd5e57}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}un FAD de type T. 
+
+Recopie le FAD value passe en parametre. ~\newline
+Fait appel a la methode \mbox{\hyperlink{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}{copy()}}. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & FAD de type T \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 430 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a00c9891067a60c8faed4f57845cd5e57}\label{classFad_a00c9891067a60c8faed4f57845cd5e57}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}un FAD de type T. 
+
+Recopie le FAD value passe en parametre. ~\newline
+Fait appel a la methode \mbox{\hyperlink{classFad_ad0b8d232169eb441a66fe1bc00b61f9b}{copy()}}. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em value} & FAD de type T \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 436 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a88b0da8dc79b2392003b5b87837a0924}\label{classFad_a88b0da8dc79b2392003b5b87837a0924}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}un \mbox{\hyperlink{classArray}{Array}} de type T. 
+
+m\+\_\+array reference le tableau passer en parametre. ~\newline
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0 .~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{\hyperlink{classArray}{Array}} de type T. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 157 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a88b0da8dc79b2392003b5b87837a0924}\label{classFad_a88b0da8dc79b2392003b5b87837a0924}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affectation d\textquotesingle{}un \mbox{\hyperlink{classArray}{Array}} de type T. 
+
+m\+\_\+array reference le tableau passer en parametre. ~\newline
+m\+\_\+pos est initialise a -\/2. ~\newline
+m\+\_\+dval est initialise a 0 .~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{\hyperlink{classArray}{Array}} de type T. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 157 of file Fad.\+h.
+
+\mbox{\Hypertarget{classFad_a2aa619cd58fe337a88eca96db86ca444}\label{classFad_a2aa619cd58fe337a88eca96db86ca444}} 
+\index{Fad$<$ T $>$@{Fad$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Fad$<$ T $>$@{Fad$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFad}{Fad}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFad_a49f511576cc81fccbc4bbb9e633d139c}{value\+\_\+type}} $\ast$$\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour le tableau de derivees. 
+
+Permet a la classe \mbox{\hyperlink{classFad}{Fad}} de pointer sur un tableau de derivees externe
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Tableau de derivees de dimension 2 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 186 of file Fad.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Type/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Type_2Fad_8h}{Fad.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,840 @@
+\hypertarget{classArray}{}\doxysection{Array$<$ T $>$ Class Template Reference}
+\label{classArray}\index{Array$<$ T $>$@{Array$<$ T $>$}}
+
+
+\mbox{\hyperlink{classArray}{Array}} \+: tableau de type {\itshape T}.  
+
+
+
+
+{\ttfamily \#include $<$Array.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArray_af2b2079c4150cc7b0c8eec293f8142b1}\label{classArray_af2b2079c4150cc7b0c8eec293f8142b1}} 
+typedef T \mbox{\hyperlink{classArray_af2b2079c4150cc7b0c8eec293f8142b1}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type des elements du tableau. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_af2b2079c4150cc7b0c8eec293f8142b1}\label{classArray_af2b2079c4150cc7b0c8eec293f8142b1}} 
+typedef T \mbox{\hyperlink{classArray_af2b2079c4150cc7b0c8eec293f8142b1}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type des elements du tableau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructeurs}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArray_ae25f6d485704fca18289aa16e10b2fa8}\label{classArray_ae25f6d485704fca18289aa16e10b2fa8}} 
+\mbox{\hyperlink{classArray_ae25f6d485704fca18289aa16e10b2fa8}{Array}} ()
+\begin{DoxyCompactList}\small\item\em Construit un tableau vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArray_a2753912f70a4d54cb3edc08774077f94}{Array}} (int size, T $\ast$value)
+\begin{DoxyCompactList}\small\item\em Construit un tableau de taille size avec value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArray_ac1b8ab9d8cad22c3c6b9a08a6d5e9ade}{Array}} (int size, int own)
+\begin{DoxyCompactList}\small\item\em Construit un tableau de taille size et initialise ses elements a 0 si l\textquotesingle{}instance own le tableau. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray_ac0867fea33f6dfc2422abef87eb3f469}{Array}} (const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&exp)
+\begin{DoxyCompactList}\small\item\em Construit un tableau a partir d\textquotesingle{}une expression. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray_a3f58204ce7d200c0c56674687cf8564d}{Array}} (const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&exp)
+\begin{DoxyCompactList}\small\item\em Construit un tableau a partir d\textquotesingle{}une expression. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray_a615059a6113ff514472e0214715b32dd}{Array}} (const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&exp)
+\begin{DoxyCompactList}\small\item\em Construit un tableau a partir d\textquotesingle{}une expression. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArray_ac50e796124b50c1d1580d83f09a79bcb}{Array}} (const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Constructeur par copie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_ae25f6d485704fca18289aa16e10b2fa8}\label{classArray_ae25f6d485704fca18289aa16e10b2fa8}} 
+\mbox{\hyperlink{classArray_ae25f6d485704fca18289aa16e10b2fa8}{Array}} ()
+\begin{DoxyCompactList}\small\item\em Construit un tableau vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArray_a2753912f70a4d54cb3edc08774077f94}{Array}} (int size, T $\ast$value)
+\begin{DoxyCompactList}\small\item\em Construit un tableau de taille size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArray_ac1b8ab9d8cad22c3c6b9a08a6d5e9ade}{Array}} (int size, int own)
+\begin{DoxyCompactList}\small\item\em Construit un tableau de taille size et initialise ses elements a 0 si l\textquotesingle{}instance own le tableau. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray_ac0867fea33f6dfc2422abef87eb3f469}{Array}} (const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&exp)
+\begin{DoxyCompactList}\small\item\em Construit un tableau a partir d\textquotesingle{}une expression. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray_a3f58204ce7d200c0c56674687cf8564d}{Array}} (const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&exp)
+\begin{DoxyCompactList}\small\item\em Construit un tableau a partir d\textquotesingle{}une expression. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray_a615059a6113ff514472e0214715b32dd}{Array}} (const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&exp)
+\begin{DoxyCompactList}\small\item\em Construit un tableau a partir d\textquotesingle{}une expression. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArray_ac50e796124b50c1d1580d83f09a79bcb}{Array}} (const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Constructeur par copie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Destructeur}\par
+{\em Delete le tableau de valeurs si la classe own le tableau. }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArray_aab89a85b1ddb86864096acdcc0db439e}\label{classArray_aab89a85b1ddb86864096acdcc0db439e}} 
+{\bfseries $\sim$\+Array} ()
+\item 
+\mbox{\Hypertarget{classArray_aab89a85b1ddb86864096acdcc0db439e}\label{classArray_aab89a85b1ddb86864096acdcc0db439e}} 
+{\bfseries $\sim$\+Array} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Surcharges d\textquotesingle{}operateurs}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \& \mbox{\hyperlink{classArray_adf899c597968f4c649bcd97593ab8231}{operator=}} (const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&xp)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour une expression. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_a8a7a67767c927d363367b018d5637f50}\label{classArray_a8a7a67767c927d363367b018d5637f50}} 
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \& {\bfseries operator=} (\mbox{\hyperlink{classIExpr}{IExpr}}$<$ T $>$ $\ast$xp)
+\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \& \mbox{\hyperlink{classArray_af91b0dd7d105f9527d91c2ab2c6fbe76}{operator=}} (const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&xp)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour une expression. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \& \mbox{\hyperlink{classArray_a536b5ce10c474eae820abaad48512953}{operator=}} (const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&xp)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour une expression. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArray_a9a42d53650115605a6c3499b1b049c9f}{operator=}} (const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour un tableau (appel a la fonction \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_a54e381fd70c2fd1d94336270948646ea}\label{classArray_a54e381fd70c2fd1d94336270948646ea}} 
+void {\bfseries operator=} (T $\ast$arr)
+\item 
+T \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()}} (int i)
+\begin{DoxyCompactList}\small\item\em Operateur \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()(int)}}. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}}} (int i)
+\begin{DoxyCompactList}\small\item\em Operateur \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}(int)}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \& \mbox{\hyperlink{classArray_adf899c597968f4c649bcd97593ab8231}{operator=}} (const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&xp)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour une expression. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \& \mbox{\hyperlink{classArray_af91b0dd7d105f9527d91c2ab2c6fbe76}{operator=}} (const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&xp)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour une expression. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ }\\\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \& \mbox{\hyperlink{classArray_a536b5ce10c474eae820abaad48512953}{operator=}} (const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&xp)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour une expression. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArray_a9a42d53650115605a6c3499b1b049c9f}{operator=}} (const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour un tableau (appel a la fonction \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArray_a54e381fd70c2fd1d94336270948646ea}{operator=}} (T $\ast$arr)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}affectation pour un tableau. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()}} (int i)
+\begin{DoxyCompactList}\small\item\em Operateur \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()(int)}}. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}}} (int i)
+\begin{DoxyCompactList}\small\item\em Operateur \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}(int)}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Accesseurs}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArray_a12fae7edd02dfdb594f1082403f17ef4}\label{classArray_a12fae7edd02dfdb594f1082403f17ef4}} 
+int \mbox{\hyperlink{classArray_a12fae7edd02dfdb594f1082403f17ef4}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Recupere la taille du tableau (m\+\_\+size). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_a1ba3509889a107370e1e562d3e8c2543}\label{classArray_a1ba3509889a107370e1e562d3e8c2543}} 
+int {\bfseries get\+Own} () const
+\item 
+T \mbox{\hyperlink{classArray_a03280075c0618ea1181eca28780efa47}{get\+Value}} (int i) const
+\begin{DoxyCompactList}\small\item\em Recupere la i\+\_\+ieme valeur du tableau (m\+\_\+value\mbox{[}i\mbox{]}). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_a55d9995df0a9d3eee273f037bc749e4f}\label{classArray_a55d9995df0a9d3eee273f037bc749e4f}} 
+bool {\bfseries is\+Container} () const
+\item 
+\mbox{\Hypertarget{classArray_a12fae7edd02dfdb594f1082403f17ef4}\label{classArray_a12fae7edd02dfdb594f1082403f17ef4}} 
+int \mbox{\hyperlink{classArray_a12fae7edd02dfdb594f1082403f17ef4}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Recupere la taille du tableau (m\+\_\+size). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_a1ba3509889a107370e1e562d3e8c2543}\label{classArray_a1ba3509889a107370e1e562d3e8c2543}} 
+int \mbox{\hyperlink{classArray_a1ba3509889a107370e1e562d3e8c2543}{get\+Own}} () const
+\begin{DoxyCompactList}\small\item\em Recupere la valeur de la variable m\+\_\+own. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classArray_a03280075c0618ea1181eca28780efa47}{get\+Value}} (int i) const
+\begin{DoxyCompactList}\small\item\em Recupere la i\+\_\+ieme valeur du tableau (m\+\_\+value\mbox{[}i\mbox{]}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Autres}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy}} (const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Fonction de copie d\textquotesingle{}un tableau. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_a28d6ca4414559f2183eb7bc2a59e9e55}\label{classArray_a28d6ca4414559f2183eb7bc2a59e9e55}} 
+void \mbox{\hyperlink{classArray_a28d6ca4414559f2183eb7bc2a59e9e55}{affiche}} () const
+\begin{DoxyCompactList}\small\item\em Fonction pour afficher le tableau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy}} (const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&arr)
+\begin{DoxyCompactList}\small\item\em Fonction de copie d\textquotesingle{}un tableau. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArray_a28d6ca4414559f2183eb7bc2a59e9e55}\label{classArray_a28d6ca4414559f2183eb7bc2a59e9e55}} 
+void \mbox{\hyperlink{classArray_a28d6ca4414559f2183eb7bc2a59e9e55}{affiche}} () const
+\begin{DoxyCompactList}\small\item\em Fonction pour afficher le tableau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArray_aea2975eedbe75fd822e86bb2fd7052c6}\label{classArray_aea2975eedbe75fd822e86bb2fd7052c6}} 
+static \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \mbox{\hyperlink{classArray_aea2975eedbe75fd822e86bb2fd7052c6}{array\+\_\+null}}
+\begin{DoxyCompactList}\small\item\em Tableau nul statique utilise dans la classe FAD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Array$<$ T $>$}
+
+\mbox{\hyperlink{classArray}{Array}} \+: tableau de type {\itshape T}. 
+
+Cette classe encapsule un tableau et son nombre d\textquotesingle{}elements. ~\newline
+L\textquotesingle{}acces a ses elements se fait par l\textquotesingle{}operateur \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}()}} pour les modifier, et l\textquotesingle{}operateur \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()()}} pour les recuperer. ~\newline
+La methode \mbox{\hyperlink{classArray_a12fae7edd02dfdb594f1082403f17ef4}{get\+Size()}} permet de recuperer la taille du tableau. ~\newline
+La methode \mbox{\hyperlink{classArray_a03280075c0618ea1181eca28780efa47}{get\+Value()}} permet de recuperer la valeur a l\textquotesingle{}index i. ~\newline
+Cette classe gere la memoire du pointeur, en l\textquotesingle{}allouant lors du passage dans le constructeur et en l\textquotesingle{}effacant a la fin de l\textquotesingle{}instance. ~\newline
+En cas d\textquotesingle{}affectation ou de recopie de tableau, si la taille du tableau est superieure a la memoire reservee, le tableau est efface et re-\/alloue a la \char`\"{}bonne\char`\"{} taille. ~\newline
+En mode debug, aucune verification de depassement de tableau n\textquotesingle{}est effectuee, c\textquotesingle{}est a l\textquotesingle{}utilisateur de s\textquotesingle{}en assurer. (a ajouter ?) ~\newline
+ Cette classe encapsule un tableau et son nombre d\textquotesingle{}elements. ~\newline
+L\textquotesingle{}acces a ses elements se fait par l\textquotesingle{}operateur \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}()}} pour les modifier, et l\textquotesingle{}operateur \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()()}} pour les recuperer. ~\newline
+La methode \mbox{\hyperlink{classArray_a12fae7edd02dfdb594f1082403f17ef4}{get\+Size()}} permet de recuperer la taille du tableau. ~\newline
+La methode \mbox{\hyperlink{classArray_a03280075c0618ea1181eca28780efa47}{get\+Value()}} permet de recuperer la valeur a l\textquotesingle{}index i. ~\newline
+Cette classe gere la memoire du pointeur, en l\textquotesingle{}allouant lors du passage dans le constructeur et en l\textquotesingle{}effacant a la fin de l\textquotesingle{}instance, si la classe est la proprietaire du tableau. ~\newline
+En cas d\textquotesingle{}affectation ou de recopie de tableau, si la taille du tableau est superieure a la memoire reservee, le tableau est efface et re-\/alloue a la \char`\"{}bonne\char`\"{} taille. ~\newline
+Aucune verification de depassement de tableau n\textquotesingle{}est effectuee, c\textquotesingle{}est a l\textquotesingle{}utilisateur de s\textquotesingle{}en assurer. ~\newline
+
+
+Definition at line 42 of file Array.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArray_a2753912f70a4d54cb3edc08774077f94}\label{classArray_a2753912f70a4d54cb3edc08774077f94}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [1/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{T $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau de taille size avec value. 
+
+Remplit le tableau avec size fois la valeur value. 
+\begin{DoxyParams}{Parameters}
+{\em size} & taille du tableau \\
+\hline
+{\em value} & scalaire utilise pour initialiser l\textquotesingle{}ensemble des elements du tableau\\
+\hline
+\end{DoxyParams}
+Construit un tableau de taille size avec le tableau value
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & taille du tableau \\
+\hline
+{\em value} & tableau transmis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Le tableau construit est de taille size, si size est plus petit que la taille reelle de value, value ne sera copie que jusqu\textquotesingle{}a value\mbox{[}size-\/1\mbox{]} 
+
+Le tableau construit est de taille size, si size est plus grand que la taille reelle de value, il risque d\textquotesingle{}y avoir un depassement memoire 
+\end{DoxyWarning}
+
+
+Definition at line 92 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ac1b8ab9d8cad22c3c6b9a08a6d5e9ade}\label{classArray_ac1b8ab9d8cad22c3c6b9a08a6d5e9ade}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [2/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{own }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau de taille size et initialise ses elements a 0 si l\textquotesingle{}instance own le tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & taille du tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ac0867fea33f6dfc2422abef87eb3f469}\label{classArray_ac0867fea33f6dfc2422abef87eb3f469}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [3/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{exp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau a partir d\textquotesingle{}une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a3f58204ce7d200c0c56674687cf8564d}\label{classArray_a3f58204ce7d200c0c56674687cf8564d}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [4/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{exp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau a partir d\textquotesingle{}une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 135 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a615059a6113ff514472e0214715b32dd}\label{classArray_a615059a6113ff514472e0214715b32dd}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [5/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{exp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau a partir d\textquotesingle{}une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 151 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ac50e796124b50c1d1580d83f09a79bcb}\label{classArray_ac50e796124b50c1d1580d83f09a79bcb}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [6/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{arr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par copie. 
+
+Fait appel a la methode \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}.~\newline
+La memoire est allouee (ou re-\/allouee) si necessaire (dans la methode \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}).~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Le tableau a construire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 168 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a2753912f70a4d54cb3edc08774077f94}\label{classArray_a2753912f70a4d54cb3edc08774077f94}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [7/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{T $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau de taille size. 
+
+L\textquotesingle{}attribut m\+\_\+value de la classe pointe sur le tableau passe en parametre. ~\newline
+La classe n\textquotesingle{}est pas proprietaire du tableau, il incombe a l\textquotesingle{}utilisateur de l\textquotesingle{}allouer et de le desallouer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & taille du tableau \\
+\hline
+{\em value} & tableau transmis \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ac1b8ab9d8cad22c3c6b9a08a6d5e9ade}\label{classArray_ac1b8ab9d8cad22c3c6b9a08a6d5e9ade}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [8/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{own }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau de taille size et initialise ses elements a 0 si l\textquotesingle{}instance own le tableau. 
+
+Construit un tableau de taille size. ~\newline
+Si le parametre own vaut 1, alloue la memoire et initialise les elements du tableau a 0. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em size} & taille du tableau \\
+\hline
+{\em own} & si la classe own le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 86 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ac0867fea33f6dfc2422abef87eb3f469}\label{classArray_ac0867fea33f6dfc2422abef87eb3f469}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [9/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{exp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau a partir d\textquotesingle{}une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 103 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a3f58204ce7d200c0c56674687cf8564d}\label{classArray_a3f58204ce7d200c0c56674687cf8564d}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [10/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{exp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau a partir d\textquotesingle{}une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a615059a6113ff514472e0214715b32dd}\label{classArray_a615059a6113ff514472e0214715b32dd}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [11/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{exp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un tableau a partir d\textquotesingle{}une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 135 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ac50e796124b50c1d1580d83f09a79bcb}\label{classArray_ac50e796124b50c1d1580d83f09a79bcb}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!Array@{Array}}
+\index{Array@{Array}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [12/12]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::\mbox{\hyperlink{classArray}{Array}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{arr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par copie. 
+
+Fait appel a la methode \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}.~\newline
+La memoire est allouee (ou re-\/allouee) si necessaire (dans la methode \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}).~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Le tableau a construire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 152 of file Array.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArray_aa1d59498722d25b4ef6ddda11a739233}\label{classArray_aa1d59498722d25b4ef6ddda11a739233}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!copy@{copy}}
+\index{copy@{copy}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{arr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fonction de copie d\textquotesingle{}un tableau. 
+
+Fonction appelee dans le constructeur par recopie et dans l\textquotesingle{}operateur \mbox{\hyperlink{classArray_a9a42d53650115605a6c3499b1b049c9f}{operator=(const Array$<$\+T$>$ \&)}}. ~\newline
+Verifie si la memoire est bien allouee sinon l\textquotesingle{}alloue. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Le tableau a copier \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 398 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_aa1d59498722d25b4ef6ddda11a739233}\label{classArray_aa1d59498722d25b4ef6ddda11a739233}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!copy@{copy}}
+\index{copy@{copy}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{arr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fonction de copie d\textquotesingle{}un tableau. 
+
+Fonction appelee dans le constructeur par recopie et dans l\textquotesingle{}operateur \mbox{\hyperlink{classArray_a9a42d53650115605a6c3499b1b049c9f}{operator=(const Array$<$\+T$>$ \&)}}. ~\newline
+Verifie si la memoire est bien allouee sinon l\textquotesingle{}alloue. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em arr} & Le tableau a copier \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 372 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a03280075c0618ea1181eca28780efa47}\label{classArray_a03280075c0618ea1181eca28780efa47}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupere la i\+\_\+ieme valeur du tableau (m\+\_\+value\mbox{[}i\mbox{]}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Ne verifie pas si i est en dehors du tableau 
+\end{DoxyWarning}
+
+
+Definition at line 381 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a03280075c0618ea1181eca28780efa47}\label{classArray_a03280075c0618ea1181eca28780efa47}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupere la i\+\_\+ieme valeur du tableau (m\+\_\+value\mbox{[}i\mbox{]}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 358 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a71850f914e9463aefbe1065ff5922563}\label{classArray_a71850f914e9463aefbe1065ff5922563}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()(int)}}. 
+
+Acces a la i\+\_\+ieme valeur du tableau en lecture.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Ne verifie pas si i est en dehors du tableau 
+\end{DoxyWarning}
+
+
+Definition at line 344 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a71850f914e9463aefbe1065ff5922563}\label{classArray_a71850f914e9463aefbe1065ff5922563}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur \mbox{\hyperlink{classArray_a71850f914e9463aefbe1065ff5922563}{operator()(int)}}. 
+
+Acces a la i\+\_\+ieme valeur du tableau en lecture.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 319 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a9a42d53650115605a6c3499b1b049c9f}\label{classArray_a9a42d53650115605a6c3499b1b049c9f}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{arr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour un tableau (appel a la fonction \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Tableau qui va etre copie \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 318 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a9a42d53650115605a6c3499b1b049c9f}\label{classArray_a9a42d53650115605a6c3499b1b049c9f}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{arr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour un tableau (appel a la fonction \mbox{\hyperlink{classArray_aa1d59498722d25b4ef6ddda11a739233}{copy(const Array$<$\+T$>$ \&)}}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Tableau qui va etre copie \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 286 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_adf899c597968f4c649bcd97593ab8231}\label{classArray_adf899c597968f4c649bcd97593ab8231}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$T$>$\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{xp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 195 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_adf899c597968f4c649bcd97593ab8231}\label{classArray_adf899c597968f4c649bcd97593ab8231}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$T$>$\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExpr}{Expr}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{xp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour une expression. 
+
+Si la classe own le tableau, verification et re-\/allocation si necessaire du tableau. ~\newline
+Sinon, ne fait que recopier l\textquotesingle{}expression dans le tableau (sans controle de taille)
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a536b5ce10c474eae820abaad48512953}\label{classArray_a536b5ce10c474eae820abaad48512953}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$T$>$\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{xp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 286 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a536b5ce10c474eae820abaad48512953}\label{classArray_a536b5ce10c474eae820abaad48512953}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$T$>$\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprD}{ExprD}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{xp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour une expression. 
+
+Si la classe own le tableau, verification et re-\/allocation si necessaire du tableau. ~\newline
+Sinon, ne fait que recopier l\textquotesingle{}expression dans le tableau (sans controle de taille)
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 254 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_af91b0dd7d105f9527d91c2ab2c6fbe76}\label{classArray_af91b0dd7d105f9527d91c2ab2c6fbe76}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$T$>$\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{xp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour une expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 253 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_af91b0dd7d105f9527d91c2ab2c6fbe76}\label{classArray_af91b0dd7d105f9527d91c2ab2c6fbe76}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename xpr1 , typename xpr2 , typename xpr3 $>$ \\
+\mbox{\hyperlink{classArray}{Array}}$<$T$>$\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classExprG}{ExprG}}$<$ xpr1, xpr2, xpr3 $>$ \&}]{xp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour une expression. 
+
+Si la classe own le tableau, verification et re-\/allocation si necessaire du tableau. ~\newline
+Sinon, ne fait que recopier l\textquotesingle{}expression dans le tableau (sans controle de taille)
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & Expression servant pour construire le tableau \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 218 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_a54e381fd70c2fd1d94336270948646ea}\label{classArray_a54e381fd70c2fd1d94336270948646ea}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{T $\ast$}]{arr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}affectation pour un tableau. 
+
+Si la classe own le tableau, elle le recopie ~\newline
+Sinon elle pointe sur le nouveau tableau passe en parametre
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Tableau passe en parametre \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 298 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}\label{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}(int)}}. 
+
+Acces a la i\+\_\+ieme valeur du tableau en ecriture. 
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Ne verifie pas si i est en dehors du tableau 
+\end{DoxyWarning}
+
+
+Definition at line 355 of file Array.\+h.
+
+\mbox{\Hypertarget{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}\label{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}} 
+\index{Array$<$ T $>$@{Array$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Array$<$ T $>$@{Array$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& \mbox{\hyperlink{classArray}{Array}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur \mbox{\hyperlink{classArray_ae911195ae0ab8040c8780c6fc0a11b1b}{operator\mbox{[}$\,$\mbox{]}(int)}}. 
+
+Acces a la i\+\_\+ieme valeur du tableau en ecriture. 
+\begin{DoxyParams}{Parameters}
+{\em i} & Index de la valeur dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 330 of file Array.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Type/\mbox{\hyperlink{Numerics_2Expressions_2FunctionParser_2FunctorUtils_2Type_2Array_8h}{Array.\+h}}\end{DoxyCompactItemize}

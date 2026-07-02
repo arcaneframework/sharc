@@ -1,0 +1,71 @@
+\hypertarget{classItemConnectionMng}{}\doxysection{Item\+Connection\+Mng Class Reference}
+\label{classItemConnectionMng}\index{ItemConnectionMng@{ItemConnectionMng}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a40ffd40c6f9bd4b4b27a6d0b474b2598}\label{classItemConnectionMng_a40ffd40c6f9bd4b4b27a6d0b474b2598}} 
+{\bfseries Item\+Connection\+Mng} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+IGraph $\ast$graph=nullptr)
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_aeeb71c4bf9632406361516193fadcaff}\label{classItemConnectionMng_aeeb71c4bf9632406361516193fadcaff}} 
+\mbox{\hyperlink{classItemConnectionGroup}{Item\+Connection\+Group}} {\bfseries find\+Connection\+Group} (const Arcane\+::\+String \&name)
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a1a9f55c343b2a963403f23045de1ae5a}\label{classItemConnectionMng_a1a9f55c343b2a963403f23045de1ae5a}} 
+const Arcane\+::\+String {\bfseries item\+Connection\+Family\+Name} () const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_ab5ff90e26be7d9b632a98a88f363477b}\label{classItemConnectionMng_ab5ff90e26be7d9b632a98a88f363477b}} 
+\mbox{\hyperlink{classItemConnectionGroup}{Item\+Connection\+Group}} {\bfseries all\+Connections} ()
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_afd3e18d4861e3869e2b33f95804fa6f4}\label{classItemConnectionMng_afd3e18d4861e3869e2b33f95804fa6f4}} 
+\mbox{\hyperlink{classItemConnectionGroup}{Item\+Connection\+Group}} {\bfseries own\+Connections} ()
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a74b1bc2aaf6f7bffd5c96d32bd471d2c}\label{classItemConnectionMng_a74b1bc2aaf6f7bffd5c96d32bd471d2c}} 
+bool {\bfseries has\+Connection} ()
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a61d2ea9be6f9cf96df44f152eb255485}\label{classItemConnectionMng_a61d2ea9be6f9cf96df44f152eb255485}} 
+Arcane\+::\+Item {\bfseries first} (\mbox{\hyperlink{classItemConnection}{Item\+Connection}} const \&connection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a1757bca1d65dd0f85770f418a2614399}\label{classItemConnectionMng_a1757bca1d65dd0f85770f418a2614399}} 
+{\footnotesize template$<$class First\+Item\+Kind , class Second\+Item\+Kind $>$ }\\First\+Item\+Kind {\bfseries first} (\mbox{\hyperlink{classItemConnectionT}{Item\+ConnectionT}}$<$ First\+Item\+Kind, Second\+Item\+Kind $>$ const \&connection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a0ed75a72bb178a8c0cd34223ab59243f}\label{classItemConnectionMng_a0ed75a72bb178a8c0cd34223ab59243f}} 
+Arcane\+::\+Item {\bfseries first} (\mbox{\hyperlink{classItemConnectionEnumerator}{Item\+Connection\+Enumerator}} \&iconnection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a6a07c56d2dc5c4d709ba0503b7b850c7}\label{classItemConnectionMng_a6a07c56d2dc5c4d709ba0503b7b850c7}} 
+{\footnotesize template$<$class First\+Item\+Kind , class Second\+Item\+Kind $>$ }\\First\+Item\+Kind {\bfseries first} (\mbox{\hyperlink{classItemConnectionEnumeratorT}{Item\+Connection\+EnumeratorT}}$<$ First\+Item\+Kind, Second\+Item\+Kind $>$ \&iconnection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_aa12d000f8f40bc14b344146d884e8857}\label{classItemConnectionMng_aa12d000f8f40bc14b344146d884e8857}} 
+Arcane\+::\+Item {\bfseries second} (\mbox{\hyperlink{classItemConnection}{Item\+Connection}} const \&connection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a61d410f201fd10bfa8bc6ea1858b707b}\label{classItemConnectionMng_a61d410f201fd10bfa8bc6ea1858b707b}} 
+{\footnotesize template$<$class First\+Item\+Kind , class Second\+Item\+Kind $>$ }\\Second\+Item\+Kind {\bfseries second} (\mbox{\hyperlink{classItemConnectionT}{Item\+ConnectionT}}$<$ First\+Item\+Kind, Second\+Item\+Kind $>$ const \&connection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a3755e2f08a6f7e2fcf5684b1e5a5f292}\label{classItemConnectionMng_a3755e2f08a6f7e2fcf5684b1e5a5f292}} 
+Arcane\+::\+Item {\bfseries second} (\mbox{\hyperlink{classItemConnectionEnumerator}{Item\+Connection\+Enumerator}} \&iconnection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_ad3949ec9b5be588a49327565a85ff27d}\label{classItemConnectionMng_ad3949ec9b5be588a49327565a85ff27d}} 
+{\footnotesize template$<$class First\+Item\+Kind , class Second\+Item\+Kind $>$ }\\Second\+Item\+Kind {\bfseries second} (\mbox{\hyperlink{classItemConnectionEnumeratorT}{Item\+Connection\+EnumeratorT}}$<$ First\+Item\+Kind, Second\+Item\+Kind $>$ \&iconnection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_af4ace7a6d2ba9aafa46859bcd2781925}\label{classItemConnectionMng_af4ace7a6d2ba9aafa46859bcd2781925}} 
+Arcane\+::\+Integer {\bfseries type} (\mbox{\hyperlink{classItemConnection}{Item\+Connection}} const \&connection) const
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_a25533e19fb7f6ba4564a9a050ee54b4e}\label{classItemConnectionMng_a25533e19fb7f6ba4564a9a050ee54b4e}} 
+Arcane\+::\+Integer {\bfseries type} (\mbox{\hyperlink{classItemConnectionEnumerator}{Item\+Connection\+Enumerator}} \&iconnection) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classItemConnectionMng_aad1216c591ea00964ab92d4e53283f6d}\label{classItemConnectionMng_aad1216c591ea00964ab92d4e53283f6d}} 
+static Arcane\+::\+String {\bfseries all\+Connection\+Group\+Name} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 288 of file IXMItem\+Connections.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMItem\+Connections.\+h\end{DoxyCompactItemize}

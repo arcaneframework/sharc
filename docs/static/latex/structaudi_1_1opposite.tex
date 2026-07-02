@@ -1,0 +1,51 @@
+\hypertarget{structaudi_1_1opposite}{}\doxysection{audi\+::opposite$<$ T $>$ Struct Template Reference}
+\label{structaudi_1_1opposite}\index{audi::opposite$<$ T $>$@{audi::opposite$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ opposite$<$ T $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1opposite_a623f779ecde5868a32c6762efeefedcb}\label{structaudi_1_1opposite_a623f779ecde5868a32c6762efeefedcb}} 
+using {\bfseries Operand} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ T $>$\+::value, const T, const T \& $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1opposite_adaf2221676b8abc180a1c9c6b351de4f}\label{structaudi_1_1opposite_adaf2221676b8abc180a1c9c6b351de4f}} 
+{\bfseries opposite} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ T $>$ \&t)
+\item 
+\mbox{\Hypertarget{structaudi_1_1opposite_a60a43d36a4ce941e2551bd10d2be0bfe}\label{structaudi_1_1opposite_a60a43d36a4ce941e2551bd10d2be0bfe}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1opposite_aed52d6931a70036c646da25d579b179d}\label{structaudi_1_1opposite_aed52d6931a70036c646da25d579b179d}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1opposite_a9124ab34599562f815bbaeec4b42c8b1}\label{structaudi_1_1opposite_a9124ab34599562f815bbaeec4b42c8b1}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1opposite_af00d4da345c23c1c824beb56527e61b7}\label{structaudi_1_1opposite_af00d4da345c23c1c824beb56527e61b7}} 
+Operand {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{structaudi_1_1opposite_ad85ce6d738e64c1554bc8519da36b16c}\label{structaudi_1_1opposite_ad85ce6d738e64c1554bc8519da36b16c}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+v}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct audi\+::opposite$<$ T $>$}
+
+
+
+Definition at line 7 of file opposite.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/opposite.\+h\end{DoxyCompactItemize}

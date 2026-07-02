@@ -1,0 +1,57 @@
+\hypertarget{classNonLinearSystemBuilderT}{}\doxysection{Non\+Linear\+System\+BuilderT$<$ Non\+Linear\+System\+Type $>$ Class Template Reference}
+\label{classNonLinearSystemBuilderT}\index{NonLinearSystemBuilderT$<$ NonLinearSystemType $>$@{NonLinearSystemBuilderT$<$ NonLinearSystemType $>$}}
+
+
+Inherits \mbox{\hyperlink{classINonLinearSystemVisitor}{INon\+Linear\+System\+Visitor}}, \mbox{\hyperlink{classINonLinearSystemBuilder}{INon\+Linear\+System\+Builder}}, and \mbox{\hyperlink{classVisitorT}{Visitor\+T$<$ Non\+Linear\+System\+Type $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_a6d9aaa3aae7c774be195ad2431a29c98}\label{classNonLinearSystemBuilderT_a6d9aaa3aae7c774be195ad2431a29c98}} 
+\mbox{\hyperlink{classNonLinearSystemBuilderT_a6d9aaa3aae7c774be195ad2431a29c98}{Non\+Linear\+System\+BuilderT}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_ac07993901e5a0b54911cc78e5c919e01}\label{classNonLinearSystemBuilderT_ac07993901e5a0b54911cc78e5c919e01}} 
+virtual \mbox{\hyperlink{classNonLinearSystemBuilderT_ac07993901e5a0b54911cc78e5c919e01}{$\sim$\+Non\+Linear\+System\+BuilderT}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_a7ce7a8c6cc468354997db399c27b3075}\label{classNonLinearSystemBuilderT_a7ce7a8c6cc468354997db399c27b3075}} 
+String \mbox{\hyperlink{classNonLinearSystemBuilderT_a7ce7a8c6cc468354997db399c27b3075}{name}} () const
+\begin{DoxyCompactList}\small\item\em Getting operator name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_aed08f4f0571db8c7c2a55346457bf3f7}\label{classNonLinearSystemBuilderT_aed08f4f0571db8c7c2a55346457bf3f7}} 
+void \mbox{\hyperlink{classNonLinearSystemBuilderT_aed08f4f0571db8c7c2a55346457bf3f7}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_ab1b9ad380a2bb253a60506f6f9b53fb3}\label{classNonLinearSystemBuilderT_ab1b9ad380a2bb253a60506f6f9b53fb3}} 
+void \mbox{\hyperlink{classNonLinearSystemBuilderT_ab1b9ad380a2bb253a60506f6f9b53fb3}{start}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$non\+\_\+linear\+\_\+system)
+\begin{DoxyCompactList}\small\item\em Initializing the system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_aba44da38e00e98c626a0362b5c6d949d}\label{classNonLinearSystemBuilderT_aba44da38e00e98c626a0362b5c6d949d}} 
+void \mbox{\hyperlink{classNonLinearSystemBuilderT_aba44da38e00e98c626a0362b5c6d949d}{end}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$non\+\_\+linear\+\_\+system)
+\begin{DoxyCompactList}\small\item\em Finalizing the system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_a8aeaedc9c6c15a8f84d80f9897144388}\label{classNonLinearSystemBuilderT_a8aeaedc9c6c15a8f84d80f9897144388}} 
+void \mbox{\hyperlink{classNonLinearSystemBuilderT_a8aeaedc9c6c15a8f84d80f9897144388}{start\+Step}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$non\+\_\+linear\+\_\+system)
+\begin{DoxyCompactList}\small\item\em Computing at the begin of the iterative step. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_ae0d0ebb2744ee57305fedf2c60804bda}\label{classNonLinearSystemBuilderT_ae0d0ebb2744ee57305fedf2c60804bda}} 
+void \mbox{\hyperlink{classNonLinearSystemBuilderT_ae0d0ebb2744ee57305fedf2c60804bda}{end\+Step}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$non\+\_\+linear\+\_\+system)
+\begin{DoxyCompactList}\small\item\em Computing at the end of the iterative step. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_a70f2a2787f687020c114c573acf08131}\label{classNonLinearSystemBuilderT_a70f2a2787f687020c114c573acf08131}} 
+\mbox{\hyperlink{classINonLinearSystemVisitor}{INon\+Linear\+System\+Visitor}} $\ast$ {\bfseries as\+Non\+Linear\+System\+Visitor} ()
+\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_a91f5a558ead47a603799e3450dab2e97}\label{classNonLinearSystemBuilderT_a91f5a558ead47a603799e3450dab2e97}} 
+Integer \mbox{\hyperlink{classNonLinearSystemBuilderT_a91f5a558ead47a603799e3450dab2e97}{build\+Non\+Linear\+System}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$non\+\_\+linear\+\_\+system)
+\begin{DoxyCompactList}\small\item\em Building non linear system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNonLinearSystemBuilderT_a45c573d64acee810c11bda219ce9ccb6}\label{classNonLinearSystemBuilderT_a45c573d64acee810c11bda219ce9ccb6}} 
+Integer \mbox{\hyperlink{classNonLinearSystemBuilderT_a45c573d64acee810c11bda219ce9ccb6}{visit}} (Non\+Linear\+System\+Type $\ast$system)
+\begin{DoxyCompactList}\small\item\em Visiting non linear system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Non\+Linear\+System\+Type$>$\newline
+class Non\+Linear\+System\+Builder\+T$<$ Non\+Linear\+System\+Type $>$}
+
+
+
+Definition at line 14 of file Non\+Linear\+System\+Builder\+T.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Impl/Non\+Linear\+System\+Builder\+T.\+h\end{DoxyCompactItemize}

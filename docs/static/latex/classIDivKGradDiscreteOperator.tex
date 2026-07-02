@@ -1,0 +1,64 @@
+\hypertarget{classIDivKGradDiscreteOperator}{}\doxysection{IDiv\+KGrad\+Discrete\+Operator Class Reference}
+\label{classIDivKGradDiscreteOperator}\index{IDivKGradDiscreteOperator@{IDivKGradDiscreteOperator}}
+
+
+Inherits \mbox{\hyperlink{classIDiscreteOperator}{IDiscrete\+Operator}}.
+
+
+
+Inherited by \mbox{\hyperlink{classDivKGradGradMScheme}{Div\+KGrad\+Grad\+MScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}, \mbox{\hyperlink{classDivKGradTwoPointsService}{Div\+KGrad\+Two\+Points\+Service}}, \mbox{\hyperlink{classIDivKGradOLGSchemes}{IDiv\+KGrad\+OLGSchemes$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}, \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService}{Standard\+Div\+KGrad\+Two\+Points\+Active\+Service}}, and \mbox{\hyperlink{classStandardDivKGradTwoPointsService}{Standard\+Div\+KGrad\+Two\+Points\+Service}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_acace4cbcde407d1a768e861dc60ec82f}\label{classIDivKGradDiscreteOperator_acace4cbcde407d1a768e861dc60ec82f}} 
+typedef Variable\+Cell\+Real3x3 \mbox{\hyperlink{classIDivKGradDiscreteOperator_acace4cbcde407d1a768e861dc60ec82f}{Absolute\+Permeability\+Type}}
+\begin{DoxyCompactList}\small\item\em Absolute permeability type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_a9bd73b0b6d6f5962c1eb0c1f996e1a50}\label{classIDivKGradDiscreteOperator_a9bd73b0b6d6f5962c1eb0c1f996e1a50}} 
+virtual const Integer \& {\bfseries status} () const =0
+\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_a80ceaca68131e97b25f3cf048569ff9b}\label{classIDivKGradDiscreteOperator_a80ceaca68131e97b25f3cf048569ff9b}} 
+virtual bool \mbox{\hyperlink{classIDivKGradDiscreteOperator_a80ceaca68131e97b25f3cf048569ff9b}{two\+Point\+Boundary}} ()=0
+\begin{DoxyCompactList}\small\item\em Two-\/point boundary treatment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_ada9748f299c8443aaaa0516a2c122f73}\label{classIDivKGradDiscreteOperator_ada9748f299c8443aaaa0516a2c122f73}} 
+virtual void \mbox{\hyperlink{classIDivKGradDiscreteOperator_ada9748f299c8443aaaa0516a2c122f73}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the scalar permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_a475541b588dfb16bd70b471736d1eebe}\label{classIDivKGradDiscreteOperator_a475541b588dfb16bd70b471736d1eebe}} 
+virtual void \mbox{\hyperlink{classIDivKGradDiscreteOperator_a475541b588dfb16bd70b471736d1eebe}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the diagonal permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_afb047010c054cd809127ea6757464407}\label{classIDivKGradDiscreteOperator_afb047010c054cd809127ea6757464407}} 
+virtual void \mbox{\hyperlink{classIDivKGradDiscreteOperator_afb047010c054cd809127ea6757464407}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3x3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_a14ff2bb806ab28fc93fcc60e46c82e95}\label{classIDivKGradDiscreteOperator_a14ff2bb806ab28fc93fcc60e46c82e95}} 
+virtual void \mbox{\hyperlink{classIDivKGradDiscreteOperator_a14ff2bb806ab28fc93fcc60e46c82e95}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the scalar permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_ac5e77ea268c41e340a16bba268aad6fd}\label{classIDivKGradDiscreteOperator_ac5e77ea268c41e340a16bba268aad6fd}} 
+virtual void \mbox{\hyperlink{classIDivKGradDiscreteOperator_ac5e77ea268c41e340a16bba268aad6fd}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the diagonal permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_a352f9ed051b64803e74ee99f881e878b}\label{classIDivKGradDiscreteOperator_a352f9ed051b64803e74ee99f881e878b}} 
+virtual void \mbox{\hyperlink{classIDivKGradDiscreteOperator_a352f9ed051b64803e74ee99f881e878b}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real3x3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_a8d410fbd1382965589d7aeaef165ec98}\label{classIDivKGradDiscreteOperator_a8d410fbd1382965589d7aeaef165ec98}} 
+void \mbox{\hyperlink{classIDivKGradDiscreteOperator_a8d410fbd1382965589d7aeaef165ec98}{set\+Node\+Degeneration\+Variable}} (Variable\+Node\+Integer \&degenerate\+\_\+nodes)
+\begin{DoxyCompactList}\small\item\em Degenerate node flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradDiscreteOperator_a5b70bc0fabfebe203edec5cdb17877b7}\label{classIDivKGradDiscreteOperator_a5b70bc0fabfebe203edec5cdb17877b7}} 
+Variable\+Node\+Integer $\ast$ {\bfseries m\+\_\+degenerate\+\_\+nodes}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 14 of file IDiv\+KGrad\+Discrete\+Operator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/IDiv\+KGrad\+Discrete\+Operator.\+h\end{DoxyCompactItemize}

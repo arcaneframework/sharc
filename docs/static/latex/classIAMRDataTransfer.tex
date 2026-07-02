@@ -1,0 +1,77 @@
+\hypertarget{classIAMRDataTransfer}{}\doxysection{IAMRData\+Transfer Class Reference}
+\label{classIAMRDataTransfer}\index{IAMRDataTransfer@{IAMRDataTransfer}}
+
+
+interface de transport de donn{\ucr}es entre maillages  
+
+
+
+
+{\ttfamily \#include $<$IAMRData\+Transfer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a99cde1177133f31854f57db425c42075}\label{classIAMRDataTransfer_a99cde1177133f31854f57db425c42075}} 
+\mbox{\hyperlink{classIAMRDataTransfer_a99cde1177133f31854f57db425c42075}{IAMRData\+Transfer}} ()
+\begin{DoxyCompactList}\small\item\em constructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_ac3320fd40afeb726b1d2d9508f5a9db5}\label{classIAMRDataTransfer_ac3320fd40afeb726b1d2d9508f5a9db5}} 
+virtual \mbox{\hyperlink{classIAMRDataTransfer_ac3320fd40afeb726b1d2d9508f5a9db5}{$\sim$\+IAMRData\+Transfer}} ()
+\begin{DoxyCompactList}\small\item\em destructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a9aeaad6b5d1f018e4687afaa508ae1ed}\label{classIAMRDataTransfer_a9aeaad6b5d1f018e4687afaa508ae1ed}} 
+virtual void \mbox{\hyperlink{classIAMRDataTransfer_a9aeaad6b5d1f018e4687afaa508ae1ed}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em initialisation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_aca3a7170b1b80cf078119d0a994c9c63}\label{classIAMRDataTransfer_aca3a7170b1b80cf078119d0a994c9c63}} 
+virtual void \mbox{\hyperlink{classIAMRDataTransfer_aca3a7170b1b80cf078119d0a994c9c63}{add\+Data\+To\+Register}} (String name, Variable\+Face\+Real \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete scalaire a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a9b59df1de21e9c388ab45e967aa78c57}\label{classIAMRDataTransfer_a9b59df1de21e9c388ab45e967aa78c57}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Face\+Integer \&data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a32ba8863460538cd0b64c7f2c5f76a30}\label{classIAMRDataTransfer_a32ba8863460538cd0b64c7f2c5f76a30}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Face\+Int64 \&data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a57365cec9624c2baa70b5471f5718342}\label{classIAMRDataTransfer_a57365cec9624c2baa70b5471f5718342}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Cell\+Real \&data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a3ff5e18bd48df8139c4357d488640702}\label{classIAMRDataTransfer_a3ff5e18bd48df8139c4357d488640702}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Cell\+Real \&data, Variable\+Particle\+Real \&particle\+\_\+data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a18e65383ff9cf013f6b0878afce4dfec}\label{classIAMRDataTransfer_a18e65383ff9cf013f6b0878afce4dfec}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Cell\+Integer \&data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_af05fd7469cae40e28a6285811717e646}\label{classIAMRDataTransfer_af05fd7469cae40e28a6285811717e646}} 
+virtual void \mbox{\hyperlink{classIAMRDataTransfer_af05fd7469cae40e28a6285811717e646}{add\+Data\+To\+Register}} (String name, Variable\+Cell\+Real3 \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete vectorielle a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a17e84ccc8fd27da941b97952e3afa50d}\label{classIAMRDataTransfer_a17e84ccc8fd27da941b97952e3afa50d}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Cell\+Array\+Real3 \&data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a1d51426e5fa789824aaf51c4019cf275}\label{classIAMRDataTransfer_a1d51426e5fa789824aaf51c4019cf275}} 
+virtual void \mbox{\hyperlink{classIAMRDataTransfer_a1d51426e5fa789824aaf51c4019cf275}{add\+Data\+To\+Register}} (String name, Variable\+Cell\+Real3x3 \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete tensorielle a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a209c79a70415be37eb2d55528525d889}\label{classIAMRDataTransfer_a209c79a70415be37eb2d55528525d889}} 
+virtual void \mbox{\hyperlink{classIAMRDataTransfer_a209c79a70415be37eb2d55528525d889}{add\+Extensive\+Data\+To\+Register}} (String name, Variable\+Cell\+Array\+Real \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete tensorielle a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a6768a29c7369ce77fd7c911774f6109c}\label{classIAMRDataTransfer_a6768a29c7369ce77fd7c911774f6109c}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Cell\+Array\+Real \&data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_accb26ecdbce0f157946facb2a91c66ba}\label{classIAMRDataTransfer_accb26ecdbce0f157946facb2a91c66ba}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Face\+Array\+Real \&data)=0
+\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_a80fb020985202464e206071ef66ee202}\label{classIAMRDataTransfer_a80fb020985202464e206071ef66ee202}} 
+virtual void \mbox{\hyperlink{classIAMRDataTransfer_a80fb020985202464e206071ef66ee202}{register\+Transport\+Functor}} ()=0
+\begin{DoxyCompactList}\small\item\em enregistrer la fonction de transport donnee par l\textquotesingle{}utilisateur \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIAMRDataTransfer_affba0d6940d6c9cff1200a7b712cd122}\label{classIAMRDataTransfer_affba0d6940d6c9cff1200a7b712cd122}} 
+virtual bool {\bfseries contains} (Arcane\+::\+String name) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+interface de transport de donn{\ucr}es entre maillages 
+
+Definition at line 17 of file IAMRData\+Transfer.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+AMRData\+Transfer/IAMRData\+Transfer.\+h\end{DoxyCompactItemize}

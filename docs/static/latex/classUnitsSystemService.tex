@@ -1,0 +1,99 @@
+\hypertarget{classUnitsSystemService}{}\doxysection{Units\+System\+Service Class Reference}
+\label{classUnitsSystemService}\index{UnitsSystemService@{UnitsSystemService}}
+
+
+Service d\textquotesingle{}unit{\ucr} utilisateur.  
+
+
+
+
+{\ttfamily \#include $<$Units\+System.\+h$>$}
+
+
+
+Inherits Arcane\+Units\+System\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a55966553faa3124e39fcfe0203bcf92a}\label{classUnitsSystemService_a55966553faa3124e39fcfe0203bcf92a}} 
+\mbox{\hyperlink{classUnitsSystemService_a55966553faa3124e39fcfe0203bcf92a}{Units\+System\+Service}} (const Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnitsSystemService_ae72052e5256a2349d5e84f4ec77697c3}\label{classUnitsSystemService_ae72052e5256a2349d5e84f4ec77697c3}} 
+virtual \mbox{\hyperlink{classUnitsSystemService_ae72052e5256a2349d5e84f4ec77697c3}{$\sim$\+Units\+System\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnitsSystemService_a7c2fae3dec0e0f7a756e7a253f4fd0d9}\label{classUnitsSystemService_a7c2fae3dec0e0f7a756e7a253f4fd0d9}} 
+void {\bfseries init} ()
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ D{\ucr}termination de coefficient vers SI}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a7f63d2b874d35766db22fbde69498a0a}\label{classUnitsSystemService_a7f63d2b874d35766db22fbde69498a0a}} 
+bool {\bfseries has\+Mult\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_ab45b493230450920e662512759de2779}\label{classUnitsSystemService_ab45b493230450920e662512759de2779}} 
+Real {\bfseries get\+Mult\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_ab3184f0f1d570117ef7549d8b343a30a}\label{classUnitsSystemService_ab3184f0f1d570117ef7549d8b343a30a}} 
+bool {\bfseries has\+Const\+Factor} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_aeb762e0c8fa883975e4b867f45c98510}\label{classUnitsSystemService_aeb762e0c8fa883975e4b867f45c98510}} 
+Real {\bfseries get\+Const\+Factor} (Unit\+Type unit)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ D{\ucr}termination de coefficient vers syst{\ucr}me sp{\ucr}cifique}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a40ecb387d3d0696306e1557c756d7adc}\label{classUnitsSystemService_a40ecb387d3d0696306e1557c756d7adc}} 
+bool {\bfseries has\+Mult\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_ae0a6459a6366308904b1fad60c399dc4}\label{classUnitsSystemService_ae0a6459a6366308904b1fad60c399dc4}} 
+Real {\bfseries get\+Mult\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a1623bc15bf1d04c103645bfb8049dea0}\label{classUnitsSystemService_a1623bc15bf1d04c103645bfb8049dea0}} 
+bool {\bfseries has\+Const\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a62d32128e3694605996bf63874e1fb91}\label{classUnitsSystemService_a62d32128e3694605996bf63874e1fb91}} 
+Real {\bfseries get\+Const\+Factor\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Fonctions de conversion}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_acc3a6fbeb91ebfd18534492cee40950e}\label{classUnitsSystemService_acc3a6fbeb91ebfd18534492cee40950e}} 
+Real {\bfseries convert} (Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_aca304e32f353513283c267b638c06bd7}\label{classUnitsSystemService_aca304e32f353513283c267b638c06bd7}} 
+Real {\bfseries unconvert} (Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a5a2848770bea3a64c1cc956f94af0b80}\label{classUnitsSystemService_a5a2848770bea3a64c1cc956f94af0b80}} 
+Real {\bfseries convert\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit, Real val)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a687e894b6df5d966f2203346c061fe70}\label{classUnitsSystemService_a687e894b6df5d966f2203346c061fe70}} 
+void {\bfseries convert} (Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a387ec116f85195978da065c48471a1e2}\label{classUnitsSystemService_a387ec116f85195978da065c48471a1e2}} 
+void {\bfseries unconvert} (Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a997b60b04d9fcb4cb52bf4635ee07cce}\label{classUnitsSystemService_a997b60b04d9fcb4cb52bf4635ee07cce}} 
+void {\bfseries convert\+To} (\mbox{\hyperlink{classIUnitsSystem}{IUnits\+System}} $\ast$system, Unit\+Type unit, Array\+View$<$ Real $>$ buf)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_a0d9ff395ab0659129dd308cc1d43fc4e}\label{classUnitsSystemService_a0d9ff395ab0659129dd308cc1d43fc4e}} 
+String {\bfseries get\+Short\+Name} (Unit\+Type unit)
+\item 
+\mbox{\Hypertarget{classUnitsSystemService_aae33ada0b36b347f5dd338e4e6d88ac9}\label{classUnitsSystemService_aae33ada0b36b347f5dd338e4e6d88ac9}} 
+String {\bfseries get\+Long\+Name} (Unit\+Type unit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service d\textquotesingle{}unit{\ucr} utilisateur. 
+
+Definition at line 19 of file Units\+System.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Units/Units\+System.\+h\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Units/Units\+System.\+cc\end{DoxyCompactItemize}

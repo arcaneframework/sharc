@@ -1,0 +1,12 @@
+baseURL: http://localhost:1313/
+title: "sharc"
+theme: hugo-book
+disableKinds: ["taxonomy", "term"]
+defaultContentLanguage: "fr"
+
+params:
+  description: "Documentation du projet"
+  BookSearch: true
+  BookComments: false
+  BookToC: true
+  BookTheme: "auto"

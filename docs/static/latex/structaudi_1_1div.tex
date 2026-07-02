@@ -1,0 +1,60 @@
+\hypertarget{structaudi_1_1div}{}\doxysection{audi\+::div$<$ L, R $>$ Struct Template Reference}
+\label{structaudi_1_1div}\index{audi::div$<$ L, R $>$@{audi::div$<$ L, R $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ div$<$ L, R $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_a7dd008560be68b3bc7b2db2b9d3e7c51}\label{structaudi_1_1div_a7dd008560be68b3bc7b2db2b9d3e7c51}} 
+using {\bfseries Left} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ L $>$\+::value, const L, const L \& $>$\+::type
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_a3d0ccc714fb0b37aadb71559d9ad4e5a}\label{structaudi_1_1div_a3d0ccc714fb0b37aadb71559d9ad4e5a}} 
+using {\bfseries Right} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ R $>$\+::value, const R, const R \& $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_aeae8cf443fc848486c2a05c6bda8abb6}\label{structaudi_1_1div_aeae8cf443fc848486c2a05c6bda8abb6}} 
+{\bfseries div} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ L $>$ \&l, const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ R $>$ \&r)
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_ab9212f851ab4a5d7ce597cd3fd65c1e2}\label{structaudi_1_1div_ab9212f851ab4a5d7ce597cd3fd65c1e2}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_aacc9c96147c18562f7dfd6e214ff1006}\label{structaudi_1_1div_aacc9c96147c18562f7dfd6e214ff1006}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_a76b16618be82ee9638cc65bc7ed88be7}\label{structaudi_1_1div_a76b16618be82ee9638cc65bc7ed88be7}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_ab975957e9b52cc2b18ba63d7e9d1b7b9}\label{structaudi_1_1div_ab975957e9b52cc2b18ba63d7e9d1b7b9}} 
+Left {\bfseries m\+\_\+l}
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_a2b7dea5b36e0167f109df5c4957f3515}\label{structaudi_1_1div_a2b7dea5b36e0167f109df5c4957f3515}} 
+Right {\bfseries m\+\_\+r}
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_a8da50e984ba3863c84454288f3c75b37}\label{structaudi_1_1div_a8da50e984ba3863c84454288f3c75b37}} 
+decltype(m\+\_\+l.\+value()) const {\bfseries m\+\_\+lv}
+\item 
+\mbox{\Hypertarget{structaudi_1_1div_a99161d6c2fe21ccc7a6c5456529a131f}\label{structaudi_1_1div_a99161d6c2fe21ccc7a6c5456529a131f}} 
+decltype(m\+\_\+r.\+value()) const {\bfseries m\+\_\+rv}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename L, typename R$>$\newline
+struct audi\+::div$<$ L, R $>$}
+
+
+
+Definition at line 7 of file div.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/div.\+h\end{DoxyCompactItemize}

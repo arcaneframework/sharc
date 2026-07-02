@@ -1,0 +1,48 @@
+\hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper}{}\doxysection{Arcane\+::Fem\+Utils\+::Do\+FLinear\+System\+Row\+Column\+Elimination\+Helper Class Reference}
+\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper}\index{Arcane::FemUtils::DoFLinearSystemRowColumnEliminationHelper@{Arcane::FemUtils::DoFLinearSystemRowColumnEliminationHelper}}
+
+
+Helper class to handle Row\+Column elimination.  
+
+
+
+
+{\ttfamily \#include $<$Do\+FLinear\+System.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper_ac989cd1fa7a057847baaabe54ba6ab9c}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper_ac989cd1fa7a057847baaabe54ba6ab9c}} 
+void {\bfseries add\+Elimination} (Do\+FLocal\+Id row, Real value)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper_a6471b9413944deb4b73cdc2ce75d5d82}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper_a6471b9413944deb4b73cdc2ce75d5d82}} 
+Variable\+Do\+FByte \& {\bfseries get\+Elimination\+Info} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper_a5ee39f1f46a8cda95f2de7026cf79608}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper_a5ee39f1f46a8cda95f2de7026cf79608}} 
+Variable\+Do\+FReal \& {\bfseries get\+Elimination\+Value} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper class to handle Row\+Column elimination. 
+
+Instances of this class are temporary and are created via a call to Do\+FLinear\+System\+::row\+Column\+Elimination\+Helper().
+
+There is two ways to use this class.
+
+
+\begin{DoxyEnumerate}
+\item use the method add\+Elimination() and specify the row and the value
+\item get the variables handling elimination info (get\+Elimination\+Info()) and elimination value (get\+Elimination\+Value()) and set the corresponding row with ELIMINATION\+\_\+\+ROW\+\_\+\+COLUMN and the value of the elimination.
+\end{DoxyEnumerate}
+
+Only the method 2 is available on accelerator. 
+
+Definition at line 102 of file Do\+FLinear\+System.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Do\+FLinear\+System.\+h\item 
+/tmp/opencode/sharc/src/\+CAWF/\+FEMUtils/Do\+FLinear\+System.\+cc\end{DoxyCompactItemize}
