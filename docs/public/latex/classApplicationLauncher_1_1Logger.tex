@@ -1,0 +1,79 @@
+\hypertarget{classApplicationLauncher_1_1Logger}{}\doxysection{Application\+Launcher.\+Logger Class Reference}
+\label{classApplicationLauncher_1_1Logger}\index{ApplicationLauncher.Logger@{ApplicationLauncher.Logger}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_a9266ed197b8e10ad49b21b8f6cb357ad}\label{classApplicationLauncher_1_1Logger_a9266ed197b8e10ad49b21b8f6cb357ad}} 
+enum class {\bfseries Channel} \{ \newline
+{\bfseries Execute} =0
+, {\bfseries Execute\+Error}
+, {\bfseries Debug}
+, {\bfseries Dev\+Debug}
+, \newline
+{\bfseries Verbose}
+, {\bfseries Error}
+, {\bfseries Warning}
+, {\bfseries Dry}
+, \newline
+{\bfseries Info}
+, {\bfseries MPIInfo}
+, {\bfseries Banner}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_a60fea5df6fe53cf52c76ce66d85b1113}\label{classApplicationLauncher_1_1Logger_a60fea5df6fe53cf52c76ce66d85b1113}} 
+static void {\bfseries configure\+Output\+File} (String output\+\_\+file)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_a2afd7deb7dd6170ca889ea2a581bc523}\label{classApplicationLauncher_1_1Logger_a2afd7deb7dd6170ca889ea2a581bc523}} 
+static void {\bfseries configure\+Enable\+Debug} (bool flag)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_ac3c5295dc799653e642540e5954048a9}\label{classApplicationLauncher_1_1Logger_ac3c5295dc799653e642540e5954048a9}} 
+static void {\bfseries log} (Channel c, string format)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_affc7248c54be67a5d529ffa98281de62}\label{classApplicationLauncher_1_1Logger_affc7248c54be67a5d529ffa98281de62}} 
+static void {\bfseries log} (Channel c, string format, object arg0)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_af00a4707d6c0c38a5296bcbb6d544607}\label{classApplicationLauncher_1_1Logger_af00a4707d6c0c38a5296bcbb6d544607}} 
+static void {\bfseries log} (Channel c, string format, object arg0, object arg1)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_a355f3f3f5e00a641fc463e06609fa853}\label{classApplicationLauncher_1_1Logger_a355f3f3f5e00a641fc463e06609fa853}} 
+static void {\bfseries log} (Channel c, string format, object arg0, object arg1, object arg2)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_ab26f14dcbb5e067c717d5b1134e08380}\label{classApplicationLauncher_1_1Logger_ab26f14dcbb5e067c717d5b1134e08380}} 
+static void {\bfseries log} (Channel c, string format, object arg0, object arg1, object arg2, object arg3)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_af37cecd04e593e4a726d99a35b46fac7}\label{classApplicationLauncher_1_1Logger_af37cecd04e593e4a726d99a35b46fac7}} 
+static void {\bfseries log} (Channel c, string format, Object\mbox{[}$\,$\mbox{]} args)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_acfa4210cd62668ee5889bf796319630a}\label{classApplicationLauncher_1_1Logger_acfa4210cd62668ee5889bf796319630a}} 
+static void {\bfseries log} (string channel, string format)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_a9c5875f88a852f2b6eea0f196c99a751}\label{classApplicationLauncher_1_1Logger_a9c5875f88a852f2b6eea0f196c99a751}} 
+static void {\bfseries log} (string channel, string format, object arg0)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_abb14280e8675deed3f1c56266d70e87f}\label{classApplicationLauncher_1_1Logger_abb14280e8675deed3f1c56266d70e87f}} 
+static void {\bfseries log} (string channel, string format, object arg0, object arg1)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_a7c702c38d5d9f5ea5df25b76f3493aaf}\label{classApplicationLauncher_1_1Logger_a7c702c38d5d9f5ea5df25b76f3493aaf}} 
+static void {\bfseries log} (string channel, string format, object arg0, object arg1, object arg2)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_abbbc10b0302ee007074efd6c4cbec7cd}\label{classApplicationLauncher_1_1Logger_abbbc10b0302ee007074efd6c4cbec7cd}} 
+static void {\bfseries log} (string channel, string format, object arg0, object arg1, object arg2, object arg3)
+\item 
+\mbox{\Hypertarget{classApplicationLauncher_1_1Logger_a263f4f1cf98cd4a4b7aee9e81c895095}\label{classApplicationLauncher_1_1Logger_a263f4f1cf98cd4a4b7aee9e81c895095}} 
+static void {\bfseries log} (string channel, string format, Object\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 9 of file Logger.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arcane\+Infra/build-\/system/csharp/\+Application\+Launcher/Logger.\+cs\end{DoxyCompactItemize}

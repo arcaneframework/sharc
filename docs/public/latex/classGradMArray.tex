@@ -1,0 +1,44 @@
+\hypertarget{classGradMArray}{}\doxysection{Grad\+MArray Class Reference}
+\label{classGradMArray}\index{GradMArray@{GradMArray}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGradMArray_adf849d3605525580ee14d821ff5aff89}\label{classGradMArray_adf849d3605525580ee14d821ff5aff89}} 
+{\bfseries Grad\+MArray} (Integer size1, Integer size2, Integer maxlocal\+Id)
+\item 
+\mbox{\Hypertarget{classGradMArray_a0b5d9d4fa2e0e12d5d185b49691e0eff}\label{classGradMArray_a0b5d9d4fa2e0e12d5d185b49691e0eff}} 
+Integer \mbox{\hyperlink{classGradMArray_a0b5d9d4fa2e0e12d5d185b49691e0eff}{stencil\+Size}} (const Cell \&cell, Integer iface)
+\begin{DoxyCompactList}\small\item\em Return the size of the stencil. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGradMArray_a7d629ad6e6b480bd8956827b6c208012}\label{classGradMArray_a7d629ad6e6b480bd8956827b6c208012}} 
+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classGradMArray_a7d629ad6e6b480bd8956827b6c208012}{stencil}} (const Cell \&cell, Integer iface)
+\begin{DoxyCompactList}\small\item\em Return the local id of the elements in the stencil of face F. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGradMArray_a9f19a10f50e82d7a2fda9a16b5d0c9a2}\label{classGradMArray_a9f19a10f50e82d7a2fda9a16b5d0c9a2}} 
+Array\+View$<$ Real $>$ \mbox{\hyperlink{classGradMArray_a9f19a10f50e82d7a2fda9a16b5d0c9a2}{coefficients}} (const Cell \&cell, Integer iface)
+\begin{DoxyCompactList}\small\item\em Return the coefficients for face F. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGradMArray_ae88149f71ecf5de011aa050ac9c76fba}\label{classGradMArray_ae88149f71ecf5de011aa050ac9c76fba}} 
+Shared\+Array$<$ Real $>$ {\bfseries coeff}
+\item 
+\mbox{\Hypertarget{classGradMArray_ac347f1315e8f7f6469c49698db60fd46}\label{classGradMArray_ac347f1315e8f7f6469c49698db60fd46}} 
+Shared\+Array$<$ Integer $>$ {\bfseries index}
+\item 
+\mbox{\Hypertarget{classGradMArray_aff74d05ef419364e54f91c27bef80553}\label{classGradMArray_aff74d05ef419364e54f91c27bef80553}} 
+Shared\+Array$<$ Integer $>$ {\bfseries posF}
+\item 
+\mbox{\Hypertarget{classGradMArray_ad36b864ac3923d78d6f938d29f93e16c}\label{classGradMArray_ad36b864ac3923d78d6f938d29f93e16c}} 
+Shared\+Array$<$ Integer $>$ {\bfseries posC}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 10 of file Grad\+MArray.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+Grad\+MImpl/Grad\+MArray.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap}{}\doxysection{Arcane\+::Fem\+Utils\+::Ordered\+Row\+Column\+Map Class Reference}
+\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap}\index{Arcane::FemUtils::OrderedRowColumnMap@{Arcane::FemUtils::OrderedRowColumnMap}}
+
+
+Ordered map to keep a set a values indexed by (row,column).  
+
+
+
+
+{\ttfamily \#include $<$Ordered\+Row\+Column\+Map.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcane_1_1FemUtils_1_1OrderedRowColumnMap_1_1RowColumn}{Row\+Column}}
+\begin{DoxyCompactList}\small\item\em Index in a Row\+Column\+Map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a2df92c3cceb8e02677efb7c00bc461ba}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a2df92c3cceb8e02677efb7c00bc461ba}} 
+using {\bfseries iterator} = typename Map\+Type\+::iterator
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a3a427d8b256c9c4273e9f5f410857810}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a3a427d8b256c9c4273e9f5f410857810}} 
+using {\bfseries const\+\_\+iterator} = typename Map\+Type\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_af4dcaf957a1889e07c19520e15e1a4f2}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_af4dcaf957a1889e07c19520e15e1a4f2}} 
+void {\bfseries add\+Value} (\mbox{\hyperlink{structArcane_1_1FemUtils_1_1OrderedRowColumnMap_1_1RowColumn}{Row\+Column}} rc, Real value)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_ae19906617cba67e7d35f9ac3a3eba645}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_ae19906617cba67e7d35f9ac3a3eba645}} 
+Real \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (\mbox{\hyperlink{structArcane_1_1FemUtils_1_1OrderedRowColumnMap_1_1RowColumn}{Row\+Column}} rc)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a043e01c7adce359915cd45b69ccbfb19}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a043e01c7adce359915cd45b69ccbfb19}} 
+void {\bfseries clear} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_ad2d343eaecd99f3c980aa14d2a032d60}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_ad2d343eaecd99f3c980aa14d2a032d60}} 
+iterator {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a48acece4740320328bdb1d715e65bd9d}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a48acece4740320328bdb1d715e65bd9d}} 
+iterator {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a33ad35c405b5e910825b18b39827993f}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a33ad35c405b5e910825b18b39827993f}} 
+const\+\_\+iterator {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a098116358b62b37f5d19b257cbc9c386}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a098116358b62b37f5d19b257cbc9c386}} 
+const\+\_\+iterator {\bfseries end} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a32316660705859434ae4597d2c24b4fa}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a32316660705859434ae4597d2c24b4fa}} 
+iterator {\bfseries find} (\mbox{\hyperlink{structArcane_1_1FemUtils_1_1OrderedRowColumnMap_1_1RowColumn}{Row\+Column}} rc)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a8fde9429179e97a429be621f911abf45}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a8fde9429179e97a429be621f911abf45}} 
+const\+\_\+iterator {\bfseries find} (\mbox{\hyperlink{structArcane_1_1FemUtils_1_1OrderedRowColumnMap_1_1RowColumn}{Row\+Column}} rc) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a1241b25b117439aa236a046e0b7f86c0}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_a1241b25b117439aa236a046e0b7f86c0}} 
+bool {\bfseries contains} (\mbox{\hyperlink{structArcane_1_1FemUtils_1_1OrderedRowColumnMap_1_1RowColumn}{Row\+Column}} rc) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_aa02d03ce99f7c7b1a086c1940a3b0134}\label{classArcane_1_1FemUtils_1_1OrderedRowColumnMap_aa02d03ce99f7c7b1a086c1940a3b0134}} 
+Int32 {\bfseries size} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ordered map to keep a set a values indexed by (row,column). 
+
+Definition at line 34 of file Ordered\+Row\+Column\+Map.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/internal/Ordered\+Row\+Column\+Map.\+h\end{DoxyCompactItemize}

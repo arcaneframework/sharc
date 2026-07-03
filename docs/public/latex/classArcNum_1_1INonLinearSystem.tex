@@ -1,0 +1,52 @@
+\hypertarget{classArcNum_1_1INonLinearSystem}{}\doxysection{Arc\+Num\+::INon\+Linear\+System Class Reference}
+\label{classArcNum_1_1INonLinearSystem}\index{ArcNum::INonLinearSystem@{ArcNum::INonLinearSystem}}
+
+
+Inherits \mbox{\hyperlink{structArcNum_1_1INonLinearOperator}{Arc\+Num\+::\+INon\+Linear\+Operator$<$ Arc\+Num\+::\+Container\+Kind\+::\+Variable, Arc\+Num\+::\+Item\+Kind\+::\+Cell $>$}}.
+
+
+
+Inherited by Thermo\+Chemical\+Convection\+Module, and Two\+Phase\+Flow\+Simulation\+Module.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcNum_1_1INonLinearSystem_1_1IScalarEquation}{IScalar\+Equation}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1INonLinearSystem_a97bddd37c539901a77894bd7ecf6f014}\label{classArcNum_1_1INonLinearSystem_a97bddd37c539901a77894bd7ecf6f014}} 
+virtual \mbox{\hyperlink{classArcNum_1_1Domain}{Domain}} const  \& {\bfseries system\+Domain} () const =0
+\item 
+\mbox{\Hypertarget{classArcNum_1_1INonLinearSystem_a1fda60009b5aa589c4dbe797aed788d7}\label{classArcNum_1_1INonLinearSystem_a1fda60009b5aa589c4dbe797aed788d7}} 
+virtual Integer {\bfseries nb\+Equations} () const =0
+\item 
+\mbox{\Hypertarget{classArcNum_1_1INonLinearSystem_aab28619226e50a7261c20dd04ecf7ea4}\label{classArcNum_1_1INonLinearSystem_aab28619226e50a7261c20dd04ecf7ea4}} 
+virtual Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{structArcNum_1_1INonLinearSystem_1_1IScalarEquation}{IScalar\+Equation}} $\ast$ $>$ {\bfseries coupled\+Problems} () const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1INonLinearSystem_aa8afda1fce800c6af1895751143cfd39}\label{classArcNum_1_1INonLinearSystem_aa8afda1fce800c6af1895751143cfd39}} 
+virtual void {\bfseries init\+Linear\+System\+Profile} (Arcane\+::\+Cell\+Group cells, Alien\+::\+Matrix\+Profiler \&block\+Profiler, Arcane\+::\+Const\+Array2\+View$<$ Arcane\+::\+Integer $>$ indexes, Arcane\+::\+Integer block\+\_\+size)=0
+\item 
+\mbox{\Hypertarget{classArcNum_1_1INonLinearSystem_a3fda9feb5777c5e8c4d3a2d5b42b7a40}\label{classArcNum_1_1INonLinearSystem_a3fda9feb5777c5e8c4d3a2d5b42b7a40}} 
+virtual void {\bfseries set\+Solution\+Variables} (Arcane\+::\+Shared\+Array$<$ Arcane\+::\+Variable\+Cell\+Real $\ast$ $>$ \&solutions)=0
+\item 
+\mbox{\Hypertarget{classArcNum_1_1INonLinearSystem_aab99a78ef0928e1b724c7fb3c014efdf}\label{classArcNum_1_1INonLinearSystem_aab99a78ef0928e1b724c7fb3c014efdf}} 
+virtual void {\bfseries apply\+Constraint\+On\+Solution} (bool \&Non\+Physical\+Solution)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1INonLinearSystem_ab7856fcd64536e935527e2a5cf6b4c00}\label{classArcNum_1_1INonLinearSystem_ab7856fcd64536e935527e2a5cf6b4c00}} 
+virtual void {\bfseries update\+Explicit\+Terms} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 44 of file INon\+Linear\+System.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Arc\+Num\+Tools/\+Solver/INon\+Linear\+System.\+h\end{DoxyCompactItemize}

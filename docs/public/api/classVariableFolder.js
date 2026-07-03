@@ -1,0 +1,25 @@
+var classVariableFolder =
+[
+    [ "Accessor", "classVariableFolder.html#a0280948c9bdda37116154bad67eac60c", null ],
+    [ "Support", "classVariableFolder.html#a6399d0ffd3e5804b537342a326d3c291", null ],
+    [ "VariableFolder", "classVariableFolder.html#a9cbbd6823dc0c28196d4c1fdb3199c6f", null ],
+    [ "~VariableFolder", "classVariableFolder.html#ad674247e75389bd6aed3ef5bfb7d1577", null ],
+    [ "_fillZero", "classVariableFolder.html#ab6be5d43730fb3311a0df7d1fc0caa44", null ],
+    [ "addVariable", "classVariableFolder.html#a7858b465d6db89b8e5f46426e7332f2f", null ],
+    [ "addVariable", "classVariableFolder.html#aa62201a430f7dfccbfd979a61217fe88", null ],
+    [ "addVariable", "classVariableFolder.html#a01a97a0f0f7658657b27c7ce30fae1cd", null ],
+    [ "addVariable", "classVariableFolder.html#a915e85748e3568a9852fb38d1bd25d85", null ],
+    [ "contains", "classVariableFolder.html#a1d4b433132b43689d82ef5aa2a73b4d3", null ],
+    [ "disableVerbosity", "classVariableFolder.html#a59e1b9bf043fe07389591d46fa1ac39b", null ],
+    [ "enableVerbosity", "classVariableFolder.html#addee98a6c4a237f7ea046b69f0aefdfb", null ],
+    [ "forceSupport", "classVariableFolder.html#ab494c4b5dc195cae0f989660dbad77a0", null ],
+    [ "key", "classVariableFolder.html#a63b9d7db39dc5604c7b0e1b28bb38b91", null ],
+    [ "lawVariableAccessor", "classVariableFolder.html#ad36b97a3d11290449d70dddbf476db0b", null ],
+    [ "lawVariableManager", "classVariableFolder.html#a2ff368da362caccfee55e9b7a8cc7b59", null ],
+    [ "setSupport", "classVariableFolder.html#af690cba8dfa4319bcce412e11f597558", null ],
+    [ "support", "classVariableFolder.html#a4cfec48b35b0fa4a7446d967edbd1ea0", null ],
+    [ "m_key", "classVariableFolder.html#a98009c82a25ca37e5c770d7040d0e359", null ],
+    [ "m_support", "classVariableFolder.html#a06c2629023b832d11c5e0e94fbf193ea", null ],
+    [ "m_support_is_defined", "classVariableFolder.html#a98aee3e38a143561c79c2bdb60591fa1", null ],
+    [ "m_variables", "classVariableFolder.html#a6bfe8042c701028b0d54810f5d362e55", null ]
+];

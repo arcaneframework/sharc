@@ -1,0 +1,137 @@
+\hypertarget{namespaceArrayScan}{}\doxysection{Array\+Scan Namespace Reference}
+\label{namespaceArrayScan}\index{ArrayScan@{ArrayScan}}
+
+
+Recherche d\textquotesingle{}un {\ucr}l{\ucr}ment dans un tableau.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\Integer \mbox{\hyperlink{namespaceArrayScan_a876ba2e74ecd801204c9ec1443c0fa93}{exhaustive\+Scan}} (const T \&x, const Const\+Array\+View$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Recherche lin{\ucr}aire de la valeur {\itshape x} dans un tableau non-\/ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Integer \mbox{\hyperlink{namespaceArrayScan_ad85779aae38419119145aaad303da2b3}{linear\+Scan}} (const T \&x, const Const\+Array\+View$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Recherche lin{\ucr}aire de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Integer \mbox{\hyperlink{namespaceArrayScan_ab3ae60ace478b55b32d67ea431a712fd}{dichotomic\+Scan}} (const T \&x, const Const\+Array\+View$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Recherche dichotomique de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Integer \mbox{\hyperlink{namespaceArrayScan_a5a50b7fd619d49f6e95ae44dc1abd9d1}{linear\+Position\+Scan}} (const T \&x, const Const\+Array\+View$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Recherche lin{\ucr}aire de la position d\textquotesingle{}insertion de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Integer \mbox{\hyperlink{namespaceArrayScan_ab40c4a35b749e203b2f4285509fdce5b}{dichotomic\+Position\+Scan}} (const T \&x, const Const\+Array\+View$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Recherche dichotomique de la position d\textquotesingle{}insertion de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Integer \mbox{\hyperlink{namespaceArrayScan_ac7a149fe5d6345a0ecfaf7358d9c9e7a}{linear\+Interval\+Scan}} (const T \&x, const Integer n, const T $\ast$vptr)
+\begin{DoxyCompactList}\small\item\em Recherche lin{\ucr}aire de la borne inf{\ucr}rieur de l\textquotesingle{}intervalle contenant la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} sans contr{\ucr}le de validit{\ucr} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Integer \mbox{\hyperlink{namespaceArrayScan_ae5b92a12b0b1a35ac1b5fa2119fb5d53}{dichotomic\+Interval\+Scan}} (const T \&x, const Integer n, const T $\ast$vptr)
+\begin{DoxyCompactList}\small\item\em Recherche dichotomique de la borne inf{\ucr}rieur de l\textquotesingle{}intervalle contenant la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Recherche d\textquotesingle{}un {\ucr}l{\ucr}ment dans un tableau. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceArrayScan_ae5b92a12b0b1a35ac1b5fa2119fb5d53}\label{namespaceArrayScan_ae5b92a12b0b1a35ac1b5fa2119fb5d53}} 
+\index{ArrayScan@{ArrayScan}!dichotomicIntervalScan@{dichotomicIntervalScan}}
+\index{dichotomicIntervalScan@{dichotomicIntervalScan}!ArrayScan@{ArrayScan}}
+\doxysubsubsection{\texorpdfstring{dichotomicIntervalScan()}{dichotomicIntervalScan()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Integer Array\+Scan\+::dichotomic\+Interval\+Scan (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const Integer}]{n,  }\item[{const T $\ast$}]{vptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recherche dichotomique de la borne inf{\ucr}rieur de l\textquotesingle{}intervalle contenant la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} 
+
+Cette recherche dichotomique est hybrid{\ucr} avec une recherche lin{\ucr}aire par de meilleures performances sur toutes tailles de tableau. L\textquotesingle{}absence de contr{\ucr}le de validit{\ucr} ne contr{\ucr}le pas que le tableau est non vide et que l\textquotesingle{}{\ucr}l{\ucr}ment recherch{\ucr} est dans l\textquotesingle{}intervalle d{\ucr}fini par les extr{\ucr}mit{\ucr}s du tableau Prepare
+
+Prepare
+
+Definition at line 256 of file Array\+Utils.\+h.
+
+\mbox{\Hypertarget{namespaceArrayScan_ab40c4a35b749e203b2f4285509fdce5b}\label{namespaceArrayScan_ab40c4a35b749e203b2f4285509fdce5b}} 
+\index{ArrayScan@{ArrayScan}!dichotomicPositionScan@{dichotomicPositionScan}}
+\index{dichotomicPositionScan@{dichotomicPositionScan}!ArrayScan@{ArrayScan}}
+\doxysubsubsection{\texorpdfstring{dichotomicPositionScan()}{dichotomicPositionScan()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Integer Array\+Scan\+::dichotomic\+Position\+Scan (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const Const\+Array\+View$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recherche dichotomique de la position d\textquotesingle{}insertion de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} 
+
+Cette recherche dichotomique est hybrid{\ucr}e avec une recherche lin{\ucr}aire par de meilleures performances sur toutes tailles de tableau Si plusieurs instance de la valeur {\itshape x} existe, une quelconque occurence sera trouv{\ucr}e. 
+
+Definition at line 202 of file Array\+Utils.\+h.
+
+\mbox{\Hypertarget{namespaceArrayScan_ab3ae60ace478b55b32d67ea431a712fd}\label{namespaceArrayScan_ab3ae60ace478b55b32d67ea431a712fd}} 
+\index{ArrayScan@{ArrayScan}!dichotomicScan@{dichotomicScan}}
+\index{dichotomicScan@{dichotomicScan}!ArrayScan@{ArrayScan}}
+\doxysubsubsection{\texorpdfstring{dichotomicScan()}{dichotomicScan()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Integer Array\+Scan\+::dichotomic\+Scan (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const Const\+Array\+View$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recherche dichotomique de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} 
+
+Cette recherche dichotomique est hybrid{\ucr}e avec une recherche lin{\ucr}aire par de meilleures performances sur toutes tailles de tableau Si plusieurs instance de la valeur {\itshape x} existe, une quelconque occurence sera trouv{\ucr}e. 
+
+Definition at line 148 of file Array\+Utils.\+h.
+
+\mbox{\Hypertarget{namespaceArrayScan_a876ba2e74ecd801204c9ec1443c0fa93}\label{namespaceArrayScan_a876ba2e74ecd801204c9ec1443c0fa93}} 
+\index{ArrayScan@{ArrayScan}!exhaustiveScan@{exhaustiveScan}}
+\index{exhaustiveScan@{exhaustiveScan}!ArrayScan@{ArrayScan}}
+\doxysubsubsection{\texorpdfstring{exhaustiveScan()}{exhaustiveScan()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Integer Array\+Scan\+::exhaustive\+Scan (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const Const\+Array\+View$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recherche lin{\ucr}aire de la valeur {\itshape x} dans un tableau non-\/ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} 
+
+Ce type de recherche est performante sur des tableaux de petites tailles (effet cache) Si plusieurs instance de la valeur {\itshape x} existe, la premi{\ucr}re sera trouv{\ucr}e. 
+
+Definition at line 121 of file Array\+Utils.\+h.
+
+\mbox{\Hypertarget{namespaceArrayScan_ac7a149fe5d6345a0ecfaf7358d9c9e7a}\label{namespaceArrayScan_ac7a149fe5d6345a0ecfaf7358d9c9e7a}} 
+\index{ArrayScan@{ArrayScan}!linearIntervalScan@{linearIntervalScan}}
+\index{linearIntervalScan@{linearIntervalScan}!ArrayScan@{ArrayScan}}
+\doxysubsubsection{\texorpdfstring{linearIntervalScan()}{linearIntervalScan()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Integer Array\+Scan\+::linear\+Interval\+Scan (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const Integer}]{n,  }\item[{const T $\ast$}]{vptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recherche lin{\ucr}aire de la borne inf{\ucr}rieur de l\textquotesingle{}intervalle contenant la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} sans contr{\ucr}le de validit{\ucr} 
+
+L\textquotesingle{}absence de contr{\ucr}le de validit{\ucr} ne contr{\ucr}le pas que le tableau est non vide et que l\textquotesingle{}{\ucr}l{\ucr}ment recherch{\ucr} est dans l\textquotesingle{}intervalle d{\ucr}fini par les extr{\ucr}mit{\ucr}s du tableau 
+
+Definition at line 241 of file Array\+Utils.\+h.
+
+\mbox{\Hypertarget{namespaceArrayScan_a5a50b7fd619d49f6e95ae44dc1abd9d1}\label{namespaceArrayScan_a5a50b7fd619d49f6e95ae44dc1abd9d1}} 
+\index{ArrayScan@{ArrayScan}!linearPositionScan@{linearPositionScan}}
+\index{linearPositionScan@{linearPositionScan}!ArrayScan@{ArrayScan}}
+\doxysubsubsection{\texorpdfstring{linearPositionScan()}{linearPositionScan()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Integer Array\+Scan\+::linear\+Position\+Scan (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const Const\+Array\+View$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recherche lin{\ucr}aire de la position d\textquotesingle{}insertion de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} 
+
+Ce type de recherche est performante sur des tableaux de petites tailles (effet cache) Si plusieurs instance de la valeur {\itshape x} existe, la premi{\ucr}re sera trouv{\ucr}e. 
+
+Definition at line 189 of file Array\+Utils.\+h.
+
+\mbox{\Hypertarget{namespaceArrayScan_ad85779aae38419119145aaad303da2b3}\label{namespaceArrayScan_ad85779aae38419119145aaad303da2b3}} 
+\index{ArrayScan@{ArrayScan}!linearScan@{linearScan}}
+\index{linearScan@{linearScan}!ArrayScan@{ArrayScan}}
+\doxysubsubsection{\texorpdfstring{linearScan()}{linearScan()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Integer Array\+Scan\+::linear\+Scan (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const Const\+Array\+View$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recherche lin{\ucr}aire de la valeur {\itshape x} dans un tableau ordonn{\ucr}e {\itshape v} avec contr{\ucr}le de validit{\ucr} 
+
+Ce type de recherche est performante sur des tableaux de petites tailles (effet cache) Si plusieurs instance de la valeur {\itshape x} existe, la premi{\ucr}re sera trouv{\ucr}e. 
+
+Definition at line 132 of file Array\+Utils.\+h.
+

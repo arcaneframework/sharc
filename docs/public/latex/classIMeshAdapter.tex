@@ -1,0 +1,139 @@
+\hypertarget{classIMeshAdapter}{}\doxysection{IMesh\+Adapter Class Reference}
+\label{classIMeshAdapter}\index{IMeshAdapter@{IMeshAdapter}}
+
+
+Inherited by \mbox{\hyperlink{classAbstractMeshAdapter}{Abstract\+Mesh\+Adapter}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classIMeshAdapter_1_1IObserver}{IObserver}}
+\item 
+class \mbox{\hyperlink{classIMeshAdapter_1_1Observer}{Observer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a3c5f5915b2bd565b6b2f7982908f6981}\label{classIMeshAdapter_a3c5f5915b2bd565b6b2f7982908f6981}} 
+\mbox{\hyperlink{classIMeshAdapter_a3c5f5915b2bd565b6b2f7982908f6981}{IMesh\+Adapter}} ()
+\begin{DoxyCompactList}\small\item\em constructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_a91d3fe155621b42321efdb7b5dd81676}\label{classIMeshAdapter_a91d3fe155621b42321efdb7b5dd81676}} 
+virtual \mbox{\hyperlink{classIMeshAdapter_a91d3fe155621b42321efdb7b5dd81676}{$\sim$\+IMesh\+Adapter}} ()
+\begin{DoxyCompactList}\small\item\em destructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_a461b45e50ec75b5675fe4290cc9b7724}\label{classIMeshAdapter_a461b45e50ec75b5675fe4290cc9b7724}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_a461b45e50ec75b5675fe4290cc9b7724}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em initialisation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_abf8757126b735443b2c46d574d27e022}\label{classIMeshAdapter_abf8757126b735443b2c46d574d27e022}} 
+virtual void {\bfseries init} (IMesh $\ast$mesh)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_aace1f5571e19e24c8b6a7a1b7e815554}\label{classIMeshAdapter_aace1f5571e19e24c8b6a7a1b7e815554}} 
+virtual Integer {\bfseries max\+Level} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a2eee3949163e0362dc83acc6bcbe5665}\label{classIMeshAdapter_a2eee3949163e0362dc83acc6bcbe5665}} 
+virtual bool {\bfseries refine\+On\+Init} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_adfe640cbc2591c218805cd02e9a51411}\label{classIMeshAdapter_adfe640cbc2591c218805cd02e9a51411}} 
+virtual bool \mbox{\hyperlink{classIMeshAdapter_adfe640cbc2591c218805cd02e9a51411}{compute}} (Variable\+Cell\+Real \&sol, Variable\+Cell\+Real \&sol\+\_\+tn, Variable\+Cell\+Real \&error, Real dt)=0
+\begin{DoxyCompactList}\small\item\em methode de calcul \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_a3cfc633347bf094e004f37010e0876e2}\label{classIMeshAdapter_a3cfc633347bf094e004f37010e0876e2}} 
+virtual bool {\bfseries compute} (Variable\+Cell\+Real \&error)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a84a079ac3a2bc4f9c7d747a1e66fefc0}\label{classIMeshAdapter_a84a079ac3a2bc4f9c7d747a1e66fefc0}} 
+virtual void {\bfseries update} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_aca19dddf80d3e9444ec4210cae399bd5}\label{classIMeshAdapter_aca19dddf80d3e9444ec4210cae399bd5}} 
+virtual void {\bfseries adapt} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a335efd002f971d12f2f8a7dd6d046c62}\label{classIMeshAdapter_a335efd002f971d12f2f8a7dd6d046c62}} 
+virtual void {\bfseries refine\+All\+Mesh} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a977de4d8275a857e7978ea8f3a8c9357}\label{classIMeshAdapter_a977de4d8275a857e7978ea8f3a8c9357}} 
+virtual bool {\bfseries flag\+Refined\+Cell\+Group} (Cell\+Group const \&group)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_aee2bf1b84d6a1c3238c42c49b089dca3}\label{classIMeshAdapter_aee2bf1b84d6a1c3238c42c49b089dca3}} 
+virtual bool {\bfseries need\+Mesh\+Adaptation} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_ad37b9749f12e514b32189cb07d5ca2ea}\label{classIMeshAdapter_ad37b9749f12e514b32189cb07d5ca2ea}} 
+virtual void {\bfseries reset} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a93622d7529809898e2b80ea7c2068e1f}\label{classIMeshAdapter_a93622d7529809898e2b80ea7c2068e1f}} 
+virtual \mbox{\hyperlink{classIEstimator}{IEstimator}} $\ast$ {\bfseries get\+Estimator} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a9f2d28e8d0c4d41da1af9b002849915e}\label{classIMeshAdapter_a9f2d28e8d0c4d41da1af9b002849915e}} 
+virtual void {\bfseries add\+Observer} (\mbox{\hyperlink{classIMeshAdapter_1_1IObserver}{IObserver}} $\ast$observer)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_ad1b651c771c4243161eadeb29001efca}\label{classIMeshAdapter_ad1b651c771c4243161eadeb29001efca}} 
+virtual void {\bfseries notify\+All} ()=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a13f1116197b7f8ae445c70a00f85915b}\label{classIMeshAdapter_a13f1116197b7f8ae445c70a00f85915b}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_a13f1116197b7f8ae445c70a00f85915b}{add\+Data\+To\+Register}} (String name, Variable\+Face\+Real \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete scalaire sur les faces a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_a99756b1046595dba433a7bfa85212d37}\label{classIMeshAdapter_a99756b1046595dba433a7bfa85212d37}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Face\+Integer \&data)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_abd817af806540bcf11665a7968250587}\label{classIMeshAdapter_abd817af806540bcf11665a7968250587}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Face\+Int64 \&data)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_afba37b98e571657df6f4ae0eab4397b7}\label{classIMeshAdapter_afba37b98e571657df6f4ae0eab4397b7}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_afba37b98e571657df6f4ae0eab4397b7}{add\+Data\+To\+Register}} (String name, Variable\+Cell\+Real \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete scalaire sur les mailles a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_afb1fbfe6e68e18f4f8443760c9cc827b}\label{classIMeshAdapter_afb1fbfe6e68e18f4f8443760c9cc827b}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Cell\+Real \&data, Variable\+Particle\+Real \&particle\+\_\+data)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a2cad774e6c5f6f436053214c2a4965e2}\label{classIMeshAdapter_a2cad774e6c5f6f436053214c2a4965e2}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_a2cad774e6c5f6f436053214c2a4965e2}{add\+Data\+To\+Register}} (String name, Variable\+Cell\+Real3 \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete vectorielle sur les mailles a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_a91e2bb65aac432882602329c571dff5d}\label{classIMeshAdapter_a91e2bb65aac432882602329c571dff5d}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Cell\+Array\+Real3 \&data)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a6c08a1cea5c0386669d64c2403989bd7}\label{classIMeshAdapter_a6c08a1cea5c0386669d64c2403989bd7}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_a6c08a1cea5c0386669d64c2403989bd7}{add\+Data\+To\+Register}} (String name, Variable\+Cell\+Real3x3 \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete tensorielle sur les mailles a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_ac79fc7ace010e98486209d39994f8bac}\label{classIMeshAdapter_ac79fc7ace010e98486209d39994f8bac}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_ac79fc7ace010e98486209d39994f8bac}{add\+Data\+To\+Register}} (String name, Variable\+Cell\+Integer \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete scalaire sur les mailles a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_a542ee05158b7a71dcfc3d01281887a6f}\label{classIMeshAdapter_a542ee05158b7a71dcfc3d01281887a6f}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_a542ee05158b7a71dcfc3d01281887a6f}{add\+Data\+To\+Register}} (String name, Variable\+Cell\+Array\+Real \&data)=0
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}une propriete tableau de reels sur les mailles a transferer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_a6c6ed91d72b3eaf211380dd9feb7b413}\label{classIMeshAdapter_a6c6ed91d72b3eaf211380dd9feb7b413}} 
+virtual void {\bfseries add\+Data\+To\+Register} (String name, Variable\+Face\+Array\+Real \&data)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a5c4831d9ecec6ceaaca71910719a5086}\label{classIMeshAdapter_a5c4831d9ecec6ceaaca71910719a5086}} 
+virtual void {\bfseries add\+Extensive\+Data\+To\+Register} (String name, Variable\+Cell\+Array\+Real \&data)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_af86ec49e58268244643db8bec81b6593}\label{classIMeshAdapter_af86ec49e58268244643db8bec81b6593}} 
+virtual void \mbox{\hyperlink{classIMeshAdapter_af86ec49e58268244643db8bec81b6593}{register\+Transport\+Functor}} ()=0
+\begin{DoxyCompactList}\small\item\em enregistrer la fonction de transport donnee par l\textquotesingle{}utilisateur \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIMeshAdapter_af9d56c2219c552df55cd2e32da066793}\label{classIMeshAdapter_af9d56c2219c552df55cd2e32da066793}} 
+virtual void {\bfseries register\+Unrefinable\+Cell\+Group} (Cell\+Group const \&group)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a6d45d6b3a55085ce1f8f25e573c8bda1}\label{classIMeshAdapter_a6d45d6b3a55085ce1f8f25e573c8bda1}} 
+virtual void {\bfseries register\+Unrefinable\+Face\+Group} (Face\+Group const \&group)=0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a5ee49a218d088aaaa6f15a9093a14fe3}\label{classIMeshAdapter_a5ee49a218d088aaaa6f15a9093a14fe3}} 
+virtual Cell\+Group const  \& {\bfseries get\+Just\+Added\+Cells} () const =0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a4f0a425c630f064a1c94de7f744c1b5f}\label{classIMeshAdapter_a4f0a425c630f064a1c94de7f744c1b5f}} 
+virtual Cell\+Group const  \& {\bfseries get\+Just\+Coarsen\+Cells} () const =0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_afa61eef758d704699ae1250cb06f5c1d}\label{classIMeshAdapter_afa61eef758d704699ae1250cb06f5c1d}} 
+virtual Cell\+Group const  \& {\bfseries get\+Just\+Refined\+Cells} () const =0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_a2026982ab6411782165c60c85eca06d3}\label{classIMeshAdapter_a2026982ab6411782165c60c85eca06d3}} 
+virtual Cell\+Group const  \& {\bfseries get\+New\+Active\+Cells} () const =0
+\item 
+\mbox{\Hypertarget{classIMeshAdapter_aa4a9ada5f096d6581c61fa7a0c8e04f3}\label{classIMeshAdapter_aa4a9ada5f096d6581c61fa7a0c8e04f3}} 
+virtual bool {\bfseries contains} (Arcane\+::\+String name) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 24 of file IMesh\+Adapter.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Mesh\+Adapter/IMesh\+Adapter.\+h\end{DoxyCompactItemize}

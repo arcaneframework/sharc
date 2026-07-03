@@ -1,0 +1,45 @@
+\hypertarget{structIAllocator}{}\doxysection{IAllocator Struct Reference}
+\label{structIAllocator}\index{IAllocator@{IAllocator}}
+
+
+Inherited by \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Array\+Ref\+T$<$ P $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Partial\+Variable\+Ref\+T$<$ P, K $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Partial\+Variable\+Ref\+T$<$ P, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::item\+\_\+type $>$, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::is\+\_\+graph\+\_\+item $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Variable\+Ref\+T$<$ P, K $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Variable\+Ref\+T$<$ P, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::item\+\_\+type $>$, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::is\+\_\+graph\+\_\+item $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Scalar\+Ref\+T$<$ P $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Array\+Ref\+T$<$ P $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Partial\+Variable\+Ref\+T$<$ P, K $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Partial\+Variable\+Ref\+T$<$ P, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::item\+\_\+type $>$, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::is\+\_\+graph\+\_\+item $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Variable\+Ref\+T$<$ P, K $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Variable\+Ref\+T$<$ P, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::item\+\_\+type $>$, Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ GK $>$\+::is\+\_\+graph\+\_\+item $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Scalar\+Ref\+T$<$ P $>$ $>$}}, \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Ref $>$}}, and \mbox{\hyperlink{classAllocatorT}{Allocator\+T$<$ Ref $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIAllocator_ab07abbaeb850264e6ba5fb36cd41a1f3}\label{structIAllocator_ab07abbaeb850264e6ba5fb36cd41a1f3}} 
+virtual void \mbox{\hyperlink{structIAllocator_ab07abbaeb850264e6ba5fb36cd41a1f3}{set\+Default\+Family\+Names}} (const std\+::map$<$ Arcane\+::e\+Item\+Kind, Arcane\+::\+String $>$ \&)
+\begin{DoxyCompactList}\small\item\em Ajoute des noms de famille par d{\ucr}faut. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIAllocator_a41befe3148dc1517dd08969012797507}\label{structIAllocator_a41befe3148dc1517dd08969012797507}} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVariableRef}{Variable\+Ref}} $>$ \mbox{\hyperlink{structIAllocator_a41befe3148dc1517dd08969012797507}{create}} (Arcane\+::\+IMesh $\ast$mesh) const =0
+\begin{DoxyCompactList}\small\item\em Alloue une r{\ucr}f{\ucr}rence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIAllocator_a03b3edb8a611fded0c2eb2518170270e}\label{structIAllocator_a03b3edb8a611fded0c2eb2518170270e}} 
+virtual void \mbox{\hyperlink{structIAllocator_a03b3edb8a611fded0c2eb2518170270e}{add\+Prefix}} (Arcane\+::\+String prefix)=0
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un prefixe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIAllocator_a93599cb05dcd57685900fcf4951f13a4}\label{structIAllocator_a93599cb05dcd57685900fcf4951f13a4}} 
+virtual bool \mbox{\hyperlink{structIAllocator_a93599cb05dcd57685900fcf4951f13a4}{first\+Allocation}} () const =0
+\begin{DoxyCompactList}\small\item\em Pour savoir si la variable existait d{\ucr}j{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIAllocator_ab07abbaeb850264e6ba5fb36cd41a1f3}\label{structIAllocator_ab07abbaeb850264e6ba5fb36cd41a1f3}} 
+virtual void \mbox{\hyperlink{structIAllocator_ab07abbaeb850264e6ba5fb36cd41a1f3}{set\+Default\+Family\+Names}} (const std\+::map$<$ Arcane\+::e\+Item\+Kind, Arcane\+::\+String $>$ \&)
+\begin{DoxyCompactList}\small\item\em Ajoute des noms de famille par d{\ucr}faut. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIAllocator_a41befe3148dc1517dd08969012797507}\label{structIAllocator_a41befe3148dc1517dd08969012797507}} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVariableRef}{Variable\+Ref}} $>$ \mbox{\hyperlink{structIAllocator_a41befe3148dc1517dd08969012797507}{create}} (Arcane\+::\+IMesh $\ast$mesh) const =0
+\begin{DoxyCompactList}\small\item\em Alloue une r{\ucr}f{\ucr}rence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIAllocator_a03b3edb8a611fded0c2eb2518170270e}\label{structIAllocator_a03b3edb8a611fded0c2eb2518170270e}} 
+virtual void \mbox{\hyperlink{structIAllocator_a03b3edb8a611fded0c2eb2518170270e}{add\+Prefix}} (Arcane\+::\+String prefix)=0
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un prefixe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIAllocator_a93599cb05dcd57685900fcf4951f13a4}\label{structIAllocator_a93599cb05dcd57685900fcf4951f13a4}} 
+virtual bool \mbox{\hyperlink{structIAllocator_a93599cb05dcd57685900fcf4951f13a4}{first\+Allocation}} () const =0
+\begin{DoxyCompactList}\small\item\em Pour savoir si la variable existait d{\ucr}j{\ucr} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 46 of file Variable\+Allocator.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Variable\+Allocator.\+h\end{DoxyCompactItemize}

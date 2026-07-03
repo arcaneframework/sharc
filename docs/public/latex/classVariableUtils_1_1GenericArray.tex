@@ -1,0 +1,90 @@
+\hypertarget{classVariableUtils_1_1GenericArray}{}\doxysection{Variable\+Utils\+::Generic\+Array Class Reference}
+\label{classVariableUtils_1_1GenericArray}\index{VariableUtils::GenericArray@{VariableUtils::GenericArray}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_abc5417ada47679edb78e8dd6783056ab}\label{classVariableUtils_1_1GenericArray_abc5417ada47679edb78e8dd6783056ab}} 
+typedef std\+::pair$<$ \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Array\+Mng\+::\+Data\+Key}}, \mbox{\hyperlink{classArrayMng}{Array\+Mng}} $\ast$ $>$ {\bfseries Array\+Internal}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a05dddc32abbedad961207b1727c98e5f}\label{classVariableUtils_1_1GenericArray_a05dddc32abbedad961207b1727c98e5f}} 
+{\bfseries Generic\+Array} (\mbox{\hyperlink{classArrayMng}{Array\+Mng}} $\ast$array\+\_\+mng)
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a13b1a516c1ff770d667f73c6897e6281}\label{classVariableUtils_1_1GenericArray_a13b1a516c1ff770d667f73c6897e6281}} 
+{\bfseries Generic\+Array} (Array\+Internal array\+\_\+internal)
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a1e17d9c2bd1b065a2c48f280e4464935}\label{classVariableUtils_1_1GenericArray_a1e17d9c2bd1b065a2c48f280e4464935}} 
+{\bfseries Generic\+Array} (\mbox{\hyperlink{classArrayMng}{Array\+Mng}} $\ast$array\+\_\+mng, const Arcane\+::\+String \&values)
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a0d9b01fb1ff435bac1760d2cc1732a76}\label{classVariableUtils_1_1GenericArray_a0d9b01fb1ff435bac1760d2cc1732a76}} 
+{\bfseries Generic\+Array} (\mbox{\hyperlink{classArrayMng}{Array\+Mng}} $\ast$array\+\_\+mng, const Arcane\+::\+String \&filename, const Arcane\+::\+String \&file\+\_\+position, Arc\+Geo\+Sim\+::\+Parallel\+Utils \&parallel\+\_\+utils)
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a7b35242317932e9b76c960fcd981ae7a}\label{classVariableUtils_1_1GenericArray_a7b35242317932e9b76c960fcd981ae7a}} 
+{\footnotesize template$<$class Data\+Type $>$ }\\{\bfseries Generic\+Array} (Arcane\+::\+Shared\+Array$<$ Data\+Type $>$ array, Arcane\+::\+ISub\+Domain $\ast$subdomain)
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_ae96f6aab513e7acd3c3661a1999a11cc}\label{classVariableUtils_1_1GenericArray_ae96f6aab513e7acd3c3661a1999a11cc}} 
+void {\bfseries operator=} (\mbox{\hyperlink{classVariableUtils_1_1VariableData}{Variable\+Data}} variable\+\_\+data)
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a7d3da4c19b110de9bf466b6589251470}\label{classVariableUtils_1_1GenericArray_a7d3da4c19b110de9bf466b6589251470}} 
+\mbox{\hyperlink{classVariableUtils_1_1GenericArray}{Generic\+Array}} {\bfseries operator\mbox{[}$\,$\mbox{]}} (Arcane\+::\+Integer\+Shared\+Array indexes)
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a0471693879071f3b73b70111005a1c50}\label{classVariableUtils_1_1GenericArray_a0471693879071f3b73b70111005a1c50}} 
+bool {\bfseries empty} ()
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a558fe42a6711c27b1102724e4e6e8cda}\label{classVariableUtils_1_1GenericArray_a558fe42a6711c27b1102724e4e6e8cda}} 
+void {\bfseries print} (std\+::ostream \&o) const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a4186a16abbe571e208dc2f87e5b228de}\label{classVariableUtils_1_1GenericArray_a4186a16abbe571e208dc2f87e5b228de}} 
+Arcane\+::\+Integer {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a4c31f5613bb734b0348c0b2e2031697e}\label{classVariableUtils_1_1GenericArray_a4c31f5613bb734b0348c0b2e2031697e}} 
+{\bfseries operator Arcane\+::\+Real\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_acafc81f723ed9ace3b8bc74d4ef66f35}\label{classVariableUtils_1_1GenericArray_acafc81f723ed9ace3b8bc74d4ef66f35}} 
+{\bfseries operator Arcane\+::\+Real3x3\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_ad258d6cf32e87356e47a0fbb3bd2ff1b}\label{classVariableUtils_1_1GenericArray_ad258d6cf32e87356e47a0fbb3bd2ff1b}} 
+{\bfseries operator Arcane\+::\+Real3\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a3d1c55c06306481d3ff6a41a1099a615}\label{classVariableUtils_1_1GenericArray_a3d1c55c06306481d3ff6a41a1099a615}} 
+{\bfseries operator Arcane\+::\+Real2\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_aa303a3d1bdcc8ee9decfbb48623d139e}\label{classVariableUtils_1_1GenericArray_aa303a3d1bdcc8ee9decfbb48623d139e}} 
+{\bfseries operator Arcane\+::\+Real2x2\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a5e3d225f832e02968d1139ba6fb40029}\label{classVariableUtils_1_1GenericArray_a5e3d225f832e02968d1139ba6fb40029}} 
+{\bfseries operator Arcane\+::\+Int32\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_ab038b526c8280f4433d4cb66fa24c3bd}\label{classVariableUtils_1_1GenericArray_ab038b526c8280f4433d4cb66fa24c3bd}} 
+{\bfseries operator Arcane\+::\+Int64\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_aab23ed1e2e0fd2cc4c9d6ad6d9c87bd8}\label{classVariableUtils_1_1GenericArray_aab23ed1e2e0fd2cc4c9d6ad6d9c87bd8}} 
+{\bfseries operator Arcane\+::\+Byte\+Shared\+Array} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a8cae5fe5918e751a185a318b025458f7}\label{classVariableUtils_1_1GenericArray_a8cae5fe5918e751a185a318b025458f7}} 
+{\bfseries operator Array\+Mng\+::\+Data\+Key} () const
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_a777c204dced7388210af43356056ea75}\label{classVariableUtils_1_1GenericArray_a777c204dced7388210af43356056ea75}} 
+{\footnotesize template$<$typename Data\+Type $>$ }\\Arcane\+::\+Shared\+Array$<$ Data\+Type $>$ {\bfseries array} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableUtils_1_1GenericArray_ac502c37c8695594515469eccd5c1d1c9}\label{classVariableUtils_1_1GenericArray_ac502c37c8695594515469eccd5c1d1c9}} 
+class {\bfseries Variable\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 82 of file Variable\+View.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Variable\+View.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Variable\+View.\+cc\end{DoxyCompactItemize}

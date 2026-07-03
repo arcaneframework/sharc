@@ -1,0 +1,99 @@
+\hypertarget{classIZoneModelMng}{}\doxysection{IZone\+Model\+Mng Class Reference}
+\label{classIZoneModelMng}\index{IZoneModelMng@{IZoneModelMng}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classIZoneModelMng_1_1IModelEnumeratorImpl}{IModel\+Enumerator\+Impl}}
+\item 
+class \mbox{\hyperlink{classIZoneModelMng_1_1IModelTypeEnumeratorImpl}{IModel\+Type\+Enumerator\+Impl}}
+\item 
+class \mbox{\hyperlink{classIZoneModelMng_1_1ModelEnumerator}{Model\+Enumerator}}
+\item 
+class \mbox{\hyperlink{classIZoneModelMng_1_1ModelEnumeratorT}{Model\+EnumeratorT}}
+\item 
+class \mbox{\hyperlink{classIZoneModelMng_1_1ModelTypeEnumerator}{Model\+Type\+Enumerator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIZoneModelMng_a14cc3d1b5373bb3c1bd1f89c8286d72e}\label{classIZoneModelMng_a14cc3d1b5373bb3c1bd1f89c8286d72e}} 
+\mbox{\hyperlink{classIZoneModelMng_a14cc3d1b5373bb3c1bd1f89c8286d72e}{IZone\+Model\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_ae8fab9f834f61837feb8828dfe63977c}\label{classIZoneModelMng_ae8fab9f834f61837feb8828dfe63977c}} 
+virtual \mbox{\hyperlink{classIZoneModelMng_ae8fab9f834f61837feb8828dfe63977c}{$\sim$\+IZone\+Model\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_a91936df7080bb6170ce36d2c03f8e294}\label{classIZoneModelMng_a91936df7080bb6170ce36d2c03f8e294}} 
+virtual void \mbox{\hyperlink{classIZoneModelMng_a91936df7080bb6170ce36d2c03f8e294}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_a2d4cd6bf74aa6e17126010ea371bb3e1}\label{classIZoneModelMng_a2d4cd6bf74aa6e17126010ea371bb3e1}} 
+virtual void \mbox{\hyperlink{classIZoneModelMng_a2d4cd6bf74aa6e17126010ea371bb3e1}{add\+Model\+Zone}} (Item\+Group group, \mbox{\hyperlink{classIZoneModel}{IZone\+Model}} $\ast$model)=0
+\begin{DoxyCompactList}\small\item\em Ajoute un mod{\ucr}le sur une zone de maillage. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIZoneModelMng_a0354c8efae02603a0a9dd6b7bab60fcd}{remove\+Model\+Zone}} (Item\+Group group, \mbox{\hyperlink{classIZoneModel}{IZone\+Model}} $\ast$model)=0
+\begin{DoxyCompactList}\small\item\em Retire un mod{\ucr}le sur une zone de maillage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_ad766b0605f03efd4fe170cbb1ab4823c}\label{classIZoneModelMng_ad766b0605f03efd4fe170cbb1ab4823c}} 
+virtual Item\+Group\+Collection \mbox{\hyperlink{classIZoneModelMng_ad766b0605f03efd4fe170cbb1ab4823c}{get\+Model\+Groups}} (\mbox{\hyperlink{classIZoneModel}{IZone\+Model}} $\ast$model)=0
+\begin{DoxyCompactList}\small\item\em Liste des groupes concern{\ucr} par le mod{\ucr}le. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_a2fc5985621adceca374cd8b9339257c3}\label{classIZoneModelMng_a2fc5985621adceca374cd8b9339257c3}} 
+virtual \mbox{\hyperlink{classIZoneModelMng_1_1ModelTypeEnumerator}{Model\+Type\+Enumerator}} \mbox{\hyperlink{classIZoneModelMng_a2fc5985621adceca374cd8b9339257c3}{get\+Model\+Types}} ()=0
+\begin{DoxyCompactList}\small\item\em Liste des types de mod{\ucr}les. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_a2d2724d0275f5616c6afd1f600853567}\label{classIZoneModelMng_a2d2724d0275f5616c6afd1f600853567}} 
+virtual \mbox{\hyperlink{classIZoneModelMng_1_1ModelEnumerator}{Model\+Enumerator}} \mbox{\hyperlink{classIZoneModelMng_a2d2724d0275f5616c6afd1f600853567}{get\+Models}} (\mbox{\hyperlink{classIZoneModel_ae7c58eb7972f03c28912d56445c15277}{IZone\+Model\+::\+Model\+Type}} model\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Liste des mod{\ucr}les concern{\ucr} par le type de mod{\ucr}le. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_acbc54ac26bb4ce3f01400d3727734275}\label{classIZoneModelMng_acbc54ac26bb4ce3f01400d3727734275}} 
+{\footnotesize template$<$typename Zone\+Model $>$ }\\\mbox{\hyperlink{classIZoneModelMng_1_1ModelEnumeratorT}{Model\+EnumeratorT}}$<$ Zone\+Model $>$ \mbox{\hyperlink{classIZoneModelMng_acbc54ac26bb4ce3f01400d3727734275}{get\+ModelsT}} ()
+\begin{DoxyCompactList}\small\item\em Liste des groupes concern{\ucr} par le type de mod{\ucr}le (version template) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_a65219fb141ed8991e92cd55398c4ea7a}\label{classIZoneModelMng_a65219fb141ed8991e92cd55398c4ea7a}} 
+virtual \mbox{\hyperlink{classIZoneModel}{IZone\+Model}} $\ast$ \mbox{\hyperlink{classIZoneModelMng_a65219fb141ed8991e92cd55398c4ea7a}{get\+Singleton\+Model}} (\mbox{\hyperlink{classIZoneModel_ae7c58eb7972f03c28912d56445c15277}{IZone\+Model\+::\+Model\+Type}} model\+\_\+type)=0
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}unique mod{\ucr}le concern{\ucr} par le type de mod{\ucr}le. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIZoneModelMng_acc9375edcb02388a519c9327e86e938a}\label{classIZoneModelMng_acc9375edcb02388a519c9327e86e938a}} 
+{\footnotesize template$<$typename Zone\+Model $>$ }\\Zone\+Model $\ast$ \mbox{\hyperlink{classIZoneModelMng_acc9375edcb02388a519c9327e86e938a}{get\+Singleton\+ModelT}} ()
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}unique mod{\ucr}le concern{\ucr} par le type de mod{\ucr}le (version template) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIZoneModelMng_aa5c9777469b8dd3337dafcea9550098d}{invalidate\+Model}} (\mbox{\hyperlink{classIZoneModel}{IZone\+Model}} $\ast$model)=0
+\begin{DoxyCompactList}\small\item\em Invalide le mod{\ucr}le. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIZoneModelMng_a7058fabac70b61cf0ceedfc809f36f72}{invalidate\+Group}} (Item\+Group group)=0
+\begin{DoxyCompactList}\small\item\em Invalide le groupe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file IZone\+Model\+Mng.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIZoneModelMng_a7058fabac70b61cf0ceedfc809f36f72}\label{classIZoneModelMng_a7058fabac70b61cf0ceedfc809f36f72}} 
+\index{IZoneModelMng@{IZoneModelMng}!invalidateGroup@{invalidateGroup}}
+\index{invalidateGroup@{invalidateGroup}!IZoneModelMng@{IZoneModelMng}}
+\doxysubsubsection{\texorpdfstring{invalidateGroup()}{invalidateGroup()}}
+{\footnotesize\ttfamily virtual void IZone\+Model\+Mng\+::invalidate\+Group (\begin{DoxyParamCaption}\item[{Item\+Group}]{group }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Invalide le groupe. 
+
+Indique que le groupe a chang{\ucr}; permet le d{\ucr}clenchement d\textquotesingle{}action en r{\ucr}ponse. \mbox{\Hypertarget{classIZoneModelMng_aa5c9777469b8dd3337dafcea9550098d}\label{classIZoneModelMng_aa5c9777469b8dd3337dafcea9550098d}} 
+\index{IZoneModelMng@{IZoneModelMng}!invalidateModel@{invalidateModel}}
+\index{invalidateModel@{invalidateModel}!IZoneModelMng@{IZoneModelMng}}
+\doxysubsubsection{\texorpdfstring{invalidateModel()}{invalidateModel()}}
+{\footnotesize\ttfamily virtual void IZone\+Model\+Mng\+::invalidate\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIZoneModel}{IZone\+Model}} $\ast$}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Invalide le mod{\ucr}le. 
+
+Indique que le mod{\ucr}le a chang{\ucr}; permet le d{\ucr}clenchement d\textquotesingle{}action en r{\ucr}ponse. \mbox{\Hypertarget{classIZoneModelMng_a0354c8efae02603a0a9dd6b7bab60fcd}\label{classIZoneModelMng_a0354c8efae02603a0a9dd6b7bab60fcd}} 
+\index{IZoneModelMng@{IZoneModelMng}!removeModelZone@{removeModelZone}}
+\index{removeModelZone@{removeModelZone}!IZoneModelMng@{IZoneModelMng}}
+\doxysubsubsection{\texorpdfstring{removeModelZone()}{removeModelZone()}}
+{\footnotesize\ttfamily virtual bool IZone\+Model\+Mng\+::remove\+Model\+Zone (\begin{DoxyParamCaption}\item[{Item\+Group}]{group,  }\item[{\mbox{\hyperlink{classIZoneModel}{IZone\+Model}} $\ast$}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retire un mod{\ucr}le sur une zone de maillage. 
+
+L\textquotesingle{}association (item\+Group,model) doit etre exacte pour que la suppression se passe avec succ{\ucr}s (return=true) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/\+Zone\+Model\+Mng/IZone\+Model\+Mng.\+h\end{DoxyCompactItemize}

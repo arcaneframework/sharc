@@ -1,0 +1,55 @@
+\hypertarget{classArcaneFemFunctions_1_1CellFEMDispatcher}{}\doxysection{Arcane\+Fem\+Functions\+::Cell\+FEMDispatcher Class Reference}
+\label{classArcaneFemFunctions_1_1CellFEMDispatcher}\index{ArcaneFemFunctions::CellFEMDispatcher@{ArcaneFemFunctions::CellFEMDispatcher}}
+
+
+Provides methods based on the Dispatcher mechanism available in \mbox{\hyperlink{namespaceArcane}{Arcane}}, allowing to compute FEM methods without declaring the FE entity type (coming from PASSMO).  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1CellFEMDispatcher_a1a37f06eb6fa25866ec83b65d6df4ffe}\label{classArcaneFemFunctions_1_1CellFEMDispatcher_a1a37f06eb6fa25866ec83b65d6df4ffe}} 
+Real \mbox{\hyperlink{classArcaneFemFunctions_1_1CellFEMDispatcher_a1a37f06eb6fa25866ec83b65d6df4ffe}{get\+Shape\+Func\+Val}} (Int16, Integer, \mbox{\hyperlink{structReal3}{Real3}})
+\begin{DoxyCompactList}\small\item\em Computes the value of the nodal shape function at a given Gauss point (for a given node within in a given element) This method is generic (coming from PASSMO) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1CellFEMDispatcher_ae99aafcdcd71d15366415bd73981b1cf}\label{classArcaneFemFunctions_1_1CellFEMDispatcher_ae99aafcdcd71d15366415bd73981b1cf}} 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1CellFEMDispatcher_ae99aafcdcd71d15366415bd73981b1cf}{get\+Shape\+Func\+Deriv}} (Int16, Integer, \mbox{\hyperlink{structReal3}{Real3}})
+\begin{DoxyCompactList}\small\item\em Computes the value of the nodal shape function derivatives at a given Gauss point, along 1, 2 and/or 3 directions depending on space dimension (for a given node within in a given element) This method is generic (coming from PASSMO) \end{DoxyCompactList}\item 
+Real\+Unique\+Array \mbox{\hyperlink{classArcaneFemFunctions_1_1CellFEMDispatcher_a4b9d9d103f9c4016f9e6c8bcdb37e0e0}{get\+Gauss\+Data}} (Item\+With\+Nodes item, Integer nint, Integer ngauss)
+\begin{DoxyCompactList}\small\item\em Provides at once, all Gauss data of a given input finite element (vector containing weights, ref. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1CellFEMDispatcher_a20a8b9cd7d01f2f7665dd6ddca598f31}\label{classArcaneFemFunctions_1_1CellFEMDispatcher_a20a8b9cd7d01f2f7665dd6ddca598f31}} 
+\mbox{\hyperlink{classArcaneFemFunctions_1_1CellFEMDispatcher_a20a8b9cd7d01f2f7665dd6ddca598f31}{Cell\+FEMDispatcher}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{classArcaneFemFunctions_1_1CellFEMDispatcher}{Cell\+FEMDispatcher}} class (coming from PASSMO) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods based on the Dispatcher mechanism available in \mbox{\hyperlink{namespaceArcane}{Arcane}}, allowing to compute FEM methods without declaring the FE entity type (coming from PASSMO). 
+
+Definition at line 2943 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1CellFEMDispatcher_a4b9d9d103f9c4016f9e6c8bcdb37e0e0}\label{classArcaneFemFunctions_1_1CellFEMDispatcher_a4b9d9d103f9c4016f9e6c8bcdb37e0e0}} 
+\index{ArcaneFemFunctions::CellFEMDispatcher@{ArcaneFemFunctions::CellFEMDispatcher}!getGaussData@{getGaussData}}
+\index{getGaussData@{getGaussData}!ArcaneFemFunctions::CellFEMDispatcher@{ArcaneFemFunctions::CellFEMDispatcher}}
+\doxysubsubsection{\texorpdfstring{getGaussData()}{getGaussData()}}
+{\footnotesize\ttfamily Real\+Unique\+Array Arcane\+Fem\+Functions\+::\+Cell\+FEMDispatcher\+::get\+Gauss\+Data (\begin{DoxyParamCaption}\item[{Item\+With\+Nodes}]{item,  }\item[{Integer}]{nint,  }\item[{Integer}]{ngauss }\end{DoxyParamCaption})}
+
+
+
+Provides at once, all Gauss data of a given input finite element (vector containing weights, ref. 
+
+coordinates, nodal shape values \& derivatives) This method is generic (coming from PASSMO) 
+
+Definition at line 69 of file Arcane\+Fem\+Functions.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+cc\end{DoxyCompactItemize}

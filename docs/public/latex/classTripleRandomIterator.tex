@@ -1,0 +1,83 @@
+\hypertarget{classTripleRandomIterator}{}\doxysection{Triple\+Random\+Iterator$<$ IteratorA, IteratorB, IteratorC $>$ Class Template Reference}
+\label{classTripleRandomIterator}\index{TripleRandomIterator$<$ IteratorA, IteratorB, IteratorC $>$@{TripleRandomIterator$<$ IteratorA, IteratorB, IteratorC $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_ae2244f8d6a7da502192b77aa38aa6e11}\label{classTripleRandomIterator_ae2244f8d6a7da502192b77aa38aa6e11}} 
+typedef tuple\+\_\+namespace\+::tuple$<$ TypeA, TypeB, TypeC $>$ {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_acd21cdcc30376e596bca2bcbe039a513}\label{classTripleRandomIterator_acd21cdcc30376e596bca2bcbe039a513}} 
+typedef ptrdiff\+\_\+t {\bfseries difference\+\_\+type}
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_aa109b17be9ca858eb4b2b8aa6a2de5b1}\label{classTripleRandomIterator_aa109b17be9ca858eb4b2b8aa6a2de5b1}} 
+typedef value\+\_\+type $\ast$ {\bfseries pointer}
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a67c4f13795ff1afe93640484c84df108}\label{classTripleRandomIterator_a67c4f13795ff1afe93640484c84df108}} 
+typedef tuple\+\_\+namespace\+::tuple$<$ TypeA \&, TypeB \&, TypeC \& $>$ {\bfseries reference}
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a1a0ed07eba8dec998ca5d3daf2cc6948}\label{classTripleRandomIterator_a1a0ed07eba8dec998ca5d3daf2cc6948}} 
+typedef std\+::random\+\_\+access\+\_\+iterator\+\_\+tag {\bfseries iterator\+\_\+category}
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_af12637a4b6704810abc6d15f8c5200ce}\label{classTripleRandomIterator_af12637a4b6704810abc6d15f8c5200ce}} 
+typedef tuple\+\_\+namespace\+::tuple$<$ const TypeA \&, const TypeB \&, const TypeC \& $>$ {\bfseries const\+\_\+reference}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a673135f20be00d1db9a612bd02cfe3d0}\label{classTripleRandomIterator_a673135f20be00d1db9a612bd02cfe3d0}} 
+{\bfseries Triple\+Random\+Iterator} (IteratorA i, IteratorB j, IteratorC k)
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a333fd8c7d6e0b2947f089bcc5e1ac827}\label{classTripleRandomIterator_a333fd8c7d6e0b2947f089bcc5e1ac827}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \& {\bfseries operator++} ()
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a331f9c8b4c7942f1d5925de7d601a411}\label{classTripleRandomIterator_a331f9c8b4c7942f1d5925de7d601a411}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \& {\bfseries operator-\/-\/} ()
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a084173f3bf47cc35cfb453bf335adaf9}\label{classTripleRandomIterator_a084173f3bf47cc35cfb453bf335adaf9}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} {\bfseries operator++} (int)
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a407425b7cd04ddf75265750dcbda2061}\label{classTripleRandomIterator_a407425b7cd04ddf75265750dcbda2061}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} {\bfseries operator-\/-\/} (int)
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a7fd0f86e434a8ed89bcfd1438eac9cba}\label{classTripleRandomIterator_a7fd0f86e434a8ed89bcfd1438eac9cba}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a5019fc677e7f8db40c76a1f82d55acec}\label{classTripleRandomIterator_a5019fc677e7f8db40c76a1f82d55acec}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a9892f59d390ffea34c1478ca9126da6e}\label{classTripleRandomIterator_a9892f59d390ffea34c1478ca9126da6e}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a89700c2309baf9840fa73d1599fdee80}\label{classTripleRandomIterator_a89700c2309baf9840fa73d1599fdee80}} 
+reference {\bfseries operator$\ast$} () const
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a68dca71d3b610b8aadea574b3aae3520}\label{classTripleRandomIterator_a68dca71d3b610b8aadea574b3aae3520}} 
+difference\+\_\+type {\bfseries operator-\/} (const \mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a0454b79f1de22e8bb5c019841cdd0b50}\label{classTripleRandomIterator_a0454b79f1de22e8bb5c019841cdd0b50}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \& {\bfseries operator+=} (const difference\+\_\+type n)
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a1a664d4882e12653ee47600d1d89d7c2}\label{classTripleRandomIterator_a1a664d4882e12653ee47600d1d89d7c2}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} \& {\bfseries operator-\/=} (const difference\+\_\+type n)
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a335807c984624d8fe5ad9e1c49e2bf98}\label{classTripleRandomIterator_a335807c984624d8fe5ad9e1c49e2bf98}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} {\bfseries operator+} (const difference\+\_\+type n) const
+\item 
+\mbox{\Hypertarget{classTripleRandomIterator_a14c7e386b0ce046b7b35a57368de5b99}\label{classTripleRandomIterator_a14c7e386b0ce046b7b35a57368de5b99}} 
+\mbox{\hyperlink{classTripleRandomIterator}{Triple\+Random\+Iterator}} {\bfseries operator-\/} (const difference\+\_\+type n) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename IteratorA, typename IteratorB, typename IteratorC$>$\newline
+class Triple\+Random\+Iterator$<$ Iterator\+A, Iterator\+B, Iterator\+C $>$}
+
+
+
+Definition at line 96 of file Tuple\+Random\+Iterator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Tuple\+Random\+Iterator.\+h\end{DoxyCompactItemize}

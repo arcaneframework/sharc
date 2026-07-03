@@ -1,0 +1,116 @@
+\hypertarget{classIXMUidToLidMng}{}\doxysection{IXMUid\+To\+Lid\+Mng Class Reference}
+\label{classIXMUidToLidMng}\index{IXMUidToLidMng@{IXMUidToLidMng}}
+
+
+Classe surchargeant IItem\+Family\+::items\+Unique\+Id\+To\+Local\+Ids() afin de traiter de fa{\ucr}on identique des items d{\ucr}crits dans le maillage ixm par des identifants uniques et des items d{\ucr}crits par des identifiants abstraits (aids).  
+
+
+
+
+{\ttfamily \#include $<$IXMUid\+To\+Lid\+Mng.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_af860786c85b4febecfe28d4af77feed8}\label{classIXMUidToLidMng_af860786c85b4febecfe28d4af77feed8}} 
+\mbox{\hyperlink{classIXMUidToLidMng_af860786c85b4febecfe28d4af77feed8}{IXMUid\+To\+Lid\+Mng}} (Arcane\+::\+IMesh $\ast$mesh, Arc\+Geo\+Sim\+::\+Parallel\+Utils \&parallel\+\_\+utils, const bool use\+\_\+memory, Arcane\+::\+ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_a9003621a308dac30c3be5d4e1cec4499}\label{classIXMUidToLidMng_a9003621a308dac30c3be5d4e1cec4499}} 
+virtual \mbox{\hyperlink{classIXMUidToLidMng_a9003621a308dac30c3be5d4e1cec4499}{$\sim$\+IXMUid\+To\+Lid\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_af5dd46511e981fa2a1aac99c540847d4}\label{classIXMUidToLidMng_af5dd46511e981fa2a1aac99c540847d4}} 
+Int64 {\bfseries get\+Face\+Aid\+Max} () const
+\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_aaf4fe95dbc25d0dba0a179aec36ffb72}\label{classIXMUidToLidMng_aaf4fe95dbc25d0dba0a179aec36ffb72}} 
+Int64 {\bfseries get\+Link\+Aid\+Max} () const
+\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_adaf584fbb0350a548c6358dab117b556}\label{classIXMUidToLidMng_adaf584fbb0350a548c6358dab117b556}} 
+Int64 {\bfseries get\+Particle\+Aid\+Max} () const
+\item 
+void \mbox{\hyperlink{classIXMUidToLidMng_a770ffcf56010ad65dd2add5cf9a85133}{load\+Face\+Aid\+Mapping}} (const Arc\+Geo\+Sim\+::\+IXMTools\+::\+IXMFace\+Data \&face\+\_\+data, const bool do\+\_\+check, const bool is\+\_\+parallel=true)
+\begin{DoxyCompactList}\small\item\em Charge la correspondance aid-\/$>$lid pour les faces ou les connections. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_a3b43c4b19afd4992a9725dcd6750b0c0}\label{classIXMUidToLidMng_a3b43c4b19afd4992a9725dcd6750b0c0}} 
+void {\bfseries load\+Edge\+Aid\+Mapping} (const Arc\+Geo\+Sim\+::\+IXMTools\+::\+IXMEdge\+Data \&edge\+\_\+data, const bool do\+\_\+check, const bool is\+\_\+parallel=true)
+\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_a868aec5ee7c881c63808e4e20d0a9a93}\label{classIXMUidToLidMng_a868aec5ee7c881c63808e4e20d0a9a93}} 
+void {\bfseries load\+Connection\+Aid\+Mapping} (const Arc\+Geo\+Sim\+::\+IXMTools\+::\+IXMConnection\+Data \&connection\+\_\+data, const bool do\+\_\+check, const bool is\+\_\+parallel=true)
+\item 
+\mbox{\Hypertarget{classIXMUidToLidMng_ad36a4dfad6946933c6411ce3a5adcd75}\label{classIXMUidToLidMng_ad36a4dfad6946933c6411ce3a5adcd75}} 
+void {\bfseries end\+Using\+Aid\+Mapping} ()
+\item 
+void \mbox{\hyperlink{classIXMUidToLidMng_a28f4c12b71f3288ce99788ee2ecbd2f8}{items\+Unique\+Id\+To\+Local\+Id}} (Arcane\+::\+Int32\+Array\+View item\+\_\+lids, Arcane\+::\+Int64\+Const\+Array\+View item\+\_\+uids, const Arcane\+::e\+Item\+Kind item\+\_\+kind, const bool do\+\_\+fatal=true) const
+\begin{DoxyCompactList}\small\item\em Obtention des identifiants locaux a partir des identifiants uniques ou abstraits (cas des items face et link). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIXMUidToLidMng_a6586a9faffd2599c3373c3ae3ae6497b}{local\+Items\+Unique\+Id\+To\+Local\+Id}} (Arcane\+::\+Int32\+Shared\+Array \&local\+\_\+item\+\_\+lids, Arcane\+::\+Int64\+Shared\+Array \&local\+\_\+item\+\_\+uids, Arcane\+::\+Int64\+Const\+Array\+View all\+\_\+item\+\_\+uids, const Arcane\+::e\+Item\+Kind item\+\_\+kind, const bool do\+\_\+fatal=false) const
+\begin{DoxyCompactList}\small\item\em Dans cet appel on ne conserve que les items locaux au sous-\/domaine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe surchargeant IItem\+Family\+::items\+Unique\+Id\+To\+Local\+Ids() afin de traiter de fa{\ucr}on identique des items d{\ucr}crits dans le maillage ixm par des identifants uniques et des items d{\ucr}crits par des identifiants abstraits (aids). 
+
+La classe utilise la classe IXMAid\+To\+Lid\+Mapper pour les items d{\ucr}crits par des aids et IITem\+Family pour les items d{\ucr}crits par leurs uids. Attention a la port{\ucr}e de validit{\ucr} de cette classe. Les correspondances pour les items d{\ucr}crits par les aids sont charg{\ucr}es par l\textquotesingle{}utilisateur \+: m{\ucr}thodes \mbox{\hyperlink{classIXMUidToLidMng_a770ffcf56010ad65dd2add5cf9a85133}{load\+Face\+Aid\+Mapping()}} ou load\+Connection\+Aid\+Mapping() et ne sont valables que si les local\+\_\+ids ne changent pas. Pour invalider l\textquotesingle{}objet lorque les local\+\_\+ids sont susceptibles de changer utiliser end\+Using\+Aid\+Mapping(). 
+
+Definition at line 27 of file IXMUid\+To\+Lid\+Mng.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIXMUidToLidMng_a28f4c12b71f3288ce99788ee2ecbd2f8}\label{classIXMUidToLidMng_a28f4c12b71f3288ce99788ee2ecbd2f8}} 
+\index{IXMUidToLidMng@{IXMUidToLidMng}!itemsUniqueIdToLocalId@{itemsUniqueIdToLocalId}}
+\index{itemsUniqueIdToLocalId@{itemsUniqueIdToLocalId}!IXMUidToLidMng@{IXMUidToLidMng}}
+\doxysubsubsection{\texorpdfstring{itemsUniqueIdToLocalId()}{itemsUniqueIdToLocalId()}}
+{\footnotesize\ttfamily void IXMUid\+To\+Lid\+Mng\+::items\+Unique\+Id\+To\+Local\+Id (\begin{DoxyParamCaption}\item[{Arcane\+::\+Int32\+Array\+View}]{item\+\_\+lids,  }\item[{Arcane\+::\+Int64\+Const\+Array\+View}]{item\+\_\+uids,  }\item[{const Arcane\+::e\+Item\+Kind}]{item\+\_\+kind,  }\item[{const bool}]{do\+\_\+fatal = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Obtention des identifiants locaux a partir des identifiants uniques ou abstraits (cas des items face et link). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item\+\_\+lids} & etre dimentionne a la taille de item\+\_\+uids \\
+\hline
+{\em do\+\_\+fatal} & une exception est levee lorqu\textquotesingle{}un item n\textquotesingle{}est pas trouve si ce parametre vaut true \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file IXMUid\+To\+Lid\+Mng.\+cc.
+
+\mbox{\Hypertarget{classIXMUidToLidMng_a770ffcf56010ad65dd2add5cf9a85133}\label{classIXMUidToLidMng_a770ffcf56010ad65dd2add5cf9a85133}} 
+\index{IXMUidToLidMng@{IXMUidToLidMng}!loadFaceAidMapping@{loadFaceAidMapping}}
+\index{loadFaceAidMapping@{loadFaceAidMapping}!IXMUidToLidMng@{IXMUidToLidMng}}
+\doxysubsubsection{\texorpdfstring{loadFaceAidMapping()}{loadFaceAidMapping()}}
+{\footnotesize\ttfamily void IXMUid\+To\+Lid\+Mng\+::load\+Face\+Aid\+Mapping (\begin{DoxyParamCaption}\item[{const Arc\+Geo\+Sim\+::\+IXMTools\+::\+IXMFace\+Data \&}]{face\+\_\+data,  }\item[{const bool}]{do\+\_\+check,  }\item[{const bool}]{is\+\_\+parallel = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Charge la correspondance aid-\/$>$lid pour les faces ou les connections. 
+
+Permet d\textquotesingle{}utiliser la methode \mbox{\hyperlink{classIXMUidToLidMng_a28f4c12b71f3288ce99788ee2ecbd2f8}{IXMUid\+To\+Lid\+Mng\+::items\+Unique\+Id\+To\+Local\+Id()}}. L\textquotesingle{}utilisateur doit s\textquotesingle{}assurer qu\textquotesingle{}il n\textquotesingle{}y a pas de changement d\textquotesingle{}identifiant locaux. Lorsque la correspondance cesse d\textquotesingle{}etre valable (changement d\textquotesingle{}identifiant locaux possibles), la detruire par un appel a end\+Using\+Aid\+Mapping() 
+
+Definition at line 178 of file IXMUid\+To\+Lid\+Mng.\+cc.
+
+\mbox{\Hypertarget{classIXMUidToLidMng_a6586a9faffd2599c3373c3ae3ae6497b}\label{classIXMUidToLidMng_a6586a9faffd2599c3373c3ae3ae6497b}} 
+\index{IXMUidToLidMng@{IXMUidToLidMng}!localItemsUniqueIdToLocalId@{localItemsUniqueIdToLocalId}}
+\index{localItemsUniqueIdToLocalId@{localItemsUniqueIdToLocalId}!IXMUidToLidMng@{IXMUidToLidMng}}
+\doxysubsubsection{\texorpdfstring{localItemsUniqueIdToLocalId()}{localItemsUniqueIdToLocalId()}}
+{\footnotesize\ttfamily void IXMUid\+To\+Lid\+Mng\+::local\+Items\+Unique\+Id\+To\+Local\+Id (\begin{DoxyParamCaption}\item[{Arcane\+::\+Int32\+Shared\+Array \&}]{local\+\_\+item\+\_\+lids,  }\item[{Arcane\+::\+Int64\+Shared\+Array \&}]{local\+\_\+item\+\_\+uids,  }\item[{Arcane\+::\+Int64\+Const\+Array\+View}]{all\+\_\+item\+\_\+uids,  }\item[{const Arcane\+::e\+Item\+Kind}]{item\+\_\+kind,  }\item[{const bool}]{do\+\_\+fatal = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Dans cet appel on ne conserve que les items locaux au sous-\/domaine. 
+
+/param item\+\_\+lids ne contiendra donc que des local\+\_\+id valides. /param local\+\_\+item\+\_\+uids contiendra les unique\+\_\+id correspondant, et ce meme si au depart /param all\+\_\+item\+\_\+uids contenait des identifiants abstraits (face, connexions). 
+\begin{DoxyParams}{Parameters}
+{\em do\+\_\+fatal} & declenche un echec si l\textquotesingle{}item n\textquotesingle{}est pas trouve. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file IXMUid\+To\+Lid\+Mng.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMUid\+To\+Lid\+Mng.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMUid\+To\+Lid\+Mng.\+cc\end{DoxyCompactItemize}

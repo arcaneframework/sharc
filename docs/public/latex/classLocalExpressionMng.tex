@@ -1,0 +1,68 @@
+\hypertarget{classLocalExpressionMng}{}\doxysection{Local\+Expression\+Mng Class Reference}
+\label{classLocalExpressionMng}\index{LocalExpressionMng@{LocalExpressionMng}}
+
+
+Inherits \mbox{\hyperlink{classIWExpressionMng}{IWExpression\+Mng}}.
+
+
+
+Inherited by \mbox{\hyperlink{classWExpressionMngService}{WExpression\+Mng\+Service}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a93824528cd6ddf9c3a3927958d51711d}\label{classLocalExpressionMng_a93824528cd6ddf9c3a3927958d51711d}} 
+\mbox{\hyperlink{classLocalExpressionMng_a93824528cd6ddf9c3a3927958d51711d}{Local\+Expression\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a9d48645c46d7052c711f8ae7ced20e91}\label{classLocalExpressionMng_a9d48645c46d7052c711f8ae7ced20e91}} 
+virtual \mbox{\hyperlink{classLocalExpressionMng_a9d48645c46d7052c711f8ae7ced20e91}{$\sim$\+Local\+Expression\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a4d0ff7d098c340616f83dc8fdb61616a}\label{classLocalExpressionMng_a4d0ff7d098c340616f83dc8fdb61616a}} 
+void \mbox{\hyperlink{classLocalExpressionMng_a4d0ff7d098c340616f83dc8fdb61616a}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a4c5fc1625ad70d350e01940a518e5738}\label{classLocalExpressionMng_a4c5fc1625ad70d350e01940a518e5738}} 
+Real \mbox{\hyperlink{classLocalExpressionMng_a4c5fc1625ad70d350e01940a518e5738}{constant}} (const String \&name) const
+\begin{DoxyCompactList}\small\item\em Access to constante. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalExpressionMng_ac9721325201507549d1fb8850bf6d7fc}\label{classLocalExpressionMng_ac9721325201507549d1fb8850bf6d7fc}} 
+const Real $\ast$ \mbox{\hyperlink{classLocalExpressionMng_ac9721325201507549d1fb8850bf6d7fc}{constant\+Lookup}} (const String \&name) const
+\begin{DoxyCompactList}\small\item\em teste l\textquotesingle{}existence d\textquotesingle{}une constante de nom donné \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a0e5a1647170aa806d6bd933dec18b4e9}\label{classLocalExpressionMng_a0e5a1647170aa806d6bd933dec18b4e9}} 
+\mbox{\hyperlink{classIFunction}{IFunction}} $\ast$ \mbox{\hyperlink{classLocalExpressionMng_a0e5a1647170aa806d6bd933dec18b4e9}{function}} (const String \&name) const
+\begin{DoxyCompactList}\small\item\em Access to function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalExpressionMng_aa4cbf42c40a6cd2e96b83517464048aa}\label{classLocalExpressionMng_aa4cbf42c40a6cd2e96b83517464048aa}} 
+void \mbox{\hyperlink{classLocalExpressionMng_aa4cbf42c40a6cd2e96b83517464048aa}{set\+Constant}} (const String \&name, const Real value)
+\begin{DoxyCompactList}\small\item\em Add constant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a6df34ab92ba2cec3726484150bb8fe39}\label{classLocalExpressionMng_a6df34ab92ba2cec3726484150bb8fe39}} 
+void \mbox{\hyperlink{classLocalExpressionMng_a6df34ab92ba2cec3726484150bb8fe39}{set\+Function}} (const String \&name, \mbox{\hyperlink{classIFunction}{IFunction}} $\ast$value)
+\begin{DoxyCompactList}\small\item\em Add function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a63384defb449cb2db7ba764e8b216caa}\label{classLocalExpressionMng_a63384defb449cb2db7ba764e8b216caa}} 
+typedef std\+::map$<$ String, Real $>$ {\bfseries Constant\+Table}
+\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a28e35174d765779828ce0144013d2ac0}\label{classLocalExpressionMng_a28e35174d765779828ce0144013d2ac0}} 
+typedef std\+::map$<$ String, \mbox{\hyperlink{classIFunction}{IFunction}} $\ast$ $>$ {\bfseries Function\+Table}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalExpressionMng_a8dfb3f95a0a464e4ddc17f91f9c03528}\label{classLocalExpressionMng_a8dfb3f95a0a464e4ddc17f91f9c03528}} 
+Constant\+Table {\bfseries m\+\_\+constant\+\_\+table}
+\item 
+\mbox{\Hypertarget{classLocalExpressionMng_aa3dd294e1d099843cf0f2640483dd58a}\label{classLocalExpressionMng_aa3dd294e1d099843cf0f2640483dd58a}} 
+Function\+Table {\bfseries m\+\_\+function\+\_\+table}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Local\+Expression\+Mng.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Expression\+Builder/Local\+Expression\+Mng.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Expression\+Builder/Local\+Expression\+Mng.\+cc\end{DoxyCompactItemize}

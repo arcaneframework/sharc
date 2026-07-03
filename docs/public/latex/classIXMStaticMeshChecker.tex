@@ -1,0 +1,106 @@
+\hypertarget{classIXMStaticMeshChecker}{}\doxysection{IXMStatic\+Mesh\+Checker Class Reference}
+\label{classIXMStaticMeshChecker}\index{IXMStaticMeshChecker@{IXMStaticMeshChecker}}
+
+
+Inherits \mbox{\hyperlink{classIIXMMeshChecker}{IIXMMesh\+Checker}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ad2380553cf4da6d8c3644c99620a897d}\label{classIXMStaticMeshChecker_ad2380553cf4da6d8c3644c99620a897d}} 
+\mbox{\hyperlink{classIXMStaticMeshChecker_ad2380553cf4da6d8c3644c99620a897d}{IXMStatic\+Mesh\+Checker}} (\mbox{\hyperlink{structIXMItemData}{IXMCell\+Data}} \&cell\+\_\+data, \mbox{\hyperlink{structIXMItemData}{IXMNode\+Data}} \&node\+\_\+data, \mbox{\hyperlink{structIXMFaceData}{IXMFace\+Data}} \&face\+\_\+data, \mbox{\hyperlink{structIXMPropertyDataList}{IXMProperty\+Data\+List}} \&property\+\_\+data\+\_\+list, IXMGroup\+Data\+List \&group\+\_\+data\+\_\+list, Arcane\+::\+ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a274126de189875e2c17318d46bbd628d}\label{classIXMStaticMeshChecker_a274126de189875e2c17318d46bbd628d}} 
+virtual \mbox{\hyperlink{classIXMStaticMeshChecker_a274126de189875e2c17318d46bbd628d}{$\sim$\+IXMStatic\+Mesh\+Checker}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a6ce38daec46e598e619a71a262fdcc71}\label{classIXMStaticMeshChecker_a6ce38daec46e598e619a71a262fdcc71}} 
+void {\bfseries init\+Nodes} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a94f86e003bdfc088ee569ef80d000eed}\label{classIXMStaticMeshChecker_a94f86e003bdfc088ee569ef80d000eed}} 
+void {\bfseries init\+Faces} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ab1f9b5bd7cc790cd34b25e1c97e57cba}\label{classIXMStaticMeshChecker_ab1f9b5bd7cc790cd34b25e1c97e57cba}} 
+void {\bfseries init\+Cells} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_aaf74a35a1df6cd7479bc104c92eb72fd}\label{classIXMStaticMeshChecker_aaf74a35a1df6cd7479bc104c92eb72fd}} 
+void {\bfseries initialize} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a4dbac65f377671122768656fe5bcce72}\label{classIXMStaticMeshChecker_a4dbac65f377671122768656fe5bcce72}} 
+void {\bfseries run} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ac5a05bdc0d773922d7e9147500612944}\label{classIXMStaticMeshChecker_ac5a05bdc0d773922d7e9147500612944}} 
+void {\bfseries print\+Nodes} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ab14777e3baa0caa444df43c73d7eea8f}\label{classIXMStaticMeshChecker_ab14777e3baa0caa444df43c73d7eea8f}} 
+void {\bfseries print\+Faces} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ae12705497be0eb836431528f60fae8d4}\label{classIXMStaticMeshChecker_ae12705497be0eb836431528f60fae8d4}} 
+void {\bfseries print\+Cells} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a08d684114b612b1dc0baf440e2cf900f}\label{classIXMStaticMeshChecker_a08d684114b612b1dc0baf440e2cf900f}} 
+void {\bfseries print} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_adc4a6b8d322f48c2200eca8d5a7d7474}\label{classIXMStaticMeshChecker_adc4a6b8d322f48c2200eca8d5a7d7474}} 
+void {\bfseries check\+Duplicated\+Cell\+Ids} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_aa24c2f6c1c79a1f99546c37360f4aff4}\label{classIXMStaticMeshChecker_aa24c2f6c1c79a1f99546c37360f4aff4}} 
+std\+::set$<$ int $>$ {\bfseries get\+Cell\+Node\+Set} (int cellindex)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a70632bde8227639e836cd78d058822cb}\label{classIXMStaticMeshChecker_a70632bde8227639e836cd78d058822cb}} 
+std\+::set$<$ int $>$ {\bfseries get\+Nodeset\+Face\+Elt} (\mbox{\hyperlink{structFaceElt}{Face\+Elt}} elt)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ae74f5d5d2bdf4c4932f2c011763d93ea}\label{classIXMStaticMeshChecker_ae74f5d5d2bdf4c4932f2c011763d93ea}} 
+std\+::set$<$ int $>$ {\bfseries get\+Face\+Node\+Set\+From\+Id} (int faceid)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a081307307bd7413573e15331d9613262}\label{classIXMStaticMeshChecker_a081307307bd7413573e15331d9613262}} 
+std\+::set$<$ int $>$ {\bfseries get\+Face\+Node\+Set} (int faceindex)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a009a3c40a45af2ae5898c68cf48664bb}\label{classIXMStaticMeshChecker_a009a3c40a45af2ae5898c68cf48664bb}} 
+int {\bfseries get\+Face\+Id\+From\+Node\+Set} (std\+::set$<$ int $>$ nodecontent)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ab3a390d8721b347c396c39500b6c9d35}\label{classIXMStaticMeshChecker_ab3a390d8721b347c396c39500b6c9d35}} 
+int $\ast$ {\bfseries get\+Cell\+Nodes} (int cellindex)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a616768d6925b505bffdfe99fde9cca27}\label{classIXMStaticMeshChecker_a616768d6925b505bffdfe99fde9cca27}} 
+void {\bfseries check\+Duplicated\+Cell\+Contents} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a55b81c1ce05267b5f250f4c609753c63}\label{classIXMStaticMeshChecker_a55b81c1ce05267b5f250f4c609753c63}} 
+void {\bfseries check\+Isolated\+Faces} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a8715cde0cf49f191224bff5b91636173}\label{classIXMStaticMeshChecker_a8715cde0cf49f191224bff5b91636173}} 
+void {\bfseries check\+Isolated\+Nodes} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a91365abe604c5d45a092e1f78a3db051}\label{classIXMStaticMeshChecker_a91365abe604c5d45a092e1f78a3db051}} 
+void {\bfseries check\+Cell\+With\+Duplicated\+Nodes} ()
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_ad0dc0ace01db9f04f393a4a7f595a8b9}\label{classIXMStaticMeshChecker_ad0dc0ace01db9f04f393a4a7f595a8b9}} 
+void {\bfseries remove\+Face\+From\+Id} (int faceid)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a4ca4f394e4134d70e20cf1cab30264f6}\label{classIXMStaticMeshChecker_a4ca4f394e4134d70e20cf1cab30264f6}} 
+void {\bfseries remove\+Face\+From\+Index} (int faceindex)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a4eacf786e532f1cecf5c6430614fbd00}\label{classIXMStaticMeshChecker_a4eacf786e532f1cecf5c6430614fbd00}} 
+void {\bfseries remove\+Cell} (int cellindex)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_aeb6d6f36e6cb3645d4f7567879cc24fe}\label{classIXMStaticMeshChecker_aeb6d6f36e6cb3645d4f7567879cc24fe}} 
+void {\bfseries rename\+Cell} (int cellindex)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_aa72f8c3c3cf3865924b086961d296acf}\label{classIXMStaticMeshChecker_aa72f8c3c3cf3865924b086961d296acf}} 
+void {\bfseries remove\+Node\+From\+Id} (int nodeid)
+\item 
+\mbox{\Hypertarget{classIXMStaticMeshChecker_a7f738ca001199146a00185c7e3e6b16a}\label{classIXMStaticMeshChecker_a7f738ca001199146a00185c7e3e6b16a}} 
+void {\bfseries remove\+Node} (int nodeindex)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 54 of file IXMStatic\+Mesh\+Checker.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMStatic\+Mesh\+Checker.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMStatic\+Mesh\+Checker.\+cc\end{DoxyCompactItemize}

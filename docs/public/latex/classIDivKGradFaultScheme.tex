@@ -1,0 +1,56 @@
+\hypertarget{classIDivKGradFaultScheme}{}\doxysection{IDiv\+KGrad\+Fault\+Scheme Class Reference}
+\label{classIDivKGradFaultScheme}\index{IDivKGradFaultScheme@{IDivKGradFaultScheme}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a2113592b77f4e9229e5badbc4d8c5539}\label{classIDivKGradFaultScheme_a2113592b77f4e9229e5badbc4d8c5539}} 
+typedef \mbox{\hyperlink{classINotMatchingSurfaceMng}{INot\+Matching\+Surface\+Mng}} {\bfseries INMSMng\+Type}
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a2d18a7e29ad88649c05b40f7d46abe81}\label{classIDivKGradFaultScheme_a2d18a7e29ad88649c05b40f7d46abe81}} 
+typedef \mbox{\hyperlink{classContactGroupT}{INMSMng\+Type\+::\+Face\+Face\+Contact\+Support\+View\+Type}} {\bfseries Contact\+Support\+View\+Type}
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_aaa626718db7d529f36a976f13bd2f58d}\label{classIDivKGradFaultScheme_aaa626718db7d529f36a976f13bd2f58d}} 
+typedef \mbox{\hyperlink{classFaceFaceContact}{INMSMng\+Type\+::\+Face\+Face\+Contact\+Type}} {\bfseries Contact\+Type}
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_afacc055f47bfff36f3d73eca3aea2be6}\label{classIDivKGradFaultScheme_afacc055f47bfff36f3d73eca3aea2be6}} 
+typedef \mbox{\hyperlink{classContactVariableT}{INMSMng\+Type\+::\+Real\+Face\+Face\+Contact\+Var\+Type}} {\bfseries Real\+Contact\+Property}
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_af7e1b58e234f07871337eaa8da4f2b87}\label{classIDivKGradFaultScheme_af7e1b58e234f07871337eaa8da4f2b87}} 
+typedef \mbox{\hyperlink{classContactPartialVariableT}{INMSMng\+Type\+::\+Real\+Face\+Face\+Contact\+Partial\+Var\+Type}} {\bfseries Real\+Contact\+View\+Property}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a127fcf80416860754838c44e9f7d33ec}\label{classIDivKGradFaultScheme_a127fcf80416860754838c44e9f7d33ec}} 
+\mbox{\hyperlink{classIDivKGradFaultScheme_a127fcf80416860754838c44e9f7d33ec}{IDiv\+KGrad\+Fault\+Scheme}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a118eca836cd5e45e833ad2d589a952c4}\label{classIDivKGradFaultScheme_a118eca836cd5e45e833ad2d589a952c4}} 
+virtual \mbox{\hyperlink{classIDivKGradFaultScheme_a118eca836cd5e45e833ad2d589a952c4}{$\sim$ IDiv\+KGrad\+Fault\+Scheme}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a6664830f563abd17d8170460bb349a79}\label{classIDivKGradFaultScheme_a6664830f563abd17d8170460bb349a79}} 
+virtual void {\bfseries init} ()=0
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a5ab8666890ac4be17c600bb7f2355268}\label{classIDivKGradFaultScheme_a5ab8666890ac4be17c600bb7f2355268}} 
+virtual void {\bfseries prepare} (const \mbox{\hyperlink{classContactGroupT}{Contact\+Support\+View\+Type}} $\ast$support, \mbox{\hyperlink{classContactPartialVariableT}{Real\+Contact\+View\+Property}} $\ast$transmissivity)=0
+\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a696cb35d61f699705352f3a093336872}\label{classIDivKGradFaultScheme_a696cb35d61f699705352f3a093336872}} 
+virtual void \mbox{\hyperlink{classIDivKGradFaultScheme_a696cb35d61f699705352f3a093336872}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a62c7e9e5da2c60b2f7e0e9653e4364a4}\label{classIDivKGradFaultScheme_a62c7e9e5da2c60b2f7e0e9653e4364a4}} 
+virtual void \mbox{\hyperlink{classIDivKGradFaultScheme_a62c7e9e5da2c60b2f7e0e9653e4364a4}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradFaultScheme_a24c673d1489162a97e5b17ffff51d2b2}\label{classIDivKGradFaultScheme_a24c673d1489162a97e5b17ffff51d2b2}} 
+virtual void \mbox{\hyperlink{classIDivKGradFaultScheme_a24c673d1489162a97e5b17ffff51d2b2}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3x3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 20 of file IDiv\+KGrad\+Fault\+Scheme.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/IDiv\+KGrad\+Fault\+Scheme.\+h\end{DoxyCompactItemize}

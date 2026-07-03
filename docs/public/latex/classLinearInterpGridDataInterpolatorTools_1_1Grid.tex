@@ -1,0 +1,53 @@
+\hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid}{}\doxysection{Linear\+Interp\+Grid\+Data\+Interpolator\+Tools\+::Grid Class Reference}
+\label{classLinearInterpGridDataInterpolatorTools_1_1Grid}\index{LinearInterpGridDataInterpolatorTools::Grid@{LinearInterpGridDataInterpolatorTools::Grid}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_ad5a353ef5676549cc52bca8b575b9ba0}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_ad5a353ef5676549cc52bca8b575b9ba0}} 
+typedef Real {\bfseries cell\+\_\+type}\mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_a7286c63a294740549f3077fca58068d3}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_a7286c63a294740549f3077fca58068d3}} 
+typedef Real {\bfseries one\+\_\+dimension\+\_\+neighbor\+\_\+type}\mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_a5206d6eabbf797a608b504630278beff}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_a5206d6eabbf797a608b504630278beff}} 
+typedef Real {\bfseries node\+\_\+property\+\_\+type}\mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_a506fe76a7d529ee077f1a24f9f2f2298}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_a506fe76a7d529ee077f1a24f9f2f2298}} 
+typedef node\+\_\+property\+\_\+type {\bfseries cell\+\_\+property\+\_\+type}\mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_a4b099f93836ab3058750f515e1ff0b90}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_a4b099f93836ab3058750f515e1ff0b90}} 
+typedef Integer {\bfseries nb\+\_\+neighbor\+\_\+type}\mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_acba0cfc0e6e6768a4ecac4c74cdddfb2}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_acba0cfc0e6e6768a4ecac4c74cdddfb2}} 
+typedef Integer {\bfseries neighbor\+\_\+index\+\_\+type}\mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_aff4447686a871514724095c0750c6110}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_aff4447686a871514724095c0750c6110}} 
+\mbox{\hyperlink{classLinearInterpGridDataInterpolatorTools_1_1Grid_aff4447686a871514724095c0750c6110}{Grid}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_a3f122c0483c81356878a1169934bbdf6}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_a3f122c0483c81356878a1169934bbdf6}} 
+virtual \mbox{\hyperlink{classLinearInterpGridDataInterpolatorTools_1_1Grid_a3f122c0483c81356878a1169934bbdf6}{$\sim$\+Grid}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_a5bdd8c1ec0868bdaa7e3ea9b25e7ab0e}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_a5bdd8c1ec0868bdaa7e3ea9b25e7ab0e}} 
+static void {\bfseries get\+Neighborhood} (const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&interp\+\_\+point\+\_\+coordinates, const \mbox{\hyperlink{classArray}{Array}}$<$ Integer $>$ \&lower\+\_\+limit\+\_\+grid\+\_\+point\+\_\+indexes, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+x, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+y, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+z, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+t, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&property, const \mbox{\hyperlink{classArray}{Array}}$<$ Integer $>$ \&size, cell\+\_\+type \&cell, one\+\_\+dimension\+\_\+neighbor\+\_\+type \&grid\+\_\+neighbor\+\_\+z, one\+\_\+dimension\+\_\+neighbor\+\_\+type \&grid\+\_\+neighbor\+\_\+t, nb\+\_\+neighbor\+\_\+type \&nb\+\_\+neighbor, cell\+\_\+property\+\_\+type \&cell\+\_\+properties)
+\item 
+\mbox{\Hypertarget{classLinearInterpGridDataInterpolatorTools_1_1Grid_a9380a9c041fe82c6cbdeaef476e99be2}\label{classLinearInterpGridDataInterpolatorTools_1_1Grid_a9380a9c041fe82c6cbdeaef476e99be2}} 
+static void {\bfseries get\+Neighborhood} (const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&interp\+\_\+point\+\_\+coordinates, const \mbox{\hyperlink{classArray}{Array}}$<$ Integer $>$ \&lower\+\_\+limit\+\_\+grid\+\_\+point\+\_\+indexes, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+x, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+y, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+z, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&grid\+\_\+t, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&property, const \mbox{\hyperlink{classArray}{Array}}$<$ Integer $>$ \&size, one\+\_\+dimension\+\_\+neighbor\+\_\+type \&grid\+\_\+neighbor\+\_\+x, one\+\_\+dimension\+\_\+neighbor\+\_\+type \&grid\+\_\+neighbor\+\_\+y, one\+\_\+dimension\+\_\+neighbor\+\_\+type \&grid\+\_\+neighbor\+\_\+z, one\+\_\+dimension\+\_\+neighbor\+\_\+type \&grid\+\_\+neighbor\+\_\+t, nb\+\_\+neighbor\+\_\+type \&nb\+\_\+neighbor, cell\+\_\+property\+\_\+type \&cell\+\_\+properties)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 43 of file Linear\+Interp\+Grid\+Data\+Interpolator\+Tools.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Unsteady\+Regular\+Grid\+Data/\+Linear\+Interp\+Grid\+Data\+Function/Linear\+Interp\+Grid\+Data\+Interpolator\+Tools.\+h\end{DoxyCompactItemize}

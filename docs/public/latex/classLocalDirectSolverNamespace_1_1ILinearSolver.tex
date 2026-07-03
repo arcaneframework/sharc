@@ -1,0 +1,68 @@
+\hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver}{}\doxysection{Local\+Direct\+Solver\+Namespace\+::ILinear\+Solver Class Reference}
+\label{classLocalDirectSolverNamespace_1_1ILinearSolver}\index{LocalDirectSolverNamespace::ILinearSolver@{LocalDirectSolverNamespace::ILinearSolver}}
+
+
+Inherits \mbox{\hyperlink{classIBaseLinearSolver}{IBase\+Linear\+Solver}}.
+
+
+
+Inherited by \mbox{\hyperlink{classEigenLUSolver}{Eigen\+LUSolver$<$ N $>$}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_1_1Solver}{Solver}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a0876dd448085b1ae41702b257fb77a42}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a0876dd448085b1ae41702b257fb77a42}} 
+virtual \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a0876dd448085b1ae41702b257fb77a42}{$\sim$\+ILinear\+Solver}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a29ad77798b84ff002045cf383701b5ce}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a29ad77798b84ff002045cf383701b5ce}} 
+virtual void \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a29ad77798b84ff002045cf383701b5ce}{set\+Linear\+System\+Builder}} (\mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder}} $\ast$builder) EMPTY\+\_\+\+VIRTUAL\+\_\+\+IMPL()
+\begin{DoxyCompactList}\small\item\em Setting linear system builder. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a31a21f28555e137bb2b7881e6e3a4de0}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a31a21f28555e137bb2b7881e6e3a4de0}} 
+virtual void \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a31a21f28555e137bb2b7881e6e3a4de0}{set\+Null\+Space\+Constant\+Option}} (bool flag) EMPTY\+\_\+\+VIRTUAL\+\_\+\+IMPL()
+\begin{DoxyCompactList}\small\item\em option to imposed extra constraint to solution \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a300274da5f451e297cc161be92a47be6}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a300274da5f451e297cc161be92a47be6}} 
+virtual String \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a300274da5f451e297cc161be92a47be6}{get\+Name}} () const VIRTUAL\+\_\+\+IMPL(\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Retourne le nom du solveur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_afb37257039e45d182692549df9a8c7c2}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_afb37257039e45d182692549df9a8c7c2}} 
+virtual ILinear\+System $\ast$ \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_afb37257039e45d182692549df9a8c7c2}{get\+Linear\+System}} () VIRTUAL\+\_\+\+IMPL(NULL)
+\begin{DoxyCompactList}\small\item\em Getting linear system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a9257e690a05d7620f5d2e91bed0abe28}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a9257e690a05d7620f5d2e91bed0abe28}} 
+virtual bool \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a9257e690a05d7620f5d2e91bed0abe28}{build\+Linear\+System}} (ILinear\+System $\ast$system, Integer next\+Build\+Stage=Build\+Type\+::e\+Build\+Matrix$\vert$Build\+Type\+::e\+Build\+Rhs) VIRTUAL\+\_\+\+IMPL(false)
+\begin{DoxyCompactList}\small\item\em Building linear system Tempory patch to enable solving several systems. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a0ffbf00f61368ad9920a9543fa4ef76f}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a0ffbf00f61368ad9920a9543fa4ef76f}} 
+virtual bool \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a0ffbf00f61368ad9920a9543fa4ef76f}{build\+Linear\+System}} (Integer next\+Build\+Stage=Build\+Type\+::e\+Build\+Matrix$\vert$Build\+Type\+::e\+Build\+Rhs) VIRTUAL\+\_\+\+IMPL(false)
+\begin{DoxyCompactList}\small\item\em Building linear system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Resolution step}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a19e6154eae4da86734f233fbbb6ecb89}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a19e6154eae4da86734f233fbbb6ecb89}} 
+virtual void \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a19e6154eae4da86734f233fbbb6ecb89}{start}} () EMPTY\+\_\+\+VIRTUAL\+\_\+\+IMPL()
+\begin{DoxyCompactList}\small\item\em Initializing (before solve) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a6b6043f1d0017f3d5bfd86dc89f6190e}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a6b6043f1d0017f3d5bfd86dc89f6190e}} 
+virtual bool \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a6b6043f1d0017f3d5bfd86dc89f6190e}{solve}} () VIRTUAL\+\_\+\+IMPL(false)
+\begin{DoxyCompactList}\small\item\em Solving. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_a576860e7e54c9f83f8203f99a4120173}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_a576860e7e54c9f83f8203f99a4120173}} 
+virtual bool \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_a576860e7e54c9f83f8203f99a4120173}{get\+Solution}} () VIRTUAL\+\_\+\+IMPL(false)
+\begin{DoxyCompactList}\small\item\em Getting solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalDirectSolverNamespace_1_1ILinearSolver_ac874d57f1ead9da2d61944579459738c}\label{classLocalDirectSolverNamespace_1_1ILinearSolver_ac874d57f1ead9da2d61944579459738c}} 
+virtual \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver_1_1Solver}{Solver}} $\ast$ {\bfseries create} () const
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 42 of file ILinear\+Solver.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/ILinear\+Solver.\+h\end{DoxyCompactItemize}
