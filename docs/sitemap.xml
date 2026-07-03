@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://arcaneframework.github.io/sharc/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/</loc>
+    <loc>https://arcaneframework.github.io/sharc/docs/</loc>
   </url><url>
-    <loc>http://localhost:1313/architecture/</loc>
+    <loc>https://arcaneframework.github.io/sharc/architecture/</loc>
   </url><url>
-    <loc>http://localhost:1313/src/</loc>
+    <loc>https://arcaneframework.github.io/sharc/src/</loc>
   </url><url>
-    <loc>http://localhost:1313/src/cawf/</loc>
+    <loc>https://arcaneframework.github.io/sharc/src/cawf/</loc>
   </url><url>
-    <loc>http://localhost:1313/src/exadibench/</loc>
+    <loc>https://arcaneframework.github.io/sharc/src/exadibench/</loc>
   </url><url>
-    <loc>http://localhost:1313/src/main/</loc>
+    <loc>https://arcaneframework.github.io/sharc/src/main/</loc>
   </url><url>
-    <loc>http://localhost:1313/src/sharc/</loc>
+    <loc>https://arcaneframework.github.io/sharc/src/sharc/</loc>
   </url><url>
-    <loc>http://localhost:1313/src/twophaseflowsimulation/</loc>
+    <loc>https://arcaneframework.github.io/sharc/src/twophaseflowsimulation/</loc>
   </url><url>
-    <loc>http://localhost:1313/test/</loc>
+    <loc>https://arcaneframework.github.io/sharc/test/</loc>
   </url><url>
-    <loc>http://localhost:1313/test/cawf/</loc>
+    <loc>https://arcaneframework.github.io/sharc/test/cawf/</loc>
   </url><url>
-    <loc>http://localhost:1313/test/exadibench/</loc>
+    <loc>https://arcaneframework.github.io/sharc/test/exadibench/</loc>
   </url><url>
-    <loc>http://localhost:1313/test/thermochemicalconvection/</loc>
+    <loc>https://arcaneframework.github.io/sharc/test/thermochemicalconvection/</loc>
   </url><url>
-    <loc>http://localhost:1313/test/twophaseflowsimulation/</loc>
+    <loc>https://arcaneframework.github.io/sharc/test/twophaseflowsimulation/</loc>
   </url><url>
-    <loc>http://localhost:1313/api/</loc>
+    <loc>https://arcaneframework.github.io/sharc/api/</loc>
   </url>
 </urlset>

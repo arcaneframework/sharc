@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>TwoPhaseFlowSimulation on sharc</title>
-		<link>http://localhost:1313/src/twophaseflowsimulation/</link>
+		<link>https://arcaneframework.github.io/sharc/src/twophaseflowsimulation/</link>
 		<description>Recent content in TwoPhaseFlowSimulation on sharc</description>
 		<generator>Hugo</generator>
 		<language>fr</language>
@@ -10,6 +10,6 @@
 		
 		
 		
-			<atom:link href="http://localhost:1313/src/twophaseflowsimulation/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://arcaneframework.github.io/sharc/src/twophaseflowsimulation/index.xml" rel="self" type="application/rss+xml" />
 	</channel>
 </rss>
