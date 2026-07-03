@@ -1,0 +1,70 @@
+\hypertarget{classNotMatchingSurfaceMngService}{}\doxysection{Not\+Matching\+Surface\+Mng\+Service Class Reference}
+\label{classNotMatchingSurfaceMngService}\index{NotMatchingSurfaceMngService@{NotMatchingSurfaceMngService}}
+
+
+Inherits Arcane\+Not\+Matching\+Surface\+Mng\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a5e74005410fd82cd10da4db14135c135}\label{classNotMatchingSurfaceMngService_a5e74005410fd82cd10da4db14135c135}} 
+\mbox{\hyperlink{classNotMatchingSurfaceMngService_a5e74005410fd82cd10da4db14135c135}{Not\+Matching\+Surface\+Mng\+Service}} (const Arcane\+::\+Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a0b95645ab4b192dae2b974bbced54d28}\label{classNotMatchingSurfaceMngService_a0b95645ab4b192dae2b974bbced54d28}} 
+virtual \mbox{\hyperlink{classNotMatchingSurfaceMngService_a0b95645ab4b192dae2b974bbced54d28}{$\sim$\+Not\+Matching\+Surface\+Mng\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a266fca4918f8f33d55a3aed3614c592e}\label{classNotMatchingSurfaceMngService_a266fca4918f8f33d55a3aed3614c592e}} 
+void \mbox{\hyperlink{classNotMatchingSurfaceMngService_a266fca4918f8f33d55a3aed3614c592e}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_ae9fb2e6aca0b5fa1f291170f05b326a4}\label{classNotMatchingSurfaceMngService_ae9fb2e6aca0b5fa1f291170f05b326a4}} 
+void \mbox{\hyperlink{classNotMatchingSurfaceMngService_ae9fb2e6aca0b5fa1f291170f05b326a4}{add\+Properties}} (Integer property) override
+\begin{DoxyCompactList}\small\item\em Add a property set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a472e8f54fbe10f1f699eb3d0ea2f382f}\label{classNotMatchingSurfaceMngService_a472e8f54fbe10f1f699eb3d0ea2f382f}} 
+Integer \mbox{\hyperlink{classNotMatchingSurfaceMngService_a472e8f54fbe10f1f699eb3d0ea2f382f}{get\+Properties}} () const override
+\begin{DoxyCompactList}\small\item\em Get current property set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_af58fbc86f914529f94c8096ea7cbbfe0}\label{classNotMatchingSurfaceMngService_af58fbc86f914529f94c8096ea7cbbfe0}} 
+bool \mbox{\hyperlink{classNotMatchingSurfaceMngService_af58fbc86f914529f94c8096ea7cbbfe0}{has\+Properties}} (Integer property) const override
+\begin{DoxyCompactList}\small\item\em Check if existing property. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_abb5c2fb86b88f1f74c84ca5150fa7f4e}\label{classNotMatchingSurfaceMngService_abb5c2fb86b88f1f74c84ca5150fa7f4e}} 
+void \mbox{\hyperlink{classNotMatchingSurfaceMngService_abb5c2fb86b88f1f74c84ca5150fa7f4e}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_ac2ec02606e669e6c85a18fc8cfe66ca0}\label{classNotMatchingSurfaceMngService_ac2ec02606e669e6c85a18fc8cfe66ca0}} 
+\mbox{\hyperlink{classINotMatchingSurfaceBuilder}{INot\+Matching\+Surface\+Builder}} $\ast$ \mbox{\hyperlink{classNotMatchingSurfaceMngService_ac2ec02606e669e6c85a18fc8cfe66ca0}{switch\+Builder}} (\mbox{\hyperlink{classINotMatchingSurfaceBuilder}{INot\+Matching\+Surface\+Builder}} $\ast$builder) override
+\begin{DoxyCompactList}\small\item\em Change Not\+Matching\+Surface\+Mng\+Accessor build. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a51a4685fb938ff68d4a8a9167eb2defb}\label{classNotMatchingSurfaceMngService_a51a4685fb938ff68d4a8a9167eb2defb}} 
+const \mbox{\hyperlink{classIContactVariable}{IContact\+Variable}} $\ast$ \mbox{\hyperlink{classNotMatchingSurfaceMngService_a51a4685fb938ff68d4a8a9167eb2defb}{get\+Property\+Variable}} (Not\+Matching\+Surface\+Property\+::e\+Property property) const override
+\begin{DoxyCompactList}\small\item\em Accesseur de propri{\ucr}t{\ucr} par type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_acadbc1850849e31adb9b972114492da2}\label{classNotMatchingSurfaceMngService_acadbc1850849e31adb9b972114492da2}} 
+\mbox{\hyperlink{classFaceFaceContactFamily}{Face\+Face\+Contact\+Family}} $\ast$ \mbox{\hyperlink{classNotMatchingSurfaceMngService_acadbc1850849e31adb9b972114492da2}{faceface\+Contact\+Family}} () override
+\begin{DoxyCompactList}\small\item\em Famille des contacts face-\/face. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a5dbb0f23995966ef8dfd08d53917201b}\label{classNotMatchingSurfaceMngService_a5dbb0f23995966ef8dfd08d53917201b}} 
+\mbox{\hyperlink{classNodeFaceContactFamily}{Node\+Face\+Contact\+Family}} $\ast$ \mbox{\hyperlink{classNotMatchingSurfaceMngService_a5dbb0f23995966ef8dfd08d53917201b}{nodeface\+Contact\+Family}} () override
+\begin{DoxyCompactList}\small\item\em Famille des contacts node-\/face. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a718a6804a194748e9a8bf2e0146ed825}\label{classNotMatchingSurfaceMngService_a718a6804a194748e9a8bf2e0146ed825}} 
+Face\+Face\+Contact\+Support\+Type \mbox{\hyperlink{classNotMatchingSurfaceMngService_a718a6804a194748e9a8bf2e0146ed825}{all\+Face\+Face\+Contacts}} () const override
+\begin{DoxyCompactList}\small\item\em return all\+Face\+Face\+Contacts \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a58010b44c30ebb47c16ddc02e67f4a39}\label{classNotMatchingSurfaceMngService_a58010b44c30ebb47c16ddc02e67f4a39}} 
+Face\+Support\+Type \mbox{\hyperlink{classNotMatchingSurfaceMngService_a58010b44c30ebb47c16ddc02e67f4a39}{all\+Face\+Face\+Contact\+Faces}} () const override
+\begin{DoxyCompactList}\small\item\em return all\+Faces of Face\+Face\+Contact\+Surface \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_ab1ea8c4c6ac7aaceb49e1aa5208a74f6}\label{classNotMatchingSurfaceMngService_ab1ea8c4c6ac7aaceb49e1aa5208a74f6}} 
+virtual bool \mbox{\hyperlink{classNotMatchingSurfaceMngService_ab1ea8c4c6ac7aaceb49e1aa5208a74f6}{is\+Contact\+Distribution\+Computed}} () const override
+\begin{DoxyCompactList}\small\item\em Inform is contact distribution is computed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNotMatchingSurfaceMngService_a459a618370c9a4c4fed2ab6ea9ebe1e8}\label{classNotMatchingSurfaceMngService_a459a618370c9a4c4fed2ab6ea9ebe1e8}} 
+class {\bfseries Not\+Matching\+Surface\+Mng\+Accessor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 28 of file Not\+Matching\+Surface\+Mng\+Service.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/\+Not\+Matching\+Surface\+Mng/Not\+Matching\+Surface\+Mng\+Service.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/\+Not\+Matching\+Surface\+Mng/Not\+Matching\+Surface\+Mng\+Service.\+cc\end{DoxyCompactItemize}

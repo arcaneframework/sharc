@@ -1,0 +1,501 @@
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse du point d\textquotesingle{}entrée C++ et du CMake \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md97}{}\doxysection{Description}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md97}
+Le répertoire {\ttfamily src/\+Main/} contient le {\bfseries{point d\textquotesingle{}entrée exécutable}} de l\textquotesingle{}application Sh\+Arc. Il ne porte aucune logique métier \+: il instancie simplement l\textquotesingle{}application Arcane/\+Arc\+Geo\+Sim et démarre la boucle de calcul en chargeant les modules (notamment {\ttfamily Sh\+Arc}, {\ttfamily Two\+Phase\+Flow\+Simulation}, {\ttfamily Thermo\+Chemical\+Convection}, etc.) décrits dans le fichier de cas {\ttfamily .arc}.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md98}{}\doxysection{Fonctionnalités}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md98}
+
+\begin{DoxyItemize}
+\item ✅ Création de l\textquotesingle{}exécutable {\ttfamily Sh\+Arc.\+exe}.
+\item ✅ Intégration avec le lanceur générique Arc\+Geo\+Sim ({\ttfamily Arc\+Geo\+Sim\+Main}).
+\item ✅ Liaison avec la bibliothèque {\ttfamily Sh\+Arc} et les composants Arc\+Geo\+Sim nécessaires.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md99}{}\doxysection{Prérequis}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md99}
+
+\begin{DoxyItemize}
+\item Frameworks \+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespaceArcane}{Arcane}} / Arc\+Geo\+Sim (modules, services, time loops).
+\item Bibliothèque Sh\+Arc construite (voir {\ttfamily src/} et README racine).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md101}{}\doxysection{Installation / Build}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md101}
+La définition CMake est donnée par {\ttfamily src/\+Main/\+CMake\+Lists.\+txt} \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{createExecutable(ShArc.exe)}
+\DoxyCodeLine{}
+\DoxyCodeLine{addSources(ShArc.exe main.cc)}
+\DoxyCodeLine{}
+\DoxyCodeLine{if(TARGET ArcGeoSim::arcgeosim)}
+\DoxyCodeLine{  linkLibraries(ShArc.exe ShArc ArcGeoSim::arcgeosim)}
+\DoxyCodeLine{else()}
+\DoxyCodeLine{  linkLibraries(ShArc.exe}
+\DoxyCodeLine{                ShArc}
+\DoxyCodeLine{                ArcGeoSim::ArcGeoSim\_appli}
+\DoxyCodeLine{                ArcGeoSim::ArcGeoSim\_utils}
+\DoxyCodeLine{                ArcGeoSim::ArcGeoSim\_mesh}
+\DoxyCodeLine{                ArcGeoSim::ArcGeoSim\_numerics}
+\DoxyCodeLine{                ArcGeoSim::ArcGeoSim\_time}
+\DoxyCodeLine{                ArcGeoSim::ArcGeoSim\_physics}
+\DoxyCodeLine{                ArcGeoSim::ArcGeoSim\_tests}
+\DoxyCodeLine{               )}
+\DoxyCodeLine{endif()}
+\DoxyCodeLine{}
+\DoxyCodeLine{if(TARGET alien)}
+\DoxyCodeLine{  linkLibraries(ShArc.exe alien)}
+\DoxyCodeLine{endif()}
+\DoxyCodeLine{if(TARGET intel)}
+\DoxyCodeLine{  linkLibraries(ShArc.exe intel)}
+\DoxyCodeLine{endif()}
+\DoxyCodeLine{}
+\DoxyCodeLine{commit(ShArc.exe)}
+
+\end{DoxyCode}
+
+
+L\textquotesingle{}exécutable est donc construit automatiquement lors du build global \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake -\/S sharc -\/B build-\/sharc \(\backslash\)}
+\DoxyCodeLine{  -\/DCMAKE\_BUILD\_TYPE=Release \(\backslash\)}
+\DoxyCodeLine{  -\/DBUILD\_SHARED\_LIBS=ON \(\backslash\)}
+\DoxyCodeLine{  -\/DARCANEFRAMEWORK\_ROOT=\$\{INSTALL\_DIR\}}
+\DoxyCodeLine{cmake -\/-\/build build-\/sharc}
+
+\end{DoxyCode}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md103}{}\doxysection{Utilisation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md103}
+Le {\ttfamily main()} est minimal \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[])}
+\DoxyCodeLine{\{ }
+\DoxyCodeLine{  Arcane::ApplicationInfo info(\&argc,\&argv,}
+\DoxyCodeLine{                               \textcolor{stringliteral}{"{}ShArc"{}},}
+\DoxyCodeLine{                               Arcane::VersionInfo(1,0,0));}
+\DoxyCodeLine{  }
+\DoxyCodeLine{  \textcolor{keywordflow}{return} ArcGeoSim::main(info);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Pour lancer une simulation, il suffit d\textquotesingle{}exécuter {\ttfamily Sh\+Arc.\+exe} avec un fichier de cas {\ttfamily .arc} approprié \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./ShArc.exe use-\/case-\/two-\/phase-\/flow.arc}
+
+\end{DoxyCode}
+
+
+Le fichier {\ttfamily .arc} référence les modules à charger (par exemple {\ttfamily Sh\+Arc}, {\ttfamily Two\+Phase\+Flow\+Simulation}, {\ttfamily Thermo\+Chemical\+Convection}) et les services associés.
+
+$\ast$$\ast$$\ast$ Add File\+: src/\+Exa\+Di\+Bench/\+README.\+md \hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md105}{}\doxysection{Exa\+Di\+Bench}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md105}
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse du code source et des cas de test associés \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md108}{}\doxysubsection{Description}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md108}
+Le module {\ttfamily Exa\+Di\+Bench} fournit une {\bfseries{batterie de benchmarks géométriques}} pour tester et valider les fonctionnalités de maillage et de géométrie d\textquotesingle{}Arc\+Geo\+Sim/\+Arcane. Il s\textquotesingle{}agit principalement de \+:
+
+
+\begin{DoxyItemize}
+\item déformer un maillage (déplacement aléatoire contrôlé des nœuds intérieurs),
+\item recalculer les grandeurs géométriques (volumes, surfaces, centres),
+\item vérifier la cohérence des groupes de bord ({\ttfamily Outer\+Faces}, nœuds de bord),
+\item évaluer l\textquotesingle{}impact des déformations sur les mesures globales (volume total, surface totale, centre global).
+\end{DoxyItemize}
+
+Les cas de test correspondants se trouvent dans {\ttfamily test/\+Exa\+Di\+Bench/} (cube 3D, géométrie SPE11c, anneaux, etc.).\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md109}{}\doxysubsection{Fonctionnalités}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md109}
+Basé sur {\ttfamily \mbox{\hyperlink{ExaDiBenchModule_8cc_source}{Exa\+Di\+Bench\+Module.\+cc}}} et le descripteur {\ttfamily .axl} \+:
+
+
+\begin{DoxyItemize}
+\item ✅ Export de maillage dans différents formats (optionnel) \+:
+\begin{DoxyItemize}
+\item VTK ({\ttfamily Vtk\+Legacy\+Mesh\+Writer}),
+\item MSH ({\ttfamily Msh\+New\+Mesh\+Writer}),
+\item IXM ({\ttfamily \mbox{\hyperlink{classIXMMeshWriter}{IXMMesh\+Writer}}}).
+\end{DoxyItemize}
+\item ✅ Construction des groupes de bord \+:
+\begin{DoxyItemize}
+\item Construction d\textquotesingle{}un groupe de nœuds de bord ({\ttfamily Border\+Nodes}) et de faces de bord ({\ttfamily Border\+Faces}).
+\item Vérification de la cohérence avec le groupe {\ttfamily Outer\+Faces} de la famille de faces.
+\end{DoxyItemize}
+\item ✅ Gestion de la géométrie \+:
+\begin{DoxyItemize}
+\item Initialisation du service {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}.
+\item Ajout de propriétés géométriques \+: volumes, surfaces, centres pour les mailles et faces de bord.
+\item Mise à jour de la géométrie avec une politique {\ttfamily \mbox{\hyperlink{classNoOptimizationGeometryPolicy}{No\+Optimization\+Geometry\+Policy}}}.
+\end{DoxyItemize}
+\item ✅ Benchmark de déformation \+:
+\begin{DoxyItemize}
+\item Sélection des nœuds intérieurs (non de bord).
+\item Déplacement aléatoire des coordonnées (rayon contrôlé par {\ttfamily factor}).
+\item Synchronisation des coordonnées et mise à jour géométrique.
+\item Re-\/calcul et affichage des mesures globales (volume, surface, centre).
+\end{DoxyItemize}
+\item ✅ Mesures et vérifications \+:
+\begin{DoxyItemize}
+\item Calcul du volume total via {\ttfamily volume\+Compute()} et vérification contre {\ttfamily \mbox{\hyperlink{classIGeometry_a5ae83cd468c2876c0037f438bc0a92e3}{IGeometry\+::compute\+Measure()}}} cellule par cellule.
+\item Calcul de la surface totale de bord via {\ttfamily surface\+Compute()}.
+\item Calcul du centre global via {\ttfamily center\+Compute()}.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md111}{}\doxysubsection{Prérequis}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md111}
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespaceArcane}{Arcane}} / Arc\+Geo\+Sim \+:
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}, {\ttfamily \mbox{\hyperlink{classIGeometry}{IGeometry}}}, {\ttfamily \mbox{\hyperlink{classPolyhedralGeometry}{Polyhedral\+Geometry}}}.
+\item Gestion des groupes ({\ttfamily \mbox{\hyperlink{classItemGroupBuilder}{Item\+Group\+Builder}}}).
+\item Services de sortie maillage ({\ttfamily IMesh\+Writer}).
+\end{DoxyItemize}
+\item Fichiers de configuration et maillages \+:
+\begin{DoxyItemize}
+\item {\ttfamily .arc} de benchmark (voir {\ttfamily test/\+Exa\+Di\+Bench/bench-\/$\ast$.arc}).
+\item Maillages {\ttfamily .vt2} (ex. {\ttfamily cube3\+D1.\+vt2}).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md112}{}\doxysubsection{Installation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md112}
+Le module {\ttfamily Exa\+Di\+Bench} est déclaré dans {\ttfamily src/\+Exa\+Di\+Bench/config.\+xml} et intégré dans la bibliothèque Sh\+Arc par la configuration CMake globale. Il n\textquotesingle{}y a pas de CMake\+Lists dédié dans ce répertoire.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md113}{}\doxysubsection{Utilisation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md113}
+Le cycle principal est \+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{init()}}
+\begin{DoxyItemize}
+\item Export optionnel du maillage en VTK/\+MSH/\+IXM selon les options ({\ttfamily export\+Vtk}, {\ttfamily export\+Msh}, {\ttfamily export\+Ixm}).
+\item Affinage du maillage si {\ttfamily refine\+Level $>$ 0} (fonctionnalité marquée \char`\"{}not yet implemented\char`\"{}).
+\item Construction des groupes de bord (nœuds/faces).
+\item Initialisation de {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}} et ajout des propriétés géométriques.
+\item Mise à jour de la géométrie et calcul des mesures initiales (volume, surface, centre).
+\end{DoxyItemize}
+\item {\bfseries{compute()}}
+\begin{DoxyItemize}
+\item Déformation des nœuds intérieurs par un bruit pseudo‑aléatoire 3D.
+\item Synchronisation des coordonnées.
+\item Mise à jour de la géométrie.
+\item Recalcul et affichage des mesures globales.
+\end{DoxyItemize}
+\item (optionnel) {\bfseries{restore()}} / {\bfseries{refine\+Mesh()}}
+\begin{DoxyItemize}
+\item Points d\textquotesingle{}extension prévus pour restaurer un état de référence ou affiner le maillage.
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+Les fichiers {\ttfamily .arc} de {\ttfamily test/\+Exa\+Di\+Bench/} sélectionnent le maillage, le niveau de raffinement, le facteur de perturbation des nœuds, et les éventuels exports.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md114}{}\doxysubsection{API / Interface}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md114}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md115}{}\doxysubsubsection{Classe principale}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md115}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+{\ttfamily \mbox{\hyperlink{classExaDiBenchModule}{Exa\+Di\+Bench\+Module}}}   &classe   &Module \mbox{\hyperlink{namespaceArcane}{Arcane}} de benchmark géométrique. Pilote export, déformation et mesures globales du maillage.   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md117}{}\doxysubsubsection{Méthodes clés (extrait)}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md117}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Méthode   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rôle    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Méthode   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Rôle    }\\\cline{1-2}
+\endhead
+{\ttfamily void init()}   &Initialise l\textquotesingle{}état du benchmark (geometry, groupes, mesures initiales, export éventuel).    \\\cline{1-2}
+{\ttfamily void compute()}   &Applique la déformation sur les nœuds intérieurs, met à jour la géométrie et recalcule les mesures globales.    \\\cline{1-2}
+{\ttfamily void refine\+Mesh(\+Integer level)}   &Point d\textquotesingle{}extension pour raffiner le maillage (actuellement non implémenté, message d\textquotesingle{}avertissement).    \\\cline{1-2}
+{\ttfamily Real volume\+Compute()}   &Calcule et vérifie le volume total du maillage sur les mailles propres.    \\\cline{1-2}
+{\ttfamily Real surface\+Compute()}   &Calcule la surface totale des faces de bord.    \\\cline{1-2}
+{\ttfamily \mbox{\hyperlink{structReal3}{Real3}} center\+Compute()}   &Calcule le centre de masse géométrique du maillage.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md120}{}\doxysubsection{Architecture}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md120}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{┌────────────────────────────┐}
+\DoxyCodeLine{│        src/ExaDiBench      │}
+\DoxyCodeLine{├────────────────────────────┤}
+\DoxyCodeLine{│ ExaDiBenchModule.cc/.h     │}
+\DoxyCodeLine{│ ExaDiBench.axl             │}
+\DoxyCodeLine{│ MeshbMeshReaderService.cc  │}
+\DoxyCodeLine{│ config.xml                 │}
+\DoxyCodeLine{└────────────────────────────┘}
+\DoxyCodeLine{          │          │}
+\DoxyCodeLine{          ▼          ▼}
+\DoxyCodeLine{     IGeometryMng   Cas .arc}
+\DoxyCodeLine{     (géométrie)    (test/ExaDiBench)}
+
+\end{DoxyCode}
+
+
+{\ttfamily \mbox{\hyperlink{MeshbMeshReaderService_8cc_source}{Meshb\+Mesh\+Reader\+Service.\+cc}}} est actuellement un service de lecture Meshb minimal/stub, principalement utilisé pour des tests ou extensions futures.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md122}{}\doxysubsection{Dépendances}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md122}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Dépendance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Usage    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Dépendance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Usage    }\\\cline{1-2}
+\endhead
+{\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}, {\ttfamily \mbox{\hyperlink{classIGeometry}{IGeometry}}}   &Gestion et calcul des propriétés géométriques.    \\\cline{1-2}
+{\ttfamily IMesh\+Writer}   &Export VTK/\+MSH/\+IXM du maillage.    \\\cline{1-2}
+{\ttfamily \mbox{\hyperlink{classItemGroupBuilder}{Item\+Group\+Builder}}}   &Construction des groupes de nœuds/faces de bord.    \\\cline{1-2}
+\mbox{\hyperlink{namespaceArcane}{Arcane}} Parallel\+Mng   &Réductions globales (somme des volumes, surfaces, centres).   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md123}{}\doxysubsection{Ressources}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md123}
+
+\begin{DoxyItemize}
+\item {\ttfamily src/\+Exa\+Di\+Bench/\+Exa\+Di\+Bench.\+axl} — descripteur du module (points d\textquotesingle{}entrée, options, services).
+\item {\ttfamily test/\+Exa\+Di\+Bench/$\ast$.arc} — cas de benchmark (cube 3D, SPE11c, anneaux, etc.).
+\end{DoxyItemize}
+
+$\ast$$\ast$$\ast$ Add File\+: test/\+Two\+Phase\+Flow\+Simulation/\+README.\+md \hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md124}{}\doxysection{Tests Two\+Phase\+Flow\+Simulation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md124}
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse de la nomenclature des cas {\ttfamily .arc} et des maillages \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md125}{}\doxysubsection{Description}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md125}
+Le répertoire {\ttfamily test/\+Two\+Phase\+Flow\+Simulation/} regroupe les {\bfseries{cas de test de référence}} pour le module {\ttfamily Two\+Phase\+Flow\+Simulation}. On y trouve à la fois \+:
+
+
+\begin{DoxyItemize}
+\item des cas synthétiques simples (maillage 10×1×1, puits),
+\item des cas de type {\bfseries{SPE10}} (maillage hétérogène de grande taille),
+\item des variantes explorant différents solveurs et préconditionneurs linéaires (Hypre, PETSc, Trilinos/\+IFPS, MCGS, GPU/\+SYCL, etc.),
+\item des variantes physiques (avec/ sans pression capillaire, avec/ sans puits).
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md126}{}\doxysubsection{Contenu}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md126}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md127}{}\doxysubsubsection{Maillages et configuration}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md127}
+
+\begin{DoxyItemize}
+\item {\ttfamily mesh-\/10x1x1.\+vt2} — maillage simple 10×1×1 (cas de base).
+\item {\ttfamily mesh-\/well.\+vt2} — maillage avec puits.
+\item {\ttfamily SPE10-\/mesh-\/level0.\+vt2} — maillage SPE10 niveau 0.
+\item {\ttfamily SPE10-\/mesh-\/level0-\/well.\+vt2} — maillage SPE10 avec puits.
+\item {\ttfamily Sh\+Arc.\+config} — configuration Sh\+Arc/\+Arcane pour ces cas.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md128}{}\doxysubsubsection{Cas $<$tt$>$.\+arc$<$/tt$>$ principaux}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md128}
+
+\begin{DoxyItemize}
+\item {\bfseries{Cas de base}} \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow.\+arc} — cas standard deux phases sur un maillage simple.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/with-\/capillary-\/pressure.\+arc} — même cas avec pression capillaire activée.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/well.\+arc} — cas deux phases avec puits.
+\end{DoxyItemize}
+\item {\bfseries{Cas SPE10 (maillage hétérogène)}} \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10.\+arc} — configuration de base SPE10.
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/well.\+arc} — SPE10 avec puits.
+\end{DoxyItemize}
+\item {\bfseries{Variantes solveurs / préconditionneurs}} (SPE10) \+:
+\begin{DoxyItemize}
+\item Hypre \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/hypre-\/bcgs-\/ilu0.\+arc}
+\end{DoxyItemize}
+\item PETSc \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/petsc-\/bcgs-\/ilu0.\+arc}
+\end{DoxyItemize}
+\item IFPS / Trilinos \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/ifps-\/bcgs-\/ilu0.\+arc}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/ifps-\/bcgs-\/cpr.\+arc}
+\end{DoxyItemize}
+\item MCGS \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgs-\/bcgs-\/ilu0.\+arc}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgs-\/bcgs-\/cpr.\+arc}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/mcgsgpu-\/bcgs-\/cpr.\+arc} (variante GPU)
+\end{DoxyItemize}
+\item HTS \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/hts-\/bcgs-\/ilu0.\+arc}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/hts-\/bcgs-\/cpr.\+arc}
+\end{DoxyItemize}
+\item Solutions \char`\"{}classiques\char`\"{} BCGS \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/ilu0.\+arc}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/cxr.\+arc}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/bcgs-\/cxr-\/sycl.\+arc}
+\end{DoxyItemize}
+\item TRI (Trilinos) \+:
+\begin{DoxyItemize}
+\item {\ttfamily use-\/case-\/two-\/phase-\/flow-\/spe10-\/tri-\/bcgs-\/ilu0.\+arc}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md130}{}\doxysubsubsection{Fichiers de référence}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md130}
+
+\begin{DoxyItemize}
+\item {\ttfamily Ref\+Use\+Case\+Two\+Phase\+Flow\+\_\+\+Debug\+Newton\+Matrix\+\_\+1\+\_\+1.\+txt} — référence pour la matrice du système non linéaire (diagnostic Newton).
+\item {\ttfamily Ref\+Use\+Case\+Two\+Phase\+Flow\+\_\+\+Debug\+Newton\+Vector\+\_\+1\+\_\+1.\+txt} — référence pour le vecteur résidu.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md131}{}\doxysubsection{Objectifs des tests}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md131}
+
+\begin{DoxyItemize}
+\item {\bfseries{Validation physique}} \+:
+\begin{DoxyItemize}
+\item Vérifier la cohérence des résultats (pression, saturations) sur des maillages simples et SPE10.
+\item Tester l\textquotesingle{}effet des puits et de la pression capillaire.
+\end{DoxyItemize}
+\item {\bfseries{Comparaison de solveurs}} \+:
+\begin{DoxyItemize}
+\item Comparer la robustesse et les performances de différentes combinaisons solveur/préconditionneur (Hypre, PETSc, IFPS, MCGS, HTS, GPU/\+SYCL, etc.).
+\end{DoxyItemize}
+\item {\bfseries{Régression numérique}} \+:
+\begin{DoxyItemize}
+\item Utiliser les fichiers de référence Newton pour détecter les régressions dans l’assemblage du système.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md132}{}\doxysubsection{Utilisation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md132}
+Depuis le répertoire de build \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ctest -\/R TwoPhaseFlowSimulation}
+
+\end{DoxyCode}
+
+
+Ou directement \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./ShArc.exe use-\/case-\/two-\/phase-\/flow-\/spe10-\/petsc-\/bcgs-\/ilu0.arc}
+
+\end{DoxyCode}
+
+
+Adapter le nombre de processus MPI et les options en fonction de la configuration CMake.
+
+$\ast$$\ast$$\ast$ Add File\+: test/\+Exa\+Di\+Bench/\+README.\+md \hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md133}{}\doxysection{Tests Exa\+Di\+Bench}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md133}
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur la liste des cas {\ttfamily .arc} et le module Exa\+Di\+Bench \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md134}{}\doxysubsection{Description}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md134}
+Le répertoire {\ttfamily test/\+Exa\+Di\+Bench/} contient les cas de benchmark pour le module {\ttfamily Exa\+Di\+Bench}. Ils exercent la chaîne \+:
+
+
+\begin{DoxyItemize}
+\item lecture et initialisation du maillage (cube 3D, SPE11c, anneaux),
+\item configuration de la géométrie (volumes, surfaces, centres),
+\item déformation des nœuds intérieurs,
+\item calcul et comparaison des mesures globales (volume, surface, centre).
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md135}{}\doxysubsection{Contenu}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md135}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md136}{}\doxysubsubsection{Maillages}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md136}
+
+\begin{DoxyItemize}
+\item {\ttfamily cube3\+D1.\+vt2} — maillage de référence pour le cas \char`\"{}cube 3\+D\char`\"{}.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md137}{}\doxysubsubsection{Cas $<$tt$>$.\+arc$<$/tt$>$}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md137}
+
+\begin{DoxyItemize}
+\item {\ttfamily bench-\/cube3d.\+arc} — benchmark de déformation sur le cube 3D (cas principal utilisé par la suite de tests).
+\item {\ttfamily bench-\/pb.\+arc} / {\ttfamily bench-\/pb-\/msh.\+arc} — cas \char`\"{}pb\char`\"{} (problème générique) sur différents formats de maillage (VTK/\+MSH).
+\item {\ttfamily bench-\/ring.\+arc} / {\ttfamily bench-\/ring-\/msh.\+arc} — benchmarks sur géométrie en anneau.
+\item {\ttfamily bench-\/spe11c.\+arc} / {\ttfamily bench-\/spe11c-\/structured.\+arc} — cas basés sur le cas industriel SPE11c (versions structurée et non structurée).
+\item {\ttfamily spe11c\+\_\+structured.\+arc} — configuration SPE11c structurée.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md138}{}\doxysubsubsection{Configuration Sh\+Arc}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md138}
+
+\begin{DoxyItemize}
+\item {\ttfamily Sh\+Arc.\+config} — configuration Sh\+Arc/\+Arcane pour ces cas.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md139}{}\doxysubsection{Objectifs des tests}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md139}
+
+\begin{DoxyItemize}
+\item Vérifier la robustesse du calcul géométrique (volumes/surfaces/centres) sous perturbation.
+\item Tester la cohérence des groupes de bord ({\ttfamily Outer\+Faces}) sur des maillages variés.
+\item Garantir que les exports de maillage (VTK/\+MSH/\+IXM) restent fonctionnels.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md140}{}\doxysubsection{Utilisation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md140}
+Depuis le répertoire de build \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ctest -\/R ExaDiBench}
+
+\end{DoxyCode}
+
+
+Pour lancer un cas particulier \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./ShArc.exe bench-\/cube3d.arc}
+
+\end{DoxyCode}
+
+
+$\ast$$\ast$$\ast$ Add File\+: test/\+Thermo\+Chemical\+Convection/\+README.\+md \hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md141}{}\doxysection{Tests Thermo\+Chemical\+Convection}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md141}
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse des fichiers de cas et du module Thermo\+Chemical\+Convection \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md142}{}\doxysubsection{Description}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md142}
+Le répertoire {\ttfamily test/\+Thermo\+Chemical\+Convection/} contient un cas de test pour le module {\ttfamily Thermo\+Chemical\+Convection}, qui résout un système couplé pression–concentration–température en milieu poreux.
+
+Le cas met en jeu \+:
+
+
+\begin{DoxyItemize}
+\item un maillage 3D {\ttfamily mesh-\/10x1x10.\+vt2},
+\item un fichier de cas {\ttfamily use-\/case-\/thermal.\+arc} configurant le système Arc\+Res et les services (conditions initiales, lois, conditions aux limites),
+\item un fichier {\ttfamily Sh\+Arc.\+config} pour l\textquotesingle{}infrastructure Sh\+Arc/\+Arcane.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md143}{}\doxysubsection{Objectifs}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md143}
+
+\begin{DoxyItemize}
+\item Valider la construction de l\textquotesingle{}accumulation et des flux (advection, diffusion, conduction) définis dans {\ttfamily Thermo\+Chemical\+Convection\+Module}.
+\item Vérifier la cohérence thermique (capacité et conductivité des phases fluide et solide) sur un cas simple.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md144}{}\doxysubsection{Utilisation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md144}
+Depuis le répertoire de build \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ctest -\/R ThermoChemicalConvection}
+
+\end{DoxyCode}
+
+
+Ou directement \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./ShArc.exe use-\/case-\/thermal.arc}
+
+\end{DoxyCode}
+
+
+$\ast$$\ast$$\ast$ Add File\+: test/\+CAWF/\+README.\+md \hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md145}{}\doxysection{Tests CAWF}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md145}
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur le README CAWF et la structure des tests \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md146}{}\doxysubsection{Description}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md146}
+Le répertoire {\ttfamily test/\+CAWF/} regroupe les cas de test pour le module CAWF (solveurs FEM Poisson, Elasticity, Compaction, Dynamic\+Mesh\+Mng). Les cas détaillés (fichiers {\ttfamily .arc}, maillages, configurations) sont organisés dans des sous‑répertoires (par exemple {\ttfamily Compaction/}, {\ttfamily Meca\+FEM/}, {\ttfamily Poisson/}), en cohérence avec la structure décrite dans {\ttfamily src/\+CAWF/\+README.\+md}.
+
+Ce dossier contient également des fichiers de configuration pour le couplage éventuel avec pre\+CICE ({\ttfamily precice-\/config-\/$\ast$.xml}).\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md147}{}\doxysubsection{Contenu}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md147}
+
+\begin{DoxyItemize}
+\item {\ttfamily precice-\/config-\/v3.\+xml} / {\ttfamily precice-\/config-\/iter-\/v3.\+xml} — configurations pre\+CICE pour des scénarios de couplage (itératif ou non).
+\item Sous‑répertoires contenant \+:
+\begin{DoxyItemize}
+\item des maillages VTU/\+VTK/\+VT2,
+\item des fichiers {\ttfamily .arc} pour les solveurs Poisson/\+Elasticity/\+Compaction,
+\item des fichiers {\ttfamily Sh\+Arc.\+config} spécifiques.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md148}{}\doxysubsection{Objectifs des tests}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md148}
+
+\begin{DoxyItemize}
+\item Vérifier les solveurs FEM sur des cas unitaires et multi‑physiques (Poisson, élasticité, compaction).
+\item Tester les différents backends linéaires (Hypre, PETSc, etc.) tels que configurés dans les {\ttfamily .arc}.
+\item Valider (le cas échéant) l\textquotesingle{}intégration avec pre\+CICE pour les cas couplés.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md149}{}\doxysubsection{Utilisation}\label{md__work_gratienj_Projets_2026_sharc_src_Main_README_autotoc_md149}
+Depuis le répertoire de build \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ctest -\/R CAWF}
+
+\end{DoxyCode}
+
+
+Ou exécuter directement l\textquotesingle{}un des cas dans les sous‑répertoires, par exemple \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./ShArc.exe Poisson/use-\/case-\/poisson.arc}
+
+\end{DoxyCode}
+ 

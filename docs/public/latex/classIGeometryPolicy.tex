@@ -1,0 +1,66 @@
+\hypertarget{classIGeometryPolicy}{}\doxysection{IGeometry\+Policy Class Reference}
+\label{classIGeometryPolicy}\index{IGeometryPolicy@{IGeometryPolicy}}
+
+
+Future interface de la gestion d\textquotesingle{}{\ucr}criture de la g{\ucr}om{\ucr}trie;.  
+
+
+
+
+{\ttfamily \#include $<$IGeometry\+Policy.\+h$>$}
+
+
+
+Inherited by \mbox{\hyperlink{classManualUpdateGeometryPolicy}{Manual\+Update\+Geometry\+Policy}}, and \mbox{\hyperlink{classNoOptimizationGeometryPolicy}{No\+Optimization\+Geometry\+Policy}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIGeometryPolicy_a6d6c5a950518b84a7a363deb66060f31}\label{classIGeometryPolicy_a6d6c5a950518b84a7a363deb66060f31}} 
+virtual \mbox{\hyperlink{classIGeometryPolicy_a6d6c5a950518b84a7a363deb66060f31}{$\sim$\+IGeometry\+Policy}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+virtual Arcane\+::\+Int64 \mbox{\hyperlink{classIGeometryPolicy_ac26b533e5ac69dd3d4562ec9cfa3db9e}{context}} ()=0
+\begin{DoxyCompactList}\small\item\em Retourne le contexte courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryPolicy_a59be7f0fba8f4083f6506348edfabf98}\label{classIGeometryPolicy_a59be7f0fba8f4083f6506348edfabf98}} 
+virtual void \mbox{\hyperlink{classIGeometryPolicy_a59be7f0fba8f4083f6506348edfabf98}{begin\+Context}} ()=0
+\begin{DoxyCompactList}\small\item\em D{\ucr}marre un contexte dans le \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGeometryPolicy_a3341e5e37194fe3282262c8e9ecde6e8}\label{classIGeometryPolicy_a3341e5e37194fe3282262c8e9ecde6e8}} 
+virtual void \mbox{\hyperlink{classIGeometryPolicy_a3341e5e37194fe3282262c8e9ecde6e8}{end\+Context}} ()=0
+\begin{DoxyCompactList}\small\item\em Arr{\ucr}te un contexte dans le \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIGeometryPolicy_a28b6470f531b51b5fd6ec277b55091d8}\label{classIGeometryPolicy_a28b6470f531b51b5fd6ec277b55091d8}} 
+static \mbox{\hyperlink{classNoOptimizationGeometryPolicy}{No\+Optimization\+Geometry\+Policy}} $\ast$ \mbox{\hyperlink{classIGeometryPolicy_a28b6470f531b51b5fd6ec277b55091d8}{null\+Policy}} ()
+\begin{DoxyCompactList}\small\item\em Politique par d{\ucr}faut ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Future interface de la gestion d\textquotesingle{}{\ucr}criture de la g{\ucr}om{\ucr}trie;. 
+
+Definition at line 21 of file IGeometry\+Policy.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIGeometryPolicy_ac26b533e5ac69dd3d4562ec9cfa3db9e}\label{classIGeometryPolicy_ac26b533e5ac69dd3d4562ec9cfa3db9e}} 
+\index{IGeometryPolicy@{IGeometryPolicy}!context@{context}}
+\index{context@{context}!IGeometryPolicy@{IGeometryPolicy}}
+\doxysubsubsection{\texorpdfstring{context()}{context()}}
+{\footnotesize\ttfamily virtual Arcane\+::\+Int64 IGeometry\+Policy\+::context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retourne le contexte courant. 
+
+Ne devrait pouvoir {\ucr}tre appel{\ucr} qu\textquotesingle{}{\ucr} l\textquotesingle{}int{\ucr}rieur d\textquotesingle{}un bloc begin\+Context / end\+Context. La valeur -\/1 signifie non d{\ucr}finie. 
+
+Implemented in \mbox{\hyperlink{classNoOptimizationGeometryPolicy_af6563fc4273a910008d60f57963954cf}{No\+Optimization\+Geometry\+Policy}}, and \mbox{\hyperlink{classManualUpdateGeometryPolicy_af1f5f23a56cf3c4dd5b835c440fd9997}{Manual\+Update\+Geometry\+Policy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/IGeometry\+Policy.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/IGeometry\+Policy.\+cc\end{DoxyCompactItemize}

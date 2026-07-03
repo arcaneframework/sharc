@@ -1,0 +1,150 @@
+\hypertarget{classContactFamily}{}\doxysection{Contact\+Family Class Reference}
+\label{classContactFamily}\index{ContactFamily@{ContactFamily}}
+
+
+Famille concrete de contacts.  
+
+
+
+
+{\ttfamily \#include $<$Contact\+Family.\+h$>$}
+
+
+
+Inherits Arcane\+::\+Trace\+Accessor, and \mbox{\hyperlink{classIContactFamily}{IContact\+Family}}.
+
+
+
+Inherited by \mbox{\hyperlink{classFaceFaceContactFamily}{Face\+Face\+Contact\+Family}}, and \mbox{\hyperlink{classNodeFaceContactFamily}{Node\+Face\+Contact\+Family}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactFamily_a4d769720974d248eec9a0f681e2327d6}\label{classContactFamily_a4d769720974d248eec9a0f681e2327d6}} 
+\mbox{\hyperlink{classContactFamily_a4d769720974d248eec9a0f681e2327d6}{Contact\+Family}} (Arcane\+::\+ITrace\+Mng $\ast$trace\+Mng, Arcane\+::\+IItem\+Family $\ast$family1, Arcane\+::\+IItem\+Family $\ast$family2)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a123df1f7eb1b31caf29f8a22e0b448d1}\label{classContactFamily_a123df1f7eb1b31caf29f8a22e0b448d1}} 
+virtual \mbox{\hyperlink{classContactFamily_a123df1f7eb1b31caf29f8a22e0b448d1}{$\sim$\+Contact\+Family}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+const String \& \mbox{\hyperlink{classContactFamily_a337d46e4db424513f4fe75d4cbbe1369}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Heritage de \mbox{\hyperlink{classIContactFamily}{IContact\+Family}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_ac8c3645ffaa37c1d5c71c0cab18f7a10}\label{classContactFamily_ac8c3645ffaa37c1d5c71c0cab18f7a10}} 
+\mbox{\hyperlink{classIContactFamily_ad8fc7eb34c90abdd1d6fe80181018b70}{e\+Contact\+Kind}} \mbox{\hyperlink{classContactFamily_ac8c3645ffaa37c1d5c71c0cab18f7a10}{contact\+Kind}} () const override
+\begin{DoxyCompactList}\small\item\em Genre de la premiere entite du contact. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_adfcdb25de2099bd04c18b13d692ada22}\label{classContactFamily_adfcdb25de2099bd04c18b13d692ada22}} 
+Integer \mbox{\hyperlink{classContactFamily_adfcdb25de2099bd04c18b13d692ada22}{nb\+Contact}} () const override
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}entites. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a5c712b76213259c23bf53328cb1e2c33}\label{classContactFamily_a5c712b76213259c23bf53328cb1e2c33}} 
+Int32 \mbox{\hyperlink{classContactFamily_a5c712b76213259c23bf53328cb1e2c33}{max\+Local\+Id}} () const override
+\begin{DoxyCompactList}\small\item\em Taille necessaire pour dimensionner les variables sur ces contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a4f482d6950dec0f4f10371832c7a2bf7}\label{classContactFamily_a4f482d6950dec0f4f10371832c7a2bf7}} 
+\mbox{\hyperlink{classContactGroup}{Contact\+Group}} \mbox{\hyperlink{classContactFamily_a4f482d6950dec0f4f10371832c7a2bf7}{all\+Contacts}} () override
+\begin{DoxyCompactList}\small\item\em Groupe de tous les contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_afe2d948f97dc5a9dc14d91d5ed978dac}\label{classContactFamily_afe2d948f97dc5a9dc14d91d5ed978dac}} 
+void \mbox{\hyperlink{classContactFamily_afe2d948f97dc5a9dc14d91d5ed978dac}{register\+Variable}} (\mbox{\hyperlink{classIContactVariable}{IContact\+Variable}} $\ast$var) override
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}une variable sur la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_ad924684abf7165cbb46b54939e118844}\label{classContactFamily_ad924684abf7165cbb46b54939e118844}} 
+void \mbox{\hyperlink{classContactFamily_ad924684abf7165cbb46b54939e118844}{unregister\+Variable}} (\mbox{\hyperlink{classIContactVariable}{IContact\+Variable}} $\ast$var) override
+\begin{DoxyCompactList}\small\item\em Retrait d\textquotesingle{}une variable sur la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a238f5428b0f9ef6ed3b2b11ccfb89031}\label{classContactFamily_a238f5428b0f9ef6ed3b2b11ccfb89031}} 
+Int32 \mbox{\hyperlink{classContactFamily_a238f5428b0f9ef6ed3b2b11ccfb89031}{add\+Contact}} (const Int32 lid1, const Int32 lid2) override
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un contact. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a27ee29dcbfdbdd712864a6de8f059e36}\label{classContactFamily_a27ee29dcbfdbdd712864a6de8f059e36}} 
+\mbox{\hyperlink{classContactInternal}{Contact\+Internal}} $\ast$ \mbox{\hyperlink{classContactFamily_a27ee29dcbfdbdd712864a6de8f059e36}{contacts\+Internal}} () override
+\begin{DoxyCompactList}\small\item\em Acces aux internals des contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_aa4bc2d59131af3a1a353ef1ee6a01b07}\label{classContactFamily_aa4bc2d59131af3a1a353ef1ee6a01b07}} 
+const \mbox{\hyperlink{classContactInternal}{Contact\+Internal}} $\ast$ \mbox{\hyperlink{classContactFamily_aa4bc2d59131af3a1a353ef1ee6a01b07}{contacts\+Internal}} () const override
+\begin{DoxyCompactList}\small\item\em Acces aux internals des contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a6b95404bc92a8bd461d2347e0cdcbd64}\label{classContactFamily_a6b95404bc92a8bd461d2347e0cdcbd64}} 
+\mbox{\hyperlink{classContactGroup}{Contact\+Group}} \mbox{\hyperlink{classContactFamily_a6b95404bc92a8bd461d2347e0cdcbd64}{create\+Group}} (const String \&\mbox{\hyperlink{classContactFamily_a337d46e4db424513f4fe75d4cbbe1369}{name}}) override
+\begin{DoxyCompactList}\small\item\em Creation d\textquotesingle{}un groupe sur la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a89e2950952f12e75a13db66a34089d8c}\label{classContactFamily_a89e2950952f12e75a13db66a34089d8c}} 
+\mbox{\hyperlink{classContactGroup}{Contact\+Group}} \mbox{\hyperlink{classContactFamily_a89e2950952f12e75a13db66a34089d8c}{find\+Group}} (const String \&\mbox{\hyperlink{classContactFamily_a337d46e4db424513f4fe75d4cbbe1369}{name}}) override
+\begin{DoxyCompactList}\small\item\em Recherche d\textquotesingle{}un groupe sur la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_acd0f86a8dcacafa6aa091cfe37569beb}\label{classContactFamily_acd0f86a8dcacafa6aa091cfe37569beb}} 
+void \mbox{\hyperlink{classContactFamily_acd0f86a8dcacafa6aa091cfe37569beb}{notify\+Group\+Change}} (\mbox{\hyperlink{classContactGroupImpl}{Contact\+Group\+Impl}} $\ast$group) override
+\begin{DoxyCompactList}\small\item\em Informe la famille d\textquotesingle{}un changement sur un groupe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_ae89a38e046e0a935821712b59e9f5b89}\label{classContactFamily_ae89a38e046e0a935821712b59e9f5b89}} 
+Arcane\+::\+IVariable\+Synchronizer $\ast$ \mbox{\hyperlink{classContactFamily_ae89a38e046e0a935821712b59e9f5b89}{all\+Items\+Synchronizer}} () override
+\begin{DoxyCompactList}\small\item\em Synchroniser sur toutes les entites de la famille. La methode \mbox{\hyperlink{classContactFamily_a0a68aa54475bf2ad9c16c0a32fecff6e}{compute\+Synchronize\+Infos()}} doit etre appele avant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a0a68aa54475bf2ad9c16c0a32fecff6e}\label{classContactFamily_a0a68aa54475bf2ad9c16c0a32fecff6e}} 
+void \mbox{\hyperlink{classContactFamily_a0a68aa54475bf2ad9c16c0a32fecff6e}{compute\+Synchronize\+Infos}} () override
+\begin{DoxyCompactList}\small\item\em Calcul des entite fantomes. Cette operation est collective. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a765d30c0869999a88f4729397a8f93e7}\label{classContactFamily_a765d30c0869999a88f4729397a8f93e7}} 
+void \mbox{\hyperlink{classContactFamily_a765d30c0869999a88f4729397a8f93e7}{end\+Update}} () override
+\begin{DoxyCompactList}\small\item\em Fin de remplissage de la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a514910b2a8bc75a85869195acf9354cf}\label{classContactFamily_a514910b2a8bc75a85869195acf9354cf}} 
+void {\bfseries update\+Internal\+List} () override
+\item 
+\mbox{\Hypertarget{classContactFamily_ad1838a0f6d29510d21ca55d35900602b}\label{classContactFamily_ad1838a0f6d29510d21ca55d35900602b}} 
+\mbox{\hyperlink{classContactSharedInfo}{Contact\+Shared\+Info}} $\ast$ \mbox{\hyperlink{classContactFamily_ad1838a0f6d29510d21ca55d35900602b}{shared\+Info}} () override
+\begin{DoxyCompactList}\small\item\em Acces aux donnees partagees des contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_ab3e31423659e0b458354a925ba822b91}\label{classContactFamily_ab3e31423659e0b458354a925ba822b91}} 
+Arcane\+::\+IMesh $\ast$ \mbox{\hyperlink{classContactFamily_ab3e31423659e0b458354a925ba822b91}{mesh}} () const override
+\begin{DoxyCompactList}\small\item\em Acces au maillage associe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactFamily_af3406f715f742b25b05f33c08a4898ab}\label{classContactFamily_af3406f715f742b25b05f33c08a4898ab}} 
+\mbox{\hyperlink{classContactSharedInfo}{Contact\+Shared\+Info}} \mbox{\hyperlink{classContactFamily_af3406f715f742b25b05f33c08a4898ab}{m\+\_\+shared\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Donnees partageables des contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a15bc6c9a609d04fa7a2bb354e82897cd}\label{classContactFamily_a15bc6c9a609d04fa7a2bb354e82897cd}} 
+Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{classContactInternal}{Contact\+Internal}} $>$ \mbox{\hyperlink{classContactFamily_a15bc6c9a609d04fa7a2bb354e82897cd}{m\+\_\+internals}}
+\begin{DoxyCompactList}\small\item\em Liste des contacts de la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_af870555897e7e4f49ad1c1b4f1e0acef}\label{classContactFamily_af870555897e7e4f49ad1c1b4f1e0acef}} 
+Arcane\+::\+Shared\+Array$<$ Int32 $>$ \mbox{\hyperlink{classContactFamily_af870555897e7e4f49ad1c1b4f1e0acef}{m\+\_\+local\+\_\+ids}}
+\begin{DoxyCompactList}\small\item\em Tous les identifiants locaux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a60085cc518c8a5ca40e0cd9bb63813d9}\label{classContactFamily_a60085cc518c8a5ca40e0cd9bb63813d9}} 
+std\+::set$<$ \mbox{\hyperlink{classIContactVariable}{IContact\+Variable}} $\ast$ $>$ \mbox{\hyperlink{classContactFamily_a60085cc518c8a5ca40e0cd9bb63813d9}{m\+\_\+variables}}
+\begin{DoxyCompactList}\small\item\em Ensemble des variables sur la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a50b2d438dc011b5b7136d0bbc85ab822}\label{classContactFamily_a50b2d438dc011b5b7136d0bbc85ab822}} 
+std\+::map$<$ String, \mbox{\hyperlink{classContactGroupImpl}{Contact\+Group\+Impl}} $\ast$ $>$ \mbox{\hyperlink{classContactFamily_a50b2d438dc011b5b7136d0bbc85ab822}{m\+\_\+groups}}
+\begin{DoxyCompactList}\small\item\em Ensemble des groupes sur la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_adfcb8bde6a2e4ee3bd62eb4523664840}\label{classContactFamily_adfcb8bde6a2e4ee3bd62eb4523664840}} 
+Arcane\+::\+IVariable\+Synchronizer $\ast$ \mbox{\hyperlink{classContactFamily_adfcb8bde6a2e4ee3bd62eb4523664840}{m\+\_\+synchronizer}}
+\begin{DoxyCompactList}\small\item\em Synchronizeur du groupe All\+Contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_aa88ae0a60aa8a3b21bd4e31c37bdb868}\label{classContactFamily_aa88ae0a60aa8a3b21bd4e31c37bdb868}} 
+Arcane\+::\+String \mbox{\hyperlink{classContactFamily_aa88ae0a60aa8a3b21bd4e31c37bdb868}{m\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em Nom de la famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactFamily_a0fc5f55913da35bb3b1ca17e592a4aaf}\label{classContactFamily_a0fc5f55913da35bb3b1ca17e592a4aaf}} 
+bool {\bfseries m\+\_\+is\+\_\+synchronized} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Famille concrete de contacts. 
+
+Definition at line 78 of file Contact\+Family.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classContactFamily_a337d46e4db424513f4fe75d4cbbe1369}\label{classContactFamily_a337d46e4db424513f4fe75d4cbbe1369}} 
+\index{ContactFamily@{ContactFamily}!name@{name}}
+\index{name@{name}!ContactFamily@{ContactFamily}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily const String\& Contact\+Family\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Heritage de \mbox{\hyperlink{classIContactFamily}{IContact\+Family}}. 
+
+Nom de la famille 
+
+Implements \mbox{\hyperlink{classIContactFamily_ac63f98a700ceef712101dc7be5c1eab4}{IContact\+Family}}.
+
+
+
+Definition at line 93 of file Contact\+Family.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Family.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Family.\+cc\end{DoxyCompactItemize}

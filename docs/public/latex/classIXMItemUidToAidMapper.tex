@@ -1,0 +1,55 @@
+\hypertarget{classIXMItemUidToAidMapper}{}\doxysection{IXMItem\+Uid\+To\+Aid\+Mapper Class Reference}
+\label{classIXMItemUidToAidMapper}\index{IXMItemUidToAidMapper@{IXMItemUidToAidMapper}}
+
+
+Classe {\ucr} usage externe permettant d\textquotesingle{}obtenir des identifiants abstraits {\ucr} partir d\textquotesingle{}identifiants uniques, pour des items pour lesquels il existe ces identifiants abstraits.  
+
+
+
+
+{\ttfamily \#include $<$IXMItem\+Aid\+Mapper.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMItemUidToAidMapper_a9830d9b2280a709511dae8670ebc8130}\label{classIXMItemUidToAidMapper_a9830d9b2280a709511dae8670ebc8130}} 
+\mbox{\hyperlink{classIXMItemUidToAidMapper_a9830d9b2280a709511dae8670ebc8130}{IXMItem\+Uid\+To\+Aid\+Mapper}} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+IParallel\+Mng $\ast$parallel\+Mng, Arcane\+::\+IVariable\+Mng $\ast$variable\+Mng, const Arcane\+::e\+Item\+Kind \&item\+\_\+kind)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMItemUidToAidMapper_a77b4cecb5258de19e21a3e632d42bbda}\label{classIXMItemUidToAidMapper_a77b4cecb5258de19e21a3e632d42bbda}} 
+virtual \mbox{\hyperlink{classIXMItemUidToAidMapper_a77b4cecb5258de19e21a3e632d42bbda}{$\sim$\+IXMItem\+Uid\+To\+Aid\+Mapper}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIXMItemUidToAidMapper_af55d2e140ebbd63264a09ee36c5dfef8}{item\+Unique\+Id\+To\+Abstract\+Id}} (Arcane\+::\+Int64\+Array \&item\+\_\+abstract\+\_\+ids, const Arcane\+::\+Int64\+Const\+Array\+View item\+\_\+unique\+\_\+ids) const
+\begin{DoxyCompactList}\small\item\em Convertit les unique id en abstract id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMItemUidToAidMapper_a6131e883664498326600928f2d61e49f}\label{classIXMItemUidToAidMapper_a6131e883664498326600928f2d61e49f}} 
+Arcane\+::\+Int64 {\bfseries item\+Unique\+Id\+To\+Abstract\+Id} (Arcane\+::\+Int64 uid) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe {\ucr} usage externe permettant d\textquotesingle{}obtenir des identifiants abstraits {\ucr} partir d\textquotesingle{}identifiants uniques, pour des items pour lesquels il existe ces identifiants abstraits. 
+
+Definition at line 124 of file IXMItem\+Aid\+Mapper.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIXMItemUidToAidMapper_af55d2e140ebbd63264a09ee36c5dfef8}\label{classIXMItemUidToAidMapper_af55d2e140ebbd63264a09ee36c5dfef8}} 
+\index{IXMItemUidToAidMapper@{IXMItemUidToAidMapper}!itemUniqueIdToAbstractId@{itemUniqueIdToAbstractId}}
+\index{itemUniqueIdToAbstractId@{itemUniqueIdToAbstractId}!IXMItemUidToAidMapper@{IXMItemUidToAidMapper}}
+\doxysubsubsection{\texorpdfstring{itemUniqueIdToAbstractId()}{itemUniqueIdToAbstractId()}}
+{\footnotesize\ttfamily void IXMItem\+Uid\+To\+Aid\+Mapper\+::item\+Unique\+Id\+To\+Abstract\+Id (\begin{DoxyParamCaption}\item[{Arcane\+::\+Int64\+Array \&}]{item\+\_\+abstract\+\_\+ids,  }\item[{const Arcane\+::\+Int64\+Const\+Array\+View}]{item\+\_\+unique\+\_\+ids }\end{DoxyParamCaption}) const}
+
+
+
+Convertit les unique id en abstract id. 
+
+Si l\textquotesingle{}item n\textquotesingle{}est pas trouvee sur le processus courant, le local id vaut NULL\+\_\+\+ITEM\+\_\+\+ID La correspondance est r{\ucr}alis{\ucr}e gr{\ucr}ce {\ucr} la variable arcane utilisee dans \mbox{\hyperlink{classIXMItemAidToUidMapper}{IXMItem\+Aid\+To\+Uid\+Mapper}}. Si cette variable n\textquotesingle{}est pas trouv{\ucr}e, la correspondance ne peut {\ucr}tre faite ; le tableau d\textquotesingle{}abstract ids (qui doit {\ucr}tre donn{\ucr} vide) n\textquotesingle{}est alors pas rempli. 
+
+Definition at line 391 of file IXMItem\+Aid\+Mapper.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMItem\+Aid\+Mapper.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMItem\+Aid\+Mapper.\+cc\end{DoxyCompactItemize}

@@ -10,3 +10,4 @@ params:
   BookComments: false
   BookToC: true
   BookTheme: "auto"
+  BookSection: ""

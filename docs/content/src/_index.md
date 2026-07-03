@@ -4,6 +4,6 @@ type: docs
 weight: 20
 ---
 
-# Sources
+> 🧠 Cette page a été générée avec l'aide de l'IA à partir de l'analyse du code source et de recherches web.
 
-Documentation des modules principaux du code source.
+{{< include "/work/gratienj/Projets/2026/sharc/src/README.md" >}}

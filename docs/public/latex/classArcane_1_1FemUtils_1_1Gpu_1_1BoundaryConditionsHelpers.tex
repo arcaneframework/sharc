@@ -1,0 +1,30 @@
+\hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers}{}\doxysection{Arcane\+::Fem\+Utils\+::Gpu\+::Boundary\+Conditions\+Helpers Class Reference}
+\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers}\index{Arcane::FemUtils::Gpu::BoundaryConditionsHelpers@{Arcane::FemUtils::Gpu::BoundaryConditionsHelpers}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_a3f3973226d32f0ce3147bb7205712be3}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_a3f3973226d32f0ce3147bb7205712be3}} 
+{\footnotesize template$<$class Function $>$ }\\static void {\bfseries apply\+Constant\+Source\+To\+Rhs\+Base} (Function compute\+Spatial\+Integral, Real qdot, Run\+Queue $\ast$queue, Variable\+Do\+FReal \&rhs\+\_\+variable\+\_\+na, IMesh $\ast$mesh, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_ae6876c309e2f8a1e698d77d3610a2213}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_ae6876c309e2f8a1e698d77d3610a2213}} 
+static void {\bfseries apply\+Dirichlet\+To\+Node\+Group\+Rhs\+Only} (Int32 dof\+\_\+index, Real value, Run\+Queue $\ast$queue, IMesh $\ast$mesh, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, const Node\+Group \&node\+\_\+group)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_a8b4517fc127a5eada859108b70d17356}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_a8b4517fc127a5eada859108b70d17356}} 
+static void {\bfseries apply\+Dirichlet\+To\+Node\+Group\+Via\+Penalty} (Int32 dof\+\_\+index, Real value, Real penalty, Run\+Queue $\ast$queue, IMesh $\ast$mesh, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, const Node\+Group \&node\+\_\+group)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_a895ff58526cda3ffe081e2db524276bb}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditionsHelpers_a895ff58526cda3ffe081e2db524276bb}} 
+static void {\bfseries apply\+Dirichlet\+To\+Node\+Group\+Via\+Row\+Or\+Row\+Column\+Elimination} (Byte elimination\+\_\+type, Int32 dof\+\_\+index, Real value, Run\+Queue $\ast$queue, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, const Node\+Group \&node\+\_\+group)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 643 of file Arcane\+Fem\+Functions\+Gpu.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions\+Gpu.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions\+Gpu.\+cc\end{DoxyCompactItemize}

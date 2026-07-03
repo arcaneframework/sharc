@@ -1,0 +1,66 @@
+\hypertarget{classContactFamilyVariableSynchronizer}{}\doxysection{Contact\+Family\+Variable\+Synchronizer Class Reference}
+\label{classContactFamilyVariableSynchronizer}\index{ContactFamilyVariableSynchronizer@{ContactFamilyVariableSynchronizer}}
+
+
+Classe construite pour pouvoir utilis{\ucr}e des connectivit{\ucr}s distribu{\ucr}es avec des contacts.  
+
+
+
+
+{\ttfamily \#include $<$Contact\+Family\+Variable\+Synchronizer.\+h$>$}
+
+
+
+Inherits Arcane\+::\+IVariable\+Synchronizer.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_aa3840d943902abc3b3f7d36a43cb3e02}\label{classContactFamilyVariableSynchronizer_aa3840d943902abc3b3f7d36a43cb3e02}} 
+{\bfseries Contact\+Family\+Variable\+Synchronizer} (Arcane\+::\+IParallel\+Mng $\ast$pm, \mbox{\hyperlink{classContactGroup}{Contact\+Group}} cg)
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_aa972dab818f82bfde6865772e64bda02}\label{classContactFamilyVariableSynchronizer_aa972dab818f82bfde6865772e64bda02}} 
+virtual void {\bfseries compute} ()
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_ae6cc439194c00002067701c1961a2aa5}\label{classContactFamilyVariableSynchronizer_ae6cc439194c00002067701c1961a2aa5}} 
+virtual Arcane\+::\+Int32\+Const\+Array\+View {\bfseries communicating\+Ranks} ()
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_ac15eabdfdbc77fbdefabe867c1a4df34}\label{classContactFamilyVariableSynchronizer_ac15eabdfdbc77fbdefabe867c1a4df34}} 
+virtual Arcane\+::\+Int32\+Const\+Array\+View {\bfseries shared\+Items} (Arcane\+::\+Int32 index)
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_a1972823a58312ffaccc3810ddda12276}\label{classContactFamilyVariableSynchronizer_a1972823a58312ffaccc3810ddda12276}} 
+virtual Arcane\+::\+Int32\+Const\+Array\+View {\bfseries ghost\+Items} (Arcane\+::\+Int32 index)
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_aae7b84d8cf6fa4c2a629fb0be8ec9a48}\label{classContactFamilyVariableSynchronizer_aae7b84d8cf6fa4c2a629fb0be8ec9a48}} 
+virtual Arcane\+::\+IParallel\+Mng $\ast$ {\bfseries parallel\+Mng} ()
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_a8e213070b0c1e70c4c12134a98fac289}\label{classContactFamilyVariableSynchronizer_a8e213070b0c1e70c4c12134a98fac289}} 
+virtual const Arcane\+::\+Item\+Group \& {\bfseries item\+Group} ()
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_aedb5efc367abbb556787b81ab7fdad40}\label{classContactFamilyVariableSynchronizer_aedb5efc367abbb556787b81ab7fdad40}} 
+virtual void {\bfseries change\+Local\+Ids} (Int32\+Const\+Array\+View old\+\_\+to\+\_\+new\+\_\+ids)
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_a9d90ac972b4a5d744d9ce36e62016205}\label{classContactFamilyVariableSynchronizer_a9d90ac972b4a5d744d9ce36e62016205}} 
+virtual void {\bfseries synchronize} (Arcane\+::\+IVariable $\ast$var)
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_a2ced3d27e335aff002754c015a283559}\label{classContactFamilyVariableSynchronizer_a2ced3d27e335aff002754c015a283559}} 
+virtual void {\bfseries synchronize} (Arcane\+::\+Variable\+Collection vars)
+\item 
+\mbox{\Hypertarget{classContactFamilyVariableSynchronizer_a3959f954e15c007baabe9bd81462c8b9}\label{classContactFamilyVariableSynchronizer_a3959f954e15c007baabe9bd81462c8b9}} 
+virtual void {\bfseries synchronize\+Data} (Arcane\+::\+IData $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe construite pour pouvoir utilis{\ucr}e des connectivit{\ucr}s distribu{\ucr}es avec des contacts. 
+
+Seules les m{\ucr}thodes de IVariable\+Synchronizer n{\ucr}cessaire pour synchroniser les connectivit{\ucr}s ont {\ucr}t{\ucr} impl{\ucr}ment{\ucr}es. 
+
+Definition at line 22 of file Contact\+Family\+Variable\+Synchronizer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Family\+Variable\+Synchronizer.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Family\+Variable\+Synchronizer.\+cc\end{DoxyCompactItemize}

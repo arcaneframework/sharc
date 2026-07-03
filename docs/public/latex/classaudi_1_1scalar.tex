@@ -1,0 +1,95 @@
+\hypertarget{classaudi_1_1scalar}{}\doxysection{audi\+::scalar$<$ T, Allocator $>$ Class Template Reference}
+\label{classaudi_1_1scalar}\index{audi::scalar$<$ T, Allocator $>$@{audi::scalar$<$ T, Allocator $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ scalar$<$ T, allocator $>$ $>$}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classaudi_1_1scalar_1_1range}{range}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a613a86624ed1d4bbd857096ed0c2c89a}\label{classaudi_1_1scalar_a613a86624ed1d4bbd857096ed0c2c89a}} 
+using {\bfseries data\+\_\+type} = T
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a1e942fdb8b1b19d897bf7cdbf9a2909b}\label{classaudi_1_1scalar_a1e942fdb8b1b19d897bf7cdbf9a2909b}} 
+{\bfseries scalar} (std\+::size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a40fd9b5d472bf63dc69bd125e54b0854}\label{classaudi_1_1scalar_a40fd9b5d472bf63dc69bd125e54b0854}} 
+{\bfseries scalar} (const \mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \&n)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a94c31baa0796f9d2ca1cc53ac778f96e}\label{classaudi_1_1scalar_a94c31baa0796f9d2ca1cc53ac778f96e}} 
+{\footnotesize template$<$typename E $>$ }\\{\bfseries scalar} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ E $>$ \&vec)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a835a7ba59a354b0069d4967ed622c6be}\label{classaudi_1_1scalar_a835a7ba59a354b0069d4967ed622c6be}} 
+{\footnotesize template$<$typename E $>$ }\\\mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \& {\bfseries operator=} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ E $>$ \&vec)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_ae93dfbbee829619f834f633904f1a66e}\label{classaudi_1_1scalar_ae93dfbbee829619f834f633904f1a66e}} 
+{\footnotesize template$<$typename E $>$ }\\\mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \& {\bfseries operator+=} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ E $>$ \&vec)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a824a356b961e6c81fe964a2a5b38e69a}\label{classaudi_1_1scalar_a824a356b961e6c81fe964a2a5b38e69a}} 
+{\footnotesize template$<$typename E $>$ }\\\mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \& {\bfseries operator-\/=} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ E $>$ \&vec)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a0a3ae8ba786c6311ea08954446cba89d}\label{classaudi_1_1scalar_a0a3ae8ba786c6311ea08954446cba89d}} 
+{\footnotesize template$<$typename E $>$ }\\\mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \& {\bfseries operator$\ast$=} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ E $>$ \&vec)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a6c03078b6821678f0ceab846bb3cb592}\label{classaudi_1_1scalar_a6c03078b6821678f0ceab846bb3cb592}} 
+std\+::size\+\_\+t {\bfseries capacity} () const
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a76c61bf2fa870a88de90eb79f681afee}\label{classaudi_1_1scalar_a76c61bf2fa870a88de90eb79f681afee}} 
+std\+::size\+\_\+t {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_af1f9733d1a0b36c7de616ae9611d0e9f}\label{classaudi_1_1scalar_af1f9733d1a0b36c7de616ae9611d0e9f}} 
+T \& {\bfseries value} ()
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a7351fd8fd6dc87258c47441fbd032c3c}\label{classaudi_1_1scalar_a7351fd8fd6dc87258c47441fbd032c3c}} 
+const T \& {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a366b20c6afa5b71d3bffd5d0345d51bc}\label{classaudi_1_1scalar_a366b20c6afa5b71d3bffd5d0345d51bc}} 
+T \& {\bfseries gradient} (std\+::size\+\_\+t i)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_aaf594c5730a0611e77ad515c0bd27c7f}\label{classaudi_1_1scalar_aaf594c5730a0611e77ad515c0bd27c7f}} 
+const T \& {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_ad259f564dec5e0c3fc1ba7914fdb2ec4}\label{classaudi_1_1scalar_ad259f564dec5e0c3fc1ba7914fdb2ec4}} 
+\mbox{\hyperlink{classaudi_1_1scalar_1_1range}{range}} {\bfseries gradient} () const
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a56dd20eabfbb7d948cecc5814a3efe7e}\label{classaudi_1_1scalar_a56dd20eabfbb7d948cecc5814a3efe7e}} 
+T $\ast$ {\bfseries derivatives} () const
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_ac1c1da5c1f643280857941d62020cd20}\label{classaudi_1_1scalar_ac1c1da5c1f643280857941d62020cd20}} 
+T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (std\+::size\+\_\+t i)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a6f761ed7555c73d78a5de2282d1da0f0}\label{classaudi_1_1scalar_a6f761ed7555c73d78a5de2282d1da0f0}} 
+const T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a3d77fe0eb494487694dbb468faf049a1}\label{classaudi_1_1scalar_a3d77fe0eb494487694dbb468faf049a1}} 
+\mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \& {\bfseries operator=} (T d)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_ad6ddfa508431a00fb11313ce42dcc8d4}\label{classaudi_1_1scalar_ad6ddfa508431a00fb11313ce42dcc8d4}} 
+\mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \& {\bfseries operator=} (const \mbox{\hyperlink{classaudi_1_1scalar}{scalar}} \&n)
+\item 
+\mbox{\Hypertarget{classaudi_1_1scalar_a2384804e23893d12a36d054e5224b40d}\label{classaudi_1_1scalar_a2384804e23893d12a36d054e5224b40d}} 
+void {\bfseries resize} (std\+::size\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, template$<$ typename $>$ class Allocator = allocator$>$\newline
+class audi\+::scalar$<$ T, Allocator $>$}
+
+
+
+Definition at line 10 of file scalar.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/scalar.\+h\end{DoxyCompactItemize}

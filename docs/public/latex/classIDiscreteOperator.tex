@@ -1,0 +1,116 @@
+\hypertarget{classIDiscreteOperator}{}\doxysection{IDiscrete\+Operator Class Reference}
+\label{classIDiscreteOperator}\index{IDiscreteOperator@{IDiscreteOperator}}
+
+
+Inherited by \mbox{\hyperlink{classIAdvectionOperator}{IAdvection\+Operator}}, and \mbox{\hyperlink{classIDivKGradDiscreteOperator}{IDiv\+KGrad\+Discrete\+Operator}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDiscreteOperator_a04430d66251c216cd7e1c0ee41d5dc90}\label{classIDiscreteOperator_a04430d66251c216cd7e1c0ee41d5dc90}} 
+typedef Item\+Vector\+View \mbox{\hyperlink{classIDiscreteOperator_a04430d66251c216cd7e1c0ee41d5dc90}{Stencil\+Type}}
+\begin{DoxyCompactList}\small\item\em Stencil type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_a98e4aac07363a0e6d7119cb7cf03008f}\label{classIDiscreteOperator_a98e4aac07363a0e6d7119cb7cf03008f}} 
+typedef Real \mbox{\hyperlink{classIDiscreteOperator_a98e4aac07363a0e6d7119cb7cf03008f}{Flux\+Coeff\+Type}}
+\begin{DoxyCompactList}\small\item\em Flux coefficient type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_ab99b5aed3c97a843bcaf57ec8a970d4d}\label{classIDiscreteOperator_ab99b5aed3c97a843bcaf57ec8a970d4d}} 
+typedef Array\+View$<$ Real $>$ \mbox{\hyperlink{classIDiscreteOperator_ab99b5aed3c97a843bcaf57ec8a970d4d}{Stencil\+Flux\+Coeff\+Type}}
+\begin{DoxyCompactList}\small\item\em Stencil flux coefficient type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDiscreteOperator_a34d5cac14b8fc46feea499d2d8792b25}\label{classIDiscreteOperator_a34d5cac14b8fc46feea499d2d8792b25}} 
+virtual void \mbox{\hyperlink{classIDiscreteOperator_a34d5cac14b8fc46feea499d2d8792b25}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize service. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIDiscreteOperator_aa8e1532224fdb6d49c51f2f9b4bb74ae}{prepare}} (IMesh $\ast$mesh, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)=0
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity). \end{DoxyCompactList}\item 
+virtual ARCANE\+\_\+\+DEPRECATED void \mbox{\hyperlink{classIDiscreteOperator_a0bb2af373364912e4b5604985bbbbb13}{prepare}} (const Face\+Group \&internal\+\_\+faces, const Face\+Group \&boundary\+\_\+faces, Face\+Group \&c\+\_\+internal\+\_\+faces, Face\+Group \&cf\+\_\+internal\+\_\+faces, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)=0
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_af41f9fca0b4e5fb04feeb52495a55345}\label{classIDiscreteOperator_af41f9fca0b4e5fb04feeb52495a55345}} 
+virtual void \mbox{\hyperlink{classIDiscreteOperator_af41f9fca0b4e5fb04feeb52495a55345}{finalize}} ()=0
+\begin{DoxyCompactList}\small\item\em Reset operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_ad7ad4cb4c4a0606f3173670fc3bd09bf}\label{classIDiscreteOperator_ad7ad4cb4c4a0606f3173670fc3bd09bf}} 
+virtual Integer \mbox{\hyperlink{classIDiscreteOperator_ad7ad4cb4c4a0606f3173670fc3bd09bf}{get\+Cell\+Geometric\+Properties}} ()=0
+\begin{DoxyCompactList}\small\item\em Required cell geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_a4f13187c650b8bd8f64b0dba4f9afb3a}\label{classIDiscreteOperator_a4f13187c650b8bd8f64b0dba4f9afb3a}} 
+virtual Integer \mbox{\hyperlink{classIDiscreteOperator_a4f13187c650b8bd8f64b0dba4f9afb3a}{get\+Face\+Geometric\+Properties}} ()=0
+\begin{DoxyCompactList}\small\item\em Required face geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_a516f131ccf4f5e304093c51a456d4de3}\label{classIDiscreteOperator_a516f131ccf4f5e304093c51a456d4de3}} 
+virtual const Face\+Group \& \mbox{\hyperlink{classIDiscreteOperator_a516f131ccf4f5e304093c51a456d4de3}{faces}} () const =0
+\begin{DoxyCompactList}\small\item\em Return faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_aa1982c8ec0ae2f459c22fad5c4ae82b5}\label{classIDiscreteOperator_aa1982c8ec0ae2f459c22fad5c4ae82b5}} 
+virtual const Cell\+Group \& \mbox{\hyperlink{classIDiscreteOperator_aa1982c8ec0ae2f459c22fad5c4ae82b5}{cells}} () const =0
+\begin{DoxyCompactList}\small\item\em Return cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_a9c840a79647b606103025befcb1b7b8a}\label{classIDiscreteOperator_a9c840a79647b606103025befcb1b7b8a}} 
+virtual const Face\+Group \& \mbox{\hyperlink{classIDiscreteOperator_a9c840a79647b606103025befcb1b7b8a}{boundary\+Faces}} () const =0
+\begin{DoxyCompactList}\small\item\em Return boundary faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDiscreteOperator_a172c4b016b4a9ca77773f27999d3351a}\label{classIDiscreteOperator_a172c4b016b4a9ca77773f27999d3351a}} 
+virtual const Face\+Group \& \mbox{\hyperlink{classIDiscreteOperator_a172c4b016b4a9ca77773f27999d3351a}{internal\+Faces}} () const =0
+\begin{DoxyCompactList}\small\item\em Return internal faces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 25 of file IDiscrete\+Operator.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIDiscreteOperator_a0bb2af373364912e4b5604985bbbbb13}\label{classIDiscreteOperator_a0bb2af373364912e4b5604985bbbbb13}} 
+\index{IDiscreteOperator@{IDiscreteOperator}!prepare@{prepare}}
+\index{prepare@{prepare}!IDiscreteOperator@{IDiscreteOperator}}
+\doxysubsubsection{\texorpdfstring{prepare()}{prepare()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual ARCANE\+\_\+\+DEPRECATED void IDiscrete\+Operator\+::prepare (\begin{DoxyParamCaption}\item[{const Face\+Group \&}]{internal\+\_\+faces,  }\item[{const Face\+Group \&}]{boundary\+\_\+faces,  }\item[{Face\+Group \&}]{c\+\_\+internal\+\_\+faces,  }\item[{Face\+Group \&}]{cf\+\_\+internal\+\_\+faces,  }\item[{\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$}]{cell\+\_\+coefficients,  }\item[{\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$}]{face\+\_\+coefficients }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Preliminary computations (including connectivity). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em internal\+\_\+faces} & internal faces\\
+\hline
+{\em boundary\+\_\+faces} & boundary faces, whose flux stencil contains both cell and (boundary) face unknowns and which require a boundary condition value to be added to the right-\/hand side\\
+\hline
+{\em c\+\_\+internal\+\_\+faces} & the group of internal faces whose flux stencil contains cell unknowns only\\
+\hline
+{\em cf\+\_\+internal\+\_\+faces} & the group of internal faces whose flux stencil contains both cell and (boundary) face unknowns\\
+\hline
+{\em cell\+\_\+coefficients} & data structure containing cell stencils and coefficients\\
+\hline
+{\em face\+\_\+coefficients} & data structure containing face stencils and coefficients \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classIDivKGradOLGSchemes_af91e7a481578b52abbee81b71d5fd481}{IDiv\+KGrad\+OLGSchemes$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}, \mbox{\hyperlink{classStandardDivKGradTwoPointsService_a619679884fb7d148cf90ae53912f1822}{Standard\+Div\+KGrad\+Two\+Points\+Service}}, \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_ab44a2f2f1be9ad3e8de0c3717e2f36ba}{Standard\+Div\+KGrad\+Two\+Points\+Active\+Service}}, \mbox{\hyperlink{classDivKGradTwoPointsService_ac07b577872391b13422a6b86f695bf97}{Div\+KGrad\+Two\+Points\+Service}}, and \mbox{\hyperlink{classDivKGradGradMScheme_ac32ebb07ce9add310e1f559d8a1ee12d}{Div\+KGrad\+Grad\+MScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}.
+
+\mbox{\Hypertarget{classIDiscreteOperator_aa8e1532224fdb6d49c51f2f9b4bb74ae}\label{classIDiscreteOperator_aa8e1532224fdb6d49c51f2f9b4bb74ae}} 
+\index{IDiscreteOperator@{IDiscreteOperator}!prepare@{prepare}}
+\index{prepare@{prepare}!IDiscreteOperator@{IDiscreteOperator}}
+\doxysubsubsection{\texorpdfstring{prepare()}{prepare()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void IDiscrete\+Operator\+::prepare (\begin{DoxyParamCaption}\item[{IMesh $\ast$}]{mesh,  }\item[{\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$}]{cell\+\_\+coefficients,  }\item[{\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$}]{face\+\_\+coefficients }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Preliminary computations (including connectivity). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & a pointer to IMesh\\
+\hline
+{\em cell\+\_\+coefficients} & data structure containing cell stencils and coefficients\\
+\hline
+{\em face\+\_\+coefficients} & data structure containing face stencils and coefficients \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classIDivKGradOLGSchemes_aead7f0b9dca99fa4c6c39bf84d3119b8}{IDiv\+KGrad\+OLGSchemes$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}, \mbox{\hyperlink{classStandardDivKGradTwoPointsService_aeab303a15e5ce9acff014269ef889ebf}{Standard\+Div\+KGrad\+Two\+Points\+Service}}, \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_abbd81aeda031d66960303622d0a49f6e}{Standard\+Div\+KGrad\+Two\+Points\+Active\+Service}}, \mbox{\hyperlink{classDivKGradTwoPointsService_a734e33c4b2e2ffc211e3684aade7e8c8}{Div\+KGrad\+Two\+Points\+Service}}, and \mbox{\hyperlink{classDivKGradGradMScheme_a5190aff3f8cd8272a9f0a3af5993f168}{Div\+KGrad\+Grad\+MScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/IDiscrete\+Operator.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,80 @@
+\hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase}{}\doxysection{Arcane\+::Fem\+Utils\+::Do\+FLinear\+System\+Impl\+Base Class Reference}
+\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase}\index{Arcane::FemUtils::DoFLinearSystemImplBase@{Arcane::FemUtils::DoFLinearSystemImplBase}}
+
+
+Inherits Arcane\+::\+Trace\+Accessor, and \mbox{\hyperlink{classArcane_1_1FemUtils_1_1IDoFLinearSystemImpl}{Arcane\+::\+Fem\+Utils\+::\+IDo\+FLinear\+System\+Impl}}.
+
+
+
+Inherited by Arcane\+::\+Fem\+Utils\+::\+Aleph\+Do\+FLinear\+System\+Impl, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1AlienDoFLinearSystemImpl}{Arcane\+::\+Fem\+Utils\+::\+Alien\+Do\+FLinear\+System\+Impl}}, and \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrDoFLinearSystemImpl}{Arcane\+::\+Fem\+Utils\+::\+Csr\+Do\+FLinear\+System\+Impl}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a66fb765bd10bc7fe71fdee708627164c}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a66fb765bd10bc7fe71fdee708627164c}} 
+{\bfseries Do\+FLinear\+System\+Impl\+Base} (IItem\+Family $\ast$dof\+\_\+family, const String \&solver\+\_\+name)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a2d43de8ec019174a1ae879f07331abe6}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a2d43de8ec019174a1ae879f07331abe6}} 
+void {\bfseries clear\+Values} () override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_ae53e27913b7a01ce2297f3471134ef37}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_ae53e27913b7a01ce2297f3471134ef37}} 
+Variable\+Do\+FReal \& {\bfseries solution\+Variable} () final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a392230fe57f050d1ec69b2577e692116}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a392230fe57f050d1ec69b2577e692116}} 
+Variable\+Do\+FReal \& {\bfseries rhs\+Variable} () final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a9ff3522d7fa3e769c7620c52dd96e266}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a9ff3522d7fa3e769c7620c52dd96e266}} 
+Variable\+Do\+FBool \& {\bfseries get\+Forced\+Info} () final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a08792027b111bdd0dad1401d1488fb81}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a08792027b111bdd0dad1401d1488fb81}} 
+Variable\+Do\+FReal \& {\bfseries get\+Forced\+Value} () final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a3b842e07578c028d316f75e1671dfcfe}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a3b842e07578c028d316f75e1671dfcfe}} 
+Variable\+Do\+FByte \& {\bfseries get\+Elimination\+Info} () final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a13f629852a6d0c66ae980b6b10804557}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a13f629852a6d0c66ae980b6b10804557}} 
+Variable\+Do\+FReal \& {\bfseries get\+Elimination\+Value} () final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a0fc224e3845356481db0204023d38250}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a0fc224e3845356481db0204023d38250}} 
+void {\bfseries set\+Runner} (const Runner \&r) override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a30ea96ddff28919b595c1ee6f82b52ff}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a30ea96ddff28919b595c1ee6f82b52ff}} 
+Runner {\bfseries runner} () const override
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_aa4910de3549f90194534b6734229e6ee}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_aa4910de3549f90194534b6734229e6ee}} 
+IItem\+Family $\ast$ {\bfseries dof\+Family} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a5aecd2621a948ea2da69e3e46fd0d666}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a5aecd2621a948ea2da69e3e46fd0d666}} 
+void {\bfseries set\+Constant\+Matrix\+Sparsity} (const bool val) final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a8778cbd88b70553b7a66a222dd35d476}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a8778cbd88b70553b7a66a222dd35d476}} 
+void {\bfseries set\+Constant\+Matrix\+Values} (const bool val) final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a4f53a4d4400ec025e9c968fbd65b1ad0}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a4f53a4d4400ec025e9c968fbd65b1ad0}} 
+bool {\bfseries is\+Matrix\+Sparsity\+Constant} () const final
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a17f3f3b26ae8ebc58ef36c08cf726b5f}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a17f3f3b26ae8ebc58ef36c08cf726b5f}} 
+bool {\bfseries is\+Matrix\+Values\+Constant} () const final
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a36951c57a7c851a7f200bd7b96037723}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a36951c57a7c851a7f200bd7b96037723}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1OrderedRowColumnMap}{Ordered\+Row\+Column\+Map}} \& {\bfseries \+\_\+row\+Column\+Elimination\+Map} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a7beca3ab65ba37e8f5c9cfc29da46784}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemImplBase_a7beca3ab65ba37e8f5c9cfc29da46784}} 
+void {\bfseries \+\_\+apply\+Row\+Column\+Elimination\+To\+RHS} (bool is\+\_\+verbose)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 38 of file Do\+FLinear\+System\+Impl\+Base.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/internal/Do\+FLinear\+System\+Impl\+Base.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Do\+FLinear\+System\+Impl\+Base.\+cc\end{DoxyCompactItemize}

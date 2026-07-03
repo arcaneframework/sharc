@@ -1,0 +1,50 @@
+\hypertarget{classDichotomySolver}{}\doxysection{Dichotomy\+Solver Class Reference}
+\label{classDichotomySolver}\index{DichotomySolver@{DichotomySolver}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classDichotomySolver_1_1Info}{Info}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDichotomySolver_a0b3d2a6994700bc055e801b17167a9f0}\label{classDichotomySolver_a0b3d2a6994700bc055e801b17167a9f0}} 
+enum {\bfseries Error\+Code\+Type} \{ \newline
+{\bfseries OK}
+, {\bfseries XMIN\+\_\+\+REACHED}
+, {\bfseries XMAX\+\_\+\+REACHED}
+, {\bfseries ITERMAX\+\_\+\+REACHED}
+, \newline
+{\bfseries UNDEFINED}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDichotomySolver_aebed6a1c792989fcb33d38f482f630d9}\label{classDichotomySolver_aebed6a1c792989fcb33d38f482f630d9}} 
+void {\bfseries set\+Parameter} (Integer max\+\_\+iter, Real precision)
+\item 
+\mbox{\Hypertarget{classDichotomySolver_ace1345d8bc055b1b47045e8702863cf0}\label{classDichotomySolver_ace1345d8bc055b1b47045e8702863cf0}} 
+void {\bfseries set\+PrecisionX} (Real precision\+\_\+x)
+\item 
+\mbox{\Hypertarget{classDichotomySolver_a3f964422e50720bf25f632a4ba711305}\label{classDichotomySolver_a3f964422e50720bf25f632a4ba711305}} 
+Real {\bfseries get\+Precision} ()
+\item 
+\mbox{\Hypertarget{classDichotomySolver_aa879de57c42b78e2c20c1b0b22b52575}\label{classDichotomySolver_aa879de57c42b78e2c20c1b0b22b52575}} 
+Integer {\bfseries get\+Max\+Iter} ()
+\item 
+\mbox{\Hypertarget{classDichotomySolver_a7d6fc69c22731ccb6880a8f33e0c0224}\label{classDichotomySolver_a7d6fc69c22731ccb6880a8f33e0c0224}} 
+{\footnotesize template$<$class F $>$ }\\Real {\bfseries solve} (F \&function, Real x\+\_\+init, Real x\+\_\+min, Real x\+\_\+max, \mbox{\hyperlink{classDichotomySolver_1_1Info}{Info}} $\ast$info)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file Dichotomy\+Solver.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Utils/\+Algorithms/Dichotomy\+Solver.\+h\end{DoxyCompactItemize}

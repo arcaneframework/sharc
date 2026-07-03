@@ -1,0 +1,67 @@
+\hypertarget{classGaussInterpolatorService}{}\doxysection{Gauss\+Interpolator\+Service Class Reference}
+\label{classGaussInterpolatorService}\index{GaussInterpolatorService@{GaussInterpolatorService}}
+
+
+Inherits Arcane\+Gauss\+Interpolator\+Object.
+
+\doxysubsection*{Public Types}
+\begin{Indent}\textbf{ Typedefs}\par
+{\em ! }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_a6a1b76ca3dc2e706e3dbfa47f9bbc23a}\label{classGaussInterpolatorService_a6a1b76ca3dc2e706e3dbfa47f9bbc23a}} 
+typedef Variable\+Face\+Real \mbox{\hyperlink{classGaussInterpolatorService_a6a1b76ca3dc2e706e3dbfa47f9bbc23a}{Source\+Type}}
+\begin{DoxyCompactList}\small\item\em Source field type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_ab81f6866810fead002dce9a4ea219de2}\label{classGaussInterpolatorService_ab81f6866810fead002dce9a4ea219de2}} 
+typedef Variable\+Cell\+Real3 \mbox{\hyperlink{classGaussInterpolatorService_ab81f6866810fead002dce9a4ea219de2}{Target\+Type}}
+\begin{DoxyCompactList}\small\item\em Target field type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and destructors}\par
+{\em ! }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_acf6818fa38d6b2ad20163dccecd2dd90}\label{classGaussInterpolatorService_acf6818fa38d6b2ad20163dccecd2dd90}} 
+{\bfseries Gauss\+Interpolator\+Service} (const Service\+Build\+Info \&sbi)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Setters and getters}\par
+{\em ! }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_a5c291d7cdff4f2c85335f06f633a525b}\label{classGaussInterpolatorService_a5c291d7cdff4f2c85335f06f633a525b}} 
+Integer \mbox{\hyperlink{classGaussInterpolatorService_a5c291d7cdff4f2c85335f06f633a525b}{get\+Cell\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Return cell geometrical properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_aa69f32714dd90757c50c08e7b4cbf02a}\label{classGaussInterpolatorService_aa69f32714dd90757c50c08e7b4cbf02a}} 
+Integer \mbox{\hyperlink{classGaussInterpolatorService_aa69f32714dd90757c50c08e7b4cbf02a}{get\+Face\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Reture face geometrical properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_afd100bc3cfed1e170c6fe23553c5893c}\label{classGaussInterpolatorService_afd100bc3cfed1e170c6fe23553c5893c}} 
+void \mbox{\hyperlink{classGaussInterpolatorService_afd100bc3cfed1e170c6fe23553c5893c}{set\+Source\+Field}} (const Mesh\+Variable\+Ref $\ast$source)
+\begin{DoxyCompactList}\small\item\em Set source field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_ad25bc6da3ddc86c12d3704e45518b38b}\label{classGaussInterpolatorService_ad25bc6da3ddc86c12d3704e45518b38b}} 
+void \mbox{\hyperlink{classGaussInterpolatorService_ad25bc6da3ddc86c12d3704e45518b38b}{set\+Target\+Field}} (Mesh\+Variable\+Ref $\ast$target)
+\begin{DoxyCompactList}\small\item\em Set target field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Members}
+\label{_amgrpef53538ae41a651c7f72ab6cb1135d8c}%
+! \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_a9d4cbc9d8e88e64c1a200d22ef79eefb}\label{classGaussInterpolatorService_a9d4cbc9d8e88e64c1a200d22ef79eefb}} 
+void \mbox{\hyperlink{classGaussInterpolatorService_a9d4cbc9d8e88e64c1a200d22ef79eefb}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the service. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_a767bc3a671782a9f698877d9f7cc91e8}\label{classGaussInterpolatorService_a767bc3a671782a9f698877d9f7cc91e8}} 
+void {\bfseries prepare} ()
+\item 
+\mbox{\Hypertarget{classGaussInterpolatorService_ac07c6a120eb826c843967d36ad50bea3}\label{classGaussInterpolatorService_ac07c6a120eb826c843967d36ad50bea3}} 
+void \mbox{\hyperlink{classGaussInterpolatorService_ac07c6a120eb826c843967d36ad50bea3}{interpolate}} ()
+\begin{DoxyCompactList}\small\item\em Perform interpolation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file Gauss\+Interpolator\+Service.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Interpolator/\+Implementation/Gauss\+Interpolator\+Service.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Interpolator/\+Implementation/Gauss\+Interpolator\+Service.\+cc\end{DoxyCompactItemize}

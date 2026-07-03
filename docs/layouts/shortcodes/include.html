@@ -1,0 +1,11 @@
+{{/*
+  Simple shortcode d'inclusion de fichier Markdown.
+
+  Usage dans le contenu :
+    {{< include "/chemin/absolu/vers/README.md" >}}
+
+  Le fichier est lu via readFile puis rendu avec markdownify.
+*/}}
+
+{{- $path := .Get 0 -}}
+{{- readFile $path | markdownify -}}

@@ -1,0 +1,110 @@
+\hypertarget{classAndradeInterpolator}{}\doxysection{Andrade\+Interpolator Class Reference}
+\label{classAndradeInterpolator}\index{AndradeInterpolator@{AndradeInterpolator}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAndradeInterpolator_aabe792fcdfabf6dc3871caa5a8551cd7}\label{classAndradeInterpolator_aabe792fcdfabf6dc3871caa5a8551cd7}} 
+enum {\bfseries e\+Prolongation\+Type} \{ {\bfseries Constant\+Prolongation}
+, {\bfseries Linear\+Prolongation}
+ \}
+\item 
+\mbox{\Hypertarget{classAndradeInterpolator_afe3b2aec6ef6494f563c1aec161a7f76}\label{classAndradeInterpolator_afe3b2aec6ef6494f563c1aec161a7f76}} 
+typedef Real {\bfseries Interval\+Data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAndradeInterpolator_a16cb4c260a51599ce9e936ed8cb2b18f}\label{classAndradeInterpolator_a16cb4c260a51599ce9e936ed8cb2b18f}} 
+\mbox{\hyperlink{classAndradeInterpolator_a16cb4c260a51599ce9e936ed8cb2b18f}{Andrade\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAndradeInterpolator_a47373df95aec0b6b85946dadf4425450}\label{classAndradeInterpolator_a47373df95aec0b6b85946dadf4425450}} 
+virtual \mbox{\hyperlink{classAndradeInterpolator_a47373df95aec0b6b85946dadf4425450}{$\sim$\+Andrade\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Real \mbox{\hyperlink{classAndradeInterpolator_ac64fcd56a02b528b79f6e92e83f6878c}{interpolate}} (const Real $\ast$const x, const Real $\ast$y, const Interval\+Data $\ast$const coef, const Real v)
+\begin{DoxyCompactList}\small\item\em Static inline Andrade interpolation method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAndradeInterpolator_a808049a3c12625881ce9a7a5ac39f224}\label{classAndradeInterpolator_a808049a3c12625881ce9a7a5ac39f224}} 
+static Real \mbox{\hyperlink{classAndradeInterpolator_a808049a3c12625881ce9a7a5ac39f224}{differentiate}} (const Real $\ast$const x, const Real $\ast$const y, const Interval\+Data $\ast$const coef, const Real v)
+\begin{DoxyCompactList}\small\item\em Static inline Andrade interpolation \+: get derivative. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classAndradeInterpolator_a756e3724f8e642e4532ac3b0e997c7d5}{update\+Ghost\+Points}} (const e\+Prolongation\+Type \&prolongation\+\_\+type, Real $\ast$const x\+\_\+begin, Real $\ast$const x\+\_\+end, Real $\ast$const y\+\_\+begin, Real $\ast$const y\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Static inline update ghost cells value method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAndradeInterpolator_ae107f2e471b3c0e94260f1f6769608c7}\label{classAndradeInterpolator_ae107f2e471b3c0e94260f1f6769608c7}} 
+static const Interval\+Data \& \mbox{\hyperlink{classAndradeInterpolator_ae107f2e471b3c0e94260f1f6769608c7}{get\+Forbidden\+Interval}} (const Real \&forbidden\+\_\+interval\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Static interval coefficient setting method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAndradeInterpolator_a2c40d87528f21560b14c2c74464f5683}\label{classAndradeInterpolator_a2c40d87528f21560b14c2c74464f5683}} 
+static void \mbox{\hyperlink{classAndradeInterpolator_a2c40d87528f21560b14c2c74464f5683}{get\+Connected\+Interval\+Number}} (Integer \&nb\+\_\+linterval, Integer \&nb\+\_\+rinterval)
+\begin{DoxyCompactList}\small\item\em Static method giving number of intervals connected at the right and left of one inserted point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAndradeInterpolator_a2950066ec4b6ade9a59db7f926fd39f4}\label{classAndradeInterpolator_a2950066ec4b6ade9a59db7f926fd39f4}} 
+static Interval\+Data \mbox{\hyperlink{classAndradeInterpolator_a2950066ec4b6ade9a59db7f926fd39f4}{get\+Default\+Interval}} ()
+\begin{DoxyCompactList}\small\item\em Static interval coefficient setting method \+: get default interval coef. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAndradeInterpolator_a86c4ea8be3fae801d5d2e8ca34883149}\label{classAndradeInterpolator_a86c4ea8be3fae801d5d2e8ca34883149}} 
+static void \mbox{\hyperlink{classAndradeInterpolator_a86c4ea8be3fae801d5d2e8ca34883149}{compute\+Interval\+Coef}} (const Real $\ast$const x\+\_\+left\+\_\+bound, const Real $\ast$const y\+\_\+left\+\_\+bound, const Integer \&interval\+\_\+number, Interval\+Data $\ast$const interval\+\_\+coeff)
+\begin{DoxyCompactList}\small\item\em Static interval coefficient precalculation method coef = x2 $\ast$ ln (y2/y1) / (x2 -\/ x1) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classAndradeInterpolator_a8a9eab483ab5b872ab5acdc186db3846}{update\+Ghost\+Intervals}} (const e\+Prolongation\+Type \&prolongation\+\_\+type, Real $\ast$const x\+\_\+begin, Real $\ast$const x\+\_\+end, Real $\ast$const y\+\_\+begin, Real $\ast$const y\+\_\+end, Real $\ast$const interval\+\_\+begin, Real $\ast$const interval\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Static inline update ghost value method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAndradeInterpolator_aed48de15adc5a97d28660fc4e66e0b9c}\label{classAndradeInterpolator_aed48de15adc5a97d28660fc4e66e0b9c}} 
+static void \mbox{\hyperlink{classAndradeInterpolator_aed48de15adc5a97d28660fc4e66e0b9c}{get\+Interpolator\+Type}} (Piece\+Wise\+Function\+Type\+::e\+Interpolator\+Type \&interpolator\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Static method giving type of interpolator using enumeration defined in \mbox{\hyperlink{IPieceWiseFunction_8h_source}{IPiece\+Wise\+Function.\+h}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 29 of file Andrade\+Interpolator.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAndradeInterpolator_ac64fcd56a02b528b79f6e92e83f6878c}\label{classAndradeInterpolator_ac64fcd56a02b528b79f6e92e83f6878c}} 
+\index{AndradeInterpolator@{AndradeInterpolator}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!AndradeInterpolator@{AndradeInterpolator}}
+\doxysubsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily static Real Andrade\+Interpolator\+::interpolate (\begin{DoxyParamCaption}\item[{const Real $\ast$const}]{x,  }\item[{const Real $\ast$}]{y,  }\item[{const Interval\+Data $\ast$const}]{coef,  }\item[{const Real}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline Andrade interpolation method. 
+
+Return Andrade interpolate
+
+Definition at line 56 of file Andrade\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classAndradeInterpolator_a8a9eab483ab5b872ab5acdc186db3846}\label{classAndradeInterpolator_a8a9eab483ab5b872ab5acdc186db3846}} 
+\index{AndradeInterpolator@{AndradeInterpolator}!updateGhostIntervals@{updateGhostIntervals}}
+\index{updateGhostIntervals@{updateGhostIntervals}!AndradeInterpolator@{AndradeInterpolator}}
+\doxysubsubsection{\texorpdfstring{updateGhostIntervals()}{updateGhostIntervals()}}
+{\footnotesize\ttfamily static void Andrade\+Interpolator\+::update\+Ghost\+Intervals (\begin{DoxyParamCaption}\item[{const e\+Prolongation\+Type \&}]{prolongation\+\_\+type,  }\item[{Real $\ast$const}]{x\+\_\+begin,  }\item[{Real $\ast$const}]{x\+\_\+end,  }\item[{Real $\ast$const}]{y\+\_\+begin,  }\item[{Real $\ast$const}]{y\+\_\+end,  }\item[{Real $\ast$const}]{interval\+\_\+begin,  }\item[{Real $\ast$const}]{interval\+\_\+end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline update ghost value method. 
+
+Interval ghost cells \+: infinite constant prolongation
+
+Interval ghost cells \+: infinite constant prolongation
+
+Definition at line 133 of file Andrade\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classAndradeInterpolator_a756e3724f8e642e4532ac3b0e997c7d5}\label{classAndradeInterpolator_a756e3724f8e642e4532ac3b0e997c7d5}} 
+\index{AndradeInterpolator@{AndradeInterpolator}!updateGhostPoints@{updateGhostPoints}}
+\index{updateGhostPoints@{updateGhostPoints}!AndradeInterpolator@{AndradeInterpolator}}
+\doxysubsubsection{\texorpdfstring{updateGhostPoints()}{updateGhostPoints()}}
+{\footnotesize\ttfamily static void Andrade\+Interpolator\+::update\+Ghost\+Points (\begin{DoxyParamCaption}\item[{const e\+Prolongation\+Type \&}]{prolongation\+\_\+type,  }\item[{Real $\ast$const}]{x\+\_\+begin,  }\item[{Real $\ast$const}]{x\+\_\+end,  }\item[{Real $\ast$const}]{y\+\_\+begin,  }\item[{Real $\ast$const}]{y\+\_\+end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline update ghost cells value method. 
+
+x and y Ghost cells = \mbox{\hyperlink{classTable}{Table}} first point
+
+x and y Ghost cells = \mbox{\hyperlink{classTable}{Table}} first point
+
+Definition at line 73 of file Andrade\+Interpolator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/\+Andrade\+Piece\+Wise\+Function/Andrade\+Interpolator.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,303 @@
+\hypertarget{classContactItemFamily}{}\doxysection{Contact\+Item\+Family Class Reference}
+\label{classContactItemFamily}\index{ContactItemFamily@{ContactItemFamily}}
+
+
+Proxy pour implementer IItem\+Family, afin de pouvoir beneficier des outils autour de Item\+Connectivity Temporaire, a terme les contacts devraient etre implementes par des DoF.  
+
+
+
+
+{\ttfamily \#include $<$Contact\+Family.\+h$>$}
+
+
+
+Inherits Arcane\+::\+IItem\+Family.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a893fc3a89aea7311cbc2296f0f967a9f}\label{classContactItemFamily_a893fc3a89aea7311cbc2296f0f967a9f}} 
+{\bfseries Contact\+Item\+Family} (\mbox{\hyperlink{classIContactFamily}{IContact\+Family}} $\ast$contact\+\_\+family)
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a28b822a57a8c0215c1f4f78a60d42d9c}\label{classContactItemFamily_a28b822a57a8c0215c1f4f78a60d42d9c}} 
+\mbox{\hyperlink{classIContactFamily}{IContact\+Family}} $\ast$ {\bfseries contact\+Family} ()
+\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a44b852a52eb84320dcb46c456e705b05}\label{classContactItemFamily_a44b852a52eb84320dcb46c456e705b05}} 
+void \mbox{\hyperlink{classContactItemFamily_a44b852a52eb84320dcb46c456e705b05}{build}} () override
+\begin{DoxyCompactList}\small\item\em Heritage de IItem\+Family necessaire pour la gestion de la distribution des contacts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactItemFamily_a5521967941bcdc3f7fa5872e75f172e3}\label{classContactItemFamily_a5521967941bcdc3f7fa5872e75f172e3}} 
+Int32 {\bfseries max\+Local\+Id} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ad953c64561a9817e5402635cd1e3c249}\label{classContactItemFamily_ad953c64561a9817e5402635cd1e3c249}} 
+void {\bfseries end\+Update} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ae242d201236cd188b53f7e2a290da91a}\label{classContactItemFamily_ae242d201236cd188b53f7e2a290da91a}} 
+Arcane\+::\+ITrace\+Mng $\ast$ {\bfseries trace\+Mng} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a33f6cb07c0e8d82b2bb90627b398f91b}\label{classContactItemFamily_a33f6cb07c0e8d82b2bb90627b398f91b}} 
+Arcane\+::\+ISub\+Domain $\ast$ {\bfseries sub\+Domain} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a38c259e92cfd1219788f3c1d0a53b84f}\label{classContactItemFamily_a38c259e92cfd1219788f3c1d0a53b84f}} 
+Arcane\+::\+IMesh $\ast$ {\bfseries mesh} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_af1b0987200334d851b6a7188ba3fd0ca}\label{classContactItemFamily_af1b0987200334d851b6a7188ba3fd0ca}} 
+Arcane\+::\+IParallel\+Mng $\ast$ {\bfseries parallel\+Mng} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a5e05eb79fcb96d1255a04555f5bc6308}\label{classContactItemFamily_a5e05eb79fcb96d1255a04555f5bc6308}} 
+Arcane\+::\+IVariable\+Synchronizer $\ast$ {\bfseries all\+Items\+Synchronizer} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a3eca21c6c7676ce2787e38769d575ba9}\label{classContactItemFamily_a3eca21c6c7676ce2787e38769d575ba9}} 
+const String \& {\bfseries name} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_addf1d2945b87d306a9fd727b9648245d}\label{classContactItemFamily_addf1d2945b87d306a9fd727b9648245d}} 
+Arcane\+::\+Item\+Internal\+Array\+View {\bfseries items\+Internal} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a5c770da6b1643df30d81387a41fc14a8}\label{classContactItemFamily_a5c770da6b1643df30d81387a41fc14a8}} 
+Arcane\+::\+Item\+Vector\+View {\bfseries view} (Int32\+Const\+Array\+View local\+\_\+ids) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a2d4c77bf644a1f2e72ff46cb604a3a3f}\label{classContactItemFamily_a2d4c77bf644a1f2e72ff46cb604a3a3f}} 
+Arcane\+::\+Item\+Vector\+View {\bfseries view} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ab12161750bd0a664e75007d65ea18f23}\label{classContactItemFamily_ab12161750bd0a664e75007d65ea18f23}} 
+void {\bfseries items\+Unique\+Id\+To\+Local\+Id} (Int32\+Array\+View local\+\_\+ids, Int64\+Const\+Array\+View unique\+\_\+ids, bool do\+\_\+fatal=true) const override
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a853865c3a03d4f55541ceaa156182dfe}\label{classContactItemFamily_a853865c3a03d4f55541ceaa156182dfe}} 
+const String \& \mbox{\hyperlink{classContactItemFamily_a853865c3a03d4f55541ceaa156182dfe}{full\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Heritage de IItem\+Family non necessaire et non implementee. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContactItemFamily_afac3d38f8bc672569fd8c62dd0ff9cbe}\label{classContactItemFamily_afac3d38f8bc672569fd8c62dd0ff9cbe}} 
+Arcane\+::e\+Item\+Kind {\bfseries item\+Kind} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a3288cbf1ce36ffbbd91461c09367fe25}\label{classContactItemFamily_a3288cbf1ce36ffbbd91461c09367fe25}} 
+Integer {\bfseries nb\+Item} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a6f41484843ed7b5a2258d87ce2a2625b}\label{classContactItemFamily_a6f41484843ed7b5a2258d87ce2a2625b}} 
+ARCANE\+\_\+\+DEPRECATED\+\_\+112 Int32 {\bfseries variable\+Max\+Size} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a3da824b9eeb00a508426c814b66af5ef}\label{classContactItemFamily_a3da824b9eeb00a508426c814b66af5ef}} 
+IItem\+Family $\ast$ {\bfseries parent\+Family} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a81e313b63fa95d9f73a811b36929d7ce}\label{classContactItemFamily_a81e313b63fa95d9f73a811b36929d7ce}} 
+void {\bfseries set\+Parent\+Family} (IItem\+Family $\ast$parent) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a6185be4d5ba4b0e8f8efd98abab09c54}\label{classContactItemFamily_a6185be4d5ba4b0e8f8efd98abab09c54}} 
+Integer {\bfseries parent\+Family\+Depth} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a8dc969eedb8278dc8f3fcda15f198773}\label{classContactItemFamily_a8dc969eedb8278dc8f3fcda15f198773}} 
+void {\bfseries add\+Child\+Family} (IItem\+Family $\ast$family) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a92d52b8c8fae67185c9eed123f4c6174}\label{classContactItemFamily_a92d52b8c8fae67185c9eed123f4c6174}} 
+Arcane\+::\+IItem\+Family\+Collection {\bfseries child\+Families} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_af9dea6430afc7b40523610d4095c07ff}\label{classContactItemFamily_af9dea6430afc7b40523610d4095c07ff}} 
+Arcane\+::\+Variable\+Item\+Int32 \& {\bfseries items\+New\+Owner} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aa7e6957483a666506837b50652fff825}\label{classContactItemFamily_aa7e6957483a666506837b50652fff825}} 
+void {\bfseries check\+Valid} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a07a72cf6ebbfbbc89cc2292c2d08ea0e}\label{classContactItemFamily_a07a72cf6ebbfbbc89cc2292c2d08ea0e}} 
+void {\bfseries check\+Unique\+Ids} (Int64\+Const\+Array\+View unique\+\_\+ids) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a04d363ea6a0b2243f1f149b67aef80ee}\label{classContactItemFamily_a04d363ea6a0b2243f1f149b67aef80ee}} 
+void {\bfseries add\+Items} (Int64\+Const\+Array\+View unique\+\_\+ids, Int32\+Array\+View items) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aa881b986ca5c3d8b401a312ab2595ffc}\label{classContactItemFamily_aa881b986ca5c3d8b401a312ab2595ffc}} 
+void {\bfseries add\+Items} (Int64\+Const\+Array\+View unique\+\_\+ids, Array\+View$<$ \mbox{\hyperlink{classItem}{Item}} $>$ items)
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a7da3bf9fafaa507ec1b6e7664df93f41}\label{classContactItemFamily_a7da3bf9fafaa507ec1b6e7664df93f41}} 
+void {\bfseries add\+Items} (Int64\+Const\+Array\+View unique\+\_\+ids, Arcane\+::\+Item\+Group item\+\_\+group) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a46067fe65cf9a4dfe4d36c2a2f2a73c8}\label{classContactItemFamily_a46067fe65cf9a4dfe4d36c2a2f2a73c8}} 
+void {\bfseries exchange\+Items} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ad7085e8ebeff8fb13b44ed79b8361503}\label{classContactItemFamily_ad7085e8ebeff8fb13b44ed79b8361503}} 
+void {\bfseries remove\+Items} (Int32\+Const\+Array\+View local\+\_\+ids, bool keep\+\_\+ghost=false) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_af1c53e0c11c73f6be684367e6a88212b}\label{classContactItemFamily_af1c53e0c11c73f6be684367e6a88212b}} 
+Arcane\+::\+Item\+Internal $\ast$ {\bfseries find\+One\+Item} (Int64 unique\+\_\+id) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a7bf0dac4aedad643eb3369167ba36d42}\label{classContactItemFamily_a7bf0dac4aedad643eb3369167ba36d42}} 
+void {\bfseries merge\+Items} (Int32 local\+\_\+id1, Int32 local\+\_\+id2) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a7cb202fb604c16d1054bfbdabcadec72}\label{classContactItemFamily_a7cb202fb604c16d1054bfbdabcadec72}} 
+Int32 {\bfseries get\+Merged\+Item\+LID} (Int32 local\+\_\+id1, Int32 local\+\_\+id2) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ab7a7a9ac43a1811e71e343583fa8d101}\label{classContactItemFamily_ab7a7a9ac43a1811e71e343583fa8d101}} 
+void {\bfseries partial\+End\+Update} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a2eb48cabf1c16a1fd6722e0242323415}\label{classContactItemFamily_a2eb48cabf1c16a1fd6722e0242323415}} 
+void {\bfseries partial\+End\+Update\+Group} (const Arcane\+::\+Item\+Group \&group) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a48eafcc9d1ec213c57f43d284e5ed3f1}\label{classContactItemFamily_a48eafcc9d1ec213c57f43d284e5ed3f1}} 
+void {\bfseries partial\+End\+Update\+Variable} (Arcane\+::\+IVariable $\ast$variable) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a1ccf562be7f0af827baf506b4c27d86c}\label{classContactItemFamily_a1ccf562be7f0af827baf506b4c27d86c}} 
+void {\bfseries notify\+Items\+Owner\+Changed} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ad1b90f6d953ac02d9a6c11e23c926e2c}\label{classContactItemFamily_ad1b90f6d953ac02d9a6c11e23c926e2c}} 
+void {\bfseries notify\+Items\+Unique\+Id\+Changed} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_af631ec4331a336307b24d83c58921d97}\label{classContactItemFamily_af631ec4331a336307b24d83c58921d97}} 
+void {\bfseries resize\+Variables} (bool force\+\_\+resize=false) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a235db835a955cb8893c99819a58d0964}\label{classContactItemFamily_a235db835a955cb8893c99819a58d0964}} 
+Integer {\bfseries max\+Node\+Per\+Item} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a381fcb99cf4d2ab8cf7f7d66ea8e1898}\label{classContactItemFamily_a381fcb99cf4d2ab8cf7f7d66ea8e1898}} 
+Integer {\bfseries max\+Edge\+Per\+Item} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aba23eb8b39d7a0fbc1c1b0a786f29627}\label{classContactItemFamily_aba23eb8b39d7a0fbc1c1b0a786f29627}} 
+Integer {\bfseries max\+Face\+Per\+Item} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aea8e250e2a1030904514549cc4a8c1ea}\label{classContactItemFamily_aea8e250e2a1030904514549cc4a8c1ea}} 
+Integer {\bfseries max\+Cell\+Per\+Item} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a0950c39af3759db6805a0f0cc4dd5565}\label{classContactItemFamily_a0950c39af3759db6805a0f0cc4dd5565}} 
+Integer {\bfseries max\+Local\+Node\+Per\+Item\+Type} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ae73823d052db46cd77ca90d8244fb047}\label{classContactItemFamily_ae73823d052db46cd77ca90d8244fb047}} 
+Integer {\bfseries max\+Local\+Edge\+Per\+Item\+Type} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a3f4c4adddb10049ae53cec01f8961308}\label{classContactItemFamily_a3f4c4adddb10049ae53cec01f8961308}} 
+Integer {\bfseries max\+Local\+Face\+Per\+Item\+Type} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ac0f8b3a9e6a08c5d7d0f1fb76191833c}\label{classContactItemFamily_ac0f8b3a9e6a08c5d7d0f1fb76191833c}} 
+void {\bfseries set\+Has\+Unique\+Id\+Map} (bool v) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a3c677586eec00482d50d0a21d963dda3}\label{classContactItemFamily_a3c677586eec00482d50d0a21d963dda3}} 
+bool {\bfseries has\+Unique\+Id\+Map} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aab17bb71bcd98dd70751ddcce6a14043}\label{classContactItemFamily_aab17bb71bcd98dd70751ddcce6a14043}} 
+void {\bfseries items\+Unique\+Id\+To\+Local\+Id} (Int32\+Array\+View local\+\_\+ids, Const\+Array\+View$<$ Arcane\+::\+Item\+Unique\+Id $>$ unique\+\_\+ids, bool do\+\_\+fatal=true) const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a7303f36e9e9d415525ba7b788bd32749}\label{classContactItemFamily_a7303f36e9e9d415525ba7b788bd32749}} 
+void {\bfseries set\+Item\+Sort\+Function} (Arcane\+::\+IItem\+Internal\+Sort\+Function $\ast$sort\+\_\+function) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a34d154d8f580a9c4272bebc99d9aecc6}\label{classContactItemFamily_a34d154d8f580a9c4272bebc99d9aecc6}} 
+Arcane\+::\+IItem\+Internal\+Sort\+Function $\ast$ {\bfseries item\+Sort\+Function} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a8774052241328478fd15226a918c0d42}\label{classContactItemFamily_a8774052241328478fd15226a918c0d42}} 
+void {\bfseries end\+Allocate} ()
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aee5771e8854949dfcd668f2f20d59cfb}\label{classContactItemFamily_aee5771e8854949dfcd668f2f20d59cfb}} 
+void {\bfseries notify\+End\+Update\+From\+Mesh} ()
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a663819fb234f5c2e8fc492d69d82bbb7}\label{classContactItemFamily_a663819fb234f5c2e8fc492d69d82bbb7}} 
+Arcane\+::\+Item\+Group {\bfseries all\+Items} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a997696f3a23fd0be6f645047e91b30b3}\label{classContactItemFamily_a997696f3a23fd0be6f645047e91b30b3}} 
+Arcane\+::\+Item\+Group\+Collection {\bfseries groups} () const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_afea12b71f9d0986dfc3fc86e6648d11f}\label{classContactItemFamily_afea12b71f9d0986dfc3fc86e6648d11f}} 
+Arcane\+::\+Item\+Group {\bfseries find\+Group} (const String \&name) const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_acef3c32b49316fea8f6089d801cace8c}\label{classContactItemFamily_acef3c32b49316fea8f6089d801cace8c}} 
+Arcane\+::\+Item\+Group {\bfseries find\+Group} (const String \&name, bool create\+\_\+if\+\_\+needed) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a1068d8b899d4c410e69c837b30bf7909}\label{classContactItemFamily_a1068d8b899d4c410e69c837b30bf7909}} 
+Arcane\+::\+Item\+Group {\bfseries create\+Group} (const String \&name, Int32\+Const\+Array\+View local\+\_\+ids, bool do\+\_\+override=false) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ac7a80c3a0cbfdb7cd2f234dae2360651}\label{classContactItemFamily_ac7a80c3a0cbfdb7cd2f234dae2360651}} 
+Arcane\+::\+Item\+Group {\bfseries create\+Group} (const String \&name) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a9ca07f66407eec155269b033cbf8d017}\label{classContactItemFamily_a9ca07f66407eec155269b033cbf8d017}} 
+void {\bfseries destroy\+Groups} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a7d5e7ddbcb17a5c28055674c9edc23a7}\label{classContactItemFamily_a7d5e7ddbcb17a5c28055674c9edc23a7}} 
+Arcane\+::\+Item\+Group {\bfseries create\+Group} (const String \&name, const Arcane\+::\+Item\+Group \&parent, bool do\+\_\+override=false) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ab26957c4fbece7e69aed4d60c833d4fd}\label{classContactItemFamily_ab26957c4fbece7e69aed4d60c833d4fd}} 
+Arcane\+::\+IVariable $\ast$ {\bfseries find\+Variable} (const String \&name, bool throw\+\_\+exception=false) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a04b3a6ba7269fddabe86c7d515254cda}\label{classContactItemFamily_a04b3a6ba7269fddabe86c7d515254cda}} 
+void {\bfseries used\+Variables} (Arcane\+::\+Variable\+Collection collection) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a14a1ca4723bb8ea989ee657b05c0309f}\label{classContactItemFamily_a14a1ca4723bb8ea989ee657b05c0309f}} 
+void {\bfseries prepare\+For\+Dump} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a5d393107ac10f81e124b107059f060c4}\label{classContactItemFamily_a5d393107ac10f81e124b107059f060c4}} 
+void {\bfseries read\+From\+Dump} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a6bc5c450938cd7381befcbf69620f250}\label{classContactItemFamily_a6bc5c450938cd7381befcbf69620f250}} 
+void {\bfseries copy\+Items\+Values} (Int32\+Const\+Array\+View source, Int32\+Const\+Array\+View destination) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a3bc0b98f2b8e3093e8528a084e8cb001}\label{classContactItemFamily_a3bc0b98f2b8e3093e8528a084e8cb001}} 
+void {\bfseries copy\+Items\+Mean\+Values} (Int32\+Const\+Array\+View first\+\_\+source, Int32\+Const\+Array\+View second\+\_\+source, Int32\+Const\+Array\+View destination) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a289ec4510fc22f4e0bf4a3536f8cb371}\label{classContactItemFamily_a289ec4510fc22f4e0bf4a3536f8cb371}} 
+void {\bfseries clear\+Items} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ab896b1aa29b24afd0d15bbf4154f897c}\label{classContactItemFamily_ab896b1aa29b24afd0d15bbf4154f897c}} 
+void {\bfseries compact\+Items} (bool do\+\_\+sort) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a9b087c2e622fce3659c719b227302ffd}\label{classContactItemFamily_a9b087c2e622fce3659c719b227302ffd}} 
+void {\bfseries add\+Variable} (Arcane\+::\+IVariable $\ast$var)
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a928895aff8a652b1982836b86324ea32}\label{classContactItemFamily_a928895aff8a652b1982836b86324ea32}} 
+void {\bfseries remove\+Variable} (Arcane\+::\+IVariable $\ast$var)
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aa075afde2cdb5f507f0b3d602bebd714}\label{classContactItemFamily_aa075afde2cdb5f507f0b3d602bebd714}} 
+void {\bfseries compute\+Synchronize\+Infos} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a174164d50170dd253f71db6792499667}\label{classContactItemFamily_a174164d50170dd253f71db6792499667}} 
+void {\bfseries get\+Communicating\+Sub\+Domains} (Int32\+Array \&sub\+\_\+domains) const override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a9dde5058c547f21f0ed4da143eb32fb5}\label{classContactItemFamily_a9dde5058c547f21f0ed4da143eb32fb5}} 
+void {\bfseries synchronize} (Arcane\+::\+Variable\+Collection variables) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a691d78924f5e34bd97d7567463f25ef7}\label{classContactItemFamily_a691d78924f5e34bd97d7567463f25ef7}} 
+void {\bfseries reduce\+From\+Ghost\+Items} (Arcane\+::\+IVariable $\ast$v, Arcane\+::\+IData\+Operation $\ast$operation) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a4327f0c2c11a13cd8301a360dc056dd8}\label{classContactItemFamily_a4327f0c2c11a13cd8301a360dc056dd8}} 
+void {\bfseries reduce\+From\+Ghost\+Items} (Arcane\+::\+IVariable $\ast$v, Arcane\+::\+Parallel\+::e\+Reduce\+Type operation) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a0a3c39cd6f7bb997513a4c2e212d8e84}\label{classContactItemFamily_a0a3c39cd6f7bb997513a4c2e212d8e84}} 
+Arcane\+::\+Item\+Pair\+Group {\bfseries find\+Adjency\+Items} (const Arcane\+::\+Item\+Group \&group, const Arcane\+::\+Item\+Group \&sub\+\_\+group, Arcane\+::e\+Item\+Kind link\+\_\+kind, Integer nb\+\_\+layer) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_acf1b5964851d11332548d9190fb1f322}\label{classContactItemFamily_acf1b5964851d11332548d9190fb1f322}} 
+Arcane\+::\+IParticle\+Family $\ast$ {\bfseries to\+Particle\+Family} () override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a3012fd64883e2e4602acdfb1a9e44070}\label{classContactItemFamily_a3012fd64883e2e4602acdfb1a9e44070}} 
+void {\bfseries internal\+Remove\+Items} (Arcane\+::\+Int32\+Const\+Array\+View local\+\_\+ids, bool keep\+\_\+ghost=false) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a853caa6fe87d79a9a405d3364a032d53}\label{classContactItemFamily_a853caa6fe87d79a9a405d3364a032d53}} 
+void {\bfseries add\+Source\+Connectivity} (IItem\+Connectivity $\ast$connectivity) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a36f7fb341a66642ad969070777131714}\label{classContactItemFamily_a36f7fb341a66642ad969070777131714}} 
+void {\bfseries add\+Target\+Connectivity} (IItem\+Connectivity $\ast$connectivity) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a9dfe8491f2dd4f4377516de0c4894faf}\label{classContactItemFamily_a9dfe8491f2dd4f4377516de0c4894faf}} 
+void {\bfseries remove\+Source\+Connectivity} (IItem\+Connectivity $\ast$connectivity) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_aa7735d06ded5a7fae6f60d1cdbefdf2c}\label{classContactItemFamily_aa7735d06ded5a7fae6f60d1cdbefdf2c}} 
+void {\bfseries remove\+Target\+Connectivity} (IItem\+Connectivity $\ast$connectivity) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a5bbbb577f1a25b43f30b6235800e64b7}\label{classContactItemFamily_a5bbbb577f1a25b43f30b6235800e64b7}} 
+void {\bfseries resize\+Variables} ()
+\item 
+\mbox{\Hypertarget{classContactItemFamily_ae7c9737605ac020f9ffd34397d90b819}\label{classContactItemFamily_ae7c9737605ac020f9ffd34397d90b819}} 
+void {\bfseries set\+Connectivity\+Mng} (IItem\+Connectivity\+Mng $\ast$connectivity\+\_\+mng) override
+\item 
+\mbox{\Hypertarget{classContactItemFamily_a7b2c4982250fa5b2eb1842a463cd705e}\label{classContactItemFamily_a7b2c4982250fa5b2eb1842a463cd705e}} 
+void {\bfseries add\+Ghost\+Items} (Int64\+Const\+Array\+View unique\+\_\+ids, Int32\+Array\+View items, Int32\+Const\+Array\+View owners) override
+\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Detailed Description}
+Proxy pour implementer IItem\+Family, afin de pouvoir beneficier des outils autour de Item\+Connectivity Temporaire, a terme les contacts devraient etre implementes par des DoF. 
+
+Definition at line 243 of file Contact\+Family.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Family.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Contact\+Family.\+cc\end{DoxyCompactItemize}

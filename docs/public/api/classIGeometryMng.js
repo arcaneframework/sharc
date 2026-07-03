@@ -1,0 +1,35 @@
+var classIGeometryMng =
+[
+    [ "Real3GroupMap", "classIGeometryMng.html#ad014d22128f789eb11c79b57b3963069", null ],
+    [ "Real3Variable", "classIGeometryMng.html#a731a32442666f216c139b72c36e78dcd", null ],
+    [ "RealGroupMap", "classIGeometryMng.html#a5694bcb2a2a3e8750663a0668ac02b8a", null ],
+    [ "RealVariable", "classIGeometryMng.html#a45919b1c47318ce27ee17bc1a2921254", null ],
+    [ "Dimension", "classIGeometryMng.html#a0713e0fee0ac089eeb1f341827665325", [
+      [ "eUndefined", "classIGeometryMng.html#a0713e0fee0ac089eeb1f341827665325a46e5240f02f262bbbb359a08c45c083d", null ],
+      [ "e3Dxyz", "classIGeometryMng.html#a0713e0fee0ac089eeb1f341827665325a1a5d82006ae40846cc0bd0738909c34e", null ],
+      [ "e2Dxy", "classIGeometryMng.html#a0713e0fee0ac089eeb1f341827665325a29fb1336b483847be8b8dc2679d48ac1", null ],
+      [ "e2Dxz", "classIGeometryMng.html#a0713e0fee0ac089eeb1f341827665325aef74173cd3affedfede262fba5b08118", null ],
+      [ "e2Dyz", "classIGeometryMng.html#a0713e0fee0ac089eeb1f341827665325acaf45d156ba2feb67c6a06e5f2bd1bb7", null ],
+      [ "e2Dxyz", "classIGeometryMng.html#a0713e0fee0ac089eeb1f341827665325a401caff38f527e5343600a30d80e9917", null ]
+    ] ],
+    [ "IGeometryMng", "classIGeometryMng.html#aabc4bdeaae3a5fcc3825d2d4caff7f14", null ],
+    [ "~IGeometryMng", "classIGeometryMng.html#aacff1427b1c9eb8f199adcfd3689d254", null ],
+    [ "addItemGroupProperty", "classIGeometryMng.html#a77c3f64f091bb609bffa398b84516c69", null ],
+    [ "addItemGroupProperty", "classIGeometryMng.html#aae3a290fb989bbbf7679b78409ea6b83", null ],
+    [ "addItemGroupProperty", "classIGeometryMng.html#ac3ab446de994e297d8338e7e6db8587e", null ],
+    [ "dimension", "classIGeometryMng.html#a6a603e0de5adb2de44ee4be8d1b5a39a", null ],
+    [ "geometry", "classIGeometryMng.html#aaaec9fa6a90aae82e97ba980afa0d900", null ],
+    [ "getItemGroupProperty", "classIGeometryMng.html#a140fdc2951a12f901e2b45c7528e3a88", null ],
+    [ "getItemGroupPropertyStorage", "classIGeometryMng.html#a2c04cb2f1d11adb68163fdf2d5c0d097", null ],
+    [ "getReal3GroupMapProperty", "classIGeometryMng.html#a7019db1a7c8e7b44c2389a9e83c8614f", null ],
+    [ "getReal3VariableProperty", "classIGeometryMng.html#a87bc7fe2f3678dd255daeaf0b250ef9a", null ],
+    [ "getRealGroupMapProperty", "classIGeometryMng.html#a03710f1d496e6d00937254bb004fd603", null ],
+    [ "getRealVariableProperty", "classIGeometryMng.html#a6144228ba432113a6e5241776c8228ee", null ],
+    [ "hasItemGroupProperty", "classIGeometryMng.html#a4b700adc016daa3f61ac75273a7e112f", null ],
+    [ "init", "classIGeometryMng.html#a6515aefc6741a57042e3a918b2442134", null ],
+    [ "reset", "classIGeometryMng.html#ac4215ec134a67d524ed43bbc01f15142", null ],
+    [ "setPolicyTolerance", "classIGeometryMng.html#a8688050ca2633fe68e2b0741c880b979", null ],
+    [ "unregisterMesh", "classIGeometryMng.html#adfcff6e09ed288d926ea4bd81f5218fb", null ],
+    [ "update", "classIGeometryMng.html#ab59c20e1100dec7f457c230d9266905a", null ],
+    [ "update", "classIGeometryMng.html#a0b166d8dcb936fb9f8092fe70e14cbff", null ]
+];

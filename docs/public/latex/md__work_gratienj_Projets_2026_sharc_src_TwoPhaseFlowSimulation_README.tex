@@ -1,0 +1,373 @@
+\begin{quote}
+🧠 Documentation enrichie par IA — basée sur l\textquotesingle{}analyse du code source et la structure des cas de test \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md153}{}\doxysection{📋 Table des matières}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md153}
+
+\begin{DoxyItemize}
+\item \href{\#description}{\texttt{ Description}}
+\item \href{\#fonctionnalit\%C3\%A9s}{\texttt{ Fonctionnalités}}
+\item \href{\#pr\%C3\%A9requis}{\texttt{ Prérequis}}
+\item \href{\#installation}{\texttt{ Installation}}
+\item \href{\#utilisation}{\texttt{ Utilisation}}
+\item \href{\#api--interface}{\texttt{ API / Interface}}
+\item \href{\#architecture}{\texttt{ Architecture}}
+\item \href{\#d\%C3\%A9pendances}{\texttt{ Dépendances}}
+\item \href{\#configuration}{\texttt{ Configuration}}
+\item \href{\#ressources}{\texttt{ Ressources}}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md154}{}\doxysection{Description}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md154}
+Le module {\ttfamily Two\+Phase\+Flow\+Simulation} implémente le solveur principal de Sh\+Arc pour la {\bfseries{simulation d’écoulements diphasiques en milieu poreux}} (pression + saturations), ainsi qu’un module optionnel de {\bfseries{convection thermo‑chimique couplée}} (pression, concentration, température).
+
+Il s’appuie sur le modèle de données {\bfseries{Arc\+Res}} pour décrire les systèmes physiques (fluides et solide), et sur le framework {\bfseries{Arc\+Geo\+Sim/\+Arcane}} pour la discrétisation numérique (schéma deux‑points, transmissivités, opérateurs de type {\ttfamily Div\+KGrad}) et la résolution non linéaire ({\ttfamily INewton\+Solver}). La structure du module est entièrement pilotée par les fichiers {\ttfamily .axl} (descripteurs \mbox{\hyperlink{namespaceArcane}{Arcane}}) qui enregistrent les points d’entrée ({\ttfamily init}, {\ttfamily compute}) et la liste des services (conditions initiales, lois physiques, conditions aux limites, puits, etc.).
+
+Le module organise la simulation autour d’un système non linéaire {\ttfamily \mbox{\hyperlink{classArcNum_1_1INonLinearSystem}{Arc\+Num\+::\+INon\+Linear\+System}}} \+:
+\begin{DoxyItemize}
+\item construction de la matrice et du résidu à chaque itération Newton (accumulation, flux internes, flux de bord, flux de puits, équation de fermeture),
+\item gestion des variables d’état dans des \char`\"{}folders\char`\"{} de cellules/faces ({\ttfamily Law\+::\+Variable\+Cell\+Folder}, {\ttfamily Partial\+Variable\+Face\+Folder}),
+\item gestion de la {\bfseries{restauration de l’état}} en cas d’échec du solveur (snapshots temporels, {\ttfamily Replay\+Exception}).
+\end{DoxyItemize}
+
+Le répertoire encapsule également la logique de {\bfseries{conditions aux limites}}, {\bfseries{conditions initiales}}, {\bfseries{puits}} et {\bfseries{lois physiques}} (pression capillaire, densité fluide, perméabilité relative, loi constante), ainsi que des interfaces génériques pour la construction du système physique ({\ttfamily \mbox{\hyperlink{classIPhysicalSystem}{IPhysical\+System}}}, {\ttfamily \mbox{\hyperlink{classISystemBuilder}{ISystem\+Builder}}}, {\ttfamily \mbox{\hyperlink{classIVariableManager}{IVariable\+Manager}}}).\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md155}{}\doxysection{Fonctionnalités}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md155}
+Basé sur les symboles et services détectés \+:
+
+
+\begin{DoxyItemize}
+\item ✅ Simulation diphasique principale via {\ttfamily Two\+Phase\+Flow\+Simulation\+Module} \+:
+\begin{DoxyItemize}
+\item Construction d’un système non linéaire sur pression + saturations.
+\item Calcul de l’accumulation, des flux internes, des flux de bord et des flux de puits.
+\item Équation de fermeture (somme des saturations = 1).
+\item \mbox{\hyperlink{namespaceApplication}{Application}} de contraintes physiques sur la solution (projection des saturations dans \mbox{[}0,1\mbox{]}, renormalisation).
+\end{DoxyItemize}
+\item ✅ Simulation thermo‑chimique couplée via {\ttfamily Thermo\+Chemical\+Convection\+Module} \+:
+\begin{DoxyItemize}
+\item Équations pour pression, concentration et température.
+\item Accumulation couplée fluide/solide (chaleur volumique, capacité thermique).
+\item Flux d’advection (Darcy) et de diffusion moléculaire pour la concentration.
+\item Flux de chaleur conductif (fluide/solide) en plus de l’advection.
+\end{DoxyItemize}
+\item ✅ Gestion des {\bfseries{conditions initiales}} \+:
+\begin{DoxyItemize}
+\item Services {\ttfamily \mbox{\hyperlink{classIInitialCondition}{IInitial\+Condition}}} appliqués sur les variables de domaine (pression, saturations, concentration, température, etc.).
+\end{DoxyItemize}
+\item ✅ Gestion des {\bfseries{conditions aux limites}} \+:
+\begin{DoxyItemize}
+\item Interface {\ttfamily \mbox{\hyperlink{classIBoundaryManager}{IBoundary\+Manager}}} et service {\ttfamily Dirichlet\+Manager\+Service}.
+\item Dossiers {\ttfamily Boundary\+Condition/$\ast$} pour les différents types de bord (Dirichlet, etc.).
+\item Évaluation des lois physiques sur les faces de bord (densité, viscosité, perméabilité relative, pression capillaire).
+\end{DoxyItemize}
+\item ✅ Gestion des {\bfseries{puits}} ({\ttfamily Well\+Condition}) \+:
+\begin{DoxyItemize}
+\item Interface {\ttfamily \mbox{\hyperlink{classIWellManager}{IWell\+Manager}}}, services de gestion des puits (débits, index de puits via {\ttfamily \mbox{\hyperlink{classWellIndexComputer}{Well\+Index\+Computer}}}).
+\item Flux puits (terme source/sink) intégrés dans le résidu.
+\end{DoxyItemize}
+\item ✅ Modèle de {\bfseries{système physique Arc\+Res}} \+:
+\begin{DoxyItemize}
+\item Interfaces {\ttfamily \mbox{\hyperlink{classIPhysicalSystem}{IPhysical\+System}}}, {\ttfamily \mbox{\hyperlink{classISystemBuilder}{ISystem\+Builder}}}, {\ttfamily \mbox{\hyperlink{classIVariableManager}{IVariable\+Manager}}}.
+\item Dossier {\ttfamily Physical\+System/} pour le couplage Arc\+Res ↔ simulation (domaines, phases, variables).
+\item {\ttfamily User\+System\+Service} pour brancher un système utilisateur configuré.
+\end{DoxyItemize}
+\item ✅ Lois physiques \+:
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{classCapillaryPressureLaw}{Capillary\+Pressure\+Law}}} (pression capillaire vs saturation).
+\item {\ttfamily \mbox{\hyperlink{classFluidDensityLaw}{Fluid\+Density\+Law}}} (densité fluide vs température et concentration).
+\item {\ttfamily \mbox{\hyperlink{classRelativePermeabilityPowerLaw}{Relative\+Permeability\+Power\+Law}}} (perméabilité relative en fonction de la saturation).
+\item {\ttfamily \mbox{\hyperlink{classConstantLaw}{Constant\+Law}}} (loi paramétrable constante).
+\item Configurateurs {\ttfamily \mbox{\hyperlink{classILawConfigurator}{ILaw\+Configurator}}} et services {\ttfamily $\ast$\+Config\+Service}.
+\end{DoxyItemize}
+\item ✅ Gestion géométrique \+:
+\begin{DoxyItemize}
+\item Enregistrement des propriétés géométriques (volume, centre, normale) via {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}}.
+\item Mise à jour explicite de la géométrie ({\ttfamily \mbox{\hyperlink{classManualUpdateGeometryPolicy}{Manual\+Update\+Geometry\+Policy}}}), notamment après la création de groupes.
+\end{DoxyItemize}
+\item ✅ Profilage du système linéaire \+:
+\begin{DoxyItemize}
+\item Profils matrice deux‑points ({\ttfamily \+\_\+two\+Points\+Profiler}) et multi‑points ({\ttfamily \+\_\+multi\+Points\+Profiler}) sur groupes de mailles/faces.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md156}{}\doxysection{Prérequis}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md156}
+
+\begin{DoxyItemize}
+\item Langage \+:
+\begin{DoxyItemize}
+\item C++ (Arcane/\+Arc\+Geo\+Sim, Arc\+Res) — C++11+.
+\item Descripteurs XML {\ttfamily .axl} pour les modules \mbox{\hyperlink{namespaceArcane}{Arcane}}.
+\end{DoxyItemize}
+\item Frameworks / bibliothèques \+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespaceArcane}{Arcane}} 3 / Arc\+Geo\+Sim (Mesh, Geometry, Numerics, Law2, \mbox{\hyperlink{classAppService}{App\+Service}}).
+\item Arc\+Res (Entities, Properties).
+\item Arc\+Num\+Tools (vecteurs/matrices, solveur Newton {\ttfamily INewton\+Solver}).
+\item Alien (profilage de matrice {\ttfamily Alien\+::\+Matrix\+Profiler}).
+\end{DoxyItemize}
+\item Contexte projet \+:
+\begin{DoxyItemize}
+\item Sh\+Arc est déjà configuré selon le {\ttfamily CMake\+Lists.\+txt} racine (chargement Arc\+Geo\+Sim via {\ttfamily Load\+Arc\+Geo\+Sim.\+cmake}).
+\item Les sous‑modules {\ttfamily common/\+Arc\+Geo\+Sim} et {\ttfamily common/\+Arcane\+Infra} sont initialisés ({\ttfamily git submodule update -\/-\/init}).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md157}{}\doxysection{Installation}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md157}
+Le module n’a pas de CMake\+Lists dédié (il est intégré dans {\ttfamily src/\+CMake\+Lists.\+txt} via les macros Arc\+Geo\+Sim). Typiquement \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# À partir de la racine du dépôt ShArc}
+\DoxyCodeLine{cmake -\/S sharc -\/B build-\/sharc \(\backslash\)}
+\DoxyCodeLine{  -\/DCMAKE\_BUILD\_TYPE=Release \(\backslash\)}
+\DoxyCodeLine{  -\/DBUILD\_SHARED\_LIBS=ON \(\backslash\)}
+\DoxyCodeLine{  -\/DARCANEFRAMEWORK\_ROOT=\$\{INSTALL\_DIR\} \(\backslash\)}
+\DoxyCodeLine{  -\/DUSE\_ARCANE\_V3=ON \(\backslash\)}
+\DoxyCodeLine{  \# ... compilos MPI, options Alien, etc.}
+\DoxyCodeLine{}
+\DoxyCodeLine{cmake -\/-\/build build-\/sharc}
+
+\end{DoxyCode}
+
+
+Aucune étape spécifique n’est nécessaire pour {\ttfamily Two\+Phase\+Flow\+Simulation} \+: le module est compilé dans la bibliothèque Sh\+Arc et enregistré via {\ttfamily ARCANE\+\_\+\+REGISTER\+\_\+\+MODULE\+\_\+\+TWOPHASEFLOWSIMULATION} et {\ttfamily ARCANE\+\_\+\+REGISTER\+\_\+\+MODULE\+\_\+\+THERMOCHEMICALCONVECTION}.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md158}{}\doxysection{Utilisation}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md158}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md159}{}\doxysubsection{Points d’entrée module deux phases}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md159}
+Dans {\ttfamily Two\+Phase\+Flow\+Simulation.\+axl} \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{entry-\/points}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{entry-\/point} \textcolor{keyword}{method-\/name}=\textcolor{stringliteral}{"{}init"{}}    \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}Init"{}}    \textcolor{keyword}{where}=\textcolor{stringliteral}{"{}init"{}} />}
+\DoxyCodeLine{  <\textcolor{keywordtype}{entry-\/point} \textcolor{keyword}{method-\/name}=\textcolor{stringliteral}{"{}compute"{}} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}Compute"{}} \textcolor{keyword}{where}=\textcolor{stringliteral}{"{}compute-\/loop"{}} />}
+\DoxyCodeLine{</\textcolor{keywordtype}{entry-\/points}>}
+
+\end{DoxyCode}
+
+
+Ce qui correspond au C++ \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TwoPhaseFlowSimulationModule::init()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  info() << \textcolor{stringliteral}{"{}create physical solver"{}};}
+\DoxyCodeLine{  \_initPhysicalSystem();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  info() << \textcolor{stringliteral}{"{}create function manager"{}};}
+\DoxyCodeLine{  ArcRes::FluidSubSystem fluid = system().fluidSubSystem();}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (fluid.phases().size() != 2)}
+\DoxyCodeLine{    fatal() << \textcolor{stringliteral}{"{}fluid-\/system should have exactly two phases"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (system().solidSubSystem().phases().size() != 0)}
+\DoxyCodeLine{    fatal() << \textcolor{stringliteral}{"{}solid-\/system should not be filled"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \_initGeometry();}
+\DoxyCodeLine{  \_initGroup();}
+\DoxyCodeLine{  \_initDomainVariableMng();}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (options()-\/>hasBoundaryCondition())}
+\DoxyCodeLine{    \_initBoundaryVariableMng();}
+\DoxyCodeLine{  \_initTransmissivity();}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (options()-\/>hasWellCondition())}
+\DoxyCodeLine{    \_initWellVariableMng();}
+\DoxyCodeLine{  \_initTimeVariableMng();}
+\DoxyCodeLine{  \_initLaws();}
+\DoxyCodeLine{  \_initRestore();}
+\DoxyCodeLine{  \_initEquationSystem();}
+\DoxyCodeLine{  \_initNewton();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TwoPhaseFlowSimulationModule::compute()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  info() << \textcolor{stringliteral}{"{}solve non linear problem at iteration "{}} << m\_global\_iteration();}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} r = options()-\/>numerics().newton()-\/>solve();}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (!r) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{throw} ArcGeoSim::TimeStep::ReplayException(\textcolor{stringliteral}{"{}Error in computation -\/ go backward!"{}});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Usage typique (côté cas {\ttfamily .arc}) \+:
+\begin{DoxyItemize}
+\item on configure le système Arc\+Res (fluide à deux phases, solide vide),
+\item on fournit les services {\ttfamily initial-\/condition}, {\ttfamily law}, {\ttfamily boundary-\/condition}, {\ttfamily well-\/condition} dans le bloc {\ttfamily $<$options$>$} du module,
+\item on lance {\ttfamily Sh\+Arc.\+exe} avec le fichier {\ttfamily .arc} correspondant (voir {\ttfamily test/\+Two\+Phase\+Flow\+Simulation}).
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md160}{}\doxysubsection{Points d’entrée module thermo‑chimique}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md160}
+Même logique, avec un système fluide + solide (1 phase chacun) et 3 inconnues \+:
+\begin{DoxyItemize}
+\item pression,
+\item concentration,
+\item température.
+\end{DoxyItemize}
+
+Le {\ttfamily build()} assemble l’accumulation et les flux en tenant compte des propriétés thermiques (capacité, conductivité) et de la diffusion moléculaire.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md161}{}\doxysection{API / Interface publique}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md161}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md162}{}\doxysubsection{Classes principales}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md162}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+{\ttfamily Two\+Phase\+Flow\+Simulation\+Module}   &classe   &Module \mbox{\hyperlink{namespaceArcane}{Arcane}} pour la simulation diphasique pression/saturation. Implémente {\ttfamily \mbox{\hyperlink{classArcNum_1_1INonLinearSystem}{Arc\+Num\+::\+INon\+Linear\+System}}}.    \\\cline{1-3}
+{\ttfamily Thermo\+Chemical\+Convection\+Module}   &classe   &Module \mbox{\hyperlink{namespaceArcane}{Arcane}} pour la convection thermo‑chimique (P, C, T) couplée fluide/solide. Implémente {\ttfamily \mbox{\hyperlink{classArcNum_1_1INonLinearSystem}{Arc\+Num\+::\+INon\+Linear\+System}}}.    \\\cline{1-3}
+{\ttfamily \mbox{\hyperlink{classIPhysicalSystem}{IPhysical\+System}}}   &interface   &Interface pour fournir un {\ttfamily Arc\+Res\+::\+System} complet (fluide/solide, phases, propriétés).    \\\cline{1-3}
+{\ttfamily \mbox{\hyperlink{classISystemBuilder}{ISystem\+Builder}}}   &interface   &Interface pour construire un système Arc\+Res ({\ttfamily build\+System()}).    \\\cline{1-3}
+{\ttfamily \mbox{\hyperlink{classIVariableManager}{IVariable\+Manager}}}   &interface   &Interface pour gérer les {\ttfamily Law\+::\+Variable\+Cell\+Folder} de domaine ({\ttfamily domain}, {\ttfamily domain\+Tn}, {\ttfamily domain\+T0}).   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md163}{}\doxysubsection{Méthodes clés}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md163}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+{\ttfamily void init()}   &méthode de module   &Initialise le système physique, la géométrie, les groupes, les variables de domaine/bord/puits, les lois, la restauration et le solveur Newton.    \\\cline{1-3}
+{\ttfamily void compute()}   &méthode de module   &Appelle le solveur Newton pour résoudre le système non linéaire sur le pas de temps courant, avec gestion de rollback ({\ttfamily Replay\+Exception}) en cas d’échec.    \\\cline{1-3}
+{\ttfamily Integer nb\+Equations() const}   &méthode   &Retourne le nombre d’équations du système (nombre de phases ou variables couplées).    \\\cline{1-3}
+{\ttfamily Domain const\& system\+Domain() const}   &méthode   &Accès au domaine support de la discrétisation (mailles/faces) pour le système non linéaire.    \\\cline{1-3}
+{\ttfamily void init\+Linear\+System\+Profile(Cell\+Group, Matrix\+Profiler\&, Const\+Array2\+View$<$Integer$>$, Integer)}   &méthode   &Construit le profil de la matrice (topologie non nulle) via schéma deux‑points ou multi‑points.    \\\cline{1-3}
+{\ttfamily void set\+Solution\+Variables(Shared\+Array$<$Variable\+Cell\+Real$\ast$$>$\&)}   &méthode   &Enregistre les variables de solution (pression, saturations, etc.) dans un tableau de variables \mbox{\hyperlink{namespaceArcane}{Arcane}}, à partir des propriétés Arc\+Res.    \\\cline{1-3}
+{\ttfamily void build(\+Vector\& residual, Matrix\& jacobian)}   &méthode   &Construit le vecteur résidu et la matrice jacobienne (accumulation, flux internes, flux de bord, flux de puits, fermeture).    \\\cline{1-3}
+{\ttfamily void apply\+Constraint\+On\+Solution(bool \&\+Non\+Physical\+Solution)}   &méthode (Two\+Phase)   &Projette les saturations dans \mbox{[}0,1\mbox{]} et renormalise pour que la somme soit 1, cellule par cellule.    \\\cline{1-3}
+{\ttfamily \+\_\+init\+Geometry()}   &méthode privée   &Enregistre les propriétés géométriques (volume, centre, normale) dans {\ttfamily \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}} et force leur mise à jour.    \\\cline{1-3}
+{\ttfamily \+\_\+init\+Transmissivity()}   &méthode privée   &Calcule les transmissivités ({\ttfamily Two\+Points\+Transmissivity}) à partir des perméabilités scalaire ou tensorielle.    \\\cline{1-3}
+{\ttfamily \+\_\+build\+Accumulation(...)}   &méthode privée   &Construit le terme d’accumulation en temps (rho·S, rho, concentration, température) avec {\ttfamily Δt}.    \\\cline{1-3}
+{\ttfamily \+\_\+build\+Flux\+Internal(...)}   &méthode privée   &Construit les flux internes (Darcy, gravité, advection, conduction, diffusion) entre mailles internes.    \\\cline{1-3}
+{\ttfamily \+\_\+build\+Flux\+Boundary(...)}   &méthode privée   &Construit les flux de bord à partir des données de {\ttfamily \mbox{\hyperlink{classIBoundaryManager}{IBoundary\+Manager}}}.    \\\cline{1-3}
+{\ttfamily \+\_\+build\+Flux\+Well(...)}   &méthode privée (Two\+Phase)   &Construit les flux puits à partir des indices de puits et des variables de puits.    \\\cline{1-3}
+{\ttfamily \+\_\+build\+Closure(...)}   &méthode privée (Two\+Phase)   &Implémente l’équation de fermeture (somme des saturations − 1 = 0).   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md164}{}\doxysubsection{Lois physiques (helpers)}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md164}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Symbole   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+{\ttfamily \mbox{\hyperlink{classFluidDensityLaw}{Fluid\+Density\+Law}}}   &classe   &Relation densité fluide {\ttfamily rho(\+T,\+C)} avec dérivées {\ttfamily drho/dT}, {\ttfamily drho/dC}.    \\\cline{1-3}
+{\ttfamily \mbox{\hyperlink{classRelativePermeabilityPowerLaw}{Relative\+Permeability\+Power\+Law}}}   &classe   &Loi de perméabilité relative {\ttfamily kr(\+Sw)} avec paramètres {\ttfamily Swi}, {\ttfamily Sgc}, {\ttfamily α}.    \\\cline{1-3}
+{\ttfamily \mbox{\hyperlink{classConstantLaw}{Constant\+Law}}}   &classe   &Loi constante paramétrable (valeur fixe et dérivées).   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md165}{}\doxysection{Architecture}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md165}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{┌─────────────────────────────────────────────────────────┐}
+\DoxyCodeLine{│             src/TwoPhaseFlowSimulation                  │}
+\DoxyCodeLine{├─────────────────────────────────────────────────────────┤}
+\DoxyCodeLine{│                                                         │}
+\DoxyCodeLine{│  ┌──────────────────────┐   ┌────────────────────────┐  │}
+\DoxyCodeLine{│  │ TwoPhaseFlowSimulation│   │ ThermoChemicalConv.   │  │}
+\DoxyCodeLine{│  │      Module.cc        │   │      Module.cc        │  │}
+\DoxyCodeLine{│  └──────────────────────┘   └────────────────────────┘  │}
+\DoxyCodeLine{│           │                        │                    │}
+\DoxyCodeLine{│           │                        │                    │}
+\DoxyCodeLine{│           ▼                        ▼                    │}
+\DoxyCodeLine{│  ┌──────────────────────┐   ┌────────────────────────┐  │}
+\DoxyCodeLine{│  │   PhysicalSystem/    │   │   PhysicalLaws/        │  │}
+\DoxyCodeLine{│  │ (IPhysicalSystem,    │   │ (CapillaryPressure,    │  │}
+\DoxyCodeLine{│  │  ISystemBuilder,     │   │  FluidDensity, RelPerm │  │}
+\DoxyCodeLine{│  │  IVariableManager,   │   │  ConstantLaw, Config   │  │}
+\DoxyCodeLine{│  │  PhysicalModelModule)│   └────────────────────────┘  │}
+\DoxyCodeLine{│  └──────────────────────┘              │                │}
+\DoxyCodeLine{│           │                            │                │}
+\DoxyCodeLine{│           ▼                            ▼                │}
+\DoxyCodeLine{│  ┌──────────────────────┐   ┌────────────────────────┐  │}
+\DoxyCodeLine{│  │ BoundaryCondition/   │   │ InitialCondition/      │  │}
+\DoxyCodeLine{│  │ (DirichletManager,   │   │ (Constant, Expression  │  │}
+\DoxyCodeLine{│  │  folders faces)      │   │  services)             │  │}
+\DoxyCodeLine{│  └──────────────────────┘   └────────────────────────┘  │}
+\DoxyCodeLine{│           │                            │                │}
+\DoxyCodeLine{│           ▼                            ▼                │}
+\DoxyCodeLine{│  ┌──────────────────────┐   ┌────────────────────────┐  │}
+\DoxyCodeLine{│  │   WellCondition/     │   │   DataModel/           │  │}
+\DoxyCodeLine{│  │ (WellManager,        │   │ (config.xml, gump      │  │}
+\DoxyCodeLine{│  │  WellIndexComputer,  │   │  model ArcRes)         │  │}
+\DoxyCodeLine{│  │  folders cellules)   │   └────────────────────────┘  │}
+\DoxyCodeLine{│  └──────────────────────┘                               │}
+\DoxyCodeLine{│                                                         │}
+\DoxyCodeLine{└─────────────────────────────────────────────────────────┘}
+\DoxyCodeLine{          │                     │                 │}
+\DoxyCodeLine{          ▼                     ▼                 ▼}
+\DoxyCodeLine{    ArcRes::System        ArcGeoSim Numerics   ArcGeoSim Law2}
+\DoxyCodeLine{    (fluids/solid,        (TwoPointsScheme,    (FunctionManager,}
+\DoxyCodeLine{     properties)           transmissivity,      evaluator, contributions)}
+\DoxyCodeLine{                           geometry, groups)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Les deux modules C++ encapsulent la logique de construction du système non linéaire et s’appuient sur \+:
+\begin{DoxyItemize}
+\item {\ttfamily Physical\+System/} pour le modèle Arc\+Res.
+\item {\ttfamily Physical\+Laws/} pour la configuration et l’évaluation des lois physiques.
+\item {\ttfamily Boundary\+Condition/}, {\ttfamily Initial\+Condition/}, {\ttfamily Well\+Condition/} pour les conditions du problème.
+\item {\ttfamily Data\+Model/} pour le modèle Gump/\+Arc\+Res généré.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md166}{}\doxysection{Dépendances}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md166}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Dépendance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version (indicative)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Usage    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Dépendance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version (indicative)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Usage    }\\\cline{1-3}
+\endhead
+\mbox{\hyperlink{namespaceArcane}{Arcane}} 3 / Arc\+Geo\+Sim   &Arcane3 + Arc\+Geo\+Sim (via {\ttfamily Load\+Arc\+Geo\+Sim.\+cmake})   &Gestion maillage, géométrie, services, time loop, macros de module.    \\\cline{1-3}
+Arc\+Res   &interne au framework Arcane/\+Arc\+Geo\+Sim   &Description des systèmes physiques (phases, propriétés, sous‑systèmes).    \\\cline{1-3}
+Arc\+Num\+Tools   &interne Arc\+Geo\+Sim   &Vecteurs, matrices, solveur Newton, profilage de système non linéaire.    \\\cline{1-3}
+Alien   &bibliothèque externe (profilage matrice)   &{\ttfamily Alien\+::\+Matrix\+Profiler} pour construire le profil de la matrice linéaire.   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md167}{}\doxysection{Configuration}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md167}
+La configuration se fait principalement via les fichiers {\ttfamily .axl} du module et les fichiers {\ttfamily .arc} de test (voir {\ttfamily test/\+Two\+Phase\+Flow\+Simulation}). Principales options (dans {\ttfamily Two\+Phase\+Flow\+Simulation.\+axl} et {\ttfamily Thermo\+Chemical\+Convection.\+axl}) \+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \mbox{\hyperlink{structVariable}{Variable}} / option   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Défaut   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \mbox{\hyperlink{structVariable}{Variable}} / option   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Défaut   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+{\ttfamily permx-\/var-\/name}   &{\ttfamily PERMX}   &Nom de la variable \mbox{\hyperlink{namespaceArcane}{Arcane}} contenant la perméabilité X en entrée.    \\\cline{1-3}
+{\ttfamily permy-\/var-\/name}   &{\ttfamily PERMY}   &Nom de la variable pour la perméabilité Y.    \\\cline{1-3}
+{\ttfamily permz-\/var-\/name}   &{\ttfamily PERMZ}   &Nom de la variable pour la perméabilité Z.    \\\cline{1-3}
+{\ttfamily scalar-\/perm}   &{\ttfamily true}   &Si vrai, utilise une perméabilité scalaire {\ttfamily Permeability}. Sinon, reconstruit un tenseur à partir de {\ttfamily PERMX}, {\ttfamily PERMY}, {\ttfamily PERMZ}.    \\\cline{1-3}
+{\ttfamily group-\/creator}   &{\ttfamily Standard\+Group\+Creator}   &Service {\ttfamily \mbox{\hyperlink{classIGroupCreator}{IGroup\+Creator}}} qui construit les groupes de mailles/faces utilisés pour la discrétisation.    \\\cline{1-3}
+{\ttfamily numerics.\+two-\/points-\/scheme}   &{\ttfamily Div\+KGrad\+Two\+Points}   &Schéma deux‑points utilisé pour calculer les transmissivités.    \\\cline{1-3}
+{\ttfamily numerics.\+newton}   &(service à fournir)   &Implémentation du solveur non linéaire {\ttfamily \mbox{\hyperlink{classArcNum_1_1INewtonSolver}{Arc\+Num\+::\+INewton\+Solver}}}.    \\\cline{1-3}
+{\ttfamily numerics.\+nltpfa}   &{\ttfamily false}   &Active/désactive le schéma NLTPFA (non‑linear two‑points flux approximation).    \\\cline{1-3}
+{\ttfamily initial-\/condition}   &min\+Occurs=1   &Services de condition initiale (pression, saturations, concentration, température).    \\\cline{1-3}
+{\ttfamily law}   &min\+Occurs=0   &Services {\ttfamily \mbox{\hyperlink{classILawConfigurator}{ILaw\+Configurator}}} pour les lois physiques (capillary pressure, density, relative permeability, etc.).    \\\cline{1-3}
+{\ttfamily boundary-\/condition}   &optionnel   &Service {\ttfamily \mbox{\hyperlink{classIBoundaryManager}{IBoundary\+Manager}}} décrivant les conditions de bord (Dirichlet, etc.).    \\\cline{1-3}
+{\ttfamily well-\/condition}   &optionnel   &Service {\ttfamily \mbox{\hyperlink{classIWellManager}{IWell\+Manager}}} décrivant les puits (débits, indices, variables de puits).   \\\cline{1-3}
+\end{longtabu}
+
+
+Les fichiers {\ttfamily .arc} de test (sous {\ttfamily test/\+Two\+Phase\+Flow\+Simulation/}) instancient ces services et précisent le maillage (SPE10, cases de puits, etc.) ainsi que les paramètres physiques.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md168}{}\doxysection{Ressources}\label{md__work_gratienj_Projets_2026_sharc_src_TwoPhaseFlowSimulation_README_autotoc_md168}
+$\ast$(liens indicatifs, à adapter selon la documentation interne)$\ast$
+
+
+\begin{DoxyItemize}
+\item Documentation \mbox{\hyperlink{namespaceArcane}{Arcane}} / Arc\+Geo\+Sim (framework de simulation et infrastructure) — pour comprendre \+:
+\begin{DoxyItemize}
+\item la notion de module \mbox{\hyperlink{namespaceArcane}{Arcane}} ({\ttfamily $\ast$.axl}, {\ttfamily ARCANE\+\_\+\+REGISTER\+\_\+\+MODULE\+\_\+$\ast$}),
+\item la gestion des services ({\ttfamily \mbox{\hyperlink{classAppService}{App\+Service}}}),
+\item les outils numériques ({\ttfamily Two\+Points\+Scheme}, {\ttfamily INewton\+Solver}).
+\end{DoxyItemize}
+\item Documentation Arc\+Res — description des entités {\ttfamily System}, {\ttfamily Fluid\+Sub\+System}, {\ttfamily Solid\+Sub\+System} et des propriétés physiques ({\ttfamily Pressure}, {\ttfamily Saturation}, {\ttfamily Density}, etc.).
+\item Cas de test Sh\+Arc \+:
+\begin{DoxyItemize}
+\item {\ttfamily test/\+Two\+Phase\+Flow\+Simulation/} — configuration des cas SPE10, puits, lois physiques.
+\item {\ttfamily test/\+Large\+Scale\+Two\+Phase\+Flow\+Simulation/\+README.\+md} — exemple de cas à grande échelle (dimensions de grille, pattern {\ttfamily \+\_\+\+\_\+\+NPX\+\_\+\+\_\+x\+\_\+\+\_\+\+NPY\+\_\+\+\_\+x\+\_\+\+\_\+\+NPZ\+\_\+\+\_\+-\/\+\_\+\+\_\+\+NP\+\_\+\+\_\+p}). 
+\end{DoxyItemize}
+\end{DoxyItemize}

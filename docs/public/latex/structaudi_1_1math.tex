@@ -1,0 +1,57 @@
+\hypertarget{structaudi_1_1math}{}\doxysection{audi\+::math$<$ T, M $>$ Struct Template Reference}
+\label{structaudi_1_1math}\index{audi::math$<$ T, M $>$@{audi::math$<$ T, M $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ math$<$ T, M $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_a92038b58c5e315298bac02958abe92a0}\label{structaudi_1_1math_a92038b58c5e315298bac02958abe92a0}} 
+using {\bfseries Type} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ T $>$\+::value, const T, const T \& $>$\+::type
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_a05283c9a83a705eb64a55bee925ef5aa}\label{structaudi_1_1math_a05283c9a83a705eb64a55bee925ef5aa}} 
+using {\bfseries data\+\_\+type} = decltype(m\+\_\+type.\+value())
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_a2875f847f6ed7d01b6ab0d23d14f4d4e}\label{structaudi_1_1math_a2875f847f6ed7d01b6ab0d23d14f4d4e}} 
+{\bfseries math} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ T $>$ \&type, M \mbox{\hyperlink{structaudi_1_1math}{math}})
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_ac345315e1049317b2fcd0b78b4136fe3}\label{structaudi_1_1math_ac345315e1049317b2fcd0b78b4136fe3}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_a9fc9df481719c0323e5a9e7312864aee}\label{structaudi_1_1math_a9fc9df481719c0323e5a9e7312864aee}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_a5bf6bde1f44d81febd9bd7f2035cbd7d}\label{structaudi_1_1math_a5bf6bde1f44d81febd9bd7f2035cbd7d}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_aa787a6cdc7b96207813d61476164ea2d}\label{structaudi_1_1math_aa787a6cdc7b96207813d61476164ea2d}} 
+Type {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_a6daaf47c5e18a8990e3f1a8fdd404101}\label{structaudi_1_1math_a6daaf47c5e18a8990e3f1a8fdd404101}} 
+const M {\bfseries m\+\_\+math}
+\item 
+\mbox{\Hypertarget{structaudi_1_1math_a5bcfe82ce0ea3b23f5dd3f743c02fa3b}\label{structaudi_1_1math_a5bcfe82ce0ea3b23f5dd3f743c02fa3b}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+v}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename M$>$\newline
+struct audi\+::math$<$ T, M $>$}
+
+
+
+Definition at line 9 of file math.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/math.\+h\end{DoxyCompactItemize}

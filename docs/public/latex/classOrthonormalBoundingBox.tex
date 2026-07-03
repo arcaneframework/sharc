@@ -1,0 +1,88 @@
+\hypertarget{classOrthonormalBoundingBox}{}\doxysection{Orthonormal\+Bounding\+Box Class Reference}
+\label{classOrthonormalBoundingBox}\index{OrthonormalBoundingBox@{OrthonormalBoundingBox}}
+
+
+Inherits \mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a31c4e3b721bed4ec61728146f0149b62}\label{classOrthonormalBoundingBox_a31c4e3b721bed4ec61728146f0149b62}} 
+\mbox{\hyperlink{classOrthonormalBoundingBox_a31c4e3b721bed4ec61728146f0149b62}{Orthonormal\+Bounding\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a1d22b2437b3bca420fd8e5b56c071c7d}\label{classOrthonormalBoundingBox_a1d22b2437b3bca420fd8e5b56c071c7d}} 
+virtual \mbox{\hyperlink{classOrthonormalBoundingBox_a1d22b2437b3bca420fd8e5b56c071c7d}{$\sim$\+Orthonormal\+Bounding\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a06ad4d354282b8adf1dab70ed1e92383}\label{classOrthonormalBoundingBox_a06ad4d354282b8adf1dab70ed1e92383}} 
+bool {\bfseries contains} (\mbox{\hyperlink{structReal3}{Real3}} const \&coord) const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a7bfc9d48ecde164127bc985a3ca3bd69}\label{classOrthonormalBoundingBox_a7bfc9d48ecde164127bc985a3ca3bd69}} 
+void {\bfseries set} (\mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} \&bbox)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a1824f5f6e538b07ef953f3924e34ac82}\label{classOrthonormalBoundingBox_a1824f5f6e538b07ef953f3924e34ac82}} 
+void {\bfseries add\+Point} (\mbox{\hyperlink{structReal3}{Real3}} tuple)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a20626675670bf59ff71c20286aec18b4}\label{classOrthonormalBoundingBox_a20626675670bf59ff71c20286aec18b4}} 
+void {\bfseries add\+Point} (Real x, Real y, Real z)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_aba97bb0fdbd83d475e846e9f4fd85676}\label{classOrthonormalBoundingBox_aba97bb0fdbd83d475e846e9f4fd85676}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a7d88df835d220cbacb6da8eb5337708d}\label{classOrthonormalBoundingBox_a7d88df835d220cbacb6da8eb5337708d}} 
+void {\bfseries increase\+BBox} (Real t, Real eps)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_ab1846dca11e1495fe9f23c596a54a4ed}\label{classOrthonormalBoundingBox_ab1846dca11e1495fe9f23c596a54a4ed}} 
+Real {\bfseries get\+XMin} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a416751cc74e078259567ef3717a02dc2}\label{classOrthonormalBoundingBox_a416751cc74e078259567ef3717a02dc2}} 
+Real {\bfseries get\+XMax} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_ad20356735fd854fac87855b2cda2c52b}\label{classOrthonormalBoundingBox_ad20356735fd854fac87855b2cda2c52b}} 
+Real {\bfseries get\+YMin} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a7eadb2feab1ab77ea00e3fad2571b931}\label{classOrthonormalBoundingBox_a7eadb2feab1ab77ea00e3fad2571b931}} 
+Real {\bfseries get\+YMax} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a8f142f4df5b80df620ba8bf7008197f7}\label{classOrthonormalBoundingBox_a8f142f4df5b80df620ba8bf7008197f7}} 
+Real {\bfseries get\+ZMin} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a77b388d91ec612c6a4ab8ee6a34c2c93}\label{classOrthonormalBoundingBox_a77b388d91ec612c6a4ab8ee6a34c2c93}} 
+Real {\bfseries get\+ZMax} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_ae47bf0c4be26afc9e8e86e6415b7d4c9}\label{classOrthonormalBoundingBox_ae47bf0c4be26afc9e8e86e6415b7d4c9}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries get\+Min\+Corner} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a05df5540917efddfcb10c4a39c8672a2}\label{classOrthonormalBoundingBox_a05df5540917efddfcb10c4a39c8672a2}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries get\+Max\+Corner} () const
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_ac4bf8f54579497fce645cfc23f27625d}\label{classOrthonormalBoundingBox_ac4bf8f54579497fce645cfc23f27625d}} 
+void {\bfseries set\+XMin} (Real x\+\_\+min)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a9bfb7d1e83a3927c91e3a17944bc6a06}\label{classOrthonormalBoundingBox_a9bfb7d1e83a3927c91e3a17944bc6a06}} 
+void {\bfseries set\+XMax} (Real x\+\_\+max)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_ad4b8d3aa29b818db9e657d45e3612975}\label{classOrthonormalBoundingBox_ad4b8d3aa29b818db9e657d45e3612975}} 
+void {\bfseries set\+YMin} (Real y\+\_\+min)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_ab23e74e03e3662f877ac73128f833d97}\label{classOrthonormalBoundingBox_ab23e74e03e3662f877ac73128f833d97}} 
+void {\bfseries set\+YMax} (Real y\+\_\+max)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a5296f6f830fe801d8dd4e0ac570bf374}\label{classOrthonormalBoundingBox_a5296f6f830fe801d8dd4e0ac570bf374}} 
+void {\bfseries set\+ZMin} (Real z\+\_\+min)
+\item 
+\mbox{\Hypertarget{classOrthonormalBoundingBox_a212238d34a40ff0f869d14c67ad16303}\label{classOrthonormalBoundingBox_a212238d34a40ff0f869d14c67ad16303}} 
+void {\bfseries set\+ZMax} (Real z\+\_\+max)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Orthonormal\+Bounding\+Box.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Orthonormal\+Bounding\+Box.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Orthonormal\+Bounding\+Box.\+cc\end{DoxyCompactItemize}
