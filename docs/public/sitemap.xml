@@ -2,6 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+<<<<<<< HEAD
+    <loc>https://arcaneframework.github.io/sharc/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/docs/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/architecture/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/src/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/src/cawf/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/src/exadibench/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/src/main/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/src/sharc/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/src/twophaseflowsimulation/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/test/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/test/cawf/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/test/exadibench/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/test/thermochemicalconvection/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/test/twophaseflowsimulation/</loc>
+  </url><url>
+    <loc>https://arcaneframework.github.io/sharc/api/</loc>
+=======
     <loc>http://localhost:1313/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/</loc>
@@ -31,5 +62,6 @@
     <loc>http://localhost:1313/test/twophaseflowsimulation/</loc>
   </url><url>
     <loc>http://localhost:1313/api/</loc>
+>>>>>>> main
   </url>
 </urlset>

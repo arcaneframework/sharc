@@ -139,6 +139,72 @@ In short:
   - `Main/` (ShArc.exe entry point).
 - `test/` contains the reference cases and CTest scenarios (TwoPhaseFlowSimulation, CAWF, ExaDiBench, ThermoChemicalConvection, large-scale SPE10).
 
+## IV/ Documentation
+
+ShArc ships with a Hugo + Doxygen documentation site under the `docs/` directory.
+
+There are two main usage modes:
+
+### IV.1/ Local documentation (developer mode)
+
+To browse the documentation locally while developing:
+
+1. Install Hugo (extended version), for example on Ubuntu:
+
+   ```bash
+   sudo apt install hugo
+   ```
+
+2. From the **root of the repository** (not from `docs/`), start the Hugo server:
+
+   ```bash
+   cd /path/to/sharc
+   hugo server --config docs/hugo.yaml -D
+   ```
+
+   Then open the URL printed by Hugo (typically `http://localhost:1313/` or a similar port).
+
+Internally:
+
+- Hugo uses `docs/hugo.yaml` as its configuration file.
+- Content is under `docs/content/` (sections `src/`, `test/`, `api/`, `architecture/`).
+- Layouts and theme are under `docs/layouts/` and `docs/themes/hugo-book/`.
+- The documentation pages for the main modules/tests **include** the Markdown files
+  from the project (`src/README.md`, `test/.../README.md`, `ARCHITECTURE.md`) via a
+  custom shortcode, which is why Hugo must be run from the repository root.
+
+### IV.2/ Deployed documentation (GitHub Pages via CI)
+
+The repository also includes a GitHub Actions workflow that automatically builds and
+publishes the documentation to the `docs/` folder on the `main` branch, suitable for
+GitHub Pages:
+
+- Workflow file: `.github/workflows/docs.yml`
+  - On each push to `main`, it runs:
+
+    ```bash
+    hugo --config docs/hugo.yaml
+    ```
+
+    which generates the static site into `docs/public/`.
+
+  - Then it copies the generated files into `docs/` (adds `.nojekyll`) and commits the
+    changes back to `main`.
+
+To use GitHub Pages with this workflow:
+
+1. In the GitHub repository settings, under **Pages**, choose:
+   - Branch: `main`
+   - Folder: `/docs`
+
+2. Ensure the workflow is enabled (default for Actions).
+
+3. After a push on `main`, GitHub Actions will regenerate the documentation website,
+   and GitHub Pages will serve it from the `/docs` directory.
+
+This setup keeps documentation generation automated while still allowing local
+preview (`hugho server`) and manual edits of the Markdown files in `src/` and `test/`.
+
 
 ### II.2/ Installation guide
 
