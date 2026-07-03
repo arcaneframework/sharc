@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tests ThermoChemicalConvection on sharc</title>
-		<link>http://localhost:1313/test/thermochemicalconvection/</link>
+		<link>https://arcaneframework.github.io/sharc/test/thermochemicalconvection/</link>
 		<description>Recent content in Tests ThermoChemicalConvection on sharc</description>
 		<generator>Hugo</generator>
 		<language>fr</language>
@@ -10,6 +10,6 @@
 		
 		
 		
-			<atom:link href="http://localhost:1313/test/thermochemicalconvection/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://arcaneframework.github.io/sharc/test/thermochemicalconvection/index.xml" rel="self" type="application/rss+xml" />
 	</channel>
 </rss>

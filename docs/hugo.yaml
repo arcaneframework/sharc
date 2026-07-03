@@ -1,18 +1,30 @@
-baseURL: http://localhost:1313/
+baseURL: https://arcaneframework.github.io/sharc/
 title: "sharc"
 theme: hugo-book
 disableKinds: ["taxonomy", "term"]
 defaultContentLanguage: "fr"
 
-# IMPORTANT: on traite le dépôt racine comme projet Hugo, et la doc
-# vit dans le sous-répertoire `docs/`. Cela permet à Hugo de lire
-# les fichiers Markdown dans `src/` et `test/` via `readFile`.
+# IMPORTANT
+# ----------
+# On considère la RACINE du dépôt comme projet Hugo, et `docs/` comme
+# sous-répertoire :
+#   - contenu : docs/content
+#   - layouts : docs/layouts
+#   - thème   : docs/themes
+#   - static  : docs/static
+#   - output  : docs/public
+#
+# => Il faut lancer Hugo depuis la racine du dépôt, par exemple :
+#      hugo server --config docs/hugo.yaml -D
+#    ou  hugo --config docs/hugo.yaml
 
 contentDir: docs/content
-staticDir: ["docs/static"]
 layoutDir: docs/layouts
 themesDir: docs/themes
+staticDir: ["docs/static"]
 publishDir: docs/public
+
+canonifyURLs: true
 
 params:
   description: "Documentation du projet"
