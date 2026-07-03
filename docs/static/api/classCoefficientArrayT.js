@@ -1,0 +1,25 @@
+var classCoefficientArrayT =
+[
+    [ "CoefficientsType", "classCoefficientArrayT.html#a881e1a2e4eb7d94ea89d5502d02cf0f7", null ],
+    [ "ItemGroupType", "classCoefficientArrayT.html#a0aa6100c56ff23a4208a94dbd6086faf", null ],
+    [ "StencilLocalIdType", "classCoefficientArrayT.html#ace37d8747113cb319df541f434e09d74", null ],
+    [ "StencilType", "classCoefficientArrayT.html#af84a1659add3160450df8f038a88e93a", null ],
+    [ "CoefficientArrayT", "classCoefficientArrayT.html#acd3911793b6e1514724d7ba4fe4c8ecb", null ],
+    [ "~CoefficientArrayT", "classCoefficientArrayT.html#ab0f72e295e50af72e313bea74ad5a1dc", null ],
+    [ "coefficients", "classCoefficientArrayT.html#a7c08d892a8e06ce0b1654c534d437423", null ],
+    [ "faceGroup", "classCoefficientArrayT.html#a9eb8b4535d2a8e3c830405df96673ddc", null ],
+    [ "getCoefficients", "classCoefficientArrayT.html#a2b9772678508e481be6a93b367161788", null ],
+    [ "getStencil", "classCoefficientArrayT.html#a72b07e61815e2655414045cc3fafb760", null ],
+    [ "getStencilLocalId", "classCoefficientArrayT.html#a384182cd748e97434ee785090bbb7a9e", null ],
+    [ "getStencilSize", "classCoefficientArrayT.html#a38d01f11948cea360aebe689fd2f52b5", null ],
+    [ "init", "classCoefficientArrayT.html#ae8dd85e33e261d3b61315fb4f82c855e", null ],
+    [ "init", "classCoefficientArrayT.html#afc098305f6df82de098af80346614c81", null ],
+    [ "init", "classCoefficientArrayT.html#a10ac5c502927b143d654bcaa4040898e", null ],
+    [ "numberOfCoefficients", "classCoefficientArrayT.html#a7472441ce31889c4b68140286c5b5623", null ],
+    [ "print", "classCoefficientArrayT.html#a62d76a831fb0c6713f6734f9db211a9b", null ],
+    [ "print", "classCoefficientArrayT.html#a386a5c2869c3c016559096bb15e4da1e", null ],
+    [ "resetCoefficients", "classCoefficientArrayT.html#a646a2a988f595dd4669a1734ae647563", null ],
+    [ "stencil", "classCoefficientArrayT.html#ae23e73594e294c779c55de50f9b2bce7", null ],
+    [ "stencilLocalId", "classCoefficientArrayT.html#a92c02e97cee8e50a69e9608df7886147", null ],
+    [ "stencilSize", "classCoefficientArrayT.html#a1ce1aa3e023aaf2273a4dead36cafa20", null ]
+];

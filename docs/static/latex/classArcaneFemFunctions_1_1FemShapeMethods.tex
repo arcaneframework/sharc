@@ -1,0 +1,283 @@
+\hypertarget{classArcaneFemFunctions_1_1FemShapeMethods}{}\doxysection{Arcane\+Fem\+Functions\+::Fem\+Shape\+Methods Class Reference}
+\label{classArcaneFemFunctions_1_1FemShapeMethods}\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+
+
+Provides methods for various FEM-\/related operations.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a909ab5499c0f25228edfdd807208e509}\label{classArcaneFemFunctions_1_1FemShapeMethods_a909ab5499c0f25228edfdd807208e509}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a909ab5499c0f25228edfdd807208e509}{line2\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference linear (P1) edge finite-\/element The \char`\"{}\+Line2\char`\"{} reference element is assumed as follows\+: 0 1 o-\/-\/-\/-\/-\/-\/-\/-\/---o---$>$ x -\/1 1 direct local numbering \+: 0-\/$>$1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a1ff8eb85f887a5d43e20e5935884d1a8}\label{classArcaneFemFunctions_1_1FemShapeMethods_a1ff8eb85f887a5d43e20e5935884d1a8}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries line2\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}})
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_ab031bab7bc15e2da7afd25fc947769f4}\label{classArcaneFemFunctions_1_1FemShapeMethods_ab031bab7bc15e2da7afd25fc947769f4}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_ab031bab7bc15e2da7afd25fc947769f4}{line3\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference quadratic (P2) edge finite-\/element The \char`\"{}\+Line3\char`\"{} reference element is assumed as follows\+: 0 2 1 o-\/-\/---o-\/-\/-\/---o---$>$ x -\/1 0 1 direct local numbering \+: 0-\/$>$1-\/$>$2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a0f83df2f2a8f303dfd55e52534b29fb3}\label{classArcaneFemFunctions_1_1FemShapeMethods_a0f83df2f2a8f303dfd55e52534b29fb3}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries line3\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a7faaf4cc2c9387e6f4316aa5f57c721e}{tri3\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference linear (P1) triangle finite-\/element The \char`\"{}\+Tri3\char`\"{} reference element is assumed as follows\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a8b27c3051062707e33ead489b5abe986}\label{classArcaneFemFunctions_1_1FemShapeMethods_a8b27c3051062707e33ead489b5abe986}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries tri3\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}})
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a87f6cc51585c2234aa8f56e9a0265863}{tri6\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference quadratic (P2) triangle finite-\/element The \char`\"{}\+Tri6\char`\"{} reference element is assumed as follows\+: $^\wedge$ s $\vert$ 2 (1,0) o\end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a1202441f9ec240dacec34bb0d6478506}\label{classArcaneFemFunctions_1_1FemShapeMethods_a1202441f9ec240dacec34bb0d6478506}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries tri6\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a52a1a6d5bbf98eaab13a7122443e520e}{quad4\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference linear (P1) quadrangle finite-\/element The \char`\"{}\+Quad4\char`\"{} reference element is assumed as follows\+: $^\wedge$y $\vert$ 1 o-\/-\/---1-\/-\/---o 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a707d95c4c7f8ce242407dc8e04955090}\label{classArcaneFemFunctions_1_1FemShapeMethods_a707d95c4c7f8ce242407dc8e04955090}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries quad4\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_aafde32fd4663e5705ac286cbf15ac000}{quad8\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference quadratic (P2) quadrangle finite-\/element The \char`\"{}\+Quad8\char`\"{} reference element is assumed as follows\+: $^\wedge$y $\vert$ 4 1 o-\/-\/---o-\/-\/---o 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a7874e0d1c84ddd96d89680323d2f7ec0}\label{classArcaneFemFunctions_1_1FemShapeMethods_a7874e0d1c84ddd96d89680323d2f7ec0}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries quad8\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_af1e8c10265b6105ddd5db5cb18b2f45e}\label{classArcaneFemFunctions_1_1FemShapeMethods_af1e8c10265b6105ddd5db5cb18b2f45e}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_af1e8c10265b6105ddd5db5cb18b2f45e}{hexa8\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference linear (P1) hexaedron finite-\/element The \char`\"{}\+Hexa8\char`\"{} reference element is assumed as follows\+: (-\/1, 1,1) 1-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---0 (1,1,1) /$\vert$ /$\vert$ / $\vert$ / $\vert$ / $\vert$ / $\vert$ 2-\/---$\vert$-\/-\/-\/-\/-\/-\/---3 $\vert$ z y (-\/1,-\/1,1) $\vert$ $\vert$ $\vert$ / $\vert$ $\vert$ $\vert$ $\vert$ $\vert$/---$>$x $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ 5-\/-\/-\/-\/-\/-\/---$\vert$---4 (1,1,-\/1) $\vert$ / $\vert$ / $\vert$ / $\vert$ / $\vert$/ $\vert$/ 6-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---7 (1,-\/1,-\/1) (-\/1,-\/1,-\/1) Normalized coordinates (x, y, z) vary between -\/1/+1 direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3-\/$>$4-\/$>$5-\/$>$6-\/$>$7. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a58212633bb5533ece017ea19494d8d54}\label{classArcaneFemFunctions_1_1FemShapeMethods_a58212633bb5533ece017ea19494d8d54}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries hexa8\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a22cf5c07d8f3d46db1bf32c6acd730d1}\label{classArcaneFemFunctions_1_1FemShapeMethods_a22cf5c07d8f3d46db1bf32c6acd730d1}} 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a22cf5c07d8f3d46db1bf32c6acd730d1}{hexa20\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference quadratic (P2) hexaedron finite-\/element The \char`\"{}\+Hexa20\char`\"{} reference element is assumed as follows\+: (-\/1, 1,1) 1-\/-\/-\/---8-\/-\/-\/---0 (1,1,1) /$\vert$ /$\vert$ 9 $\vert$ 11 $\vert$ / $\vert$ / $\vert$ 2-\/---$\vert$--10-\/-\/---3 $\vert$ z y (-\/1,-\/1,1) $\vert$ $\vert$ $\vert$ / $\vert$ 16 $\vert$ 19 $\vert$/---$>$x $\vert$ $\vert$ $\vert$ $\vert$ 17 $\vert$ 18 $\vert$ $\vert$ 5-\/---12---$\vert$---4 (1,1,-\/1) $\vert$ / $\vert$ / $\vert$ 13 $\vert$ 15 $\vert$/ $\vert$/ 6-\/-\/---14-\/-\/-\/-\/---7 (1,-\/1,-\/1) (-\/1,-\/1,-\/1) Normalized coordinates (x, y, z) vary between -\/1/+1 direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3-\/$>$...-\/$>$18-\/$>$19. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_aeb963430ddc14d35c25c6c1d266043ab}\label{classArcaneFemFunctions_1_1FemShapeMethods_aeb963430ddc14d35c25c6c1d266043ab}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries hexa20\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a54058928a6713fce95f57cc472c19184}{tetra4\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference linear (P1) tetrahedral finite-\/element The \char`\"{}\+Tetra4\char`\"{} reference element is assumed as follows\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_ad514df97f7d50cff7a24154d6a48675f}\label{classArcaneFemFunctions_1_1FemShapeMethods_ad514df97f7d50cff7a24154d6a48675f}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries tetra4\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}})
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_ac58c6ca09af005410ed198aa3084682d}{tetra10\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference quadratic (P2) tetrahedral finite-\/element The \char`\"{}\+Tetra10\char`\"{} reference element is assumed as follows\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_ad517316d001edff2f8e45291cfe2001f}\label{classArcaneFemFunctions_1_1FemShapeMethods_ad517316d001edff2f8e45291cfe2001f}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries tetra10\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a7da30565fc2b3ec19ebbaefb2a6d0ce5}{penta6\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference linear (P1) pentaedron finite-\/element The \char`\"{}\+Penta6\char`\"{} reference element is assumed as follows\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_ac04dcf63d0ac21baa28790625cb0d944}\label{classArcaneFemFunctions_1_1FemShapeMethods_ac04dcf63d0ac21baa28790625cb0d944}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries penta6\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\item 
+static Real \mbox{\hyperlink{classArcaneFemFunctions_1_1FemShapeMethods_a3a5bb4ef358f034f30922eadcc270916}{pyramid5\+Shape\+Func\+Val}} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Provides methods for reference linear (P1) pyramid finite-\/element The \char`\"{}\+Pyramid5\char`\"{} reference element is assumed as follows\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a2712d80285415a272fce8a061bbdc766}\label{classArcaneFemFunctions_1_1FemShapeMethods_a2712d80285415a272fce8a061bbdc766}} 
+static \mbox{\hyperlink{structReal3}{Real3}} {\bfseries pyramid5\+Shape\+Func\+Deriv} (Integer inod, \mbox{\hyperlink{structReal3}{Real3}} ref\+\_\+coord)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for various FEM-\/related operations. 
+
+This class includes static methods for computing shape functions and their derivatives depending on finite element types. These methods are used within the Dispatcher mechanism available in \mbox{\hyperlink{namespaceArcane}{Arcane}} through the class \mbox{\hyperlink{classArcaneFemFunctions_1_1CellFEMDispatcher}{Cell\+FEMDispatcher}} (coming from PASSMO). 
+
+Definition at line 2971 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a7da30565fc2b3ec19ebbaefb2a6d0ce5}\label{classArcaneFemFunctions_1_1FemShapeMethods_a7da30565fc2b3ec19ebbaefb2a6d0ce5}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!penta6ShapeFuncVal@{penta6ShapeFuncVal}}
+\index{penta6ShapeFuncVal@{penta6ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{penta6ShapeFuncVal()}{penta6ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::penta6\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference linear (P1) pentaedron finite-\/element The \char`\"{}\+Penta6\char`\"{} reference element is assumed as follows\+: 
+
+\begin{DoxyVerb}                5 (0,1,1)
+              . |  .
+             .  |     .
+            .   Z        .
+           .    |           .
+          .     |             .
+  (0,0,1) 3 ------------------ 4 (1,0,1)
+          |     |              |
+          |     |              |
+          |     |              |
+          |     |              |
+          |     2 (0,1,-1)     |
+          |   .    .           |
+          |  Y        .        |
+          | .            .     |
+          |.                .  |
+ (0,0,-1) 0 -------- X ------- 1 (1,0,-1)
+\end{DoxyVerb}
+ direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3-\/$>$4-\/$>$5-\/$>$6 
+
+Definition at line 3869 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a3a5bb4ef358f034f30922eadcc270916}\label{classArcaneFemFunctions_1_1FemShapeMethods_a3a5bb4ef358f034f30922eadcc270916}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!pyramid5ShapeFuncVal@{pyramid5ShapeFuncVal}}
+\index{pyramid5ShapeFuncVal@{pyramid5ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{pyramid5ShapeFuncVal()}{pyramid5ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::pyramid5\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference linear (P1) pyramid finite-\/element The \char`\"{}\+Pyramid5\char`\"{} reference element is assumed as follows\+: 
+
+\begin{DoxyVerb}                          ^
+                          |
+                          Z
+                          |
+                          4 (0,0,1)
+                         *
+                        * **
+                       ** *  *
+                      * * |*   *
+                     * *  | *    *
+                    * *   |  *     *
+                   * *    |   *      *      .Y
+                  * *     |    *       *  .
+       (-1,0,0)  * 2 -----|-----*------ 1 (0,1,0)
+                * .       |      *  .  .
+               * .        |     . *   .
+              *.             .     * .
+             *                  X . *
+   (0,-1,0) 3 --------------------- 0 (1,0,0)
+\end{DoxyVerb}
+ direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3-\/$>$4 
+
+Definition at line 3972 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a52a1a6d5bbf98eaab13a7122443e520e}\label{classArcaneFemFunctions_1_1FemShapeMethods_a52a1a6d5bbf98eaab13a7122443e520e}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!quad4ShapeFuncVal@{quad4ShapeFuncVal}}
+\index{quad4ShapeFuncVal@{quad4ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{quad4ShapeFuncVal()}{quad4ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::quad4\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference linear (P1) quadrangle finite-\/element The \char`\"{}\+Quad4\char`\"{} reference element is assumed as follows\+: $^\wedge$y $\vert$ 1 o-\/-\/---1-\/-\/---o 0. 
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-2}
+\endhead
+&\\\cline{1-2}
+-\/1 -\/---   &-\/--- 1 ---$>$ x    \\\cline{1-2}
+&\\\cline{1-2}
+&\\\cline{1-2}
+&\\\cline{1-2}
+\end{longtabu}
+2 o--- -\/1 -\/---o 3
+
+direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3 
+
+Definition at line 3177 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_aafde32fd4663e5705ac286cbf15ac000}\label{classArcaneFemFunctions_1_1FemShapeMethods_aafde32fd4663e5705ac286cbf15ac000}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!quad8ShapeFuncVal@{quad8ShapeFuncVal}}
+\index{quad8ShapeFuncVal@{quad8ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{quad8ShapeFuncVal()}{quad8ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::quad8\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference quadratic (P2) quadrangle finite-\/element The \char`\"{}\+Quad8\char`\"{} reference element is assumed as follows\+: $^\wedge$y $\vert$ 4 1 o-\/-\/---o-\/-\/---o 0. 
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-2}
+\endhead
+&\\\cline{1-2}
+5 o -\/---   &-\/--- o 7 ---$>$ x    \\\cline{1-2}
+&\\\cline{1-2}
+&\\\cline{1-2}
+&\\\cline{1-2}
+\end{longtabu}
+2 o-\/-\/---o-\/-\/---o 3 6 Normalized coordinates (x, y) vary between -\/1/+1 Nodes 4, 6 are on line (x = 0) direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$...-\/$>$5-\/$>$6-\/$>$7 
+
+Definition at line 3251 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_ac58c6ca09af005410ed198aa3084682d}\label{classArcaneFemFunctions_1_1FemShapeMethods_ac58c6ca09af005410ed198aa3084682d}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!tetra10ShapeFuncVal@{tetra10ShapeFuncVal}}
+\index{tetra10ShapeFuncVal@{tetra10ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{tetra10ShapeFuncVal()}{tetra10ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::tetra10\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference quadratic (P2) tetrahedral finite-\/element The \char`\"{}\+Tetra10\char`\"{} reference element is assumed as follows\+: 
+
+(0,0,1) x 3 . $\ast$.$\ast$ . $\ast$ . $\ast$ . $\ast$ . $\ast$ . $\ast$ 9 $\ast$ Z (0,1,0) $\ast$ . $\ast$ . . $\ast$ x 8 . . 7 . 2 . $\ast$ . Y $\ast$ 6 5 $\ast$ . . $\ast$ . . $\ast$ .. (1,0,0) $\ast$. . $\ast$ -\/-\/-\/-\/-\/---X-\/-\/-\/---$>$ 0 x $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ 4 $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ x 1
+
+direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3-\/$>$...-\/$>$8-\/$>$9 
+
+Definition at line 3752 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a54058928a6713fce95f57cc472c19184}\label{classArcaneFemFunctions_1_1FemShapeMethods_a54058928a6713fce95f57cc472c19184}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!tetra4ShapeFuncVal@{tetra4ShapeFuncVal}}
+\index{tetra4ShapeFuncVal@{tetra4ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{tetra4ShapeFuncVal()}{tetra4ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::tetra4\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference linear (P1) tetrahedral finite-\/element The \char`\"{}\+Tetra4\char`\"{} reference element is assumed as follows\+: 
+
+(0,0,1) 3 . $\ast$.$\ast$ . $\ast$ . $\ast$ . $\ast$ . $\ast$ . $\ast$ . $\ast$ Z (0,1,0) $\ast$ . $\ast$ . . $\ast$ 2 $\ast$ . . $\ast$ . . $\ast$ . Y $\ast$ . . $\ast$ . . $\ast$ . . $\ast$ .. (1,0,0) $\ast$. . $\ast$ -\/-\/-\/-\/-\/---X-\/-\/-\/---$>$ 0$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$1
+
+direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3 
+
+Definition at line 3697 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a7faaf4cc2c9387e6f4316aa5f57c721e}\label{classArcaneFemFunctions_1_1FemShapeMethods_a7faaf4cc2c9387e6f4316aa5f57c721e}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!tri3ShapeFuncVal@{tri3ShapeFuncVal}}
+\index{tri3ShapeFuncVal@{tri3ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{tri3ShapeFuncVal()}{tri3ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::tri3\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference linear (P1) triangle finite-\/element The \char`\"{}\+Tri3\char`\"{} reference element is assumed as follows\+: 
+
+$^\wedge$ s $\vert$ 2 (1,0) o . . . . . . . . . . . . o-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---o-\/-\/-\/-\/-\/-\/---$>$ r 0 (0,0) 1 (1,0) direct local numbering \+: 0-\/$>$1-\/$>$2 
+
+Definition at line 3059 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FemShapeMethods_a87f6cc51585c2234aa8f56e9a0265863}\label{classArcaneFemFunctions_1_1FemShapeMethods_a87f6cc51585c2234aa8f56e9a0265863}} 
+\index{ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}!tri6ShapeFuncVal@{tri6ShapeFuncVal}}
+\index{tri6ShapeFuncVal@{tri6ShapeFuncVal}!ArcaneFemFunctions::FemShapeMethods@{ArcaneFemFunctions::FemShapeMethods}}
+\doxysubsubsection{\texorpdfstring{tri6ShapeFuncVal()}{tri6ShapeFuncVal()}}
+{\footnotesize\ttfamily static Real Arcane\+Fem\+Functions\+::\+Fem\+Shape\+Methods\+::tri6\+Shape\+Func\+Val (\begin{DoxyParamCaption}\item[{Integer}]{inod,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{ref\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides methods for reference quadratic (P2) triangle finite-\/element The \char`\"{}\+Tri6\char`\"{} reference element is assumed as follows\+: $^\wedge$ s $\vert$ 2 (1,0) o
+
+. . . . o 6 o 5(0.\+5;0.\+5) .(0;0.\+5) . . . . . o-\/-\/-\/-\/---o-\/-\/-\/-\/---o-\/-\/-\/-\/-\/-\/---$>$ r 0(0,0) 4(0.\+5;0) 1(1,0) direct local numbering \+: 0-\/$>$1-\/$>$2-\/$>$3-\/$>$4-\/$>$5 
+
+Definition at line 3102 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

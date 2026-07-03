@@ -1,0 +1,56 @@
+\hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty}{}\doxysection{IXMProperty\+Builder\+Impl\+::Modified\+Property Class Reference}
+\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty}\index{IXMPropertyBuilderImpl::ModifiedProperty@{IXMPropertyBuilderImpl::ModifiedProperty}}
+
+
+Classe d\textquotesingle{}information sur une propri{\ucr}t{\ucr} modifi{\ucr}e par IXMProperty\+Builder.  
+
+
+
+
+{\ttfamily \#include $<$IXMProperty\+Builder.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_ae7c8a500ab13db7918c7df97438ce673}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_ae7c8a500ab13db7918c7df97438ce673}} 
+{\bfseries Modified\+Property} (const Arcane\+::\+String \&property\+\_\+name, Arcane\+::\+IVariable\+Mng $\ast$variable\+\_\+mng)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a7e5fbb341f1c065a5f44fff350f20550}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a7e5fbb341f1c065a5f44fff350f20550}} 
+{\bfseries Modified\+Property} (const Arcane\+::\+String \&property\+\_\+name)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a6af8c54cbee2a67006c461ebde17e873}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a6af8c54cbee2a67006c461ebde17e873}} 
+{\bfseries Modified\+Property} (const \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1PropertyDescription}{Property\+Description}} \&property\+\_\+description)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_af5608ae7a8f066e14181e0a1ed6fc032}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_af5608ae7a8f066e14181e0a1ed6fc032}} 
+{\bfseries operator bool} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a59c40da2c16e9dc9f1188caf78dab04e}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a59c40da2c16e9dc9f1188caf78dab04e}} 
+{\bfseries operator Arcane\+::\+Variable\+Item\+Byte} ()
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a12b5041c92fa466db17e56ca7d3d7633}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a12b5041c92fa466db17e56ca7d3d7633}} 
+{\bfseries operator Arcane\+::\+IVariable $\ast$} () const
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a1045cc1e72f62e8018779ffcf61e6cb5}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a1045cc1e72f62e8018779ffcf61e6cb5}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1ModifiedProperty}{Modified\+Property}} \&modified\+\_\+property)
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a856f8126ea2558a01c99c6aa6a6fac54}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_a856f8126ea2558a01c99c6aa6a6fac54}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classIXMPropertyBuilderImpl_1_1ModifiedProperty}{Modified\+Property}} \&modified\+\_\+property) const
+\item 
+\mbox{\Hypertarget{classIXMPropertyBuilderImpl_1_1ModifiedProperty_adaab3b6049b211729114bd74ed1d858a}\label{classIXMPropertyBuilderImpl_1_1ModifiedProperty_adaab3b6049b211729114bd74ed1d858a}} 
+const Arcane\+::\+String {\bfseries name} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe d\textquotesingle{}information sur une propri{\ucr}t{\ucr} modifi{\ucr}e par IXMProperty\+Builder. 
+
+Le champ m\+\_\+filled\+\_\+item\+\_\+variable est une variable portee par le maillage indiquant les items de la proprietes ayant ete remplis. Cette variable est de type Byte, d{\ucr}fini sur tout le maillage. Son type d\textquotesingle{}item est celui de la propri{\ucr}t{\ucr}. Chaque {\ucr}l{\ucr}ment modifi{\ucr} est mis {\ucr} true. Si la propriete n\textquotesingle{}est pas portee par le maillage, le champ m\+\_\+filled\+\_\+item\+\_\+variable = NULL 
+
+Definition at line 120 of file IXMProperty\+Builder.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMProperty\+Builder.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMProperty\+Builder.\+cc\end{DoxyCompactItemize}

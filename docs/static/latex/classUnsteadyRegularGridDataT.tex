@@ -1,0 +1,165 @@
+\hypertarget{classUnsteadyRegularGridDataT}{}\doxysection{Unsteady\+Regular\+Grid\+DataT$<$ T $>$ Class Template Reference}
+\label{classUnsteadyRegularGridDataT}\index{UnsteadyRegularGridDataT$<$ T $>$@{UnsteadyRegularGridDataT$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{classIUnsteadyRegularGridData}{IUnsteady\+Regular\+Grid\+Data}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_ade2c885f7bef258cdfea7d2f15702071}\label{classUnsteadyRegularGridDataT_ade2c885f7bef258cdfea7d2f15702071}} 
+typedef Shared\+Array$<$ Integer $>$ \mbox{\hyperlink{classUnsteadyRegularGridDataT_ade2c885f7bef258cdfea7d2f15702071}{Point\+Index}}
+\begin{DoxyCompactList}\small\item\em Typedef. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a2632320e81b5a64868333b4347e0086b}\label{classUnsteadyRegularGridDataT_a2632320e81b5a64868333b4347e0086b}} 
+typedef Shared\+Array$<$ Real $>$ {\bfseries Point\+Collection}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a2ec88a0517238916c37598f7642004b6}\label{classUnsteadyRegularGridDataT_a2ec88a0517238916c37598f7642004b6}} 
+\mbox{\hyperlink{classUnsteadyRegularGridDataT_a2ec88a0517238916c37598f7642004b6}{Unsteady\+Regular\+Grid\+DataT}} (ITrace\+Mng $\ast$trace\+\_\+mng, IIOMng $\ast$io\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_ad868cfb10859104f2681e495b5583491}\label{classUnsteadyRegularGridDataT_ad868cfb10859104f2681e495b5583491}} 
+virtual \mbox{\hyperlink{classUnsteadyRegularGridDataT_ad868cfb10859104f2681e495b5583491}{$\sim$\+Unsteady\+Regular\+Grid\+DataT}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_a5ac22a4ccace5b2c4b63f442ca27f566}{init}} ()
+\begin{DoxyCompactList}\small\item\em Init. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a3ba04ced4acb834fda3c2518dc7fcd89}\label{classUnsteadyRegularGridDataT_a3ba04ced4acb834fda3c2518dc7fcd89}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_a3ba04ced4acb834fda3c2518dc7fcd89}{set\+Parameter}} (const String \&name, const Real \&parameter)
+\begin{DoxyCompactList}\small\item\em Setting parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a360e567270d0a7a8ef7d2ecb81b0b4a4}\label{classUnsteadyRegularGridDataT_a360e567270d0a7a8ef7d2ecb81b0b4a4}} 
+void {\bfseries set\+Parameter} (Integer index, const Real \&parameter)
+\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a95dffabe458ca41162d02df46fc5a5e1}\label{classUnsteadyRegularGridDataT_a95dffabe458ca41162d02df46fc5a5e1}} 
+Integer \mbox{\hyperlink{classUnsteadyRegularGridDataT_a95dffabe458ca41162d02df46fc5a5e1}{nb\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_ae67e52be5847f864eae656800261786d}\label{classUnsteadyRegularGridDataT_ae67e52be5847f864eae656800261786d}} 
+String \mbox{\hyperlink{classUnsteadyRegularGridDataT_ae67e52be5847f864eae656800261786d}{parameter\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a1ce671a71171be5b55bfba66af6fbc59}\label{classUnsteadyRegularGridDataT_a1ce671a71171be5b55bfba66af6fbc59}} 
+String \mbox{\hyperlink{classUnsteadyRegularGridDataT_a1ce671a71171be5b55bfba66af6fbc59}{variable\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a314571d9bd74e70488efe6d520620db8}\label{classUnsteadyRegularGridDataT_a314571d9bd74e70488efe6d520620db8}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_a314571d9bd74e70488efe6d520620db8}{set\+Variable}} (const String \&name, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\begin{DoxyCompactList}\small\item\em Setting vectorized variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a71d276640296fa904e6d19219ef1f4c8}\label{classUnsteadyRegularGridDataT_a71d276640296fa904e6d19219ef1f4c8}} 
+void {\bfseries set\+Variable} (Integer index, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a5952fe6e7c8e8744ba6908bb53cd3ef4}\label{classUnsteadyRegularGridDataT_a5952fe6e7c8e8744ba6908bb53cd3ef4}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_a5952fe6e7c8e8744ba6908bb53cd3ef4}{set\+Evaluation\+Result}} (\mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\begin{DoxyCompactList}\small\item\em Setting evaluation vectorized result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{di variable}
+\label{_amgrp9b891d0d476eb766c3bec3466e651596}%
+Setting derivation vectorized result
+
+Derivation following \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a8d41b007f56c98b73026387ec3d195a5}\label{classUnsteadyRegularGridDataT_a8d41b007f56c98b73026387ec3d195a5}} 
+void {\bfseries set\+Derivation\+Result} (Integer di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_ae9190741f9bb18a81162db29154290ff}\label{classUnsteadyRegularGridDataT_ae9190741f9bb18a81162db29154290ff}} 
+void {\bfseries set\+Derivation\+Result} (const String \&di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_add8d91d671fadf75f585458023fcc6f2}{eval}} ()
+\begin{DoxyCompactList}\small\item\em Eval vectorized data service function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_aa3671b5a72c2492255ee87ee3545a37f}\label{classUnsteadyRegularGridDataT_aa3671b5a72c2492255ee87ee3545a37f}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_aa3671b5a72c2492255ee87ee3545a37f}{cleanup}} ()
+\begin{DoxyCompactList}\small\item\em Cleanup after evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_ace8782e7e229d608a22f2cb8b354babc}\label{classUnsteadyRegularGridDataT_ace8782e7e229d608a22f2cb8b354babc}} 
+Regular\+Grid\+Type\+::\+Grid\+Dimension \mbox{\hyperlink{classUnsteadyRegularGridDataT_ace8782e7e229d608a22f2cb8b354babc}{set\+Points}} (const String \&file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em set\+Points (read Data file) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a3a7d43b3b0be1aad7e06236e15f375bb}\label{classUnsteadyRegularGridDataT_a3a7d43b3b0be1aad7e06236e15f375bb}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_a3a7d43b3b0be1aad7e06236e15f375bb}{set\+Regular\+Grid\+Type}} (const Regular\+Grid\+Type\+::e\+Regular\+Grid\+Type \&grid\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Choix du type de grille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_a743611ce782aee8362780b25863098dd}{eval}} (const Real \&var0, const Real \&var1, const Real \&var2, const Real \&var3, Real \&res0)
+\begin{DoxyCompactList}\small\item\em Point-\/wise evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a32978703b3eb91c8f5f72f5643da236b}\label{classUnsteadyRegularGridDataT_a32978703b3eb91c8f5f72f5643da236b}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_a32978703b3eb91c8f5f72f5643da236b}{eval}} (const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&var0, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&var1, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&var2, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&var3, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_ac3a8fefdf4307f55094f1438bb4f3047}\label{classUnsteadyRegularGridDataT_ac3a8fefdf4307f55094f1438bb4f3047}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_ac3a8fefdf4307f55094f1438bb4f3047}{eval}} (const Const\+Array\+View$<$ Real $>$ var0, const Const\+Array\+View$<$ Real $>$ var1, const Const\+Array\+View$<$ Real $>$ var2, const Const\+Array\+View$<$ Real $>$ var3, Array\+View$<$ Real $>$ res0)
+\begin{DoxyCompactList}\small\item\em Vector evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a8dc8e4a91b5fd3cd06a1a3189b91ce2e}\label{classUnsteadyRegularGridDataT_a8dc8e4a91b5fd3cd06a1a3189b91ce2e}} 
+Real \mbox{\hyperlink{classUnsteadyRegularGridDataT_a8dc8e4a91b5fd3cd06a1a3189b91ce2e}{eval}} (const Real \&x, const Real \&y, const Real \&z, const Real \&t)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structScalar}{Scalar}} return for point-\/wise evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_aa2ccc16d8dfed5161fd70e12a3044d55}\label{classUnsteadyRegularGridDataT_aa2ccc16d8dfed5161fd70e12a3044d55}} 
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT_aa2ccc16d8dfed5161fd70e12a3044d55}{print\+Grid}} () const
+\begin{DoxyCompactList}\small\item\em Print grid for debug. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a80b903c968c459a2d7aad88cad68b403}\label{classUnsteadyRegularGridDataT_a80b903c968c459a2d7aad88cad68b403}} 
+String \mbox{\hyperlink{classUnsteadyRegularGridDataT_a80b903c968c459a2d7aad88cad68b403}{get\+File\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Getting file name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a01a20f63ed5b6e09e49376a065df716a}\label{classUnsteadyRegularGridDataT_a01a20f63ed5b6e09e49376a065df716a}} 
+Regular\+Grid\+Type\+::e\+Regular\+Grid\+Type \mbox{\hyperlink{classUnsteadyRegularGridDataT_a01a20f63ed5b6e09e49376a065df716a}{get\+Grid\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Getting grid type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Unsteady\+Regular\+Grid\+Data\+T$<$ T $>$}
+
+
+
+Definition at line 45 of file Unsteady\+Regular\+Grid\+Data.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_add8d91d671fadf75f585458023fcc6f2}\label{classUnsteadyRegularGridDataT_add8d91d671fadf75f585458023fcc6f2}} 
+\index{UnsteadyRegularGridDataT$<$ T $>$@{UnsteadyRegularGridDataT$<$ T $>$}!eval@{eval}}
+\index{eval@{eval}!UnsteadyRegularGridDataT$<$ T $>$@{UnsteadyRegularGridDataT$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT}{Unsteady\+Regular\+Grid\+DataT}}$<$ T $>$\+::eval\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Eval vectorized data service function. 
+
+Check if variable defined (all components filled with the same size)
+
+Implements \mbox{\hyperlink{classIFunctionR4vR1_ab956571c01b39f22f52d2aae57324ebf}{IFunction\+R4v\+R1}}.
+
+
+
+Definition at line 166 of file Unsteady\+Regular\+Grid\+Data\+T.\+h.
+
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a743611ce782aee8362780b25863098dd}\label{classUnsteadyRegularGridDataT_a743611ce782aee8362780b25863098dd}} 
+\index{UnsteadyRegularGridDataT$<$ T $>$@{UnsteadyRegularGridDataT$<$ T $>$}!eval@{eval}}
+\index{eval@{eval}!UnsteadyRegularGridDataT$<$ T $>$@{UnsteadyRegularGridDataT$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT}{Unsteady\+Regular\+Grid\+DataT}}$<$ T $>$\+::eval (\begin{DoxyParamCaption}\item[{const Real \&}]{var0,  }\item[{const Real \&}]{var1,  }\item[{const Real \&}]{var2,  }\item[{const Real \&}]{var3,  }\item[{Real \&}]{res0 }\end{DoxyParamCaption})}
+
+
+
+Point-\/wise evaluation. 
+
+An optimized syntax will be introduce for single return evaluation 
+
+Definition at line 225 of file Unsteady\+Regular\+Grid\+Data\+T.\+h.
+
+\mbox{\Hypertarget{classUnsteadyRegularGridDataT_a5ac22a4ccace5b2c4b63f442ca27f566}\label{classUnsteadyRegularGridDataT_a5ac22a4ccace5b2c4b63f442ca27f566}} 
+\index{UnsteadyRegularGridDataT$<$ T $>$@{UnsteadyRegularGridDataT$<$ T $>$}!init@{init}}
+\index{init@{init}!UnsteadyRegularGridDataT$<$ T $>$@{UnsteadyRegularGridDataT$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classUnsteadyRegularGridDataT}{Unsteady\+Regular\+Grid\+DataT}}$<$ T $>$\+::init\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Init. 
+
+Check \mbox{\hyperlink{classTable}{Table}} is filled \+: table must be filled before \mbox{\hyperlink{classUnsteadyRegularGridDataT_a5ac22a4ccace5b2c4b63f442ca27f566}{init()}} done either by the Service (points filename in the service options) \+: My\+Unsteady\+Grid\+Data\+Service-\/$>$\mbox{\hyperlink{classUnsteadyRegularGridDataT_a5ac22a4ccace5b2c4b63f442ca27f566}{init()}} either manually \+: Unsteady\+Grid\+Data\+T$<$\+My\+Interpolator$>$ my\+\_\+unsteady\+\_\+grid\+\_\+data(trace\+Mng(),io\+Mng()); my\+\_\+unsteady\+\_\+grid\+\_\+data.\+set\+Points(filename) my\+\_\+unsteady\+\_\+grid\+\_\+data.\+init()
+
+Implements \mbox{\hyperlink{classIUnsteadyRegularGridData_a957620c064896fae0fd94e88f13d4d15}{IUnsteady\+Regular\+Grid\+Data}}.
+
+
+
+Definition at line 25 of file Unsteady\+Regular\+Grid\+Data\+T.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Unsteady\+Regular\+Grid\+Data/Unsteady\+Regular\+Grid\+Data.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Unsteady\+Regular\+Grid\+Data/Unsteady\+Regular\+Grid\+Data\+T.\+h\end{DoxyCompactItemize}

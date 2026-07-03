@@ -1,0 +1,73 @@
+\hypertarget{classFunctionGraph}{}\doxysection{Function\+Graph Class Reference}
+\label{classFunctionGraph}\index{FunctionGraph@{FunctionGraph}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFunctionGraph_a3eca860b07e0ed793b19eab967f5816a}\label{classFunctionGraph_a3eca860b07e0ed793b19eab967f5816a}} 
+{\bfseries Function\+Graph} (bool fatal\+\_\+if\+\_\+unregistered, Arcane\+::\+ITrace\+Mng $\ast$trace)
+\item 
+\mbox{\Hypertarget{classFunctionGraph_abd231a7b8c11c1070b962b4e705ca097}\label{classFunctionGraph_abd231a7b8c11c1070b962b4e705ca097}} 
+void \mbox{\hyperlink{classFunctionGraph_abd231a7b8c11c1070b962b4e705ca097}{add}} (Function\+Ptr f)
+\begin{DoxyCompactList}\small\item\em Ajoute une fonction dans le graphe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFunctionGraph_a09824aaff5cc7a9f583a6755e42d061e}{replace}} (Function\+Ptr f)
+\begin{DoxyCompactList}\small\item\em Remplace une fonction dans le graphe selon son id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_ad2671b78a4bc3639b04f4bebb49aa816}\label{classFunctionGraph_ad2671b78a4bc3639b04f4bebb49aa816}} 
+Integer \mbox{\hyperlink{classFunctionGraph_ad2671b78a4bc3639b04f4bebb49aa816}{size}} () const
+\begin{DoxyCompactList}\small\item\em Nombre de fonctions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_a7a2eccfbd24af483a775ab0f9fd040e1}\label{classFunctionGraph_a7a2eccfbd24af483a775ab0f9fd040e1}} 
+bool \mbox{\hyperlink{classFunctionGraph_a7a2eccfbd24af483a775ab0f9fd040e1}{has\+Cycle}} () const
+\begin{DoxyCompactList}\small\item\em Existance d un cycle dans le graphe (interdit dag) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_ad62ae3cb8f97346559da6a400a31bd4e}\label{classFunctionGraph_ad62ae3cb8f97346559da6a400a31bd4e}} 
+void \mbox{\hyperlink{classFunctionGraph_ad62ae3cb8f97346559da6a400a31bd4e}{check\+Cycle}} () const
+\begin{DoxyCompactList}\small\item\em Retourne une exception si il existe un cycle dans le graphe (interdit dag) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_a54410abf0ce3ee77075ff5307f128d48}\label{classFunctionGraph_a54410abf0ce3ee77075ff5307f128d48}} 
+const Function\+Ptr \mbox{\hyperlink{classFunctionGraph_a54410abf0ce3ee77075ff5307f128d48}{find}} (Integer i) const
+\begin{DoxyCompactList}\small\item\em Trouve une fonction par son id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_ad8e9bf2150215be75a1a546f568db5bc}\label{classFunctionGraph_ad8e9bf2150215be75a1a546f568db5bc}} 
+const Function\+Ptr \mbox{\hyperlink{classFunctionGraph_ad8e9bf2150215be75a1a546f568db5bc}{find}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Trouve une fonction par propriete de sortie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_a5b090e0cba5903909167182093de9fe1}\label{classFunctionGraph_a5b090e0cba5903909167182093de9fe1}} 
+const Function\+Ptr \mbox{\hyperlink{classFunctionGraph_a5b090e0cba5903909167182093de9fe1}{end}} () const
+\begin{DoxyCompactList}\small\item\em Existence de la fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_add352b26fb80fec3ec851953b52ed2b8}\label{classFunctionGraph_add352b26fb80fec3ec851953b52ed2b8}} 
+Dependencies\+Map \mbox{\hyperlink{classFunctionGraph_add352b26fb80fec3ec851953b52ed2b8}{compute\+Dependencies}} (Derivatives\+Mode mode=e\+Direct) const
+\begin{DoxyCompactList}\small\item\em Calcule des dependances entre proprietes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_aa7646807726ca8e6aeff071d131b589a}\label{classFunctionGraph_aa7646807726ca8e6aeff071d131b589a}} 
+Function\+Vector \mbox{\hyperlink{classFunctionGraph_aa7646807726ca8e6aeff071d131b589a}{to\+Sort\+Vector}} () const
+\begin{DoxyCompactList}\small\item\em Vecteur de fonctions trie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_a372f8fce1b025691d2eda9273c08475f}\label{classFunctionGraph_a372f8fce1b025691d2eda9273c08475f}} 
+Function\+Vector \mbox{\hyperlink{classFunctionGraph_a372f8fce1b025691d2eda9273c08475f}{to\+Sort\+Vector}} (Integer\+Const\+Array\+View idx\+\_\+output, const bool recursive) const
+\begin{DoxyCompactList}\small\item\em Vecteur de fonctions trie pour une selection de propriete a calculer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionGraph_aa4b177ba5536c59b0fc85c74e36bd0ec}\label{classFunctionGraph_aa4b177ba5536c59b0fc85c74e36bd0ec}} 
+void \mbox{\hyperlink{classFunctionGraph_aa4b177ba5536c59b0fc85c74e36bd0ec}{print\+Dot\+Graph}} (std\+::ostream \&nout) const
+\begin{DoxyCompactList}\small\item\em Ecriture du graph au farmat .dot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 49 of file Function\+Graph.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFunctionGraph_a09824aaff5cc7a9f583a6755e42d061e}\label{classFunctionGraph_a09824aaff5cc7a9f583a6755e42d061e}} 
+\index{FunctionGraph@{FunctionGraph}!replace@{replace}}
+\index{replace@{replace}!FunctionGraph@{FunctionGraph}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily void Function\+Graph\+::replace (\begin{DoxyParamCaption}\item[{Function\+Ptr}]{f }\end{DoxyParamCaption})}
+
+
+
+Remplace une fonction dans le graphe selon son id. 
+
+TODO ajouter un check sur la signature
+
+Definition at line 43 of file Function\+Graph.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law2/Function\+Graph.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law2/Function\+Graph.\+cc\end{DoxyCompactItemize}

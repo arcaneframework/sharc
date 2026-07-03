@@ -1,0 +1,60 @@
+\hypertarget{classArcNum_1_1ScalarPartialVarProperty}{}\doxysection{Arc\+Num\+::Scalar\+Partial\+Var\+Property$<$ K $>$ Class Template Reference}
+\label{classArcNum_1_1ScalarPartialVarProperty}\index{ArcNum::ScalarPartialVarProperty$<$ K $>$@{ArcNum::ScalarPartialVarProperty$<$ K $>$}}
+
+
+Inherited by \mbox{\hyperlink{classArcNum_1_1PartialVariable}{Arc\+Num\+::\+Partial\+Variable$<$ K $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_ada4991d42df2c7771a348ca2f1d5a7eb}\label{classArcNum_1_1ScalarPartialVarProperty_ada4991d42df2c7771a348ca2f1d5a7eb}} 
+typedef Arcane\+::\+Mesh\+Partial\+Variable\+Scalar\+RefT$<$ K, Arcane\+::\+Real $>$ {\bfseries Var\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_a0e981a7893e42f3b30d5e89b8347ce1f}\label{classArcNum_1_1ScalarPartialVarProperty_a0e981a7893e42f3b30d5e89b8347ce1f}} 
+typedef Arcane\+::\+Mesh\+Partial\+Variable\+Array\+RefT$<$ K, Arcane\+::\+Real $>$ {\bfseries Deriv\+Var\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_a417ea6116266ae4bf878cb86ecacb08b}\label{classArcNum_1_1ScalarPartialVarProperty_a417ea6116266ae4bf878cb86ecacb08b}} 
+typedef Var\+Type\+::\+Const\+Return\+Reference\+Type {\bfseries Const\+Return\+Reference\+Type}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_af882e1adb3245c409131b37d66cb0460}\label{classArcNum_1_1ScalarPartialVarProperty_af882e1adb3245c409131b37d66cb0460}} 
+typedef Deriv\+Var\+Type\+::\+Const\+Return\+Reference\+Type {\bfseries Derivatives\+Return\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_a0b7715279130e77ae3543d84fecce56b}\label{classArcNum_1_1ScalarPartialVarProperty_a0b7715279130e77ae3543d84fecce56b}} 
+{\bfseries Scalar\+Partial\+Var\+Property} (Var\+Type $\ast$values)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_a6c1aea9d870c3e30d7c14110e6f91cd0}\label{classArcNum_1_1ScalarPartialVarProperty_a6c1aea9d870c3e30d7c14110e6f91cd0}} 
+{\bfseries Scalar\+Partial\+Var\+Property} (\mbox{\hyperlink{classArcNum_1_1ScalarPartialVarProperty}{Scalar\+Partial\+Var\+Property}} const \&rhs)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_aee2710b48dbfdf1e575dd76374bd5cc1}\label{classArcNum_1_1ScalarPartialVarProperty_aee2710b48dbfdf1e575dd76374bd5cc1}} 
+{\footnotesize template$<$typename ItemT $>$ }\\Const\+Return\+Reference\+Type {\bfseries operator\mbox{[}$\,$\mbox{]}} (\mbox{\hyperlink{classItemT}{ItemT}} const \&iter) const
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_a3ba92c2ebf6c4ae47f35a0e5cf27c810}\label{classArcNum_1_1ScalarPartialVarProperty_a3ba92c2ebf6c4ae47f35a0e5cf27c810}} 
+{\footnotesize template$<$typename I $>$ }\\Derivatives\+Return\+Type {\bfseries stored\+Derivatives} (const I \&iter) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_aa3b6c00e418ff25864cf103a11ce431c}\label{classArcNum_1_1ScalarPartialVarProperty_aa3b6c00e418ff25864cf103a11ce431c}} 
+Var\+Type $\ast$ {\bfseries m\+\_\+values} = nullptr
+\item 
+\mbox{\Hypertarget{classArcNum_1_1ScalarPartialVarProperty_ada9bdc54a31b95dc4a0764adc0c43ed3}\label{classArcNum_1_1ScalarPartialVarProperty_ada9bdc54a31b95dc4a0764adc0c43ed3}} 
+Deriv\+Var\+Type $\ast$ {\bfseries m\+\_\+derivatives} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename K$>$\newline
+class Arc\+Num\+::\+Scalar\+Partial\+Var\+Property$<$ K $>$}
+
+
+
+Definition at line 15 of file Partial\+Variable.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Contribution/\+Variable/Partial\+Variable.\+h\end{DoxyCompactItemize}

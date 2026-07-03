@@ -1,0 +1,70 @@
+\hypertarget{classSimpleAbstractFamily}{}\doxysection{Simple\+Abstract\+Family Class Reference}
+\label{classSimpleAbstractFamily}\index{SimpleAbstractFamily@{SimpleAbstractFamily}}
+
+
+Inherits \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IIndex\+Manager\+::\+IAbstract\+Family}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSimpleAbstractFamily_a530a4f09c6ade33e43f86d822e88f539}{Simple\+Abstract\+Family}} (const Arcane\+::\+Int64\+Const\+Array\+View unique\+Ids, const Arcane\+::\+Integer\+Const\+Array\+View \mbox{\hyperlink{classSimpleAbstractFamily_a8c34bab300b25fa1d50524c170bd3631}{owners}}, \mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Construit une famille {\ucr} partir des unique\+Ids connus localement et leur propri{\ucr}taire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSimpleAbstractFamily_a28e899fe9214f2e384f28a6151456f79}{Simple\+Abstract\+Family}} (const Arcane\+::\+Int64\+Const\+Array\+View unique\+Ids, \mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} $\ast$manager)
+\begin{DoxyCompactList}\small\item\em Construit une famille {\ucr} partir des unique\+Ids locaux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimpleAbstractFamily_ae4078e4e9d04cb1553c008a1034baf72}\label{classSimpleAbstractFamily_ae4078e4e9d04cb1553c008a1034baf72}} 
+\mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IIndex\+Manager\+::\+IAbstract\+Family}} $\ast$ \mbox{\hyperlink{classSimpleAbstractFamily_ae4078e4e9d04cb1553c008a1034baf72}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Construit un clone de cet objet. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimpleAbstractFamily_a33a09e3c955bf6c4e5dfa12f37b50066}\label{classSimpleAbstractFamily_a33a09e3c955bf6c4e5dfa12f37b50066}} 
+Int32 \mbox{\hyperlink{classSimpleAbstractFamily_a33a09e3c955bf6c4e5dfa12f37b50066}{max\+Local\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Identifiant maximal des local\+Ids pour cette famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimpleAbstractFamily_a03fe0043d60aea62c1c4b646c9375909}\label{classSimpleAbstractFamily_a03fe0043d60aea62c1c4b646c9375909}} 
+void \mbox{\hyperlink{classSimpleAbstractFamily_a03fe0043d60aea62c1c4b646c9375909}{unique\+Id\+To\+Local\+Id}} (Arcane\+::\+Int32\+Array\+View local\+Ids, Arcane\+::\+Int64\+Const\+Array\+View unique\+Ids) const
+\begin{DoxyCompactList}\small\item\em Convertit des unique\+Ids en local\+Ids. Erreur fatale si un item n\textquotesingle{}est pas retrouv{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimpleAbstractFamily_a57715f159f18c7aacd2c7c7f774a712c}\label{classSimpleAbstractFamily_a57715f159f18c7aacd2c7c7f774a712c}} 
+IAbstract\+Family\+::\+Item \mbox{\hyperlink{classSimpleAbstractFamily_a57715f159f18c7aacd2c7c7f774a712c}{item}} (Int32 local\+Id) const
+\begin{DoxyCompactList}\small\item\em Retourne un objet \mbox{\hyperlink{classItem}{Item}} {\ucr} partir de son local\+Id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimpleAbstractFamily_a8c34bab300b25fa1d50524c170bd3631}\label{classSimpleAbstractFamily_a8c34bab300b25fa1d50524c170bd3631}} 
+Safe\+Const\+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classSimpleAbstractFamily_a8c34bab300b25fa1d50524c170bd3631}{owners}} (Arcane\+::\+Int32\+Const\+Array\+View local\+Ids) const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des owners (propri{\ucr}taires) d\textquotesingle{}un ensemble d\textquotesingle{}item d{\ucr}crits par leur local\+Ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimpleAbstractFamily_a4e3330c0ff16671cbdf110310253b78d}\label{classSimpleAbstractFamily_a4e3330c0ff16671cbdf110310253b78d}} 
+Safe\+Const\+Array\+View$<$ Int64 $>$ \mbox{\hyperlink{classSimpleAbstractFamily_a4e3330c0ff16671cbdf110310253b78d}{uids}} (Arcane\+::\+Int32\+Const\+Array\+View local\+Ids) const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des unique\+Ids d\textquotesingle{}un ensemble d\textquotesingle{}item d{\ucr}crits par leur local\+Ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimpleAbstractFamily_ab52aee1fecfb27b0bf28f9fe301f577e}\label{classSimpleAbstractFamily_ab52aee1fecfb27b0bf28f9fe301f577e}} 
+Safe\+Const\+Array\+View$<$ Int32 $>$ \mbox{\hyperlink{classSimpleAbstractFamily_ab52aee1fecfb27b0bf28f9fe301f577e}{all\+Local\+Ids}} () const
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des identifiants locaux de la famille. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 27 of file Simple\+Abstract\+Family.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSimpleAbstractFamily_a530a4f09c6ade33e43f86d822e88f539}\label{classSimpleAbstractFamily_a530a4f09c6ade33e43f86d822e88f539}} 
+\index{SimpleAbstractFamily@{SimpleAbstractFamily}!SimpleAbstractFamily@{SimpleAbstractFamily}}
+\index{SimpleAbstractFamily@{SimpleAbstractFamily}!SimpleAbstractFamily@{SimpleAbstractFamily}}
+\doxysubsubsection{\texorpdfstring{SimpleAbstractFamily()}{SimpleAbstractFamily()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Simple\+Abstract\+Family\+::\+Simple\+Abstract\+Family (\begin{DoxyParamCaption}\item[{const Arcane\+::\+Int64\+Const\+Array\+View}]{unique\+Ids,  }\item[{const Arcane\+::\+Integer\+Const\+Array\+View}]{owners,  }\item[{\mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} $\ast$}]{manager }\end{DoxyParamCaption})}
+
+
+
+Construit une famille {\ucr} partir des unique\+Ids connus localement et leur propri{\ucr}taire. 
+
+L\textquotesingle{}indexation local\+Id suit l\textquotesingle{}ordre des unique\+Ids fournis \mbox{\Hypertarget{classSimpleAbstractFamily_a28e899fe9214f2e384f28a6151456f79}\label{classSimpleAbstractFamily_a28e899fe9214f2e384f28a6151456f79}} 
+\index{SimpleAbstractFamily@{SimpleAbstractFamily}!SimpleAbstractFamily@{SimpleAbstractFamily}}
+\index{SimpleAbstractFamily@{SimpleAbstractFamily}!SimpleAbstractFamily@{SimpleAbstractFamily}}
+\doxysubsubsection{\texorpdfstring{SimpleAbstractFamily()}{SimpleAbstractFamily()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Simple\+Abstract\+Family\+::\+Simple\+Abstract\+Family (\begin{DoxyParamCaption}\item[{const Arcane\+::\+Int64\+Const\+Array\+View}]{unique\+Ids,  }\item[{\mbox{\hyperlink{classIIndexManager}{IIndex\+Manager}} $\ast$}]{manager }\end{DoxyParamCaption})}
+
+
+
+Construit une famille {\ucr} partir des unique\+Ids locaux. 
+
+Les items locaux sont index{\ucr}s en premier, puis suivent ceux des autres processeurs. Les propri{\ucr}taires sont reconstruits en parall{\ucr}le 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Simple\+Abstract\+Family.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Simple\+Abstract\+Family.\+cc\end{DoxyCompactItemize}

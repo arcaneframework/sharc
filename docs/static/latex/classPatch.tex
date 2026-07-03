@@ -1,0 +1,140 @@
+\hypertarget{classPatch}{}\doxysection{Patch Class Reference}
+\label{classPatch}\index{Patch@{Patch}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPatch_1_1Modifier}{Modifier}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPatch_aba21cbfd26eef83dc08c9902d722d038}\label{classPatch_aba21cbfd26eef83dc08c9902d722d038}} 
+{\bfseries Patch} (ITrace\+Mng $\ast$trace\+\_\+mng, Arcane\+::\+IMesh $\ast$coarse\+\_\+mesh, const Item\+Internal\+List \&coarse\+\_\+cells\+Internal, Integer\+Const\+Array\+View limiters, Integer\+Const\+Array\+View axis\+\_\+cells\+\_\+nb)
+\item 
+\mbox{\Hypertarget{classPatch_a839ab16c023cd061ffcd6749282d0a5a}\label{classPatch_a839ab16c023cd061ffcd6749282d0a5a}} 
+void {\bfseries set\+Mesh} (Arcane\+::\+IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classPatch_aaae46992802b7444caca63aa9e8e0ad7}\label{classPatch_aaae46992802b7444caca63aa9e8e0ad7}} 
+Arcane\+::\+IMesh $\ast$ {\bfseries mesh} () const
+\item 
+\mbox{\Hypertarget{classPatch_abc12a2dd354d55a8ed7a70848a2ffaa8}\label{classPatch_abc12a2dd354d55a8ed7a70848a2ffaa8}} 
+const Integer\+Const\+Array\+View {\bfseries limiters} ()
+\item 
+\mbox{\Hypertarget{classPatch_a85d9c7910a36a6e76080923e24b36fc1}\label{classPatch_a85d9c7910a36a6e76080923e24b36fc1}} 
+const Integer\+Const\+Array\+View {\bfseries coarse\+Cells\+Local\+Ids} ()
+\item 
+\mbox{\Hypertarget{classPatch_ac3731c527a1f1b2403c6c999644f785e}\label{classPatch_ac3731c527a1f1b2403c6c999644f785e}} 
+const Int64\+Unique\+Array {\bfseries coarse\+Cells\+Unique\+Ids} ()
+\item 
+\mbox{\Hypertarget{classPatch_a4e833336f2afd7cf71b90e0d8545c64e}\label{classPatch_a4e833336f2afd7cf71b90e0d8545c64e}} 
+const Cell {\bfseries coarse\+Cell} (const Integer \&id)
+\item 
+\mbox{\Hypertarget{classPatch_ab15ba99f8777b388179efb078eed2a0e}\label{classPatch_ab15ba99f8777b388179efb078eed2a0e}} 
+void {\bfseries compute\+Max\+Length} (Integer \&max\+\_\+length, Integer \&axis\+\_\+id)
+\item 
+\mbox{\Hypertarget{classPatch_a0aaf0df5e97d7bdd43ab1cb32ae82efb}\label{classPatch_a0aaf0df5e97d7bdd43ab1cb32ae82efb}} 
+void {\bfseries update\+Current\+To\+New\+Id} (IMesh $\ast$new\+\_\+mesh)
+\item 
+\mbox{\Hypertarget{classPatch_a7a9d852df429ae33e2bcd3271e72265b}\label{classPatch_a7a9d852df429ae33e2bcd3271e72265b}} 
+void {\bfseries update\+Communication\+Data} ()
+\item 
+\mbox{\Hypertarget{classPatch_acf89a5861fc4b43d91924d2039d54a73}\label{classPatch_acf89a5861fc4b43d91924d2039d54a73}} 
+void {\bfseries update\+Child\+To\+Parent\+Face\+Ids} ()
+\item 
+\mbox{\Hypertarget{classPatch_ae061fa458bf24fcda111da4866bf04e7}\label{classPatch_ae061fa458bf24fcda111da4866bf04e7}} 
+Integer {\bfseries get\+Cells\+Number} ()
+\item 
+\mbox{\Hypertarget{classPatch_ac6215b5e4c20114f34faaedc3784d251}\label{classPatch_ac6215b5e4c20114f34faaedc3784d251}} 
+void {\bfseries set\+Global\+Id} (const Integer \&id)
+\item 
+\mbox{\Hypertarget{classPatch_a388652895529e8ca780a210c37fd377a}\label{classPatch_a388652895529e8ca780a210c37fd377a}} 
+const Integer {\bfseries global\+Id} ()
+\item 
+\mbox{\Hypertarget{classPatch_a0e5a421d7c69572d7f2208bc1de7cd58}\label{classPatch_a0e5a421d7c69572d7f2208bc1de7cd58}} 
+Int32\+Unique\+Array {\bfseries faces\+Child\+To\+Current\+LId} () const
+\item 
+\mbox{\Hypertarget{classPatch_a5337a40102f4848dbae1b91bbe5a6b1d}\label{classPatch_a5337a40102f4848dbae1b91bbe5a6b1d}} 
+Int32\+Unique\+Array {\bfseries cells\+New\+To\+Current\+LId} () const
+\item 
+\mbox{\Hypertarget{classPatch_a4600de8ff51497a1472df77b8374550a}\label{classPatch_a4600de8ff51497a1472df77b8374550a}} 
+Int32\+Unique\+Array {\bfseries cells\+Current\+To\+New\+LId} () const
+\item 
+\mbox{\Hypertarget{classPatch_ab37fa3f127696af748da50c5c61f013b}\label{classPatch_ab37fa3f127696af748da50c5c61f013b}} 
+void {\bfseries print} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPatch_a8367dc892d5cf9a2ec328484029bbdc3}\label{classPatch_a8367dc892d5cf9a2ec328484029bbdc3}} 
+static \mbox{\hyperlink{classPatch_1_1Modifier}{Patch\+::\+Modifier}} {\bfseries modifier} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPatch_a2e6dbd750aeb9173ef3d88e05a274a85}\label{classPatch_a2e6dbd750aeb9173ef3d88e05a274a85}} 
+ITrace\+Mng $\ast$ {\bfseries m\+\_\+trace\+\_\+mng}
+\item 
+\mbox{\Hypertarget{classPatch_a6d4c30bfef0230e64776a574477159c1}\label{classPatch_a6d4c30bfef0230e64776a574477159c1}} 
+Arcane\+::\+IMesh $\ast$ {\bfseries m\+\_\+coarse\+\_\+mesh}
+\item 
+\mbox{\Hypertarget{classPatch_a3acb667ac34b3f407fc695bf26c68f75}\label{classPatch_a3acb667ac34b3f407fc695bf26c68f75}} 
+Arcane\+::\+IMesh $\ast$ {\bfseries m\+\_\+mesh}
+\item 
+\mbox{\Hypertarget{classPatch_ac8e1e6013b413afe9737520b1f6564bf}\label{classPatch_ac8e1e6013b413afe9737520b1f6564bf}} 
+Item\+Internal\+List {\bfseries m\+\_\+coarse\+\_\+cells\+Internal}
+\item 
+\mbox{\Hypertarget{classPatch_a83a5c4f4262d2d272bd192bf2846b958}\label{classPatch_a83a5c4f4262d2d272bd192bf2846b958}} 
+Integer\+Shared\+Array {\bfseries m\+\_\+limiters}
+\item 
+\mbox{\Hypertarget{classPatch_a834af2f0e807ba402505bd492da8874c}\label{classPatch_a834af2f0e807ba402505bd492da8874c}} 
+Int32\+Unique\+Array {\bfseries m\+\_\+cells\+\_\+current\+\_\+to\+\_\+new\+\_\+local\+\_\+id}
+\item 
+\mbox{\Hypertarget{classPatch_ac4372ce026ea7ad30345ee917989dad2}\label{classPatch_ac4372ce026ea7ad30345ee917989dad2}} 
+Int32\+Unique\+Array {\bfseries m\+\_\+cells\+\_\+new\+\_\+to\+\_\+current\+\_\+local\+\_\+id}
+\item 
+\mbox{\Hypertarget{classPatch_ad2f5909cc43ce5976faba6e816f2f2e0}\label{classPatch_ad2f5909cc43ce5976faba6e816f2f2e0}} 
+Int32\+Unique\+Array {\bfseries m\+\_\+faces\+\_\+current\+\_\+to\+\_\+new\+\_\+local\+\_\+id}
+\item 
+\mbox{\Hypertarget{classPatch_a978c2f632eaba7a649ddb50e4edc7f99}\label{classPatch_a978c2f632eaba7a649ddb50e4edc7f99}} 
+Int32\+Unique\+Array {\bfseries m\+\_\+faces\+\_\+new\+\_\+to\+\_\+current\+\_\+local\+\_\+id}
+\item 
+\mbox{\Hypertarget{classPatch_a9145e36ad68fc67589b0bd4b8773340e}\label{classPatch_a9145e36ad68fc67589b0bd4b8773340e}} 
+Int32\+Unique\+Array {\bfseries m\+\_\+faces\+\_\+child\+\_\+to\+\_\+parent\+\_\+local\+\_\+id}
+\item 
+\mbox{\Hypertarget{classPatch_aba4e151c7a92e753ccc4c08db2b3e4c3}\label{classPatch_aba4e151c7a92e753ccc4c08db2b3e4c3}} 
+Integer\+Unique\+Array {\bfseries m\+\_\+coarse\+\_\+cells\+\_\+local\+\_\+ids}
+\item 
+\mbox{\Hypertarget{classPatch_a84aea68ca0cac5d6795ae7bf07ea8ed8}\label{classPatch_a84aea68ca0cac5d6795ae7bf07ea8ed8}} 
+Int64\+Unique\+Array {\bfseries m\+\_\+coarse\+\_\+cells\+\_\+unique\+\_\+ids}
+\item 
+\mbox{\Hypertarget{classPatch_aca2a8346027f1d8e648064de1797d75c}\label{classPatch_aca2a8346027f1d8e648064de1797d75c}} 
+Integer {\bfseries m\+\_\+coarse\+\_\+cells\+\_\+nb}
+\item 
+\mbox{\Hypertarget{classPatch_a4abdfb45232ec5619af0ea620706b5e3}\label{classPatch_a4abdfb45232ec5619af0ea620706b5e3}} 
+Integer {\bfseries m\+\_\+global\+\_\+id}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPatch_a03aa4107ca7f08b430c2e1533c1ba44c}\label{classPatch_a03aa4107ca7f08b430c2e1533c1ba44c}} 
+void {\bfseries \+\_\+extract\+Cell\+Ids} (Integer\+Const\+Array\+View axis\+\_\+cells\+\_\+nb)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPatch_a8ee61a4b3630cf3c7188073bff36d702}\label{classPatch_a8ee61a4b3630cf3c7188073bff36d702}} 
+class {\bfseries Modifier}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 31 of file Patch.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Patch\+Generator/Patch.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Patch\+Generator/Patch.\+cc\end{DoxyCompactItemize}

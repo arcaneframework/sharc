@@ -1,0 +1,49 @@
+\hypertarget{classIXMLidToUidMng}{}\doxysection{IXMLid\+To\+Uid\+Mng Class Reference}
+\label{classIXMLidToUidMng}\index{IXMLidToUidMng@{IXMLidToUidMng}}
+
+
+Classe permettant d\textquotesingle{}obtenir les identifiants uniques ou abstraits (s\textquotesingle{}ils existent) a partir des items de leurs identifiants locaux.  
+
+
+
+
+{\ttfamily \#include $<$IXMUid\+To\+Lid\+Mng.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMLidToUidMng_abce1b14e9d883d2591d9e12ac95e29f0}\label{classIXMLidToUidMng_abce1b14e9d883d2591d9e12ac95e29f0}} 
+{\bfseries IXMLid\+To\+Uid\+Mng} (Arcane\+::\+IMesh $\ast$mesh)
+\item 
+void \mbox{\hyperlink{classIXMLidToUidMng_a754e7986c4927da2fd62010ab0f11eca}{items\+Unique\+Id}} (Arcane\+::\+Int64\+Shared\+Array \&item\+\_\+uids, Arcane\+::\+Item\+Vector\+View items, Arcane\+::e\+Item\+Kind item\+\_\+kind)
+\begin{DoxyCompactList}\small\item\em Obtention des identifiants uniques ou abstraits d\textquotesingle{}un vecteur d\textquotesingle{}items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant d\textquotesingle{}obtenir les identifiants uniques ou abstraits (s\textquotesingle{}ils existent) a partir des items de leurs identifiants locaux. 
+
+Definition at line 123 of file IXMUid\+To\+Lid\+Mng.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIXMLidToUidMng_a754e7986c4927da2fd62010ab0f11eca}\label{classIXMLidToUidMng_a754e7986c4927da2fd62010ab0f11eca}} 
+\index{IXMLidToUidMng@{IXMLidToUidMng}!itemsUniqueId@{itemsUniqueId}}
+\index{itemsUniqueId@{itemsUniqueId}!IXMLidToUidMng@{IXMLidToUidMng}}
+\doxysubsubsection{\texorpdfstring{itemsUniqueId()}{itemsUniqueId()}}
+{\footnotesize\ttfamily void IXMLid\+To\+Uid\+Mng\+::items\+Unique\+Id (\begin{DoxyParamCaption}\item[{Arcane\+::\+Int64\+Shared\+Array \&}]{item\+\_\+uids,  }\item[{Arcane\+::\+Item\+Vector\+View}]{items,  }\item[{Arcane\+::e\+Item\+Kind}]{item\+\_\+kind }\end{DoxyParamCaption})}
+
+
+
+Obtention des identifiants uniques ou abstraits d\textquotesingle{}un vecteur d\textquotesingle{}items. 
+
+Si les items concernes disposent d\textquotesingle{}une identification par identifiant abstrait, ce sont ces identifiants qui sont retournes, et non les identifiants uniques arcane. Les tableaux item\+\_\+uids et items doivent avoir la meme taille. 
+
+Definition at line 403 of file IXMUid\+To\+Lid\+Mng.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMUid\+To\+Lid\+Mng.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IXMUid\+To\+Lid\+Mng.\+cc\end{DoxyCompactItemize}

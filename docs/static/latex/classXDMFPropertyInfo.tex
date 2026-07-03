@@ -1,0 +1,61 @@
+\hypertarget{classXDMFPropertyInfo}{}\doxysection{XDMFProperty\+Info Class Reference}
+\label{classXDMFPropertyInfo}\index{XDMFPropertyInfo@{XDMFPropertyInfo}}
+
+
+Inherited by Xdmf\+Property\+Info\+T$<$ Data\+Type $>$.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_a12e0aa95dbca85380c016386897b27c2}\label{classXDMFPropertyInfo_a12e0aa95dbca85380c016386897b27c2}} 
+virtual IVariable $\ast$ {\bfseries variable} () const =0
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_ad5a0c65a723aa4da33514f911ededdf6}\label{classXDMFPropertyInfo_ad5a0c65a723aa4da33514f911ededdf6}} 
+virtual void {\bfseries write\+Property} (Xml\+Node current\+\_\+node, const String \&format, const Real \&time=-\/1.\+0)=0
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_a015c21fa73c754601ff283b6816d8ff0}\label{classXDMFPropertyInfo_a015c21fa73c754601ff283b6816d8ff0}} 
+const String \& \mbox{\hyperlink{classXDMFPropertyInfo_a015c21fa73c754601ff283b6816d8ff0}{path}} () const
+\begin{DoxyCompactList}\small\item\em Chemin dans le fichier Hdf5 contenant la valeur de la variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_aa6261e8f9619b1fbdee6446ae201ccc9}\label{classXDMFPropertyInfo_aa6261e8f9619b1fbdee6446ae201ccc9}} 
+void \mbox{\hyperlink{classXDMFPropertyInfo_aa6261e8f9619b1fbdee6446ae201ccc9}{set\+Path}} (const String \&\mbox{\hyperlink{classXDMFPropertyInfo_a015c21fa73c754601ff283b6816d8ff0}{path}}, const String \&directory\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Positionne le chemin dans le fichier Hdf5 contenant la valeur de la variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_a297d17127be92eca6dc893f426406d79}\label{classXDMFPropertyInfo_a297d17127be92eca6dc893f426406d79}} 
+static \mbox{\hyperlink{classXDMFPropertyInfo}{XDMFProperty\+Info}} $\ast$ {\bfseries create} (IMesh $\ast$mesh, const String \&name, const String \&family)
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_a8ec97c63a5c9eb032daf0e69647f8d75}\label{classXDMFPropertyInfo_a8ec97c63a5c9eb032daf0e69647f8d75}} 
+static \mbox{\hyperlink{classXDMFPropertyInfo}{XDMFProperty\+Info}} $\ast$ \mbox{\hyperlink{classXDMFPropertyInfo_a8ec97c63a5c9eb032daf0e69647f8d75}{create}} (IVariable $\ast$variable)
+\begin{DoxyCompactList}\small\item\em Créé une instance pour la variable {\itshape variable}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_a9fdc2f6655ed71631bbd2285b842db45}\label{classXDMFPropertyInfo_a9fdc2f6655ed71631bbd2285b842db45}} 
+String {\bfseries get\+Data\+Type} (IVariable $\ast$var) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_a5d3a728d17c7a69b1a3ab27324ab95c6}\label{classXDMFPropertyInfo_a5d3a728d17c7a69b1a3ab27324ab95c6}} 
+String {\bfseries m\+\_\+hdf\+\_\+path}
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_aff7c477f24969a3d209e59d25c55cd2d}\label{classXDMFPropertyInfo_aff7c477f24969a3d209e59d25c55cd2d}} 
+String {\bfseries m\+\_\+directory\+\_\+name}
+\item 
+\mbox{\Hypertarget{classXDMFPropertyInfo_ad8d31e2ed15cae6dc9e7b742948bfc16}\label{classXDMFPropertyInfo_ad8d31e2ed15cae6dc9e7b742948bfc16}} 
+Real {\bfseries m\+\_\+values\+\_\+time}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file XDMFProperty\+Info.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+XDMF/XDMFProperty\+Info.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+XDMF/XDMFProperty\+Info.\+cc\end{DoxyCompactItemize}

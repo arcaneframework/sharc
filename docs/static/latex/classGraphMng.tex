@@ -1,0 +1,57 @@
+\hypertarget{classGraphMng}{}\doxysection{Graph\+Mng Class Reference}
+\label{classGraphMng}\index{GraphMng@{GraphMng}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGraphMng_1_1DualNode}{Dual\+Node}}
+\begin{DoxyCompactList}\small\item\em Classe d\textquotesingle{}implementation a usage interne uniquement. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structGraphMng_1_1Link}{Link}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphMng_a2fef4bab4c9b99e710af6fe792433b4a}\label{classGraphMng_a2fef4bab4c9b99e710af6fe792433b4a}} 
+typedef Arcane\+::\+IGraph {\bfseries Graph\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphMng_a03636e22e3c9c4347f7048229151eb92}\label{classGraphMng_a03636e22e3c9c4347f7048229151eb92}} 
+static Arcane\+::\+IGraph $\ast$ {\bfseries graph} (Arcane\+::\+IMesh $\ast$mesh, bool create\+\_\+if\+\_\+required=false)
+\item 
+\mbox{\Hypertarget{classGraphMng_af4b9418a5d633ea6c6a878afe77f3ac9}\label{classGraphMng_af4b9418a5d633ea6c6a878afe77f3ac9}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static \mbox{\hyperlink{classArcane_1_1MeshVariableScalarRefT}{Arcane\+::\+Mesh\+Variable\+Scalar\+RefT}}$<$ Arcane\+::\+Dual\+Node, ValueT $>$ $\ast$ {\bfseries new\+Variable\+Dual\+Node} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name)
+\item 
+\mbox{\Hypertarget{classGraphMng_a3a03b5def57d44b5c3020946103ae8de}\label{classGraphMng_a3a03b5def57d44b5c3020946103ae8de}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static Arcane\+::\+Mesh\+Partial\+Variable\+Scalar\+RefT$<$ Arcane\+::\+Dual\+Node, ValueT $>$ $\ast$ {\bfseries new\+Partial\+Variable\+Dual\+Node} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name, const Arcane\+::\+String \&group\+\_\+name)
+\item 
+\mbox{\Hypertarget{classGraphMng_aaeb73d62295df394a8930e9fb3404937}\label{classGraphMng_aaeb73d62295df394a8930e9fb3404937}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static Arcane\+::\+Mesh\+Variable\+Array\+RefT$<$ Arcane\+::\+Dual\+Node, ValueT $>$ $\ast$ {\bfseries new\+Variable\+Dual\+Node\+Array} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name, const Arcane\+::\+String \&family\+\_\+name)
+\item 
+\mbox{\Hypertarget{classGraphMng_a3310287bf914da9716b9b1bcb376bad5}\label{classGraphMng_a3310287bf914da9716b9b1bcb376bad5}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static Arcane\+::\+Mesh\+Partial\+Variable\+Array\+RefT$<$ Arcane\+::\+Dual\+Node, ValueT $>$ $\ast$ {\bfseries new\+Partial\+Variable\+Dual\+Node\+Array} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name, const Arcane\+::\+String \&group\+\_\+name)
+\item 
+\mbox{\Hypertarget{classGraphMng_acc38d23a703783367e506c7ceb70c7ef}\label{classGraphMng_acc38d23a703783367e506c7ceb70c7ef}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static \mbox{\hyperlink{classArcane_1_1MeshVariableScalarRefT}{Arcane\+::\+Mesh\+Variable\+Scalar\+RefT}}$<$ Arcane\+::\+Link, ValueT $>$ $\ast$ {\bfseries new\+Variable\+Link} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name)
+\item 
+\mbox{\Hypertarget{classGraphMng_aaef77f35c7d4e71b7a9fa617caef16f9}\label{classGraphMng_aaef77f35c7d4e71b7a9fa617caef16f9}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static Arcane\+::\+Mesh\+Variable\+Array\+RefT$<$ Arcane\+::\+Link, ValueT $>$ $\ast$ {\bfseries new\+Variable\+Link\+Array} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name, Arcane\+::\+Integer property=-\/1)
+\item 
+\mbox{\Hypertarget{classGraphMng_acc9724b87b8aa6d28eba20a5bc5a5340}\label{classGraphMng_acc9724b87b8aa6d28eba20a5bc5a5340}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static Arcane\+::\+Mesh\+Partial\+Variable\+Scalar\+RefT$<$ Arcane\+::\+Link, ValueT $>$ $\ast$ {\bfseries new\+Partial\+Variable\+Link} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name, const Arcane\+::\+String \&group\+\_\+name)
+\item 
+\mbox{\Hypertarget{classGraphMng_ab7c9ce36564875c0f00ed073a3fb03f6}\label{classGraphMng_ab7c9ce36564875c0f00ed073a3fb03f6}} 
+{\footnotesize template$<$typename ValueT $>$ }\\static Arcane\+::\+Mesh\+Partial\+Variable\+Array\+RefT$<$ Arcane\+::\+Link, ValueT $>$ $\ast$ {\bfseries new\+Partial\+Variable\+Link\+Array} (Arcane\+::\+IMesh $\ast$mesh, const Arcane\+::\+String \&var\+\_\+name, const Arcane\+::\+String \&family\+\_\+name, const Arcane\+::\+String \&group\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 78 of file Graph\+Utils.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Graph\+Utils.\+h\end{DoxyCompactItemize}

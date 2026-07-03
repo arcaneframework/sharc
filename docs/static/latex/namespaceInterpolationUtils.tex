@@ -1,0 +1,28 @@
+\hypertarget{namespaceInterpolationUtils}{}\doxysection{Interpolation\+Utils Namespace Reference}
+\label{namespaceInterpolationUtils}\index{InterpolationUtils@{InterpolationUtils}}
+
+
+Outils d\textquotesingle{}interpolation.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classInterpolationUtils_1_1InterpolationTypeTraits}{Interpolation\+Type\+Traits}}
+\begin{DoxyCompactList}\small\item\em Traits pour classer en deux cat{\ucr}gories les types bas{\ucr}s sur des r{\ucr}els (Real,Real2,\mbox{\hyperlink{structReal3}{Real3}}...) et les autres Les types bas{\ucr}s sur des r{\ucr}els ont le typedef Interpolation\+Type\+Traits\+::is\+Real valant True\+Type et les autres False\+Type Ensuite on utilisera des signatures de fonctions diff{\ucr}rentes pour aiguiller entre ces deux familles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceInterpolationUtils_a185850282b1b969c67818df13e4e9859}\label{namespaceInterpolationUtils_a185850282b1b969c67818df13e4e9859}} 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceInterpolationUtils_a185850282b1b969c67818df13e4e9859}{linear\+Interpolation}} (const Real \&x, const Real \&x\+\_\+a, const Real \&x\+\_\+b, const T \&y\+\_\+a, const T \&y\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}interpol{\ucr} f(x) donn{\ucr} par \+: f(x) = {\itshape y\+\_\+a} + ({\itshape x} -\/ {\itshape x\+\_\+a}) $\ast$ ({\itshape y\+\_\+b} -\/ {\itshape y\+\_\+a})/({\itshape x\+\_\+b} -\/ {\itshape x\+\_\+a}) on suppose que les abscisses sont des r{\ucr}elles et que les ordonn{\ucr}es sont des types bas{\ucr}s sur des r{\ucr}els. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceInterpolationUtils_a45ae41a8df1e728c9c4f392b2ade9df5}\label{namespaceInterpolationUtils_a45ae41a8df1e728c9c4f392b2ade9df5}} 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceInterpolationUtils_a45ae41a8df1e728c9c4f392b2ade9df5}{\+\_\+linear\+Interpolation}} (const Real \&x, const Real \&x\+\_\+a, const Real \&x\+\_\+b, const T \&y\+\_\+a, const T \&y\+\_\+b, const Arcane\+::\+True\+Type \&type)
+\begin{DoxyCompactList}\small\item\em Impl{\ucr}mentation pour les donn{\ucr}es bas{\ucr}es sur des R{\ucr}els (Real, Real2, \mbox{\hyperlink{structReal3}{Real3}}...) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceInterpolationUtils_a371a5e0e52372a7fffde6502611ac9b6}\label{namespaceInterpolationUtils_a371a5e0e52372a7fffde6502611ac9b6}} 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceInterpolationUtils_a371a5e0e52372a7fffde6502611ac9b6}{\+\_\+linear\+Interpolation}} (const Real \&x, const Real \&x\+\_\+a, const Real \&x\+\_\+b, const T \&y\+\_\+a, const T \&y\+\_\+b, const Arcane\+::\+False\+Type \&type)
+\begin{DoxyCompactList}\small\item\em Impl{\ucr}mentation pour les autres types \+: ne doit pas {\ucr}tre appel{\ucr}e, l\textquotesingle{}interpolation n\textquotesingle{}ayant pas de sens dans ce cas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Outils d\textquotesingle{}interpolation. 

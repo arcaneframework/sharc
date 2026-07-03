@@ -1,0 +1,80 @@
+\hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{}\doxysection{Arcane\+::Fem\+Utils\+::Csr\+Format\+Matrix\+View Class Reference}
+\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}\index{Arcane::FemUtils::CsrFormatMatrixView@{Arcane::FemUtils::CsrFormatMatrixView}}
+
+
+View of a Matrix with CSR format.  
+
+
+
+
+{\ttfamily \#include $<$Csr\+Format\+Matrix\+View.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_ae322c54684f6ccb33d07e91bc412252a}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_ae322c54684f6ccb33d07e91bc412252a}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Span$<$ const Int32 $>$ {\bfseries rows} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a63d07b5b278497569dd6060f0a5b55d3}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a63d07b5b278497569dd6060f0a5b55d3}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Span$<$ const Int32 $>$ {\bfseries columns} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_ab2b2aae7757279527d21a849be405880}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_ab2b2aae7757279527d21a849be405880}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Span$<$ Real $>$ {\bfseries values} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a0dcc4bdf2f85c2686471217de546749b}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a0dcc4bdf2f85c2686471217de546749b}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a0dcc4bdf2f85c2686471217de546749b}{nb\+Row}} () const
+\begin{DoxyCompactList}\small\item\em Number of the rows in the matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a04b5ba51180c7ea3ae65d1bab9b602df}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a04b5ba51180c7ea3ae65d1bab9b602df}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a04b5ba51180c7ea3ae65d1bab9b602df}{nb\+Column}} () const
+\begin{DoxyCompactList}\small\item\em Number of the values in the matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_ab62aa55373df59741b770fb278976a2f}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_ab62aa55373df59741b770fb278976a2f}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_ab62aa55373df59741b770fb278976a2f}{nb\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Number of the values in the matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a77c4faf8164eb4199d22696291a0a467}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a77c4faf8164eb4199d22696291a0a467}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Int32 {\bfseries row} (Int32 index) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a1c120eb8f718254f5553911e99624f04}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a1c120eb8f718254f5553911e99624f04}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a1c120eb8f718254f5553911e99624f04}{nb\+Column\+For\+Row}} (Int32 row) const
+\begin{DoxyCompactList}\small\item\em Number of column for the row {\itshape row}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a14f947574284ed02c86ca8c11cebf80c}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a14f947574284ed02c86ca8c11cebf80c}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a14f947574284ed02c86ca8c11cebf80c}{column}} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrRowColumnIndex}{Csr\+Row\+Column\+Index}} rc\+\_\+index) const
+\begin{DoxyCompactList}\small\item\em Local index of the column for the given Row\+Column\+Index {\itshape rc\+\_\+index}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a71312666ee130794ad450405527d7d7b}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a71312666ee130794ad450405527d7d7b}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Real \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a71312666ee130794ad450405527d7d7b}{value}} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrRowColumnIndex}{Csr\+Row\+Column\+Index}} rc\+\_\+index) const
+\begin{DoxyCompactList}\small\item\em Value of the matrix for the given Row\+Column\+Index {\itshape rc\+\_\+index}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a503124a8f23a463910f7fb068f0cdf1c}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a503124a8f23a463910f7fb068f0cdf1c}} 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrRow}{Csr\+Row}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a503124a8f23a463910f7fb068f0cdf1c}{row\+Range}} (Int32 row) const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classRange}{Range}} of \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrRowColumnIndex}{Csr\+Row\+Column\+Index}} for the given row {\itshape row}. \end{DoxyCompactList}\item 
+constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrRowColumnIndex}{Csr\+Row\+Column\+Index}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a3d9758e3ffbd53640bf4537fbc882f4c}{try\+Find\+Column\+In\+Row}} (Int32 row, Int32 column\+\_\+id) const
+\begin{DoxyCompactList}\small\item\em Try to find a column in a row. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+View of a Matrix with CSR format. 
+
+This view is a temporary object and is invalided when the underlying matrix structure is modified. 
+
+Definition at line 135 of file Csr\+Format\+Matrix\+View.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a3d9758e3ffbd53640bf4537fbc882f4c}\label{classArcane_1_1FemUtils_1_1CsrFormatMatrixView_a3d9758e3ffbd53640bf4537fbc882f4c}} 
+\index{Arcane::FemUtils::CsrFormatMatrixView@{Arcane::FemUtils::CsrFormatMatrixView}!tryFindColumnInRow@{tryFindColumnInRow}}
+\index{tryFindColumnInRow@{tryFindColumnInRow}!Arcane::FemUtils::CsrFormatMatrixView@{Arcane::FemUtils::CsrFormatMatrixView}}
+\doxysubsubsection{\texorpdfstring{tryFindColumnInRow()}{tryFindColumnInRow()}}
+{\footnotesize\ttfamily constexpr ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrRowColumnIndex}{Csr\+Row\+Column\+Index}} Arcane\+::\+Fem\+Utils\+::\+Csr\+Format\+Matrix\+View\+::try\+Find\+Column\+In\+Row (\begin{DoxyParamCaption}\item[{Int32}]{row,  }\item[{Int32}]{column\+\_\+id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Try to find a column in a row. 
+
+Try to find the column {\itshape column\+\_\+id} in the row {\itshape row}. If not found return a null index. 
+
+Definition at line 196 of file Csr\+Format\+Matrix\+View.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Csr\+Format\+Matrix\+View.\+h\end{DoxyCompactItemize}

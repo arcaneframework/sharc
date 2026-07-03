@@ -1,0 +1,54 @@
+\hypertarget{classep_1_1position}{}\doxysection{ep\+::position Class Reference}
+\label{classep_1_1position}\index{ep::position@{ep::position}}
+
+
+Abstract a position.  
+
+
+
+
+{\ttfamily \#include $<$position.\+hh$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classep_1_1position_ae02a2b1bbde1c54cbf511e2a77927538}\label{classep_1_1position_ae02a2b1bbde1c54cbf511e2a77927538}} 
+\mbox{\hyperlink{classep_1_1position_ae02a2b1bbde1c54cbf511e2a77927538}{position}} ()
+\begin{DoxyCompactList}\small\item\em Construct a position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1position_a4ebb8a9954b121b4ebd3360c829c078b}\label{classep_1_1position_a4ebb8a9954b121b4ebd3360c829c078b}} 
+void \mbox{\hyperlink{classep_1_1position_a4ebb8a9954b121b4ebd3360c829c078b}{initialize}} (std\+::string $\ast$fn)
+\begin{DoxyCompactList}\small\item\em Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Line and Column related manipulators}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classep_1_1position_a586fe28a7bf17c7382171b451b9aa046}\label{classep_1_1position_a586fe28a7bf17c7382171b451b9aa046}} 
+void \mbox{\hyperlink{classep_1_1position_a586fe28a7bf17c7382171b451b9aa046}{lines}} (int count=1)
+\begin{DoxyCompactList}\small\item\em (line related) Advance to the COUNT next lines. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1position_ac791d0fca852008dde7bcaaa1d8f20ee}\label{classep_1_1position_ac791d0fca852008dde7bcaaa1d8f20ee}} 
+void \mbox{\hyperlink{classep_1_1position_ac791d0fca852008dde7bcaaa1d8f20ee}{columns}} (int count=1)
+\begin{DoxyCompactList}\small\item\em (column related) Advance to the COUNT next columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classep_1_1position_a96438c617dfba201e50dd2ed07516e7f}\label{classep_1_1position_a96438c617dfba201e50dd2ed07516e7f}} 
+std\+::string $\ast$ \mbox{\hyperlink{classep_1_1position_a96438c617dfba201e50dd2ed07516e7f}{filename}}
+\begin{DoxyCompactList}\small\item\em File name to which this position refers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1position_ab24d480c7129609e3bb43dc421386930}\label{classep_1_1position_ab24d480c7129609e3bb43dc421386930}} 
+unsigned int \mbox{\hyperlink{classep_1_1position_ab24d480c7129609e3bb43dc421386930}{line}}
+\begin{DoxyCompactList}\small\item\em Current line number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classep_1_1position_a645a797720ed1eb30feb9a9917e78fa9}\label{classep_1_1position_a645a797720ed1eb30feb9a9917e78fa9}} 
+unsigned int \mbox{\hyperlink{classep_1_1position_a645a797720ed1eb30feb9a9917e78fa9}{column}}
+\begin{DoxyCompactList}\small\item\em Current column number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract a position. 
+
+Definition at line 49 of file position.\+hh.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/\mbox{\hyperlink{position_8hh}{position.\+hh}}\end{DoxyCompactItemize}

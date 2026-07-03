@@ -1,0 +1,133 @@
+
+
+Here, we focus on linear solid mechanics, which involves analyzing the behavior of elastic bodies through a system of partial differential equations (PDEs) that govern their deformation. The solver at hand is specifically designed for 3D/2D unstructured mesh problems and operates as a linear elasticity solver utilizing the finite element method (FEM).
+
+The primary objective of the solver is to determine the vector solution for the unknown displacements within the elastic body. By utilizing FEM, it efficiently searches for a solution that satisfies the given boundary conditions and accurately captures the deformation characteristics of the system. This solver serves as a valuable tool for investigating and understanding the mechanical behavior of elastic materials in various engineering applications.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md38}{}\doxysection{Mathematics}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md38}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md39}{}\doxysubsubsection{Problem description}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md39}
+Under small elastic deformation, the steady elastic deformation equation (linear elastic system) on domain \$\textbackslash{}\+Omega\$ reads
+
+\$\$ -\/\textbackslash{}nabla\textbackslash{}cdot\textbackslash{}sigma(\textbackslash{}mathbf\{x\})=\textbackslash{}mathbf\{f\}(\textbackslash{}mathbf\{x\}) \textbackslash{}quad \textbackslash{}mathbf\{x\}\textbackslash{}in\textbackslash{}\+Omega \$\$
+
+here, \$\textbackslash{}sigma(\textbackslash{}mathbf\{x\})\$ is stress tensor, \$\textbackslash{}mathbf\{f\}(\textbackslash{}mathbf\{x\})\$ is the body force per unit volume. The stress tensor \$\textbackslash{}sigma(\textbackslash{}mathbf\{x\})\$ under isotropic elastic conditions is given by
+
+\$\$ \textbackslash{}sigma(\textbackslash{}mathbf\{x\}) = \textbackslash{}lambda(\textbackslash{}nabla\textbackslash{}cdot\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\}))\textbackslash{}mathbb\{I\} + \textbackslash{}mu (\textbackslash{}nabla\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\}) + \textbackslash{}left(\textbackslash{}nabla\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\})\textbackslash{}right)$^\wedge$\textbackslash{}text\{T\}) \$\$
+
+here, \$\textbackslash{}lambda\textbackslash{}in\textbackslash{}mathbb\{R\}$^\wedge$\{+\}\$ and \$\textbackslash{}mu\textbackslash{}in\textbackslash{}mathbb\{R\}$^\wedge$\{+\}\$ are the Lame\textquotesingle{}s elasticity parameters for the homogeneous material, \$\textbackslash{}mathbb\{I\}\$ is the identity tensor, and \$\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\})\$ is the displacement field vector. This governing PDE iis also knows as Navier\textquotesingle{}s equation.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md40}{}\doxysubsubsection{Variational formulation}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md40}
+Without entering into the details, the variational formulation for the Navier\textquotesingle{}s equation reads
+
+\$\$ \textbackslash{}int\+\_\+\{\textbackslash{}\+Omega\} \textbackslash{}lambda \textbackslash{}nabla \textbackslash{}cdot \textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\}) \textbackslash{}nabla \textbackslash{}cdot \textbackslash{}mathbf\{v\}(\textbackslash{}mathbf\{x\}) + 2\textbackslash{}mu\textbackslash{}varepsilon(\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\}))\+:\textbackslash{}varepsilon(\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\})) -\/ \textbackslash{}int\+\_\+\{\textbackslash{}\+Omega\}\textbackslash{}mathbf\{f\}(\textbackslash{}mathbf\{x\})\textbackslash{}cdot\{\textbackslash{}mathbf\{v\}(\textbackslash{}mathbf\{x\})\} -\/ \textbackslash{}int\+\_\+\{\textbackslash{}partial\textbackslash{}\+Omega\+\_\+N\} \textbackslash{}mathbf\{t\}(\textbackslash{}mathbf\{x\}) \textbackslash{}cdot \textbackslash{}mathbf\{v\}(\textbackslash{}mathbf\{x\}) = 0 \$\$
+
+here, \$\textbackslash{}mathbf\{t\}(\textbackslash{}mathbf\{x\})\$ is the traction vector imposed on Neumann boundary \$\textbackslash{}\+Omega\+\_\+N\$, and \$\textbackslash{}varepsilon(\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\})) = \textbackslash{}varepsilon\+\_\+\{ij\}(\textbackslash{}mathbf\{u\}(\textbackslash{}mathbf\{x\}))\$ is the strain tensor given by
+
+\$\$ \textbackslash{}varepsilon\+\_\+\{ij\}(\textbackslash{}mathbf\{u\}) = \textbackslash{}frac\{1\}\{2\}(\textbackslash{}frac\{\textbackslash{}partial\{u\}\+\_\+i\}\{\textbackslash{}partial\{x\}\+\_\+j\} + \textbackslash{}frac\{\textbackslash{}partial\{u\}\+\_\+j\}\{\textbackslash{}partial\{x\}\+\_\+i\} ) \$\$\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md41}{}\doxysection{An example elasticity solver}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md41}
+We will provide a simple 2D bar problem example. The physics solved is a bar that bends under its own load. This XML configuration file is used for setting up an Elasticity problem simulation in Arcane\+FEM. Below is a detailed explanation of each section in the configuration for one of the tests {\ttfamily bar.\+2\+D.\+Dirichlet.\+body\+Force.\+arc}.
+
+\doxysubparagraph*{Mesh Configuration}
+
+The mesh configuration section specifies the mesh file to be used in the simulation\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{meshes}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{mesh}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{filename}>\textcolor{keyword}{meshes}/\textcolor{keyword}{bar.msh}</\textcolor{keywordtype}{filename}>}
+\DoxyCodeLine{      <\textcolor{keywordtype}{subdivider}>}
+\DoxyCodeLine{        <\textcolor{keywordtype}{nb-\/subdivision}>0</\textcolor{keywordtype}{nb-\/subdivision}>}
+\DoxyCodeLine{      </\textcolor{keywordtype}{subdivider}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{mesh}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{meshes}>}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Mesh File\+:}} Defines the mesh file {\ttfamily bar.\+msh} to be used in the simulation. Note that this file should be compatible with version 4.\+1 {\ttfamily .msh} format from {\ttfamily Gmsh}. The mesh here is a traingular mesh.
+\item {\bfseries{Subdivision}}\+: {\ttfamily nb-\/subdivision} here allows to split the mesh to produce a finer mesh from a coarse mesh. It is practical to use for producing meshes for large-\/scale simulations.
+\end{DoxyItemize}
+
+\doxysubparagraph*{FEM Configuration}
+
+The Finite Element Method (FEM) configuration is provided in the {\ttfamily bar.\+2\+D.\+Dirichlet.\+body\+Force.\+arc}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{fem}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{E}>21.0\textcolor{keyword}{e5}</\textcolor{keywordtype}{E}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{nu}>0.28</\textcolor{keywordtype}{nu}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{f}>\textcolor{keyword}{NULL} -\/1.0</\textcolor{keywordtype}{f}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{boundary-\/conditions}>}
+\DoxyCodeLine{      <\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{        <\textcolor{keywordtype}{surface}>\textcolor{keyword}{left}</\textcolor{keywordtype}{surface}>}
+\DoxyCodeLine{        <\textcolor{keywordtype}{value}>0.0 0.0</\textcolor{keywordtype}{value}>}
+\DoxyCodeLine{      </\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{    </\textcolor{keywordtype}{boundary-\/conditions}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{fem}>}
+
+\end{DoxyCode}
+
+
+Let us explain this point wise
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Material Properties\+:}} The Young\textquotesingle{}s Modulus (E) for the material, defined as {\ttfamily 21.\+0e5}. The Poisson\textquotesingle{}s Ratio (nu) for the material, defined as {\ttfamily 0.\+28}.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{E}>21.0\textcolor{keyword}{e5}</\textcolor{keywordtype}{E}>}
+\DoxyCodeLine{<\textcolor{keywordtype}{nu}>0.28</\textcolor{keywordtype}{nu}>}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item {\bfseries{Source Term / Body Force\+:}} The source term or body force is present in in Y direction hence (f2) in the PDE, set to {\ttfamily -\/1.\+0}.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{f}>\textcolor{keyword}{NULL} -\/1.0</\textcolor{keywordtype}{f}>}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item {\bfseries{Dirichlet Method\+:}} The boundary condition on the specified surface ({\ttfamily left}) with given values for {\ttfamily u1} and {\ttfamily u2}, which we set to 0 since the end is clamped. Please note that it is expected the mesh {\ttfamily bar.\+msh} contains the physical group {\ttfamily left}.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{boundary-\/conditions}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{surface}>\textcolor{keyword}{left}</\textcolor{keywordtype}{surface}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{value}>0.0 0.0</\textcolor{keywordtype}{value}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{boundary-\/conditions}>}
+
+\end{DoxyCode}
+
+
+\doxysubparagraph*{Post-\/\+Processing Configuration}
+
+The post-\/processing configuration is specified to control how and when results are saved\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{arcane-\/post-\/processing}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{output-\/period}>1</\textcolor{keywordtype}{output-\/period}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{format} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}VtkHdfV2PostProcessor"{}} />}
+\DoxyCodeLine{  <\textcolor{keywordtype}{output}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{variable}>\textcolor{keyword}{U}</\textcolor{keywordtype}{variable}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{output}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{arcane-\/post-\/processing}>}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Output Period\+:}} Sets the interval at which results are saved.
+\item {\bfseries{Format\+:}} Specifies the format for the output files ({\ttfamily Vtk\+Hdf\+V2\+Post\+Processor}).
+\item {\bfseries{Output Variables\+:}} Lists the variables ({\ttfamily U}) which is the displacement vector to be included in the output.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md42}{}\doxysubsubsection{Post Process}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Elasticity_Readme_autotoc_md42}
+For post processing the {\ttfamily Mesh0.\+hdf} file is outputted (in {\ttfamily output/depouillement/vtkhdfv2} folder), which can be read by PARAVIS. The output is of the \$\textbackslash{}mathbb\{P\}\+\_\+1\$ FE order (on nodes). 

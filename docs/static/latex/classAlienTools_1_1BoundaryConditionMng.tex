@@ -1,0 +1,62 @@
+\hypertarget{classAlienTools_1_1BoundaryConditionMng}{}\doxysection{Alien\+Tools\+::Boundary\+Condition\+Mng$<$ ValueT, IndexT, dim\+\_\+value $>$ Class Template Reference}
+\label{classAlienTools_1_1BoundaryConditionMng}\index{AlienTools::BoundaryConditionMng$<$ ValueT, IndexT, dim\_value $>$@{AlienTools::BoundaryConditionMng$<$ ValueT, IndexT, dim\_value $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_aaa97edee4376f505b002828e4e4aeb7a}\label{classAlienTools_1_1BoundaryConditionMng_aaa97edee4376f505b002828e4e4aeb7a}} 
+enum {\bfseries e\+BCType} \{ {\bfseries Dirichlet}
+, {\bfseries Neumann}
+, {\bfseries Undefined}
+ \}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_a4abbb4827712fa3f997f884a17942e08}\label{classAlienTools_1_1BoundaryConditionMng_a4abbb4827712fa3f997f884a17942e08}} 
+typedef IndexT {\bfseries index\+\_\+type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_a6be43c5ad592e3709e351e274964a8ef}\label{classAlienTools_1_1BoundaryConditionMng_a6be43c5ad592e3709e351e274964a8ef}} 
+typedef ValueT {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_a01190dd7de35d97c8291e07ef071a2c1}\label{classAlienTools_1_1BoundaryConditionMng_a01190dd7de35d97c8291e07ef071a2c1}} 
+typedef ValueT {\bfseries BCValue\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_a8c16bcef65d407e92fc7325d0e5410c3}\label{classAlienTools_1_1BoundaryConditionMng_a8c16bcef65d407e92fc7325d0e5410c3}} 
+bool {\bfseries is\+Boundary} (index\+\_\+type dof\+\_\+lid) const
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_af18582a9e0f741336f96c8f4611fb72f}\label{classAlienTools_1_1BoundaryConditionMng_af18582a9e0f741336f96c8f4611fb72f}} 
+e\+BCType {\bfseries bc\+Type} (index\+\_\+type dof\+\_\+lid, index\+\_\+type u\+\_\+id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_a68d9f8b081a4228429dd7beed657aa98}\label{classAlienTools_1_1BoundaryConditionMng_a68d9f8b081a4228429dd7beed657aa98}} 
+Arcane\+::\+Unique\+Array$<$ index\+\_\+type $>$ {\bfseries m\+\_\+dof\+\_\+is\+\_\+boundary}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_a8369bf86ff0dc4d89c549c519cdb23f7}\label{classAlienTools_1_1BoundaryConditionMng_a8369bf86ff0dc4d89c549c519cdb23f7}} 
+std\+::map$<$ index\+\_\+type, std\+::array$<$ e\+BCType, dim $>$ $>$ {\bfseries m\+\_\+dof\+\_\+bc\+\_\+type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_adbb50f0f43f53f0f7dbf553e28aebfb5}\label{classAlienTools_1_1BoundaryConditionMng_adbb50f0f43f53f0f7dbf553e28aebfb5}} 
+std\+::map$<$ index\+\_\+type, std\+::array$<$ BCValue\+Type, dim $>$ $>$ {\bfseries m\+\_\+dof\+\_\+bc\+\_\+values}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1BoundaryConditionMng_a842190d6d8e19609b43fc7a6ea8e7c35}\label{classAlienTools_1_1BoundaryConditionMng_a842190d6d8e19609b43fc7a6ea8e7c35}} 
+static const int {\bfseries dim} = dim\+\_\+value
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ValueT = Arcane\+::\+Real, typename IndexT = Arcane\+::\+Integer, int dim\+\_\+value = 3$>$\newline
+class Alien\+Tools\+::\+Boundary\+Condition\+Mng$<$ Value\+T, Index\+T, dim\+\_\+value $>$}
+
+
+
+Definition at line 26 of file Local\+System\+Contribution.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Local\+System\+Contribution.\+h\end{DoxyCompactItemize}

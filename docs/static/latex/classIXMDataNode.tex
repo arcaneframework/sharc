@@ -1,0 +1,103 @@
+\hypertarget{classIXMDataNode}{}\doxysection{IXMData\+Node$<$ T $>$ Class Template Reference}
+\label{classIXMDataNode}\index{IXMDataNode$<$ T $>$@{IXMDataNode$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_a8006b7630c973d21dd82d94e2c604ae4}\label{classIXMDataNode_a8006b7630c973d21dd82d94e2c604ae4}} 
+{\bfseries IXMData\+Node} (Xml\+Node \&parent\+\_\+node, const String \&format, const String \&data\+\_\+type, const String \&directory\+\_\+name, const Integer array\+\_\+size=-\/1)
+\item 
+\mbox{\Hypertarget{classIXMDataNode_afdba85c12ec616ef2de60f5ea7f2fc20}\label{classIXMDataNode_afdba85c12ec616ef2de60f5ea7f2fc20}} 
+e\+Format\+Type \mbox{\hyperlink{classIXMDataNode_afdba85c12ec616ef2de60f5ea7f2fc20}{get\+Format}} () const
+\begin{DoxyCompactList}\small\item\em Get the format of the data. Usually XML $\vert$ HDF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMDataNode_a39a819599bd2161994d54db31e48a1e7}\label{classIXMDataNode_a39a819599bd2161994d54db31e48a1e7}} 
+void \mbox{\hyperlink{classIXMDataNode_a39a819599bd2161994d54db31e48a1e7}{set\+Format}} (const e\+Format\+Type \&format)
+\begin{DoxyCompactList}\small\item\em Set the format of the data. Usually XML $\vert$ HDF. Default is XML. \end{DoxyCompactList}\item 
+Int32 \mbox{\hyperlink{classIXMDataNode_a7c9b66a2750e74ed28664b8adbcdc306}{build}} (\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&array)
+\begin{DoxyCompactList}\small\item\em Get the data values access object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMDataNode_a43adf1b97f843f9ad4c2039ea18d456c}\label{classIXMDataNode_a43adf1b97f843f9ad4c2039ea18d456c}} 
+Int32 \mbox{\hyperlink{classIXMDataNode_a43adf1b97f843f9ad4c2039ea18d456c}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Convenience Function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMDataNode_a7119f79604db42d5298e115d9c988cd8}\label{classIXMDataNode_a7119f79604db42d5298e115d9c988cd8}} 
+Int32 \mbox{\hyperlink{classIXMDataNode_a7119f79604db42d5298e115d9c988cd8}{set\+Size}} (Int64 size)
+\begin{DoxyCompactList}\small\item\em Convenience Function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMDataNode_a484a53ada545069c513817db6ba3ff97}\label{classIXMDataNode_a484a53ada545069c513817db6ba3ff97}} 
+Xml\+Node {\bfseries get\+Data\+Node} ()
+\item 
+\mbox{\Hypertarget{classIXMDataNode_afa18b4a180dd5a1f170a7a7822ab908d}\label{classIXMDataNode_afa18b4a180dd5a1f170a7a7822ab908d}} 
+Int32 {\bfseries get\+Format} ()
+\item 
+\mbox{\Hypertarget{classIXMDataNode_a5d41e90c90bcc2df69a7b9bc1d786617}\label{classIXMDataNode_a5d41e90c90bcc2df69a7b9bc1d786617}} 
+void \mbox{\hyperlink{classIXMDataNode_a5d41e90c90bcc2df69a7b9bc1d786617}{set\+Heavy\+Data\+Name}} (const String \&hdata\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Set the name of the Heavy Data Set (if applicable) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMDataNode_abc1f42c0a02cb5a172f6be5396b3cf8c}\label{classIXMDataNode_abc1f42c0a02cb5a172f6be5396b3cf8c}} 
+String \mbox{\hyperlink{classIXMDataNode_abc1f42c0a02cb5a172f6be5396b3cf8c}{get\+Heavy\+Data\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the Heavy Data Set (if applicable) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMDataNode_aca5880d76b9684211da621a5baf9167e}\label{classIXMDataNode_aca5880d76b9684211da621a5baf9167e}} 
+Xml\+Element \mbox{\hyperlink{classIXMDataNode_aca5880d76b9684211da621a5baf9167e}{create\+From\+Parent}} (Xml\+Node \&parent\+\_\+node, const String \&format, const String \&type, const Integer array\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Insert an Element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_a507f370963ac4118963df285c3ca78e9}\label{classIXMDataNode_a507f370963ac4118963df285c3ca78e9}} 
+Xml\+Node {\bfseries m\+\_\+data\+\_\+node}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_a4068c55be2e9a70665f4f1decb61f87a}\label{classIXMDataNode_a4068c55be2e9a70665f4f1decb61f87a}} 
+Int32 \mbox{\hyperlink{classIXMDataNode_a4068c55be2e9a70665f4f1decb61f87a}{check\+Values}} (Int32 format)
+\begin{DoxyCompactList}\small\item\em Make sure this-\/$>$Values is correct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_a34dde65ca9443d28baad535add3684ae}\label{classIXMDataNode_a34dde65ca9443d28baad535add3684ae}} 
+e\+Format\+Type {\bfseries m\+\_\+format}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_a1955a42f2962939e6a664d6658edd924}\label{classIXMDataNode_a1955a42f2962939e6a664d6658edd924}} 
+Int32 {\bfseries m\+\_\+array\+\_\+is\+\_\+mine}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_aaacd3e39a37d00c4019fbc4b46ffe614}\label{classIXMDataNode_aaacd3e39a37d00c4019fbc4b46ffe614}} 
+Int32 {\bfseries m\+\_\+size}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_aab318fc4cd64f1a57e63dff280932804}\label{classIXMDataNode_aab318fc4cd64f1a57e63dff280932804}} 
+\mbox{\hyperlink{classIXMValues}{IXMValues}}$<$ T $>$ $\ast$ {\bfseries m\+\_\+values}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_acc3b5b16f8f18ab8431bfe5a9b01ee31}\label{classIXMDataNode_acc3b5b16f8f18ab8431bfe5a9b01ee31}} 
+String {\bfseries m\+\_\+heavy\+\_\+data\+\_\+name}
+\item 
+\mbox{\Hypertarget{classIXMDataNode_ab6194828ff962fad2a697ec6e444742b}\label{classIXMDataNode_ab6194828ff962fad2a697ec6e444742b}} 
+String {\bfseries m\+\_\+directory\+\_\+name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class IXMData\+Node$<$ T $>$}
+
+
+
+Definition at line 25 of file IXMData\+Node.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIXMDataNode_a7c9b66a2750e74ed28664b8adbcdc306}\label{classIXMDataNode_a7c9b66a2750e74ed28664b8adbcdc306}} 
+\index{IXMDataNode$<$ T $>$@{IXMDataNode$<$ T $>$}!build@{build}}
+\index{build@{build}!IXMDataNode$<$ T $>$@{IXMDataNode$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Int32 \mbox{\hyperlink{classIXMDataNode}{IXMData\+Node}}$<$ T $>$\+::build (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{array }\end{DoxyParamCaption})}
+
+
+
+Get the data values access object. 
+
+Update Structure and Values potentially reading Heavy Data (INPUT) Update the DOM (OUTPUT) 
+
+Definition at line 226 of file IXMData\+Node.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM4/IXMData\+Node.\+h\end{DoxyCompactItemize}

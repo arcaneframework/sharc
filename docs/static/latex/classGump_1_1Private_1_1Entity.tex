@@ -1,0 +1,108 @@
+\hypertarget{classGump_1_1Private_1_1Entity}{}\doxysection{Gump\+::Private\+::Entity Class Reference}
+\label{classGump_1_1Private_1_1Entity}\index{Gump::Private::Entity@{Gump::Private::Entity}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_afbf8b888ba5a60fe5e462325cf0d5382}\label{classGump_1_1Private_1_1Entity_afbf8b888ba5a60fe5e462325cf0d5382}} 
+typedef std\+::map$<$ Arcane\+::\+String, \mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$ $>$ {\bfseries Entity\+Map}
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a2001ca84622e33fcc0ffe742f91330c4}\label{classGump_1_1Private_1_1Entity_a2001ca84622e33fcc0ffe742f91330c4}} 
+typedef std\+::map$<$ Arcane\+::\+String, \mbox{\hyperlink{classGump_1_1Private_1_1Property}{Property}} $\ast$ $>$ {\bfseries Property\+Map}
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a9a49aa2c7b9d8f3281d85831cd40102f}\label{classGump_1_1Private_1_1Entity_a9a49aa2c7b9d8f3281d85831cd40102f}} 
+typedef std\+::map$<$ \mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$, Arcane\+::\+Real $>$ {\bfseries Values}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_aba4d20458aa5eaa3fc2b239a729251ed}\label{classGump_1_1Private_1_1Entity_aba4d20458aa5eaa3fc2b239a729251ed}} 
+const Arcane\+::\+String \& {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_ade33a37a62ad45fce1fb1eb8164e490f}\label{classGump_1_1Private_1_1Entity_ade33a37a62ad45fce1fb1eb8164e490f}} 
+Arcane\+::\+Integer {\bfseries kind} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_ace6996224e2bb7522660ac7b114c2d27}\label{classGump_1_1Private_1_1Entity_ace6996224e2bb7522660ac7b114c2d27}} 
+Arcane\+::\+Integer {\bfseries tag} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_acb43a3884034c574d0c9692cd254f577}\label{classGump_1_1Private_1_1Entity_acb43a3884034c574d0c9692cd254f577}} 
+bool {\bfseries is} (Arcane\+::\+Integer tag) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_ab28993233cba6580662bd20da2693f09}\label{classGump_1_1Private_1_1Entity_ab28993233cba6580662bd20da2693f09}} 
+Arcane\+::\+Integer {\bfseries number\+Of} (Arcane\+::\+Integer K) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a1a7d2188d542e6fb3854dcfc36dfc6ed}\label{classGump_1_1Private_1_1Entity_a1a7d2188d542e6fb3854dcfc36dfc6ed}} 
+\mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$ {\bfseries entity} (Arcane\+::\+Integer i, Arcane\+::\+Integer K) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_af08d6afecf4a67a3b3817373377a30b9}\label{classGump_1_1Private_1_1Entity_af08d6afecf4a67a3b3817373377a30b9}} 
+bool {\bfseries contains} (Arcane\+::\+String name, Arcane\+::\+Integer K) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_aab29ba27f466b82faa77a141014956fa}\label{classGump_1_1Private_1_1Entity_aab29ba27f466b82faa77a141014956fa}} 
+\mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$ {\bfseries entity} (Arcane\+::\+String name, Arcane\+::\+Integer K) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a7440ceb2256b13fe4dbdb99334e52b0c}\label{classGump_1_1Private_1_1Entity_a7440ceb2256b13fe4dbdb99334e52b0c}} 
+Arcane\+::\+Integer {\bfseries number\+Of} (Arcane\+::\+Integer K, Arcane\+::\+Integer T) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a9fa36ea4d7e23a1ce388452cf5a69f46}\label{classGump_1_1Private_1_1Entity_a9fa36ea4d7e23a1ce388452cf5a69f46}} 
+\mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$ {\bfseries entity} (Arcane\+::\+Integer i, Arcane\+::\+Integer K, Arcane\+::\+Integer T) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_ab8ee700bf6a7c29e031af37635ac3e14}\label{classGump_1_1Private_1_1Entity_ab8ee700bf6a7c29e031af37635ac3e14}} 
+void {\bfseries push} (\mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$entity)
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a1030acc4183d74da3079ba6b788001b7}\label{classGump_1_1Private_1_1Entity_a1030acc4183d74da3079ba6b788001b7}} 
+void {\bfseries push} (\mbox{\hyperlink{classGump_1_1Private_1_1Property}{Property}} $\ast$property)
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_aef4df116194503cb41e4701af08b4193}\label{classGump_1_1Private_1_1Entity_aef4df116194503cb41e4701af08b4193}} 
+const Entity\+Vector \& {\bfseries entities} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a2273c2d3b78b92d2588c798fc2da4760}\label{classGump_1_1Private_1_1Entity_a2273c2d3b78b92d2588c798fc2da4760}} 
+const Entity\+Vector \& {\bfseries entities} (Arcane\+::\+Integer K) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a0d5ea0daf729f3ae83ee135f7d1391ef}\label{classGump_1_1Private_1_1Entity_a0d5ea0daf729f3ae83ee135f7d1391ef}} 
+const Entity\+Vector \& {\bfseries entities} (Arcane\+::\+Integer K, Arcane\+::\+Integer T) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a4a0209cd491437d2b3139902d8491aad}\label{classGump_1_1Private_1_1Entity_a4a0209cd491437d2b3139902d8491aad}} 
+Arcane\+::\+Integer {\bfseries number\+Of\+Properties} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a73e9e05a1e2fbf93e23c95884dd5997f}\label{classGump_1_1Private_1_1Entity_a73e9e05a1e2fbf93e23c95884dd5997f}} 
+Arcane\+::\+Integer {\bfseries property\+Kind} (Arcane\+::\+Integer i) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_af16b39302e35fac267157e557cf22069}\label{classGump_1_1Private_1_1Entity_af16b39302e35fac267157e557cf22069}} 
+\mbox{\hyperlink{classGump_1_1Private_1_1Property}{Property}} $\ast$ {\bfseries property} (Arcane\+::\+Integer kind) const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_adaf6311a942a701ec09dca9a91fd5c76}\label{classGump_1_1Private_1_1Entity_adaf6311a942a701ec09dca9a91fd5c76}} 
+Arcane\+::\+Integer {\bfseries unique\+Id} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a6a81d9e9397f8465aa6b8ce799d5a420}\label{classGump_1_1Private_1_1Entity_a6a81d9e9397f8465aa6b8ce799d5a420}} 
+Arcane\+::\+Integer {\bfseries family\+Id} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_ad0cae10fcfd1949df7261ee3fe04b1d8}\label{classGump_1_1Private_1_1Entity_ad0cae10fcfd1949df7261ee3fe04b1d8}} 
+\mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$ {\bfseries parent} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_aa2ec3e943b9a5f79c852b913ea30e3d4}\label{classGump_1_1Private_1_1Entity_aa2ec3e943b9a5f79c852b913ea30e3d4}} 
+\mbox{\hyperlink{classGump_1_1Private_1_1Entity}{Entity}} $\ast$ {\bfseries root} () const
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a57c7e9e205e66142f2c53e35e8c23cf2}\label{classGump_1_1Private_1_1Entity_a57c7e9e205e66142f2c53e35e8c23cf2}} 
+Values \& {\bfseries values} ()
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_a8e9bdd74056ae865a502cda3c4c7f876}\label{classGump_1_1Private_1_1Entity_a8e9bdd74056ae865a502cda3c4c7f876}} 
+void {\bfseries kill} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGump_1_1Private_1_1Entity_aeba61337c30b952932803ebd944d29a3}\label{classGump_1_1Private_1_1Entity_aeba61337c30b952932803ebd944d29a3}} 
+class {\bfseries Gump\+::\+Builder}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 51 of file Private.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Gump/Private.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Gump/Private.\+cc\end{DoxyCompactItemize}

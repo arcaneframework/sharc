@@ -1,0 +1,50 @@
+\hypertarget{classIEstimator}{}\doxysection{IEstimator Class Reference}
+\label{classIEstimator}\index{IEstimator@{IEstimator}}
+
+
+interface pour estimateurs d\textquotesingle{}erreurs  
+
+
+
+
+{\ttfamily \#include $<$IEstimator.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIEstimator_a44718fb76a6184543d7b0d1fd95d0356}\label{classIEstimator_a44718fb76a6184543d7b0d1fd95d0356}} 
+\mbox{\hyperlink{classIEstimator_a44718fb76a6184543d7b0d1fd95d0356}{IEstimator}} ()
+\begin{DoxyCompactList}\small\item\em constructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEstimator_a5086c2c270a8c743c44fec50abea03e9}\label{classIEstimator_a5086c2c270a8c743c44fec50abea03e9}} 
+virtual \mbox{\hyperlink{classIEstimator_a5086c2c270a8c743c44fec50abea03e9}{$\sim$\+IEstimator}} ()
+\begin{DoxyCompactList}\small\item\em destructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEstimator_a5ddf8edfbdb4451986ff653588cc6efd}\label{classIEstimator_a5ddf8edfbdb4451986ff653588cc6efd}} 
+virtual void {\bfseries init} ()=0
+\item 
+\mbox{\Hypertarget{classIEstimator_a84e060b16741c9f409026585a07bdbf5}\label{classIEstimator_a84e060b16741c9f409026585a07bdbf5}} 
+virtual void {\bfseries init} (Arcane\+::\+IMesh $\ast$mesh)=0
+\item 
+\mbox{\Hypertarget{classIEstimator_a8dff490d1d4e6f818a2c30ed00eedbe6}\label{classIEstimator_a8dff490d1d4e6f818a2c30ed00eedbe6}} 
+virtual INumerical\+Model\+Visitor $\ast$ {\bfseries get\+Numerical\+Model\+Op} ()
+\item 
+\mbox{\Hypertarget{classIEstimator_a10bc9517be1788f77e3ac253aa4a283e}\label{classIEstimator_a10bc9517be1788f77e3ac253aa4a283e}} 
+virtual bool {\bfseries is\+Normalized} () const
+\item 
+\mbox{\Hypertarget{classIEstimator_aedcdac31e31d4552211ef3bb72e8a8eb}\label{classIEstimator_aedcdac31e31d4552211ef3bb72e8a8eb}} 
+virtual void \mbox{\hyperlink{classIEstimator_aedcdac31e31d4552211ef3bb72e8a8eb}{compute\+Derivative}} (const Arcane\+::\+Variable\+Cell\+Real \&variable, const Arcane\+::\+Variable\+Cell\+Real \&variable\+\_\+tn, Arcane\+::\+Real dt, Arcane\+::\+Variable\+Cell\+Real \&variable\+\_\+result, Arcane\+::\+IMesh $\ast$mesh)=0
+\begin{DoxyCompactList}\small\item\em calcul de la derivee \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEstimator_a8dfbf6adc07d0a60931de40256221ae0}\label{classIEstimator_a8dfbf6adc07d0a60931de40256221ae0}} 
+virtual void {\bfseries update} (Arcane\+::\+IMesh $\ast$mesh)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+interface pour estimateurs d\textquotesingle{}erreurs 
+
+Definition at line 23 of file IEstimator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Estimator/IEstimator.\+h\end{DoxyCompactItemize}

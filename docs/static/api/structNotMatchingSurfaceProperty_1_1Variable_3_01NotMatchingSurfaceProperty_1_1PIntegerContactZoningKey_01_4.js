@@ -1,0 +1,4 @@
+var structNotMatchingSurfaceProperty_1_1Variable_3_01NotMatchingSurfaceProperty_1_1PIntegerContactZoningKey_01_4 =
+[
+    [ "type", "structNotMatchingSurfaceProperty_1_1Variable_3_01NotMatchingSurfaceProperty_1_1PIntegerContactZoningKey_01_4.html#a2565486a8ee6281a32d35f58c4e5e00e", null ]
+];

@@ -1,0 +1,70 @@
+\hypertarget{classAdvectionUpwindService}{}\doxysection{Advection\+Upwind\+Service Class Reference}
+\label{classAdvectionUpwindService}\index{AdvectionUpwindService@{AdvectionUpwindService}}
+
+
+Inherits Arcane\+Advection\+Upwind\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a899176ddd4fb7c9a0d59a05c0576a450}\label{classAdvectionUpwindService_a899176ddd4fb7c9a0d59a05c0576a450}} 
+\mbox{\hyperlink{classAdvectionUpwindService_a899176ddd4fb7c9a0d59a05c0576a450}{Advection\+Upwind\+Service}} (const Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a5e76a9c386ddd014d8f7b69e42d10528}\label{classAdvectionUpwindService_a5e76a9c386ddd014d8f7b69e42d10528}} 
+virtual \mbox{\hyperlink{classAdvectionUpwindService_a5e76a9c386ddd014d8f7b69e42d10528}{$\sim$\+Advection\+Upwind\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a4608571184230cda1aa61701218f4510}\label{classAdvectionUpwindService_a4608571184230cda1aa61701218f4510}} 
+virtual Version\+Info \mbox{\hyperlink{classAdvectionUpwindService_a4608571184230cda1aa61701218f4510}{version\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Return version number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_af176d6daae0c16332110fae1422c4fd7}\label{classAdvectionUpwindService_af176d6daae0c16332110fae1422c4fd7}} 
+void \mbox{\hyperlink{classAdvectionUpwindService_af176d6daae0c16332110fae1422c4fd7}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the service. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a88376aab71953f5ee58aee1bc973518e}\label{classAdvectionUpwindService_a88376aab71953f5ee58aee1bc973518e}} 
+void \mbox{\hyperlink{classAdvectionUpwindService_a88376aab71953f5ee58aee1bc973518e}{prepare}} (IMesh $\ast$mesh, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_af44b8c0a42575782b991a18d91596e94}\label{classAdvectionUpwindService_af44b8c0a42575782b991a18d91596e94}} 
+void \mbox{\hyperlink{classAdvectionUpwindService_af44b8c0a42575782b991a18d91596e94}{prepare}} (const Face\+Group \&internal\+\_\+faces, const Face\+Group \&boundary\+\_\+faces, Face\+Group \&c\+\_\+internal\+\_\+faces, Face\+Group \&cf\+\_\+internal\+\_\+faces, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_ac86245725670014938d8bb6728ba22f1}\label{classAdvectionUpwindService_ac86245725670014938d8bb6728ba22f1}} 
+void \mbox{\hyperlink{classAdvectionUpwindService_ac86245725670014938d8bb6728ba22f1}{finalize}} ()
+\begin{DoxyCompactList}\small\item\em Reset the operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a51d84aad2b5d7752c636d60de02c75e5}\label{classAdvectionUpwindService_a51d84aad2b5d7752c636d60de02c75e5}} 
+void \mbox{\hyperlink{classAdvectionUpwindService_a51d84aad2b5d7752c636d60de02c75e5}{form\+Discrete\+Operator}} (const Velocity\+Flux\+Type \&q)
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the face velocity flux $q$ parametrized by the face upwinding parameter $\theta$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a5830f35ccd35e3194b75b04a00e0932a}\label{classAdvectionUpwindService_a5830f35ccd35e3194b75b04a00e0932a}} 
+Integer \mbox{\hyperlink{classAdvectionUpwindService_a5830f35ccd35e3194b75b04a00e0932a}{get\+Cell\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required cell geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a684d7f8c2baadc5d950aa71e698db0a0}\label{classAdvectionUpwindService_a684d7f8c2baadc5d950aa71e698db0a0}} 
+Integer \mbox{\hyperlink{classAdvectionUpwindService_a684d7f8c2baadc5d950aa71e698db0a0}{get\+Face\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required face geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a5cd719579f57c4c76f690f2fac2dc92e}\label{classAdvectionUpwindService_a5cd719579f57c4c76f690f2fac2dc92e}} 
+void {\bfseries set\+Cells} (const Cell\+Group \&\mbox{\hyperlink{classAdvectionUpwindService_ae3236279f2624ada924142ce3b8d74ca}{cells}})
+\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_ab5a3a0c2249f882fb2ef056474ac75d2}\label{classAdvectionUpwindService_ab5a3a0c2249f882fb2ef056474ac75d2}} 
+void {\bfseries set\+Faces} (const Face\+Group \&\mbox{\hyperlink{classAdvectionUpwindService_ad0fd629e58366e16e6ad89f79da0ae1f}{faces}})
+\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_ad0fd629e58366e16e6ad89f79da0ae1f}\label{classAdvectionUpwindService_ad0fd629e58366e16e6ad89f79da0ae1f}} 
+const Face\+Group \& \mbox{\hyperlink{classAdvectionUpwindService_ad0fd629e58366e16e6ad89f79da0ae1f}{faces}} () const
+\begin{DoxyCompactList}\small\item\em Return faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_ae3236279f2624ada924142ce3b8d74ca}\label{classAdvectionUpwindService_ae3236279f2624ada924142ce3b8d74ca}} 
+const Cell\+Group \& \mbox{\hyperlink{classAdvectionUpwindService_ae3236279f2624ada924142ce3b8d74ca}{cells}} () const
+\begin{DoxyCompactList}\small\item\em Return cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_aae866437120e38855243a747c37a1960}\label{classAdvectionUpwindService_aae866437120e38855243a747c37a1960}} 
+const Face\+Group \& \mbox{\hyperlink{classAdvectionUpwindService_aae866437120e38855243a747c37a1960}{boundary\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return boundary faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdvectionUpwindService_a84d9e33add7a13de2f1415ef1661ef5c}\label{classAdvectionUpwindService_a84d9e33add7a13de2f1415ef1661ef5c}} 
+const Face\+Group \& \mbox{\hyperlink{classAdvectionUpwindService_a84d9e33add7a13de2f1415ef1661ef5c}{internal\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return internal faces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 22 of file Advection\+Upwind\+Service.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Advection\+Upwind/Advection\+Upwind\+Service.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Advection\+Upwind/Advection\+Upwind\+Service.\+cc\end{DoxyCompactItemize}

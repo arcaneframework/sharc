@@ -1,0 +1,124 @@
+\hypertarget{classMeshTools}{}\doxysection{Mesh\+Tools Class Reference}
+\label{classMeshTools}\index{MeshTools@{MeshTools}}
+
+
+Class \mbox{\hyperlink{classMeshTools}{Mesh\+Tools}} Tools for the mesh.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Tools.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMeshTools_a1b69f933b144efdcf384728140b0e00b}\label{classMeshTools_a1b69f933b144efdcf384728140b0e00b}} 
+\mbox{\hyperlink{classMeshTools_a1b69f933b144efdcf384728140b0e00b}{Mesh\+Tools}} (IMesh $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshTools_a3a13fdcdfcdf17928bd3de39b4b41af5}\label{classMeshTools_a3a13fdcdfcdf17928bd3de39b4b41af5}} 
+virtual \mbox{\hyperlink{classMeshTools_a3a13fdcdfcdf17928bd3de39b4b41af5}{$\sim$\+Mesh\+Tools}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshTools_aa8ffea4f6c35c85c12c17507fa6f3bc2}\label{classMeshTools_aa8ffea4f6c35c85c12c17507fa6f3bc2}} 
+Integer {\bfseries get\+Face\+Triangulation} (Real seuil, const \mbox{\hyperlink{structReal3}{Real3}} \&pt0, const \mbox{\hyperlink{structReal3}{Real3}} \&pt1, const \mbox{\hyperlink{structReal3}{Real3}} \&pt2, const \mbox{\hyperlink{structReal3}{Real3}} \&pt3)
+\item 
+bool \mbox{\hyperlink{classMeshTools_a1d3e4bf1283b72cd65928ea75a16e471}{is\+In\+Cell}} (const Cell \&my\+\_\+cell, \mbox{\hyperlink{structReal3}{Real3}} point, Real epsilon)
+\begin{DoxyCompactList}\small\item\em Check if the point is included in the cell. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMeshTools_ab81d18d60e2e1aad508de085062b6d6e}{is\+In\+Triangle}} (const \mbox{\hyperlink{structReal3}{Real3}} \&p, const \mbox{\hyperlink{structReal3}{Real3}} \&pt1, const \mbox{\hyperlink{structReal3}{Real3}} \&pt2, const \mbox{\hyperlink{structReal3}{Real3}} \&pt3)
+\begin{DoxyCompactList}\small\item\em Compute if p is inside the triangle (p1,p2,p3). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classMeshTools_a40e46cf54575118afb293814f3cc3259}{get\+Center}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Compute the center of an item. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshTools_a71e5adf9b567995f1d2203eb63f572c6}\label{classMeshTools_a71e5adf9b567995f1d2203eb63f572c6}} 
+void {\bfseries set\+Trace\+Manager} (ITrace\+Mng $\ast$trace\+\_\+mng)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \mbox{\hyperlink{classMeshTools}{Mesh\+Tools}} Tools for the mesh. 
+
+The get\+Face\+Triangulation method is imported from Open\+Flow\textquotesingle{}s Algo\+Visu\+Tools class. The is\+In\+Cell, is\+In\+Triangle and get\+Center methods are imported from the Open\+Flow\textquotesingle{}s Cell class. 
+
+Definition at line 24 of file Mesh\+Tools.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMeshTools_a40e46cf54575118afb293814f3cc3259}\label{classMeshTools_a40e46cf54575118afb293814f3cc3259}} 
+\index{MeshTools@{MeshTools}!getCenter@{getCenter}}
+\index{getCenter@{getCenter}!MeshTools@{MeshTools}}
+\doxysubsubsection{\texorpdfstring{getCenter()}{getCenter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structReal3}{Real3}} Mesh\+Tools\+::get\+Center (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})}
+
+
+
+Compute the center of an item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & the current mesh \\
+\hline
+{\em item} & an item with nodes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the geometric center of the item 
+\end{DoxyReturn}
+
+
+Definition at line 411 of file Mesh\+Tools.\+cc.
+
+\mbox{\Hypertarget{classMeshTools_a1d3e4bf1283b72cd65928ea75a16e471}\label{classMeshTools_a1d3e4bf1283b72cd65928ea75a16e471}} 
+\index{MeshTools@{MeshTools}!isInCell@{isInCell}}
+\index{isInCell@{isInCell}!MeshTools@{MeshTools}}
+\doxysubsubsection{\texorpdfstring{isInCell()}{isInCell()}}
+{\footnotesize\ttfamily bool Mesh\+Tools\+::is\+In\+Cell (\begin{DoxyParamCaption}\item[{const Cell \&}]{my\+\_\+cell,  }\item[{\mbox{\hyperlink{structReal3}{Real3}}}]{point,  }\item[{Real}]{epsilon }\end{DoxyParamCaption})}
+
+
+
+Check if the point is included in the cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & the current mesh \\
+\hline
+{\em my\+\_\+cell} & \\
+\hline
+{\em point} & a point\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the point is included in the cell 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file Mesh\+Tools.\+cc.
+
+\mbox{\Hypertarget{classMeshTools_ab81d18d60e2e1aad508de085062b6d6e}\label{classMeshTools_ab81d18d60e2e1aad508de085062b6d6e}} 
+\index{MeshTools@{MeshTools}!isInTriangle@{isInTriangle}}
+\index{isInTriangle@{isInTriangle}!MeshTools@{MeshTools}}
+\doxysubsubsection{\texorpdfstring{isInTriangle()}{isInTriangle()}}
+{\footnotesize\ttfamily bool Mesh\+Tools\+::is\+In\+Triangle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{p,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{pt1,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{pt2,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{pt3 }\end{DoxyParamCaption})}
+
+
+
+Compute if p is inside the triangle (p1,p2,p3). 
+
+3D computing
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & point to verify @parap pt1 first point defining a triangle @parap pt2 second point defining a triangle @parap pt3 third point defining a triangle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if p is inside the triangle (p1,p2,p3), false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 433 of file Mesh\+Tools.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Mesh\+Tools.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Mesh\+Tools.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+var classPropertyMapping =
+[
+    [ "PropertyMapping", "classPropertyMapping.html#aa7a60a8173292be84d0ee6a2fe17e732", null ],
+    [ "PropertyMapping", "classPropertyMapping.html#a44f47539f89eec7c8b22184dffb18529", null ],
+    [ "PropertyMapping", "classPropertyMapping.html#abd116460e3e849475ef467b5a6d8b4c8", null ],
+    [ "PropertyMapping", "classPropertyMapping.html#aa7a60a8173292be84d0ee6a2fe17e732", null ],
+    [ "PropertyMapping", "classPropertyMapping.html#a44f47539f89eec7c8b22184dffb18529", null ],
+    [ "PropertyMapping", "classPropertyMapping.html#abd116460e3e849475ef467b5a6d8b4c8", null ],
+    [ "properties", "classPropertyMapping.html#a09bca48ee6bd3c92d41fd94ea6a2a1fe", null ],
+    [ "properties", "classPropertyMapping.html#a09bca48ee6bd3c92d41fd94ea6a2a1fe", null ],
+    [ "property", "classPropertyMapping.html#a4318f6646267c2477c1f2b40ad1c7a5d", null ],
+    [ "property", "classPropertyMapping.html#a4318f6646267c2477c1f2b40ad1c7a5d", null ],
+    [ "propertyOffset", "classPropertyMapping.html#abc2fd7d3f941cadfbcd6776f0c3382d0", null ],
+    [ "propertyOffset", "classPropertyMapping.html#abc2fd7d3f941cadfbcd6776f0c3382d0", null ],
+    [ "referenceDependencies", "classPropertyMapping.html#a6b4b8be1ef521072b71612e47d6a4760", null ],
+    [ "referenceDependencies", "classPropertyMapping.html#a6b4b8be1ef521072b71612e47d6a4760", null ],
+    [ "referenceOffset", "classPropertyMapping.html#ac2b3bc80b9a0d9184a257a16cdc85cf8", null ],
+    [ "referenceOffset", "classPropertyMapping.html#ac2b3bc80b9a0d9184a257a16cdc85cf8", null ],
+    [ "userDependencies", "classPropertyMapping.html#a8bb911c3ff2911f521ebf6425917212c", null ],
+    [ "userDependencies", "classPropertyMapping.html#a8bb911c3ff2911f521ebf6425917212c", null ],
+    [ "userOffset", "classPropertyMapping.html#a586ee79a424ab1c16794c13cc1942716", null ],
+    [ "userOffset", "classPropertyMapping.html#a586ee79a424ab1c16794c13cc1942716", null ],
+    [ "userSize", "classPropertyMapping.html#a1635498800dc49e2506499ca12f85949", null ],
+    [ "userSize", "classPropertyMapping.html#a1635498800dc49e2506499ca12f85949", null ]
+];

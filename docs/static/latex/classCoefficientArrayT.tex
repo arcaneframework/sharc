@@ -1,0 +1,104 @@
+\hypertarget{classCoefficientArrayT}{}\doxysection{Coefficient\+ArrayT$<$ T $>$ Class Template Reference}
+\label{classCoefficientArrayT}\index{CoefficientArrayT$<$ T $>$@{CoefficientArrayT$<$ T $>$}}
+\doxysubsection*{Public Types}
+\begin{Indent}\textbf{ Typedefs and enums}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a0aa6100c56ff23a4208a94dbd6086faf}\label{classCoefficientArrayT_a0aa6100c56ff23a4208a94dbd6086faf}} 
+typedef Item\+TraitsT$<$ T $>$\+::\mbox{\hyperlink{classCoefficientArrayT_a0aa6100c56ff23a4208a94dbd6086faf}{Item\+Group\+Type}} \mbox{\hyperlink{classCoefficientArrayT_a0aa6100c56ff23a4208a94dbd6086faf}{Item\+Group\+Type}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classItem}{Item}} group type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_ace37d8747113cb319df541f434e09d74}\label{classCoefficientArrayT_ace37d8747113cb319df541f434e09d74}} 
+typedef Array\+View$<$ Integer $>$ \mbox{\hyperlink{classCoefficientArrayT_ace37d8747113cb319df541f434e09d74}{Stencil\+Local\+Id\+Type}}
+\begin{DoxyCompactList}\small\item\em Stencil local id type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_af84a1659add3160450df8f038a88e93a}\label{classCoefficientArrayT_af84a1659add3160450df8f038a88e93a}} 
+typedef Item\+Vector\+View \mbox{\hyperlink{classCoefficientArrayT_af84a1659add3160450df8f038a88e93a}{Stencil\+Type}}
+\begin{DoxyCompactList}\small\item\em Stencil type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a881e1a2e4eb7d94ea89d5502d02cf0f7}\label{classCoefficientArrayT_a881e1a2e4eb7d94ea89d5502d02cf0f7}} 
+typedef Array\+View$<$ Real $>$ \mbox{\hyperlink{classCoefficientArrayT_a881e1a2e4eb7d94ea89d5502d02cf0f7}{Coefficients\+Type}}
+\begin{DoxyCompactList}\small\item\em Coefficients type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and destructors}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCoefficientArrayT_acd3911793b6e1514724d7ba4fe4c8ecb}\label{classCoefficientArrayT_acd3911793b6e1514724d7ba4fe4c8ecb}} 
+\mbox{\hyperlink{classCoefficientArrayT_acd3911793b6e1514724d7ba4fe4c8ecb}{Coefficient\+ArrayT}} (Face\+Group face\+\_\+group, Item\+GroupT$<$ T $>$ item\+\_\+group)
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a10ac5c502927b143d654bcaa4040898e}\label{classCoefficientArrayT_a10ac5c502927b143d654bcaa4040898e}} 
+void \mbox{\hyperlink{classCoefficientArrayT_a10ac5c502927b143d654bcaa4040898e}{init}} (const \mbox{\hyperlink{classItemGroupMapT}{Item\+Group\+MapT}}$<$ Face, Integer $>$ \&stencil\+\_\+sizes)
+\begin{DoxyCompactList}\small\item\em Initialize the coefficient array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_afc098305f6df82de098af80346614c81}\label{classCoefficientArrayT_afc098305f6df82de098af80346614c81}} 
+void \mbox{\hyperlink{classCoefficientArrayT_afc098305f6df82de098af80346614c81}{init}} (const \mbox{\hyperlink{classArray}{Array}}$<$ std\+::pair$<$ Item\+Group, Integer $>$ $>$ \&stencil\+\_\+sizes)
+\begin{DoxyCompactList}\small\item\em Initialize the coefficient array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_ae8dd85e33e261d3b61315fb4f82c855e}\label{classCoefficientArrayT_ae8dd85e33e261d3b61315fb4f82c855e}} 
+void \mbox{\hyperlink{classCoefficientArrayT_ae8dd85e33e261d3b61315fb4f82c855e}{init}} (const Arcane\+::\+Variable\+Face\+Integer \&stencil\+\_\+sizes)
+\begin{DoxyCompactList}\small\item\em Initialize the coefficient array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_ab0f72e295e50af72e313bea74ad5a1dc}\label{classCoefficientArrayT_ab0f72e295e50af72e313bea74ad5a1dc}} 
+virtual \mbox{\hyperlink{classCoefficientArrayT_ab0f72e295e50af72e313bea74ad5a1dc}{$\sim$\+Coefficient\+ArrayT}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Setters and getters}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a9eb8b4535d2a8e3c830405df96673ddc}\label{classCoefficientArrayT_a9eb8b4535d2a8e3c830405df96673ddc}} 
+const Face\+Group \& \mbox{\hyperlink{classCoefficientArrayT_a9eb8b4535d2a8e3c830405df96673ddc}{face\+Group}} () const
+\begin{DoxyCompactList}\small\item\em Return the face group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a7472441ce31889c4b68140286c5b5623}\label{classCoefficientArrayT_a7472441ce31889c4b68140286c5b5623}} 
+Integer \mbox{\hyperlink{classCoefficientArrayT_a7472441ce31889c4b68140286c5b5623}{number\+Of\+Coefficients}} () const
+\begin{DoxyCompactList}\small\item\em Return the number of coefficients stored. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a1ce1aa3e023aaf2273a4dead36cafa20}\label{classCoefficientArrayT_a1ce1aa3e023aaf2273a4dead36cafa20}} 
+Integer \mbox{\hyperlink{classCoefficientArrayT_a1ce1aa3e023aaf2273a4dead36cafa20}{stencil\+Size}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the size of the stencil. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a92c02e97cee8e50a69e9608df7886147}\label{classCoefficientArrayT_a92c02e97cee8e50a69e9608df7886147}} 
+\mbox{\hyperlink{classCoefficientArrayT_ace37d8747113cb319df541f434e09d74}{Stencil\+Local\+Id\+Type}} \mbox{\hyperlink{classCoefficientArrayT_a92c02e97cee8e50a69e9608df7886147}{stencil\+Local\+Id}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the local id of the elements in the stencil of face F. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_ae23e73594e294c779c55de50f9b2bce7}\label{classCoefficientArrayT_ae23e73594e294c779c55de50f9b2bce7}} 
+\mbox{\hyperlink{classCoefficientArrayT_af84a1659add3160450df8f038a88e93a}{Stencil\+Type}} \mbox{\hyperlink{classCoefficientArrayT_ae23e73594e294c779c55de50f9b2bce7}{stencil}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the stencil for face F (. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a7c08d892a8e06ce0b1654c534d437423}\label{classCoefficientArrayT_a7c08d892a8e06ce0b1654c534d437423}} 
+\mbox{\hyperlink{classCoefficientArrayT_a881e1a2e4eb7d94ea89d5502d02cf0f7}{Coefficients\+Type}} \mbox{\hyperlink{classCoefficientArrayT_a7c08d892a8e06ce0b1654c534d437423}{coefficients}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the coefficients for face F. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Setters and getters (deprecated)}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a38d01f11948cea360aebe689fd2f52b5}\label{classCoefficientArrayT_a38d01f11948cea360aebe689fd2f52b5}} 
+ARCANE\+\_\+\+DEPRECATED Integer \mbox{\hyperlink{classCoefficientArrayT_a38d01f11948cea360aebe689fd2f52b5}{get\+Stencil\+Size}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the size of the stencil. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a384182cd748e97434ee785090bbb7a9e}\label{classCoefficientArrayT_a384182cd748e97434ee785090bbb7a9e}} 
+ARCANE\+\_\+\+DEPRECATED \mbox{\hyperlink{classCoefficientArrayT_ace37d8747113cb319df541f434e09d74}{Stencil\+Local\+Id\+Type}} \mbox{\hyperlink{classCoefficientArrayT_a384182cd748e97434ee785090bbb7a9e}{get\+Stencil\+Local\+Id}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the local id of the elements in the stencil of face F. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a72b07e61815e2655414045cc3fafb760}\label{classCoefficientArrayT_a72b07e61815e2655414045cc3fafb760}} 
+ARCANE\+\_\+\+DEPRECATED \mbox{\hyperlink{classCoefficientArrayT_af84a1659add3160450df8f038a88e93a}{Stencil\+Type}} \mbox{\hyperlink{classCoefficientArrayT_a72b07e61815e2655414045cc3fafb760}{get\+Stencil}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the stencil for face F (. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a2b9772678508e481be6a93b367161788}\label{classCoefficientArrayT_a2b9772678508e481be6a93b367161788}} 
+ARCANE\+\_\+\+DEPRECATED \mbox{\hyperlink{classCoefficientArrayT_a881e1a2e4eb7d94ea89d5502d02cf0f7}{Coefficients\+Type}} \mbox{\hyperlink{classCoefficientArrayT_a2b9772678508e481be6a93b367161788}{get\+Coefficients}} (const Face \&F)
+\begin{DoxyCompactList}\small\item\em Return the coefficients for face F. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Methods}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a646a2a988f595dd4669a1734ae647563}\label{classCoefficientArrayT_a646a2a988f595dd4669a1734ae647563}} 
+void \mbox{\hyperlink{classCoefficientArrayT_a646a2a988f595dd4669a1734ae647563}{reset\+Coefficients}} ()
+\begin{DoxyCompactList}\small\item\em Reset coefficients to zero keeping stencil information. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a62d76a831fb0c6713f6734f9db211a9b}\label{classCoefficientArrayT_a62d76a831fb0c6713f6734f9db211a9b}} 
+void \mbox{\hyperlink{classCoefficientArrayT_a62d76a831fb0c6713f6734f9db211a9b}{print}} (std\+::ostringstream \&ostr)
+\begin{DoxyCompactList}\small\item\em Print. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCoefficientArrayT_a386a5c2869c3c016559096bb15e4da1e}\label{classCoefficientArrayT_a386a5c2869c3c016559096bb15e4da1e}} 
+{\footnotesize template$<$typename Trace\+MessageT $>$ }\\void \mbox{\hyperlink{classCoefficientArrayT_a386a5c2869c3c016559096bb15e4da1e}{print}} (Trace\+MessageT trace)
+\begin{DoxyCompactList}\small\item\em Print. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Coefficient\+Array\+T$<$ T $>$}
+
+
+
+Definition at line 37 of file Coefficient\+Array.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/Coefficient\+Array.\+h\end{DoxyCompactItemize}

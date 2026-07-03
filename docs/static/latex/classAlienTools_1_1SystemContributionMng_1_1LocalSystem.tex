@@ -1,0 +1,56 @@
+\hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem}{}\doxysection{Alien\+Tools\+::System\+Contribution\+Mng$<$ ValueT, IndexT, dim\+\_\+value $>$\+::Local\+System Class Reference}
+\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem}\index{AlienTools::SystemContributionMng$<$ ValueT, IndexT, dim\_value $>$::LocalSystem@{AlienTools::SystemContributionMng$<$ ValueT, IndexT, dim\_value $>$::LocalSystem}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a71c762dcebb4beed9cf1a72e924fdac4}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a71c762dcebb4beed9cf1a72e924fdac4}} 
+typedef Eigen\+::\+Map$<$ Eigen\+::\+Matrix\+Xd $>$ {\bfseries Eigen\+Matrix\+Type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a9b41843feeba4b116266e75299bb2392}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a9b41843feeba4b116266e75299bb2392}} 
+typedef Eigen\+::\+Map$<$ Eigen\+::\+Vector\+Xd $>$ {\bfseries Eigen\+Vector\+Type}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_affd5ab29ac8f2178f9b5270df94d1df8}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_affd5ab29ac8f2178f9b5270df94d1df8}} 
+typedef \mbox{\hyperlink{classAlienTools_1_1SystemContributionMng}{System\+Contribution\+Mng}}$<$ value\+\_\+type, index\+\_\+type, dim $>$ {\bfseries Parent\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a729dcfdb13c286bc0a39290da4e13295}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a729dcfdb13c286bc0a39290da4e13295}} 
+{\bfseries Local\+System} (\mbox{\hyperlink{classAlienTools_1_1SystemContributionMng}{System\+Contribution\+Mng}} \&parent, Arcane\+::\+Cell const \&cell, Arcane\+::\+Item\+Vector\+View const \&dof\+\_\+vector)
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a9adc432d5e0e2c6b4024173681de0732}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_a9adc432d5e0e2c6b4024173681de0732}} 
+Eigen\+Matrix\+Type \& {\bfseries matrix} ()
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_ab4387f841b43452167e9fab572f882bc}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_ab4387f841b43452167e9fab572f882bc}} 
+Eigen\+Vector\+Type \& {\bfseries rhs} ()
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_aa228589ee303a25e25632cc16b096ec4}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_aa228589ee303a25e25632cc16b096ec4}} 
+void {\bfseries define\+Profile} (Alien\+::\+Matrix\+Profiler \&profiler)
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_abb14f30c4b487e56ce47e87b41eee7a1}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_abb14f30c4b487e56ce47e87b41eee7a1}} 
+void {\bfseries assemble} (Alien\+::\+Profiled\+Matrix\+Builder \&matrix\+\_\+builder, Alien\+::\+Vector\+Writer \&rhs\+\_\+builder)
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_abf0cd01b45377b990f0b99ea645aa1e4}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_abf0cd01b45377b990f0b99ea645aa1e4}} 
+{\footnotesize template$<$typename LambdaT $>$ }\\void {\bfseries assemble} (Alien\+::\+Profiled\+Matrix\+Builder \&matrix\+\_\+builder, Alien\+::\+Vector\+Writer \&rhs\+\_\+builder, LambdaT \&forcing\+\_\+term)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_aa8baa4022073e7705ed57080dad237df}\label{classAlienTools_1_1SystemContributionMng_1_1LocalSystem_aa8baa4022073e7705ed57080dad237df}} 
+static const int {\bfseries dim} = dim\+\_\+value
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ValueT = Arcane\+::\+Real, typename IndexT = Arcane\+::\+Integer, int dim\+\_\+value = 3$>$\newline
+class Alien\+Tools\+::\+System\+Contribution\+Mng$<$ Value\+T, Index\+T, dim\+\_\+value $>$\+::\+Local\+System}
+
+
+
+Definition at line 70 of file Local\+System\+Contribution.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/Local\+System\+Contribution.\+h\end{DoxyCompactItemize}

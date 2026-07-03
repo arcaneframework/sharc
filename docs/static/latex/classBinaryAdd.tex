@@ -1,0 +1,175 @@
+\hypertarget{classBinaryAdd}{}\doxysection{Binary\+Add$<$ L, R $>$ Class Template Reference}
+\label{classBinaryAdd}\index{BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}}
+
+
+\mbox{\hyperlink{classBinaryAdd}{Binary\+Add}} \+: Operation d\textquotesingle{}addition entre 2 types.  
+
+
+
+
+{\ttfamily \#include $<$Binary\+Op.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}\label{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}} 
+typedef L\+::value\+\_\+type \mbox{\hyperlink{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}{value\+\_\+typeL}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de gauche \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}\label{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}} 
+typedef R\+::value\+\_\+type \mbox{\hyperlink{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}{value\+\_\+typeR}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de droite \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}\label{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}} 
+typedef \mbox{\hyperlink{classPromote}{Promote}}$<$ \mbox{\hyperlink{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}{value\+\_\+typeL}}, \mbox{\hyperlink{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}{value\+\_\+typeR}} $>$\+::type \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em type du resultat de l\textquotesingle{}operation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}\label{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}} 
+typedef L\+::value\+\_\+type \mbox{\hyperlink{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}{value\+\_\+typeL}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de gauche \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}\label{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}} 
+typedef R\+::value\+\_\+type \mbox{\hyperlink{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}{value\+\_\+typeR}}
+\begin{DoxyCompactList}\small\item\em type de l\textquotesingle{}operande de droite \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}\label{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}} 
+typedef \mbox{\hyperlink{classPromote}{Promote}}$<$ \mbox{\hyperlink{classBinaryAdd_a54bc8b38478ae038faa291e02ed0e2c3}{value\+\_\+typeL}}, \mbox{\hyperlink{classBinaryAdd_a8037b616b80392a0610ce1625bab63bf}{value\+\_\+typeR}} $>$\+::type \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em type du resultat de l\textquotesingle{}operation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd_ac123a90a65da025a102309581fd4016b}{get\+Value}} (const L \&left, const R \&right, int index)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd_aea5e8294399efb6ef30ea04435f2d558}{get\+Derived\+Value}} (const L \&left, const R \&right, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de la derivee de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd_ac123a90a65da025a102309581fd4016b}{get\+Value}} (const L \&left, const R \&right, int index)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de l\textquotesingle{}operation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd_aea5e8294399efb6ef30ea04435f2d558}{get\+Derived\+Value}} (const L \&left, const R \&right, int ligne, int colonne)
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de la derivee de l\textquotesingle{}operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename L, typename R$>$\newline
+class Binary\+Add$<$ L, R $>$}
+
+\mbox{\hyperlink{classBinaryAdd}{Binary\+Add}} \+: Operation d\textquotesingle{}addition entre 2 types. 
+
+Definit une methode static \mbox{\hyperlink{classBinaryAdd_ac123a90a65da025a102309581fd4016b}{get\+Value()}} qui renvoie la somme des deux elements passes par reference a l\textquotesingle{}index i 
+
+Definition at line 26 of file Binary\+Op.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBinaryAdd_aea5e8294399efb6ef30ea04435f2d558}\label{classBinaryAdd_aea5e8294399efb6ef30ea04435f2d558}} 
+\index{BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd}{Binary\+Add}}$<$ L, R $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de la derivee de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em ligne} & Premier index \\
+\hline
+{\em colonne} & Deuxieme index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 56 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryAdd_aea5e8294399efb6ef30ea04435f2d558}\label{classBinaryAdd_aea5e8294399efb6ef30ea04435f2d558}} 
+\index{BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}!getDerivedValue@{getDerivedValue}}
+\index{getDerivedValue@{getDerivedValue}!BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getDerivedValue()}{getDerivedValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd}{Binary\+Add}}$<$ L, R $>$\+::get\+Derived\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{ligne,  }\item[{int}]{colonne }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de la derivee de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em ligne} & Premier index \\
+\hline
+{\em colonne} & Deuxieme index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 57 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryAdd_ac123a90a65da025a102309581fd4016b}\label{classBinaryAdd_ac123a90a65da025a102309581fd4016b}} 
+\index{BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd}{Binary\+Add}}$<$ L, R $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em index} & Index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 43 of file Binary\+Op.\+h.
+
+\mbox{\Hypertarget{classBinaryAdd_ac123a90a65da025a102309581fd4016b}\label{classBinaryAdd_ac123a90a65da025a102309581fd4016b}} 
+\index{BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!BinaryAdd$<$ L, R $>$@{BinaryAdd$<$ L, R $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+static \mbox{\hyperlink{classBinaryAdd_a546a9b00205d2e1b3fa3d0b4505835f1}{value\+\_\+type}} \mbox{\hyperlink{classBinaryAdd}{Binary\+Add}}$<$ L, R $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{const L \&}]{left,  }\item[{const R \&}]{right,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retourne le resultat de l\textquotesingle{}operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Operande de gauche \\
+\hline
+{\em right} & Operande de droite \\
+\hline
+{\em index} & Index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No bounds check 
+\end{DoxyWarning}
+
+
+Definition at line 44 of file Binary\+Op.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Utils/\mbox{\hyperlink{Expressions_2FunctionParser_2FunctorUtils_2Utils_2BinaryOp_8h}{Binary\+Op.\+h}}\end{DoxyCompactItemize}

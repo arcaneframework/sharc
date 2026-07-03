@@ -1,0 +1,60 @@
+\hypertarget{position_8hh}{}\doxysection{/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expression\+Parser/position.hh File Reference}
+\label{position_8hh}\index{/work/gratienj/Projets/2026/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/ExpressionParser/position.hh@{/work/gratienj/Projets/2026/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/ExpressionParser/position.hh}}
+
+
+Define the \mbox{\hyperlink{classep_1_1position}{ep\+::position}} class.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classep_1_1position}{ep\+::position}}
+\begin{DoxyCompactList}\small\item\em Abstract a position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{position_8hh_a2dd9640758e513430359fdb000c5592c}\label{position_8hh_a2dd9640758e513430359fdb000c5592c}} 
+const position \& \mbox{\hyperlink{position_8hh_a2dd9640758e513430359fdb000c5592c}{ep\+::operator+=}} (position \&res, const int width)
+\begin{DoxyCompactList}\small\item\em Add and assign a position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{position_8hh_a9db178d2ec9e4888650ebdfc70b380f0}\label{position_8hh_a9db178d2ec9e4888650ebdfc70b380f0}} 
+const position \mbox{\hyperlink{position_8hh_a9db178d2ec9e4888650ebdfc70b380f0}{ep\+::operator+}} (const position \&begin, const int width)
+\begin{DoxyCompactList}\small\item\em Add two position objects. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{position_8hh_a27a9006daa2baf33fd39c837f55b6557}\label{position_8hh_a27a9006daa2baf33fd39c837f55b6557}} 
+const position \& \mbox{\hyperlink{position_8hh_a27a9006daa2baf33fd39c837f55b6557}{ep\+::operator-\/=}} (position \&res, const int width)
+\begin{DoxyCompactList}\small\item\em Add and assign a position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{position_8hh_a533f47b191ab381715cdc2f87626c524}\label{position_8hh_a533f47b191ab381715cdc2f87626c524}} 
+const position \mbox{\hyperlink{position_8hh_a533f47b191ab381715cdc2f87626c524}{ep\+::operator-\/}} (const position \&begin, const int width)
+\begin{DoxyCompactList}\small\item\em Add two position objects. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{position_8hh_a5194ca9798001f099ebae68b7eee0ecf}{ep\+::operator$<$$<$}} (std\+::ostream \&ostr, const position \&pos)
+\begin{DoxyCompactList}\small\item\em Intercept output stream redirection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Define the \mbox{\hyperlink{classep_1_1position}{ep\+::position}} class. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{position_8hh_a5194ca9798001f099ebae68b7eee0ecf}\label{position_8hh_a5194ca9798001f099ebae68b7eee0ecf}} 
+\index{position.hh@{position.hh}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!position.hh@{position.hh}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& ep\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{const \mbox{\hyperlink{classep_1_1position}{position}} \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Intercept output stream redirection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ostr} & the destination output stream \\
+\hline
+{\em pos} & a reference to the position to redirect \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file position.\+hh.
+

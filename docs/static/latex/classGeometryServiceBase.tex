@@ -1,0 +1,167 @@
+\hypertarget{classGeometryServiceBase}{}\doxysection{Geometry\+Service\+Base Class Reference}
+\label{classGeometryServiceBase}\index{GeometryServiceBase@{GeometryServiceBase}}
+
+
+Inherits \mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}}.
+
+
+
+Inherited by Euclidian2\+Geometry\+Service, Euclidian\+Geometry2\+Service, Euclidian\+Geometry3\+Service, Polyhedral\+Mesh\+Geometry\+Service, Static\+Geometry\+Service, Temis\+Geometry2\+Service, and Temis\+Geometry\+Service.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a368902cfff2f794c6d434082383c2089}\label{classGeometryServiceBase_a368902cfff2f794c6d434082383c2089}} 
+\mbox{\hyperlink{classGeometryServiceBase_a368902cfff2f794c6d434082383c2089}{Geometry\+Service\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a1144b2eedf32abc13f34a67e072afe79}\label{classGeometryServiceBase_a1144b2eedf32abc13f34a67e072afe79}} 
+virtual \mbox{\hyperlink{classGeometryServiceBase_a1144b2eedf32abc13f34a67e072afe79}{$\sim$\+Geometry\+Service\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a4005ff4c96ba90460c37b59cfd03245d}\label{classGeometryServiceBase_a4005ff4c96ba90460c37b59cfd03245d}} 
+void \mbox{\hyperlink{classGeometryServiceBase_a4005ff4c96ba90460c37b59cfd03245d}{add\+Item\+Group\+Property}} (Item\+Group group, Integer property, Integer storage)
+\begin{DoxyCompactList}\small\item\em Set geometric properties on a Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_abf61292beea7fe82620f3a4d0105a6d9}\label{classGeometryServiceBase_abf61292beea7fe82620f3a4d0105a6d9}} 
+void \mbox{\hyperlink{classGeometryServiceBase_abf61292beea7fe82620f3a4d0105a6d9}{add\+Item\+Group\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property, Real\+Variable var)
+\begin{DoxyCompactList}\small\item\em Set geometric properties on a Item\+Group with an external container (real field) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_af03a8935d9f1e6779300e068dca1498c}\label{classGeometryServiceBase_af03a8935d9f1e6779300e068dca1498c}} 
+void \mbox{\hyperlink{classGeometryServiceBase_af03a8935d9f1e6779300e068dca1498c}{add\+Item\+Group\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property, Real3\+Variable var)
+\begin{DoxyCompactList}\small\item\em Set geometric properties on a Item\+Group with an external container (real3 field) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a1672dde9b11c64d64b6cf4e94cb08a56}\label{classGeometryServiceBase_a1672dde9b11c64d64b6cf4e94cb08a56}} 
+Integer \mbox{\hyperlink{classGeometryServiceBase_a1672dde9b11c64d64b6cf4e94cb08a56}{get\+Item\+Group\+Property}} (Item\+Group group)
+\begin{DoxyCompactList}\small\item\em Get set of properties of an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_af2571e0e2548151065fedf9a0dbcaf32}\label{classGeometryServiceBase_af2571e0e2548151065fedf9a0dbcaf32}} 
+bool \mbox{\hyperlink{classGeometryServiceBase_af2571e0e2548151065fedf9a0dbcaf32}{has\+Item\+Group\+Property}} (Item\+Group group, Integer property)
+\begin{DoxyCompactList}\small\item\em Check is a property is activated on an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_ab41d75d0562cb0342debc03529aeeb17}\label{classGeometryServiceBase_ab41d75d0562cb0342debc03529aeeb17}} 
+Integer \mbox{\hyperlink{classGeometryServiceBase_ab41d75d0562cb0342debc03529aeeb17}{get\+Item\+Group\+Property\+Storage}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)
+\begin{DoxyCompactList}\small\item\em Check if a storage is available on an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_ab483be97f5f064f505b7b0161ec2dd1c}\label{classGeometryServiceBase_ab483be97f5f064f505b7b0161ec2dd1c}} 
+const Real\+Variable \& \mbox{\hyperlink{classGeometryServiceBase_ab483be97f5f064f505b7b0161ec2dd1c}{get\+Real\+Variable\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a Real field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_ad1b4a8e053277d416961a5a2aa7494af}\label{classGeometryServiceBase_ad1b4a8e053277d416961a5a2aa7494af}} 
+const Real3\+Variable \& \mbox{\hyperlink{classGeometryServiceBase_ad1b4a8e053277d416961a5a2aa7494af}{get\+Real3\+Variable\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a \mbox{\hyperlink{structReal3}{Real3}} field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a3105a3f4172add0170c9b3d1fd4b1500}\label{classGeometryServiceBase_a3105a3f4172add0170c9b3d1fd4b1500}} 
+const \mbox{\hyperlink{classItemGroupMapBaseT}{Real\+Group\+Map}} \& \mbox{\hyperlink{classGeometryServiceBase_a3105a3f4172add0170c9b3d1fd4b1500}{get\+Real\+Group\+Map\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a Real field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_ab274d7e2e26db332f9a0df09471b0c5a}\label{classGeometryServiceBase_ab274d7e2e26db332f9a0df09471b0c5a}} 
+const \mbox{\hyperlink{classItemGroupMapBaseT}{Real3\+Group\+Map}} \& \mbox{\hyperlink{classGeometryServiceBase_ab274d7e2e26db332f9a0df09471b0c5a}{get\+Real3\+Group\+Map\+Property}} (Item\+Group group, IGeometry\+Property\+::e\+Property property)
+\begin{DoxyCompactList}\small\item\em Get geometric property values for a \mbox{\hyperlink{structReal3}{Real3}} field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a5167325ef9dce8e4bc85286baf0aa4ad}\label{classGeometryServiceBase_a5167325ef9dce8e4bc85286baf0aa4ad}} 
+void \mbox{\hyperlink{classGeometryServiceBase_a5167325ef9dce8e4bc85286baf0aa4ad}{update}} (\mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Update property values for all Item\+Groups on all meshes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_aa2f8b74902944340b8b01db28b8ed6eb}\label{classGeometryServiceBase_aa2f8b74902944340b8b01db28b8ed6eb}} 
+void \mbox{\hyperlink{classGeometryServiceBase_aa2f8b74902944340b8b01db28b8ed6eb}{update}} (IMesh $\ast$\mbox{\hyperlink{classGeometryServiceBase_a1cb5317481a70f78efd62e06c3bb3651}{mesh}}, \mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Update property values for all Item\+Groups on given mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a4c6a0066b10fa0a2ce8f4f27a7fe5ca7}\label{classGeometryServiceBase_a4c6a0066b10fa0a2ce8f4f27a7fe5ca7}} 
+void \mbox{\hyperlink{classGeometryServiceBase_a4c6a0066b10fa0a2ce8f4f27a7fe5ca7}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset property for all Item\+Groups. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a8db53cddb306727892890388434d6042}\label{classGeometryServiceBase_a8db53cddb306727892890388434d6042}} 
+void \mbox{\hyperlink{classGeometryServiceBase_a8db53cddb306727892890388434d6042}{set\+Policy\+Tolerance}} (bool tolerance)
+\begin{DoxyCompactList}\small\item\em Temporary interface to set tolerance on geometry policy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a1cb5317481a70f78efd62e06c3bb3651}\label{classGeometryServiceBase_a1cb5317481a70f78efd62e06c3bb3651}} 
+virtual IMesh $\ast$ \mbox{\hyperlink{classGeometryServiceBase_a1cb5317481a70f78efd62e06c3bb3651}{mesh}} ()=0
+\begin{DoxyCompactList}\small\item\em Access to mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_ad6f03a98ffb363d88128bc33c00de350}\label{classGeometryServiceBase_ad6f03a98ffb363d88128bc33c00de350}} 
+void \mbox{\hyperlink{classGeometryServiceBase_ad6f03a98ffb363d88128bc33c00de350}{begin\+Context}} (\mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Associe la politique avec le contexte de calcul courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_acb69b70ebff198728a2f128ef592c438}\label{classGeometryServiceBase_acb69b70ebff198728a2f128ef592c438}} 
+void \mbox{\hyperlink{classGeometryServiceBase_acb69b70ebff198728a2f128ef592c438}{end\+Context}} ()
+\begin{DoxyCompactList}\small\item\em Dissocie la politique avec le contexte de calcul courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a644299e64307e9c56bde8a41dd30e104}\label{classGeometryServiceBase_a644299e64307e9c56bde8a41dd30e104}} 
+bool \mbox{\hyperlink{classGeometryServiceBase_a644299e64307e9c56bde8a41dd30e104}{check\+Need\+Update}} (Item\+Group group, IGeometry\+Property\+::e\+Property property, const \mbox{\hyperlink{structItemGroupGeometryProperty_1_1StorageInfo}{Item\+Group\+Geometry\+Property\+::\+Storage\+Info}} \&storage\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Indique si la propri{\ucr}t{\ucr} d{\ucr}finie par son Storage\+Info {\ucr} besoin d\textquotesingle{}une mise {\ucr} jour. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a767de591eaa421fdd3e4b874560eac4f}\label{classGeometryServiceBase_a767de591eaa421fdd3e4b874560eac4f}} 
+void \mbox{\hyperlink{classGeometryServiceBase_a767de591eaa421fdd3e4b874560eac4f}{set\+New\+Context}} (\mbox{\hyperlink{structItemGroupGeometryProperty_1_1StorageInfo}{Item\+Group\+Geometry\+Property\+::\+Storage\+Info}} \&storage\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Enregistre un nouveau context dans une propri{\ucr}t{\ucr} d{\ucr}finie par son Storage\+Info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a740e7ee1d509b322e75540f24e79e728}\label{classGeometryServiceBase_a740e7ee1d509b322e75540f24e79e728}} 
+enum \{ {\bfseries e\+Undef}
+, {\bfseries e\+Lazy}
+, {\bfseries e\+Strict}
+ \}
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a488ec7e8f7c77cb766680b31b04d9829}\label{classGeometryServiceBase_a488ec7e8f7c77cb766680b31b04d9829}} 
+typedef std\+::map$<$ Item\+Group\+Impl $\ast$, \mbox{\hyperlink{classItemGroupGeometryProperty}{Item\+Group\+Geometry\+Property}} $>$ {\bfseries Property\+Map}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a2938b2fc5710bcab08387e92e014b217}\label{classGeometryServiceBase_a2938b2fc5710bcab08387e92e014b217}} 
+virtual ITrace\+Mng $\ast$ \mbox{\hyperlink{classGeometryServiceBase_a2938b2fc5710bcab08387e92e014b217}{trace\+Mng}} ()=0
+\begin{DoxyCompactList}\small\item\em Access to trace\+Mng. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a12a1c0c10e0eaaf87812c4237e9f6aba}\label{classGeometryServiceBase_a12a1c0c10e0eaaf87812c4237e9f6aba}} 
+{\footnotesize template$<$typename GeometryT $>$ }\\void {\bfseries update\+Group} (Item\+Group group, GeometryT \&\mbox{\hyperlink{classIGeometryMng_aaaec9fa6a90aae82e97ba980afa0d900}{geometry}})
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_af54a7848ce3966651a94144a44aa39a8}\label{classGeometryServiceBase_af54a7848ce3966651a94144a44aa39a8}} 
+virtual const char $\ast$ \mbox{\hyperlink{classGeometryServiceBase_af54a7848ce3966651a94144a44aa39a8}{class\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Name of instancied class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_aca480dee6bea9c7f1cb13332c9635260}\label{classGeometryServiceBase_aca480dee6bea9c7f1cb13332c9635260}} 
+{\footnotesize template$<$typename Uniq\+Geometry\+Map , typename Shared\+Geometry\+Map $>$ }\\void {\bfseries unregister\+Mesh} (Uniq\+Geometry\+Map \&uniqu\+Map, Shared\+Geometry\+Map \&shared\+Map, IMesh $\ast$\mbox{\hyperlink{classGeometryServiceBase_a1cb5317481a70f78efd62e06c3bb3651}{mesh}})
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_aada0d7e491bd360679e535a25ac5533c}\label{classGeometryServiceBase_aada0d7e491bd360679e535a25ac5533c}} 
+virtual void \mbox{\hyperlink{classGeometryServiceBase_aada0d7e491bd360679e535a25ac5533c}{update}} (Item\+Group group)=0
+\begin{DoxyCompactList}\small\item\em Update property values for an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_adfe25308216d644f71e8150c810c4d35}\label{classGeometryServiceBase_adfe25308216d644f71e8150c810c4d35}} 
+virtual void \mbox{\hyperlink{classGeometryServiceBase_adfe25308216d644f71e8150c810c4d35}{reset}} (Item\+Group group)=0
+\begin{DoxyCompactList}\small\item\em Reset property for an Item\+Group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a8463318ff06782f19884f049b7a35d93}\label{classGeometryServiceBase_a8463318ff06782f19884f049b7a35d93}} 
+\mbox{\hyperlink{structItemGroupGeometryProperty_1_1StorageInfo}{Item\+Group\+Geometry\+Property\+::\+Storage\+Info}} \& \mbox{\hyperlink{classGeometryServiceBase_a8463318ff06782f19884f049b7a35d93}{\+\_\+check\+Item\+Group\+Property}} (Item\+Group\+Impl $\ast$group, IGeometry\+Property\+::e\+Property property, IGeometry\+Property\+::e\+Storage storage)
+\begin{DoxyCompactList}\small\item\em Return \mbox{\hyperlink{classItemGroupGeometryProperty}{Item\+Group\+Geometry\+Property}} if requested property and storage are available. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGeometryServiceBase_a6b19f06b8bf5685c04257adbd6b4a2c7}{set\+Suffix}} (const String \&suffix)
+\begin{DoxyCompactList}\small\item\em Using set\+Suffix allow to define a known extension for internal variable name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a2b7f17af2a6b08f463a3a7bdd8847129}\label{classGeometryServiceBase_a2b7f17af2a6b08f463a3a7bdd8847129}} 
+void \mbox{\hyperlink{classGeometryServiceBase_a2b7f17af2a6b08f463a3a7bdd8847129}{\+\_\+check\+Item\+Group\+Property\+Usage}} (Item\+Group group, IGeometry\+Property\+::e\+Property property, IGeometry\+Property\+::e\+Storage storage, UInt32 count, Integer extern\+Storage, Integer storage\+Type)
+\begin{DoxyCompactList}\small\item\em Ajout un avertissement sur l\textquotesingle{}usage d\textquotesingle{}une propri{\ucr}t{\ucr} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_acd19fa2a55ef6c38812cb9a079f536ee}\label{classGeometryServiceBase_acd19fa2a55ef6c38812cb9a079f536ee}} 
+Property\+Map {\bfseries m\+\_\+group\+\_\+property\+\_\+map}
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_aaf83c06020f0c21ab175be0a855e766d}\label{classGeometryServiceBase_aaf83c06020f0c21ab175be0a855e766d}} 
+String \mbox{\hyperlink{classGeometryServiceBase_aaf83c06020f0c21ab175be0a855e766d}{m\+\_\+suffix}}
+\begin{DoxyCompactList}\small\item\em suffix for internal variable names \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a0f360854c9c89063ada69662fc87be7a}\label{classGeometryServiceBase_a0f360854c9c89063ada69662fc87be7a}} 
+bool \mbox{\hyperlink{classGeometryServiceBase_a0f360854c9c89063ada69662fc87be7a}{m\+\_\+changed\+\_\+property}}
+\begin{DoxyCompactList}\small\item\em Tracage des changements d\textquotesingle{}{\ucr}tat (add\+Item\+Group\+Property si la proprit{\ucr}t{\ucr} est d{\ucr}j{\ucr} d{\ucr}fini est aussi un changement d\textquotesingle{}{\ucr}tat) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryServiceBase_a08f647c4c4b97b8197280ffecd2dc55c}\label{classGeometryServiceBase_a08f647c4c4b97b8197280ffecd2dc55c}} 
+enum Geometry\+Service\+Base\+:: \{ ... \}  {\bfseries m\+\_\+policy\+\_\+tolerance}
+\item 
+\mbox{\Hypertarget{classGeometryServiceBase_afe083be030aa14b5a37ac4da1ee8b556}\label{classGeometryServiceBase_afe083be030aa14b5a37ac4da1ee8b556}} 
+\mbox{\hyperlink{classIGeometryPolicy}{IGeometry\+Policy}} $\ast$ {\bfseries m\+\_\+policy}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file Geometry\+Service\+Base.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGeometryServiceBase_a6b19f06b8bf5685c04257adbd6b4a2c7}\label{classGeometryServiceBase_a6b19f06b8bf5685c04257adbd6b4a2c7}} 
+\index{GeometryServiceBase@{GeometryServiceBase}!setSuffix@{setSuffix}}
+\index{setSuffix@{setSuffix}!GeometryServiceBase@{GeometryServiceBase}}
+\doxysubsubsection{\texorpdfstring{setSuffix()}{setSuffix()}}
+{\footnotesize\ttfamily void Geometry\+Service\+Base\+::set\+Suffix (\begin{DoxyParamCaption}\item[{const String \&}]{suffix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Using set\+Suffix allow to define a known extension for internal variable name. 
+
+At this level, the user is responsible to the collision management of names 
+
+Definition at line 319 of file Geometry\+Service\+Base.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+Impl/Geometry\+Service\+Base.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+Impl/Geometry\+Service\+Base.\+cc\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+Impl/Geometry\+Service\+Base\+T.\+h\end{DoxyCompactItemize}
