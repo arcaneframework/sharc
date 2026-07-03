@@ -1,0 +1,52 @@
+\hypertarget{classXDMFDataWriter}{}\doxysection{XDMFData\+Writer Class Reference}
+\label{classXDMFDataWriter}\index{XDMFDataWriter@{XDMFDataWriter}}
+
+
+Inherits Arcane\+::\+IData\+Writer.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classXDMFDataWriter_ae081fb9522e8641be436dcb317660e2d}\label{classXDMFDataWriter_ae081fb9522e8641be436dcb317660e2d}} 
+\mbox{\hyperlink{classXDMFDataWriter_ae081fb9522e8641be436dcb317660e2d}{XDMFData\+Writer}} (IMesh $\ast$mesh, IXml\+Document\+Holder $\ast$output\+\_\+doc, const String \&directory\+\_\+name, const Integer event\+\_\+number, bool event\+\_\+initialized)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classXDMFDataWriter_a588f5f91583db99d59412f94d9684e21}\label{classXDMFDataWriter_a588f5f91583db99d59412f94d9684e21}} 
+virtual \mbox{\hyperlink{classXDMFDataWriter_a588f5f91583db99d59412f94d9684e21}{$\sim$\+XDMFData\+Writer}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classXDMFDataWriter_ad651c99681fd57c00a4058f4d0add062}\label{classXDMFDataWriter_ad651c99681fd57c00a4058f4d0add062}} 
+void \mbox{\hyperlink{classXDMFDataWriter_ad651c99681fd57c00a4058f4d0add062}{begin\+Mesh\+Write}} (const String \&file\+\_\+name, const String \&format, Item\+Group\+Collection \&groups, Variable\+Collection \&vars)
+\begin{DoxyCompactList}\small\item\em Add current event to global events file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classXDMFDataWriter_a427558411ca0305c05825062cc2dfaa6}\label{classXDMFDataWriter_a427558411ca0305c05825062cc2dfaa6}} 
+void {\bfseries write\+Mesh\+To\+File} (const String \&file\+\_\+name)
+\item 
+\mbox{\Hypertarget{classXDMFDataWriter_a1a98b411836cf659f9b517b84970af00}\label{classXDMFDataWriter_a1a98b411836cf659f9b517b84970af00}} 
+void {\bfseries write\+Event\+To\+File} (const String \&file\+\_\+name, const Real \&begin\+\_\+time, const Real \&end\+\_\+time, const Integer \&event\+\_\+number)
+\item 
+\mbox{\Hypertarget{classXDMFDataWriter_a52c8d3aeba125a7d9406a53663a99e88}\label{classXDMFDataWriter_a52c8d3aeba125a7d9406a53663a99e88}} 
+void {\bfseries end\+Mesh\+Write} ()
+\item 
+\mbox{\Hypertarget{classXDMFDataWriter_abef9e98d0297c64841c0ce877f09261c}\label{classXDMFDataWriter_abef9e98d0297c64841c0ce877f09261c}} 
+void \mbox{\hyperlink{classXDMFDataWriter_abef9e98d0297c64841c0ce877f09261c}{begin\+Write}} (const Variable\+Collection \&vars)
+\begin{DoxyCompactList}\small\item\em Ecrivain des variables \+: appel par IVariable\+Mng (\mbox{\hyperlink{classXDMFDataWriter_abef9e98d0297c64841c0ce877f09261c}{begin\+Write()}}, write(ivar,idata), end\+Write()) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classXDMFDataWriter_af03642b9a6821546d48a887355b095c7}\label{classXDMFDataWriter_af03642b9a6821546d48a887355b095c7}} 
+void {\bfseries end\+Write} ()
+\item 
+\mbox{\Hypertarget{classXDMFDataWriter_ae486fa743d0ef6d48dd24829eda7b396}\label{classXDMFDataWriter_ae486fa743d0ef6d48dd24829eda7b396}} 
+void \mbox{\hyperlink{classXDMFDataWriter_ae486fa743d0ef6d48dd24829eda7b396}{set\+Meta\+Data}} (const String \&meta\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Positionne les infos des m{\ucr}ta-\/donn{\ucr}es. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classXDMFDataWriter_a48901e9eb7edcb2cdb25b6d5e7843311}\label{classXDMFDataWriter_a48901e9eb7edcb2cdb25b6d5e7843311}} 
+void \mbox{\hyperlink{classXDMFDataWriter_a48901e9eb7edcb2cdb25b6d5e7843311}{write}} (Arcane\+::\+IVariable $\ast$var, Arcane\+::\+IData $\ast$data)
+\begin{DoxyCompactList}\small\item\em Ecrit les donn{\ucr}es {\itshape data} de la variable {\itshape var}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 78 of file XDMFData\+Writer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+XDMF/XDMFData\+Writer.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+XDMF/XDMFData\+Writer.\+cc\end{DoxyCompactItemize}

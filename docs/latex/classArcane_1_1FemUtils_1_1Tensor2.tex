@@ -1,0 +1,161 @@
+\hypertarget{classArcane_1_1FemUtils_1_1Tensor2}{}\doxysection{Arcane\+::Fem\+Utils\+::Tensor2 Class Reference}
+\label{classArcane_1_1FemUtils_1_1Tensor2}\index{Arcane::FemUtils::Tensor2@{Arcane::FemUtils::Tensor2}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a897f669024516d909ff72a3f2ad50b36}\label{classArcane_1_1FemUtils_1_1Tensor2_a897f669024516d909ff72a3f2ad50b36}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE {\bfseries Tensor2} (std\+::initializer\+\_\+list$<$ Real $>$ init\+\_\+list)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ae7b9168c23206a7418f881123808e342}\label{classArcane_1_1FemUtils_1_1Tensor2_ae7b9168c23206a7418f881123808e342}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE {\bfseries Tensor2} (const \mbox{\hyperlink{structReal3}{Real3}} \&a, const \mbox{\hyperlink{structReal3}{Real3}} \&b)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ae731cfbb18d1fe8627f4b7a2b94c9aa0}\label{classArcane_1_1FemUtils_1_1Tensor2_ae731cfbb18d1fe8627f4b7a2b94c9aa0}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE {\bfseries Tensor2} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$ 6 $>$ \&vec)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a6ca9fd54df75aefb39b1bb4a016bfcfa}\label{classArcane_1_1FemUtils_1_1Tensor2_a6ca9fd54df75aefb39b1bb4a016bfcfa}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE {\bfseries Tensor2} (const Real3x3 \&mat)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a2cc0ca19cd72d869872bbe147dbf0a2c}\label{classArcane_1_1FemUtils_1_1Tensor2_a2cc0ca19cd72d869872bbe147dbf0a2c}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Real \& {\bfseries operator()} (Int32 i)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a5e192c2626a497ad5a4852f47559c9ac}\label{classArcane_1_1FemUtils_1_1Tensor2_a5e192c2626a497ad5a4852f47559c9ac}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$ 6 $>$ {\bfseries get\+Vec} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ae0b4f81ad5f6893e1d7feadbc2991a90}\label{classArcane_1_1FemUtils_1_1Tensor2_ae0b4f81ad5f6893e1d7feadbc2991a90}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Real {\bfseries operator()} (Int32 i) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a6210094aa65f8f5dec4b68a0834e7c7d}\label{classArcane_1_1FemUtils_1_1Tensor2_a6210094aa65f8f5dec4b68a0834e7c7d}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Real \& {\bfseries operator()} (Int32 i, Int32 j)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a58a12b28e431bcdb3f378bdea670701e}\label{classArcane_1_1FemUtils_1_1Tensor2_a58a12b28e431bcdb3f378bdea670701e}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Real {\bfseries operator()} (Int32 i, Int32 j) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a01246311feb1cd42cb3341142962b46f}\label{classArcane_1_1FemUtils_1_1Tensor2_a01246311feb1cd42cb3341142962b46f}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a01246311feb1cd42cb3341142962b46f}{operator Real3x3}} () const
+\begin{DoxyCompactList}\small\item\em Convert this Tensor to Real3x3 matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a03c814d7c7aadab6b7ccdcbc8b5dfc16}\label{classArcane_1_1FemUtils_1_1Tensor2_a03c814d7c7aadab6b7ccdcbc8b5dfc16}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a03c814d7c7aadab6b7ccdcbc8b5dfc16}{mult\+In\+Place}} (Real v)
+\begin{DoxyCompactList}\small\item\em Multiply all the components by {\itshape v}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ac8c640a1ed07990aad26ec4582300fed}\label{classArcane_1_1FemUtils_1_1Tensor2_ac8c640a1ed07990aad26ec4582300fed}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_ac8c640a1ed07990aad26ec4582300fed}{add\+In\+Place}} (Real v)
+\begin{DoxyCompactList}\small\item\em Add {\itshape v} to all the components. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a77b31da94bc12d1cd25416a49bc1a66c}\label{classArcane_1_1FemUtils_1_1Tensor2_a77b31da94bc12d1cd25416a49bc1a66c}} 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a77b31da94bc12d1cd25416a49bc1a66c}{dump}} (std\+::ostream \&o) const
+\begin{DoxyCompactList}\small\item\em Dump values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a8df6cbb5e6b3f9aa0545f3c03a29ce3c}\label{classArcane_1_1FemUtils_1_1Tensor2_a8df6cbb5e6b3f9aa0545f3c03a29ce3c}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE bool \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a8df6cbb5e6b3f9aa0545f3c03a29ce3c}{operator==}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&vec)
+\begin{DoxyCompactList}\small\item\em Define the == operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ace61d778cd2ce959d6462e1e8d33a6ad}\label{classArcane_1_1FemUtils_1_1Tensor2_ace61d778cd2ce959d6462e1e8d33a6ad}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_ace61d778cd2ce959d6462e1e8d33a6ad}{operator=}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&vec)
+\begin{DoxyCompactList}\small\item\em Define the = operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ad8ebe3b0d68d2eeb295c4b6162822fe9}\label{classArcane_1_1FemUtils_1_1Tensor2_ad8ebe3b0d68d2eeb295c4b6162822fe9}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_ad8ebe3b0d68d2eeb295c4b6162822fe9}{operator=}} (const Real3x3 \&mat)
+\begin{DoxyCompactList}\small\item\em Define the = operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_aa193c5f85bb2d440d728b4099fe7062f}\label{classArcane_1_1FemUtils_1_1Tensor2_aa193c5f85bb2d440d728b4099fe7062f}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_aa193c5f85bb2d440d728b4099fe7062f}{operator+}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&other) const
+\begin{DoxyCompactList}\small\item\em Define the addition operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a7a5e801b26c144dcda5e6a895df250dd}\label{classArcane_1_1FemUtils_1_1Tensor2_a7a5e801b26c144dcda5e6a895df250dd}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a7a5e801b26c144dcda5e6a895df250dd}{operator+=}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&vec)
+\begin{DoxyCompactList}\small\item\em Define the += operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_aa6ccd1be44ece2d34f63a546a6cf4747}\label{classArcane_1_1FemUtils_1_1Tensor2_aa6ccd1be44ece2d34f63a546a6cf4747}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_aa6ccd1be44ece2d34f63a546a6cf4747}{operator-\/}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&other) const
+\begin{DoxyCompactList}\small\item\em Define the subtraction operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a5d3cf27bcbe5bbe49203fc33dc850a1f}\label{classArcane_1_1FemUtils_1_1Tensor2_a5d3cf27bcbe5bbe49203fc33dc850a1f}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a5d3cf27bcbe5bbe49203fc33dc850a1f}{operator-\/=}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&vec)
+\begin{DoxyCompactList}\small\item\em Define the -\/= operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a6e33c24d5c19091e90f02529d149b802}\label{classArcane_1_1FemUtils_1_1Tensor2_a6e33c24d5c19091e90f02529d149b802}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a6e33c24d5c19091e90f02529d149b802}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Define the unary negation operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a5f296b99152beaeffa76928e15c2c456}\label{classArcane_1_1FemUtils_1_1Tensor2_a5f296b99152beaeffa76928e15c2c456}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a5f296b99152beaeffa76928e15c2c456}{set\+Equal\+To}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&b)
+\begin{DoxyCompactList}\small\item\em Set this \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} equal to b. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a636f024d180c7414d2751624c0b1f601}\label{classArcane_1_1FemUtils_1_1Tensor2_a636f024d180c7414d2751624c0b1f601}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void {\bfseries set\+Vec} (const \mbox{\hyperlink{structReal3}{Real3}} \&d, const \mbox{\hyperlink{structReal3}{Real3}} \&s)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_af7e31b2c1337b3b161433fc7a5179192}\label{classArcane_1_1FemUtils_1_1Tensor2_af7e31b2c1337b3b161433fc7a5179192}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_af7e31b2c1337b3b161433fc7a5179192}{add}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&b)
+\begin{DoxyCompactList}\small\item\em Add b to this \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a09240a62eded461f7522b791cab42b19}\label{classArcane_1_1FemUtils_1_1Tensor2_a09240a62eded461f7522b791cab42b19}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a09240a62eded461f7522b791cab42b19}{add}} (const Real3x3 \&b)
+\begin{DoxyCompactList}\small\item\em Substract b to this \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a9b77cfb803ac3728d765469e7cb6179f}\label{classArcane_1_1FemUtils_1_1Tensor2_a9b77cfb803ac3728d765469e7cb6179f}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a9b77cfb803ac3728d765469e7cb6179f}{add}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$ 6 $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Add b to this \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_adc88e21066f181d104961db373c0ed3d}\label{classArcane_1_1FemUtils_1_1Tensor2_adc88e21066f181d104961db373c0ed3d}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_adc88e21066f181d104961db373c0ed3d}{sub}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&b)
+\begin{DoxyCompactList}\small\item\em Substract b to this \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a694f866d0300ca37904c1af4c2fcd620}\label{classArcane_1_1FemUtils_1_1Tensor2_a694f866d0300ca37904c1af4c2fcd620}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a694f866d0300ca37904c1af4c2fcd620}{sub}} (const Real3x3 \&b)
+\begin{DoxyCompactList}\small\item\em Substract b to this \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ac2d08fe23de19dfb25869d6bf03f22ea}\label{classArcane_1_1FemUtils_1_1Tensor2_ac2d08fe23de19dfb25869d6bf03f22ea}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_ac2d08fe23de19dfb25869d6bf03f22ea}{sub}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$ 6 $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Substract b to this \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a1cfcff77538ccb67b168782da4e0e10d}\label{classArcane_1_1FemUtils_1_1Tensor2_a1cfcff77538ccb67b168782da4e0e10d}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a1cfcff77538ccb67b168782da4e0e10d}{operator$\ast$}} (Real scalar) const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structScalar}{Scalar}} multiplication\+: Tensor $\ast$ scalar. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a8bcad0506059e03a86fb1a7afeeba610}\label{classArcane_1_1FemUtils_1_1Tensor2_a8bcad0506059e03a86fb1a7afeeba610}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a8bcad0506059e03a86fb1a7afeeba610}{operator$\ast$=}} (Real scalar)
+\begin{DoxyCompactList}\small\item\em Define the $\ast$= operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a263de45c1b77a3e120f131f522a18c66}\label{classArcane_1_1FemUtils_1_1Tensor2_a263de45c1b77a3e120f131f522a18c66}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a263de45c1b77a3e120f131f522a18c66}{operator/}} (Real scalar) const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structScalar}{Scalar}} division\+: Tensor / scalar. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_adc81634a54c4120c1b05187138bf2c12}\label{classArcane_1_1FemUtils_1_1Tensor2_adc81634a54c4120c1b05187138bf2c12}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_adc81634a54c4120c1b05187138bf2c12}{operator/=}} (Real scalar)
+\begin{DoxyCompactList}\small\item\em Define the $\ast$= operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a56bbe0d2af6225bf9e0b03f4f544e2e6}\label{classArcane_1_1FemUtils_1_1Tensor2_a56bbe0d2af6225bf9e0b03f4f544e2e6}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{structReal3}{Real3}} {\bfseries get\+\_\+diagonal} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_aecf372927a90dcc046118a29e3088518}\label{classArcane_1_1FemUtils_1_1Tensor2_aecf372927a90dcc046118a29e3088518}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void {\bfseries set\+\_\+diagonal} (const \mbox{\hyperlink{structReal3}{Real3}} \&d)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a06478ffc1f2ff790063dc1647014f628}\label{classArcane_1_1FemUtils_1_1Tensor2_a06478ffc1f2ff790063dc1647014f628}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{structReal3}{Real3}} {\bfseries get\+\_\+outdiagonal} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_aeaab572de928af23550f07a231650c88}\label{classArcane_1_1FemUtils_1_1Tensor2_aeaab572de928af23550f07a231650c88}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void {\bfseries set\+\_\+outdiagonal} (const \mbox{\hyperlink{structReal3}{Real3}} \&s)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a33cc541190b6568907e7308bf739e4a4}\label{classArcane_1_1FemUtils_1_1Tensor2_a33cc541190b6568907e7308bf739e4a4}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Real {\bfseries trace} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a6d987acf56a133dbd5a6e9b52c3df3cb}\label{classArcane_1_1FemUtils_1_1Tensor2_a6d987acf56a133dbd5a6e9b52c3df3cb}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Real {\bfseries norm} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a73ee658bae5813b66a3934040b9903e4}\label{classArcane_1_1FemUtils_1_1Tensor2_a73ee658bae5813b66a3934040b9903e4}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a73ee658bae5813b66a3934040b9903e4}{from\+Real3x3\+To\+Tensor2}} (const Real3x3 \&mat)
+\begin{DoxyCompactList}\small\item\em Function to convert Real3x3 matrix (symmetric) to Tensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_adb55011f25a06ae279f9dd8f1a17128e}\label{classArcane_1_1FemUtils_1_1Tensor2_adb55011f25a06ae279f9dd8f1a17128e}} 
+static constexpr Int32 {\bfseries total\+Nb\+Element} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a9e7b21d3fc850085594861af1838417d}\label{classArcane_1_1FemUtils_1_1Tensor2_a9e7b21d3fc850085594861af1838417d}} 
+static \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a9e7b21d3fc850085594861af1838417d}{identity}} ()
+\begin{DoxyCompactList}\small\item\em Return Identity \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_a4cd4bc3b3ee54cb943f99b483446cb04}\label{classArcane_1_1FemUtils_1_1Tensor2_a4cd4bc3b3ee54cb943f99b483446cb04}} 
+static \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_a4cd4bc3b3ee54cb943f99b483446cb04}{zero}} ()
+\begin{DoxyCompactList}\small\item\em Return zero \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_acea57d118215077ee4f9a9f38493c22c}\label{classArcane_1_1FemUtils_1_1Tensor2_acea57d118215077ee4f9a9f38493c22c}} 
+static Arcane\+::\+Int32 {\bfseries get\+\_\+index} (Arcane\+::\+Int32 i, Arcane\+::\+Int32 j)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ad74f73fb9e381e87d72e06114d8774b1}\label{classArcane_1_1FemUtils_1_1Tensor2_ad74f73fb9e381e87d72e06114d8774b1}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE friend \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_ad74f73fb9e381e87d72e06114d8774b1}{operator$\ast$}} (Real scalar, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&vector)
+\begin{DoxyCompactList}\small\item\em Friend function for scalar multiplication\+: scalar $\ast$ Tensor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Tensor2_ae590295668f2c45cf8e018762bdee832}\label{classArcane_1_1FemUtils_1_1Tensor2_ae590295668f2c45cf8e018762bdee832}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE friend Real3x3 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2_ae590295668f2c45cf8e018762bdee832}{from\+Tensor2\+Real3x3}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Tensor2}{Tensor2}} \&vector)
+\begin{DoxyCompactList}\small\item\em Friend function to convert Tensor to Real3x3 matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 643 of file Fem\+Utils.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Fem\+Utils.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,75 @@
+\hypertarget{structFaceVectorAnalysis}{}\doxysection{Face\+Vector\+Analysis Struct Reference}
+\label{structFaceVectorAnalysis}\index{FaceVectorAnalysis@{FaceVectorAnalysis}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Real\+Shared\+Array \mbox{\hyperlink{structFaceVectorAnalysis_acbea10813976ba89781f981c71ea0acc}{compute\+Local\+Mean\+Normal}} (const Face\+Vector\+View group, IMesh $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Calcule les param{\ucr}tres locaux d\textquotesingle{}une normale moyenne. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{structFaceVectorAnalysis_ac8b74ac51030c52baea6f57e59a37d20}{compute\+Global\+Mean\+Normal}} (Real\+Const\+Array\+View local\+\_\+normal\+\_\+parameters, IParallel\+Mng $\ast$parallel\+Mng, ITrace\+Mng $\ast$trace\+Mng, bool use\+\_\+minimization\+\_\+algorithm)
+\begin{DoxyCompactList}\small\item\em Synth{\ucr}tise les param{\ucr}tres locaux pour obtenir une normale moyenne globale. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{structFaceVectorAnalysis_ac537363083f9dbcee1d34b7e77c13c5d}{compute\+Connex\+Components}} (const Face\+Vector\+View \&group, IMesh $\ast$mesh, Integer\+Array \&face\+Colors, Integer \&max\+Color)
+\begin{DoxyCompactList}\small\item\em Calcul la d{\ucr}composition en composante connexe (2D ou 3D) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 25 of file Face\+Vector\+Analysis.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structFaceVectorAnalysis_ac537363083f9dbcee1d34b7e77c13c5d}\label{structFaceVectorAnalysis_ac537363083f9dbcee1d34b7e77c13c5d}} 
+\index{FaceVectorAnalysis@{FaceVectorAnalysis}!computeConnexComponents@{computeConnexComponents}}
+\index{computeConnexComponents@{computeConnexComponents}!FaceVectorAnalysis@{FaceVectorAnalysis}}
+\doxysubsubsection{\texorpdfstring{computeConnexComponents()}{computeConnexComponents()}}
+{\footnotesize\ttfamily void Face\+Vector\+Analysis\+::compute\+Connex\+Components (\begin{DoxyParamCaption}\item[{const Face\+Vector\+View \&}]{group,  }\item[{IMesh $\ast$}]{mesh,  }\item[{Integer\+Array \&}]{face\+Colors,  }\item[{Integer \&}]{max\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calcul la d{\ucr}composition en composante connexe (2D ou 3D) 
+
+Le tableau {\itshape face\+Colors} contient pour chaque face sa couleur dans \mbox{[}0\+:max\+Color\mbox{[} 
+
+Definition at line 272 of file Face\+Vector\+Analysis.\+cc.
+
+\mbox{\Hypertarget{structFaceVectorAnalysis_ac8b74ac51030c52baea6f57e59a37d20}\label{structFaceVectorAnalysis_ac8b74ac51030c52baea6f57e59a37d20}} 
+\index{FaceVectorAnalysis@{FaceVectorAnalysis}!computeGlobalMeanNormal@{computeGlobalMeanNormal}}
+\index{computeGlobalMeanNormal@{computeGlobalMeanNormal}!FaceVectorAnalysis@{FaceVectorAnalysis}}
+\doxysubsubsection{\texorpdfstring{computeGlobalMeanNormal()}{computeGlobalMeanNormal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structReal3}{Real3}} Face\+Vector\+Analysis\+::compute\+Global\+Mean\+Normal (\begin{DoxyParamCaption}\item[{Real\+Const\+Array\+View}]{local\+\_\+normal\+\_\+parameters,  }\item[{IParallel\+Mng $\ast$}]{parallel\+Mng,  }\item[{ITrace\+Mng $\ast$}]{trace\+Mng,  }\item[{bool}]{use\+\_\+minimization\+\_\+algorithm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Synth{\ucr}tise les param{\ucr}tres locaux pour obtenir une normale moyenne globale. 
+
+Uses local normal sum (flag=false) or minization algorithm (flag=true) \begin{DoxyWarning}{Warning}
+ne fonctionne que pour des maillages 3D 
+\end{DoxyWarning}
+
+
+Definition at line 187 of file Face\+Vector\+Analysis.\+cc.
+
+\mbox{\Hypertarget{structFaceVectorAnalysis_acbea10813976ba89781f981c71ea0acc}\label{structFaceVectorAnalysis_acbea10813976ba89781f981c71ea0acc}} 
+\index{FaceVectorAnalysis@{FaceVectorAnalysis}!computeLocalMeanNormal@{computeLocalMeanNormal}}
+\index{computeLocalMeanNormal@{computeLocalMeanNormal}!FaceVectorAnalysis@{FaceVectorAnalysis}}
+\doxysubsubsection{\texorpdfstring{computeLocalMeanNormal()}{computeLocalMeanNormal()}}
+{\footnotesize\ttfamily Real\+Shared\+Array Face\+Vector\+Analysis\+::compute\+Local\+Mean\+Normal (\begin{DoxyParamCaption}\item[{const Face\+Vector\+View}]{group,  }\item[{IMesh $\ast$}]{mesh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calcule les param{\ucr}tres locaux d\textquotesingle{}une normale moyenne. 
+
+\begin{DoxyWarning}{Warning}
+ne fonctionne que pour des maillages 3D 
+\end{DoxyWarning}
+
+
+Definition at line 126 of file Face\+Vector\+Analysis.\+cc.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Face\+Vector\+Analysis.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Surface\+Utils/Face\+Vector\+Analysis.\+cc\end{DoxyCompactItemize}

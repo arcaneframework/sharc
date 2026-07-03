@@ -1,0 +1,78 @@
+\hypertarget{classIIFunction}{}\doxysection{IIFunction Class Reference}
+\label{classIIFunction}\index{IIFunction@{IIFunction}}
+
+
+Inherited by \mbox{\hyperlink{classIFunction}{IFunction}}, \mbox{\hyperlink{classIFunctionR10vR1}{IFunction\+R10v\+R1}}, \mbox{\hyperlink{classIFunctionR1vR1}{IFunction\+R1v\+R1}}, \mbox{\hyperlink{classIFunctionR2vR1}{IFunction\+R2v\+R1}}, \mbox{\hyperlink{classIFunctionR3vR1}{IFunction\+R3v\+R1}}, \mbox{\hyperlink{classIFunctionR4vR1}{IFunction\+R4v\+R1}}, \mbox{\hyperlink{classIFunctionR5vR1}{IFunction\+R5v\+R1}}, \mbox{\hyperlink{classIFunctionR6vR1}{IFunction\+R6v\+R1}}, \mbox{\hyperlink{classIFunctionR7vR1}{IFunction\+R7v\+R1}}, \mbox{\hyperlink{classIFunctionR8vR1}{IFunction\+R8v\+R1}}, \mbox{\hyperlink{classIFunctionR9vR1}{IFunction\+R9v\+R1}}, and \mbox{\hyperlink{classIFunctionRNvR1}{IFunction\+RNv\+R1$<$ N $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIFunction_ab12f11fedfecb9e560506e75cd2bc221}\label{classIIFunction_ab12f11fedfecb9e560506e75cd2bc221}} 
+\mbox{\hyperlink{classIIFunction_ab12f11fedfecb9e560506e75cd2bc221}{IIFunction}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a1977944aeab2130a2beba3d01adfaee3}\label{classIIFunction_a1977944aeab2130a2beba3d01adfaee3}} 
+virtual \mbox{\hyperlink{classIIFunction_a1977944aeab2130a2beba3d01adfaee3}{$\sim$\+IIFunction}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a07c537911764b7f9ced64127f031b60a}\label{classIIFunction_a07c537911764b7f9ced64127f031b60a}} 
+virtual void \mbox{\hyperlink{classIIFunction_a07c537911764b7f9ced64127f031b60a}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a898a06edcdd42feb4a2433dc4866e78e}\label{classIIFunction_a898a06edcdd42feb4a2433dc4866e78e}} 
+virtual Integer \mbox{\hyperlink{classIIFunction_a898a06edcdd42feb4a2433dc4866e78e}{get\+In\+Dimension}} () const =0
+\begin{DoxyCompactList}\small\item\em Getting dimension of in-\/space. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_aa0d70b4ab21914bc0ab5a61ada6f7ee4}\label{classIIFunction_aa0d70b4ab21914bc0ab5a61ada6f7ee4}} 
+virtual Integer \mbox{\hyperlink{classIIFunction_aa0d70b4ab21914bc0ab5a61ada6f7ee4}{get\+Out\+Dimension}} () const =0
+\begin{DoxyCompactList}\small\item\em Getting dimension of out-\/space. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a8529697b0ab84c7c1e4489da6ef8e0b5}\label{classIIFunction_a8529697b0ab84c7c1e4489da6ef8e0b5}} 
+virtual void \mbox{\hyperlink{classIIFunction_a8529697b0ab84c7c1e4489da6ef8e0b5}{set\+Parameter}} (const String \&name, const Real \&parameter)=0
+\begin{DoxyCompactList}\small\item\em Setting parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a83a2d094c5e97c7498816419cb85d5f2}\label{classIIFunction_a83a2d094c5e97c7498816419cb85d5f2}} 
+virtual void {\bfseries set\+Parameter} (Integer index, const Real \&parameter)=0
+\item 
+\mbox{\Hypertarget{classIIFunction_a987f810daa1e9d60168f5e95ba287c0f}\label{classIIFunction_a987f810daa1e9d60168f5e95ba287c0f}} 
+virtual Integer \mbox{\hyperlink{classIIFunction_a987f810daa1e9d60168f5e95ba287c0f}{nb\+Parameter}} () const =0
+\begin{DoxyCompactList}\small\item\em Getting number of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_ab4b39abfc6eb5d034fb378139f722c9a}\label{classIIFunction_ab4b39abfc6eb5d034fb378139f722c9a}} 
+virtual String \mbox{\hyperlink{classIIFunction_ab4b39abfc6eb5d034fb378139f722c9a}{parameter\+Name}} (Integer index) const =0
+\begin{DoxyCompactList}\small\item\em Getting name of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a62d9fe2fb762d8aecf57a8e47e4f6f0f}\label{classIIFunction_a62d9fe2fb762d8aecf57a8e47e4f6f0f}} 
+virtual void \mbox{\hyperlink{classIIFunction_a62d9fe2fb762d8aecf57a8e47e4f6f0f}{set\+Variable}} (const String \&name, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)=0
+\begin{DoxyCompactList}\small\item\em Setting vectorized variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a5de9d33ced4fab936a256955ff8a9d29}\label{classIIFunction_a5de9d33ced4fab936a256955ff8a9d29}} 
+virtual void {\bfseries set\+Variable} (Integer index, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)=0
+\item 
+\mbox{\Hypertarget{classIIFunction_adbd876db467161d4c63ad79e39dc9f18}\label{classIIFunction_adbd876db467161d4c63ad79e39dc9f18}} 
+virtual String \mbox{\hyperlink{classIIFunction_adbd876db467161d4c63ad79e39dc9f18}{variable\+Name}} (Integer index) const =0
+\begin{DoxyCompactList}\small\item\em Getting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a08eeed8d16f9cc8df388802e8f5bc298}\label{classIIFunction_a08eeed8d16f9cc8df388802e8f5bc298}} 
+virtual void \mbox{\hyperlink{classIIFunction_a08eeed8d16f9cc8df388802e8f5bc298}{set\+Evaluation\+Result}} (\mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)=0
+\begin{DoxyCompactList}\small\item\em Setting evaluation vectorized result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ di variable}\par
+{\em Setting derivation vectorized result
+
+Derivation following }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIFunction_afee9c50a007b4c9d895648fd5a976ede}\label{classIIFunction_afee9c50a007b4c9d895648fd5a976ede}} 
+virtual void {\bfseries set\+Derivation\+Result} (Integer di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)=0
+\item 
+\mbox{\Hypertarget{classIIFunction_a1e96f750123f9f1e58c92b07b7ed963c}\label{classIIFunction_a1e96f750123f9f1e58c92b07b7ed963c}} 
+virtual void {\bfseries set\+Derivation\+Result} (const String \&di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)=0
+\item 
+\mbox{\Hypertarget{classIIFunction_ac1281f5a48934bf4940684f1f61c91bb}\label{classIIFunction_ac1281f5a48934bf4940684f1f61c91bb}} 
+virtual void \mbox{\hyperlink{classIIFunction_ac1281f5a48934bf4940684f1f61c91bb}{eval}} ()=0
+\begin{DoxyCompactList}\small\item\em Eval vectorized data service function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIFunction_a651f697f924447fbfad9f32bc24d05b6}\label{classIIFunction_a651f697f924447fbfad9f32bc24d05b6}} 
+virtual void \mbox{\hyperlink{classIIFunction_a651f697f924447fbfad9f32bc24d05b6}{cleanup}} ()=0
+\begin{DoxyCompactList}\small\item\em Cleanup after evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 20 of file IIFunction.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/IIFunction.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,338 @@
+\hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem}{}\doxysection{Arcane\+::Fem\+Utils\+::Do\+FLinear\+System Class Reference}
+\label{classArcane_1_1FemUtils_1_1DoFLinearSystem}\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+
+
+Linear system Matrix A + Vector x + Vector b for Ax=b.  
+
+
+
+
+{\ttfamily \#include $<$Do\+FLinear\+System.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_ae4b1d1bcdcded407ac492b99446b5e51}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_ae4b1d1bcdcded407ac492b99446b5e51}} 
+{\bfseries Do\+FLinear\+System} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a83f9a60d99d3c60ce4be03c6e661c337}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a83f9a60d99d3c60ce4be03c6e661c337}} 
+{\bfseries Do\+FLinear\+System} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a01863e993f8da2015ea452f180d9b48d}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a01863e993f8da2015ea452f180d9b48d}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \& {\bfseries operator=} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a29f124775e2fb8506db1836acaf84812}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a29f124775e2fb8506db1836acaf84812}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \& {\bfseries operator=} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_aa369066aa9540ff732563d475b2d4b3c}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_aa369066aa9540ff732563d475b2d4b3c}} 
+void {\bfseries initialize} (ISub\+Domain $\ast$sd, IItem\+Family $\ast$dof\+\_\+family, const String \&solver\+\_\+name)
+\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a1d196c35c129041f0d348511e9aa37c2}{initialize}} (ISub\+Domain $\ast$sd, Runner $\ast$runner, IItem\+Family $\ast$dof\+\_\+family, const String \&solver\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Initialize the instance with a specific runner. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_acf17bbceb012ee1bb82acea9a544adf3}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_acf17bbceb012ee1bb82acea9a544adf3}} 
+bool \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_acf17bbceb012ee1bb82acea9a544adf3}{is\+Initialized}} () const
+\begin{DoxyCompactList}\small\item\em Indicate if method initialize() has been called. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a0637592d12267b566f221b5e8f72d00c}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a0637592d12267b566f221b5e8f72d00c}} 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a0637592d12267b566f221b5e8f72d00c}{matrix\+Add\+Value}} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value)
+\begin{DoxyCompactList}\small\item\em Add the value {\itshape value} to the (row,column) element of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab987262eff9a3c9006687d8036fde167}{matrix\+Set\+Value}} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value)
+\begin{DoxyCompactList}\small\item\em Set the value {\itshape value} to the (row,column) element of the matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a39e645f267b72edd535d3e6abe2953dd}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a39e645f267b72edd535d3e6abe2953dd}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper}{Do\+FLinear\+System\+Row\+Elimination\+Helper}} {\bfseries row\+Elimination\+Helper} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_af0700ee5c3832143a6fb0dee9834ef9a}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_af0700ee5c3832143a6fb0dee9834ef9a}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystemRowColumnEliminationHelper}{Do\+FLinear\+System\+Row\+Column\+Elimination\+Helper}} {\bfseries row\+Column\+Elimination\+Helper} ()
+\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_aa408ce7c68c01f66fb6f01ce7e8306a4}{apply\+Linear\+System\+Transformation\+And\+Solve}} ()
+\begin{DoxyCompactList}\small\item\em Apply the underlying transformation and Solve the current linear system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a67f2fe90f88eda65ace0bcce9366b0fc}{apply\+Matrix\+Transformation}} ()
+\begin{DoxyCompactList}\small\item\em Apply Matrix Transformation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a463d9a00770bcbf86a2dd9bbf044f5c1}{apply\+RHSTransformation}} ()
+\begin{DoxyCompactList}\small\item\em Apply RHS Transformation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve}} ()
+\begin{DoxyCompactList}\small\item\em Solve the current linear system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_aaae3952c59e94c6a178d99e97a5986cb}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset the current instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab7ae7145cf6d4d66cbcef49358a3625f}{clear\+Values}} ()
+\begin{DoxyCompactList}\small\item\em Clear values. \end{DoxyCompactList}\item 
+Variable\+Do\+FReal \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a2c0c142c63809f51c41742d8923c2472}{solution\+Variable}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structVariable}{Variable}} containing the solution vector. \end{DoxyCompactList}\item 
+Variable\+Do\+FReal \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab9e662cc1eef2002a687c47e8fb858ac}{rhs\+Variable}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structVariable}{Variable}} containing the right hand side vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a97b5317b23044d851312a0d3814fc0e7}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a97b5317b23044d851312a0d3814fc0e7}} 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a97b5317b23044d851312a0d3814fc0e7}{set\+Linear\+System\+Factory}} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1IDoFLinearSystemFactory}{IDo\+FLinear\+System\+Factory}} $\ast$factory)
+\begin{DoxyCompactList}\small\item\em Set the factory used to create the underlying linear system solver. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a8fe59514b1c1a3fef9016fc6d405077c}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a8fe59514b1c1a3fef9016fc6d405077c}} 
+void {\bfseries set\+Solver\+Command\+Line\+Arguments} (const Command\+Line\+Arguments \&args)
+\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a163c2a203744152ebbfc057c7eaeab96}{set\+CSRValues}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \&csr\+\_\+view)
+\begin{DoxyCompactList}\small\item\em Positionne directement les valeurs de la matrice. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a04439cc0d8ee2ad5206a161650836af8}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a04439cc0d8ee2ad5206a161650836af8}} 
+bool \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a04439cc0d8ee2ad5206a161650836af8}{has\+Set\+CSRValues}} () const
+\begin{DoxyCompactList}\small\item\em Indique si l\textquotesingle{}implémentation supporte d\textquotesingle{}utiliser set\+CSRValue() \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a7a3d3769ec72ad9a17b77e2d5e13ccd5}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a7a3d3769ec72ad9a17b77e2d5e13ccd5}} 
+void {\bfseries start\+System\+Assembly} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_ad9c508dac5031e71d41cbf2fc091cc2c}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_ad9c508dac5031e71d41cbf2fc091cc2c}} 
+void {\bfseries end\+System\+Assembly} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a3d2077a3d47531b1425455380c833ba0}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a3d2077a3d47531b1425455380c833ba0}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1AlienBSRFormat}{Alien\+BSRFormat}} $\ast$ {\bfseries alien\+Bsr} (ITrace\+Mng $\ast$trace\+\_\+mng, Run\+Queue \&queue, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a92d22d8b65f1ec4e44fd36467b0be2c4}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a92d22d8b65f1ec4e44fd36467b0be2c4}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \& {\bfseries get\+CSRValues} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a488c97be03a3888428c1cf48da6c7eb6}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a488c97be03a3888428c1cf48da6c7eb6}} 
+Variable\+Do\+FReal \& {\bfseries get\+Forced\+Value} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a83391c328302a1f9ed7a214202a6154d}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a83391c328302a1f9ed7a214202a6154d}} 
+Variable\+Do\+FBool \& {\bfseries get\+Forced\+Info} ()
+\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a03cff5cf9f4205100b7fd7c25394e8a5}{set\+Constant\+Matrix\+Sparsity}} (bool val)
+\begin{DoxyCompactList}\small\item\em Setter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+sparsity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a0149ebe7f42c034567495b846c0510c1}{set\+Constant\+Matrix\+Values}} (bool val)
+\begin{DoxyCompactList}\small\item\em Setter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+values. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_aad9ba965eba8a57ce0de5b2500122946}{is\+Matrix\+Sparsity\+Constant}} ()
+\begin{DoxyCompactList}\small\item\em Getter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+sparsity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a7ad8468eb5fd77a262876a2b1455761a}{is\+Matrix\+Values\+Constant}} ()
+\begin{DoxyCompactList}\small\item\em Getter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a20e62d72411ef12b55860c79154c3ba2}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a20e62d72411ef12b55860c79154c3ba2}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1IDoFLinearSystemFactory}{IDo\+FLinear\+System\+Factory}} $\ast$ {\bfseries linear\+System\+Factory} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Linear system Matrix A + Vector x + Vector b for Ax=b. 
+
+Before using an instance of this class you need to call method initialize(). If you want to reuse the same instance for several solving you need to call \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_aaae3952c59e94c6a178d99e97a5986cb}{reset()}} to destroy the underlying linear system and then you need to call initialize() again.
+
+The \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}} method solves the current linear system. After this variable returned by the method \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a2c0c142c63809f51c41742d8923c2472}{solution\+Variable()}} will be filled with the values of the solution vector. 
+
+Definition at line 154 of file Do\+FLinear\+System.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_aa408ce7c68c01f66fb6f01ce7e8306a4}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_aa408ce7c68c01f66fb6f01ce7e8306a4}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!applyLinearSystemTransformationAndSolve@{applyLinearSystemTransformationAndSolve}}
+\index{applyLinearSystemTransformationAndSolve@{applyLinearSystemTransformationAndSolve}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{applyLinearSystemTransformationAndSolve()}{applyLinearSystemTransformationAndSolve()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::apply\+Linear\+System\+Transformation\+And\+Solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Apply the underlying transformation and Solve the current linear system. 
+
+This is equivalent to calling the following methods in order\+:
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a67f2fe90f88eda65ace0bcce9366b0fc}{apply\+Matrix\+Transformation()}}
+\item \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a463d9a00770bcbf86a2dd9bbf044f5c1}{apply\+RHSTransformation()}}
+\item \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}} 
+\end{DoxyItemize}
+
+Definition at line 518 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a67f2fe90f88eda65ace0bcce9366b0fc}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a67f2fe90f88eda65ace0bcce9366b0fc}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!applyMatrixTransformation@{applyMatrixTransformation}}
+\index{applyMatrixTransformation@{applyMatrixTransformation}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{applyMatrixTransformation()}{applyMatrixTransformation()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::apply\+Matrix\+Transformation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Apply Matrix Transformation. 
+
+Apply operation like Row or Row\+Column elimination on the matrix. This has to be done one and only time before calling \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. If the values of the matrix are cleared, this method has to be called again. 
+
+Definition at line 498 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a463d9a00770bcbf86a2dd9bbf044f5c1}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a463d9a00770bcbf86a2dd9bbf044f5c1}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!applyRHSTransformation@{applyRHSTransformation}}
+\index{applyRHSTransformation@{applyRHSTransformation}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{applyRHSTransformation()}{applyRHSTransformation()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::apply\+RHSTransformation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Apply RHS Transformation. 
+
+Apply operation like Row or Row\+Column elimination on the RHS. This method has to be called at least one time calling \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. You may call this method several time if you have manually changed the values of the RHS. 
+
+Definition at line 508 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab7ae7145cf6d4d66cbcef49358a3625f}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab7ae7145cf6d4d66cbcef49358a3625f}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!clearValues@{clearValues}}
+\index{clearValues@{clearValues}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{clearValues()}{clearValues()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::clear\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear values. 
+
+After this call, the matrix and the RHS vector will have their values cleared. 
+
+Definition at line 637 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a1d196c35c129041f0d348511e9aa37c2}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a1d196c35c129041f0d348511e9aa37c2}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!initialize@{initialize}}
+\index{initialize@{initialize}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::initialize (\begin{DoxyParamCaption}\item[{ISub\+Domain $\ast$}]{sd,  }\item[{Runner $\ast$}]{runner,  }\item[{IItem\+Family $\ast$}]{dof\+\_\+family,  }\item[{const String \&}]{solver\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Initialize the instance with a specific runner. 
+
+{\itshape runner} may be null. 
+
+Definition at line 369 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_aad9ba965eba8a57ce0de5b2500122946}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_aad9ba965eba8a57ce0de5b2500122946}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!isMatrixSparsityConstant@{isMatrixSparsityConstant}}
+\index{isMatrixSparsityConstant@{isMatrixSparsityConstant}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{isMatrixSparsityConstant()}{isMatrixSparsityConstant()}}
+{\footnotesize\ttfamily bool Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::is\+Matrix\+Sparsity\+Constant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+sparsity. 
+
+Indique si la matrice du système linéaire change de sparsité (disposition des nnz) entre les appels à la fonction \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. Cela permet des optimisations en termes d\textquotesingle{}allocations de mémoire, par exemple en allouant la matrice une seule fois avant les solving plutôt qu\textquotesingle{}à chaque appel de \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. L\textquotesingle{}attribut est par défaut initialisé à false. 
+
+Definition at line 676 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a7ad8468eb5fd77a262876a2b1455761a}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a7ad8468eb5fd77a262876a2b1455761a}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!isMatrixValuesConstant@{isMatrixValuesConstant}}
+\index{isMatrixValuesConstant@{isMatrixValuesConstant}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{isMatrixValuesConstant()}{isMatrixValuesConstant()}}
+{\footnotesize\ttfamily bool Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::is\+Matrix\+Values\+Constant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+values. 
+
+Indique si la matrice du système linéaire change de valeurs entre les appels à la fonction \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. Cela permet certaines optimisations en termes de copie de valeurs. L\textquotesingle{}attribut est par défaut initialisé à false. 
+
+Definition at line 686 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab987262eff9a3c9006687d8036fde167}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab987262eff9a3c9006687d8036fde167}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!matrixSetValue@{matrixSetValue}}
+\index{matrixSetValue@{matrixSetValue}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{matrixSetValue()}{matrixSetValue()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::matrix\+Set\+Value (\begin{DoxyParamCaption}\item[{Do\+FLocal\+Id}]{row,  }\item[{Do\+FLocal\+Id}]{column,  }\item[{Real}]{value }\end{DoxyParamCaption})}
+
+
+
+Set the value {\itshape value} to the (row,column) element of the matrix. 
+
+The value is only changed when \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}} is called. Any call to matrix\+Add\+Value(row,column) done before or after the call to matrix\+Set\+Value(row,column) are discarded. 
+
+Definition at line 440 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_aaae3952c59e94c6a178d99e97a5986cb}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_aaae3952c59e94c6a178d99e97a5986cb}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!reset@{reset}}
+\index{reset@{reset}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset the current instance. 
+
+You have to call initialize() again to re-\/use the same instance. 
+
+Definition at line 626 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab9e662cc1eef2002a687c47e8fb858ac}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_ab9e662cc1eef2002a687c47e8fb858ac}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!rhsVariable@{rhsVariable}}
+\index{rhsVariable@{rhsVariable}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{rhsVariable()}{rhsVariable()}}
+{\footnotesize\ttfamily Variable\+Do\+FReal \& Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::rhs\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{structVariable}{Variable}} containing the right hand side vector. 
+
+The values of this variable will be used during the \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}} call to fill the right hand side vector. 
+
+Definition at line 539 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a03cff5cf9f4205100b7fd7c25394e8a5}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a03cff5cf9f4205100b7fd7c25394e8a5}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!setConstantMatrixSparsity@{setConstantMatrixSparsity}}
+\index{setConstantMatrixSparsity@{setConstantMatrixSparsity}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{setConstantMatrixSparsity()}{setConstantMatrixSparsity()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::set\+Constant\+Matrix\+Sparsity (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})}
+
+
+
+Setter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+sparsity. 
+
+Indique si la matrice du système linéaire change de sparsité (disposition des nnz) entre les appels à la fonction \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. Cela permet des optimisations en termes d\textquotesingle{}allocations de mémoire, par exemple en allouant la matrice une seule fois avant les solving plutôt qu\textquotesingle{}à chaque appel de \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. L\textquotesingle{}attribut est par défaut initialisé à false. 
+
+Definition at line 656 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a0149ebe7f42c034567495b846c0510c1}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a0149ebe7f42c034567495b846c0510c1}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!setConstantMatrixValues@{setConstantMatrixValues}}
+\index{setConstantMatrixValues@{setConstantMatrixValues}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{setConstantMatrixValues()}{setConstantMatrixValues()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::set\+Constant\+Matrix\+Values (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})}
+
+
+
+Setter de l\textquotesingle{}attribut m\+\_\+constant\+\_\+matrix\+\_\+values. 
+
+Indique si la matrice du système linéaire change de valeurs entre les appels à la fonction \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. Cela permet certaines optimisations en termes de copie de valeurs. L\textquotesingle{}attribut est par défaut initialisé à false. 
+
+Definition at line 666 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a163c2a203744152ebbfc057c7eaeab96}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a163c2a203744152ebbfc057c7eaeab96}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!setCSRValues@{setCSRValues}}
+\index{setCSRValues@{setCSRValues}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{setCSRValues()}{setCSRValues()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::set\+CSRValues (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CsrFormatMatrixView}{CSRFormat\+View}} \&}]{csr\+\_\+view }\end{DoxyParamCaption})}
+
+
+
+Positionne directement les valeurs de la matrice. 
+
+Positionne les valeurs de la matrice en considérant le format comme étant au format CSR. Les vues doivent rester valides jusqu\textquotesingle{}à la résolution du système linéaire (appel à \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}). 
+
+Definition at line 559 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a2c0c142c63809f51c41742d8923c2472}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a2c0c142c63809f51c41742d8923c2472}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!solutionVariable@{solutionVariable}}
+\index{solutionVariable@{solutionVariable}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{solutionVariable()}{solutionVariable()}}
+{\footnotesize\ttfamily Variable\+Do\+FReal \& Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::solution\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{structVariable}{Variable}} containing the solution vector. 
+
+The values of this variable are only relevant after a call to \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}{solve()}}. 
+
+Definition at line 529 of file Do\+FLinear\+System.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}\label{classArcane_1_1FemUtils_1_1DoFLinearSystem_a69faa7356a559c39a79b1c305d046396}} 
+\index{Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}!solve@{solve}}
+\index{solve@{solve}!Arcane::FemUtils::DoFLinearSystem@{Arcane::FemUtils::DoFLinearSystem}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Do\+FLinear\+System\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Solve the current linear system. 
+
+You have to call \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a67f2fe90f88eda65ace0bcce9366b0fc}{apply\+Matrix\+Transformation()}} and \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem_a463d9a00770bcbf86a2dd9bbf044f5c1}{apply\+RHSTransformation()}} before calling this method(). 
+
+Definition at line 488 of file Do\+FLinear\+System.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Do\+FLinear\+System.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Do\+FLinear\+System.\+cc\end{DoxyCompactItemize}

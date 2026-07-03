@@ -1,0 +1,88 @@
+\hypertarget{classArcNum_1_1NewtonSolver}{}\doxysection{Arc\+Num\+::Newton\+Solver Class Reference}
+\label{classArcNum_1_1NewtonSolver}\index{ArcNum::NewtonSolver@{ArcNum::NewtonSolver}}
+
+
+Inherits Arcane\+::\+Trace\+Accessor.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_ab8bf651228c46111a84ea429a753f117}\label{classArcNum_1_1NewtonSolver_ab8bf651228c46111a84ea429a753f117}} 
+void {\bfseries set\+Linear\+Solver} (Alien\+::\+ILinear\+Solver $\ast$solver)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_acb60d85d3420fde4585f85ac182ef232}\label{classArcNum_1_1NewtonSolver_acb60d85d3420fde4585f85ac182ef232}} 
+void {\bfseries set\+With\+Elimination} (bool b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_ad83c8700d874402a61925b414577af54}\label{classArcNum_1_1NewtonSolver_ad83c8700d874402a61925b414577af54}} 
+void {\bfseries set\+With\+Normalization} (bool b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_aa67f4fcfc33129c67c01e4f6d753120d}\label{classArcNum_1_1NewtonSolver_aa67f4fcfc33129c67c01e4f6d753120d}} 
+void {\bfseries set\+With\+First\+Row\+Sum} (bool b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a8cb19733675701d63e7a56bbbeb4680e}\label{classArcNum_1_1NewtonSolver_a8cb19733675701d63e7a56bbbeb4680e}} 
+void {\bfseries set\+With\+Diag\+Scaling} (bool b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a061ae075894405bd31b3da7d36e1cbe6}\label{classArcNum_1_1NewtonSolver_a061ae075894405bd31b3da7d36e1cbe6}} 
+void {\bfseries set\+Iteration\+Max} (Arcane\+::\+Integer b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a569fdcb3c81eab710933eb2812d18a2d}\label{classArcNum_1_1NewtonSolver_a569fdcb3c81eab710933eb2812d18a2d}} 
+void {\bfseries set\+Relative\+Tolerance} (Arcane\+::\+Real b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a5f8f8a15244af93361ba8226ca263c3f}\label{classArcNum_1_1NewtonSolver_a5f8f8a15244af93361ba8226ca263c3f}} 
+void {\bfseries set\+Tolerance} (Arcane\+::\+Real b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_ace05b8a3b7b2a7de118c21c3cf49eea6}\label{classArcNum_1_1NewtonSolver_ace05b8a3b7b2a7de118c21c3cf49eea6}} 
+void {\bfseries set\+Debug\+Dump\+Matlab} (bool b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a11813420cb19cc33b15a81a65f3668ec}\label{classArcNum_1_1NewtonSolver_a11813420cb19cc33b15a81a65f3668ec}} 
+void {\bfseries set\+Debug\+Info\+Linear\+Solver} (bool b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a1b9e0caf10140814eaa87a1372a9b066}\label{classArcNum_1_1NewtonSolver_a1b9e0caf10140814eaa87a1372a9b066}} 
+void {\bfseries set\+Debug\+Stat\+Linear\+Solver} (bool b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_ad1bcabc026d5a0b97d2e6fb1c8c4f5e0}\label{classArcNum_1_1NewtonSolver_ad1bcabc026d5a0b97d2e6fb1c8c4f5e0}} 
+void {\bfseries set\+Save\+And\+Fatal\+At\+Iteration} (Arcane\+::\+Integer b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_aeca27bad63f067269e1050a015a160dc}\label{classArcNum_1_1NewtonSolver_aeca27bad63f067269e1050a015a160dc}} 
+void {\bfseries set\+Dump\+And\+Fatal\+At\+Iteration} (Arcane\+::\+Integer b)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_ab186f12413281c57ad545e4cfcc363ba}\label{classArcNum_1_1NewtonSolver_ab186f12413281c57ad545e4cfcc363ba}} 
+void {\bfseries init} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classArcNum_1_1INonLinearSystem}{Arc\+Num\+::\+INon\+Linear\+System}} $>$ non\+\_\+linear\+\_\+system)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a0f634997f5610cc5aa5b4ee716e433b6}\label{classArcNum_1_1NewtonSolver_a0f634997f5610cc5aa5b4ee716e433b6}} 
+bool {\bfseries solve} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a4261fcfbadfa2fc7b9d170fc6b1d03a2}\label{classArcNum_1_1NewtonSolver_a4261fcfbadfa2fc7b9d170fc6b1d03a2}} 
+void {\bfseries newton\+Linearize} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a790356b75dc6fb47455bb446dfaceaa9}\label{classArcNum_1_1NewtonSolver_a790356b75dc6fb47455bb446dfaceaa9}} 
+Arcane\+::\+Real {\bfseries newton\+Error} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_af90f436536b211964b5985dd2526a180}\label{classArcNum_1_1NewtonSolver_af90f436536b211964b5985dd2526a180}} 
+void {\bfseries newton\+Assemble} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a66d918a5da23d679175985501db70d49}\label{classArcNum_1_1NewtonSolver_a66d918a5da23d679175985501db70d49}} 
+bool {\bfseries newton\+Solve} ()
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a0e42e32cf36a498eb85db79535d2fffb}\label{classArcNum_1_1NewtonSolver_a0e42e32cf36a498eb85db79535d2fffb}} 
+void {\bfseries newton\+Before\+Solve} (Arcane\+::\+Integer i)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_ac03228ec100038d6cc7cae6656e7ac2c}\label{classArcNum_1_1NewtonSolver_ac03228ec100038d6cc7cae6656e7ac2c}} 
+void {\bfseries newton\+After\+Solve} (Arcane\+::\+Integer i)
+\item 
+\mbox{\Hypertarget{classArcNum_1_1NewtonSolver_a1190aca60fed0757586c5bdacaf995e7}\label{classArcNum_1_1NewtonSolver_a1190aca60fed0757586c5bdacaf995e7}} 
+void {\bfseries newton\+Update} (bool \&Non\+Physical\+Solution)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 33 of file Newton\+Solver.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Arc\+Num\+Tools/\+Solver/\+Newton\+Solver/Newton\+Solver.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Arc\+Num\+Tools/\+Solver/\+Newton\+Solver/Newton\+Solver.\+cc\end{DoxyCompactItemize}

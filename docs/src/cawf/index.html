@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CAWF – ArcaneFEM Workflows Library# CAWF is a collection of finite-element solvers and utilities built on top of ArcaneFEM and the ArcGeoSim/Arcane framework. It provides ready-to-use applications for scalar Poisson problems, linear elasticity, compaction simulations, and dynamic mesh management, plus shared FEM infrastructure (FEMUtils).
+CAWF is built as a library and linked into the main ShArc executable.
+Contents# Overview Directory Layout Building CAWF Solvers and Services Poisson Solver Linear Elasticity Solver Compaction Solver Dynamic Mesh Manager Configuration Patterns Mesh section FEM section Boundary conditions Post-processing FEM Utilities (FEMUtils) DoF linear systems Matrix formats Boundary conditions helpers GPU / SYCL backends Extending CAWF Overview# CAWF groups several ArcaneFEM-based modules:
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/src/cawf/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="CAWF">
+	<meta property="og:description" content="CAWF – ArcaneFEM Workflows Library# CAWF is a collection of finite-element solvers and utilities built on top of ArcaneFEM and the ArcGeoSim/Arcane framework. It provides ready-to-use applications for scalar Poisson problems, linear elasticity, compaction simulations, and dynamic mesh management, plus shared FEM infrastructure (FEMUtils).
+CAWF is built as a library and linked into the main ShArc executable.
+Contents# Overview Directory Layout Building CAWF Solvers and Services Poisson Solver Linear Elasticity Solver Compaction Solver Dynamic Mesh Manager Configuration Patterns Mesh section FEM section Boundary conditions Post-processing FEM Utilities (FEMUtils) DoF linear systems Matrix formats Boundary conditions helpers GPU / SYCL backends Extending CAWF Overview# CAWF groups several ArcaneFEM-based modules:">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="CAWF">
+	<meta itemprop="description" content="CAWF – ArcaneFEM Workflows Library# CAWF is a collection of finite-element solvers and utilities built on top of ArcaneFEM and the ArcGeoSim/Arcane framework. It provides ready-to-use applications for scalar Poisson problems, linear elasticity, compaction simulations, and dynamic mesh management, plus shared FEM infrastructure (FEMUtils).
+CAWF is built as a library and linked into the main ShArc executable.
+Contents# Overview Directory Layout Building CAWF Solvers and Services Poisson Solver Linear Elasticity Solver Compaction Solver Dynamic Mesh Manager Configuration Patterns Mesh section FEM section Boundary conditions Post-processing FEM Utilities (FEMUtils) DoF linear systems Matrix formats Boundary conditions helpers GPU / SYCL backends Extending CAWF Overview# CAWF groups several ArcaneFEM-based modules:">
+	<meta itemprop="wordCount" content="1029">
+
+<title>CAWF • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/src/cawf/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/src/cawf/index.xml" title="CAWF" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="active">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>CAWF</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="cawf--arcanefem-workflows-library">CAWF – ArcaneFEM Workflows Library<a class="anchor" href="#cawf--arcanefem-workflows-library">#</a></h1>
+<p>CAWF is a collection of finite-element solvers and utilities built on top of
+ArcaneFEM and the ArcGeoSim/Arcane framework. It provides ready-to-use
+applications for scalar Poisson problems, linear elasticity, compaction
+simulations, and dynamic mesh management, plus shared FEM infrastructure
+(<code>FEMUtils</code>).</p>
+<p>CAWF is built as a library and linked into the main <strong>ShArc</strong> executable.</p>
+<hr>
+<h2 id="contents">Contents<a class="anchor" href="#contents">#</a></h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#directory-layout">Directory Layout</a></li>
+<li><a href="#building-cawf">Building CAWF</a></li>
+<li><a href="#solvers-and-services">Solvers and Services</a>
+<ul>
+<li><a href="#poisson-solver">Poisson Solver</a></li>
+<li><a href="#linear-elasticity-solver">Linear Elasticity Solver</a></li>
+<li><a href="#compaction-solver">Compaction Solver</a></li>
+<li><a href="#dynamic-mesh-manager">Dynamic Mesh Manager</a></li>
+</ul>
+</li>
+<li><a href="#configuration-patterns">Configuration Patterns</a>
+<ul>
+<li><a href="#mesh-section">Mesh section</a></li>
+<li><a href="#fem-section">FEM section</a></li>
+<li><a href="#boundary-conditions">Boundary conditions</a></li>
+<li><a href="#post-processing">Post-processing</a></li>
+</ul>
+</li>
+<li><a href="#fem-utilities-femutils">FEM Utilities (FEMUtils)</a>
+<ul>
+<li><a href="#dof-linear-systems">DoF linear systems</a></li>
+<li><a href="#matrix-formats">Matrix formats</a></li>
+<li><a href="#boundary-conditions-helpers">Boundary conditions helpers</a></li>
+<li><a href="#gpu--sycl-backends">GPU / SYCL backends</a></li>
+</ul>
+</li>
+<li><a href="#extending-cawf">Extending CAWF</a></li>
+</ul>
+<hr>
+<h2 id="overview">Overview<a class="anchor" href="#overview">#</a></h2>
+<p>CAWF groups several ArcaneFEM-based modules:</p>
+<ul>
+<li>
+<p><strong>Poisson</strong> – solves scalar Poisson equations on 2D/3D unstructured meshes
+using a Galerkin finite element method. Suitable for diffusion, heat
+conduction, and similar elliptic problems.</p>
+</li>
+<li>
+<p><strong>Elasticity</strong> – solves steady linear elasticity (Navier&rsquo;s equations) for
+small deformations in solids, computing the displacement vector field.</p>
+</li>
+<li>
+<p><strong>Compaction</strong> – solves compaction / basin-like problems (e.g. synthetic
+basin tests, cube evolutions).</p>
+</li>
+<li>
+<p><strong>DynamicMeshMng</strong> – service to manage evolving meshes (dynamic mesh
+management) within Arcane/ArcGeoSim.</p>
+</li>
+</ul>
+<p>All solvers share <strong>FEMUtils</strong>, which implements generic finite-element
+infrastructure: degree-of-freedom (DoF) linear systems, sparse matrix formats,
+boundary conditions, and support for various linear algebra backends.</p>
+<hr>
+<h2 id="directory-layout">Directory Layout<a class="anchor" href="#directory-layout">#</a></h2>
+<p>The CAWF module is configured in <code>src/CAWF/config.xml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;makefile&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;needed-packages&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;package</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;arcane&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;package</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;precice&#34;</span> <span style="color:#a6e22e">optional=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/needed-packages&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;directories&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;directory&gt;</span>Compaction<span style="color:#f92672">&lt;/directory&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;directory&gt;</span>Elasticity<span style="color:#f92672">&lt;/directory&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;directory&gt;</span>Poisson<span style="color:#f92672">&lt;/directory&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;directory&gt;</span>DynamicMeshMng<span style="color:#f92672">&lt;/directory&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/directories&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/makefile&gt;</span></span></span></code></pre></div><p>Key directories:</p>
+<ul>
+<li><code>src/CAWF/CMakeLists.txt</code> – builds the <code>CAWF</code> library and links FEMUtils.</li>
+<li><code>src/CAWF/FEMUtils/</code> – shared FEM infrastructure.</li>
+<li><code>src/CAWF/Poisson/</code> – Poisson solver, driver, config, and documentation.</li>
+<li><code>src/CAWF/Elasticity/</code> – linear elasticity solver and documentation.</li>
+<li><code>src/CAWF/Compaction/</code> – compaction solver.</li>
+<li><code>src/CAWF/DynamicMeshMng/</code> – dynamic mesh manager service.</li>
+</ul>
+<hr>
+<h2 id="building-cawf">Building CAWF<a class="anchor" href="#building-cawf">#</a></h2>
+<p>CAWF is built as part of the main ShArc CMake project.</p>
+<p>From <code>src/CAWF/CMakeLists.txt</code>:</p>
+<ul>
+<li>The library is created and registered via ArcGeoSim helpers:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span>add_subdirectory(<span style="color:#e6db74">FEMUtils</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>createLibrary(<span style="color:#e6db74">CAWF</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>generateCMakeLists(<span style="color:#e6db74">CAWF</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>target_include_directories(<span style="color:#e6db74">CAWF</span> <span style="color:#e6db74">PUBLIC</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">$&lt;</span>BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}<span style="color:#f92672">&gt;</span>)</span></span></code></pre></div><ul>
+<li>Optional GPU/SYCL support is enabled via Alien / SYCL options:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span>if(<span style="color:#e6db74">ALIEN_USE_SYCL</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e"># hipSYCL, Intel SYCL/DPCPP, AdaptiveCpp backends
+</span></span></span><span style="display:flex;"><span>  addSources(<span style="color:#e6db74">CAWF</span> <span style="color:#e6db74">Elasticity/FemModuleSYCL.cc</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  target_compile_definitions(<span style="color:#e6db74">CAWF</span> <span style="color:#e6db74">PUBLIC</span> <span style="color:#e6db74">ALIEN_USE_SYCL</span> <span style="color:#e6db74">USE_SYCL2020</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  add_sycl_to_target(<span style="color:#e6db74">TARGET</span> <span style="color:#e6db74">CAWF</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#e6db74">SOURCES</span> <span style="color:#e6db74">Elasticity/FemModuleSYCL.cc</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e"># additional flags depending on backend (HIP, CUDA, etc.)
+</span></span></span><span style="display:flex;"><span>endif()</span></span></code></pre></div><ul>
+<li>On Windows, CAWF links ArcGeoSim physics and tests:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span>linkLibraries(<span style="color:#e6db74">CAWF</span> <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_physics</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_tests</span>)</span></span></code></pre></div><ul>
+<li>CAWF always links FEMUtils when available:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span>if(<span style="color:#e6db74">TARGET</span> <span style="color:#e6db74">FEMUtils</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  linkLibraries(<span style="color:#e6db74">CAWF</span> <span style="color:#e6db74">FEMUtils</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>endif()</span></span></code></pre></div><p>To build CAWF:</p>
+<ol>
+<li>Configure the main ShArc project as documented in the top-level README
+(ensure <code>Arcane</code> / <code>ArcGeoSim</code> and Alien are available).</li>
+<li>CMake will automatically build <code>FEMUtils</code> and <code>CAWF</code> as part of the root
+<code>CMakeLists.txt</code> (via <code>add_subdirectory(src/CAWF)</code>).</li>
+</ol>
+<hr>
+<h2 id="solvers-and-services">Solvers and Services<a class="anchor" href="#solvers-and-services">#</a></h2>
+<h3 id="poisson-solver">Poisson Solver<a class="anchor" href="#poisson-solver">#</a></h3>
+<p>Directory: <code>src/CAWF/Poisson/</code><br>
+Documentation: <code>src/CAWF/Poisson/Readme.md</code></p>
+<p>The Poisson solver solves</p>
+<p>[ \nabla^2 u = \mathcal{f} \quad \text{in } \Omega^h ]</p>
+<p>with Dirichlet and optional Neumann boundary conditions, on 2D/3D unstructured
+meshes.</p>
+<p>The dedicated Poisson README covers:</p>
+<ul>
+<li>Mathematical formulation of the Poisson problem.</li>
+<li>Example input file (<code>inputs/circle.arc</code>).</li>
+<li>Configuration snippets for:
+<ul>
+<li>Mesh (<code>meshes/circle_cut.msh</code>).</li>
+<li>Source term <code>&lt;f&gt;5.5&lt;/f&gt;</code>.</li>
+<li>Dirichlet / Neumann boundary conditions.</li>
+<li>Post-processing (<code>VtkHdfV2PostProcessor</code>, variable <code>U</code>).</li>
+</ul>
+</li>
+</ul>
+<blockquote class='book-hint '>
+<p>For details, see <strong><code>src/CAWF/Poisson/Readme.md</code></strong>.</p>
+</blockquote><hr>
+<h3 id="linear-elasticity-solver">Linear Elasticity Solver<a class="anchor" href="#linear-elasticity-solver">#</a></h3>
+<p>Directory: <code>src/CAWF/Elasticity/</code><br>
+Documentation: <code>src/CAWF/Elasticity/Readme.md</code></p>
+<p>The elasticity solver solves steady linear elasticity (Navier&rsquo;s equation):</p>
+<p>[ -\nabla\cdot\sigma(\mathbf{x}) = \mathbf{f}(\mathbf{x}) ]</p>
+<p>with isotropic stress:</p>
+<p>[ \sigma(\mathbf{x}) = \lambda (\nabla\cdot\mathbf{u})\mathbb{I} +
+\mu(\nabla\mathbf{u} + (\nabla\mathbf{u})^\mathrm{T}) ]</p>
+<p>The solver is demonstrated on a 2D bar bending under its own weight, via
+<code>bar.2D.Dirichlet.bodyForce.arc</code>.</p>
+<p>The Elasticity README covers:</p>
+<ul>
+<li>Mathematical background (stress, strain, variational formulation).</li>
+<li>Example mesh (<code>meshes/bar.msh</code>).</li>
+<li>FEM configuration:
+<ul>
+<li>Material properties: <code>&lt;E&gt;21.0e5&lt;/E&gt;</code>, <code>&lt;nu&gt;0.28&lt;/nu&gt;</code>.</li>
+<li>Body force: <code>&lt;f&gt;NULL -1.0&lt;/f&gt;</code>.</li>
+<li>Dirichlet BC: clamped end <code>&lt;surface&gt;left&lt;/surface&gt;</code>.</li>
+</ul>
+</li>
+<li>Post-processing configuration for <code>U</code> (displacement vector).</li>
+</ul>
+<blockquote class='book-hint '>
+<p>For details, see <strong><code>src/CAWF/Elasticity/Readme.md</code></strong>.</p>
+</blockquote><hr>
+<h3 id="compaction-solver">Compaction Solver<a class="anchor" href="#compaction-solver">#</a></h3>
+<p>Directory: <code>src/CAWF/Compaction/</code></p>
+<p>The compaction module provides examples such as:</p>
+<ul>
+<li>Cube evolution (<code>Compaction-cube-cawf-evol.arc</code>).</li>
+<li>Synthetic basin (<code>Compaction-synth-basin.arc</code>).</li>
+<li>Ring compaction (<code>Compaction-ring.arc</code>).</li>
+</ul>
+<p>Configuration follows the same pattern as Poisson/Elasticity:</p>
+<ul>
+<li><code>&lt;meshes&gt;</code> section for geometry.</li>
+<li><code>&lt;fem&gt;</code> section for material and driving forces.</li>
+<li><code>&lt;arcane-post-processing&gt;</code> for outputs.</li>
+</ul>
+<blockquote class='book-hint '>
+<p>A dedicated <code>Compaction/Readme.md</code> can be added mirroring the Poisson and
+Elasticity documentation style.</p>
+</blockquote><hr>
+<h3 id="dynamic-mesh-manager">Dynamic Mesh Manager<a class="anchor" href="#dynamic-mesh-manager">#</a></h3>
+<p>Directory: <code>src/CAWF/DynamicMeshMng/</code></p>
+<p>Provides a service <code>DynamicMeshMng</code> (<code>DynamicMeshMng.axl</code>,
+<code>DynamicMeshMngService.cc</code>) to manage evolving meshes (refinement, motion,
+etc.) in Arcane/ArcGeoSim.</p>
+<p>Configuration is service-based and can be included in case files to enable
+dynamic mesh management for CAWF solvers.</p>
+<hr>
+<h2 id="configuration-patterns">Configuration Patterns<a class="anchor" href="#configuration-patterns">#</a></h2>
+<p>Although each solver has its own <code>.arc</code> case file, they all follow a common
+structure.</p>
+<h3 id="mesh-section">Mesh section<a class="anchor" href="#mesh-section">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;meshes&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mesh&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;filename&gt;</span>meshes/&amp;lt;mesh-file&amp;gt;.msh<span style="color:#f92672">&lt;/filename&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;subdivider&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;nb-subdivision&gt;</span>0<span style="color:#f92672">&lt;/nb-subdivision&gt;</span> <span style="color:#75715e">&lt;!-- optional for mesh refinement --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/subdivider&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/mesh&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/meshes&gt;</span></span></span></code></pre></div><p>Use Gmsh 4.1 <code>.msh</code> format. Physical groups (e.g. <code>left</code>, <code>horizontal</code>) must
+match the boundary names used in the <code>&lt;boundary-conditions&gt;</code> section.</p>
+<h3 id="fem-section">FEM section<a class="anchor" href="#fem-section">#</a></h3>
+<p>Examples:</p>
+<ul>
+<li>Poisson:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;fem&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;f&gt;</span>5.5<span style="color:#f92672">&lt;/f&gt;</span> <span style="color:#75715e">&lt;!-- scalar source term --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/fem&gt;</span></span></span></code></pre></div><ul>
+<li>Elasticity:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;fem&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;E&gt;</span>21.0e5<span style="color:#f92672">&lt;/E&gt;</span>    <span style="color:#75715e">&lt;!-- Young&#39;s modulus --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;nu&gt;</span>0.28<span style="color:#f92672">&lt;/nu&gt;</span>    <span style="color:#75715e">&lt;!-- Poisson&#39;s ratio --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;f&gt;</span>NULL -1.0<span style="color:#f92672">&lt;/f&gt;</span> <span style="color:#75715e">&lt;!-- body force vector (x, y or x, y, z) --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/fem&gt;</span></span></span></code></pre></div><h3 id="boundary-conditions">Boundary conditions<a class="anchor" href="#boundary-conditions">#</a></h3>
+<p>Dirichlet (Poisson):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;boundary-conditions&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dirichlet&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;surface&gt;</span>horizontal<span style="color:#f92672">&lt;/surface&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;value&gt;</span>0.5<span style="color:#f92672">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dirichlet&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/boundary-conditions&gt;</span></span></span></code></pre></div><p>Dirichlet (Elasticity, vector displacement):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;boundary-conditions&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dirichlet&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;surface&gt;</span>left<span style="color:#f92672">&lt;/surface&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;value&gt;</span>0.0 0.0<span style="color:#f92672">&lt;/value&gt;</span> <span style="color:#75715e">&lt;!-- u1, u2 --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dirichlet&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/boundary-conditions&gt;</span></span></span></code></pre></div><p>Neumann-like conditions can be added similarly, depending on the solver.</p>
+<h3 id="post-processing">Post-processing<a class="anchor" href="#post-processing">#</a></h3>
+<p>Common pattern:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;arcane-post-processing&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;output-period&gt;</span>1<span style="color:#f92672">&lt;/output-period&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;format</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;VtkHdfV2PostProcessor&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;output&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;variable&gt;</span>U<span style="color:#f92672">&lt;/variable&gt;</span> <span style="color:#75715e">&lt;!-- or other field --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/output&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/arcane-post-processing&gt;</span></span></span></code></pre></div><p>Output files are typically <code>Mesh0.hdf</code> in
+<code>output/depouillement/vtkhdfv2</code>, and can be visualized with PARAVIS. Results
+are usually of (\mathbb{P}_1) finite element order (node-based).</p>
+<hr>
+<h2 id="fem-utilities-femutils">FEM Utilities (FEMUtils)<a class="anchor" href="#fem-utilities-femutils">#</a></h2>
+<p>Directory: <code>src/CAWF/FEMUtils/</code></p>
+<p>FEMUtils contains shared infrastructure used by all CAWF solvers.</p>
+<h3 id="dof-linear-systems">DoF linear systems<a class="anchor" href="#dof-linear-systems">#</a></h3>
+<p>Core types and interfaces:</p>
+<ul>
+<li><code>DoFLinearSystem.h</code>, <code>DoFLinearSystem.cc</code></li>
+<li><code>IDoFLinearSystemFactory.h</code></li>
+</ul>
+<p>Backend-specific implementations:</p>
+<ul>
+<li><code>AlienDoFLinearSystem.cc</code>, <code>AlienDoFLinearSystemFactory.axl</code></li>
+<li><code>HypreDoFLinearSystem.cc</code>, <code>HypreDoFLinearSystemFactory.axl</code></li>
+<li><code>PETScDoFLinearSystem.cc</code>, <code>PETScDoFLinearSystemFactory.axl</code></li>
+<li><code>SequentialBasicDoFLinearSystemFactory.axl</code></li>
+<li><code>AlephDoFLinearSystem.cc</code>, <code>AlephDoFLinearSystemFactory.axl</code></li>
+</ul>
+<p>These provide a unified API for assembling and solving FEM linear systems with
+different linear algebra backends.</p>
+<h3 id="matrix-formats">Matrix formats<a class="anchor" href="#matrix-formats">#</a></h3>
+<p>Sparse matrix infrastructure:</p>
+<ul>
+<li><code>CsrFormatMatrix.h</code>, <code>CsrFormatMatrix.cc</code></li>
+<li><code>CsrFormatMatrixView.h</code>, <code>CsrFormatMatrixView.cc</code></li>
+<li><code>BSRFormat.h</code>, <code>BSRFormat.cc</code></li>
+<li><code>AlienBSRFormat.h</code>, <code>AlienBSRFormat.cc</code></li>
+<li><code>CooFormatMatrix.h</code></li>
+</ul>
+<p>Different formats are used depending on the backend and solver requirements.</p>
+<h3 id="boundary-conditions-helpers">Boundary conditions helpers<a class="anchor" href="#boundary-conditions-helpers">#</a></h3>
+<ul>
+<li><code>FemBoundaryConditions.cc</code>, <code>FemBoundaryConditions.axl</code></li>
+<li><code>IArcaneFemBC.h</code></li>
+</ul>
+<p>These handle application of Dirichlet/Neumann boundary conditions on FEM
+systems, mapping configuration <code>&lt;boundary-conditions&gt;</code> to algebraic
+constraints.</p>
+<h3 id="gpu--sycl-backends">GPU / SYCL backends<a class="anchor" href="#gpu--sycl-backends">#</a></h3>
+<p>When <code>ALIEN_USE_SYCL</code> is enabled, FEMUtils provides SYCL-based implementations:</p>
+<ul>
+<li><code>AlienDoFLinearSystemSYCL.cc</code></li>
+<li><code>AlienBSRFormatSYCL.cc</code></li>
+<li><code>ArcaneFemFunctionsGpu.h</code>, <code>ArcaneFemFunctionsGpu.cc</code></li>
+</ul>
+<p>The Elasticity module additionally uses <code>FemModuleSYCL.cc</code>. CMake configuration
+in <code>src/CAWF/CMakeLists.txt</code> controls which SYCL implementation (hipSYCL, Intel
+SYCL/DPCPP, AdaptiveCpp) is used and adds appropriate compile and link flags.</p>
+<hr>
+<h2 id="extending-cawf">Extending CAWF<a class="anchor" href="#extending-cawf">#</a></h2>
+<p>To add a new FEM-based solver to CAWF:</p>
+<ol>
+<li>
+<p><strong>Create a module directory</strong> under <code>src/CAWF/</code> (e.g. <code>NewPhysics/</code>).</p>
+</li>
+<li>
+<p><strong>Define the module AXL and C++ implementation</strong>:</p>
+<ul>
+<li><code>NewPhysics.axl</code> (Arcane module/service declaration).</li>
+<li><code>NewPhysicsModule.h/.cc</code> (solver implementation using FEMUtils).</li>
+</ul>
+</li>
+<li>
+<p><strong>Register the directory in <code>src/CAWF/config.xml</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;directory&gt;</span>NewPhysics<span style="color:#f92672">&lt;/directory&gt;</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Update <code>src/CAWF/CMakeLists.txt</code></strong> if special sources or backends are
+required (e.g. SYCL-specific code).</p>
+</li>
+<li>
+<p><strong>Add tests and example cases</strong>:</p>
+<ul>
+<li><code>.arc</code> files under <code>test/CAWF/NewPhysics/</code>.</li>
+<li>Meshes under <code>test/CAWF/NewPhysics/meshes/</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Use the existing Poisson and Elasticity modules as templates for:</p>
+<ul>
+<li>Module lifecycle (<code>init</code>, <code>compute</code>, etc.).</li>
+<li>Configuration structure in <code>.arc</code> files.</li>
+<li>Post-processing setup.</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/src/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>src</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/src/exadibench/" class="flex align-center">
+        <span>ExaDiBench</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" 🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+ARCHITECTURE# 🧠 Documentation enrichie par IA — basée sur l’analyse du code, de la configuration CMake et des sous-modules ArcGeoSim/ArcaneInfra
+1. Vue d’ensemble# ShArc est une application de simulation numérique basée sur le framework Arcane/ArcGeoSim.
+L’architecture se décompose en trois couches principales :
+Infrastructure de simulation (Arcane, ArcGeoSim, ArcaneInfra, ArcRes) — sous-modules externalisés. Bibliothèque ShArc (src/) — modules métier et infrastructure applicative. Cas de test et scénarios (test/) — fichiers .arc &#43; ShArc.config pilotant les simulations. La bibliothèque ShArc est construite comme une librairie unique (ShArc) qui regroupe :
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/architecture/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="Architecture">
+	<meta property="og:description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+ARCHITECTURE# 🧠 Documentation enrichie par IA — basée sur l’analyse du code, de la configuration CMake et des sous-modules ArcGeoSim/ArcaneInfra
+1. Vue d’ensemble# ShArc est une application de simulation numérique basée sur le framework Arcane/ArcGeoSim.
+L’architecture se décompose en trois couches principales :
+Infrastructure de simulation (Arcane, ArcGeoSim, ArcaneInfra, ArcRes) — sous-modules externalisés. Bibliothèque ShArc (src/) — modules métier et infrastructure applicative. Cas de test et scénarios (test/) — fichiers .arc &#43; ShArc.config pilotant les simulations. La bibliothèque ShArc est construite comme une librairie unique (ShArc) qui regroupe :">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="Architecture">
+	<meta itemprop="description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+ARCHITECTURE# 🧠 Documentation enrichie par IA — basée sur l’analyse du code, de la configuration CMake et des sous-modules ArcGeoSim/ArcaneInfra
+1. Vue d’ensemble# ShArc est une application de simulation numérique basée sur le framework Arcane/ArcGeoSim.
+L’architecture se décompose en trois couches principales :
+Infrastructure de simulation (Arcane, ArcGeoSim, ArcaneInfra, ArcRes) — sous-modules externalisés. Bibliothèque ShArc (src/) — modules métier et infrastructure applicative. Cas de test et scénarios (test/) — fichiers .arc &#43; ShArc.config pilotant les simulations. La bibliothèque ShArc est construite comme une librairie unique (ShArc) qui regroupe :">
+	<meta itemprop="wordCount" content="921">
+
+<title>Architecture • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/architecture/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/architecture/index.xml" title="Architecture" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="active">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Architecture</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><blockquote class='book-hint '>
+<p>🧠 Cette page a été générée avec l&rsquo;aide de l&rsquo;IA à partir de l&rsquo;analyse du code source et de recherches web.</p>
+</blockquote><h1 id="architecture">ARCHITECTURE<a class="anchor" href="#architecture">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l’analyse du code, de la configuration CMake et des sous-modules ArcGeoSim/ArcaneInfra</p>
+</blockquote><h2 id="1-vue-densemble">1. Vue d’ensemble<a class="anchor" href="#1-vue-densemble">#</a></h2>
+<p>ShArc est une application de simulation numérique basée sur le framework <strong>Arcane/ArcGeoSim</strong>.<br>
+L’architecture se décompose en trois couches principales :</p>
+<ol>
+<li><strong>Infrastructure de simulation</strong> (Arcane, ArcGeoSim, ArcaneInfra, ArcRes) — sous-modules externalisés.</li>
+<li><strong>Bibliothèque ShArc</strong> (<code>src/</code>) — modules métier et infrastructure applicative.</li>
+<li><strong>Cas de test et scénarios</strong> (<code>test/</code>) — fichiers <code>.arc</code> + <code>ShArc.config</code> pilotant les simulations.</li>
+</ol>
+<p>La bibliothèque ShArc est construite comme une <strong>librairie unique</strong> (<code>ShArc</code>) qui regroupe :</p>
+<ul>
+<li>un module d’orchestration générique (<code>ShArc</code>),</li>
+<li>un module de simulation diphasique et thermo‑chimique (<code>TwoPhaseFlowSimulation</code> / <code>ThermoChemicalConvection</code>),</li>
+<li>une bibliothèque de solveurs éléments‑finis (<code>CAWF</code>),</li>
+<li>un module de benchmark géométrique (<code>ExaDiBench</code>),</li>
+<li>un exécutable d’entrée unique (<code>ShArc.exe</code>).</li>
+</ul>
+<h2 id="2-organisation-du-dépôt">2. Organisation du dépôt<a class="anchor" href="#2-organisation-du-d%c3%a9p%c3%b4t">#</a></h2>
+<h3 id="21-racine">2.1 Racine<a class="anchor" href="#21-racine">#</a></h3>
+<ul>
+<li><code>CMakeLists.txt</code> — point d’entrée build, intégration ArcGeoSim via <code>LoadArcGeoSim.cmake</code>.</li>
+<li><code>CMake/</code> — modules CMake auxiliaires (FindMetis, FindNvAMG, etc.).</li>
+<li><code>common/</code> :
+<ul>
+<li><code>ArcGeoSim/</code> — framework ArcGeoSim (submodule).</li>
+<li><code>ArcaneInfra/</code> — outils build/test Arcane (submodule).</li>
+</ul>
+</li>
+<li><code>docs/</code> — site Hugo Book + Doxygen.</li>
+<li><code>src/</code> — bibliothèque ShArc (voir ci-dessous).</li>
+<li><code>test/</code> — cas de référence et tests CTest.</li>
+<li><code>README.md</code> — installation et guides build.</li>
+</ul>
+<h3 id="22-bibliothèque-sharc-src">2.2 Bibliothèque ShArc (<code>src/</code>)<a class="anchor" href="#22-biblioth%c3%a8que-sharc-src">#</a></h3>
+<ul>
+<li><code>src/CMakeLists.txt</code><br>
+Crée la bibliothèque <code>ShArc</code> et la relie à :
+<ul>
+<li><code>arcres</code> (modèle de données physiques),</li>
+<li><code>CAWF</code> (solveurs FEM),</li>
+<li>bibliothèques ArcGeoSim (mesh/physics/tests, surtout pour Windows).</li>
+</ul>
+</li>
+<li><code>src/config.xml</code><br>
+Déclare les sous-répertoires gérés (ShArc, TwoPhaseFlowSimulation, ExaDiBench) pour ArcaneInfra.</li>
+</ul>
+<p>Sous-répertoires principaux :</p>
+<ul>
+<li><code>src/ShArc/</code> — module d’orchestration global.</li>
+<li><code>src/TwoPhaseFlowSimulation/</code> — solveur diphasique et module thermo‑chimique.</li>
+<li><code>src/CAWF/</code> — bibliothèque CAWF (Poisson, Elasticity, Compaction, FEMUtils).</li>
+<li><code>src/ExaDiBench/</code> — module de benchmark géométrique.</li>
+<li><code>src/Main/</code> — exécutable <code>ShArc.exe</code>.</li>
+</ul>
+<h2 id="3-pile-logicielle-de-simulation">3. Pile logicielle de simulation<a class="anchor" href="#3-pile-logicielle-de-simulation">#</a></h2>
+<h3 id="31-infrastructure-arcane--arcgeosim">3.1 Infrastructure Arcane / ArcGeoSim<a class="anchor" href="#31-infrastructure-arcane--arcgeosim">#</a></h3>
+<p>La base de la simulation est fournie par Arcane/ArcGeoSim :</p>
+<ul>
+<li><strong>Arcane</strong> :
+<ul>
+<li>gestion du maillage (<code>IMesh</code>),</li>
+<li>boucle en temps (<code>ITimeLoopMng</code>),</li>
+<li>variables, I/O, parallelisme (<code>IParallelMng</code>).</li>
+</ul>
+</li>
+<li><strong>ArcGeoSim</strong> :
+<ul>
+<li>services applicatifs (<code>AppService</code>),</li>
+<li>géométrie (<code>IGeometryMng</code>, <code>IGeometry</code>),</li>
+<li>opérateurs numériques (schémas deux‑points, opérateurs <code>DivKGrad</code>, etc.),</li>
+<li>time line (<code>ITimeLine</code>, politique de pas de temps),</li>
+<li>module de validation (<code>IServiceValidator</code>).</li>
+</ul>
+</li>
+<li><strong>ArcRes</strong> :
+<ul>
+<li>modèle de données physiques : systèmes fluide/solide, propriétés (<code>Pressure</code>, <code>Saturation</code>, <code>Density</code>, etc.).</li>
+</ul>
+</li>
+<li><strong>Alien / solveurs linéaires</strong> :
+<ul>
+<li>bibliothèques linéaires (Hypre, PETSc, Trilinos, etc.) intégrées via CAWF ou ArcNum.</li>
+</ul>
+</li>
+</ul>
+<p>ShArc se positionne <strong>au-dessus</strong> de cette pile, en fournissant des modules métier qui consomment ces services.</p>
+<h3 id="32-bibliothèque-sharc-vue-modulaire">3.2 Bibliothèque ShArc (vue modulaire)<a class="anchor" href="#32-biblioth%c3%a8que-sharc-vue-modulaire">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌─────────────────────────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│                    src/ (ShArc)                    │
+</span></span><span style="display:flex;"><span>├─────────────────────────────────────────────────────┤
+</span></span><span style="display:flex;"><span>│                                                     │
+</span></span><span style="display:flex;"><span>│  ┌────────────┐  ┌───────────────────────────────┐  │
+</span></span><span style="display:flex;"><span>│  │  ShArc/    │  │ TwoPhaseFlowSimulation/      │  │
+</span></span><span style="display:flex;"><span>│  │ (orchestr.)│  │ (2-phase &amp; thermo-chem)      │  │
+</span></span><span style="display:flex;"><span>│  └────────────┘  └───────────────────────────────┘  │
+</span></span><span style="display:flex;"><span>│         │                    │                       │
+</span></span><span style="display:flex;"><span>│         ▼                    ▼                       │
+</span></span><span style="display:flex;"><span>│  ┌────────────┐      ┌───────────────┐               │
+</span></span><span style="display:flex;"><span>│  │  CAWF/     │      │ ExaDiBench/   │               │
+</span></span><span style="display:flex;"><span>│  │ (FEM libs) │      │ (geo. bench)  │               │
+</span></span><span style="display:flex;"><span>│  └────────────┘      └───────────────┘               │
+</span></span><span style="display:flex;"><span>│         │                    │                       │
+</span></span><span style="display:flex;"><span>│         ▼                    ▼                       │
+</span></span><span style="display:flex;"><span>│      ┌───────────────┐   ┌───────────────┐           │
+</span></span><span style="display:flex;"><span>│      │   Main/       │   │  DataModel/   │           │
+</span></span><span style="display:flex;"><span>│      │ (ShArc.exe)   │   │ ArcRes Gump   │           │
+</span></span><span style="display:flex;"><span>│      └───────────────┘   └───────────────┘           │
+</span></span><span style="display:flex;"><span>│                                                     │
+</span></span><span style="display:flex;"><span>└─────────────────────────────────────────────────────┘
+</span></span><span style="display:flex;"><span>          │                │                 │
+</span></span><span style="display:flex;"><span>          ▼                ▼                 ▼
+</span></span><span style="display:flex;"><span>   Arcane / ArcGeoSim   ArcRes        Solveurs linéaires</span></span></code></pre></div><ul>
+<li><code>src/ShArc/</code> :
+<ul>
+<li>Module d’orchestration qui gère :
+<ul>
+<li>timeline &amp; pas de temps (<code>ITimeLine</code>, <code>TimeStep::IComputer</code>),</li>
+<li>géométrie (<code>IGeometryMng</code>),</li>
+<li>post‑traitement (writers, fréquence de sortie),</li>
+<li>validation finale (<code>IServiceValidator</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>src/TwoPhaseFlowSimulation/</code> :
+<ul>
+<li><code>TwoPhaseFlowSimulationModule</code> :
+<ul>
+<li>système non linéaire pression/saturations (écoulements diphasiques),</li>
+<li>assemblage de la matrice et du résidu (accumulation, flux internes/bord/puits, fermeture),</li>
+<li>contraintes physiques (saturations dans [0,1], somme = 1).</li>
+</ul>
+</li>
+<li><code>ThermoChemicalConvectionModule</code> :
+<ul>
+<li>couplage pression–concentration–température (P–C–T),</li>
+<li>termes d’advection, diffusion, conduction couplés fluide/solide.</li>
+</ul>
+</li>
+<li>Dossiers associés :
+<ul>
+<li><code>PhysicalSystem/</code> (interfaces ArcRes : <code>IPhysicalSystem</code>, <code>ISystemBuilder</code>, <code>IVariableManager</code>),</li>
+<li><code>PhysicalLaws/</code> (lois capillaire, densité, perméabilité relative, constantes),</li>
+<li><code>BoundaryCondition/</code>, <code>InitialCondition/</code>, <code>WellCondition/</code> (CL, CI, puits).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>src/CAWF/</code> :
+<ul>
+<li>Regroupe des solveurs FEM génériques :
+<ul>
+<li><code>Poisson/</code>, <code>Elasticity/</code>, <code>Compaction/</code>, <code>DynamicMeshMng/</code>.</li>
+</ul>
+</li>
+<li><code>FEMUtils/</code> :
+<ul>
+<li>gestion des systèmes linéaires FEM (<code>DoFLinearSystem</code>, backends Alien/Hypre/PETSc/Trilinos),</li>
+<li>formats de matrices (CSR, BSR, COO),</li>
+<li>helpers de conditions aux limites,</li>
+<li>support GPU/SYCL (<code>ALIEN_USE_SYCL</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>src/ExaDiBench/</code> :
+<ul>
+<li>Module de benchmark géométrique :
+<ul>
+<li>export maillage (VTK/MSH/IXM),</li>
+<li>création de groupes de bord (<code>BorderNodes</code>, <code>OuterFaces</code>),</li>
+<li>calcul volumes/surfaces/centres,</li>
+<li>déformation pseudo‑aléatoire des nœuds intérieurs et recalcul des mesures.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>src/Main/</code> :
+<ul>
+<li>Exécutable <code>ShArc.exe</code> :
+<ul>
+<li><code>main()</code> minimal qui instancie <code>ArcGeoSim::main(info)</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-flux-dexécution-type">4. Flux d’exécution type<a class="anchor" href="#4-flux-dex%c3%a9cution-type">#</a></h2>
+<h3 id="41-lancement-dun-cas-arc">4.1 Lancement d’un cas <code>.arc</code><a class="anchor" href="#41-lancement-dun-cas-arc">#</a></h3>
+<ol>
+<li>
+<p>L’utilisateur lance :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe &lt;mon-cas&gt;.arc</span></span></code></pre></div></li>
+<li>
+<p>Le fichier <code>.arc</code> :</p>
+<ul>
+<li>référence une boucle en temps (ex. <code>ArcResTimeLoop</code>),</li>
+<li>référence les modules à charger (<code>ShArc</code>, <code>TwoPhaseFlowSimulation</code>, <code>PhysicalModel</code>, etc.),</li>
+<li>configure les services (CI/CL, lois, solveur Newton, solveur linéaire, post‑traitement).</li>
+</ul>
+</li>
+<li>
+<p><code>ShArc.exe</code> :</p>
+<ul>
+<li>délègue à <code>ArcGeoSim::main()</code> la gestion de la boucle de simulation.</li>
+<li>charge les modules définis dans <code>ShArc.config</code> et le cas <code>.arc</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="42-rôle-combiné-sharc--modules-physiques">4.2 Rôle combiné <code>ShArc</code> + modules physiques<a class="anchor" href="#42-r%c3%b4le-combin%c3%a9-sharc--modules-physiques">#</a></h3>
+<ul>
+<li>
+<p><code>ShArcModule</code> :</p>
+<ul>
+<li><code>build()</code> : prépare maillage et connectivités.</li>
+<li><code>prepareInit()</code>, <code>init()</code>, <code>endInit()</code> : installe services (temps, géométrie, post‑traitement, validateurs).</li>
+<li><code>beginTimeStep()</code> / <code>endTimeStep()</code> : gère les sorties périodiques et les conditions d’arrêt.</li>
+<li><code>endSimulation()</code> : post‑traitement final + validation (<code>IServiceValidator</code>).</li>
+</ul>
+</li>
+<li>
+<p><code>TwoPhaseFlowSimulationModule</code> / <code>ThermoChemicalConvectionModule</code> :</p>
+<ul>
+<li><code>init()</code> : construit le système physique ArcRes, les groupes, les variables, les lois, le solveur Newton.</li>
+<li><code>compute()</code> : appelle <code>newton()-&gt;solve()</code> et, en cas d’échec, déclenche un rollback (<code>ReplayException</code>).</li>
+</ul>
+</li>
+</ul>
+<p>Les tests (<code>test/</code>) instancient ces flux via des couples <code>ShArc.config</code> + fichiers <code>.arc</code>, pour différents scénarios (cas simples, SPE10, Poisson, Elasticity, Compaction, ExaDiBench, ThermoChemicalConvection).</p>
+<h2 id="5-architecture-de-la-documentation">5. Architecture de la documentation<a class="anchor" href="#5-architecture-de-la-documentation">#</a></h2>
+<p>La documentation est alignée sur cette architecture logicielle :</p>
+<ul>
+<li>READMEs au plus près des modules :
+<ul>
+<li><code>src/</code>, <code>src/CAWF/</code>, <code>src/ShArc/</code>, <code>src/TwoPhaseFlowSimulation/</code>, <code>src/ExaDiBench/</code>, <code>src/Main/</code>.</li>
+<li><code>test/TwoPhaseFlowSimulation/</code>, <code>test/CAWF/</code>, <code>test/ExaDiBench/</code>, <code>test/ThermoChemicalConvection/</code>, <code>test/LargeScaleTwoPhaseFlowSimulation/</code>.</li>
+</ul>
+</li>
+<li>Site Hugo Book (<code>docs/</code>) :
+<ul>
+<li>section <code>src/</code> → modules de la bibliothèque,</li>
+<li>section <code>test/</code> → cas de référence,</li>
+<li>section <code>api/</code> → Doxygen.</li>
+</ul>
+</li>
+<li>Doxygen (<code>docs/public/api</code>) :
+<ul>
+<li>API détaillée des classes/fonctions C++ (Arcane/ArcGeoSim/CAWF/ShArc…).</li>
+</ul>
+</li>
+</ul>
+<p>Cette structuration permet d’avoir :</p>
+<ul>
+<li>une <strong>vue macro</strong> dans <code>ARCHITECTURE.md</code> et la page Hugo associée,</li>
+<li>une <strong>vue détaillée</strong> par module/cas via les READMEs,</li>
+<li>une <strong>référence complète</strong> via Doxygen.</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Documentation</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/src/" class="flex align-center">
+        <span>src</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

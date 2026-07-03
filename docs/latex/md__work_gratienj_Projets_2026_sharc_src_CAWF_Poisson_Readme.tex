@@ -1,0 +1,108 @@
+
+
+Here, we utilize Arcane\+FEM to solve the Poisson equation, which is a fundamental elliptic partial differential equation (PDE). The provided code demonstrates a straightforward implementation of a 2D/3D unstructured mesh Galerkin finite element method (FEM) solver on arbitary meshes. Although we shall explain here only 2D for keeping the text simple.
+
+The Poisson equation is encountered in various physical scenarios, including heat conduction, substance diffusion, membrane elasticity, inviscid fluid flow, electrostatics, twisting of elastic rods, and water waves. It serves as a vital tool for modeling and understanding these phenomena.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md50}{}\doxysection{Theory}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md50}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md51}{}\doxysubsubsection{Problem description}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md51}
+The 2D Poisson\textquotesingle{}s equation is solved for a closed meshed domain \$\textbackslash{}\+Omega$^\wedge$h\$ in order to know the solution \$u(x,y)\$ within the domain. The equation reads
+
+\$\$\textbackslash{}frac\{\textbackslash{}partial\}\{\textbackslash{}partial x\}\textbackslash{}left( \textbackslash{}frac\{\textbackslash{}partial u\}\{\textbackslash{}partial x\} \textbackslash{}right) + \textbackslash{}frac\{\textbackslash{}partial\}\{\textbackslash{}partial y\}\textbackslash{}left( \textbackslash{}frac\{\textbackslash{}partial u\}\{\textbackslash{}partial y\} \textbackslash{}right) = \{\textbackslash{}mathcal\{f\}\} \textbackslash{}quad \textbackslash{}forall (x,y)\textbackslash{}in\textbackslash{}\+Omega$^\wedge$h \$\$
+
+or in a more compact form
+
+\$\$\textbackslash{}nabla$^\wedge$2 u = \{\textbackslash{}mathcal\{f\}\} \textbackslash{}quad \textbackslash{}forall (x,y)\textbackslash{}in\textbackslash{}\+Omega$^\wedge$h.\$\$
+
+To complete the problem description, first type (Dirichlet) boundary conditions is applied to this problem\+:
+
+\$u = 0.\+5 \textbackslash{}quad \textbackslash{}forall(x,y)\textbackslash{}in\textbackslash{}partial\textbackslash{}\+Omega$^\wedge$h\+\_\+\{\textbackslash{}text\{horizontal\}\}\textbackslash{}subset\textbackslash{}partial \textbackslash{}\+Omega$^\wedge$h,\$
+
+Finally the right hand side source is present within the domain
+
+\$\{\textbackslash{}mathcal\{f\}\}=5.\+5\$
+
+\mbox{\hyperlink{structIn}{In}} this case the FEM variational formulation in \$H$^\wedge$1\+\_\+\{0\}(\textbackslash{}\+Omega) \textbackslash{}subset H$^\wedge$1\{\textbackslash{}\+Omega\}\$ reads
+
+search FEM trial function \$u$^\wedge$h(x,y)\$ satisfying
+
+\$\$-\/ \textbackslash{}int\+\_\+\{\textbackslash{}\+Omega$^\wedge$h\}\textbackslash{}nabla u$^\wedge$h \textbackslash{}nabla v$^\wedge$h + \textbackslash{}int\+\_\+\{\textbackslash{}partial\textbackslash{}\+Omega\+\_\+N\} (\textbackslash{}overline\{q\} \textbackslash{}cdot \textbackslash{}mathbf\{n\}) v$^\wedge$h + \textbackslash{}int\+\_\+\{\textbackslash{}\+Omega$^\wedge$h\}\{\textbackslash{}mathcal\{f\}\} v$^\wedge$h = 0 \textbackslash{}quad \textbackslash{}forall v$^\wedge$h\textbackslash{}in H$^\wedge$1\+\_\+0(\textbackslash{}\+Omega$^\wedge$h)\$\$
+
+given
+
+\$u$^\wedge$h=0.\+0 \textbackslash{}quad \textbackslash{}forall (x,y)\textbackslash{}in\textbackslash{}partial\textbackslash{}\+Omega$^\wedge$h\+\_\+\{\textbackslash{}text\{boundary\}\}\$,
+
+\$\textbackslash{}int\+\_\+\{\textbackslash{}\+Omega$^\wedge$h\+\_\+\{\textbackslash{}text\{N\}\}\}(\textbackslash{}mathbf\{q\} \textbackslash{}cdot \textbackslash{}mathbf\{n\}) v$^\wedge$h=0\$ since no Neumann BC is present,
+
+\$\textbackslash{}int\+\_\+\{\textbackslash{}\+Omega$^\wedge$h\}\{\textbackslash{}mathcal\{f\}\} v$^\wedge$h=5.\+5\$, and\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md52}{}\doxysection{The code}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md52}
+Once you compile the Poisson module. Look out for three things in the folder\+:
+\begin{DoxyItemize}
+\item {\ttfamily Poisson} this is the executable for launching the solver
+\item {\ttfamily meshes} folder contains meshes that are needed by the solver
+\item {\ttfamily inputs} folder contains input parameters for setting up a test case for the Poisson solver
+\end{DoxyItemize}
+
+Let us see how to set up a test cases in 2D. The file {\ttfamily inputs/circle.\+arc} is used here for demonstatation\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md53}{}\doxysubsubsection{Mesh}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md53}
+The mesh {\ttfamily circle\+\_\+cut.\+msh} is provided in the {\ttfamily circle.\+arc} file
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{meshes}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{mesh}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{filename}>\textcolor{keyword}{meshes}/\textcolor{keyword}{circle\_cut.msh}</\textcolor{keywordtype}{filename}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{mesh}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{meshes}>}
+
+\end{DoxyCode}
+ Please not that use version 4.\+1 {\ttfamily .msh} file from {\ttfamily Gmsh}.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md54}{}\doxysubsubsection{properties}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md54}
+The value of constant source term \$\textbackslash{}mathcal\{f\}\$ can be provided in {\ttfamily circle.\+arc} file
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{fem}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{f}>5.5</\textcolor{keywordtype}{f}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{fem}>}
+
+\end{DoxyCode}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md55}{}\doxysubsubsection{Boundary conditions}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md55}
+The Dirichlet boundary conditions are provided in {\ttfamily circle.\+arc} file
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{boundary-\/conditions}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{surface}>\textcolor{keyword}{horizontal}</\textcolor{keywordtype}{surface}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{value}>0.5</\textcolor{keywordtype}{value}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{boundary-\/conditions}>}
+
+\end{DoxyCode}
+
+
+So in the snippet above, three Dirichlet condition \$u=0.\+5\$ is applied to border (\textquotesingle{}horizontal\textquotesingle{}) which is a group of edges in the mesh file {\ttfamily circle\+\_\+cut.\+msh}.
+
+If needed, the Neumann boundary conditions can also be provided in {\ttfamily circle.\+arc} file
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{neumann-\/conditions}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{surface}>\textcolor{keyword}{other}</\textcolor{keywordtype}{surface}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{value}>0.0</\textcolor{keywordtype}{value}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{neumann-\/conditions}>}
+
+\end{DoxyCode}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md56}{}\doxysubsubsection{Post Process}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_Poisson_Readme_autotoc_md56}
+  Post processing is controled via
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{arcane-\/post-\/processing}>}
+\DoxyCodeLine{ <\textcolor{keywordtype}{output-\/period}>1</\textcolor{keywordtype}{output-\/period}>}
+\DoxyCodeLine{ <\textcolor{keywordtype}{format} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}VtkHdfV2PostProcessor"{}} />}
+\DoxyCodeLine{ <\textcolor{keywordtype}{output}>}
+\DoxyCodeLine{   <\textcolor{keywordtype}{variable}>\textcolor{keyword}{U}</\textcolor{keywordtype}{variable}>}
+\DoxyCodeLine{ </\textcolor{keywordtype}{output}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{arcane-\/post-\/processing}>}
+
+\end{DoxyCode}
+ For post processing the {\ttfamily Mesh0.\+hdf} file is outputted (in {\ttfamily output/depouillement/vtkhdfv2} folder), which can be read by PARAVIS. The output is of the \$\textbackslash{}mathbb\{P\}\+\_\+1\$ FE order (on nodes). 

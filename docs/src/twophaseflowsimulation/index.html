@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TwoPhaseFlowSimulation# TwoPhaseFlowSimulation# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et la structure des cas de test
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module TwoPhaseFlowSimulation implémente le solveur principal de ShArc pour la simulation d’écoulements diphasiques en milieu poreux (pression &#43; saturations), ainsi qu’un module optionnel de convection thermo‑chimique couplée (pression, concentration, température).
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/src/twophaseflowsimulation/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="TwoPhaseFlowSimulation">
+	<meta property="og:description" content="TwoPhaseFlowSimulation# TwoPhaseFlowSimulation# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et la structure des cas de test
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module TwoPhaseFlowSimulation implémente le solveur principal de ShArc pour la simulation d’écoulements diphasiques en milieu poreux (pression &#43; saturations), ainsi qu’un module optionnel de convection thermo‑chimique couplée (pression, concentration, température).">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="TwoPhaseFlowSimulation">
+	<meta itemprop="description" content="TwoPhaseFlowSimulation# TwoPhaseFlowSimulation# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et la structure des cas de test
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module TwoPhaseFlowSimulation implémente le solveur principal de ShArc pour la simulation d’écoulements diphasiques en milieu poreux (pression &#43; saturations), ainsi qu’un module optionnel de convection thermo‑chimique couplée (pression, concentration, température).">
+	<meta itemprop="wordCount" content="1847">
+
+<title>TwoPhaseFlowSimulation • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/src/twophaseflowsimulation/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/src/twophaseflowsimulation/index.xml" title="TwoPhaseFlowSimulation" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="active">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>TwoPhaseFlowSimulation</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="twophaseflowsimulation">TwoPhaseFlowSimulation<a class="anchor" href="#twophaseflowsimulation">#</a></h1>
+<h1 id="twophaseflowsimulation">TwoPhaseFlowSimulation<a class="anchor" href="#twophaseflowsimulation">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse du code source et la structure des cas de test</p>
+</blockquote><h2 id="-table-des-matières">📋 Table des matières<a class="anchor" href="#-table-des-mati%c3%a8res">#</a></h2>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#fonctionnalit%c3%a9s">Fonctionnalités</a></li>
+<li><a href="#pr%c3%a9requis">Prérequis</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#api--interface">API / Interface</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#d%c3%a9pendances">Dépendances</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul>
+<h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
+<p>Le module <code>TwoPhaseFlowSimulation</code> implémente le solveur principal de ShArc pour la <strong>simulation d’écoulements diphasiques en milieu poreux</strong> (pression + saturations), ainsi qu’un module optionnel de <strong>convection thermo‑chimique couplée</strong> (pression, concentration, température).</p>
+<p>Il s’appuie sur le modèle de données <strong>ArcRes</strong> pour décrire les systèmes physiques (fluides et solide), et sur le framework <strong>ArcGeoSim/Arcane</strong> pour la discrétisation numérique (schéma deux‑points, transmissivités, opérateurs de type <code>DivKGrad</code>) et la résolution non linéaire (<code>INewtonSolver</code>). La structure du module est entièrement pilotée par les fichiers <code>.axl</code> (descripteurs Arcane) qui enregistrent les points d’entrée (<code>init</code>, <code>compute</code>) et la liste des services (conditions initiales, lois physiques, conditions aux limites, puits, etc.).</p>
+<p>Le module organise la simulation autour d’un système non linéaire <code>ArcNum::INonLinearSystem</code> :</p>
+<ul>
+<li>construction de la matrice et du résidu à chaque itération Newton (accumulation, flux internes, flux de bord, flux de puits, équation de fermeture),</li>
+<li>gestion des variables d’état dans des &ldquo;folders&rdquo; de cellules/faces (<code>Law::VariableCellFolder</code>, <code>PartialVariableFaceFolder</code>),</li>
+<li>gestion de la <strong>restauration de l’état</strong> en cas d’échec du solveur (snapshots temporels, <code>ReplayException</code>).</li>
+</ul>
+<p>Le répertoire encapsule également la logique de <strong>conditions aux limites</strong>, <strong>conditions initiales</strong>, <strong>puits</strong> et <strong>lois physiques</strong> (pression capillaire, densité fluide, perméabilité relative, loi constante), ainsi que des interfaces génériques pour la construction du système physique (<code>IPhysicalSystem</code>, <code>ISystemBuilder</code>, <code>IVariableManager</code>).</p>
+<h2 id="fonctionnalités">Fonctionnalités<a class="anchor" href="#fonctionnalit%c3%a9s">#</a></h2>
+<p>Basé sur les symboles et services détectés :</p>
+<ul>
+<li>
+<p>✅ Simulation diphasique principale via <code>TwoPhaseFlowSimulationModule</code> :</p>
+<ul>
+<li>Construction d’un système non linéaire sur pression + saturations.</li>
+<li>Calcul de l’accumulation, des flux internes, des flux de bord et des flux de puits.</li>
+<li>Équation de fermeture (somme des saturations = 1).</li>
+<li>Application de contraintes physiques sur la solution (projection des saturations dans [0,1], renormalisation).</li>
+</ul>
+</li>
+<li>
+<p>✅ Simulation thermo‑chimique couplée via <code>ThermoChemicalConvectionModule</code> :</p>
+<ul>
+<li>Équations pour pression, concentration et température.</li>
+<li>Accumulation couplée fluide/solide (chaleur volumique, capacité thermique).</li>
+<li>Flux d’advection (Darcy) et de diffusion moléculaire pour la concentration.</li>
+<li>Flux de chaleur conductif (fluide/solide) en plus de l’advection.</li>
+</ul>
+</li>
+<li>
+<p>✅ Gestion des <strong>conditions initiales</strong> :</p>
+<ul>
+<li>Services <code>IInitialCondition</code> appliqués sur les variables de domaine (pression, saturations, concentration, température, etc.).</li>
+</ul>
+</li>
+<li>
+<p>✅ Gestion des <strong>conditions aux limites</strong> :</p>
+<ul>
+<li>Interface <code>IBoundaryManager</code> et service <code>DirichletManagerService</code>.</li>
+<li>Dossiers <code>BoundaryCondition/*</code> pour les différents types de bord (Dirichlet, etc.).</li>
+<li>Évaluation des lois physiques sur les faces de bord (densité, viscosité, perméabilité relative, pression capillaire).</li>
+</ul>
+</li>
+<li>
+<p>✅ Gestion des <strong>puits</strong> (<code>WellCondition</code>) :</p>
+<ul>
+<li>Interface <code>IWellManager</code>, services de gestion des puits (débits, index de puits via <code>WellIndexComputer</code>).</li>
+<li>Flux puits (terme source/sink) intégrés dans le résidu.</li>
+</ul>
+</li>
+<li>
+<p>✅ Modèle de <strong>système physique ArcRes</strong> :</p>
+<ul>
+<li>Interfaces <code>IPhysicalSystem</code>, <code>ISystemBuilder</code>, <code>IVariableManager</code>.</li>
+<li>Dossier <code>PhysicalSystem/</code> pour le couplage ArcRes ↔ simulation (domaines, phases, variables).</li>
+<li><code>UserSystemService</code> pour brancher un système utilisateur configuré.</li>
+</ul>
+</li>
+<li>
+<p>✅ Lois physiques :</p>
+<ul>
+<li><code>CapillaryPressureLaw</code> (pression capillaire vs saturation).</li>
+<li><code>FluidDensityLaw</code> (densité fluide vs température et concentration).</li>
+<li><code>RelativePermeabilityPowerLaw</code> (perméabilité relative en fonction de la saturation).</li>
+<li><code>ConstantLaw</code> (loi paramétrable constante).</li>
+<li>Configurateurs <code>ILawConfigurator</code> et services <code>*ConfigService</code>.</li>
+</ul>
+</li>
+<li>
+<p>✅ Gestion géométrique :</p>
+<ul>
+<li>Enregistrement des propriétés géométriques (volume, centre, normale) via <code>IGeometryMng</code>.</li>
+<li>Mise à jour explicite de la géométrie (<code>ManualUpdateGeometryPolicy</code>), notamment après la création de groupes.</li>
+</ul>
+</li>
+<li>
+<p>✅ Profilage du système linéaire :</p>
+<ul>
+<li>Profils matrice deux‑points (<code>_twoPointsProfiler</code>) et multi‑points (<code>_multiPointsProfiler</code>) sur groupes de mailles/faces.</li>
+</ul>
+</li>
+</ul>
+<h2 id="prérequis">Prérequis<a class="anchor" href="#pr%c3%a9requis">#</a></h2>
+<ul>
+<li>
+<p>Langage :</p>
+<ul>
+<li>C++ (Arcane/ArcGeoSim, ArcRes) — C++11+.</li>
+<li>Descripteurs XML <code>.axl</code> pour les modules Arcane.</li>
+</ul>
+</li>
+<li>
+<p>Frameworks / bibliothèques :</p>
+<ul>
+<li>Arcane 3 / ArcGeoSim (Mesh, Geometry, Numerics, Law2, AppService).</li>
+<li>ArcRes (Entities, Properties).</li>
+<li>ArcNumTools (vecteurs/matrices, solveur Newton <code>INewtonSolver</code>).</li>
+<li>Alien (profilage de matrice <code>Alien::MatrixProfiler</code>).</li>
+</ul>
+</li>
+<li>
+<p>Contexte projet :</p>
+<ul>
+<li>ShArc est déjà configuré selon le <code>CMakeLists.txt</code> racine (chargement ArcGeoSim via <code>LoadArcGeoSim.cmake</code>).</li>
+<li>Les sous‑modules <code>common/ArcGeoSim</code> et <code>common/ArcaneInfra</code> sont initialisés (<code>git submodule update --init</code>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation<a class="anchor" href="#installation">#</a></h2>
+<p>Le module n’a pas de CMakeLists dédié (il est intégré dans <code>src/CMakeLists.txt</code> via les macros ArcGeoSim). Typiquement :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># À partir de la racine du dépôt ShArc</span>
+</span></span><span style="display:flex;"><span>cmake -S sharc -B build-sharc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>Release <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DBUILD_SHARED_LIBS<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DARCANEFRAMEWORK_ROOT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>INSTALL_DIR<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DUSE_ARCANE_V3<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e"># ... compilos MPI, options Alien, etc.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cmake --build build-sharc</span></span></code></pre></div><p>Aucune étape spécifique n’est nécessaire pour <code>TwoPhaseFlowSimulation</code> : le module est compilé dans la bibliothèque ShArc et enregistré via <code>ARCANE_REGISTER_MODULE_TWOPHASEFLOWSIMULATION</code> et <code>ARCANE_REGISTER_MODULE_THERMOCHEMICALCONVECTION</code>.</p>
+<h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
+<h3 id="points-dentrée-module-deux-phases">Points d’entrée module deux phases<a class="anchor" href="#points-dentr%c3%a9e-module-deux-phases">#</a></h3>
+<p>Dans <code>TwoPhaseFlowSimulation.axl</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;entry-points&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;init&#34;</span>    <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Init&#34;</span>    <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;init&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;compute&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Compute&#34;</span> <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;compute-loop&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/entry-points&gt;</span></span></span></code></pre></div><p>Ce qui correspond au C++ :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> TwoPhaseFlowSimulationModule<span style="color:#f92672">::</span>init()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  info() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;create physical solver&#34;</span>;
+</span></span><span style="display:flex;"><span>  _initPhysicalSystem();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  info() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;create function manager&#34;</span>;
+</span></span><span style="display:flex;"><span>  ArcRes<span style="color:#f92672">::</span>FluidSubSystem fluid <span style="color:#f92672">=</span> system().fluidSubSystem();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (fluid.phases().size() <span style="color:#f92672">!=</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    fatal() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;fluid-system should have exactly two phases&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (system().solidSubSystem().phases().size() <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    fatal() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;solid-system should not be filled&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  _initGeometry();
+</span></span><span style="display:flex;"><span>  _initGroup();
+</span></span><span style="display:flex;"><span>  _initDomainVariableMng();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (options()<span style="color:#f92672">-&gt;</span>hasBoundaryCondition())
+</span></span><span style="display:flex;"><span>    _initBoundaryVariableMng();
+</span></span><span style="display:flex;"><span>  _initTransmissivity();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (options()<span style="color:#f92672">-&gt;</span>hasWellCondition())
+</span></span><span style="display:flex;"><span>    _initWellVariableMng();
+</span></span><span style="display:flex;"><span>  _initTimeVariableMng();
+</span></span><span style="display:flex;"><span>  _initLaws();
+</span></span><span style="display:flex;"><span>  _initRestore();
+</span></span><span style="display:flex;"><span>  _initEquationSystem();
+</span></span><span style="display:flex;"><span>  _initNewton();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> TwoPhaseFlowSimulationModule<span style="color:#f92672">::</span>compute()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  info() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;solve non linear problem at iteration &#34;</span> <span style="color:#f92672">&lt;&lt;</span> m_global_iteration();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bool</span> r <span style="color:#f92672">=</span> options()<span style="color:#f92672">-&gt;</span>numerics().newton()<span style="color:#f92672">-&gt;</span>solve();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>r) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> ArcGeoSim<span style="color:#f92672">::</span>TimeStep<span style="color:#f92672">::</span>ReplayException(<span style="color:#e6db74">&#34;Error in computation - go backward!&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div><p>Usage typique (côté cas <code>.arc</code>) :</p>
+<ul>
+<li>on configure le système ArcRes (fluide à deux phases, solide vide),</li>
+<li>on fournit les services <code>initial-condition</code>, <code>law</code>, <code>boundary-condition</code>, <code>well-condition</code> dans le bloc <code>&lt;options&gt;</code> du module,</li>
+<li>on lance <code>ShArc.exe</code> avec le fichier <code>.arc</code> correspondant (voir <code>test/TwoPhaseFlowSimulation</code>).</li>
+</ul>
+<h3 id="points-dentrée-module-thermochimique">Points d’entrée module thermo‑chimique<a class="anchor" href="#points-dentr%c3%a9e-module-thermochimique">#</a></h3>
+<p>Même logique, avec un système fluide + solide (1 phase chacun) et 3 inconnues :</p>
+<ul>
+<li>pression,</li>
+<li>concentration,</li>
+<li>température.</li>
+</ul>
+<p>Le <code>build()</code> assemble l’accumulation et les flux en tenant compte des propriétés thermiques (capacité, conductivité) et de la diffusion moléculaire.</p>
+<h2 id="api--interface-publique">API / Interface publique<a class="anchor" href="#api--interface-publique">#</a></h2>
+<h3 id="classes-principales">Classes principales<a class="anchor" href="#classes-principales">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>TwoPhaseFlowSimulationModule</code></td>
+					<td>classe</td>
+					<td>Module Arcane pour la simulation diphasique pression/saturation. Implémente <code>ArcNum::INonLinearSystem</code>.</td>
+			</tr>
+			<tr>
+					<td><code>ThermoChemicalConvectionModule</code></td>
+					<td>classe</td>
+					<td>Module Arcane pour la convection thermo‑chimique (P, C, T) couplée fluide/solide. Implémente <code>ArcNum::INonLinearSystem</code>.</td>
+			</tr>
+			<tr>
+					<td><code>IPhysicalSystem</code></td>
+					<td>interface</td>
+					<td>Interface pour fournir un <code>ArcRes::System</code> complet (fluide/solide, phases, propriétés).</td>
+			</tr>
+			<tr>
+					<td><code>ISystemBuilder</code></td>
+					<td>interface</td>
+					<td>Interface pour construire un système ArcRes (<code>buildSystem()</code>).</td>
+			</tr>
+			<tr>
+					<td><code>IVariableManager</code></td>
+					<td>interface</td>
+					<td>Interface pour gérer les <code>Law::VariableCellFolder</code> de domaine (<code>domain</code>, <code>domainTn</code>, <code>domainT0</code>).</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="méthodes-clés">Méthodes clés<a class="anchor" href="#m%c3%a9thodes-cl%c3%a9s">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>void init()</code></td>
+					<td>méthode de module</td>
+					<td>Initialise le système physique, la géométrie, les groupes, les variables de domaine/bord/puits, les lois, la restauration et le solveur Newton.</td>
+			</tr>
+			<tr>
+					<td><code>void compute()</code></td>
+					<td>méthode de module</td>
+					<td>Appelle le solveur Newton pour résoudre le système non linéaire sur le pas de temps courant, avec gestion de rollback (<code>ReplayException</code>) en cas d’échec.</td>
+			</tr>
+			<tr>
+					<td><code>Integer nbEquations() const</code></td>
+					<td>méthode</td>
+					<td>Retourne le nombre d’équations du système (nombre de phases ou variables couplées).</td>
+			</tr>
+			<tr>
+					<td><code>Domain const&amp; systemDomain() const</code></td>
+					<td>méthode</td>
+					<td>Accès au domaine support de la discrétisation (mailles/faces) pour le système non linéaire.</td>
+			</tr>
+			<tr>
+					<td><code>void initLinearSystemProfile(CellGroup, MatrixProfiler&amp;, ConstArray2View&lt;Integer&gt;, Integer)</code></td>
+					<td>méthode</td>
+					<td>Construit le profil de la matrice (topologie non nulle) via schéma deux‑points ou multi‑points.</td>
+			</tr>
+			<tr>
+					<td><code>void setSolutionVariables(SharedArray&lt;VariableCellReal*&gt;&amp;)</code></td>
+					<td>méthode</td>
+					<td>Enregistre les variables de solution (pression, saturations, etc.) dans un tableau de variables Arcane, à partir des propriétés ArcRes.</td>
+			</tr>
+			<tr>
+					<td><code>void build(Vector&amp; residual, Matrix&amp; jacobian)</code></td>
+					<td>méthode</td>
+					<td>Construit le vecteur résidu et la matrice jacobienne (accumulation, flux internes, flux de bord, flux de puits, fermeture).</td>
+			</tr>
+			<tr>
+					<td><code>void applyConstraintOnSolution(bool &amp;NonPhysicalSolution)</code></td>
+					<td>méthode (TwoPhase)</td>
+					<td>Projette les saturations dans [0,1] et renormalise pour que la somme soit 1, cellule par cellule.</td>
+			</tr>
+			<tr>
+					<td><code>_initGeometry()</code></td>
+					<td>méthode privée</td>
+					<td>Enregistre les propriétés géométriques (volume, centre, normale) dans <code>IGeometryMng</code> et force leur mise à jour.</td>
+			</tr>
+			<tr>
+					<td><code>_initTransmissivity()</code></td>
+					<td>méthode privée</td>
+					<td>Calcule les transmissivités (<code>TwoPointsTransmissivity</code>) à partir des perméabilités scalaire ou tensorielle.</td>
+			</tr>
+			<tr>
+					<td><code>_buildAccumulation(...)</code></td>
+					<td>méthode privée</td>
+					<td>Construit le terme d’accumulation en temps (rho·S, rho, concentration, température) avec <code>Δt</code>.</td>
+			</tr>
+			<tr>
+					<td><code>_buildFluxInternal(...)</code></td>
+					<td>méthode privée</td>
+					<td>Construit les flux internes (Darcy, gravité, advection, conduction, diffusion) entre mailles internes.</td>
+			</tr>
+			<tr>
+					<td><code>_buildFluxBoundary(...)</code></td>
+					<td>méthode privée</td>
+					<td>Construit les flux de bord à partir des données de <code>IBoundaryManager</code>.</td>
+			</tr>
+			<tr>
+					<td><code>_buildFluxWell(...)</code></td>
+					<td>méthode privée (TwoPhase)</td>
+					<td>Construit les flux puits à partir des indices de puits et des variables de puits.</td>
+			</tr>
+			<tr>
+					<td><code>_buildClosure(...)</code></td>
+					<td>méthode privée (TwoPhase)</td>
+					<td>Implémente l’équation de fermeture (somme des saturations − 1 = 0).</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="lois-physiques-helpers">Lois physiques (helpers)<a class="anchor" href="#lois-physiques-helpers">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>FluidDensityLaw</code></td>
+					<td>classe</td>
+					<td>Relation densité fluide <code>rho(T,C)</code> avec dérivées <code>drho/dT</code>, <code>drho/dC</code>.</td>
+			</tr>
+			<tr>
+					<td><code>RelativePermeabilityPowerLaw</code></td>
+					<td>classe</td>
+					<td>Loi de perméabilité relative <code>kr(Sw)</code> avec paramètres <code>Swi</code>, <code>Sgc</code>, <code>α</code>.</td>
+			</tr>
+			<tr>
+					<td><code>ConstantLaw</code></td>
+					<td>classe</td>
+					<td>Loi constante paramétrable (valeur fixe et dérivées).</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="architecture">Architecture<a class="anchor" href="#architecture">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌─────────────────────────────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│             src/TwoPhaseFlowSimulation                  │
+</span></span><span style="display:flex;"><span>├─────────────────────────────────────────────────────────┤
+</span></span><span style="display:flex;"><span>│                                                         │
+</span></span><span style="display:flex;"><span>│  ┌──────────────────────┐   ┌────────────────────────┐  │
+</span></span><span style="display:flex;"><span>│  │ TwoPhaseFlowSimulation│   │ ThermoChemicalConv.   │  │
+</span></span><span style="display:flex;"><span>│  │      Module.cc        │   │      Module.cc        │  │
+</span></span><span style="display:flex;"><span>│  └──────────────────────┘   └────────────────────────┘  │
+</span></span><span style="display:flex;"><span>│           │                        │                    │
+</span></span><span style="display:flex;"><span>│           │                        │                    │
+</span></span><span style="display:flex;"><span>│           ▼                        ▼                    │
+</span></span><span style="display:flex;"><span>│  ┌──────────────────────┐   ┌────────────────────────┐  │
+</span></span><span style="display:flex;"><span>│  │   PhysicalSystem/    │   │   PhysicalLaws/        │  │
+</span></span><span style="display:flex;"><span>│  │ (IPhysicalSystem,    │   │ (CapillaryPressure,    │  │
+</span></span><span style="display:flex;"><span>│  │  ISystemBuilder,     │   │  FluidDensity, RelPerm │  │
+</span></span><span style="display:flex;"><span>│  │  IVariableManager,   │   │  ConstantLaw, Config   │  │
+</span></span><span style="display:flex;"><span>│  │  PhysicalModelModule)│   └────────────────────────┘  │
+</span></span><span style="display:flex;"><span>│  └──────────────────────┘              │                │
+</span></span><span style="display:flex;"><span>│           │                            │                │
+</span></span><span style="display:flex;"><span>│           ▼                            ▼                │
+</span></span><span style="display:flex;"><span>│  ┌──────────────────────┐   ┌────────────────────────┐  │
+</span></span><span style="display:flex;"><span>│  │ BoundaryCondition/   │   │ InitialCondition/      │  │
+</span></span><span style="display:flex;"><span>│  │ (DirichletManager,   │   │ (Constant, Expression  │  │
+</span></span><span style="display:flex;"><span>│  │  folders faces)      │   │  services)             │  │
+</span></span><span style="display:flex;"><span>│  └──────────────────────┘   └────────────────────────┘  │
+</span></span><span style="display:flex;"><span>│           │                            │                │
+</span></span><span style="display:flex;"><span>│           ▼                            ▼                │
+</span></span><span style="display:flex;"><span>│  ┌──────────────────────┐   ┌────────────────────────┐  │
+</span></span><span style="display:flex;"><span>│  │   WellCondition/     │   │   DataModel/           │  │
+</span></span><span style="display:flex;"><span>│  │ (WellManager,        │   │ (config.xml, gump      │  │
+</span></span><span style="display:flex;"><span>│  │  WellIndexComputer,  │   │  model ArcRes)         │  │
+</span></span><span style="display:flex;"><span>│  │  folders cellules)   │   └────────────────────────┘  │
+</span></span><span style="display:flex;"><span>│  └──────────────────────┘                               │
+</span></span><span style="display:flex;"><span>│                                                         │
+</span></span><span style="display:flex;"><span>└─────────────────────────────────────────────────────────┘
+</span></span><span style="display:flex;"><span>          │                     │                 │
+</span></span><span style="display:flex;"><span>          ▼                     ▼                 ▼
+</span></span><span style="display:flex;"><span>    ArcRes::System        ArcGeoSim Numerics   ArcGeoSim Law2
+</span></span><span style="display:flex;"><span>    (fluids/solid,        (TwoPointsScheme,    (FunctionManager,
+</span></span><span style="display:flex;"><span>     properties)           transmissivity,      evaluator, contributions)
+</span></span><span style="display:flex;"><span>                           geometry, groups)</span></span></code></pre></div><ul>
+<li>Les deux modules C++ encapsulent la logique de construction du système non linéaire et s’appuient sur :
+<ul>
+<li><code>PhysicalSystem/</code> pour le modèle ArcRes.</li>
+<li><code>PhysicalLaws/</code> pour la configuration et l’évaluation des lois physiques.</li>
+<li><code>BoundaryCondition/</code>, <code>InitialCondition/</code>, <code>WellCondition/</code> pour les conditions du problème.</li>
+<li><code>DataModel/</code> pour le modèle Gump/ArcRes généré.</li>
+</ul>
+</li>
+</ul>
+<h2 id="dépendances">Dépendances<a class="anchor" href="#d%c3%a9pendances">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>Dépendance</th>
+					<th>Version (indicative)</th>
+					<th>Usage</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Arcane 3 / ArcGeoSim</td>
+					<td>Arcane3 + ArcGeoSim (via <code>LoadArcGeoSim.cmake</code>)</td>
+					<td>Gestion maillage, géométrie, services, time loop, macros de module.</td>
+			</tr>
+			<tr>
+					<td>ArcRes</td>
+					<td>interne au framework Arcane/ArcGeoSim</td>
+					<td>Description des systèmes physiques (phases, propriétés, sous‑systèmes).</td>
+			</tr>
+			<tr>
+					<td>ArcNumTools</td>
+					<td>interne ArcGeoSim</td>
+					<td>Vecteurs, matrices, solveur Newton, profilage de système non linéaire.</td>
+			</tr>
+			<tr>
+					<td>Alien</td>
+					<td>bibliothèque externe (profilage matrice)</td>
+					<td><code>Alien::MatrixProfiler</code> pour construire le profil de la matrice linéaire.</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="configuration">Configuration<a class="anchor" href="#configuration">#</a></h2>
+<p>La configuration se fait principalement via les fichiers <code>.axl</code> du module et les fichiers <code>.arc</code> de test (voir <code>test/TwoPhaseFlowSimulation</code>). Principales options (dans <code>TwoPhaseFlowSimulation.axl</code> et <code>ThermoChemicalConvection.axl</code>) :</p>
+<table>
+	<thead>
+			<tr>
+					<th>Variable / option</th>
+					<th>Défaut</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>permx-var-name</code></td>
+					<td><code>PERMX</code></td>
+					<td>Nom de la variable Arcane contenant la perméabilité X en entrée.</td>
+			</tr>
+			<tr>
+					<td><code>permy-var-name</code></td>
+					<td><code>PERMY</code></td>
+					<td>Nom de la variable pour la perméabilité Y.</td>
+			</tr>
+			<tr>
+					<td><code>permz-var-name</code></td>
+					<td><code>PERMZ</code></td>
+					<td>Nom de la variable pour la perméabilité Z.</td>
+			</tr>
+			<tr>
+					<td><code>scalar-perm</code></td>
+					<td><code>true</code></td>
+					<td>Si vrai, utilise une perméabilité scalaire <code>Permeability</code>. Sinon, reconstruit un tenseur à partir de <code>PERMX</code>, <code>PERMY</code>, <code>PERMZ</code>.</td>
+			</tr>
+			<tr>
+					<td><code>group-creator</code></td>
+					<td><code>StandardGroupCreator</code></td>
+					<td>Service <code>IGroupCreator</code> qui construit les groupes de mailles/faces utilisés pour la discrétisation.</td>
+			</tr>
+			<tr>
+					<td><code>numerics.two-points-scheme</code></td>
+					<td><code>DivKGradTwoPoints</code></td>
+					<td>Schéma deux‑points utilisé pour calculer les transmissivités.</td>
+			</tr>
+			<tr>
+					<td><code>numerics.newton</code></td>
+					<td>(service à fournir)</td>
+					<td>Implémentation du solveur non linéaire <code>ArcNum::INewtonSolver</code>.</td>
+			</tr>
+			<tr>
+					<td><code>numerics.nltpfa</code></td>
+					<td><code>false</code></td>
+					<td>Active/désactive le schéma NLTPFA (non‑linear two‑points flux approximation).</td>
+			</tr>
+			<tr>
+					<td><code>initial-condition</code></td>
+					<td>minOccurs=1</td>
+					<td>Services de condition initiale (pression, saturations, concentration, température).</td>
+			</tr>
+			<tr>
+					<td><code>law</code></td>
+					<td>minOccurs=0</td>
+					<td>Services <code>ILawConfigurator</code> pour les lois physiques (capillary pressure, density, relative permeability, etc.).</td>
+			</tr>
+			<tr>
+					<td><code>boundary-condition</code></td>
+					<td>optionnel</td>
+					<td>Service <code>IBoundaryManager</code> décrivant les conditions de bord (Dirichlet, etc.).</td>
+			</tr>
+			<tr>
+					<td><code>well-condition</code></td>
+					<td>optionnel</td>
+					<td>Service <code>IWellManager</code> décrivant les puits (débits, indices, variables de puits).</td>
+			</tr>
+	</tbody>
+</table>
+<p>Les fichiers <code>.arc</code> de test (sous <code>test/TwoPhaseFlowSimulation/</code>) instancient ces services et précisent le maillage (SPE10, cases de puits, etc.) ainsi que les paramètres physiques.</p>
+<h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
+<p><em>(liens indicatifs, à adapter selon la documentation interne)</em></p>
+<ul>
+<li>Documentation Arcane / ArcGeoSim (framework de simulation et infrastructure) — pour comprendre :
+<ul>
+<li>la notion de module Arcane (<code>*.axl</code>, <code>ARCANE_REGISTER_MODULE_*</code>),</li>
+<li>la gestion des services (<code>AppService</code>),</li>
+<li>les outils numériques (<code>TwoPointsScheme</code>, <code>INewtonSolver</code>).</li>
+</ul>
+</li>
+<li>Documentation ArcRes — description des entités <code>System</code>, <code>FluidSubSystem</code>, <code>SolidSubSystem</code> et des propriétés physiques (<code>Pressure</code>, <code>Saturation</code>, <code>Density</code>, etc.).</li>
+<li>Cas de test ShArc :
+<ul>
+<li><code>test/TwoPhaseFlowSimulation/</code> — configuration des cas SPE10, puits, lois physiques.</li>
+<li><code>test/LargeScaleTwoPhaseFlowSimulation/README.md</code> — exemple de cas à grande échelle (dimensions de grille, pattern <code>__NPX__x__NPY__x__NPZ__-__NP__p</code>).</li>
+</ul>
+</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/src/sharc/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ShArc</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/test/" class="flex align-center">
+        <span>test</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

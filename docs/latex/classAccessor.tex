@@ -1,0 +1,87 @@
+\hypertarget{classAccessor}{}\doxysection{Accessor Class Reference}
+\label{classAccessor}\index{Accessor@{Accessor}}
+
+
+Inherited by \mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}}, \mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}}, \mbox{\hyperlink{structPartialVariableAccessor}{Partial\+Variable\+Accessor}}, \mbox{\hyperlink{structPartialVariableAccessor}{Partial\+Variable\+Accessor}}, \mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}}, \mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}}, \mbox{\hyperlink{structVariableAccessor}{Variable\+Accessor}}, and \mbox{\hyperlink{structVariableAccessor}{Variable\+Accessor}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccessor_a05430af20e7332c2142a4c8c2c90e5df}\label{classAccessor_a05430af20e7332c2142a4c8c2c90e5df}} 
+typedef std\+::map$<$ \mbox{\hyperlink{classProperty}{Property}}, \mbox{\hyperlink{classVariableDataBase}{Variable\+Data\+Base}} $>$ {\bfseries Data\+Base}
+\item 
+\mbox{\Hypertarget{classAccessor_a05430af20e7332c2142a4c8c2c90e5df}\label{classAccessor_a05430af20e7332c2142a4c8c2c90e5df}} 
+typedef std\+::map$<$ \mbox{\hyperlink{classProperty}{Property}}, \mbox{\hyperlink{classVariableDataBase}{Variable\+Data\+Base}} $>$ {\bfseries Data\+Base}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccessor_a331df399be24ed53e6da91c46d6775e3}\label{classAccessor_a331df399be24ed53e6da91c46d6775e3}} 
+{\bfseries Accessor} (const Data\+Base \&properties, Arcane\+::e\+Item\+Kind kind=Arcane\+::\+IK\+\_\+\+Unknown)
+\item 
+\mbox{\Hypertarget{classAccessor_a8fca3b5a73751b127b76d2b0265a8556}\label{classAccessor_a8fca3b5a73751b127b76d2b0265a8556}} 
+bool \mbox{\hyperlink{classAccessor_a8fca3b5a73751b127b76d2b0265a8556}{contains}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Teste si la propri{\ucr}t{\ucr}s est enregistr{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_af5ac83ae10ee531b099fed7542ab60e9}\label{classAccessor_af5ac83ae10ee531b099fed7542ab60e9}} 
+bool \mbox{\hyperlink{classAccessor_af5ac83ae10ee531b099fed7542ab60e9}{has\+Derivatives}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Teste si la propri{\ucr}t{\ucr}s {\ucr} un conteneur d{\ucr}riv{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_a4cb2b30ec50ee60ad03698d246996014}\label{classAccessor_a4cb2b30ec50ee60ad03698d246996014}} 
+{\footnotesize template$<$typename V , Dimension dim, typename T $>$ }\\V \& \mbox{\hyperlink{classAccessor_a4cb2b30ec50ee60ad03698d246996014}{values}} (const \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ dim, T $>$ \&p) const
+\begin{DoxyCompactList}\small\item\em Pour cr{\ucr}er une r{\ucr}f{\ucr}rence de variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_a078db84a9b6bde7f417ff3f8e2f285f4}\label{classAccessor_a078db84a9b6bde7f417ff3f8e2f285f4}} 
+{\footnotesize template$<$typename V , Dimension dim, typename T $>$ }\\V \& \mbox{\hyperlink{classAccessor_a078db84a9b6bde7f417ff3f8e2f285f4}{derivatives}} (const \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ dim, T $>$ \&p) const
+\begin{DoxyCompactList}\small\item\em Pour cr{\ucr}er une r{\ucr}f{\ucr}rence de variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_a6284e032f7b52154a304840a25e286c2}\label{classAccessor_a6284e032f7b52154a304840a25e286c2}} 
+Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ {\bfseries properties} () const
+\item 
+\mbox{\Hypertarget{classAccessor_a331df399be24ed53e6da91c46d6775e3}\label{classAccessor_a331df399be24ed53e6da91c46d6775e3}} 
+{\bfseries Accessor} (const Data\+Base \&properties, Arcane\+::e\+Item\+Kind kind=Arcane\+::\+IK\+\_\+\+Unknown)
+\item 
+\mbox{\Hypertarget{classAccessor_a8fca3b5a73751b127b76d2b0265a8556}\label{classAccessor_a8fca3b5a73751b127b76d2b0265a8556}} 
+bool \mbox{\hyperlink{classAccessor_a8fca3b5a73751b127b76d2b0265a8556}{contains}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Teste si la propri{\ucr}t{\ucr}s est enregistr{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_af5ac83ae10ee531b099fed7542ab60e9}\label{classAccessor_af5ac83ae10ee531b099fed7542ab60e9}} 
+bool \mbox{\hyperlink{classAccessor_af5ac83ae10ee531b099fed7542ab60e9}{has\+Derivatives}} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\begin{DoxyCompactList}\small\item\em Teste si la propri{\ucr}t{\ucr}s {\ucr} un conteneur d{\ucr}riv{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_a4cb2b30ec50ee60ad03698d246996014}\label{classAccessor_a4cb2b30ec50ee60ad03698d246996014}} 
+{\footnotesize template$<$typename V , Dimension dim, typename T $>$ }\\V \& \mbox{\hyperlink{classAccessor_a4cb2b30ec50ee60ad03698d246996014}{values}} (const \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ dim, T $>$ \&p) const
+\begin{DoxyCompactList}\small\item\em Pour cr{\ucr}er une r{\ucr}f{\ucr}rence de variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_a078db84a9b6bde7f417ff3f8e2f285f4}\label{classAccessor_a078db84a9b6bde7f417ff3f8e2f285f4}} 
+{\footnotesize template$<$typename V , Dimension dim, typename T $>$ }\\V \& \mbox{\hyperlink{classAccessor_a078db84a9b6bde7f417ff3f8e2f285f4}{derivatives}} (const \mbox{\hyperlink{classPropertyT}{PropertyT}}$<$ dim, T $>$ \&p) const
+\begin{DoxyCompactList}\small\item\em Pour cr{\ucr}er une r{\ucr}f{\ucr}rence de variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAccessor_a6284e032f7b52154a304840a25e286c2}\label{classAccessor_a6284e032f7b52154a304840a25e286c2}} 
+Arcane\+::\+Shared\+Array$<$ \mbox{\hyperlink{classProperty}{Property}} $>$ {\bfseries properties} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccessor_a19b00df22faae0c46ce16452c33d7472}\label{classAccessor_a19b00df22faae0c46ce16452c33d7472}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVariableRef}{Variable\+Ref}} $>$ {\bfseries \+\_\+check\+And\+Find} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\item 
+\mbox{\Hypertarget{classAccessor_a6dd519b9e489e4e892a9b559023279ab}\label{classAccessor_a6dd519b9e489e4e892a9b559023279ab}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries convert\+To} () const
+\item 
+\mbox{\Hypertarget{classAccessor_a19b00df22faae0c46ce16452c33d7472}\label{classAccessor_a19b00df22faae0c46ce16452c33d7472}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVariableRef}{Variable\+Ref}} $>$ {\bfseries \+\_\+check\+And\+Find} (const \mbox{\hyperlink{classProperty}{Property}} \&p) const
+\item 
+\mbox{\Hypertarget{classAccessor_a6dd519b9e489e4e892a9b559023279ab}\label{classAccessor_a6dd519b9e489e4e892a9b559023279ab}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries convert\+To} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccessor_a0a975a488966380321d61e94ab9dcb5d}\label{classAccessor_a0a975a488966380321d61e94ab9dcb5d}} 
+const Data\+Base \& \mbox{\hyperlink{classAccessor_a0a975a488966380321d61e94ab9dcb5d}{m\+\_\+properties}}
+\begin{DoxyCompactList}\small\item\em Base de donn{\ucr}es. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 59 of file Variable\+Accessor.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Variable\+Accessor.\+h\end{DoxyCompactItemize}

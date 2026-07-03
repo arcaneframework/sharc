@@ -1,0 +1,88 @@
+\hypertarget{classILinearSystemBuilder}{}\doxysection{ILinear\+System\+Builder Class Reference}
+\label{classILinearSystemBuilder}\index{ILinearSystemBuilder@{ILinearSystemBuilder}}
+
+
+Inherits \mbox{\hyperlink{classILinearSystemVisitor}{ILinear\+System\+Visitor}}.
+
+
+
+Inherited by \mbox{\hyperlink{classLinearSystemBuilderT}{Linear\+System\+Builder\+T$<$ Matrix\+T, Vector\+T $>$}}, and \mbox{\hyperlink{classLocalLinearSystemBuilder}{Local\+Linear\+System\+Builder}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a0130a9d6efc40630728663afaef62fa0}\label{classILinearSystemBuilder_a0130a9d6efc40630728663afaef62fa0}} 
+\mbox{\hyperlink{classILinearSystemBuilder_a0130a9d6efc40630728663afaef62fa0}{ILinear\+System\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a634dafe7d46b420d33a3a3dceba4fde4}\label{classILinearSystemBuilder_a634dafe7d46b420d33a3a3dceba4fde4}} 
+virtual \mbox{\hyperlink{classILinearSystemBuilder_a634dafe7d46b420d33a3a3dceba4fde4}{$\sim$\+ILinear\+System\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a701eb8f7b204535a265ac0adb03e63ed}\label{classILinearSystemBuilder_a701eb8f7b204535a265ac0adb03e63ed}} 
+virtual void {\bfseries start} ()=0
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a0c5fa65f24be9a9b46a2c024cd5c238c}\label{classILinearSystemBuilder_a0c5fa65f24be9a9b46a2c024cd5c238c}} 
+virtual void {\bfseries free\+Data} ()=0
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_adae79db9efc16ff9c5a3ebe846263d12}\label{classILinearSystemBuilder_adae79db9efc16ff9c5a3ebe846263d12}} 
+virtual void {\bfseries end} ()=0
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a89337b7d85be2d81ddab7c9558b8fd95}\label{classILinearSystemBuilder_a89337b7d85be2d81ddab7c9558b8fd95}} 
+virtual bool {\bfseries connect} (ILinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_af178aae0c5c044e7be7e5a8782ef6eba}\label{classILinearSystemBuilder_af178aae0c5c044e7be7e5a8782ef6eba}} 
+virtual bool {\bfseries commit\+Solution} (ILinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_ac1fb74d0cdb4f77473edeea92792eade}\label{classILinearSystemBuilder_ac1fb74d0cdb4f77473edeea92792eade}} 
+virtual bool {\bfseries connect} (Hypre\+Linear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a4e0eba49df12ca028aaf204a46fc9925}\label{classILinearSystemBuilder_a4e0eba49df12ca028aaf204a46fc9925}} 
+virtual bool {\bfseries commit\+Solution} (Hypre\+Linear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a86b0c797390466c7c0eb6426fceee5ab}\label{classILinearSystemBuilder_a86b0c797390466c7c0eb6426fceee5ab}} 
+virtual bool {\bfseries connect} (PETSc\+Linear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a435617d3d441b2428447b4e74b389c7a}\label{classILinearSystemBuilder_a435617d3d441b2428447b4e74b389c7a}} 
+virtual bool {\bfseries commit\+Solution} (PETSc\+Linear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a36cf9280468f38a9fc32d56c16ace6eb}\label{classILinearSystemBuilder_a36cf9280468f38a9fc32d56c16ace6eb}} 
+virtual bool {\bfseries connect} (IFPLinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_ae80dd8adb0dca701ed8b51129a22ada8}\label{classILinearSystemBuilder_ae80dd8adb0dca701ed8b51129a22ada8}} 
+virtual bool {\bfseries commit\+Solution} (IFPLinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a00420e93c9dd1b9c25cbcb1ed399e8d2}\label{classILinearSystemBuilder_a00420e93c9dd1b9c25cbcb1ed399e8d2}} 
+virtual bool {\bfseries connect} (\mbox{\hyperlink{classLocalLinearSystem}{Local\+Linear\+System}} $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a29d52e0194bdbe201c6608d075a7f9e0}\label{classILinearSystemBuilder_a29d52e0194bdbe201c6608d075a7f9e0}} 
+virtual bool {\bfseries commit\+Solution} (\mbox{\hyperlink{classLocalLinearSystem}{Local\+Linear\+System}} $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_af5e245808acaf6b166751d480312486b}\label{classILinearSystemBuilder_af5e245808acaf6b166751d480312486b}} 
+virtual bool {\bfseries connect} (MTLLinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_abaad56068cac4047f247cebcaf6d7c0b}\label{classILinearSystemBuilder_abaad56068cac4047f247cebcaf6d7c0b}} 
+virtual bool {\bfseries commit\+Solution} (MTLLinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_ac37d757d90a62dea3d53ee4e9e08086c}\label{classILinearSystemBuilder_ac37d757d90a62dea3d53ee4e9e08086c}} 
+virtual bool {\bfseries connect} (Super\+LULinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_ae0adea8457821fcb48abb7c606736b33}\label{classILinearSystemBuilder_ae0adea8457821fcb48abb7c606736b33}} 
+virtual bool {\bfseries commit\+Solution} (Super\+LULinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_a22f1afcb9ef60e284cfc7f8fe48eb819}\label{classILinearSystemBuilder_a22f1afcb9ef60e284cfc7f8fe48eb819}} 
+virtual bool {\bfseries connect} (GPULinear\+System $\ast$system)
+\item 
+\mbox{\Hypertarget{classILinearSystemBuilder_ada946c500c996afbdecf8d11fbd38dcd}\label{classILinearSystemBuilder_ada946c500c996afbdecf8d11fbd38dcd}} 
+virtual bool {\bfseries commit\+Solution} (GPULinear\+System $\ast$system)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 35 of file ILinear\+System\+Builder.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/ILinear\+System\+Builder.\+h\end{DoxyCompactItemize}

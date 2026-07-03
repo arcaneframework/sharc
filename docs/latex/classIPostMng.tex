@@ -1,0 +1,68 @@
+\hypertarget{classIPostMng}{}\doxysection{IPost\+Mng Class Reference}
+\label{classIPostMng}\index{IPostMng@{IPostMng}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIPostMng_a7d77acb2ed899c2260884b0e65d41610}\label{classIPostMng_a7d77acb2ed899c2260884b0e65d41610}} 
+virtual void \mbox{\hyperlink{classIPostMng_a7d77acb2ed899c2260884b0e65d41610}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialise. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPostMng_a9638506a4d1d0361686149e404f4d43c}\label{classIPostMng_a9638506a4d1d0361686149e404f4d43c}} 
+virtual void \mbox{\hyperlink{classIPostMng_a9638506a4d1d0361686149e404f4d43c}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em update manager \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPostMng_acec51f527764f9cb225bb3e60339e8dc}\label{classIPostMng_acec51f527764f9cb225bb3e60339e8dc}} 
+virtual void \mbox{\hyperlink{classIPostMng_acec51f527764f9cb225bb3e60339e8dc}{start}} ()=0
+\begin{DoxyCompactList}\small\item\em Start calculations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPostMng_a197b8a71550c8f925a8257c96d38875c}\label{classIPostMng_a197b8a71550c8f925a8257c96d38875c}} 
+virtual void \mbox{\hyperlink{classIPostMng_a197b8a71550c8f925a8257c96d38875c}{set\+Updated}} (bool is\+\_\+updated)=0
+\begin{DoxyCompactList}\small\item\em set if to be updated ; \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPostMng_a937973701a5cca73b0d6ce41708685cd}\label{classIPostMng_a937973701a5cca73b0d6ce41708685cd}} 
+virtual Integer {\bfseries output\+Level} ()=0
+\item 
+\mbox{\Hypertarget{classIPostMng_ae6879b94ce81db53547bf64c5482fbc0}\label{classIPostMng_ae6879b94ce81db53547bf64c5482fbc0}} 
+virtual Integer {\bfseries debug\+Level} ()=0
+\item 
+\mbox{\Hypertarget{classIPostMng_a6347bf8b7cf4e5982ba45033dc9e7639}\label{classIPostMng_a6347bf8b7cf4e5982ba45033dc9e7639}} 
+virtual const \mbox{\hyperlink{classArray}{Array}}$<$ Cell\+Group $>$ \& {\bfseries get\+Cell\+Group\+For\+Post} ()=0
+\item 
+\mbox{\Hypertarget{classIPostMng_aedbbbe1bfe6c698357979ebc1f443258}\label{classIPostMng_aedbbbe1bfe6c698357979ebc1f443258}} 
+virtual const \mbox{\hyperlink{classArray}{Array}}$<$ Cell\+Group $>$ \& {\bfseries get\+Cell\+Group\+For\+Debug} ()=0
+\item 
+\mbox{\Hypertarget{classIPostMng_aa556db2ecbb51a2452b50e1aeee62cfd}\label{classIPostMng_aa556db2ecbb51a2452b50e1aeee62cfd}} 
+virtual const Dual\+Node\+Group \& {\bfseries get\+Dual\+Node\+Group\+For\+Debug} () const =0
+\item 
+\mbox{\Hypertarget{classIPostMng_aff0d70a19554b59661ba7bfffea2c611}\label{classIPostMng_aff0d70a19554b59661ba7bfffea2c611}} 
+virtual bool {\bfseries has\+Dual\+Node\+For\+Debug} (const Dual\+Node \&dnode) const =0
+\item 
+\mbox{\Hypertarget{classIPostMng_af5c1cf8839ece64fe8b354f8a9770597}\label{classIPostMng_af5c1cf8839ece64fe8b354f8a9770597}} 
+virtual bool {\bfseries has\+Dual\+Node\+For\+Debug} (const Dual\+Node \&dnode)=0
+\item 
+\mbox{\Hypertarget{classIPostMng_a0e1ccc8380ba08b71d39c2fc6ee5a50c}\label{classIPostMng_a0e1ccc8380ba08b71d39c2fc6ee5a50c}} 
+virtual void {\bfseries print\+Vars} ()=0
+\item 
+\mbox{\Hypertarget{classIPostMng_aed9d36a1bc0a48cb287c8bbee7ef1449}\label{classIPostMng_aed9d36a1bc0a48cb287c8bbee7ef1449}} 
+virtual void {\bfseries print\+Vars} (const String \&var\+\_\+name, Variable\+Cell\+Real \&var, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{IUnits\+System\+::\+Unit\+Type}} unit)=0
+\item 
+\mbox{\Hypertarget{classIPostMng_a97267c83ca8059170099dbd1acd64f9a}\label{classIPostMng_a97267c83ca8059170099dbd1acd64f9a}} 
+virtual void {\bfseries print\+Vars} (const String \&var\+\_\+name, Variable\+Cell\+Array\+Real \&var, \mbox{\hyperlink{classIUnitsSystem_a02ab74011086e3852c8a98d2795e1d6e}{IUnits\+System\+::\+Unit\+Type}} unit)=0
+\item 
+\mbox{\Hypertarget{classIPostMng_aa96866978801afa2e96db9bc950aa344}\label{classIPostMng_aa96866978801afa2e96db9bc950aa344}} 
+virtual void {\bfseries add\+Info\+Model} (\mbox{\hyperlink{classIInfoModel}{IInfo\+Model}} $\ast$model)=0
+\item 
+\mbox{\Hypertarget{classIPostMng_acf47fcda913a591891d31ed9dab77d9f}\label{classIPostMng_acf47fcda913a591891d31ed9dab77d9f}} 
+virtual void {\bfseries print\+Info\+Models} ()=0
+\item 
+\mbox{\Hypertarget{classIPostMng_aa7cab9b10cb40ce4f385c0c6a22c1c3f}\label{classIPostMng_aa7cab9b10cb40ce4f385c0c6a22c1c3f}} 
+virtual void {\bfseries print\+Current\+Time\+Info\+Models} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 17 of file IPost\+Mng.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Appli/IPost\+Mng.\+h\end{DoxyCompactItemize}

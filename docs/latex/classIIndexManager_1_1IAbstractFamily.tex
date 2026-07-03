@@ -1,0 +1,56 @@
+\hypertarget{classIIndexManager_1_1IAbstractFamily}{}\doxysection{IIndex\+Manager\+::IAbstract\+Family Class Reference}
+\label{classIIndexManager_1_1IAbstractFamily}\index{IIndexManager::IAbstractFamily@{IIndexManager::IAbstractFamily}}
+
+
+Interface des familles abstraites pour l\textquotesingle{}indexation de items.  
+
+
+
+
+{\ttfamily \#include $<$IIndex\+Manager.\+h$>$}
+
+
+
+Inherited by \mbox{\hyperlink{classAnyItemAbstractFamily}{Any\+Item\+Abstract\+Family}}, \mbox{\hyperlink{classBasicIndexManager_1_1ItemAbstractFamily}{Basic\+Index\+Manager\+::\+Item\+Abstract\+Family}}, \mbox{\hyperlink{classContactAbstractFamily}{Contact\+Abstract\+Family}}, and \mbox{\hyperlink{classSimpleAbstractFamily}{Simple\+Abstract\+Family}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_1_1Item}{Item}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIndexManager_1_1IAbstractFamily_ad4c28d4c543d5612fbc8c61c70c087a5}\label{classIIndexManager_1_1IAbstractFamily_ad4c28d4c543d5612fbc8c61c70c087a5}} 
+virtual \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily}{IAbstract\+Family}} $\ast$ \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_ad4c28d4c543d5612fbc8c61c70c087a5}{clone}} () const =0
+\begin{DoxyCompactList}\small\item\em Construit un clone de cet objet. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1IAbstractFamily_a535a5378c4040857f803efa7f320778e}\label{classIIndexManager_1_1IAbstractFamily_a535a5378c4040857f803efa7f320778e}} 
+virtual Int32 \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_a535a5378c4040857f803efa7f320778e}{max\+Local\+Id}} () const =0
+\begin{DoxyCompactList}\small\item\em Identifiant maximal des local\+Ids pour cette famille. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1IAbstractFamily_a77e087d33c55302db58c1ba163ece522}\label{classIIndexManager_1_1IAbstractFamily_a77e087d33c55302db58c1ba163ece522}} 
+virtual void \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_a77e087d33c55302db58c1ba163ece522}{unique\+Id\+To\+Local\+Id}} (Arcane\+::\+Int32\+Array\+View local\+Ids, Arcane\+::\+Int64\+Const\+Array\+View unique\+Ids) const =0
+\begin{DoxyCompactList}\small\item\em Convertit des unique\+Ids en local\+Ids. Erreur fatale si un item n\textquotesingle{}est pas retrouv{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1IAbstractFamily_a777fb43ce03a11225958f5fda5a79ec8}\label{classIIndexManager_1_1IAbstractFamily_a777fb43ce03a11225958f5fda5a79ec8}} 
+virtual \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_1_1Item}{Item}} \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_a777fb43ce03a11225958f5fda5a79ec8}{item}} (Int32 local\+Id) const =0
+\begin{DoxyCompactList}\small\item\em Retourne un objet \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_1_1Item}{Item}} {\ucr} partir de son local\+Id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1IAbstractFamily_a7bde4dd961bc45cae7f04812fa956127}\label{classIIndexManager_1_1IAbstractFamily_a7bde4dd961bc45cae7f04812fa956127}} 
+virtual Safe\+Const\+Array\+View$<$ Integer $>$ \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_a7bde4dd961bc45cae7f04812fa956127}{owners}} (Arcane\+::\+Int32\+Const\+Array\+View local\+Ids) const =0
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des owners (propri{\ucr}taires) d\textquotesingle{}un ensemble d\textquotesingle{}item d{\ucr}crits par leur local\+Ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1IAbstractFamily_a0675d9270b2f610578edcad8646c0d02}\label{classIIndexManager_1_1IAbstractFamily_a0675d9270b2f610578edcad8646c0d02}} 
+virtual Safe\+Const\+Array\+View$<$ Int64 $>$ \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_a0675d9270b2f610578edcad8646c0d02}{uids}} (Arcane\+::\+Int32\+Const\+Array\+View local\+Ids) const =0
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des unique\+Ids d\textquotesingle{}un ensemble d\textquotesingle{}item d{\ucr}crits par leur local\+Ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIndexManager_1_1IAbstractFamily_aa5bb97041130282f97709cc6d5a73ff1}\label{classIIndexManager_1_1IAbstractFamily_aa5bb97041130282f97709cc6d5a73ff1}} 
+virtual Safe\+Const\+Array\+View$<$ Int32 $>$ \mbox{\hyperlink{classIIndexManager_1_1IAbstractFamily_aa5bb97041130282f97709cc6d5a73ff1}{all\+Local\+Ids}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}ensemble des identifiants locaux de la famille. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface des familles abstraites pour l\textquotesingle{}indexation de items. 
+
+Definition at line 52 of file IIndex\+Manager.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Alien\+Tools/IIndex\+Manager.\+h\end{DoxyCompactItemize}

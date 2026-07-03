@@ -1,0 +1,72 @@
+\hypertarget{classLocalLinearSystem}{}\doxysection{Local\+Linear\+System Class Reference}
+\label{classLocalLinearSystem}\index{LocalLinearSystem@{LocalLinearSystem}}
+
+
+Inherits ILinear\+System.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a92d26a64177eaeb25576ec9e1f6c4b9e}\label{classLocalLinearSystem_a92d26a64177eaeb25576ec9e1f6c4b9e}} 
+typedef boost\+::numeric\+::ublas\+::vector$<$ Real $>$ {\bfseries Real\+Vector}
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a023e4d954278202810fb5d51e1da8e8f}\label{classLocalLinearSystem_a023e4d954278202810fb5d51e1da8e8f}} 
+typedef boost\+::numeric\+::ublas\+::matrix$<$ Real $>$ {\bfseries Real\+Matrix}
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a4429774d6b92913941e7bc31fe743fd4}\label{classLocalLinearSystem_a4429774d6b92913941e7bc31fe743fd4}} 
+typedef Real\+Vector {\bfseries vector\+\_\+type}
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_ad4eff4caaef664caf1b276e45433909c}\label{classLocalLinearSystem_ad4eff4caaef664caf1b276e45433909c}} 
+typedef Real\+Matrix {\bfseries matrix\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a4bcbdab493dda4f475d0850b02c6c144}\label{classLocalLinearSystem_a4bcbdab493dda4f475d0850b02c6c144}} 
+{\bfseries Local\+Linear\+System} (Real\+Matrix $\ast$matrix, Real\+Vector $\ast$x, Real\+Vector $\ast$rhs)
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a7d5b08a9666f154594a77555a751e754}\label{classLocalLinearSystem_a7d5b08a9666f154594a77555a751e754}} 
+void \mbox{\hyperlink{classLocalLinearSystem_a7d5b08a9666f154594a77555a751e754}{init}} ()
+\begin{DoxyCompactList}\small\item\em initialise le system lin{\ucr}aire \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a94af67d899fa1b4cfa416dd96fefb3a7}\label{classLocalLinearSystem_a94af67d899fa1b4cfa416dd96fefb3a7}} 
+bool \mbox{\hyperlink{classLocalLinearSystem_a94af67d899fa1b4cfa416dd96fefb3a7}{accept}} (\mbox{\hyperlink{classILinearSystemVisitor}{ILinear\+System\+Visitor}} $\ast$visitor)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}ajouter des op{\ucr}rateurs au l\textquotesingle{}interface \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a317a173d5c0fc8cb060736feadaad718}\label{classLocalLinearSystem_a317a173d5c0fc8cb060736feadaad718}} 
+void \mbox{\hyperlink{classLocalLinearSystem_a317a173d5c0fc8cb060736feadaad718}{start}} ()
+\begin{DoxyCompactList}\small\item\em d{\ucr}mare une {\ucr}tape de r{\ucr}solution de syst{\ucr}me lin{\ucr}aire \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalLinearSystem_aefe1c09a1783b80acb906bdebe334d7e}\label{classLocalLinearSystem_aefe1c09a1783b80acb906bdebe334d7e}} 
+void \mbox{\hyperlink{classLocalLinearSystem_aefe1c09a1783b80acb906bdebe334d7e}{end}} ()
+\begin{DoxyCompactList}\small\item\em finalise une {\ucr}tape de r{\ucr}solution et lib{\ucr}re les objets interm{\ucr}diaires \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalLinearSystem_adb8d28f780319512fa6e824397225e9b}\label{classLocalLinearSystem_adb8d28f780319512fa6e824397225e9b}} 
+virtual const char $\ast$ \mbox{\hyperlink{classLocalLinearSystem_adb8d28f780319512fa6e824397225e9b}{name}} () const
+\begin{DoxyCompactList}\small\item\em retourne le nom du type de syst{\ucr}me \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a0f903014e47e8859786d42eb33b678c1}\label{classLocalLinearSystem_a0f903014e47e8859786d42eb33b678c1}} 
+Real\+Matrix $\ast$ {\bfseries get\+Matrix} ()
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a3ef7f901b80f9a0a3dd9b062028d97f3}\label{classLocalLinearSystem_a3ef7f901b80f9a0a3dd9b062028d97f3}} 
+Real\+Vector $\ast$ {\bfseries getX} ()
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_abca3562bb3afb60c57db563453b3449e}\label{classLocalLinearSystem_abca3562bb3afb60c57db563453b3449e}} 
+Real\+Vector $\ast$ {\bfseries get\+Rhs} ()
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_af9c611bbfdba99d2baeb23661cee1f82}\label{classLocalLinearSystem_af9c611bbfdba99d2baeb23661cee1f82}} 
+void {\bfseries set\+Matrix} (Real\+Matrix $\ast$matrix)
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_aa0138a63b07e9c4ecbfbc1b52b667d02}\label{classLocalLinearSystem_aa0138a63b07e9c4ecbfbc1b52b667d02}} 
+void {\bfseries setX} (Real\+Vector $\ast$x)
+\item 
+\mbox{\Hypertarget{classLocalLinearSystem_a810ed895ac8478a364fa5e54c66d12cd}\label{classLocalLinearSystem_a810ed895ac8478a364fa5e54c66d12cd}} 
+void {\bfseries set\+Rhs} (Real\+Vector $\ast$rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 22 of file Local\+Direct\+Solver.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Local\+Direct\+Solver\+Impl/Local\+Direct\+Solver.\+h\end{DoxyCompactItemize}

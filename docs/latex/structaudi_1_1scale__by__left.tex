@@ -1,0 +1,57 @@
+\hypertarget{structaudi_1_1scale__by__left}{}\doxysection{audi\+::scale\+\_\+by\+\_\+left$<$ T $>$ Struct Template Reference}
+\label{structaudi_1_1scale__by__left}\index{audi::scale\_by\_left$<$ T $>$@{audi::scale\_by\_left$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ scale\+\_\+by\+\_\+left$<$ T $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_a124e9861997e51dc40c92c8712f12390}\label{structaudi_1_1scale__by__left_a124e9861997e51dc40c92c8712f12390}} 
+using {\bfseries Operand} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ T $>$\+::value, const T, const T \& $>$\+::type
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_ac82b4c704f2d973dfca75c509c2ee8a7}\label{structaudi_1_1scale__by__left_ac82b4c704f2d973dfca75c509c2ee8a7}} 
+using {\bfseries data\+\_\+type} = decltype(m\+\_\+type.\+value())
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_a3df242a7f62dddf9d6ba537a88aaa1ca}\label{structaudi_1_1scale__by__left_a3df242a7f62dddf9d6ba537a88aaa1ca}} 
+{\bfseries scale\+\_\+by\+\_\+left} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ T $>$ \&t, decltype(m\+\_\+type.\+value()) factor)
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_a222fcbd249f4e59f228a6328915b6cc4}\label{structaudi_1_1scale__by__left_a222fcbd249f4e59f228a6328915b6cc4}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_a2499d16033fe194ae965559cef7b91ea}\label{structaudi_1_1scale__by__left_a2499d16033fe194ae965559cef7b91ea}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_aa0df95ea2ba010b118f2fd68c89be6ac}\label{structaudi_1_1scale__by__left_aa0df95ea2ba010b118f2fd68c89be6ac}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_abf53dd271f3c6b4d71630e5734fd39d7}\label{structaudi_1_1scale__by__left_abf53dd271f3c6b4d71630e5734fd39d7}} 
+Operand {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_a743f756e540b645028d2c4613537e275}\label{structaudi_1_1scale__by__left_a743f756e540b645028d2c4613537e275}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+factor}
+\item 
+\mbox{\Hypertarget{structaudi_1_1scale__by__left_a6619cbcff43f469269d040a4e1f9b496}\label{structaudi_1_1scale__by__left_a6619cbcff43f469269d040a4e1f9b496}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+v}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct audi\+::scale\+\_\+by\+\_\+left$<$ T $>$}
+
+
+
+Definition at line 39 of file scale.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/scale.\+h\end{DoxyCompactItemize}

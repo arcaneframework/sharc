@@ -1,0 +1,71 @@
+\hypertarget{classIXMValuesHDF}{}\doxysection{IXMValues\+HDF$<$ T $>$ Class Template Reference}
+\label{classIXMValuesHDF}\index{IXMValuesHDF$<$ T $>$@{IXMValuesHDF$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{classIXMValues}{IXMValues$<$ T $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIXMValuesHDF_a46b6e780dc7f5fc4edeb3bb2c354fa31}\label{classIXMValuesHDF_a46b6e780dc7f5fc4edeb3bb2c354fa31}} 
+{\bfseries IXMValues\+HDF} (const String \&directory\+\_\+name)
+\item 
+\mbox{\Hypertarget{classIXMValuesHDF_aeb8075845c68e4506eb1ac5b7487cb7d}\label{classIXMValuesHDF_aeb8075845c68e4506eb1ac5b7487cb7d}} 
+{\bfseries IXMValues\+HDF} (IParallel\+Mng $\ast$pm, const String \&directory\+\_\+name, const String \&file\+\_\+name)
+\item 
+\mbox{\Hypertarget{classIXMValuesHDF_a6aa74111364811f475e7dc6e1b287328}\label{classIXMValuesHDF_a6aa74111364811f475e7dc6e1b287328}} 
+void {\bfseries set\+Data\+Node} (Arcane\+::\+Xml\+Node data\+\_\+node)
+\item 
+\mbox{\Hypertarget{classIXMValuesHDF_a46ef71ea9b15f06bb390bedbd5b7789c}\label{classIXMValuesHDF_a46ef71ea9b15f06bb390bedbd5b7789c}} 
+void \mbox{\hyperlink{classIXMValuesHDF_a46ef71ea9b15f06bb390bedbd5b7789c}{set\+Heavy\+Data\+Name}} (const String \&hdata\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Set the name of the Heavy Data Set (if applicable) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMValuesHDF_aa66cf6de4e807ec415b8d8c2c6f37fcc}\label{classIXMValuesHDF_aa66cf6de4e807ec415b8d8c2c6f37fcc}} 
+String \mbox{\hyperlink{classIXMValuesHDF_aa66cf6de4e807ec415b8d8c2c6f37fcc}{get\+Heavy\+Data\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the Heavy Data Set (if applicable) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMValuesHDF_a0e4d0bf5e16d95e1a12c0935941c72db}\label{classIXMValuesHDF_a0e4d0bf5e16d95e1a12c0935941c72db}} 
+void \mbox{\hyperlink{classIXMValuesHDF_a0e4d0bf5e16d95e1a12c0935941c72db}{begin\+Write}} ()
+\begin{DoxyCompactList}\small\item\em Read the \mbox{\hyperlink{classArray}{Array}} from the External Representation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIXMValuesHDF_a94fec750f46274c53c2a722274ec6d2e}{write}} (\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Write the \mbox{\hyperlink{classArray}{Array}} to the External Representation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIXMValuesHDF_a4eaeda45b9eca0d86272b15708c9f841}\label{classIXMValuesHDF_a4eaeda45b9eca0d86272b15708c9f841}} 
+bool {\bfseries write} (\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&an\+Array, const \mbox{\hyperlink{classFormatter}{Formatter}}$<$ T $>$ \&formatter)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class IXMValues\+HDF$<$ T $>$}
+
+
+
+Definition at line 34 of file IXMValues\+HDF.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIXMValuesHDF_a94fec750f46274c53c2a722274ec6d2e}\label{classIXMValuesHDF_a94fec750f46274c53c2a722274ec6d2e}} 
+\index{IXMValuesHDF$<$ T $>$@{IXMValuesHDF$<$ T $>$}!write@{write}}
+\index{write@{write}!IXMValuesHDF$<$ T $>$@{IXMValuesHDF$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classIXMValuesHDF}{IXMValues\+HDF}}$<$ T $>$\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArray}{Array}}$<$ T $>$ \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Write the \mbox{\hyperlink{classArray}{Array}} to the External Representation. 
+
+the hdf file have been created before
+
+Implements \mbox{\hyperlink{classIXMValues_ac75a264f6be78e1a09835a15e40a8963}{IXMValues$<$ T $>$}}.
+
+
+
+Definition at line 62 of file IXMValues\+HDF.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM4/IXMValues\+HDF.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+IXM4/IXMValues\+HDF.\+cc\end{DoxyCompactItemize}

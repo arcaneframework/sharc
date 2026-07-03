@@ -1,0 +1,139 @@
+\hypertarget{classStaticGeometry}{}\doxysection{Static\+Geometry Class Reference}
+\label{classStaticGeometry}\index{StaticGeometry@{StaticGeometry}}
+
+
+Inherits \mbox{\hyperlink{classIGeometry}{IGeometry}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Real \mbox{\hyperlink{classStaticGeometry_a2d5b14ad68fb96c6f3fbca5b428114ed}{compute\+Length}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de la longueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStaticGeometry_a9511f0d225f65e202e7ae333f3cf2f9b}\label{classStaticGeometry_a9511f0d225f65e202e7ae333f3cf2f9b}} 
+Real \mbox{\hyperlink{classStaticGeometry_a9511f0d225f65e202e7ae333f3cf2f9b}{compute\+Length}} (const \mbox{\hyperlink{structReal3}{Real3}} \&m, const \mbox{\hyperlink{structReal3}{Real3}} \&n)
+\begin{DoxyCompactList}\small\item\em Calcul de longueur d\textquotesingle{}un segment d{\ucr}fini par deux points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStaticGeometry_aac8d9f18d2b1f54a684af9f056ccc7eb}\label{classStaticGeometry_aac8d9f18d2b1f54a684af9f056ccc7eb}} 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classStaticGeometry_aac8d9f18d2b1f54a684af9f056ccc7eb}{compute\+Center}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul du centre de masse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStaticGeometry_a32242b986cf423ffe793cecd1c0cc7bc}\label{classStaticGeometry_a32242b986cf423ffe793cecd1c0cc7bc}} 
+\mbox{\hyperlink{structReal3}{Real3}} {\bfseries compute\+Center} (const Item\+With\+Nodes \&item, Shared\+Array$<$ Real $>$ \&coords)
+\item 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classStaticGeometry_a284e548d17f15a8ef15aae87d5410c12}{compute\+Oriented\+Measure}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de la mesure orient{\ucr}e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStaticGeometry_ac09c864c16e970a0a44315c4608a18ad}\label{classStaticGeometry_ac09c864c16e970a0a44315c4608a18ad}} 
+Real \mbox{\hyperlink{classStaticGeometry_ac09c864c16e970a0a44315c4608a18ad}{compute\+Measure}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de la mesure (sans orientation) \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{classStaticGeometry_ac7bae21456473b408ee6ef3aec7bbcfb}{compute\+Area}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul de l\textquotesingle{}aire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classStaticGeometry_a5e88532753a97287212406b8aae6c1ee}{compute\+Oriented\+Area}} (Integer n, const \mbox{\hyperlink{structReal3}{Real3}} $\ast$coords)
+\begin{DoxyCompactList}\small\item\em Uniquement pour les Items surfaciques $\ast$/ ~\newline
+ virtual \mbox{\hyperlink{structReal3}{Real3}} compute\+Surface\+Center(\+Integer n, const Real3 $\ast$ coords) = 0;. \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{classStaticGeometry_a5102aea3b8e7247314d61f436695b19a}{compute\+Volume}} (const Item\+With\+Nodes \&item)
+\begin{DoxyCompactList}\small\item\em Calcul du volume. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file Static\+Geometry.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStaticGeometry_ac7bae21456473b408ee6ef3aec7bbcfb}\label{classStaticGeometry_ac7bae21456473b408ee6ef3aec7bbcfb}} 
+\index{StaticGeometry@{StaticGeometry}!computeArea@{computeArea}}
+\index{computeArea@{computeArea}!StaticGeometry@{StaticGeometry}}
+\doxysubsubsection{\texorpdfstring{computeArea()}{computeArea()}}
+{\footnotesize\ttfamily Real Static\+Geometry\+::compute\+Area (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Calcul de l\textquotesingle{}aire. 
+
+Uniquement pour les Items surfaciques 
+
+Implements \mbox{\hyperlink{classIGeometry_a26c50bb4402ce5f4afbca09a2daa7a0b}{IGeometry}}.
+
+
+
+Definition at line 45 of file Static\+Geometry.\+h.
+
+\mbox{\Hypertarget{classStaticGeometry_a2d5b14ad68fb96c6f3fbca5b428114ed}\label{classStaticGeometry_a2d5b14ad68fb96c6f3fbca5b428114ed}} 
+\index{StaticGeometry@{StaticGeometry}!computeLength@{computeLength}}
+\index{computeLength@{computeLength}!StaticGeometry@{StaticGeometry}}
+\doxysubsubsection{\texorpdfstring{computeLength()}{computeLength()}}
+{\footnotesize\ttfamily Real Static\+Geometry\+::compute\+Length (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calcul de la longueur. 
+
+Uniquement pour les Items lin{\ucr}{\ucr}ques 
+
+Implements \mbox{\hyperlink{classIGeometry_a7b9ed2677c1ed6995f1ca5bc765ab28b}{IGeometry}}.
+
+
+
+Definition at line 9 of file Static\+Geometry.\+cc.
+
+\mbox{\Hypertarget{classStaticGeometry_a5e88532753a97287212406b8aae6c1ee}\label{classStaticGeometry_a5e88532753a97287212406b8aae6c1ee}} 
+\index{StaticGeometry@{StaticGeometry}!computeOrientedArea@{computeOrientedArea}}
+\index{computeOrientedArea@{computeOrientedArea}!StaticGeometry@{StaticGeometry}}
+\doxysubsubsection{\texorpdfstring{computeOrientedArea()}{computeOrientedArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structReal3}{Real3}} Static\+Geometry\+::compute\+Oriented\+Area (\begin{DoxyParamCaption}\item[{Integer}]{n,  }\item[{const \mbox{\hyperlink{structReal3}{Real3}} $\ast$}]{coords }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Uniquement pour les Items surfaciques $\ast$/ ~\newline
+ virtual \mbox{\hyperlink{structReal3}{Real3}} compute\+Surface\+Center(\+Integer n, const Real3 $\ast$ coords) = 0;. 
+
+! Calcul de l\textquotesingle{}aire orient{\ucr}e (ie normale) /$\ast$! Uniquement pour les Items surfaciques 
+
+Implements \mbox{\hyperlink{classIGeometry_a727af88bd22defac0416aed48dc0e4fa}{IGeometry}}.
+
+
+
+Definition at line 56 of file Static\+Geometry.\+h.
+
+\mbox{\Hypertarget{classStaticGeometry_a284e548d17f15a8ef15aae87d5410c12}\label{classStaticGeometry_a284e548d17f15a8ef15aae87d5410c12}} 
+\index{StaticGeometry@{StaticGeometry}!computeOrientedMeasure@{computeOrientedMeasure}}
+\index{computeOrientedMeasure@{computeOrientedMeasure}!StaticGeometry@{StaticGeometry}}
+\doxysubsubsection{\texorpdfstring{computeOrientedMeasure()}{computeOrientedMeasure()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structReal3}{Real3}} Static\+Geometry\+::compute\+Oriented\+Measure (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Calcul de la mesure orient{\ucr}e. 
+
+Dans le cas d\textquotesingle{}un {\ucr}l{\ucr}ment plan, ceci correspond {\ucr} la normale moyenne unitaire $\ast$ mesure de l\textquotesingle{}{\ucr}l{\ucr}ment et dans le cas d\textquotesingle{}un simple {\ucr}l{\ucr}ment volumique nous obtenons volume $\ast$ z (ou z=(0,0,1)) 
+
+Implements \mbox{\hyperlink{classIGeometry_a44f3002889d8d9b9b8b0e6205aa54d17}{IGeometry}}.
+
+
+
+Definition at line 35 of file Static\+Geometry.\+h.
+
+\mbox{\Hypertarget{classStaticGeometry_a5102aea3b8e7247314d61f436695b19a}\label{classStaticGeometry_a5102aea3b8e7247314d61f436695b19a}} 
+\index{StaticGeometry@{StaticGeometry}!computeVolume@{computeVolume}}
+\index{computeVolume@{computeVolume}!StaticGeometry@{StaticGeometry}}
+\doxysubsubsection{\texorpdfstring{computeVolume()}{computeVolume()}}
+{\footnotesize\ttfamily Real Static\+Geometry\+::compute\+Volume (\begin{DoxyParamCaption}\item[{const Item\+With\+Nodes \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Calcul du volume. 
+
+Uniquement pour les Items volumiques 
+
+Implements \mbox{\hyperlink{classIGeometry_a33bbeb3570a018f7d76ffc6a10e59682}{IGeometry}}.
+
+
+
+Definition at line 61 of file Static\+Geometry.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+Static/Static\+Geometry.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/\+Static/Static\+Geometry.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{classINonLinearSolver}{}\doxysection{INon\+Linear\+Solver Class Reference}
+\label{classINonLinearSolver}\index{INonLinearSolver@{INonLinearSolver}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structINonLinearSolver_1_1Status}{Status}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classINonLinearSolver_a85147e14ab97b3c39abfc2a2704f28cf}\label{classINonLinearSolver_a85147e14ab97b3c39abfc2a2704f28cf}} 
+using {\bfseries IDirect\+Solver\+Type} = \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{Local\+Direct\+Solver\+Namespace\+::\+ILinear\+Solver}}
+\item 
+\mbox{\Hypertarget{classINonLinearSolver_a54ddda1d7f4844de35ab8eb724043efa}\label{classINonLinearSolver_a54ddda1d7f4844de35ab8eb724043efa}} 
+using {\bfseries ILinear\+System\+Builder\+Type} = \mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classINonLinearSolver_ab52cb75362e7025864e6a234dda08bae}\label{classINonLinearSolver_ab52cb75362e7025864e6a234dda08bae}} 
+\mbox{\hyperlink{classINonLinearSolver_ab52cb75362e7025864e6a234dda08bae}{INon\+Linear\+Solver}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a049570b5f436b236e2a5a2e29b7bc1a6}\label{classINonLinearSolver_a049570b5f436b236e2a5a2e29b7bc1a6}} 
+virtual \mbox{\hyperlink{classINonLinearSolver_a049570b5f436b236e2a5a2e29b7bc1a6}{$\sim$\+INon\+Linear\+Solver}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a673d9312fd72dce11ee544047b9974e4}\label{classINonLinearSolver_a673d9312fd72dce11ee544047b9974e4}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_a673d9312fd72dce11ee544047b9974e4}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a4e8480b265d4c02c96cc6f7a9b563dee}\label{classINonLinearSolver_a4e8480b265d4c02c96cc6f7a9b563dee}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_a4e8480b265d4c02c96cc6f7a9b563dee}{set\+Non\+Linear\+System\+Builder}} (\mbox{\hyperlink{classINonLinearSystemBuilder}{INon\+Linear\+System\+Builder}} $\ast$non\+\_\+linear\+\_\+builder)=0
+\begin{DoxyCompactList}\small\item\em Setting non linear system builder. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_ad022b4439c5dbed50693d8aff26a0fe0}\label{classINonLinearSolver_ad022b4439c5dbed50693d8aff26a0fe0}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_ad022b4439c5dbed50693d8aff26a0fe0}{set\+Linear\+Solver}} (\mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{IDirect\+Solver\+Type}} $\ast$solver)=0
+\begin{DoxyCompactList}\small\item\em Setting linear solver. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a71349f964c9a5cdb3fc0637cfe3a2b96}\label{classINonLinearSolver_a71349f964c9a5cdb3fc0637cfe3a2b96}} 
+virtual void {\bfseries set\+Linear\+Solver} (Alien\+::\+ILinear\+Solver $\ast$solver)=0
+\item 
+\mbox{\Hypertarget{classINonLinearSolver_a0364864faece45646d261dfb800e8d22}\label{classINonLinearSolver_a0364864faece45646d261dfb800e8d22}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_a0364864faece45646d261dfb800e8d22}{set\+Linear\+System\+Builder}} (\mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder\+Type}} $\ast$linear\+\_\+builder)=0
+\begin{DoxyCompactList}\small\item\em Setting linear system builder. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a4d4e32c1e8ce6906441de2badb1bb8ff}\label{classINonLinearSolver_a4d4e32c1e8ce6906441de2badb1bb8ff}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_a4d4e32c1e8ce6906441de2badb1bb8ff}{set\+Variable\+Updater}} (\mbox{\hyperlink{classINonLinearSystemVisitor}{INon\+Linear\+System\+Visitor}} $\ast$visitor)=0
+\begin{DoxyCompactList}\small\item\em Setting variable updater. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_aa512696c6f8660d278ccb1ecf6642e5e}\label{classINonLinearSolver_aa512696c6f8660d278ccb1ecf6642e5e}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_aa512696c6f8660d278ccb1ecf6642e5e}{set\+Stop\+Criteria}} (\mbox{\hyperlink{classINonLinearStopCriteria}{INon\+Linear\+Stop\+Criteria}} $\ast$stop\+\_\+criteria)=0
+\begin{DoxyCompactList}\small\item\em Setting stop crit{\ucr}ria. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a26150e0b7da1c257dc87e6c2af40a200}\label{classINonLinearSolver_a26150e0b7da1c257dc87e6c2af40a200}} 
+virtual bool \mbox{\hyperlink{classINonLinearSolver_a26150e0b7da1c257dc87e6c2af40a200}{solve}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)=0
+\begin{DoxyCompactList}\small\item\em Solving non linear system return true if ok, false if not ok. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a8ebad3e0c1b090bc78bf201e7557aeee}\label{classINonLinearSolver_a8ebad3e0c1b090bc78bf201e7557aeee}} 
+virtual bool \mbox{\hyperlink{classINonLinearSolver_a8ebad3e0c1b090bc78bf201e7557aeee}{solve\+Opt}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)=0
+\begin{DoxyCompactList}\small\item\em Optimized version for local litle non linear system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a35b18c4e4a94afa8f690bcac29c070f0}\label{classINonLinearSolver_a35b18c4e4a94afa8f690bcac29c070f0}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_a35b18c4e4a94afa8f690bcac29c070f0}{start}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)=0
+\begin{DoxyCompactList}\small\item\em Initializing non linear system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_ae3e31ca70b13cd1654b686515c81a418}\label{classINonLinearSolver_ae3e31ca70b13cd1654b686515c81a418}} 
+virtual void \mbox{\hyperlink{classINonLinearSolver_ae3e31ca70b13cd1654b686515c81a418}{end}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)=0
+\begin{DoxyCompactList}\small\item\em Finalizing non linear system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classINonLinearSolver_a81d3c519a8f5ecdf087eb02164ab3c02}\label{classINonLinearSolver_a81d3c519a8f5ecdf087eb02164ab3c02}} 
+virtual const \mbox{\hyperlink{structINonLinearSolver_1_1Status}{Status}} \& {\bfseries get\+Status} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 63 of file INon\+Linear\+Solver.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/INon\+Linear\+Solver.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\hypertarget{classIGraphBuilder}{}\doxysection{IGraph\+Builder Class Reference}
+\label{classIGraphBuilder}\index{IGraphBuilder@{IGraphBuilder}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIGraphBuilder_1_1NodeDescriptor}{Node\+Descriptor}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bc}{State}} \{ \mbox{\hyperlink{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bca000bd7af316aed0f2d60c380f91ba83b}{ADDNODES\+\_\+\+STATE}} = 0
+, \mbox{\hyperlink{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bcae1041981b82891c35a03c068ab1406b7}{ADDLINKS\+\_\+\+STATE}} = 1
+, \mbox{\hyperlink{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bca9140a73f46b12dd1ffb68420f7909a8a}{FINALIZED\+\_\+\+STATE}} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIGraphBuilder_a42678cb7bc17e079f6e6034e2aa57df9}\label{classIGraphBuilder_a42678cb7bc17e079f6e6034e2aa57df9}} 
+\mbox{\hyperlink{classIGraphBuilder_a42678cb7bc17e079f6e6034e2aa57df9}{IGraph\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGraphBuilder_a83b1aa19bfcbb019038ab4a92bf2918f}\label{classIGraphBuilder_a83b1aa19bfcbb019038ab4a92bf2918f}} 
+virtual \mbox{\hyperlink{classIGraphBuilder_a83b1aa19bfcbb019038ab4a92bf2918f}{$\sim$\+IGraph\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGraphBuilder_ae0fb3331eca4637c2bff962ccb614876}\label{classIGraphBuilder_ae0fb3331eca4637c2bff962ccb614876}} 
+virtual \mbox{\hyperlink{structIGraphBuilder_1_1NodeDescriptor}{Node\+Descriptor}} \mbox{\hyperlink{classIGraphBuilder_ae0fb3331eca4637c2bff962ccb614876}{add\+Node}} (const \mbox{\hyperlink{classItem}{Item}} \&I)=0
+\begin{DoxyCompactList}\small\item\em Add one node. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGraphBuilder_ab7a4744f83d8569d1b1857fd1cf942b9}\label{classIGraphBuilder_ab7a4744f83d8569d1b1857fd1cf942b9}} 
+virtual void \mbox{\hyperlink{classIGraphBuilder_ab7a4744f83d8569d1b1857fd1cf942b9}{end\+Add\+Nodes}} ()=0
+\begin{DoxyCompactList}\small\item\em Finalize node addition. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGraphBuilder_a248ae89100aa9ad49a553eef580298fa}\label{classIGraphBuilder_a248ae89100aa9ad49a553eef580298fa}} 
+virtual void \mbox{\hyperlink{classIGraphBuilder_a248ae89100aa9ad49a553eef580298fa}{add\+Link}} (const \mbox{\hyperlink{classItem}{Item}} \&I1, const \mbox{\hyperlink{classItem}{Item}} \&I2)=0
+\begin{DoxyCompactList}\small\item\em Add one link. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIGraphBuilder_a82cfcfbef29dde9d0cd2898e0c3b0460}\label{classIGraphBuilder_a82cfcfbef29dde9d0cd2898e0c3b0460}} 
+virtual void \mbox{\hyperlink{classIGraphBuilder_a82cfcfbef29dde9d0cd2898e0c3b0460}{end\+Add\+Links}} ()=0
+\begin{DoxyCompactList}\small\item\em Finalize link addition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIGraphBuilder_a74026b1046ffe96d577122987bb381e2}\label{classIGraphBuilder_a74026b1046ffe96d577122987bb381e2}} 
+\mbox{\hyperlink{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bc}{State}} \mbox{\hyperlink{classIGraphBuilder_a74026b1046ffe96d577122987bb381e2}{m\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Graph builder\textquotesingle{}s state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file IGraph\+Builder.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bc}\label{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bc}} 
+\index{IGraphBuilder@{IGraphBuilder}!State@{State}}
+\index{State@{State}!IGraphBuilder@{IGraphBuilder}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bc}{IGraph\+Builder\+::\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDNODES\_STATE@{ADDNODES\_STATE}!IGraphBuilder@{IGraphBuilder}}\index{IGraphBuilder@{IGraphBuilder}!ADDNODES\_STATE@{ADDNODES\_STATE}}}\mbox{\Hypertarget{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bca000bd7af316aed0f2d60c380f91ba83b}\label{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bca000bd7af316aed0f2d60c380f91ba83b}} 
+ADDNODES\+\_\+\+STATE&Adding nodes. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDLINKS\_STATE@{ADDLINKS\_STATE}!IGraphBuilder@{IGraphBuilder}}\index{IGraphBuilder@{IGraphBuilder}!ADDLINKS\_STATE@{ADDLINKS\_STATE}}}\mbox{\Hypertarget{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bcae1041981b82891c35a03c068ab1406b7}\label{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bcae1041981b82891c35a03c068ab1406b7}} 
+ADDLINKS\+\_\+\+STATE&Adding links. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FINALIZED\_STATE@{FINALIZED\_STATE}!IGraphBuilder@{IGraphBuilder}}\index{IGraphBuilder@{IGraphBuilder}!FINALIZED\_STATE@{FINALIZED\_STATE}}}\mbox{\Hypertarget{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bca9140a73f46b12dd1ffb68420f7909a8a}\label{classIGraphBuilder_aca089ebe7bb5888723bcf50266f937bca9140a73f46b12dd1ffb68420f7909a8a}} 
+FINALIZED\+\_\+\+STATE&Finalized state. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 27 of file IGraph\+Builder.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/IGraph\+Builder.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" 🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests CAWF# 🧠 Documentation enrichie par IA — basée sur l’analyse des cas .arc et des READMEs CAWF
+📋 Table des matières# Description Organisation Poisson MecaFEM Compaction Objectifs des tests Utilisation Ressources Description# Le répertoire test/CAWF/ regroupe les cas de test de référence pour la bibliothèque CAWF (ArcaneFEM Workflows Library), décrite dans src/CAWF/README.md. Il couvre trois grandes familles de problèmes :
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/test/cawf/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="Tests CAWF">
+	<meta property="og:description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests CAWF# 🧠 Documentation enrichie par IA — basée sur l’analyse des cas .arc et des READMEs CAWF
+📋 Table des matières# Description Organisation Poisson MecaFEM Compaction Objectifs des tests Utilisation Ressources Description# Le répertoire test/CAWF/ regroupe les cas de test de référence pour la bibliothèque CAWF (ArcaneFEM Workflows Library), décrite dans src/CAWF/README.md. Il couvre trois grandes familles de problèmes :">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="Tests CAWF">
+	<meta itemprop="description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests CAWF# 🧠 Documentation enrichie par IA — basée sur l’analyse des cas .arc et des READMEs CAWF
+📋 Table des matières# Description Organisation Poisson MecaFEM Compaction Objectifs des tests Utilisation Ressources Description# Le répertoire test/CAWF/ regroupe les cas de test de référence pour la bibliothèque CAWF (ArcaneFEM Workflows Library), décrite dans src/CAWF/README.md. Il couvre trois grandes familles de problèmes :">
+	<meta itemprop="wordCount" content="582">
+
+<title>Tests CAWF • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/test/cawf/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/test/cawf/index.xml" title="Tests CAWF" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="active">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Tests CAWF</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><blockquote class='book-hint '>
+<p>🧠 Cette page a été générée avec l&rsquo;aide de l&rsquo;IA à partir de l&rsquo;analyse du code source et de recherches web.</p>
+</blockquote><h1 id="tests-cawf">Tests CAWF<a class="anchor" href="#tests-cawf">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse des cas <code>.arc</code> et des READMEs CAWF</p>
+</blockquote><h2 id="-table-des-matières">📋 Table des matières<a class="anchor" href="#-table-des-mati%c3%a8res">#</a></h2>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#organisation">Organisation</a></li>
+<li><a href="#poisson">Poisson</a></li>
+<li><a href="#mecafem">MecaFEM</a></li>
+<li><a href="#compaction">Compaction</a></li>
+<li><a href="#objectifs-des-tests">Objectifs des tests</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul>
+<h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
+<p>Le répertoire <code>test/CAWF/</code> regroupe les <strong>cas de test de référence</strong> pour la bibliothèque CAWF (ArcaneFEM Workflows Library), décrite dans <code>src/CAWF/README.md</code>. Il couvre trois grandes familles de problèmes :</p>
+<ul>
+<li><strong>Poisson</strong> — résolution de problèmes de type diffusion / conduction sur maillages 2D/3D.</li>
+<li><strong>MecaFEM</strong> — problèmes d’élasticité linéaire en 2D/3D (barres, cubes) avec différentes conditions de chargement.</li>
+<li><strong>Compaction</strong> — cas de compaction de cube, d’anneau et de bassin synthétique.</li>
+</ul>
+<p>Chaque sous-dossier contient des fichiers <code>.arc</code> qui instancient les modules CAWF correspondants, les maillages et les paramètres physiques.</p>
+<h2 id="organisation">Organisation<a class="anchor" href="#organisation">#</a></h2>
+<ul>
+<li><code>Poisson/</code> — cas Poisson 2D/3D (cercles, sphères, carré perforé).</li>
+<li><code>MecaFEM/</code> — cas d’élasticité linéaire (barres 3D, cubes).</li>
+<li><code>Compaction/</code> — cas de compaction (cube, ring, bassin synthétique).</li>
+<li><code>precice-config-v3.xml</code>, <code>precice-config-iter-v3.xml</code> — configurations PreCICE (couplage) pour certains scénarios.</li>
+</ul>
+<p>Chaque sous-dossier contient également un <code>ShArc.config</code> définissant la boucle de temps et les modules CAWF utilisés.</p>
+<h2 id="poisson">Poisson<a class="anchor" href="#poisson">#</a></h2>
+<p>Répertoire : <code>test/CAWF/Poisson/</code></p>
+<p>Cas typiques :</p>
+<ul>
+<li>
+<p><code>circle.2D.arc</code>, <code>circle.2D.quad.arc</code><br>
+Problèmes Poisson 2D sur cercle (triangles/quadrangles).</p>
+</li>
+<li>
+<p><code>circle.neumann.2D.arc</code>, <code>circle.neumann.2D.quad.arc</code><br>
+Variantes avec conditions de Neumann.</p>
+</li>
+<li>
+<p><code>perforatedSquare.pointDirichlet.2D.arc</code><br>
+Carré perforé avec conditions de Dirichlet ponctuelles.</p>
+</li>
+<li>
+<p><code>sphere.3D.arc</code>, <code>sphere.3D.hexa.arc</code><br>
+Problèmes Poisson sur sphère 3D (tétrahèdres/hexaèdres).</p>
+</li>
+<li>
+<p><code>sphere.neumann.3D.arc</code>, <code>sphere.neumann.3D.hexa.arc</code><br>
+Variantes avec Neumann en 3D.</p>
+</li>
+</ul>
+<p>Tous ces cas utilisent les modules CAWF Poisson décrits dans <code>src/CAWF/Poisson/Readme.md</code> : maillages, conditions aux limites (Dirichlet/Neumann), post‑traitement de la variable <code>U</code>.</p>
+<h2 id="mecafem">MecaFEM<a class="anchor" href="#mecafem">#</a></h2>
+<p>Répertoire : <code>test/CAWF/MecaFEM/</code></p>
+<p>Cas typiques :</p>
+<ul>
+<li>
+<p>Barres 3D sous chargement :</p>
+<ul>
+<li>
+<p><code>bar.3D.Dirichlet.bodyForce.arc</code><br>
+Barre en 3D avec conditions de Dirichlet et force volumique (poids propre).</p>
+</li>
+<li>
+<p><code>bar.3D.Dirichlet.traction.bodyForce.arc</code><br>
+Variante avec traction aux extrémités en plus de la force volumique.</p>
+</li>
+<li>
+<p><code>bar.3D.cartesian.Dirichlet.bodyForce.arc</code><br>
+Version cartésienne du cas de barre.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cubes :</p>
+<ul>
+<li>
+<p><code>mecafem-cube.arc</code>, <code>mecafem-cube-hexa.arc</code><br>
+Cas cube de base (maillage tétra/héxa).</p>
+</li>
+<li>
+<p><code>mecafem-cube-hexa-hypre.arc</code>, <code>mecafem-cube-hexa-hypre-acc.arc</code><br>
+Variantes utilisant Hypre (et options d’accélération) pour la résolution linéaire.</p>
+</li>
+<li>
+<p><code>mecafem-cube-cawf.arc</code>, <code>mecafem-cube-cawf-evol.arc</code><br>
+Cas cubes utilisant la configuration CAWF, dont une variante évolutive.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Ces cas s’appuient sur la formulation décrite dans <code>src/CAWF/Elasticity/Readme.md</code> : matériaux élastiques linéaires, conditions de bord, calcul des déplacements.</p>
+<h2 id="compaction">Compaction<a class="anchor" href="#compaction">#</a></h2>
+<p>Répertoire : <code>test/CAWF/Compaction/</code></p>
+<p>Cas typiques :</p>
+<ul>
+<li>
+<p><code>Compaction-cube.arc</code><br>
+Cas cube simple de compaction.</p>
+</li>
+<li>
+<p><code>Compaction-cube-cawf.arc</code>, <code>Compaction-cube-cawf-evol.arc</code><br>
+Versions utilisant la configuration CAWF, avec une variante évolutive (<code>-evol</code>).</p>
+</li>
+<li>
+<p><code>Compaction-ring.arc</code><br>
+Cas de compaction sur géométrie annulaire.</p>
+</li>
+<li>
+<p><code>Compaction-synth-basin.arc</code><br>
+Cas de bassin synthétique (compaction de bassin).</p>
+</li>
+</ul>
+<p>Un log d’exécution (<code>Compaction-cube-cawf-evol.log</code>) donne un exemple de sortie pour le cas évolutif.</p>
+<h2 id="objectifs-des-tests">Objectifs des tests<a class="anchor" href="#objectifs-des-tests">#</a></h2>
+<ul>
+<li>
+<p><strong>Validation numérique des solveurs CAWF</strong> :</p>
+<ul>
+<li>Vérifier la convergence et la qualité des solutions (champ <code>U</code> pour Poisson/Elasticity, observables de compaction).</li>
+<li>Valider la robustesse sur différentes topologies de maillage (2D/3D, tri/hexa/quads).</li>
+</ul>
+</li>
+<li>
+<p><strong>Validation du couplage et des options backend</strong> :</p>
+<ul>
+<li>Tester les solveurs linéaires (Hypre, backends Acc, etc.) dans des cas mécaniciens/compaction réalistes.</li>
+<li>Utiliser, le cas échéant, les configurations PreCICE pour des scénarios couplés.</li>
+</ul>
+</li>
+<li>
+<p><strong>Régression fonctionnelle</strong> :</p>
+<ul>
+<li>Servir de base de non‑regression pour les modifications dans <code>src/CAWF/</code> (FEMUtils, solveurs Poisson/Elasticity/Compaction).</li>
+</ul>
+</li>
+</ul>
+<h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
+<p>Depuis le répertoire de build :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Lancer les tests CAWF via CTest</span>
+</span></span><span style="display:flex;"><span>ctest -R CAWF</span></span></code></pre></div><p>Pour lancer un cas particulier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Exemple : cas Poisson cercle 2D</span>
+</span></span><span style="display:flex;"><span>./ShArc.exe test/CAWF/Poisson/circle.2D.arc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Exemple : cas d&#39;élasticité barre 3D</span>
+</span></span><span style="display:flex;"><span>./ShArc.exe test/CAWF/MecaFEM/bar.3D.Dirichlet.bodyForce.arc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Exemple : cas de compaction cube</span>
+</span></span><span style="display:flex;"><span>./ShArc.exe test/CAWF/Compaction/Compaction-cube-cawf.arc</span></span></code></pre></div><p>Adapter les options (MPI, solveurs) en fonction de votre configuration Arcane/CAWF.</p>
+<h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
+<ul>
+<li><code>src/CAWF/README.md</code> — documentation globale de CAWF.</li>
+<li><code>src/CAWF/Poisson/Readme.md</code> — formulation et configuration des cas Poisson.</li>
+<li><code>src/CAWF/Elasticity/Readme.md</code> — formulation et configuration des cas d’élasticité.</li>
+<li><code>docs/content/test/CAWF/</code> (si présent) — documentation Hugo associée aux tests CAWF.</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/test/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>test</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/test/exadibench/" class="flex align-center">
+        <span>Tests ExaDiBench</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

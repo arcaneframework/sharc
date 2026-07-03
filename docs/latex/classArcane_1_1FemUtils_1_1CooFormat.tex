@@ -1,0 +1,253 @@
+\hypertarget{classArcane_1_1FemUtils_1_1CooFormat}{}\doxysection{Arcane\+::Fem\+Utils\+::Coo\+Format Class Reference}
+\label{classArcane_1_1FemUtils_1_1CooFormat}\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+
+
+Inherits Arcane\+::\+Trace\+Accessor.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a83d03702c243a3aeee2dc972ad492d06}\label{classArcane_1_1FemUtils_1_1CooFormat_a83d03702c243a3aeee2dc972ad492d06}} 
+{\bfseries Coo\+Format} (ITrace\+Mng $\ast$tm)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a45d9f9720f51404822013545cb30f3cd}\label{classArcane_1_1FemUtils_1_1CooFormat_a45d9f9720f51404822013545cb30f3cd}} 
+void {\bfseries initialize} (IItem\+Family $\ast$dof\+\_\+family, Int32 nnz, Run\+Queue \&queue)
+\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_ac75ef43186bf37f25d7c1fc600b2c5ec}{matrix\+Add\+Value}} (Do\+FLocal\+Id row, Do\+FLocal\+Id column, Real value)
+\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_aea92d2a2646e81a66ecade7a2a7ffa03}{translate\+To\+Linear\+System}} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system)
+\begin{DoxyCompactList}\small\item\em Translate to \mbox{\hyperlink{namespaceArcane}{Arcane}} linear system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_abefa49d5765525264fad4ccc8cf47631}{print\+Matrix}} (std\+::string file\+Name, bool nonzero)
+\begin{DoxyCompactList}\small\item\em function to print the current content of the csr matrix \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a5a8fbc8f60f93f8289b0caec6cdee354}\label{classArcane_1_1FemUtils_1_1CooFormat_a5a8fbc8f60f93f8289b0caec6cdee354}} 
+void {\bfseries set\+Coordinates} (Do\+FLocal\+Id row, Do\+FLocal\+Id column)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a949c6e5f0f155233365a3c8513f119b9}\label{classArcane_1_1FemUtils_1_1CooFormat_a949c6e5f0f155233365a3c8513f119b9}} 
+void {\bfseries sort} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a4001a223e37ddb8ca3ad484014a1786b}\label{classArcane_1_1FemUtils_1_1CooFormat_a4001a223e37ddb8ca3ad484014a1786b}} 
+Int32 {\bfseries get\+Value} (Do\+FLocal\+Id row, Do\+FLocal\+Id column)
+\item 
+Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_a1eff7589e6138a4d44f019871a6c8a77}{bin\+Search\+Row}} (Int32 row)
+\begin{DoxyCompactList}\small\item\em bin\+Search\+Row is a binary search through the row to get the leftmost corresponding index. \end{DoxyCompactList}\item 
+Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_a0afa9b836629644402c9097af07f8192}{index\+Value}} (Int32 row, Int32 column)
+\begin{DoxyCompactList}\small\item\em index\+Value is a Binsearch through the row and then the column to get the index of the corresponding value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_aff46c074e4884c71f37875f6119bafd5}{sort\+Matrix}} (bool is\+\_\+row, Int32 start, Int32 end)
+\begin{DoxyCompactList}\small\item\em Quicksort algorithm for the CSR Matrix. \end{DoxyCompactList}\item 
+Int32 \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_ab4733d13727330d4f98ddd109d6ff1c8}{partition}} (bool is\+\_\+row, Int32 start, Int32 end)
+\begin{DoxyCompactList}\small\item\em Partition helper for the quick\+Sort. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1CooFormat_ab4186a1fe6a1079a08bad44941ba7d2e}{swap}} (bool is\+\_\+row, Int32 i, Int32 j)
+\begin{DoxyCompactList}\small\item\em Swap helper for the quick\+Sort. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a17f3f79206e4c5ac9c75dcea814fa592}\label{classArcane_1_1FemUtils_1_1CooFormat_a17f3f79206e4c5ac9c75dcea814fa592}} 
+Int32 {\bfseries m\+\_\+nnz}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a6ae78c78ce3cb114e121a31dfdf832bd}\label{classArcane_1_1FemUtils_1_1CooFormat_a6ae78c78ce3cb114e121a31dfdf832bd}} 
+Int32 {\bfseries m\+\_\+last\+\_\+value}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a84a9d4678bbed106d3742d48bc5bff96}\label{classArcane_1_1FemUtils_1_1CooFormat_a84a9d4678bbed106d3742d48bc5bff96}} 
+Num\+Array$<$ Int32, MDDim1 $>$ {\bfseries m\+\_\+matrix\+\_\+row}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_ac7d7eb398c03dd9697e0626434a32355}\label{classArcane_1_1FemUtils_1_1CooFormat_ac7d7eb398c03dd9697e0626434a32355}} 
+Num\+Array$<$ Int32, MDDim1 $>$ {\bfseries m\+\_\+matrix\+\_\+column}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a95427e79a05bc7befd66e620c65c5144}\label{classArcane_1_1FemUtils_1_1CooFormat_a95427e79a05bc7befd66e620c65c5144}} 
+Num\+Array$<$ Real, MDDim1 $>$ {\bfseries m\+\_\+matrix\+\_\+value}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a7442b6d29ecadc1c6afe7a4e3f60beac}\label{classArcane_1_1FemUtils_1_1CooFormat_a7442b6d29ecadc1c6afe7a4e3f60beac}} 
+IItem\+Family $\ast$ {\bfseries m\+\_\+dof\+\_\+family} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 38 of file Coo\+Format\+Matrix.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a1eff7589e6138a4d44f019871a6c8a77}\label{classArcane_1_1FemUtils_1_1CooFormat_a1eff7589e6138a4d44f019871a6c8a77}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!binSearchRow@{binSearchRow}}
+\index{binSearchRow@{binSearchRow}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{binSearchRow()}{binSearchRow()}}
+{\footnotesize\ttfamily Int32 Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::bin\+Search\+Row (\begin{DoxyParamCaption}\item[{Int32}]{row }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+bin\+Search\+Row is a binary search through the row to get the leftmost corresponding index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int32 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file Coo\+Format\+Matrix.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_a0afa9b836629644402c9097af07f8192}\label{classArcane_1_1FemUtils_1_1CooFormat_a0afa9b836629644402c9097af07f8192}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!indexValue@{indexValue}}
+\index{indexValue@{indexValue}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{indexValue()}{indexValue()}}
+{\footnotesize\ttfamily Int32 Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::index\+Value (\begin{DoxyParamCaption}\item[{Int32}]{row,  }\item[{Int32}]{column }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+index\+Value is a Binsearch through the row and then the column to get the index of the corresponding value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+{\em column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int32 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file Coo\+Format\+Matrix.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_ac75ef43186bf37f25d7c1fc600b2c5ec}\label{classArcane_1_1FemUtils_1_1CooFormat_ac75ef43186bf37f25d7c1fc600b2c5ec}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!matrixAddValue@{matrixAddValue}}
+\index{matrixAddValue@{matrixAddValue}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{matrixAddValue()}{matrixAddValue()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::matrix\+Add\+Value (\begin{DoxyParamCaption}\item[{Do\+FLocal\+Id}]{row,  }\item[{Do\+FLocal\+Id}]{column,  }\item[{Real}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+{\em column} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Coo\+Format\+Matrix.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_ab4733d13727330d4f98ddd109d6ff1c8}\label{classArcane_1_1FemUtils_1_1CooFormat_ab4733d13727330d4f98ddd109d6ff1c8}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!partition@{partition}}
+\index{partition@{partition}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily Int32 Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::partition (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+row,  }\item[{Int32}]{start,  }\item[{Int32}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Partition helper for the quick\+Sort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+row} & \\
+\hline
+{\em start} & \\
+\hline
+{\em end} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int32 
+\end{DoxyReturn}
+
+
+Definition at line 262 of file Coo\+Format\+Matrix.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_abefa49d5765525264fad4ccc8cf47631}\label{classArcane_1_1FemUtils_1_1CooFormat_abefa49d5765525264fad4ccc8cf47631}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!printMatrix@{printMatrix}}
+\index{printMatrix@{printMatrix}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{printMatrix()}{printMatrix()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::print\+Matrix (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name,  }\item[{bool}]{nonzero }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+function to print the current content of the csr matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+{\em nonzero} & if set to true, print only the non zero values \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file Coo\+Format\+Matrix.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_aff46c074e4884c71f37875f6119bafd5}\label{classArcane_1_1FemUtils_1_1CooFormat_aff46c074e4884c71f37875f6119bafd5}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!sortMatrix@{sortMatrix}}
+\index{sortMatrix@{sortMatrix}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{sortMatrix()}{sortMatrix()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::sort\+Matrix (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+row,  }\item[{Int32}]{start,  }\item[{Int32}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quicksort algorithm for the CSR Matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+row} & \\
+\hline
+{\em start} & \\
+\hline
+{\em end} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 241 of file Coo\+Format\+Matrix.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_ab4186a1fe6a1079a08bad44941ba7d2e}\label{classArcane_1_1FemUtils_1_1CooFormat_ab4186a1fe6a1079a08bad44941ba7d2e}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!swap@{swap}}
+\index{swap@{swap}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::swap (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+row,  }\item[{Int32}]{i,  }\item[{Int32}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Swap helper for the quick\+Sort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+row} & \\
+\hline
+{\em i} & \\
+\hline
+{\em j} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 292 of file Coo\+Format\+Matrix.\+h.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1CooFormat_aea92d2a2646e81a66ecade7a2a7ffa03}\label{classArcane_1_1FemUtils_1_1CooFormat_aea92d2a2646e81a66ecade7a2a7ffa03}} 
+\index{Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}!translateToLinearSystem@{translateToLinearSystem}}
+\index{translateToLinearSystem@{translateToLinearSystem}!Arcane::FemUtils::CooFormat@{Arcane::FemUtils::CooFormat}}
+\doxysubsubsection{\texorpdfstring{translateToLinearSystem()}{translateToLinearSystem()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Coo\+Format\+::translate\+To\+Linear\+System (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{linear\+\_\+system }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Translate to \mbox{\hyperlink{namespaceArcane}{Arcane}} linear system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linear\+\_\+system} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 91 of file Coo\+Format\+Matrix.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Coo\+Format\+Matrix.\+h\end{DoxyCompactItemize}

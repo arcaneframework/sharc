@@ -1,0 +1,43 @@
+\hypertarget{classIIXMStaticMeshReader}{}\doxysection{IIXMStatic\+Mesh\+Reader Class Reference}
+\label{classIIXMStaticMeshReader}\index{IIXMStaticMeshReader@{IIXMStaticMeshReader}}
+
+
+Inherits \mbox{\hyperlink{classIIXMMeshReaderBase}{IIXMMesh\+Reader\+Base}}.
+
+
+
+Inherited by \mbox{\hyperlink{classIIXMMeshReader}{IIXMMesh\+Reader}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIXMStaticMeshReader_ae4914ac70f7e1a128fb157c401e1bb84}\label{classIIXMStaticMeshReader_ae4914ac70f7e1a128fb157c401e1bb84}} 
+virtual \mbox{\hyperlink{classIIXMStaticMeshReader_ae4914ac70f7e1a128fb157c401e1bb84}{$\sim$\+IIXMStatic\+Mesh\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMStaticMeshReader_a6fec3acc268c727a2e7b82a0577d86da}\label{classIIXMStaticMeshReader_a6fec3acc268c727a2e7b82a0577d86da}} 
+virtual bool \mbox{\hyperlink{classIIXMStaticMeshReader_a6fec3acc268c727a2e7b82a0577d86da}{has\+Mesh\+Data}} ()=0
+\begin{DoxyCompactList}\small\item\em Vérifie s\textquotesingle{}il existe un maillage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMStaticMeshReader_a9b390634010a3578b1b0ade486251a49}\label{classIIXMStaticMeshReader_a9b390634010a3578b1b0ade486251a49}} 
+virtual void \mbox{\hyperlink{classIIXMStaticMeshReader_a9b390634010a3578b1b0ade486251a49}{read\+Cell\+Data}} (\mbox{\hyperlink{structIXMItemData}{IXMCell\+Data}} \&cell\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)=0
+\begin{DoxyCompactList}\small\item\em Lecture des donnees du maillage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMStaticMeshReader_a046014d22c4f5b8e402d0d7cb0fbf87f}\label{classIIXMStaticMeshReader_a046014d22c4f5b8e402d0d7cb0fbf87f}} 
+virtual void {\bfseries read\+Node\+Data} (\mbox{\hyperlink{structIXMItemData}{IXMNode\+Data}} \&node\+\_\+data, const \mbox{\hyperlink{classIXMMeshInfo}{IXMMesh\+Info}} \&check\+\_\+mesh\+\_\+info)=0
+\item 
+\mbox{\Hypertarget{classIIXMStaticMeshReader_ac056d38da00fd02295e9ae7e7bd2ccab}\label{classIIXMStaticMeshReader_ac056d38da00fd02295e9ae7e7bd2ccab}} 
+virtual void \mbox{\hyperlink{classIIXMStaticMeshReader_ac056d38da00fd02295e9ae7e7bd2ccab}{collective\+Read\+Group\+Data}} (IXMGroup\+Data\+List \&group\+\_\+data\+\_\+list, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils)=0
+\begin{DoxyCompactList}\small\item\em Lecture collective des informations de groupes et de proprietes \+: tous les processus doivent lire ces informations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIIXMStaticMeshReader_adcad2ed41e3ea309f059bc295af70a4a}\label{classIIXMStaticMeshReader_adcad2ed41e3ea309f059bc295af70a4a}} 
+virtual void {\bfseries collective\+Read\+Property\+Data} (\mbox{\hyperlink{structIXMPropertyDataList}{IXMProperty\+Data\+List}} \&property\+\_\+data\+\_\+list, \mbox{\hyperlink{classParallelUtils}{Parallel\+Utils}} parallel\+\_\+utils)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file IIXMStatic\+Mesh\+Reader.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+IXMTools/IIXMStatic\+Mesh\+Reader.\+h\end{DoxyCompactItemize}

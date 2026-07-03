@@ -1,0 +1,63 @@
+\hypertarget{classObservableProperty}{}\doxysection{Observable\+Property Class Reference}
+\label{classObservableProperty}\index{ObservableProperty@{ObservableProperty}}
+
+
+A simple observable property.  
+
+
+
+
+{\ttfamily \#include $<$Observable\+Property.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classObservableProperty_a6f55cf1dc6834c0733a2ed4118b04515}\label{classObservableProperty_a6f55cf1dc6834c0733a2ed4118b04515}} 
+typedef Arcane\+::\+String \mbox{\hyperlink{classObservableProperty_a6f55cf1dc6834c0733a2ed4118b04515}{Name\+Type}}
+\begin{DoxyCompactList}\small\item\em Name type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classObservableProperty_a612c84d20cc98e824395463e7f2c6026}\label{classObservableProperty_a612c84d20cc98e824395463e7f2c6026}} 
+\mbox{\hyperlink{classObservableProperty_a612c84d20cc98e824395463e7f2c6026}{Observable\+Property}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classObservableProperty_a7b23550b57e6c289d8cbd660ccdaa1a1}\label{classObservableProperty_a7b23550b57e6c289d8cbd660ccdaa1a1}} 
+{\bfseries Observable\+Property} (const \mbox{\hyperlink{classObservableProperty_a6f55cf1dc6834c0733a2ed4118b04515}{Name\+Type}} \&name)
+\item 
+\mbox{\Hypertarget{classObservableProperty_a6a04e55cd9a1757ad8eebb7cf7ad9cda}\label{classObservableProperty_a6a04e55cd9a1757ad8eebb7cf7ad9cda}} 
+const \mbox{\hyperlink{classObservableProperty_a6f55cf1dc6834c0733a2ed4118b04515}{Name\+Type}} \& \mbox{\hyperlink{classObservableProperty_a6a04e55cd9a1757ad8eebb7cf7ad9cda}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Return property name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classObservableProperty_a67fa93c78e38b326e35e001d95082906}\label{classObservableProperty_a67fa93c78e38b326e35e001d95082906}} 
+void \mbox{\hyperlink{classObservableProperty_a67fa93c78e38b326e35e001d95082906}{notify\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Notify change. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple observable property. 
+
+\begin{DoxyAuthor}{Author}
+D. Di Pietro \href{mailto:daniele-antonio.di-pietro@ifp.fr}{\texttt{ daniele-\/antonio.\+di-\/pietro@ifp.\+fr}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+08-\/07-\/2008
+\end{DoxyDate}
+An observable property is a property which calls a set of functions (observers) on change. The candidate functions have the signature
+
+void $<$fct$>$()
+
+Class members may also be called using the following syntax\+:
+
+property.\+connect\+Observer(\+Observer\+Type$<$boost\+::bind$<$void$>$(\&\+Class\+::member), \&class\+\_\+instance);
+
+Observers can be connected using the connect\+Observer members. Temporary blockage of connected observers may be obtained via the block\+Connection member. Blocked connected observers are not called on change notifications. Connected observers can be unblocked via the unblock\+Connection member. Observers can be disconnected via the remove\+Connection member.
+
+\mbox{\hyperlink{classObservableProperty}{Observable\+Property}} should be used to automatically account for dependences. 
+
+Definition at line 46 of file Observable\+Property.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Observable\+Property.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Observable\+Property.\+cc\end{DoxyCompactItemize}

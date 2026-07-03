@@ -1,0 +1,111 @@
+\hypertarget{classVariableManager}{}\doxysection{Variable\+Manager Class Reference}
+\label{classVariableManager}\index{VariableManager@{VariableManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableManager_a978d395a23f0c47b522385d2a3ce47d9}\label{classVariableManager_a978d395a23f0c47b522385d2a3ce47d9}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classVariableManager_a480f9c440ddf095e4edf61545a2c87b3}\label{classVariableManager_a480f9c440ddf095e4edf61545a2c87b3}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+ITrace\+Mng $\ast$trace)
+\item 
+\mbox{\Hypertarget{classVariableManager_a2d912a1e6a827869081c0b20a26e61b1}\label{classVariableManager_a2d912a1e6a827869081c0b20a26e61b1}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+String name, Arcane\+::\+IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classVariableManager_a9920ac07055d4deb461d33cdf61d900f}\label{classVariableManager_a9920ac07055d4deb461d33cdf61d900f}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+String name, Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+ITrace\+Mng $\ast$trace)
+\item 
+\mbox{\Hypertarget{classVariableManager_a2b56e5f6f171838e8569b42dcd264d54}\label{classVariableManager_a2b56e5f6f171838e8569b42dcd264d54}} 
+void {\bfseries enable\+Verbosity} ()
+\item 
+\mbox{\Hypertarget{classVariableManager_a3df4181ac168c5bbd4250be90e343cb6}\label{classVariableManager_a3df4181ac168c5bbd4250be90e343cb6}} 
+void {\bfseries disable\+Verbosity} ()
+\item 
+\mbox{\Hypertarget{classVariableManager_a9f7cf8562dee7639034662cfadb9051e}\label{classVariableManager_a9f7cf8562dee7639034662cfadb9051e}} 
+Arcane\+::\+IMesh $\ast$ {\bfseries mesh} () const
+\item 
+\mbox{\Hypertarget{classVariableManager_a6471287dfca1e9001871059fa0a169cd}\label{classVariableManager_a6471287dfca1e9001871059fa0a169cd}} 
+void {\bfseries set\+Default\+Family} (Arcane\+::\+IItem\+Family $\ast$family)
+\item 
+\mbox{\Hypertarget{classVariableManager_a4fca10455905662c036f742fd86597ce}\label{classVariableManager_a4fca10455905662c036f742fd86597ce}} 
+\mbox{\hyperlink{classVariableManager}{Variable\+Manager}} \& \mbox{\hyperlink{classVariableManager_a4fca10455905662c036f742fd86597ce}{operator$<$$<$}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIAllocator}{IAllocator}} $>$ \&info)
+\begin{DoxyCompactList}\small\item\em Enregistrement par un allocateur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_a7e0f0df6141f5d41faa8c77af013dc00}\label{classVariableManager_a7e0f0df6141f5d41faa8c77af013dc00}} 
+\mbox{\hyperlink{classVariableManager}{Variable\+Manager}} \& \mbox{\hyperlink{classVariableManager_a7e0f0df6141f5d41faa8c77af013dc00}{operator$<$$<$}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVariableRef}{Variable\+Ref}} $>$ \&info)
+\begin{DoxyCompactList}\small\item\em Enregistrement d\textquotesingle{}une r{\ucr}f{\ucr}rence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_a6f564999da91c5b17e1bd58007d67f4e}\label{classVariableManager_a6f564999da91c5b17e1bd58007d67f4e}} 
+{\footnotesize template$<$typename Kind $>$ }\\\mbox{\hyperlink{structVariableAccessorT}{Variable\+AccessorT}}$<$ Kind $>$ \mbox{\hyperlink{classVariableManager_a6f564999da91c5b17e1bd58007d67f4e}{variables}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_a0262151da4d567a33c893f3bb755f3e5}\label{classVariableManager_a0262151da4d567a33c893f3bb755f3e5}} 
+{\footnotesize template$<$typename Kind $>$ }\\\mbox{\hyperlink{structPartialVariableAccessorT}{Partial\+Variable\+AccessorT}}$<$ Kind $>$ \mbox{\hyperlink{classVariableManager_a0262151da4d567a33c893f3bb755f3e5}{partial\+Variables}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable partielle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_a53c397e3afc71d488892e8d08dfdece3}\label{classVariableManager_a53c397e3afc71d488892e8d08dfdece3}} 
+\mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}} \mbox{\hyperlink{classVariableManager_a53c397e3afc71d488892e8d08dfdece3}{arrays}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable tableau. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_aaa47e35563918866b8ce434bdc3deaf9}\label{classVariableManager_aaa47e35563918866b8ce434bdc3deaf9}} 
+\mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}} \mbox{\hyperlink{classVariableManager_aaa47e35563918866b8ce434bdc3deaf9}{scalars}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_ad62f154ac616481e4e1f7fc9ab45f0b3}\label{classVariableManager_ad62f154ac616481e4e1f7fc9ab45f0b3}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classVariableManager_a480f9c440ddf095e4edf61545a2c87b3}\label{classVariableManager_a480f9c440ddf095e4edf61545a2c87b3}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+ITrace\+Mng $\ast$trace)
+\item 
+\mbox{\Hypertarget{classVariableManager_a2d912a1e6a827869081c0b20a26e61b1}\label{classVariableManager_a2d912a1e6a827869081c0b20a26e61b1}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+String name, Arcane\+::\+IMesh $\ast$mesh)
+\item 
+\mbox{\Hypertarget{classVariableManager_a9920ac07055d4deb461d33cdf61d900f}\label{classVariableManager_a9920ac07055d4deb461d33cdf61d900f}} 
+{\bfseries Variable\+Manager} (Arcane\+::\+String name, Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+ITrace\+Mng $\ast$trace)
+\item 
+\mbox{\Hypertarget{classVariableManager_a2b56e5f6f171838e8569b42dcd264d54}\label{classVariableManager_a2b56e5f6f171838e8569b42dcd264d54}} 
+void {\bfseries enable\+Verbosity} ()
+\item 
+\mbox{\Hypertarget{classVariableManager_a3df4181ac168c5bbd4250be90e343cb6}\label{classVariableManager_a3df4181ac168c5bbd4250be90e343cb6}} 
+void {\bfseries disable\+Verbosity} ()
+\item 
+\mbox{\Hypertarget{classVariableManager_a9f7cf8562dee7639034662cfadb9051e}\label{classVariableManager_a9f7cf8562dee7639034662cfadb9051e}} 
+Arcane\+::\+IMesh $\ast$ {\bfseries mesh} () const
+\item 
+\mbox{\Hypertarget{classVariableManager_a6471287dfca1e9001871059fa0a169cd}\label{classVariableManager_a6471287dfca1e9001871059fa0a169cd}} 
+void {\bfseries set\+Default\+Family} (Arcane\+::\+IItem\+Family $\ast$family)
+\item 
+\mbox{\Hypertarget{classVariableManager_a4890e0b23aa291e777ee7132da9cc871}\label{classVariableManager_a4890e0b23aa291e777ee7132da9cc871}} 
+\mbox{\hyperlink{classVariableManager}{Variable\+Manager}} \& \mbox{\hyperlink{classVariableManager_a4890e0b23aa291e777ee7132da9cc871}{operator$<$$<$}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIAllocator}{IAllocator}} $>$ \&info)
+\begin{DoxyCompactList}\small\item\em Enregistrement par un allocateur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_ad4ef838a3352911aaabfe01c2caf2e75}\label{classVariableManager_ad4ef838a3352911aaabfe01c2caf2e75}} 
+\mbox{\hyperlink{classVariableManager}{Variable\+Manager}} \& \mbox{\hyperlink{classVariableManager_ad4ef838a3352911aaabfe01c2caf2e75}{operator$<$$<$}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVariableRef}{Variable\+Ref}} $>$ \&info)
+\begin{DoxyCompactList}\small\item\em Enregistrement d\textquotesingle{}une r{\ucr}f{\ucr}rence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_a690230c760af05b926d6749c6909c828}\label{classVariableManager_a690230c760af05b926d6749c6909c828}} 
+{\footnotesize template$<$typename Kind $>$ }\\\mbox{\hyperlink{structVariableAccessorT}{Variable\+AccessorT}}$<$ typename Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ Kind $>$\+::item\+\_\+type $>$ \mbox{\hyperlink{classVariableManager_a690230c760af05b926d6749c6909c828}{variables}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_aa00d474a62dfc9a8799cbf648e036cfd}\label{classVariableManager_aa00d474a62dfc9a8799cbf648e036cfd}} 
+{\footnotesize template$<$typename Kind $>$ }\\\mbox{\hyperlink{structPartialVariableAccessorT}{Partial\+Variable\+AccessorT}}$<$ typename Arc\+Geo\+Sim\+::\+Mesh\+::\+Graph\+Traits$<$ Kind $>$\+::item\+\_\+type $>$ \mbox{\hyperlink{classVariableManager_aa00d474a62dfc9a8799cbf648e036cfd}{partial\+Variables}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable partielle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_a53c397e3afc71d488892e8d08dfdece3}\label{classVariableManager_a53c397e3afc71d488892e8d08dfdece3}} 
+\mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}} \mbox{\hyperlink{classVariableManager_a53c397e3afc71d488892e8d08dfdece3}{arrays}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable tableau. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableManager_aaa47e35563918866b8ce434bdc3deaf9}\label{classVariableManager_aaa47e35563918866b8ce434bdc3deaf9}} 
+\mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}} \mbox{\hyperlink{classVariableManager_aaa47e35563918866b8ce434bdc3deaf9}{scalars}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de variable scalaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVariableManager_aad19c263f37c47bee218592838da48bf}\label{classVariableManager_aad19c263f37c47bee218592838da48bf}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&nout, const \mbox{\hyperlink{classVariableManager}{Variable\+Manager}} \&variable\+\_\+mng)
+\item 
+\mbox{\Hypertarget{classVariableManager_aad19c263f37c47bee218592838da48bf}\label{classVariableManager_aad19c263f37c47bee218592838da48bf}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&nout, const \mbox{\hyperlink{classVariableManager}{Variable\+Manager}} \&variable\+\_\+mng)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 60 of file Variable\+Manager.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Variable\+Manager.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Variable\+Manager.\+cc\end{DoxyCompactItemize}

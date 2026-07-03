@@ -1,0 +1,166 @@
+\hypertarget{classFemModuleElasticity}{}\doxysection{Fem\+Module\+Elasticity Class Reference}
+\label{classFemModuleElasticity}\index{FemModuleElasticity@{FemModuleElasticity}}
+
+
+A module for finite element method.  
+
+
+
+
+{\ttfamily \#include $<$Fem\+Module.\+h$>$}
+
+
+
+Inherits Arcane\+Fem\+Object, and Arc\+Geo\+Sim\+::\+ICAWFMng\+::\+ITime\+Iter\+State\+Op.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFemModuleElasticity_aaac7c48f4e0ea70e694f9a806dce6429}\label{classFemModuleElasticity_aaac7c48f4e0ea70e694f9a806dce6429}} 
+{\bfseries Fem\+Module\+Elasticity} (const Module\+Build\+Info \&mbi)
+\item 
+\mbox{\Hypertarget{classFemModuleElasticity_a7159574367680d996388b8f69176fe30}\label{classFemModuleElasticity_a7159574367680d996388b8f69176fe30}} 
+void {\bfseries save\+Old\+State} ()
+\item 
+\mbox{\Hypertarget{classFemModuleElasticity_a03eb867aa16ddc5bf166a30f93440a48}\label{classFemModuleElasticity_a03eb867aa16ddc5bf166a30f93440a48}} 
+void {\bfseries reload\+Old\+State} ()
+\item 
+void \mbox{\hyperlink{classFemModuleElasticity_a713a5dee527a0f9a218b9c8b461ceee1}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classFemModuleElasticity}{Fem\+Module\+Elasticity}} at the start of the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModuleElasticity_addf7f6ae63456299f45972c471503e63}\label{classFemModuleElasticity_addf7f6ae63456299f45972c471503e63}} 
+void {\bfseries start\+Init} () override
+\item 
+void \mbox{\hyperlink{classFemModuleElasticity_ad3bb0f9040e4141ceef536038cd61a2d}{compute\+DivU}} () override
+\begin{DoxyCompactList}\small\item\em Method called at the beginning of the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModuleElasticity_ab06ab2db63cae57328155891523641f4}\label{classFemModuleElasticity_ab06ab2db63cae57328155891523641f4}} 
+void \mbox{\hyperlink{classFemModuleElasticity_ab06ab2db63cae57328155891523641f4}{test}} () override
+\begin{DoxyCompactList}\small\item\em Method called at each iteration. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModuleElasticity_a52a36af1baf95b76390df43caecc5309}\label{classFemModuleElasticity_a52a36af1baf95b76390df43caecc5309}} 
+Version\+Info \mbox{\hyperlink{classFemModuleElasticity_a52a36af1baf95b76390df43caecc5309}{version\+Info}} () const override
+\begin{DoxyCompactList}\small\item\em Method called at each iteration. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModuleElasticity_aabf9b5dc7f14cbee7b4945d9b6562116}\label{classFemModuleElasticity_aabf9b5dc7f14cbee7b4945d9b6562116}} 
+void {\bfseries \+\_\+update\+Top\+Boundary} (Cell\+Group const \&new\+\_\+event)
+\item 
+void \mbox{\hyperlink{classFemModuleElasticity_a5b769fd9a5bc4503b409f70211e3a0b1}{\+\_\+do\+Stationary\+Solve}} ()
+\begin{DoxyCompactList}\small\item\em Performs a stationary solve for the FEM system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModuleElasticity_a8dfc2aec7d95e22420a431c7cb4c8be7}\label{classFemModuleElasticity_a8dfc2aec7d95e22420a431c7cb4c8be7}} 
+{\footnotesize template$<$typename ProfilerT $>$ }\\void {\bfseries \+\_\+define\+Matrix\+Profile} (ProfilerT \&profiler, Const\+Array\+View$<$ Integer $>$ all\+UIndex)
+\item 
+\mbox{\Hypertarget{classFemModuleElasticity_aaa11f39de79f8c84022f82bb6cf03b7e}\label{classFemModuleElasticity_aaa11f39de79f8c84022f82bb6cf03b7e}} 
+void \mbox{\hyperlink{classFemModuleElasticity_aaa11f39de79f8c84022f82bb6cf03b7e}{\+\_\+assemble\+Bilinear\+Operator}} ()
+\begin{DoxyCompactList}\small\item\em Calls the right function for LHS assembly given as mesh type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFemModuleElasticity_ad1faa09fda20909d215d6606e4d6c49f}{\+\_\+assemble\+Dirichlets\+Gpu}} ()
+\begin{DoxyCompactList}\small\item\em Applies dirichlet to LHS matrix and RHS vector of the linear system on Gpu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFemModuleElasticity_af2c0a289f42afad93dc0dfea7d63a293}\label{classFemModuleElasticity_af2c0a289f42afad93dc0dfea7d63a293}} 
+void {\bfseries \+\_\+compute\+Pre\+Pro} ()
+\item 
+\mbox{\Hypertarget{classFemModuleElasticity_a6a6df5d96f7be0ff7073f09712a9d62a}\label{classFemModuleElasticity_a6a6df5d96f7be0ff7073f09712a9d62a}} 
+void {\bfseries \+\_\+compute\+Post\+Pro} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A module for finite element method. 
+
+This class handles the initialization and computation for finite element method (FEM) simulations, providing methods to set up and solve linear systems, assemble FEM operators, and perform result checks. 
+
+Definition at line 79 of file Fem\+Module.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFemModuleElasticity_ad1faa09fda20909d215d6606e4d6c49f}\label{classFemModuleElasticity_ad1faa09fda20909d215d6606e4d6c49f}} 
+\index{FemModuleElasticity@{FemModuleElasticity}!\_assembleDirichletsGpu@{\_assembleDirichletsGpu}}
+\index{\_assembleDirichletsGpu@{\_assembleDirichletsGpu}!FemModuleElasticity@{FemModuleElasticity}}
+\doxysubsubsection{\texorpdfstring{\_assembleDirichletsGpu()}{\_assembleDirichletsGpu()}}
+{\footnotesize\ttfamily void Fem\+Module\+Elasticity\+::\+\_\+assemble\+Dirichlets\+Gpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Applies dirichlet to LHS matrix and RHS vector of the linear system on Gpu. 
+
+This function applies Dirichlet boundary conditions to both the LHS matrix and RHS vector of the linear system using GPU acceleration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs\+\_\+values} & The variable representing the RHS vector to be updated. \\
+\hline
+{\em node\+\_\+dof} & The connectivity view mapping nodes to their corresponding \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 62 of file Dirichlet.\+h.
+
+\mbox{\Hypertarget{classFemModuleElasticity_a5b769fd9a5bc4503b409f70211e3a0b1}\label{classFemModuleElasticity_a5b769fd9a5bc4503b409f70211e3a0b1}} 
+\index{FemModuleElasticity@{FemModuleElasticity}!\_doStationarySolve@{\_doStationarySolve}}
+\index{\_doStationarySolve@{\_doStationarySolve}!FemModuleElasticity@{FemModuleElasticity}}
+\doxysubsubsection{\texorpdfstring{\_doStationarySolve()}{\_doStationarySolve()}}
+{\footnotesize\ttfamily void Fem\+Module\+Elasticity\+::\+\_\+do\+Stationary\+Solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Performs a stationary solve for the FEM system. 
+
+This method follows a sequence of steps to solve FEM system\+:
+
+
+\begin{DoxyEnumerate}
+\item \+\_\+get\+Material\+Parameters() Retrieves material parameters via
+\item \mbox{\hyperlink{classFemModuleElasticity_aaa11f39de79f8c84022f82bb6cf03b7e}{\+\_\+assemble\+Bilinear\+Operator()}} Assembles the FEM matrix 𝐀
+\item \+\_\+assemble\+Linear\+Operator() Assembles the FEM RHS vector 𝐛
+\item \+\_\+solve() Solves for solution vector 𝐮 = 𝐀⁻¹𝐛
+\item \+\_\+update\+Variables() Updates FEM variables 𝐮 = 𝐱
+\item \+\_\+validate\+Results() Regression test 
+\end{DoxyEnumerate}
+
+Definition at line 678 of file Fem\+Module.\+cc.
+
+\mbox{\Hypertarget{classFemModuleElasticity_ad3bb0f9040e4141ceef536038cd61a2d}\label{classFemModuleElasticity_ad3bb0f9040e4141ceef536038cd61a2d}} 
+\index{FemModuleElasticity@{FemModuleElasticity}!computeDivU@{computeDivU}}
+\index{computeDivU@{computeDivU}!FemModuleElasticity@{FemModuleElasticity}}
+\doxysubsubsection{\texorpdfstring{computeDivU()}{computeDivU()}}
+{\footnotesize\ttfamily void Fem\+Module\+Elasticity\+::compute\+DivU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Method called at the beginning of the simulation. 
+
+Performs the main computation for the \mbox{\hyperlink{classFemModuleElasticity}{Fem\+Module\+Elasticity}}.
+
+This method\+:
+\begin{DoxyEnumerate}
+\item Stops the time loop after 1 iteration since the equation is steady state.
+\item Resets, configures, and initializes the linear system.
+\item Sets PETSc flags if user has provided them.
+\item Executes the stationary solve. 
+\end{DoxyEnumerate}
+
+Definition at line 279 of file Fem\+Module.\+cc.
+
+\mbox{\Hypertarget{classFemModuleElasticity_a713a5dee527a0f9a218b9c8b461ceee1}\label{classFemModuleElasticity_a713a5dee527a0f9a218b9c8b461ceee1}} 
+\index{FemModuleElasticity@{FemModuleElasticity}!init@{init}}
+\index{init@{init}!FemModuleElasticity@{FemModuleElasticity}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Fem\+Module\+Elasticity\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Initializes the \mbox{\hyperlink{classFemModuleElasticity}{Fem\+Module\+Elasticity}} at the start of the simulation. 
+
+This method initializes degrees of freedom (Do\+Fs) on nodes. 
+
+Definition at line 34 of file Fem\+Module.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Fem\+Module.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Body\+Force.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Dirichlet.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Element\+Matrix.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Element\+Matrix\+Hex\+Quad.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Fem\+Module.\+cc\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Fem\+Module\+SYCL.\+cc\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+Elasticity/Traction.\+h\end{DoxyCompactItemize}

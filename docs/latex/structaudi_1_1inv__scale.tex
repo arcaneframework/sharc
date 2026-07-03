@@ -1,0 +1,57 @@
+\hypertarget{structaudi_1_1inv__scale}{}\doxysection{audi\+::inv\+\_\+scale$<$ T $>$ Struct Template Reference}
+\label{structaudi_1_1inv__scale}\index{audi::inv\_scale$<$ T $>$@{audi::inv\_scale$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{structaudi_1_1expression}{audi\+::expression$<$ inv\+\_\+scale$<$ T $>$ $>$}}, and \mbox{\hyperlink{structaudi_1_1node}{audi\+::node}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_a0de9db9c759162ce281d4c9c99e5956f}\label{structaudi_1_1inv__scale_a0de9db9c759162ce281d4c9c99e5956f}} 
+using {\bfseries Operand} = typename std\+::conditional$<$ \mbox{\hyperlink{structaudi_1_1is__node}{is\+\_\+node}}$<$ T $>$\+::value, const T, const T \& $>$\+::type
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_abc7470fe36eba207711895243dbbb1be}\label{structaudi_1_1inv__scale_abc7470fe36eba207711895243dbbb1be}} 
+using {\bfseries data\+\_\+type} = decltype(m\+\_\+type.\+value())
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_a460b40a694e6fccfb9bfd027230a0d07}\label{structaudi_1_1inv__scale_a460b40a694e6fccfb9bfd027230a0d07}} 
+{\bfseries inv\+\_\+scale} (const \mbox{\hyperlink{structaudi_1_1expression}{expression}}$<$ T $>$ \&t, decltype(m\+\_\+type.\+value()) factor)
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_a5d4079afc3584d7f1718c024c20d81a0}\label{structaudi_1_1inv__scale_a5d4079afc3584d7f1718c024c20d81a0}} 
+auto {\bfseries value} () const
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_a7d0d774f69be9d32b72c76494b77ff49}\label{structaudi_1_1inv__scale_a7d0d774f69be9d32b72c76494b77ff49}} 
+auto {\bfseries gradient} (std\+::size\+\_\+t i) const
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_a61a3221156a3bf6ffa16aab5ba7da5c2}\label{structaudi_1_1inv__scale_a61a3221156a3bf6ffa16aab5ba7da5c2}} 
+auto {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_af9b85abc48ea39de3c9f04e5d3406b26}\label{structaudi_1_1inv__scale_af9b85abc48ea39de3c9f04e5d3406b26}} 
+Operand {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_a0aea9a8b85b2c06b74339b540dfb241d}\label{structaudi_1_1inv__scale_a0aea9a8b85b2c06b74339b540dfb241d}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+factor}
+\item 
+\mbox{\Hypertarget{structaudi_1_1inv__scale_a153cc3ad64731ace17ec3a92a7151790}\label{structaudi_1_1inv__scale_a153cc3ad64731ace17ec3a92a7151790}} 
+decltype(m\+\_\+type.\+value()) const {\bfseries m\+\_\+v}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct audi\+::inv\+\_\+scale$<$ T $>$}
+
+
+
+Definition at line 7 of file inv\+\_\+scale.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Au\+Di/dense/node/inv\+\_\+scale.\+h\end{DoxyCompactItemize}
