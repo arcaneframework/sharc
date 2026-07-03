@@ -120,6 +120,26 @@ guix time-machine -C ./guix/channels.locked.scm  -- shell -m ./guix/manifest-sha
 
 </details>
 
+## III/ Architecture
+
+The overall architecture of ShArc and its main modules is documented in:
+
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — high-level overview of the code structure, module responsibilities and execution flow (ShArc, TwoPhaseFlowSimulation, CAWF, ExaDiBench, tests).
+- The **Architecture** section of the Hugo documentation site (if built locally under `docs/`):
+  - `docs/content/architecture/_index.md` (Hugo page including `ARCHITECTURE.md`).
+
+In short:
+
+- `common/` hosts the ArcGeoSim / ArcaneInfra submodules (framework and build system).
+- `src/` contains the ShArc library:
+  - `ShArc/` (orchestration module),
+  - `TwoPhaseFlowSimulation/` (two-phase flow & thermo-chemical modules),
+  - `CAWF/` (FEM-based solvers and utilities),
+  - `ExaDiBench/` (geometric benchmark module),
+  - `Main/` (ShArc.exe entry point).
+- `test/` contains the reference cases and CTest scenarios (TwoPhaseFlowSimulation, CAWF, ExaDiBench, ThermoChemicalConvection, large-scale SPE10).
+
+
 ### II.2/ Installation guide
 
 <details><summary><h3>Compilation guide on linux machine, using apptainer or guix package manager</summary>
@@ -345,4 +365,3 @@ $ cmake --build `pwd`/build-sharc
 </details>
 
 </details>
-
