@@ -1,0 +1,34 @@
+This repository is composed of 7 csharp projects
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespaceLawCompiler}{Law\+Compiler}} $\ast$(generate \char`\"{}law.\+h\char`\"{} files from \char`\"{}law.\+xml\char`\"{} files)$\ast$
+\item \mbox{\hyperlink{namespaceGumpCompiler}{Gump\+Compiler}} $\ast$(generate \char`\"{}gump.\+h\char`\"{} files from \char`\"{}gump.\+xml\char`\"{} files)$\ast$
+\item \mbox{\hyperlink{namespaceCMakeListGenerator}{CMake\+List\+Generator}} $\ast$(generate CMake\+List.\+txt from config.\+xml file)$\ast$
+\item \mbox{\hyperlink{namespacePkgListLoader}{Pkg\+List\+Loader}} $\ast$(generate a specific loader for file pkglist.\+xml)$\ast$
+\item \mbox{\hyperlink{namespaceEclipseCDTSettings}{Eclipse\+CDTSettings}} $\ast$(generate an eclipse cdt settings file for Arc\+Based projects)$\ast$
+\item Whole\+Archive\+VCProj $\ast$(windows whole archive management)$\ast$
+\item \mbox{\hyperlink{namespaceWindowsPathResolver}{Windows\+Path\+Resolver}} $\ast$(windows link path resolver)$\ast$
+\end{DoxyItemize}
+
+For the moment, we decide to push the binary of each project on git. Binaries are portable linux/windows throught dotnet...
+
+All projects are available with dotnet 6 unless \mbox{\hyperlink{namespaceWindowsPathResolver}{Windows\+Path\+Resolver}}.\hypertarget{md__work_gratienj_Projets_2026_sharc_common_ArcaneInfra_build_system_csharp_README_autotoc_md12}{}\doxyparagraph{Windows\+Path\+Resolver}\label{md__work_gratienj_Projets_2026_sharc_common_ArcaneInfra_build_system_csharp_README_autotoc_md12}
+\mbox{\hyperlink{namespaceWindowsPathResolver}{Windows\+Path\+Resolver}} is a windows os specific projet with COM dependencies. So please compile its visual solution under windows.
+
+Other projects could be easily update with dotnet publish.\hypertarget{md__work_gratienj_Projets_2026_sharc_common_ArcaneInfra_build_system_csharp_README_autotoc_md13}{}\doxyparagraph{Law\+Compiler, Gump\+Compiler and CMake\+List\+Generator}\label{md__work_gratienj_Projets_2026_sharc_common_ArcaneInfra_build_system_csharp_README_autotoc_md13}
+This 3 projects are based on xsd and T4 generators. So we prowide a script to not pushed on git all those verbose csharp generated sources. This srcipt first generate sources from xsd and t4, then compile the project using dotnet publish and finaly clean the project (delete generated csharp sources). Using this script required mono for xsd part and axlstar (Text\+Transform) for t4 part. So axlstar must be clone at the same level that current app\+\_\+buildsystem\+\_\+tools. Then using this script is quiet simple\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{buildXSDT4CSProj.sh 'Law|Gump|CMakeList'}
+
+\end{DoxyCode}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_common_ArcaneInfra_build_system_csharp_README_autotoc_md14}{}\doxyparagraph{Pkg\+List\+Loader, Eclipse\+CDTSettings and Whole\+Archive\+VCProj}\label{md__work_gratienj_Projets_2026_sharc_common_ArcaneInfra_build_system_csharp_README_autotoc_md14}
+This 3 projects are very simple they could be pulished directly. For instance\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd PkgListLoader}
+\DoxyCodeLine{dotnet publish}
+
+\end{DoxyCode}
+ 

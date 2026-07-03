@@ -1,0 +1,62 @@
+\hypertarget{structVariableRefOp}{}\doxysection{Variable\+Ref\+Op Struct Reference}
+\label{structVariableRefOp}\index{VariableRefOp@{VariableRefOp}}
+
+
+Inherits \mbox{\hyperlink{structIRefOp}{IRef\+Op}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structVariableRefOp_a8e664da1ed96dacf2d58390165e17d8c}\label{structVariableRefOp_a8e664da1ed96dacf2d58390165e17d8c}} 
+{\bfseries Variable\+Ref\+Op} (\mbox{\hyperlink{structFunctionParserData_1_1VariableRef}{Function\+Parser\+Data\+::\+Variable\+Ref}} \&ref)
+\item 
+\mbox{\Hypertarget{structVariableRefOp_a13b5d9d456e35d48ae0d3d039cae5d04}\label{structVariableRefOp_a13b5d9d456e35d48ae0d3d039cae5d04}} 
+void \mbox{\hyperlink{structVariableRefOp_a13b5d9d456e35d48ae0d3d039cae5d04}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack)
+\begin{DoxyCompactList}\small\item\em defaut apply (by block) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structVariableRefOp_aedb64cccd266dd08d4cdc2c7c60ba06c}\label{structVariableRefOp_aedb64cccd266dd08d4cdc2c7c60ba06c}} 
+void \mbox{\hyperlink{structVariableRefOp_aedb64cccd266dd08d4cdc2c7c60ba06c}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack, const Integer n)
+\begin{DoxyCompactList}\small\item\em restricted apply (not by block) \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{structVariableRefOp_ab8fb03731c6ca829c3d1067d8b277950}{size}} () const
+\begin{DoxyCompactList}\small\item\em operator depth \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structVariableRefOp_a840e9b5bfb59e134ebadbd251c0483ad}\label{structVariableRefOp_a840e9b5bfb59e134ebadbd251c0483ad}} 
+void \mbox{\hyperlink{structVariableRefOp_a840e9b5bfb59e134ebadbd251c0483ad}{set\+Reference}} (const Integer i, const Integer pos)
+\begin{DoxyCompactList}\small\item\em set operand references \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structVariableRefOp_aafb3765c86dec8f1ed719d721a07069e}\label{structVariableRefOp_aafb3765c86dec8f1ed719d721a07069e}} 
+Integer {\bfseries get\+Reference} () const
+\item 
+\mbox{\Hypertarget{structVariableRefOp_a618d4f14fc907d03eddf9d45831cf8d7}\label{structVariableRefOp_a618d4f14fc907d03eddf9d45831cf8d7}} 
+const std\+::string \& {\bfseries name} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 340 of file Function\+Parser.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structVariableRefOp_ab8fb03731c6ca829c3d1067d8b277950}\label{structVariableRefOp_ab8fb03731c6ca829c3d1067d8b277950}} 
+\index{VariableRefOp@{VariableRefOp}!size@{size}}
+\index{size@{size}!VariableRefOp@{VariableRefOp}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily Integer Variable\+Ref\+Op\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+operator depth 
+
+how many value must be un-\/stacked to apply this operator; -\/1 means variable or constante 
+
+Implements \mbox{\hyperlink{structIStackOp_a2f567be749b325cf2e9e37096717df17}{IStack\+Op}}.
+
+
+
+Definition at line 352 of file Function\+Parser.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/Function\+Parser.\+h\end{DoxyCompactItemize}

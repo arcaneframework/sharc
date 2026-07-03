@@ -1,0 +1,79 @@
+\hypertarget{classNewtonSolverService}{}\doxysection{Newton\+Solver\+Service Class Reference}
+\label{classNewtonSolverService}\index{NewtonSolverService@{NewtonSolverService}}
+
+
+Inherits Arcane\+Newton\+Solver\+Object, and \mbox{\hyperlink{classIInfoModel}{IInfo\+Model}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewtonSolverService_a95aab050495b588010a496081990f682}\label{classNewtonSolverService_a95aab050495b588010a496081990f682}} 
+using {\bfseries IDirect\+Solver\+Type} = \mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{INon\+Linear\+Solver\+::\+IDirect\+Solver\+Type}}
+\item 
+\mbox{\Hypertarget{classNewtonSolverService_a528b54447c38595ccb975e51010d1c77}\label{classNewtonSolverService_a528b54447c38595ccb975e51010d1c77}} 
+using {\bfseries ILinear\+System\+Builder\+Type} = \mbox{\hyperlink{classILinearSystemBuilder}{INon\+Linear\+Solver\+::\+ILinear\+System\+Builder\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewtonSolverService_a560c5978436d63cea665d002e37fc039}\label{classNewtonSolverService_a560c5978436d63cea665d002e37fc039}} 
+\mbox{\hyperlink{classNewtonSolverService_a560c5978436d63cea665d002e37fc039}{Newton\+Solver\+Service}} (const Arcane\+::\+Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_a0b05d7af0db50aa8fdbeea52b67209f2}\label{classNewtonSolverService_a0b05d7af0db50aa8fdbeea52b67209f2}} 
+virtual \mbox{\hyperlink{classNewtonSolverService_a0b05d7af0db50aa8fdbeea52b67209f2}{$\sim$\+Newton\+Solver\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_afb1a82e47d42564d59bad9504c24b755}\label{classNewtonSolverService_afb1a82e47d42564d59bad9504c24b755}} 
+void \mbox{\hyperlink{classNewtonSolverService_afb1a82e47d42564d59bad9504c24b755}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_adede05d87939f1730762601938804b5d}\label{classNewtonSolverService_adede05d87939f1730762601938804b5d}} 
+void \mbox{\hyperlink{classNewtonSolverService_adede05d87939f1730762601938804b5d}{set\+Non\+Linear\+System\+Builder}} (\mbox{\hyperlink{classINonLinearSystemBuilder}{INon\+Linear\+System\+Builder}} $\ast$builder)
+\begin{DoxyCompactList}\small\item\em Setting non linear sytem builder. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_ae51fac354b852a60872e279a0fbd0718}\label{classNewtonSolverService_ae51fac354b852a60872e279a0fbd0718}} 
+void \mbox{\hyperlink{classNewtonSolverService_ae51fac354b852a60872e279a0fbd0718}{set\+Variable\+Updater}} (\mbox{\hyperlink{classINonLinearSystemVisitor}{INon\+Linear\+System\+Visitor}} $\ast$updater)
+\begin{DoxyCompactList}\small\item\em Setting variable updater. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_ad48ba03b08b7c3ee0a76ba5ba84d3b79}\label{classNewtonSolverService_ad48ba03b08b7c3ee0a76ba5ba84d3b79}} 
+void {\bfseries set\+Linear\+Solver} (\mbox{\hyperlink{classLocalDirectSolverNamespace_1_1ILinearSolver}{IDirect\+Solver\+Type}} $\ast$solver)
+\item 
+\mbox{\Hypertarget{classNewtonSolverService_a4a11e4ab9b814275a0ffff02af69655d}\label{classNewtonSolverService_a4a11e4ab9b814275a0ffff02af69655d}} 
+void {\bfseries set\+Linear\+Solver} (Alien\+::\+ILinear\+Solver $\ast$solver)
+\item 
+\mbox{\Hypertarget{classNewtonSolverService_a3ef51bd3e501b0ba00f9c019167d7976}\label{classNewtonSolverService_a3ef51bd3e501b0ba00f9c019167d7976}} 
+void \mbox{\hyperlink{classNewtonSolverService_a3ef51bd3e501b0ba00f9c019167d7976}{set\+Linear\+System\+Builder}} (\mbox{\hyperlink{classILinearSystemBuilder}{ILinear\+System\+Builder\+Type}} $\ast$builder)
+\begin{DoxyCompactList}\small\item\em Setting linear system builder. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_ae984fd18247105ace6759dac1435423e}\label{classNewtonSolverService_ae984fd18247105ace6759dac1435423e}} 
+void \mbox{\hyperlink{classNewtonSolverService_ae984fd18247105ace6759dac1435423e}{set\+Stop\+Criteria}} (\mbox{\hyperlink{classINonLinearStopCriteria}{INon\+Linear\+Stop\+Criteria}} $\ast$stop\+\_\+criteria)
+\begin{DoxyCompactList}\small\item\em Setting stop criteria. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_aa4252459ada3446268c1f2b6ac14b2fe}\label{classNewtonSolverService_aa4252459ada3446268c1f2b6ac14b2fe}} 
+void \mbox{\hyperlink{classNewtonSolverService_aa4252459ada3446268c1f2b6ac14b2fe}{start}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)
+\begin{DoxyCompactList}\small\item\em Initializing (before solve) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_a92c2e7f91a139b839cfb49692171da75}\label{classNewtonSolverService_a92c2e7f91a139b839cfb49692171da75}} 
+bool \mbox{\hyperlink{classNewtonSolverService_a92c2e7f91a139b839cfb49692171da75}{solve}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)
+\begin{DoxyCompactList}\small\item\em Solving non linear problem. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_a81c41fe54b5a6255b25c86a359f8bfcc}\label{classNewtonSolverService_a81c41fe54b5a6255b25c86a359f8bfcc}} 
+bool {\bfseries solve\+Opt} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)
+\item 
+\mbox{\Hypertarget{classNewtonSolverService_ae7cb60105e6d90f0d8dfd83854ab1047}\label{classNewtonSolverService_ae7cb60105e6d90f0d8dfd83854ab1047}} 
+void \mbox{\hyperlink{classNewtonSolverService_ae7cb60105e6d90f0d8dfd83854ab1047}{end}} (\mbox{\hyperlink{classINonLinearSystem}{INon\+Linear\+System}} $\ast$system)
+\begin{DoxyCompactList}\small\item\em Finalizing (after solve) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_a025cf1490e01def853e8756642b484a9}\label{classNewtonSolverService_a025cf1490e01def853e8756642b484a9}} 
+const Status \& {\bfseries get\+Status} () const
+\item 
+\mbox{\Hypertarget{classNewtonSolverService_acc58d4435c95f0337572ff5babbdb625}\label{classNewtonSolverService_acc58d4435c95f0337572ff5babbdb625}} 
+void \mbox{\hyperlink{classNewtonSolverService_acc58d4435c95f0337572ff5babbdb625}{print\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Info. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewtonSolverService_abb6b260e375b394c08ddfe97b51962c9}\label{classNewtonSolverService_abb6b260e375b394c08ddfe97b51962c9}} 
+void {\bfseries print\+Current\+Time\+Info} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 38 of file Newton\+Solver\+Service.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Newton\+Impl/Newton\+Solver\+Service.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Non\+Linear\+Solver/\+Newton\+Impl/Newton\+Solver\+Service.\+cc\end{DoxyCompactItemize}

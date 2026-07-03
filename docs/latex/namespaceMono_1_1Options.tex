@@ -1,0 +1,808 @@
+\hypertarget{namespaceMono_1_1Options}{}\doxysection{Mono.\+Options Namespace Reference}
+\label{namespaceMono_1_1Options}\index{Mono.Options@{Mono.Options}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMono_1_1Options_1_1OptionValueCollection}{Option\+Value\+Collection}}
+\item 
+class \mbox{\hyperlink{classMono_1_1Options_1_1OptionContext}{Option\+Context}}
+\item 
+class \mbox{\hyperlink{classMono_1_1Options_1_1Option}{Option}}
+\item 
+class \mbox{\hyperlink{classMono_1_1Options_1_1OptionException}{Option\+Exception}}
+\item 
+class \mbox{\hyperlink{classMono_1_1Options_1_1OptionSet}{Option\+Set}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}\label{namespaceMono_1_1Options_a65a05bc92e2bc6b96c6909af163bb65e}} 
+enum class {\bfseries Option\+Value\+Type} \{ \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, \newline
+{\bfseries Required}
+, {\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, \newline
+{\bfseries None}
+, {\bfseries Optional}
+, {\bfseries Required}
+, {\bfseries None}
+, \newline
+{\bfseries Optional}
+, {\bfseries Required}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceMono_1_1Options_ac624db132efeae3ebdc2cf531329135b}\label{namespaceMono_1_1Options_ac624db132efeae3ebdc2cf531329135b}} 
+delegate void {\bfseries Option\+Action$<$ TKey, TValue $>$} (TKey key, TValue value)
+\end{DoxyCompactItemize}

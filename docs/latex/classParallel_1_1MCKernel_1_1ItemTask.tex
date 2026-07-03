@@ -1,0 +1,44 @@
+\hypertarget{classParallel_1_1MCKernel_1_1ItemTask}{}\doxysection{Parallel\+::MCKernel$<$ stdscheduler $>$\+::Item\+Task$<$ PartitionT, InstanceT, ItemT $>$ Class Template Reference}
+\label{classParallel_1_1MCKernel_1_1ItemTask}\index{Parallel::MCKernel$<$ stdscheduler $>$::ItemTask$<$ PartitionT, InstanceT, ItemT $>$@{Parallel::MCKernel$<$ stdscheduler $>$::ItemTask$<$ PartitionT, InstanceT, ItemT $>$}}
+
+
+Inherits \mbox{\hyperlink{classParallel_1_1MCKernel_1_1BaseOperator}{Parallel\+::\+MCKernel$<$ stdscheduler $>$\+::\+Base\+Operator$<$ Partition\+T $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1ItemTask_ad1349b531d0e81754120b2b7b9ae5b56}\label{classParallel_1_1MCKernel_1_1ItemTask_ad1349b531d0e81754120b2b7b9ae5b56}} 
+typedef \mbox{\hyperlink{classParallel_1_1MCKernel_1_1BaseOperator}{Base\+Operator}}$<$ PartitionT $>$ {\bfseries Base\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1ItemTask_af8de1fbfeac0a0ef50e4112ea47c9274}\label{classParallel_1_1MCKernel_1_1ItemTask_af8de1fbfeac0a0ef50e4112ea47c9274}} 
+typedef PartitionT {\bfseries Partition\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1ItemTask_ad7ffd99a061d410f16a2f5397646fc74}\label{classParallel_1_1MCKernel_1_1ItemTask_ad7ffd99a061d410f16a2f5397646fc74}} 
+typedef boost\+::function2$<$ void, InstanceT $\ast$, Item\+Vector\+ViewT$<$ \mbox{\hyperlink{classItemT}{ItemT}} $>$ $>$ {\bfseries Func\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1ItemTask_a7291cc80efffab7b5e1877ceb14d70b0}\label{classParallel_1_1MCKernel_1_1ItemTask_a7291cc80efffab7b5e1877ceb14d70b0}} 
+{\bfseries Item\+Task} (InstanceT $\ast$instance, Func\+Type function, Item\+GroupT$<$ \mbox{\hyperlink{classItemT}{ItemT}} $>$ const \&group, Partition\+Type \&partition, int partition\+\_\+id, ITrace\+Mng $\ast$trace\+\_\+mng=NULL)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_1_1ItemTask_a4cbc7bd150f1062033949ad8daafe329}\label{classParallel_1_1MCKernel_1_1ItemTask_a4cbc7bd150f1062033949ad8daafe329}} 
+void {\bfseries compute} (Data\+Args\+Type \&args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$bool stdscheduler = false$>$\newline
+template$<$typename PartitionT, typename InstanceT, typename ItemT$>$\newline
+class Parallel\+::\+MCKernel$<$ stdscheduler $>$\+::\+Item\+Task$<$ Partition\+T, Instance\+T, Item\+T $>$}
+
+
+
+Definition at line 132 of file MCKernel.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/\+Run\+Time\+System/MCKernel.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,121 @@
+\hypertarget{classStandardDivKGradTwoPointsActiveService}{}\doxysection{Standard\+Div\+KGrad\+Two\+Points\+Active\+Service Class Reference}
+\label{classStandardDivKGradTwoPointsActiveService}\index{StandardDivKGradTwoPointsActiveService@{StandardDivKGradTwoPointsActiveService}}
+
+
+Inherits \mbox{\hyperlink{classIDivKGradDiscreteOperator}{IDiv\+KGrad\+Discrete\+Operator}}, and Arcane\+Standard\+Div\+KGrad\+Two\+Points\+Active\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_ae2fe01bf00a9f728c533cac5939c535b}\label{classStandardDivKGradTwoPointsActiveService_ae2fe01bf00a9f728c533cac5939c535b}} 
+\mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_ae2fe01bf00a9f728c533cac5939c535b}{Standard\+Div\+KGrad\+Two\+Points\+Active\+Service}} (const Service\+Build\+Info \&sbi)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_aeff8682b5675fa0259cc2c914aa3ab55}\label{classStandardDivKGradTwoPointsActiveService_aeff8682b5675fa0259cc2c914aa3ab55}} 
+virtual \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_aeff8682b5675fa0259cc2c914aa3ab55}{$\sim$\+Standard\+Div\+KGrad\+Two\+Points\+Active\+Service}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a2dbcf999a59382a0f85c91cc81897248}\label{classStandardDivKGradTwoPointsActiveService_a2dbcf999a59382a0f85c91cc81897248}} 
+virtual Version\+Info \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a2dbcf999a59382a0f85c91cc81897248}{version\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Return version number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a89405d2656748d439e0e8073147231d0}\label{classStandardDivKGradTwoPointsActiveService_a89405d2656748d439e0e8073147231d0}} 
+void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a89405d2656748d439e0e8073147231d0}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the service. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_abbd81aeda031d66960303622d0a49f6e}{prepare}} (IMesh $\ast$mesh, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_ab44a2f2f1be9ad3e8de0c3717e2f36ba}\label{classStandardDivKGradTwoPointsActiveService_ab44a2f2f1be9ad3e8de0c3717e2f36ba}} 
+ARCANE\+\_\+\+DEPRECATED void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_ab44a2f2f1be9ad3e8de0c3717e2f36ba}{prepare}} (const Face\+Group \&internal\+\_\+faces, const Face\+Group \&boundary\+\_\+faces, Face\+Group \&c\+\_\+internal\+\_\+faces, Face\+Group \&cf\+\_\+internal\+\_\+faces, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a99484d9f140dae7a050d597ba7d4d09e}\label{classStandardDivKGradTwoPointsActiveService_a99484d9f140dae7a050d597ba7d4d09e}} 
+void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a99484d9f140dae7a050d597ba7d4d09e}{finalize}} ()
+\begin{DoxyCompactList}\small\item\em Finalize. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a65512015bdf474bc4f77ad5c6ab15933}\label{classStandardDivKGradTwoPointsActiveService_a65512015bdf474bc4f77ad5c6ab15933}} 
+Integer \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a65512015bdf474bc4f77ad5c6ab15933}{get\+Cell\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required cell geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a2f6c90c3388efafa30518885431b41df}\label{classStandardDivKGradTwoPointsActiveService_a2f6c90c3388efafa30518885431b41df}} 
+Integer \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a2f6c90c3388efafa30518885431b41df}{get\+Face\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required face geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a639fc4cd448d2364ae02e41248c74c9b}\label{classStandardDivKGradTwoPointsActiveService_a639fc4cd448d2364ae02e41248c74c9b}} 
+void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a639fc4cd448d2364ae02e41248c74c9b}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real \&k)
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the scalar permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_abafe5a5b010f43a18e945b9d990b0f69}\label{classStandardDivKGradTwoPointsActiveService_abafe5a5b010f43a18e945b9d990b0f69}} 
+void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_abafe5a5b010f43a18e945b9d990b0f69}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3 \&k)
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the diagonal permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a2da5c6e446a79ce674d08695d97c4f60}\label{classStandardDivKGradTwoPointsActiveService_a2da5c6e446a79ce674d08695d97c4f60}} 
+void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a2da5c6e446a79ce674d08695d97c4f60}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3x3 \&k)
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a6c3262de43e827378d10a96f6f292e85}\label{classStandardDivKGradTwoPointsActiveService_a6c3262de43e827378d10a96f6f292e85}} 
+virtual void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a6c3262de43e827378d10a96f6f292e85}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real \&k)
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the scalar permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a0f1d34e1c2e7ac9b0db244595bf20521}\label{classStandardDivKGradTwoPointsActiveService_a0f1d34e1c2e7ac9b0db244595bf20521}} 
+virtual void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a0f1d34e1c2e7ac9b0db244595bf20521}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real3 \&k)
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the diagonal permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a1f42fbc6c739bfb7164b1b5181992f66}\label{classStandardDivKGradTwoPointsActiveService_a1f42fbc6c739bfb7164b1b5181992f66}} 
+virtual void \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a1f42fbc6c739bfb7164b1b5181992f66}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real3x3 \&k)
+\begin{DoxyCompactList}\small\item\em Form the discrete operator associated with the permeability $\kappa$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_adc5347bc5dfef4e52501aa879c7b9c44}\label{classStandardDivKGradTwoPointsActiveService_adc5347bc5dfef4e52501aa879c7b9c44}} 
+bool \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_adc5347bc5dfef4e52501aa879c7b9c44}{two\+Point\+Boundary}} ()
+\begin{DoxyCompactList}\small\item\em Two-\/point boundary treatment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a413500a085481252e8194560d39cb7ff}\label{classStandardDivKGradTwoPointsActiveService_a413500a085481252e8194560d39cb7ff}} 
+const Face\+Group \& \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a413500a085481252e8194560d39cb7ff}{faces}} () const
+\begin{DoxyCompactList}\small\item\em Return faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_afbbe71ad9f7c8662a52bab4a007b6491}\label{classStandardDivKGradTwoPointsActiveService_afbbe71ad9f7c8662a52bab4a007b6491}} 
+const Cell\+Group \& \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_afbbe71ad9f7c8662a52bab4a007b6491}{cells}} () const
+\begin{DoxyCompactList}\small\item\em Return cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a0142bf46999e42969615de7ea9450f69}\label{classStandardDivKGradTwoPointsActiveService_a0142bf46999e42969615de7ea9450f69}} 
+const Face\+Group \& \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a0142bf46999e42969615de7ea9450f69}{boundary\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return boundary faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a9d6c4df029a408818b6f6c39fe3b67cc}\label{classStandardDivKGradTwoPointsActiveService_a9d6c4df029a408818b6f6c39fe3b67cc}} 
+const Face\+Group \& \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a9d6c4df029a408818b6f6c39fe3b67cc}{internal\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return internal faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_ae26efd6a395d36fdc2683b329d6832a3}\label{classStandardDivKGradTwoPointsActiveService_ae26efd6a395d36fdc2683b329d6832a3}} 
+const Face\+Group \& \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_ae26efd6a395d36fdc2683b329d6832a3}{c\+Internal\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return internal faces whose stencil contains cell unknowns only. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a82834a8eccfc381769c7843b17fbe403}\label{classStandardDivKGradTwoPointsActiveService_a82834a8eccfc381769c7843b17fbe403}} 
+const Face\+Group \& \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a82834a8eccfc381769c7843b17fbe403}{cf\+Internal\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return internal faces whose stencil contains both cells and face unknowns. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_a11f74eb4805a857a252c2bb8b041f1ae}\label{classStandardDivKGradTwoPointsActiveService_a11f74eb4805a857a252c2bb8b041f1ae}} 
+const Integer \& \mbox{\hyperlink{classStandardDivKGradTwoPointsActiveService_a11f74eb4805a857a252c2bb8b041f1ae}{status}} () const
+\begin{DoxyCompactList}\small\item\em Return the current status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 25 of file Standard\+Div\+KGrad\+Two\+Points\+Active\+Service.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStandardDivKGradTwoPointsActiveService_abbd81aeda031d66960303622d0a49f6e}\label{classStandardDivKGradTwoPointsActiveService_abbd81aeda031d66960303622d0a49f6e}} 
+\index{StandardDivKGradTwoPointsActiveService@{StandardDivKGradTwoPointsActiveService}!prepare@{prepare}}
+\index{prepare@{prepare}!StandardDivKGradTwoPointsActiveService@{StandardDivKGradTwoPointsActiveService}}
+\doxysubsubsection{\texorpdfstring{prepare()}{prepare()}}
+{\footnotesize\ttfamily void Standard\+Div\+KGrad\+Two\+Points\+Active\+Service\+::prepare (\begin{DoxyParamCaption}\item[{IMesh $\ast$}]{mesh,  }\item[{\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$}]{cell\+\_\+coefficients,  }\item[{\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$}]{face\+\_\+coefficients }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Preliminary computations (including connectivity). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & a pointer to IMesh\\
+\hline
+{\em cell\+\_\+coefficients} & data structure containing cell stencils and coefficients\\
+\hline
+{\em face\+\_\+coefficients} & data structure containing face stencils and coefficients \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIDiscreteOperator_aa8e1532224fdb6d49c51f2f9b4bb74ae}{IDiscrete\+Operator}}.
+
+
+
+Definition at line 34 of file Standard\+Div\+KGrad\+Two\+Points\+Active\+Service.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+Two\+Points\+Impl/Standard\+Div\+KGrad\+Two\+Points\+Active\+Service.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/\+Div\+KGrad\+Two\+Points\+Impl/Standard\+Div\+KGrad\+Two\+Points\+Active\+Service.\+cc\end{DoxyCompactItemize}

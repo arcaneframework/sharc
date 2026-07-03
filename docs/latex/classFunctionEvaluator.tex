@@ -1,0 +1,96 @@
+\hypertarget{classFunctionEvaluator}{}\doxysection{Function\+Evaluator Class Reference}
+\label{classFunctionEvaluator}\index{FunctionEvaluator@{FunctionEvaluator}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a599b75146d4bf53c5d8a6952947400b3}\label{classFunctionEvaluator_a599b75146d4bf53c5d8a6952947400b3}} 
+using {\bfseries Function\+Enumerator} = \mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Function\+Manager\+::\+Enumerator}}
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a599b75146d4bf53c5d8a6952947400b3}\label{classFunctionEvaluator_a599b75146d4bf53c5d8a6952947400b3}} 
+using {\bfseries Function\+Enumerator} = \mbox{\hyperlink{classFunctionManager_1_1Enumerator}{Function\+Manager\+::\+Enumerator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a3fcc284128c68ea08cb047d83a3dd17a}\label{classFunctionEvaluator_a3fcc284128c68ea08cb047d83a3dd17a}} 
+{\bfseries Function\+Evaluator} (const \mbox{\hyperlink{classFunctionManager}{Function\+Manager}} \&f, Integer max\+\_\+nb\+\_\+unknowns=0)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_abb312b36ce23fd9d81ab285bd4b565dc}\label{classFunctionEvaluator_abb312b36ce23fd9d81ab285bd4b565dc}} 
+{\bfseries Function\+Evaluator} (const \mbox{\hyperlink{classFunctionManager}{Function\+Manager}} \&f, Integer\+Const\+Array\+View ids, Integer max\+\_\+nb\+\_\+unknowns=0)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_af47cc26182570b6d1164a6c3bfd8a13a}\label{classFunctionEvaluator_af47cc26182570b6d1164a6c3bfd8a13a}} 
+{\bfseries Function\+Evaluator} (const \mbox{\hyperlink{classFunctionManager}{Function\+Manager}} \&f, Integer\+Const\+Array\+View idi, Integer\+Const\+Array\+View ids, Integer max\+\_\+nb\+\_\+unknowns=0)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a7de92b9a72919d57e431d63fbc76c1ce}\label{classFunctionEvaluator_a7de92b9a72919d57e431d63fbc76c1ce}} 
+{\footnotesize template$<$typename K , template$<$ typename $>$ class Accessor$>$ }\\void {\bfseries evaluate} (const \mbox{\hyperlink{classAccessor}{Accessor}}$<$ K $>$ \&accessor, Arcane\+::\+Item\+GroupT$<$ K $>$ group, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a65f6a5ef93a6ceecdad233d630c96151}\label{classFunctionEvaluator_a65f6a5ef93a6ceecdad233d630c96151}} 
+{\footnotesize template$<$typename Accessor $>$ }\\void {\bfseries evaluate} (const \mbox{\hyperlink{classAccessor}{Accessor}} \&accessor, Arcane\+::\+Item\+Group group, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_adcfa7a66a56faad3d36dd179f0b67802}\label{classFunctionEvaluator_adcfa7a66a56faad3d36dd179f0b67802}} 
+{\footnotesize template$<$typename K , template$<$ typename $>$ class Accessor$>$ }\\void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{classAccessor}{Accessor}}$<$ K $>$ \&accessor, Arcane\+::\+Item\+GroupT$<$ K $>$ group)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a19751b968f841184d76c4c8714a0ccfd}\label{classFunctionEvaluator_a19751b968f841184d76c4c8714a0ccfd}} 
+{\footnotesize template$<$typename Accessor $>$ }\\void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{classAccessor}{Accessor}} \&accessor, Arcane\+::\+Item\+Group group)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a47778a3961f80dc18d249ef25a4d0b6c}\label{classFunctionEvaluator_a47778a3961f80dc18d249ef25a4d0b6c}} 
+void {\bfseries evaluate} (const \mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}} \&accessor, Integer begin, Integer end, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_ac1b8add1d6d152448ba339b376803381}\label{classFunctionEvaluator_ac1b8add1d6d152448ba339b376803381}} 
+void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}} \&accessor, Integer begin, Integer end)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_af5f3e63e98bc7624740abd9e319a38fb}\label{classFunctionEvaluator_af5f3e63e98bc7624740abd9e319a38fb}} 
+void {\bfseries evaluate} (const \mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}} \&accessor, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a4f48acb55f19d0dca9ae62661418725e}\label{classFunctionEvaluator_a4f48acb55f19d0dca9ae62661418725e}} 
+void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}} \&accessor)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_ac627d51e96815fb319817986fb3c644c}\label{classFunctionEvaluator_ac627d51e96815fb319817986fb3c644c}} 
+void {\bfseries symbolic\+\_\+evaluate} (const \mbox{\hyperlink{classAccessor}{Accessor}} \&accessor, Arcane\+::\+ITrace\+Mng $\ast$trace)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a36289c8d6c3816030e654bde2e434926}\label{classFunctionEvaluator_a36289c8d6c3816030e654bde2e434926}} 
+{\bfseries Function\+Evaluator} (const \mbox{\hyperlink{classFunctionManager}{Function\+Manager}} \&f, Integer max\+\_\+nb\+\_\+unknowns=0)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_aea3547cb8d4ae0d5fa06a8eb7f4d5a22}\label{classFunctionEvaluator_aea3547cb8d4ae0d5fa06a8eb7f4d5a22}} 
+{\bfseries Function\+Evaluator} (const \mbox{\hyperlink{classFunctionManager}{Function\+Manager}} \&f, Integer\+Const\+Array\+View ids, Integer max\+\_\+nb\+\_\+unknowns=0, Derivatives\+Mode dependencies\+\_\+mode=e\+Composition)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a7de92b9a72919d57e431d63fbc76c1ce}\label{classFunctionEvaluator_a7de92b9a72919d57e431d63fbc76c1ce}} 
+{\footnotesize template$<$typename K , template$<$ typename $>$ class Accessor$>$ }\\void {\bfseries evaluate} (const \mbox{\hyperlink{classAccessor}{Accessor}}$<$ K $>$ \&accessor, Arcane\+::\+Item\+GroupT$<$ K $>$ group, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a65f6a5ef93a6ceecdad233d630c96151}\label{classFunctionEvaluator_a65f6a5ef93a6ceecdad233d630c96151}} 
+{\footnotesize template$<$typename Accessor $>$ }\\void {\bfseries evaluate} (const \mbox{\hyperlink{classAccessor}{Accessor}} \&accessor, Arcane\+::\+Item\+Group group, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_adcfa7a66a56faad3d36dd179f0b67802}\label{classFunctionEvaluator_adcfa7a66a56faad3d36dd179f0b67802}} 
+{\footnotesize template$<$typename K , template$<$ typename $>$ class Accessor$>$ }\\void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{classAccessor}{Accessor}}$<$ K $>$ \&accessor, Arcane\+::\+Item\+GroupT$<$ K $>$ group)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a19751b968f841184d76c4c8714a0ccfd}\label{classFunctionEvaluator_a19751b968f841184d76c4c8714a0ccfd}} 
+{\footnotesize template$<$typename Accessor $>$ }\\void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{classAccessor}{Accessor}} \&accessor, Arcane\+::\+Item\+Group group)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a47778a3961f80dc18d249ef25a4d0b6c}\label{classFunctionEvaluator_a47778a3961f80dc18d249ef25a4d0b6c}} 
+void {\bfseries evaluate} (const \mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}} \&accessor, Integer begin, Integer end, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_ac1b8add1d6d152448ba339b376803381}\label{classFunctionEvaluator_ac1b8add1d6d152448ba339b376803381}} 
+void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}} \&accessor, Integer begin, Integer end)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_af5f3e63e98bc7624740abd9e319a38fb}\label{classFunctionEvaluator_af5f3e63e98bc7624740abd9e319a38fb}} 
+void {\bfseries evaluate} (const \mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}} \&accessor, Evaluation\+Mode mode=e\+Without\+Derivative)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_a4f48acb55f19d0dca9ae62661418725e}\label{classFunctionEvaluator_a4f48acb55f19d0dca9ae62661418725e}} 
+void {\bfseries evaluate\+With\+Derivatives} (const \mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}} \&accessor)
+\item 
+\mbox{\Hypertarget{classFunctionEvaluator_ac627d51e96815fb319817986fb3c644c}\label{classFunctionEvaluator_ac627d51e96815fb319817986fb3c644c}} 
+void {\bfseries symbolic\+\_\+evaluate} (const \mbox{\hyperlink{classAccessor}{Accessor}} \&accessor, Arcane\+::\+ITrace\+Mng $\ast$trace)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 44 of file Function\+Evaluator.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Function\+Evaluator.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Function\+Evaluator.\+cc\end{DoxyCompactItemize}

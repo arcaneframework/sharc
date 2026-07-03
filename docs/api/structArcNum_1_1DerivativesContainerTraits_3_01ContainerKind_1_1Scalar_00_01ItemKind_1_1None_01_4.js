@@ -1,0 +1,4 @@
+var structArcNum_1_1DerivativesContainerTraits_3_01ContainerKind_1_1Scalar_00_01ItemKind_1_1None_01_4 =
+[
+    [ "Type", "structArcNum_1_1DerivativesContainerTraits_3_01ContainerKind_1_1Scalar_00_01ItemKind_1_1None_01_4.html#aa4b3752cd54b9915d075db415fe0c6f6", null ]
+];

@@ -1,0 +1,4 @@
+var structArcNum_1_1ValuesContainerTraits_3_01ContainerKind_1_1Array_00_01ItemKind_1_1IntegerIndex_01_4 =
+[
+    [ "Type", "structArcNum_1_1ValuesContainerTraits_3_01ContainerKind_1_1Array_00_01ItemKind_1_1IntegerIndex_01_4.html#a825655a1683c8ebab4949a52167ba3bd", null ]
+];

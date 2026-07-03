@@ -1,0 +1,60 @@
+\hypertarget{structStackFuncOpT}{}\doxysection{Stack\+Func\+OpT$<$ Func\+Op $>$ Struct Template Reference}
+\label{structStackFuncOpT}\index{StackFuncOpT$<$ FuncOp $>$@{StackFuncOpT$<$ FuncOp $>$}}
+
+
+Inherits \mbox{\hyperlink{structIStackOp}{IStack\+Op}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structStackFuncOpT_a012bbaf0578dc986013b640da762c753}\label{structStackFuncOpT_a012bbaf0578dc986013b640da762c753}} 
+void \mbox{\hyperlink{structStackFuncOpT_a012bbaf0578dc986013b640da762c753}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack)
+\begin{DoxyCompactList}\small\item\em defaut apply (by block) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structStackFuncOpT_a925b67b1d4af1b677d6c0dda75d04c28}\label{structStackFuncOpT_a925b67b1d4af1b677d6c0dda75d04c28}} 
+void \mbox{\hyperlink{structStackFuncOpT_a925b67b1d4af1b677d6c0dda75d04c28}{operator()}} (\mbox{\hyperlink{classDataStack}{Data\+Stack}} \&stack, const Integer n)
+\begin{DoxyCompactList}\small\item\em restricted apply (not by block) \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{structStackFuncOpT_af917b28998d86a3633affa4fc9b54ec6}{size}} () const
+\begin{DoxyCompactList}\small\item\em operator depth \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structStackFuncOpT_abc3fe2eed6a840d1df1c3c8d42c22a9c}\label{structStackFuncOpT_abc3fe2eed6a840d1df1c3c8d42c22a9c}} 
+void \mbox{\hyperlink{structStackFuncOpT_abc3fe2eed6a840d1df1c3c8d42c22a9c}{set\+Reference}} (const Integer i, const Integer pos)
+\begin{DoxyCompactList}\small\item\em set operand references \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structStackFuncOpT_aa60922d79878ad784c60df1787194464}\label{structStackFuncOpT_aa60922d79878ad784c60df1787194464}} 
+Integer {\bfseries get\+Reference} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Func\+Op$>$\newline
+struct Stack\+Func\+Op\+T$<$ Func\+Op $>$}
+
+
+
+Definition at line 549 of file Function\+Parser.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structStackFuncOpT_af917b28998d86a3633affa4fc9b54ec6}\label{structStackFuncOpT_af917b28998d86a3633affa4fc9b54ec6}} 
+\index{StackFuncOpT$<$ FuncOp $>$@{StackFuncOpT$<$ FuncOp $>$}!size@{size}}
+\index{size@{size}!StackFuncOpT$<$ FuncOp $>$@{StackFuncOpT$<$ FuncOp $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Func\+Op $>$ \\
+Integer \mbox{\hyperlink{structStackFuncOpT}{Stack\+Func\+OpT}}$<$ Func\+Op $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+operator depth 
+
+how many value must be un-\/stacked to apply this operator; -\/1 means variable or constante 
+
+Implements \mbox{\hyperlink{structIStackOp_a2f567be749b325cf2e9e37096717df17}{IStack\+Op}}.
+
+
+
+Definition at line 579 of file Function\+Parser.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/Function\+Parser.\+h\end{DoxyCompactItemize}

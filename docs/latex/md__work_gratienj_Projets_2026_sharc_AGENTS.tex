@@ -1,0 +1,146 @@
+This file is for Open\+Code agents working in the {\ttfamily sharc} repository (Sh\+Arc, Arc\+Geo\+Sim, Arcane-\/based two-\/phase flow simulations).
+
+Only keep in mind what is {\bfseries{non-\/obvious but enforced by the code/config}}.\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md1}{}\doxysection{Build \& Install}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Root build system is {\bfseries{CMake + Arc\+Geo\+Sim/\+Arcane\+Infra}}. Do not add a standalone CMake project or alternative build tool.
+\item The top-\/level {\ttfamily CMake\+Lists.\+txt} assumes the Arc\+Geo\+Sim framework is present under {\ttfamily common/} as a git submodule\+:
+\begin{DoxyItemize}
+\item If {\ttfamily \$\{ARCGEOSIM\+\_\+\+FRAMEWORK\+\_\+\+ROOT\}/\+Arcane\+Infra/build-\/system/arcgeosim/\+Load\+Arc\+Geo\+Sim.cmake} is missing, CMake fails with a message instructing {\ttfamily git submodule update -\/-\/init}.
+\end{DoxyItemize}
+\item {\ttfamily ARCGEOSIM\+\_\+\+FRAMEWORK\+\_\+\+ROOT} controls where Arc\+Geo\+Sim is loaded from\+:
+\begin{DoxyItemize}
+\item If unset, it defaults to {\ttfamily \$\{PROJECT\+\_\+\+SOURCE\+\_\+\+DIR\}/common} and uses {\ttfamily \$\{PROJECT\+\_\+\+BINARY\+\_\+\+DIR\}/common} for framework binaries.
+\item If set (or via {\ttfamily ENV\{ARCGEOSIM\+\_\+\+FRAMEWORK\+\_\+\+ROOT\}}), Sh\+Arc treats Arc\+Geo\+Sim as {\bfseries{external}} and uses {\ttfamily \$\{PROJECT\+\_\+\+BINARY\+\_\+\+DIR\}} for framework binaries.
+\end{DoxyItemize}
+\item Required CMake modules and macros (e.\+g. {\ttfamily create\+Library}, {\ttfamily create\+Executable}, {\ttfamily generate\+CMake\+Lists}, {\ttfamily ARCANE\+\_\+\+ADD\+\_\+\+TEST\+\_\+$\ast$}) come from {\ttfamily Arcane\+Infra/build-\/system/arcgeosim}. Do not reimplement them locally.
+\item The build enables specific metas\+:
+\begin{DoxyItemize}
+\item {\ttfamily strong\+\_\+options}, {\ttfamily alien20}, {\ttfamily arcane3} via {\ttfamily load\+Meta(...)} + {\ttfamily -\/DUSE\+\_\+\+ARCANE\+\_\+\+V3}. Respect these options when adding new packages/tests.
+\end{DoxyItemize}
+\item Installation layout is controlled by {\ttfamily GNUInstall\+Dirs} with {\ttfamily CMAKE\+\_\+\+INSTALL\+\_\+\+LIBDIR} forced to {\ttfamily lib}. If you add new install rules, follow this convention.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md2}{}\doxysubsection{Typical build commands (verified from README)}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Standalone Sh\+Arc (Ubuntu 24.\+04 example, assuming \mbox{\hyperlink{namespaceArcane}{Arcane}} framework already installed into {\ttfamily \$\+INSTALL\+\_\+\+DIR})\+:
+\begin{DoxyItemize}
+\item Configure\+:
+\begin{DoxyItemize}
+\item {\ttfamily cmake -\/S \$\+PWD/sharc -\/B \$\+PWD/build-\/sharc-\/ubuntu2404 \textbackslash{}} {\ttfamily -\/DCMAKE\+\_\+\+BUILD\+\_\+\+TYPE=Release \textbackslash{}} {\ttfamily -\/DDOTNET\+\_\+\+BUILD\+\_\+\+TYPE=Release \textbackslash{}} {\ttfamily -\/DBUILD\+\_\+\+SHARED\+\_\+\+LIBS=ON \textbackslash{}} {\ttfamily -\/DARCANEFRAMEWORK\+\_\+\+ROOT=\$\{INSTALL\+\_\+\+DIR\} \textbackslash{}} {\ttfamily -\/DCMAKE\+\_\+\+C\+\_\+\+COMPILER=mpicc -\/DCMAKE\+\_\+\+CXX\+\_\+\+COMPILER=mpic++ ...}
+\end{DoxyItemize}
+\item Build\+:
+\begin{DoxyItemize}
+\item {\ttfamily cmake -\/-\/build \$\+PWD/build-\/sharc-\/ubuntu2404}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Do not change these flows lightly; they are part of the documented installation guide.\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md3}{}\doxysection{Project Structure \& Entry Points}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Root {\ttfamily CMake\+Lists.\+txt} orchestrates components\+:
+\begin{DoxyItemize}
+\item Loads Arc\+Geo\+Sim via {\ttfamily include(\+Load\+Arc\+Geo\+Sim)} and optional {\ttfamily load\+Package(\+NAME Arc\+Geo\+Sim)}.
+\item Adds subdirectories in this order\+: {\ttfamily src/\+CAWF}, {\ttfamily src} (Sh\+Arc library), {\ttfamily src/\+Main} (Sh\+Arc.\+exe), {\ttfamily test}.
+\end{DoxyItemize}
+\item Main executable\+:
+\begin{DoxyItemize}
+\item {\ttfamily src/\+Main/\+CMake\+Lists.\+txt} creates {\ttfamily Sh\+Arc.\+exe} with {\ttfamily main.\+cc} and links\+:
+\begin{DoxyItemize}
+\item {\ttfamily Sh\+Arc} (main library)
+\item Arc\+Geo\+Sim components (either {\ttfamily Arc\+Geo\+Sim\+::arcgeosim} or the per-\/component libraries)
+\item \mbox{\hyperlink{classOptional}{Optional}} solver/infra targets ({\ttfamily alien}, {\ttfamily intel}).
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Core library\+:
+\begin{DoxyItemize}
+\item {\ttfamily src/\+CMake\+Lists.\+txt} defines library {\ttfamily Sh\+Arc} and calls {\ttfamily generate\+CMake\+Lists(\+Sh\+Arc)} and {\ttfamily generate\+Gump\+Model(Two\+Phase\+Flow\+Simulation/\+Data\+Model/\+Arc\+Res.\+gump)}.
+\item It links {\ttfamily arcres}, Arc\+Geo\+Sim mesh/physics/tests (for Windows), and {\ttfamily CAWF}.
+\item Any new Sh\+Arc code should be wired through these Arc\+Geo\+Sim helpers instead of raw CMake targets.
+\end{DoxyItemize}
+\item Arc\+Geo\+Sim sub-\/framework lives under {\ttfamily common/\+Arc\+Geo\+Sim} and is built when {\ttfamily Arc\+Geo\+Sim\+\_\+\+FOUND} is false. Do not move this directory; the build scripts assume its path.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md4}{}\doxysection{Tests\+: Structure \& Invocation}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md4}
+
+\begin{DoxyItemize}
+\item All tests are registered via \mbox{\hyperlink{namespaceArcane}{Arcane}} macros in {\ttfamily test/\+CMake\+Lists.\+txt}.
+\item Macros in use\+:
+\begin{DoxyItemize}
+\item {\ttfamily ARCANE\+\_\+\+ADD\+\_\+\+TEST\+\_\+\+SEQUENTIAL(name target path arcfile)}
+\item {\ttfamily ARCANE\+\_\+\+ADD\+\_\+\+TEST\+\_\+\+PARALLEL(name target path arcfile np)}
+\item {\ttfamily ARCANE\+\_\+\+ADD\+\_\+\+TEST\+\_\+\+SEQUENTIAL\+\_\+\+LONGTIME(name target path arcfile timeout)}
+\end{DoxyItemize}
+\item Sh\+Arc test suite (as of current {\ttfamily CMake\+Lists.\+txt})\+:
+\begin{DoxyItemize}
+\item Two-\/phase flow tests under {\ttfamily test/\+Two\+Phase\+Flow\+Simulation}\+:
+\begin{DoxyItemize}
+\item Sequential and parallel variants, including long-\/running SPE10 cases.
+\end{DoxyItemize}
+\item Exa\+Di\+Bench tests under {\ttfamily test/\+Exa\+Di\+Bench} ({\ttfamily bench-\/cube3d.\+arc}, with sequential and parallel variants).
+\end{DoxyItemize}
+\item Longtime tests ({\ttfamily $\ast$\+\_\+\+SEQUENTIAL\+\_\+\+LONGTIME}) use a timeout parameter (e.\+g. {\ttfamily 600}). Expect these to be {\bfseries{slow}}; avoid enabling them in tight feedback loops unless explicitly needed.
+\item MPI/parallel tests rely on the MPI configuration used at CMake configure time ({\ttfamily mpicc}, {\ttfamily mpic++} in the README example). If you change compilers, ensure MPI settings stay coherent.
+\item Once CMake is configured, test execution is standard CTest\+:
+\begin{DoxyItemize}
+\item From the build tree\+: {\ttfamily ctest} or {\ttfamily ctest -\/R $<$Test\+Name$>$}.
+\end{DoxyItemize}
+\item For installed setups using {\ttfamily common/\+Arcane\+Infra/bin/install\+\_\+files}, the recommended flow from {\ttfamily README.\+txt} is\+:
+\begin{DoxyItemize}
+\item Configure\+: {\ttfamily ../bin/cmake ..}
+\item Run tests\+: {\ttfamily ../bin/ctest}
+\item This expects a {\ttfamily data} subdirectory containing the test input tree.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md5}{}\doxysection{High-\/\+Cost / Special Tests}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\ttfamily test/\+Large\+Scale\+Two\+Phase\+Flow\+Simulation/\+README.\+md} documents a very large 3D case ($\sim$41.9e6 cells, up to $\sim$713e6 cells)\+:
+\begin{DoxyItemize}
+\item Uses {\ttfamily .arc} files with {\ttfamily \+\_\+\+\_\+\+NPX\+\_\+\+\_\+x\+\_\+\+\_\+\+NPY\+\_\+\+\_\+x\+\_\+\+\_\+\+NPZ\+\_\+\+\_\+-\/\+\_\+\+\_\+\+NP\+\_\+\+\_\+p} patterns and a helper {\ttfamily \mbox{\hyperlink{genPNXY_8py_source}{gen\+PNXY.\+py}}} to generate concrete {\ttfamily .arc} files.
+\item These are {\bfseries{benchmark-\/scale}} tests; do not run them by default in CI or quick verification.
+\item If you need to run them, generate the {\ttfamily .arc} file via {\ttfamily \mbox{\hyperlink{genPNXY_8py_source}{gen\+PNXY.\+py}}} as documented there.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md6}{}\doxysection{Arc\+Geo\+Sim / Arcane-\/\+Specific Quirks}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Many CMake commands are {\bfseries{domain-\/specific}} (e.\+g. {\ttfamily generate\+Gump\+Model}, {\ttfamily load\+Meta}, {\ttfamily log\+Status}, {\ttfamily commit}, {\ttfamily create\+Library}, {\ttfamily create\+Executable}). They come from Arc\+Geo\+Sim/\+Arcane\+Infra and assume certain conventions\+:
+\begin{DoxyItemize}
+\item New libraries/executables should use these macros rather than raw {\ttfamily add\+\_\+library}/{\ttfamily add\+\_\+executable}, otherwise you risk breaking framework integration and install/export behavior.
+\end{DoxyItemize}
+\item Environment variables and options\+:
+\begin{DoxyItemize}
+\item Prerequisite docs reference {\ttfamily ARCANEFRAMEWORK\+\_\+\+ROOT}, {\ttfamily ARCGEOSIM\+\_\+\+FRAMEWORK\+\_\+\+ROOT}, and various {\ttfamily $\ast$\+\_\+\+DIR} CMake package locations. Changing these requires understanding Arcane’s packaging; avoid casual edits.
+\end{DoxyItemize}
+\item Some tools (build-\/system C\# helpers, \mbox{\hyperlink{namespaceApplicationLauncher}{Application\+Launcher}}, Arcane\+Infra.\+Tools) are .NET/\+Mono-\/based and are treated as prebuilt binaries\+:
+\begin{DoxyItemize}
+\item Do not delete or rename these binaries; they are consumed by the build system.
+\item If you need to rebuild them, follow {\ttfamily common/\+Arcane\+Infra/build-\/system/csharp/\+README.\+md} and {\ttfamily Application\+Launcher/\+README}.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md7}{}\doxysection{Submodules \& External Dependencies}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md7}
+
+\begin{DoxyItemize}
+\item The root CMake explicitly checks for {\ttfamily Arcane\+Infra/build-\/system/arcgeosim/\+Load\+Arc\+Geo\+Sim.\+cmake} and instructs to run\+:
+\begin{DoxyItemize}
+\item {\ttfamily git submodule update -\/-\/init}
+\item Agents should not bypass this by copying files; fix the submodule state instead.
+\end{DoxyItemize}
+\item The top-\/level README’s installation section is the {\bfseries{authoritative source}} for system-\/level dependencies (Boost, HDF5, MPI, Trilinos, PETSc, Hypre, dotnet, etc.). When adding/adjusting dependencies, cross-\/check with that file rather than inventing new ones.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md8}{}\doxysection{When Modifying Tests or Adding New Ones}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Use existing \mbox{\hyperlink{namespaceArcane}{Arcane}} macros ({\ttfamily ARCANE\+\_\+\+ADD\+\_\+\+TEST\+\_\+$\ast$}) and mirror the patterns in {\ttfamily test/\+CMake\+Lists.\+txt}.
+\item Keep test paths and {\ttfamily .arc} filenames consistent with existing cases; they often encode solver configuration and grid size.
+\item For parallel tests, pass an explicit process count (last argument of {\ttfamily ARCANE\+\_\+\+ADD\+\_\+\+TEST\+\_\+\+PARALLEL}). Do not rely on defaults.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md9}{}\doxysection{Other Notes for Agents}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md9}
+
+\begin{DoxyItemize}
+\item This repo is {\bfseries{tightly coupled}} to the Arcane/\+Arc\+Geo\+Sim ecosystem. Before refactoring build logic or core types, search in {\ttfamily common/\+Arc\+Geo\+Sim} and {\ttfamily \mbox{\hyperlink{namespaceArcaneInfra}{Arcane\+Infra}}} to understand how they are expected to behave.
+\item Prefer reading and following the Arcane/\+Arc\+Geo\+Sim CMake helpers over adding custom CMake functions in this repo.
+\end{DoxyItemize}\hypertarget{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md10}{}\doxysection{Open\+Code Configuration}\label{md__work_gratienj_Projets_2026_sharc_AGENTS_autotoc_md10}
+
+\begin{DoxyItemize}
+\item As of now there is no repo-\/local Open\+Code config ({\ttfamily opencode.\+json} or {\ttfamily .opencode/}).
+\item If such config is added later, agents should\+:
+\begin{DoxyItemize}
+\item Read {\ttfamily opencode.\+json} and files under {\ttfamily .opencode/} first, then this {\ttfamily AGENTS.\+md}.
+\item Treat those files as the primary source of per-\/repo instructions and workflows. 
+\end{DoxyItemize}
+\end{DoxyItemize}

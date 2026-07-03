@@ -1,0 +1,177 @@
+\hypertarget{classArcaneFemFunctions_1_1BoundaryConditions}{}\doxysection{Arcane\+Fem\+Functions\+::Boundary\+Conditions Class Reference}
+\label{classArcaneFemFunctions_1_1BoundaryConditions}\index{ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}}
+
+
+Provides methods for applying boundary conditions in 2D/3D FEM.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions_a430e6dfded5c8c4cf1d2a5175f37b8a7}{apply\+Dirichlet\+To\+Lhs\+And\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&m\+\_\+linear\+\_\+system, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies Dirichlet boundary conditions to RHS and LHS. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions_adf8a3fe27e98cec729c9812f0b9e79a7}{apply\+Point\+Dirichlet\+To\+Lhs\+And\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&m\+\_\+linear\+\_\+system, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies Point Dirichlet boundary conditions to RHS and LHS. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions_a8c7937a9996b956f60fdb0cd98004314}{apply\+Dirichlet\+To\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies Dirichlet boundary conditions to RHS. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions_a53ff933b1c11f6dfd0b91bf540f4bfd1}{apply\+Point\+Dirichlet\+To\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies Point Dirichlet boundary conditions to RHS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for applying boundary conditions in 2D/3D FEM. 
+
+This class includes static methods for applying\+:
+\begin{DoxyItemize}
+\item Dirichlet boundary condition
+\item Point Dirichlet condition 
+\end{DoxyItemize}
+
+Definition at line 1232 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions_a430e6dfded5c8c4cf1d2a5175f37b8a7}\label{classArcaneFemFunctions_1_1BoundaryConditions_a430e6dfded5c8c4cf1d2a5175f37b8a7}} 
+\index{ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}!applyDirichletToLhsAndRhs@{applyDirichletToLhsAndRhs}}
+\index{applyDirichletToLhsAndRhs@{applyDirichletToLhsAndRhs}!ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyDirichletToLhsAndRhs()}{applyDirichletToLhsAndRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions\+::apply\+Dirichlet\+To\+Lhs\+And\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{m\+\_\+linear\+\_\+system,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies Dirichlet boundary conditions to RHS and LHS. 
+
+Updates the LHS matrix and RHS vector to enforce Dirichlet conditions.
+
+
+\begin{DoxyItemize}
+\item For LHS matrix {\ttfamily 𝐀}, the diagonal term for the Dirichlet DOF is set to {\ttfamily 𝑃}.
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & Boundary condition values. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & Node coordinates. \\
+\hline
+{\em m\+\_\+linear\+\_\+system} & Linear system for LHS. \\
+\hline
+{\em rhs\+\_\+values} & RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1252 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions_a8c7937a9996b956f60fdb0cd98004314}\label{classArcaneFemFunctions_1_1BoundaryConditions_a8c7937a9996b956f60fdb0cd98004314}} 
+\index{ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}!applyDirichletToRhs@{applyDirichletToRhs}}
+\index{applyDirichletToRhs@{applyDirichletToRhs}!ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyDirichletToRhs()}{applyDirichletToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions\+::apply\+Dirichlet\+To\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies Dirichlet boundary conditions to RHS. 
+
+Updates the RHS vector to enforce Dirichlet conditions.
+
+
+\begin{DoxyItemize}
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & Boundary condition values. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & Node coordinates. \\
+\hline
+{\em rhs\+\_\+values} & RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1331 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions_adf8a3fe27e98cec729c9812f0b9e79a7}\label{classArcaneFemFunctions_1_1BoundaryConditions_adf8a3fe27e98cec729c9812f0b9e79a7}} 
+\index{ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}!applyPointDirichletToLhsAndRhs@{applyPointDirichletToLhsAndRhs}}
+\index{applyPointDirichletToLhsAndRhs@{applyPointDirichletToLhsAndRhs}!ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyPointDirichletToLhsAndRhs()}{applyPointDirichletToLhsAndRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions\+::apply\+Point\+Dirichlet\+To\+Lhs\+And\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$}]{bs,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{m\+\_\+linear\+\_\+system,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies Point Dirichlet boundary conditions to RHS and LHS. 
+
+Updates the LHS matrix and RHS vector to enforce the Dirichlet.
+
+
+\begin{DoxyItemize}
+\item For LHS matrix {\ttfamily 𝐀}, the diagonal term for the Dirichlet DOF is set to {\ttfamily 𝑃}.
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & Boundary condition values. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & Node coordinates. \\
+\hline
+{\em m\+\_\+linear\+\_\+system} & Linear system for LHS. \\
+\hline
+{\em rhs\+\_\+values} & RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1293 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions_a53ff933b1c11f6dfd0b91bf540f4bfd1}\label{classArcaneFemFunctions_1_1BoundaryConditions_a53ff933b1c11f6dfd0b91bf540f4bfd1}} 
+\index{ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}!applyPointDirichletToRhs@{applyPointDirichletToRhs}}
+\index{applyPointDirichletToRhs@{applyPointDirichletToRhs}!ArcaneFemFunctions::BoundaryConditions@{ArcaneFemFunctions::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyPointDirichletToRhs()}{applyPointDirichletToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions\+::apply\+Point\+Dirichlet\+To\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$}]{bs,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies Point Dirichlet boundary conditions to RHS. 
+
+Updates the RHS vector to enforce the Dirichlet.
+
+
+\begin{DoxyItemize}
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & Boundary condition values. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & Node coordinates. \\
+\hline
+{\em rhs\+\_\+values} & RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1371 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

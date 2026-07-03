@@ -1,0 +1,110 @@
+\hypertarget{classLogLinearInterpolator}{}\doxysection{Log\+Linear\+Interpolator Class Reference}
+\label{classLogLinearInterpolator}\index{LogLinearInterpolator@{LogLinearInterpolator}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_a5f19cdbcfa0405df5892b317a8271bbe}\label{classLogLinearInterpolator_a5f19cdbcfa0405df5892b317a8271bbe}} 
+enum {\bfseries e\+Prolongation\+Type} \{ {\bfseries Constant\+Prolongation}
+, {\bfseries Linear\+Prolongation}
+ \}
+\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_a6564a2916080d50ab0fea250f999547a}\label{classLogLinearInterpolator_a6564a2916080d50ab0fea250f999547a}} 
+typedef Real {\bfseries Interval\+Data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_a48819480d1151978e10ae44a96be1d8f}\label{classLogLinearInterpolator_a48819480d1151978e10ae44a96be1d8f}} 
+\mbox{\hyperlink{classLogLinearInterpolator_a48819480d1151978e10ae44a96be1d8f}{Log\+Linear\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_a03faf11ee96a6c980cb217591200f3fa}\label{classLogLinearInterpolator_a03faf11ee96a6c980cb217591200f3fa}} 
+virtual \mbox{\hyperlink{classLogLinearInterpolator_a03faf11ee96a6c980cb217591200f3fa}{$\sim$\+Log\+Linear\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Real \mbox{\hyperlink{classLogLinearInterpolator_a9f7f17739bcdbaba7fd746bc468bbe47}{interpolate}} (const Real $\ast$const x, const Real $\ast$y, const Interval\+Data $\ast$const coef, const Real v)
+\begin{DoxyCompactList}\small\item\em Static inline linear interpolation method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_a5a892606d5feb1a44cca3bf64cc53c3e}\label{classLogLinearInterpolator_a5a892606d5feb1a44cca3bf64cc53c3e}} 
+static Real \mbox{\hyperlink{classLogLinearInterpolator_a5a892606d5feb1a44cca3bf64cc53c3e}{differentiate}} (const Real $\ast$const x, const Real $\ast$const y, const Interval\+Data $\ast$const coef, const Real v)
+\begin{DoxyCompactList}\small\item\em Static inline linear interpolation \+: get derivative. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLogLinearInterpolator_aef604b3a570156d423a5b252a591260a}{update\+Ghost\+Points}} (const e\+Prolongation\+Type \&prolongation\+\_\+type, Real $\ast$const x\+\_\+begin, Real $\ast$const x\+\_\+end, Real $\ast$const y\+\_\+begin, Real $\ast$const y\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Static inline update ghost cells value method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_aff19d9f8e21b5ec1ff3a0712970271bf}\label{classLogLinearInterpolator_aff19d9f8e21b5ec1ff3a0712970271bf}} 
+static const Interval\+Data \& \mbox{\hyperlink{classLogLinearInterpolator_aff19d9f8e21b5ec1ff3a0712970271bf}{get\+Forbidden\+Interval}} (const Real \&forbidden\+\_\+interval\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Static interval coefficient setting method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_a3bc7d47f1c7507709818880f9f72a9fd}\label{classLogLinearInterpolator_a3bc7d47f1c7507709818880f9f72a9fd}} 
+static void \mbox{\hyperlink{classLogLinearInterpolator_a3bc7d47f1c7507709818880f9f72a9fd}{get\+Connected\+Interval\+Number}} (Integer \&nb\+\_\+linterval, Integer \&nb\+\_\+rinterval)
+\begin{DoxyCompactList}\small\item\em Static method giving number of intervals connected at the right and left of one inserted point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_a17faca5f6a4797bd6902ec8eabb85112}\label{classLogLinearInterpolator_a17faca5f6a4797bd6902ec8eabb85112}} 
+static Interval\+Data \mbox{\hyperlink{classLogLinearInterpolator_a17faca5f6a4797bd6902ec8eabb85112}{get\+Default\+Interval}} ()
+\begin{DoxyCompactList}\small\item\em Static interval coefficient setting method \+: get default interval coef. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_aef9afa271829e4a879dbf97d46eba63c}\label{classLogLinearInterpolator_aef9afa271829e4a879dbf97d46eba63c}} 
+static void \mbox{\hyperlink{classLogLinearInterpolator_aef9afa271829e4a879dbf97d46eba63c}{compute\+Interval\+Coef}} (const Real $\ast$const x\+\_\+left\+\_\+bound, const Real $\ast$const y\+\_\+left\+\_\+bound, const Integer \&interval\+\_\+number, Interval\+Data $\ast$const interval\+\_\+coeff)
+\begin{DoxyCompactList}\small\item\em Static interval coefficient precalculation method. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLogLinearInterpolator_a3cc832827548a7b7765bc0c31f77737d}{update\+Ghost\+Intervals}} (const e\+Prolongation\+Type \&prolongation\+\_\+type, Real $\ast$const x\+\_\+begin, Real $\ast$const x\+\_\+end, Real $\ast$const y\+\_\+begin, Real $\ast$const y\+\_\+end, Real $\ast$const interval\+\_\+begin, Real $\ast$const interval\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Static inline update ghost value method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogLinearInterpolator_af599764d089730b173d1951c76864575}\label{classLogLinearInterpolator_af599764d089730b173d1951c76864575}} 
+static void \mbox{\hyperlink{classLogLinearInterpolator_af599764d089730b173d1951c76864575}{get\+Interpolator\+Type}} (Piece\+Wise\+Function\+Type\+::e\+Interpolator\+Type \&interpolator\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Static method giving type of interpolator using enumeration defined in \mbox{\hyperlink{IPieceWiseFunction_8h_source}{IPiece\+Wise\+Function.\+h}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file Log\+Linear\+Interpolator.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogLinearInterpolator_a9f7f17739bcdbaba7fd746bc468bbe47}\label{classLogLinearInterpolator_a9f7f17739bcdbaba7fd746bc468bbe47}} 
+\index{LogLinearInterpolator@{LogLinearInterpolator}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!LogLinearInterpolator@{LogLinearInterpolator}}
+\doxysubsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily static Real Log\+Linear\+Interpolator\+::interpolate (\begin{DoxyParamCaption}\item[{const Real $\ast$const}]{x,  }\item[{const Real $\ast$}]{y,  }\item[{const Interval\+Data $\ast$const}]{coef,  }\item[{const Real}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline linear interpolation method. 
+
+Return linear interpolate
+
+Definition at line 45 of file Log\+Linear\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classLogLinearInterpolator_a3cc832827548a7b7765bc0c31f77737d}\label{classLogLinearInterpolator_a3cc832827548a7b7765bc0c31f77737d}} 
+\index{LogLinearInterpolator@{LogLinearInterpolator}!updateGhostIntervals@{updateGhostIntervals}}
+\index{updateGhostIntervals@{updateGhostIntervals}!LogLinearInterpolator@{LogLinearInterpolator}}
+\doxysubsubsection{\texorpdfstring{updateGhostIntervals()}{updateGhostIntervals()}}
+{\footnotesize\ttfamily static void Log\+Linear\+Interpolator\+::update\+Ghost\+Intervals (\begin{DoxyParamCaption}\item[{const e\+Prolongation\+Type \&}]{prolongation\+\_\+type,  }\item[{Real $\ast$const}]{x\+\_\+begin,  }\item[{Real $\ast$const}]{x\+\_\+end,  }\item[{Real $\ast$const}]{y\+\_\+begin,  }\item[{Real $\ast$const}]{y\+\_\+end,  }\item[{Real $\ast$const}]{interval\+\_\+begin,  }\item[{Real $\ast$const}]{interval\+\_\+end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline update ghost value method. 
+
+Interval ghost cells \+: infinite constant prolongation
+
+Interval ghost cells \+: infinite constant prolongation
+
+Definition at line 119 of file Log\+Linear\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classLogLinearInterpolator_aef604b3a570156d423a5b252a591260a}\label{classLogLinearInterpolator_aef604b3a570156d423a5b252a591260a}} 
+\index{LogLinearInterpolator@{LogLinearInterpolator}!updateGhostPoints@{updateGhostPoints}}
+\index{updateGhostPoints@{updateGhostPoints}!LogLinearInterpolator@{LogLinearInterpolator}}
+\doxysubsubsection{\texorpdfstring{updateGhostPoints()}{updateGhostPoints()}}
+{\footnotesize\ttfamily static void Log\+Linear\+Interpolator\+::update\+Ghost\+Points (\begin{DoxyParamCaption}\item[{const e\+Prolongation\+Type \&}]{prolongation\+\_\+type,  }\item[{Real $\ast$const}]{x\+\_\+begin,  }\item[{Real $\ast$const}]{x\+\_\+end,  }\item[{Real $\ast$const}]{y\+\_\+begin,  }\item[{Real $\ast$const}]{y\+\_\+end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline update ghost cells value method. 
+
+x and y Ghost cells = \mbox{\hyperlink{classTable}{Table}} first point
+
+x and y Ghost cells = \mbox{\hyperlink{classTable}{Table}} first point
+
+Definition at line 62 of file Log\+Linear\+Interpolator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/\+Log\+Linear\+Piece\+Wise\+Function/Log\+Linear\+Interpolator.\+h\end{DoxyCompactItemize}

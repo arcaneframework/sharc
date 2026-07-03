@@ -1,0 +1,35 @@
+\hypertarget{structdetails_1_1SignatureTraitsT}{}\doxysection{details\+::Signature\+TraitsT$<$ T $>$ Struct Template Reference}
+\label{structdetails_1_1SignatureTraitsT}\index{details::SignatureTraitsT$<$ T $>$@{details::SignatureTraitsT$<$ T $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structdetails_1_1SignatureTraitsT_a45f3579bf868f3b9727eb236ff68fc76}\label{structdetails_1_1SignatureTraitsT_a45f3579bf868f3b9727eb236ff68fc76}} 
+typedef boost\+::mpl\+::vector$<$ T... $>$ {\bfseries All\+Argument\+Types}
+\item 
+\mbox{\Hypertarget{structdetails_1_1SignatureTraitsT_a98137eddc5de88c28399944e268c11d2}\label{structdetails_1_1SignatureTraitsT_a98137eddc5de88c28399944e268c11d2}} 
+typedef boost\+::mpl\+::remove\+\_\+if$<$ All\+Argument\+Types, boost\+::mpl\+::is\+\_\+void\+\_\+$<$ boost\+::mpl\+::\+\_\+ $>$, boost\+::mpl\+::back\+\_\+inserter$<$ boost\+::mpl\+::vector0$<$$>$ $>$ $>$\+::type {\bfseries Argument\+Types}
+\item 
+\mbox{\Hypertarget{structdetails_1_1SignatureTraitsT_a6d791102f5d36ac6d9f6bb1866dc1874}\label{structdetails_1_1SignatureTraitsT_a6d791102f5d36ac6d9f6bb1866dc1874}} 
+typedef boost\+::mpl\+::transform$<$ Argument\+Types, \mbox{\hyperlink{structdetails_1_1ArgumentToProperty}{details\+::\+Argument\+To\+Property}}$<$ boost\+::mpl\+::\+\_\+ $>$ $>$\+::type {\bfseries Property\+Types}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structdetails_1_1SignatureTraitsT_a979afe783a8dfd8e49bb45d1c1edbe5e}\label{structdetails_1_1SignatureTraitsT_a979afe783a8dfd8e49bb45d1c1edbe5e}} 
+static const Integer {\bfseries nb\+\_\+arguments} = boost\+::mpl\+::size$<$Argument\+Types$>$\+::value
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename... T$>$\newline
+struct details\+::\+Signature\+Traits\+T$<$ T $>$}
+
+
+
+Definition at line 92 of file Signature\+Traits.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Signature\+Traits.\+h\end{DoxyCompactItemize}

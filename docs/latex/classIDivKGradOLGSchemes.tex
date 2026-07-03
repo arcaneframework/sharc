@@ -1,0 +1,260 @@
+\hypertarget{classIDivKGradOLGSchemes}{}\doxysection{IDiv\+KGrad\+OLGSchemes$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$ Class Template Reference}
+\label{classIDivKGradOLGSchemes}\index{IDivKGradOLGSchemes$<$ TCellStencilBuilder, TFaceStencilBuilder, TCellCoefficientArrayBuilder, TFaceCoefficientArrayBuilder $>$@{IDivKGradOLGSchemes$<$ TCellStencilBuilder, TFaceStencilBuilder, TCellCoefficientArrayBuilder, TFaceCoefficientArrayBuilder $>$}}
+
+
+Inherits \mbox{\hyperlink{classIDivKGradDiscreteOperator}{IDiv\+KGrad\+Discrete\+Operator}}.
+
+
+
+Inherited by \mbox{\hyperlink{classDivKGradGScheme}{Div\+KGrad\+GScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}, \mbox{\hyperlink{classDivKGradLScheme}{Div\+KGrad\+LScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}, and \mbox{\hyperlink{classDivKGradOScheme}{Div\+KGrad\+OScheme$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIDivKGradOLGSchemes_1_1Error}{Error}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a420f181f673f3d2c3c745f8e7866a949}\label{classIDivKGradOLGSchemes_a420f181f673f3d2c3c745f8e7866a949}} 
+enum {\bfseries Error\+Code} \{ \newline
+{\bfseries E\+\_\+\+Not\+Initialized} = 0
+, {\bfseries E\+\_\+\+Unknown\+Boundary\+Discretization} = 1
+, {\bfseries E\+\_\+\+Cell\+Gradient\+Computation} = 2
+, {\bfseries E\+\_\+\+OBoundary\+Condition\+Computation} = 3
+, \newline
+{\bfseries E\+\_\+\+Inconsistent\+Construction} = 4
+, {\bfseries E\+\_\+\+Unknown\+Property} = 5
+ \}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a67bf398dbe4909fa1d9347aaed63efca}\label{classIDivKGradOLGSchemes_a67bf398dbe4909fa1d9347aaed63efca}} 
+enum {\bfseries Property} \{ {\bfseries P\+\_\+\+Epsilon}
+, {\bfseries P\+\_\+\+Check\+Sign}
+, {\bfseries P\+\_\+\+Diagonal\+To\+Off\+Diagonal\+Ratio}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aca9387f16307241f5c03be6d393cb573}\label{classIDivKGradOLGSchemes_aca9387f16307241f5c03be6d393cb573}} 
+\mbox{\hyperlink{classIDivKGradOLGSchemes_aca9387f16307241f5c03be6d393cb573}{$\sim$\+IDiv\+KGrad\+OLGSchemes}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aead7f0b9dca99fa4c6c39bf84d3119b8}\label{classIDivKGradOLGSchemes_aead7f0b9dca99fa4c6c39bf84d3119b8}} 
+void \mbox{\hyperlink{classIDivKGradOLGSchemes_aead7f0b9dca99fa4c6c39bf84d3119b8}{prepare}} (IMesh $\ast$mesh, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_af91e7a481578b52abbee81b71d5fd481}\label{classIDivKGradOLGSchemes_af91e7a481578b52abbee81b71d5fd481}} 
+ARCANE\+\_\+\+DEPRECATED void \mbox{\hyperlink{classIDivKGradOLGSchemes_af91e7a481578b52abbee81b71d5fd481}{prepare}} (const Face\+Group \&internal\+\_\+faces, const Face\+Group \&boundary\+\_\+faces, Face\+Group \&c\+\_\+internal\+\_\+faces, Face\+Group \&cf\+\_\+internal\+\_\+faces, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$cell\+\_\+coefficients, \mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$face\+\_\+coefficients)
+\begin{DoxyCompactList}\small\item\em Preliminary computations (including connectivity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a1dd0a9a4d4185a203c3c82bc29fc72b5}\label{classIDivKGradOLGSchemes_a1dd0a9a4d4185a203c3c82bc29fc72b5}} 
+void \mbox{\hyperlink{classIDivKGradOLGSchemes_a1dd0a9a4d4185a203c3c82bc29fc72b5}{finalize}} ()
+\begin{DoxyCompactList}\small\item\em Reset the operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a02647cbf7e9810904c3908fc4658832a}\label{classIDivKGradOLGSchemes_a02647cbf7e9810904c3908fc4658832a}} 
+Integer \mbox{\hyperlink{classIDivKGradOLGSchemes_a02647cbf7e9810904c3908fc4658832a}{get\+Cell\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required cell geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_acaf2c4408166410b98780f413dda3f36}\label{classIDivKGradOLGSchemes_acaf2c4408166410b98780f413dda3f36}} 
+Integer \mbox{\hyperlink{classIDivKGradOLGSchemes_acaf2c4408166410b98780f413dda3f36}{get\+Face\+Geometric\+Properties}} ()
+\begin{DoxyCompactList}\small\item\em Required face geometric properties. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a0b32a5240ae899c425bd6b07e3c31f7a}\label{classIDivKGradOLGSchemes_a0b32a5240ae899c425bd6b07e3c31f7a}} 
+const Integer \& \mbox{\hyperlink{classIDivKGradOLGSchemes_a0b32a5240ae899c425bd6b07e3c31f7a}{status}} () const
+\begin{DoxyCompactList}\small\item\em Return the current status. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a4af603d40650fb3bde93f535f928ed6c}\label{classIDivKGradOLGSchemes_a4af603d40650fb3bde93f535f928ed6c}} 
+const Face\+Group \& \mbox{\hyperlink{classIDivKGradOLGSchemes_a4af603d40650fb3bde93f535f928ed6c}{faces}} () const
+\begin{DoxyCompactList}\small\item\em Return faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a34748dc3fcd68876fc0d1e83b2445a30}\label{classIDivKGradOLGSchemes_a34748dc3fcd68876fc0d1e83b2445a30}} 
+const Cell\+Group \& \mbox{\hyperlink{classIDivKGradOLGSchemes_a34748dc3fcd68876fc0d1e83b2445a30}{cells}} () const
+\begin{DoxyCompactList}\small\item\em Return cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a9e17ae6675c4df52d237f20d30d7168e}\label{classIDivKGradOLGSchemes_a9e17ae6675c4df52d237f20d30d7168e}} 
+const Face\+Group \& \mbox{\hyperlink{classIDivKGradOLGSchemes_a9e17ae6675c4df52d237f20d30d7168e}{boundary\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return boundary faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_af3b01a41cbf2fc11c5960ca63d6b9d3b}\label{classIDivKGradOLGSchemes_af3b01a41cbf2fc11c5960ca63d6b9d3b}} 
+const Face\+Group \& \mbox{\hyperlink{classIDivKGradOLGSchemes_af3b01a41cbf2fc11c5960ca63d6b9d3b}{internal\+Faces}} () const
+\begin{DoxyCompactList}\small\item\em Return internal faces. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a70ab6c6f970c2a95ebd171967255989e}\label{classIDivKGradOLGSchemes_a70ab6c6f970c2a95ebd171967255989e}} 
+void \mbox{\hyperlink{classIDivKGradOLGSchemes_a70ab6c6f970c2a95ebd171967255989e}{set}} (\mbox{\hyperlink{classProperty}{Property}} a\+\_\+property, const Real \&a\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Set property. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a9782b0239a55139919e9424cb729befc}\label{classIDivKGradOLGSchemes_a9782b0239a55139919e9424cb729befc}} 
+void \mbox{\hyperlink{classIDivKGradOLGSchemes_a9782b0239a55139919e9424cb729befc}{set}} (\mbox{\hyperlink{classProperty}{Property}} a\+\_\+property, const bool \&a\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Set property. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_af1869d53a4d3d6e47fc192fccaa29382}\label{classIDivKGradOLGSchemes_af1869d53a4d3d6e47fc192fccaa29382}} 
+bool \mbox{\hyperlink{classIDivKGradOLGSchemes_af1869d53a4d3d6e47fc192fccaa29382}{two\+Point\+Boundary}} ()
+\begin{DoxyCompactList}\small\item\em Two-\/point boundary treatment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_ab7745c34463f8d15b8aa40b90d921cc0}\label{classIDivKGradOLGSchemes_ab7745c34463f8d15b8aa40b90d921cc0}} 
+virtual void \mbox{\hyperlink{classIDivKGradOLGSchemes_ab7745c34463f8d15b8aa40b90d921cc0}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a10ab51db733d6d4d02adf03c751f7b23}\label{classIDivKGradOLGSchemes_a10ab51db733d6d4d02adf03c751f7b23}} 
+virtual void \mbox{\hyperlink{classIDivKGradOLGSchemes_a10ab51db733d6d4d02adf03c751f7b23}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aa8fbba1f6c0b5ed356bfdf8786a556c1}\label{classIDivKGradOLGSchemes_aa8fbba1f6c0b5ed356bfdf8786a556c1}} 
+virtual void \mbox{\hyperlink{classIDivKGradOLGSchemes_aa8fbba1f6c0b5ed356bfdf8786a556c1}{form\+Discrete\+Operator}} (const Variable\+Cell\+Real3x3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a342191202104433dea6bfa7c81c5c6f8}\label{classIDivKGradOLGSchemes_a342191202104433dea6bfa7c81c5c6f8}} 
+virtual void \mbox{\hyperlink{classIDivKGradOLGSchemes_a342191202104433dea6bfa7c81c5c6f8}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a8f49e1e4ccc13b206bdb1bd7b873042d}\label{classIDivKGradOLGSchemes_a8f49e1e4ccc13b206bdb1bd7b873042d}} 
+virtual void \mbox{\hyperlink{classIDivKGradOLGSchemes_a8f49e1e4ccc13b206bdb1bd7b873042d}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a12b34937fa1388415f065e0eeedad20f}\label{classIDivKGradOLGSchemes_a12b34937fa1388415f065e0eeedad20f}} 
+virtual void \mbox{\hyperlink{classIDivKGradOLGSchemes_a12b34937fa1388415f065e0eeedad20f}{form\+Discrete\+Operator}} (const Shared\+Variable\+Cell\+Real3x3 \&k)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a5efd6f3da922568aca4b794c0929c4a4}\label{classIDivKGradOLGSchemes_a5efd6f3da922568aca4b794c0929c4a4}} 
+typedef boost\+::numeric\+::ublas\+::vector$<$ Real $>$ {\bfseries Real\+Vector}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a74a4d2bc1b17169af43ddb831f1a7ec8}\label{classIDivKGradOLGSchemes_a74a4d2bc1b17169af43ddb831f1a7ec8}} 
+typedef boost\+::numeric\+::ublas\+::zero\+\_\+vector$<$ Real $>$ {\bfseries Zero\+Vector}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_acdc5fe60653919ff117c98bb7f4506b0}\label{classIDivKGradOLGSchemes_acdc5fe60653919ff117c98bb7f4506b0}} 
+typedef boost\+::numeric\+::ublas\+::matrix$<$ Real $>$ {\bfseries Real\+Matrix}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a493c839c9a07046ac252766231decdb1}\label{classIDivKGradOLGSchemes_a493c839c9a07046ac252766231decdb1}} 
+typedef boost\+::numeric\+::ublas\+::zero\+\_\+matrix$<$ Real $>$ {\bfseries Zero\+Matrix}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a3767d3c86be7e5e4fc3f670e789e38b5}\label{classIDivKGradOLGSchemes_a3767d3c86be7e5e4fc3f670e789e38b5}} 
+typedef boost\+::numeric\+::ublas\+::range {\bfseries Range}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aefbc715f9381c143b490b151417b44d0}\label{classIDivKGradOLGSchemes_aefbc715f9381c143b490b151417b44d0}} 
+typedef boost\+::numeric\+::ublas\+::matrix\+\_\+range$<$ Real\+Matrix $>$ {\bfseries Real\+Matrix\+Range}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a908aa175039c4d690c04f73057722cfa}\label{classIDivKGradOLGSchemes_a908aa175039c4d690c04f73057722cfa}} 
+typedef boost\+::numeric\+::ublas\+::permutation\+\_\+matrix$<$ std\+::size\+\_\+t $>$ {\bfseries Permutation\+Matrix}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a2f47c0fe6ffdba5075ade59211d1d742}\label{classIDivKGradOLGSchemes_a2f47c0fe6ffdba5075ade59211d1d742}} 
+typedef Variable\+Cell\+Integer {\bfseries Cell\+Num}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_ade4c480e35123a18b90c816e422a91e7}\label{classIDivKGradOLGSchemes_ade4c480e35123a18b90c816e422a91e7}} 
+typedef std\+::vector$<$ Integer $>$ {\bfseries Face\+Num}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_ace1f932f78359d6681e545462a40984b}\label{classIDivKGradOLGSchemes_ace1f932f78359d6681e545462a40984b}} 
+typedef std\+::vector$<$ Face\+Num $>$ {\bfseries Face\+Num\+By\+Cell}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aad274087ae0af6dc88725316dbee4739}\label{classIDivKGradOLGSchemes_aad274087ae0af6dc88725316dbee4739}} 
+Integer {\bfseries \+\_\+global\+\_\+index} (const Item\+Group\+Range\+IteratorT$<$ Face $>$ \&iface)
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aa697531b89e49f532be4eba042a9933f}\label{classIDivKGradOLGSchemes_aa697531b89e49f532be4eba042a9933f}} 
+\mbox{\hyperlink{structTypesDivKGradOLGSchemes_af6ee3061a3315f57e0dd36555a5c7f1d}{Types\+Div\+KGrad\+OLGSchemes\+::e\+Type}} {\bfseries get\+Type} ()
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_ab0a97f534c60fc28fac24564a49a66b4}\label{classIDivKGradOLGSchemes_ab0a97f534c60fc28fac24564a49a66b4}} 
+void {\bfseries \+\_\+compute\+\_\+local\+\_\+connectivity} (const Node \&node, Cell\+Num \&Num\+Loc\+Cell, Face\+Num\+By\+Cell \&Num\+Locfaceby\+Cell)
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_abb741936c0d2e35138ada2076d31c7d6}\label{classIDivKGradOLGSchemes_abb741936c0d2e35138ada2076d31c7d6}} 
+void {\bfseries \+\_\+compute\+\_\+local\+\_\+connectivity\+\_\+amr} (const Node \&node, Item\+VectorT$<$ Cell $>$ node\+\_\+cells, Cell\+Num \&Num\+Loc\+Cell, Face\+Num\+By\+Cell \&Num\+Locfaceby\+Cell)
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aeceb148f08c2a2869d5d98d07b226057}\label{classIDivKGradOLGSchemes_aeceb148f08c2a2869d5d98d07b226057}} 
+void {\bfseries compute\+Stencils} ()
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a2db6a04fa138dcc042efbfc85b5c13ae}\label{classIDivKGradOLGSchemes_a2db6a04fa138dcc042efbfc85b5c13ae}} 
+void {\bfseries compute\+Stencils\+\_\+amr} ()
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a7bce29c98500011c19e218984bbd5e5c}\label{classIDivKGradOLGSchemes_a7bce29c98500011c19e218984bbd5e5c}} 
+{\footnotesize template$<$Integer N, typename Comparator $>$ }\\void {\bfseries \+\_\+compute\+\_\+cell\+\_\+gradient} (const Node \&node, Face\+Num\+By\+Cell \&Num\+Locfacesby\+Cell, CArray2T$<$ \mbox{\hyperlink{structReal3}{Real3}} $>$ \&Gradient, Comparator \&degeneration\+\_\+comparator)
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a70cfc1cb6923aaee91ce75003d1a87f7}\label{classIDivKGradOLGSchemes_a70cfc1cb6923aaee91ce75003d1a87f7}} 
+void {\bfseries \+\_\+compute\+\_\+weak\+\_\+cell\+\_\+gradient} (const Node \&node, Face\+Num\+By\+Cell \&Num\+Locfacesby\+Cell, CArray2T$<$ \mbox{\hyperlink{structReal3}{Real3}} $>$ \&Gradient)
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_af18c9b778170399b7dcdc621d3f48d44}\label{classIDivKGradOLGSchemes_af18c9b778170399b7dcdc621d3f48d44}} 
+{\footnotesize template$<$typename Variable\+TypeT , typename Cell\+Coefficient\+Array\+Builder , typename Face\+Coefficient\+Array\+Builder $>$ }\\void {\bfseries \+\_\+compute\+\_\+two\+\_\+point\+\_\+boundary\+\_\+conditions} (const Node \&node, const Variable\+TypeT \&kappa, Cell\+Coefficient\+Array\+Builder \&cell\+\_\+builder, Face\+Coefficient\+Array\+Builder \&face\+\_\+builder)
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a417620c19afb1e0fd3f296189d917466}\label{classIDivKGradOLGSchemes_a417620c19afb1e0fd3f296189d917466}} 
+{\footnotesize template$<$typename Variable\+TypeT , typename Cell\+Coefficient\+Array\+Builder , typename Face\+Coefficient\+Array\+Builder $>$ }\\void {\bfseries \+\_\+compute\+\_\+standard\+\_\+two\+\_\+point\+\_\+boundary\+\_\+conditions} (const Node \&node, const Variable\+TypeT \&kappa, Cell\+Coefficient\+Array\+Builder \&cell\+\_\+builder, Face\+Coefficient\+Array\+Builder \&face\+\_\+builder)
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a926f548c3bf94cb2aa29ff75e0c8004f}\label{classIDivKGradOLGSchemes_a926f548c3bf94cb2aa29ff75e0c8004f}} 
+{\footnotesize template$<$typename Variable\+TypeT , typename Cell\+Coefficient\+Array\+Builder , typename Face\+Coefficient\+Array\+Builder $>$ }\\void {\bfseries \+\_\+compute\+\_\+o\+\_\+scheme\+\_\+boundary\+\_\+conditions} (const Node \&node, Cell\+Num \&Num\+Loc\+Cell, Face\+Num\+By\+Cell \&Num\+Locfaceby\+Cell, CArray2T$<$ \mbox{\hyperlink{structReal3}{Real3}} $>$ \&Gradient, const Variable\+TypeT \&kappa, Cell\+Coefficient\+Array\+Builder \&cell\+\_\+ca\+\_\+builder, Face\+Coefficient\+Array\+Builder \&face\+\_\+ca\+\_\+builder)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_aec43a09ca8ce22c4ecdaf52a7dca5d09}\label{classIDivKGradOLGSchemes_aec43a09ca8ce22c4ecdaf52a7dca5d09}} 
+Integer {\bfseries m\+\_\+status}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a8f84117a2bcf95531536e1298e3249f8}\label{classIDivKGradOLGSchemes_a8f84117a2bcf95531536e1298e3249f8}} 
+Real {\bfseries m\+\_\+epsilon}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a9b5b41da507ee4ff3afe2cae6cd1d854}\label{classIDivKGradOLGSchemes_a9b5b41da507ee4ff3afe2cae6cd1d854}} 
+bool {\bfseries m\+\_\+check\+\_\+sign}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a7b2f14af96075e77238d7753bc0e5cc0}\label{classIDivKGradOLGSchemes_a7b2f14af96075e77238d7753bc0e5cc0}} 
+Real {\bfseries m\+\_\+dtodr}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a103b0ccbff3c4abaa5982a7a4e208239}\label{classIDivKGradOLGSchemes_a103b0ccbff3c4abaa5982a7a4e208239}} 
+bool {\bfseries m\+\_\+amr}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a5d2cf912bcc31e5a88925a5f9272dded}\label{classIDivKGradOLGSchemes_a5d2cf912bcc31e5a88925a5f9272dded}} 
+IMesh $\ast$ {\bfseries m\+\_\+mesh}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a6d850f98c6a90952a395011b76244e59}\label{classIDivKGradOLGSchemes_a6d850f98c6a90952a395011b76244e59}} 
+\mbox{\hyperlink{classIGeometryMng}{IGeometry\+Mng}} $\ast$ {\bfseries m\+\_\+geometry\+\_\+service}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a798e18dd5cc00f5254a9fb27ba1b378c}\label{classIDivKGradOLGSchemes_a798e18dd5cc00f5254a9fb27ba1b378c}} 
+\mbox{\hyperlink{structTypesDivKGradOLGSchemes_af6ee3061a3315f57e0dd36555a5c7f1d}{Types\+Div\+KGrad\+OLGSchemes\+::e\+Type}} {\bfseries m\+\_\+type}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a674fd917e5c71a414babaa7a93f35062}\label{classIDivKGradOLGSchemes_a674fd917e5c71a414babaa7a93f35062}} 
+Face\+Group {\bfseries m\+\_\+faces}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a59a7144de718ed4c8a36888ae661342a}\label{classIDivKGradOLGSchemes_a59a7144de718ed4c8a36888ae661342a}} 
+Cell\+Group {\bfseries m\+\_\+cells}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_afc520435e63f7b5e9024d020c39f7d75}\label{classIDivKGradOLGSchemes_afc520435e63f7b5e9024d020c39f7d75}} 
+Face\+Group {\bfseries m\+\_\+boundary\+\_\+faces}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a48e85009ea4fe62c4c592642574bf453}\label{classIDivKGradOLGSchemes_a48e85009ea4fe62c4c592642574bf453}} 
+Face\+Group {\bfseries m\+\_\+internal\+\_\+faces}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a479863d1f456664a31b5cb9e54055540}\label{classIDivKGradOLGSchemes_a479863d1f456664a31b5cb9e54055540}} 
+Face\+Group {\bfseries m\+\_\+c\+\_\+internal\+\_\+faces}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a312a193ebfde5ff0c269e4a494640d7a}\label{classIDivKGradOLGSchemes_a312a193ebfde5ff0c269e4a494640d7a}} 
+Face\+Group {\bfseries m\+\_\+cf\+\_\+internal\+\_\+faces}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a5e04b1f4948fe1b7f11ab4521d41dcca}\label{classIDivKGradOLGSchemes_a5e04b1f4948fe1b7f11ab4521d41dcca}} 
+Node\+Group {\bfseries m\+\_\+boundary\+\_\+nodes}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a12c66dbe76dc56efbcba0c510b82399c}\label{classIDivKGradOLGSchemes_a12c66dbe76dc56efbcba0c510b82399c}} 
+Node\+Group {\bfseries m\+\_\+internal\+\_\+nodes}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a94c5d37028b47a60ea0b640b4baa8815}\label{classIDivKGradOLGSchemes_a94c5d37028b47a60ea0b640b4baa8815}} 
+String {\bfseries m\+\_\+cells\+\_\+group\+\_\+name}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_af8f69683f69b92ce5dd5c81bc3f999c9}\label{classIDivKGradOLGSchemes_af8f69683f69b92ce5dd5c81bc3f999c9}} 
+String {\bfseries m\+\_\+faces\+\_\+group\+\_\+name}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a21c8a703edd09ad781222e9b13156da9}\label{classIDivKGradOLGSchemes_a21c8a703edd09ad781222e9b13156da9}} 
+\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Cell $>$ $\ast$ {\bfseries m\+\_\+cell\+\_\+coefficients}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a28a5d046690660f1bbddbcb4df730752}\label{classIDivKGradOLGSchemes_a28a5d046690660f1bbddbcb4df730752}} 
+\mbox{\hyperlink{classCoefficientArrayT}{Coefficient\+ArrayT}}$<$ Face $>$ $\ast$ {\bfseries m\+\_\+face\+\_\+coefficients}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a888beeeac49c1304473c402b6363646a}\label{classIDivKGradOLGSchemes_a888beeeac49c1304473c402b6363646a}} 
+const IGeometry\+Mng\+::\+Real3\+Variable $\ast$ {\bfseries m\+\_\+f\+\_\+centers}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_ae0cfcb16b2885e3e65ac120f7449a2a0}\label{classIDivKGradOLGSchemes_ae0cfcb16b2885e3e65ac120f7449a2a0}} 
+const IGeometry\+Mng\+::\+Real3\+Variable $\ast$ {\bfseries m\+\_\+f\+\_\+normals}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_adcb5b2e5e287c4a1f0003c87fbbbbb4a}\label{classIDivKGradOLGSchemes_adcb5b2e5e287c4a1f0003c87fbbbbb4a}} 
+const IGeometry\+Mng\+::\+Real3\+Variable $\ast$ {\bfseries m\+\_\+c\+\_\+centers}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_ae60f266d12a5e416dce7b6fbeb23bb11}\label{classIDivKGradOLGSchemes_ae60f266d12a5e416dce7b6fbeb23bb11}} 
+const IGeometry\+Mng\+::\+Real\+Variable $\ast$ {\bfseries m\+\_\+f\+\_\+measures}
+\item 
+\mbox{\Hypertarget{classIDivKGradOLGSchemes_a655f3b5dcc281d446299d2426f1c694a}\label{classIDivKGradOLGSchemes_a655f3b5dcc281d446299d2426f1c694a}} 
+boost\+::shared\+\_\+ptr$<$ Variable\+Cell\+Integer $>$ {\bfseries m\+\_\+cell\+\_\+numbering}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TCell\+Stencil\+Builder, typename TFace\+Stencil\+Builder, typename TCell\+Coefficient\+Array\+Builder, typename TFace\+Coefficient\+Array\+Builder$>$\newline
+class IDiv\+KGrad\+OLGSchemes$<$ TCell\+Stencil\+Builder, TFace\+Stencil\+Builder, TCell\+Coefficient\+Array\+Builder, TFace\+Coefficient\+Array\+Builder $>$}
+
+
+
+Definition at line 44 of file IDiv\+KGrad\+OLGSchemes.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/IDiv\+KGrad\+OLGSchemes.\+h\end{DoxyCompactItemize}

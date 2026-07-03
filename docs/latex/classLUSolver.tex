@@ -1,0 +1,119 @@
+\hypertarget{classLUSolver}{}\doxysection{LUSolver$<$ T $>$ Class Template Reference}
+\label{classLUSolver}\index{LUSolver$<$ T $>$@{LUSolver$<$ T $>$}}
+
+
+Solve the linear system $A x = b$ using the $LU$ factorization.  
+
+
+
+
+{\ttfamily \#include $<$LUSolver.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLUSolver_1_1Error}{Error}}
+\item 
+struct \mbox{\hyperlink{structLUSolver_1_1Warning}{Warning}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLUSolver_abb786524e5563064bf90b12ad3759aa5}\label{classLUSolver_abb786524e5563064bf90b12ad3759aa5}} 
+enum {\bfseries Error\+Code} \{ \newline
+{\bfseries E\+\_\+\+No\+Error} = 0
+, {\bfseries E\+\_\+\+Singular\+Matrix} = 1
+, {\bfseries E\+\_\+\+Non\+Square\+Matrix} = 2
+, {\bfseries E\+\_\+\+Inconsistent\+Sizes} = 3
+, \newline
+{\bfseries E\+\_\+\+Substitution\+Error} = 4
+, {\bfseries E\+\_\+\+No\+Factored\+Matrix} = 5
+ \}
+\item 
+\mbox{\Hypertarget{classLUSolver_a740b64697da1661c182a749052866acc}\label{classLUSolver_a740b64697da1661c182a749052866acc}} 
+enum {\bfseries Warning\+Code} \{ {\bfseries W\+\_\+\+Empty\+Matrix} = 0
+ \}
+\item 
+\mbox{\Hypertarget{classLUSolver_a23ec60f497bf6acb66405ae0c18f18fd}\label{classLUSolver_a23ec60f497bf6acb66405ae0c18f18fd}} 
+typedef ublas\+::matrix$<$ T, ublas\+::column\+\_\+major $>$ \mbox{\hyperlink{classLUSolver_a23ec60f497bf6acb66405ae0c18f18fd}{matrix\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Internal matrix type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a8a40d761a61bc51d7f18f3b31b76ad52}\label{classLUSolver_a8a40d761a61bc51d7f18f3b31b76ad52}} 
+typedef ublas\+::matrix$<$ T, ublas\+::column\+\_\+major $>$ {\bfseries Matrix\+Type}
+\item 
+\mbox{\Hypertarget{classLUSolver_ab83d46830b6f1c4d80bcec8bca9141aa}\label{classLUSolver_ab83d46830b6f1c4d80bcec8bca9141aa}} 
+typedef ublas\+::vector$<$ T $>$ \mbox{\hyperlink{classLUSolver_ab83d46830b6f1c4d80bcec8bca9141aa}{vector\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Internal vector type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_ae93a2ad73140abdc396a4908185c1fd8}\label{classLUSolver_ae93a2ad73140abdc396a4908185c1fd8}} 
+typedef ublas\+::vector$<$ T $>$ {\bfseries Vector\+Type}
+\item 
+\mbox{\Hypertarget{classLUSolver_a7f472107d99fb20d431125367eeb8e8c}\label{classLUSolver_a7f472107d99fb20d431125367eeb8e8c}} 
+typedef matrix\+\_\+type\+::size\+\_\+type \mbox{\hyperlink{classLUSolver_a7f472107d99fb20d431125367eeb8e8c}{size\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Size type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a9d6eff8e39b7057367012dfbaa764722}\label{classLUSolver_a9d6eff8e39b7057367012dfbaa764722}} 
+typedef ublas\+::vector$<$ int $>$ \mbox{\hyperlink{classLUSolver_a9d6eff8e39b7057367012dfbaa764722}{pv\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Pivot vector type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLUSolver_a14f0dbd1281504db7bb57a75213d4db9}\label{classLUSolver_a14f0dbd1281504db7bb57a75213d4db9}} 
+\mbox{\hyperlink{classLUSolver_a14f0dbd1281504db7bb57a75213d4db9}{LUSolver}} (bool no\+\_\+exception=false)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_aa8268cb509ca4faebcb611a0b6d90e76}\label{classLUSolver_aa8268cb509ca4faebcb611a0b6d90e76}} 
+{\footnotesize template$<$class E $>$ }\\int \mbox{\hyperlink{classLUSolver_aa8268cb509ca4faebcb611a0b6d90e76}{factor}} (const ublas\+::matrix\+\_\+expression$<$ E $>$ \&A)
+\begin{DoxyCompactList}\small\item\em Copy and factor the matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a7741643a6011103164d8d4e3de66d3ab}\label{classLUSolver_a7741643a6011103164d8d4e3de66d3ab}} 
+{\footnotesize template$<$class E $>$ }\\\mbox{\hyperlink{classLUSolver_ab83d46830b6f1c4d80bcec8bca9141aa}{vector\+\_\+type}} \mbox{\hyperlink{classLUSolver_a7741643a6011103164d8d4e3de66d3ab}{solve}} (const ublas\+::vector\+\_\+expression$<$ E $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Solve the linear system for a single rhs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a6f559ec1f057482b5e6f6f9d42272c0c}\label{classLUSolver_a6f559ec1f057482b5e6f6f9d42272c0c}} 
+{\footnotesize template$<$class E $>$ }\\\mbox{\hyperlink{classLUSolver_a23ec60f497bf6acb66405ae0c18f18fd}{matrix\+\_\+type}} \mbox{\hyperlink{classLUSolver_a6f559ec1f057482b5e6f6f9d42272c0c}{solve}} (const ublas\+::matrix\+\_\+expression$<$ E $>$ \&B)
+\begin{DoxyCompactList}\small\item\em Solve the linear system for multiple rhs\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a80014669ce4f3a7d619482fa16b8726c}\label{classLUSolver_a80014669ce4f3a7d619482fa16b8726c}} 
+{\footnotesize template$<$class E $>$ }\\void \mbox{\hyperlink{classLUSolver_a80014669ce4f3a7d619482fa16b8726c}{overwrite\+\_\+solve}} (ublas\+::vector\+\_\+expression$<$ E $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Solve the linear system for a single rhs and overwrite the solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a438bbb86e5ec0687afe63db4ed269b8e}\label{classLUSolver_a438bbb86e5ec0687afe63db4ed269b8e}} 
+void \mbox{\hyperlink{classLUSolver_a438bbb86e5ec0687afe63db4ed269b8e}{overwrite\+\_\+solve}} (\mbox{\hyperlink{classLUSolver_a23ec60f497bf6acb66405ae0c18f18fd}{matrix\+\_\+type}} \&B)
+\begin{DoxyCompactList}\small\item\em Solve the linear system for multiple rhs\textquotesingle{} and overwrite the solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a3d481c59eb440d4a6f0150b179fd38cc}\label{classLUSolver_a3d481c59eb440d4a6f0150b179fd38cc}} 
+{\footnotesize template$<$class L , class E $>$ }\\\mbox{\hyperlink{classLUSolver_ab83d46830b6f1c4d80bcec8bca9141aa}{vector\+\_\+type}} \mbox{\hyperlink{classLUSolver_a3d481c59eb440d4a6f0150b179fd38cc}{solve}} (ublas\+::matrix$<$ T, L $>$ \&A, const ublas\+::vector\+\_\+expression$<$ E $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Overwrite the $LU$ factorization of the matrix $A$ and solve the system $A x = b$ for a single rhs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a02cde442a3ec5bf3ef19be24c3820b7c}\label{classLUSolver_a02cde442a3ec5bf3ef19be24c3820b7c}} 
+{\footnotesize template$<$class L , class E $>$ }\\\mbox{\hyperlink{classLUSolver_a23ec60f497bf6acb66405ae0c18f18fd}{matrix\+\_\+type}} \mbox{\hyperlink{classLUSolver_a02cde442a3ec5bf3ef19be24c3820b7c}{solve}} (ublas\+::matrix$<$ T, L $>$ \&A, const ublas\+::matrix\+\_\+expression$<$ E $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Overwrite the $LU$ factorization of the matrix $A$ and solve the system $A x = b$ for a multiple rhs\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a7d43ddbe44271e6020b9d7cfca10d96a}\label{classLUSolver_a7d43ddbe44271e6020b9d7cfca10d96a}} 
+{\footnotesize template$<$class L $>$ }\\void \mbox{\hyperlink{classLUSolver_a7d43ddbe44271e6020b9d7cfca10d96a}{overwrite\+\_\+solve}} (ublas\+::matrix$<$ T, L $>$ \&A, \mbox{\hyperlink{classLUSolver_ab83d46830b6f1c4d80bcec8bca9141aa}{vector\+\_\+type}} \&b)
+\begin{DoxyCompactList}\small\item\em Overwrite the $LU$ factorization of the matrix $A$ and solve the system $A x = b$ for a single rhs. The solution is overwritten over $b$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_a9c84fa26a6dfc16d28a714ccd6771cc2}\label{classLUSolver_a9c84fa26a6dfc16d28a714ccd6771cc2}} 
+{\footnotesize template$<$class L $>$ }\\void \mbox{\hyperlink{classLUSolver_a9c84fa26a6dfc16d28a714ccd6771cc2}{overwrite\+\_\+solve}} (ublas\+::matrix$<$ T, L $>$ \&A, \mbox{\hyperlink{classLUSolver_a23ec60f497bf6acb66405ae0c18f18fd}{matrix\+\_\+type}} \&b)
+\begin{DoxyCompactList}\small\item\em Overwrite the $LU$ factorization of the matrix $A$ and solve the system $A x = b$ for a single rhs. The solution is overwritten over $b$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLUSolver_aee122148fc26c85f27178989162d06b3}\label{classLUSolver_aee122148fc26c85f27178989162d06b3}} 
+Real {\bfseries det} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class LUSolver$<$ T $>$}
+
+Solve the linear system $A x = b$ using the $LU$ factorization. 
+
+\begin{DoxyAuthor}{Author}
+Daniele A. Di Pietro 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2006-\/07-\/29
+\end{DoxyDate}
+The dense $LU$ solver can be used in one of the following ways\+:
+
+
+\begin{DoxyItemize}
+\item if the matrix $A$ needn\textquotesingle{}t be preserved after computation and the associated system has to be solved only once, simply call solve(\+A, b). At exit, the argument A will contain the $LU$ factorization of the original matrix. \mbox{\hyperlink{structIn}{In}} order to avoid vector/matrix copies, the \mbox{\hyperlink{classLUSolver_a80014669ce4f3a7d619482fa16b8726c}{overwrite\+\_\+solve()}} members may be used instead, the sole difference being that the solution is overwritten over the rhs vector/matrix. When the matrix $A$ passed as an argument is stored column-\/wise, the $L$ and $U$ factors are overwritten in the lower and upper triangular part of $A$ respectively. When $A$ is stored row-\/wise, the $U^t$ and $L^t$ factors are stored in the lower and upper triangular part of $A$ respectively.
+\item if the matrix $A$ needs to be preserved after the computation or the associated system has to be solved several times, consider using a two-\/step strategy by first invoking factor(\+A), which makes a local copy of the matrix and factor it, and the calling solve(b) member, which actually solves the associated system. At exit, the matrix A will be preserved and its factorization will be stored in the \mbox{\hyperlink{classLUSolver}{LUSolver}} object. When \mbox{\hyperlink{classLUSolver_a7741643a6011103164d8d4e3de66d3ab}{solve()}} is replaced by \mbox{\hyperlink{classLUSolver_a80014669ce4f3a7d619482fa16b8726c}{overwrite\+\_\+solve()}}, the solution is overwritten on the provided argument. 
+\end{DoxyItemize}
+
+Definition at line 51 of file LUSolver.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Utils/\+Algorithms/LUSolver.\+h\end{DoxyCompactItemize}

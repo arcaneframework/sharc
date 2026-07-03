@@ -1,0 +1,358 @@
+\hypertarget{classRegularGrid}{}\doxysection{Regular\+Grid Class Reference}
+\label{classRegularGrid}\index{RegularGrid@{RegularGrid}}
+
+
+Class \mbox{\hyperlink{classRegularGrid}{Regular\+Grid}}\+: Class used to build regular grid.  
+
+
+
+
+{\ttfamily \#include $<$Regular\+Grid.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}{Grid\+Type}} \{ \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a76288703871d4718b51b6e3c6cbfc5ac}{BASIC}}
+, \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a4aef31f883ec036f30ea4d744fc33252}{ISOTROPE}}
+, \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8ae9b5ecd8a022798294f7501fd5cf5faa}{ANISOTROPE}}
+, \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a07d9c0e6650b8ee178ab98749028ef8b}{ANISOTROPE\+\_\+\+Z\+\_\+1}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of the grid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_a23725bdb4f0cd34bde7ff1bf8dc3a4f7}\label{classRegularGrid_a23725bdb4f0cd34bde7ff1bf8dc3a4f7}} 
+typedef int {\bfseries IJKType}\mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRegularGrid_a47a08ef87d6926c89f50bb29467a432a}{Regular\+Grid}} (\mbox{\hyperlink{classMeshCellAccessor}{Mesh\+Cell\+Accessor}} $\ast$acc, Integer nx, Integer ny, Integer nz, \mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} \&box, Integer nb\+\_\+elts\+\_\+per\+\_\+cell=m\+\_\+default\+\_\+nb\+\_\+elts\+\_\+per\+\_\+cell, Real epsilon=m\+\_\+default\+\_\+epsilon, Real threshold\+\_\+augmentation=m\+\_\+default\+\_\+threshold\+\_\+augmentation)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe avec specification du nombre de blocs en X/\+Y/Z. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRegularGrid_a893b12db0d44430d68833f8b211d3020}{Regular\+Grid}} (\mbox{\hyperlink{classMeshCellAccessor}{Mesh\+Cell\+Accessor}} $\ast$acc, \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}{Grid\+Type}} gt, \mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} \&box, Integer nb\+\_\+elts\+\_\+per\+\_\+cell, Real epsilon=m\+\_\+default\+\_\+epsilon, Real threshold\+\_\+augmentation=m\+\_\+default\+\_\+threshold\+\_\+augmentation)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe avec specification du nombre d\textquotesingle{}elements par cellule. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_a982cc3f6fc2a086d27f224b53117775b}\label{classRegularGrid_a982cc3f6fc2a086d27f224b53117775b}} 
+\mbox{\hyperlink{classRegularGrid_a982cc3f6fc2a086d27f224b53117775b}{$\sim$\+Regular\+Grid}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegularGrid_af8a7b84d800c8ea81cf7c2d77759a566}{insert\+All}} (IMesh $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Allocate the different structures used to index the elements. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_ae9967220626e5aa0872758f6000fd974}\label{classRegularGrid_ae9967220626e5aa0872758f6000fd974}} 
+bool \mbox{\hyperlink{classRegularGrid_ae9967220626e5aa0872758f6000fd974}{is\+Loaded}} ()
+\begin{DoxyCompactList}\small\item\em is the regular grid loaded? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_ac7de813280141e4cd2e8f8bef7cad727}\label{classRegularGrid_ac7de813280141e4cd2e8f8bef7cad727}} 
+Integer \mbox{\hyperlink{classRegularGrid_ac7de813280141e4cd2e8f8bef7cad727}{get\+NbX}} ()
+\begin{DoxyCompactList}\small\item\em get the number of cells along the X-\/axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_ae8308fa783af69c13747682a502d2c28}\label{classRegularGrid_ae8308fa783af69c13747682a502d2c28}} 
+Integer \mbox{\hyperlink{classRegularGrid_ae8308fa783af69c13747682a502d2c28}{get\+NbY}} ()
+\begin{DoxyCompactList}\small\item\em get the number of cells along the Y-\/axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_a7e9388ba77602265582a7a773e7fb566}\label{classRegularGrid_a7e9388ba77602265582a7a773e7fb566}} 
+Integer \mbox{\hyperlink{classRegularGrid_a7e9388ba77602265582a7a773e7fb566}{get\+NbZ}} ()
+\begin{DoxyCompactList}\small\item\em get the number of cells along the Z-\/axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_a399bf20ae7590794a9e1480c49f80675}\label{classRegularGrid_a399bf20ae7590794a9e1480c49f80675}} 
+std\+::map$<$ Integer, Integer\+Shared\+Array $>$ const  \& \mbox{\hyperlink{classRegularGrid_a399bf20ae7590794a9e1480c49f80675}{get\+Map}} () const
+\begin{DoxyCompactList}\small\item\em get the map associating a cell of the grid with elements of the mesh \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegularGrid_a0d8f56357d168bf6e2d54b07342262a1}{get\+IJK}} (const \mbox{\hyperlink{structReal3}{Real3}} \&P, Array\+View$<$ Integer $>$ tab) const
+\begin{DoxyCompactList}\small\item\em Compute the coordinates of the cell containing a point P. \end{DoxyCompactList}\item 
+Integer \mbox{\hyperlink{classRegularGrid_a30f96200b24452c56d3d3f714c5dda9c}{get\+IJK}} (Integer i, Integer j, Integer k) const
+\begin{DoxyCompactList}\small\item\em Compute the cell number relative to its coordinate in the grid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_a7cef0ae5aeec849e1de805a2ecf34fd7}\label{classRegularGrid_a7cef0ae5aeec849e1de805a2ecf34fd7}} 
+void {\bfseries get\+Cell\+Indexes\+From\+Box} (const \mbox{\hyperlink{structReal3}{Real3}} \&min\+Corner, const \mbox{\hyperlink{structReal3}{Real3}} \&max\+Corner, Unique\+Array$<$ Integer $>$ \&indexes) const
+\item 
+\mbox{\Hypertarget{classRegularGrid_a069b08051519640ab7e97417075782b7}\label{classRegularGrid_a069b08051519640ab7e97417075782b7}} 
+void {\bfseries get\+Elements\+From\+Cell\+Indexes} (Const\+Array\+View$<$ Integer $>$ indexes, Unique\+Array$<$ Integer $>$ \&lids) const
+\item 
+void \mbox{\hyperlink{classRegularGrid_a79fcdc0a35a3d9ae1081a85c4d613999}{get\+Elements\+From\+Cell}} (Integer i, Unique\+Array$<$ Integer $>$ \&it) const
+\begin{DoxyCompactList}\small\item\em Retrieve the different element indexes from a cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegularGrid_ada83c357d345c0e9e257ce39edfdba32}{init\+Boxes}} (\mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} \&box)
+\begin{DoxyCompactList}\small\item\em Retrieve the geometry bounding box and computes the increased bounding box (2\% more than the original) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegularGrid_a6c0587fb4c4f1cb272b45cd0ceaf9a27}{init\+Cells\+Size}} (int nx, int ny, int nz, \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}{Grid\+Type}} gt, const \mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} \&box)
+\begin{DoxyCompactList}\small\item\em Compute the different parameters of the regular grid (isotropic or anisotropic case) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_a396164e1edb4371e4dcae15bd7de8357}\label{classRegularGrid_a396164e1edb4371e4dcae15bd7de8357}} 
+void \mbox{\hyperlink{classRegularGrid_a396164e1edb4371e4dcae15bd7de8357}{init\+Cells\+Size\+Isotrope}} ()
+\begin{DoxyCompactList}\small\item\em Compute the dimensions of an isotropic grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegularGrid_a73e48be72d015d6580550a94e18dd0d9}{init\+Cells\+Size\+Basic}} (int nx, int ny, int nz, const \mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} \&box)
+\begin{DoxyCompactList}\small\item\em Compute the dimensions of a basic grid defined by the number of cells along each axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRegularGrid_a692d8c52a5cdde8d0e5983540aebc9b2}\label{classRegularGrid_a692d8c52a5cdde8d0e5983540aebc9b2}} 
+\mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} const  \& {\bfseries get\+Initial\+Boundin\+Box} () const
+\item 
+\mbox{\Hypertarget{classRegularGrid_a4142525d42d0046d3386bcc18f7916eb}\label{classRegularGrid_a4142525d42d0046d3386bcc18f7916eb}} 
+\mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} const  \& {\bfseries get\+Increased\+Bounding\+Box} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRegularGrid_ada53ec608c3350944a1542d21fc24767}\label{classRegularGrid_ada53ec608c3350944a1542d21fc24767}} 
+static Integer const {\bfseries m\+\_\+default\+\_\+nb\+\_\+elts\+\_\+per\+\_\+cell} = 6
+\item 
+\mbox{\Hypertarget{classRegularGrid_ab18e86364160715988b716b019f04193}\label{classRegularGrid_ab18e86364160715988b716b019f04193}} 
+static Real const {\bfseries m\+\_\+default\+\_\+epsilon} = 1e-\/6
+\item 
+\mbox{\Hypertarget{classRegularGrid_ab06e2645195b6c7b559085553c160375}\label{classRegularGrid_ab06e2645195b6c7b559085553c160375}} 
+static Real const {\bfseries m\+\_\+default\+\_\+threshold\+\_\+augmentation} = 0.\+02
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \mbox{\hyperlink{classRegularGrid}{Regular\+Grid}}\+: Class used to build regular grid. 
+
+The regular grid is represented by two groups of attributes, the dimensions ( number of cells along each axis, space between each cell, bounding box) and the repartition of the elements in the cells. The two different constructors are used to either build a random grid with the number of cells given or a specific grid Each constructor calls a sequence of initialization methods to compute the dimensions. The insertion of the elements is managed by the public method Insert\+All allowing a lazy loading of the grid (heavy structure).
+
+This is imported from Open\+Flow\textquotesingle{}s Regular\+Grid2 class. 
+
+Definition at line 30 of file Regular\+Grid.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}\label{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}} 
+\index{RegularGrid@{RegularGrid}!GridType@{GridType}}
+\index{GridType@{GridType}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{GridType}{GridType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}{Regular\+Grid\+::\+Grid\+Type}}}
+
+
+
+Type of the grid. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BASIC@{BASIC}!RegularGrid@{RegularGrid}}\index{RegularGrid@{RegularGrid}!BASIC@{BASIC}}}\mbox{\Hypertarget{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a76288703871d4718b51b6e3c6cbfc5ac}\label{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a76288703871d4718b51b6e3c6cbfc5ac}} 
+BASIC&Regular grid with the number of cells chosen by the user. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISOTROPE@{ISOTROPE}!RegularGrid@{RegularGrid}}\index{RegularGrid@{RegularGrid}!ISOTROPE@{ISOTROPE}}}\mbox{\Hypertarget{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a4aef31f883ec036f30ea4d744fc33252}\label{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a4aef31f883ec036f30ea4d744fc33252}} 
+ISOTROPE&Isotropic grid, equal delta along each axis. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ANISOTROPE@{ANISOTROPE}!RegularGrid@{RegularGrid}}\index{RegularGrid@{RegularGrid}!ANISOTROPE@{ANISOTROPE}}}\mbox{\Hypertarget{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8ae9b5ecd8a022798294f7501fd5cf5faa}\label{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8ae9b5ecd8a022798294f7501fd5cf5faa}} 
+ANISOTROPE&Anisotropic grid, equal number of cells along each axis. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ANISOTROPE\_Z\_1@{ANISOTROPE\_Z\_1}!RegularGrid@{RegularGrid}}\index{RegularGrid@{RegularGrid}!ANISOTROPE\_Z\_1@{ANISOTROPE\_Z\_1}}}\mbox{\Hypertarget{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a07d9c0e6650b8ee178ab98749028ef8b}\label{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8a07d9c0e6650b8ee178ab98749028ef8b}} 
+ANISOTROPE\+\_\+\+Z\+\_\+1&Anisotropic grid, equal number of cells along axis X and Y. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 34 of file Regular\+Grid.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRegularGrid_a47a08ef87d6926c89f50bb29467a432a}\label{classRegularGrid_a47a08ef87d6926c89f50bb29467a432a}} 
+\index{RegularGrid@{RegularGrid}!RegularGrid@{RegularGrid}}
+\index{RegularGrid@{RegularGrid}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{RegularGrid()}{RegularGrid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Regular\+Grid\+::\+Regular\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMeshCellAccessor}{Mesh\+Cell\+Accessor}} $\ast$}]{acc,  }\item[{Integer}]{nx,  }\item[{Integer}]{ny,  }\item[{Integer}]{nz,  }\item[{\mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} \&}]{box,  }\item[{Integer}]{nb\+\_\+elts\+\_\+per\+\_\+cell = {\ttfamily m\+\_\+default\+\_\+nb\+\_\+elts\+\_\+per\+\_\+cell},  }\item[{Real}]{epsilon = {\ttfamily m\+\_\+default\+\_\+epsilon},  }\item[{Real}]{threshold\+\_\+augmentation = {\ttfamily m\+\_\+default\+\_\+threshold\+\_\+augmentation} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe avec specification du nombre de blocs en X/\+Y/Z. 
+
+Basic constructor.
+
+Build a grid using an accessor, the number of cells on each axis and the geometry bounding box. The constructor initializes the different parameter of the grid without allocating the multimap. So after calling the constructor, the grid is very light in memory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em acc} & Mesh accessor of the current geometry \\
+\hline
+{\em nx} & Number of cells on the X axis \\
+\hline
+{\em ny} & Number of cells on the Y axis \\
+\hline
+{\em nz} & Number of cells on the Z axis \\
+\hline
+{\em box} & Bounding box of the current geometry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file Regular\+Grid.\+cc.
+
+\mbox{\Hypertarget{classRegularGrid_a893b12db0d44430d68833f8b211d3020}\label{classRegularGrid_a893b12db0d44430d68833f8b211d3020}} 
+\index{RegularGrid@{RegularGrid}!RegularGrid@{RegularGrid}}
+\index{RegularGrid@{RegularGrid}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{RegularGrid()}{RegularGrid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Regular\+Grid\+::\+Regular\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMeshCellAccessor}{Mesh\+Cell\+Accessor}} $\ast$}]{acc,  }\item[{\mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}{Grid\+Type}}}]{gt,  }\item[{\mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} \&}]{box,  }\item[{Integer}]{nb\+\_\+elts\+\_\+per\+\_\+cell,  }\item[{Real}]{epsilon = {\ttfamily m\+\_\+default\+\_\+epsilon},  }\item[{Real}]{threshold\+\_\+augmentation = {\ttfamily m\+\_\+default\+\_\+threshold\+\_\+augmentation} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe avec specification du nombre d\textquotesingle{}elements par cellule. 
+
+This constructor allows the user to specify the number of elements per cell in the case of an isotropic grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em acc} & Mesh accessor of the current geometry \\
+\hline
+{\em gt} & The grid type \\
+\hline
+{\em box} & Bounding box of the current geometry \\
+\hline
+{\em nb\+\_\+elts\+\_\+per\+\_\+cell} & Number of elements per cell wanted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file Regular\+Grid.\+cc.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRegularGrid_a79fcdc0a35a3d9ae1081a85c4d613999}\label{classRegularGrid_a79fcdc0a35a3d9ae1081a85c4d613999}} 
+\index{RegularGrid@{RegularGrid}!getElementsFromCell@{getElementsFromCell}}
+\index{getElementsFromCell@{getElementsFromCell}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{getElementsFromCell()}{getElementsFromCell()}}
+{\footnotesize\ttfamily void Regular\+Grid\+::get\+Elements\+From\+Cell (\begin{DoxyParamCaption}\item[{Integer}]{i,  }\item[{Unique\+Array$<$ Integer $>$ \&}]{it }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the different element indexes from a cell. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em i} & The cell index where we are looking for elements \\
+\hline
+\mbox{\texttt{ out}}  & {\em it} & Empty if the cell is empty or an \mbox{\hyperlink{classArray}{Array}} of integer containing the list of the different elements indexes found in the cell \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 364 of file Regular\+Grid.\+cc.
+
+\mbox{\Hypertarget{classRegularGrid_a0d8f56357d168bf6e2d54b07342262a1}\label{classRegularGrid_a0d8f56357d168bf6e2d54b07342262a1}} 
+\index{RegularGrid@{RegularGrid}!getIJK@{getIJK}}
+\index{getIJK@{getIJK}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{getIJK()}{getIJK()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Regular\+Grid\+::get\+IJK (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structReal3}{Real3}} \&}]{P,  }\item[{Array\+View$<$ Integer $>$}]{tab }\end{DoxyParamCaption}) const}
+
+
+
+Compute the coordinates of the cell containing a point P. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em P} & a random point represented as a Tuple3d \\
+\hline
+\mbox{\texttt{ out}}  & {\em tab} & an int array storing the cell coordinates \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 318 of file Regular\+Grid.\+cc.
+
+\mbox{\Hypertarget{classRegularGrid_a30f96200b24452c56d3d3f714c5dda9c}\label{classRegularGrid_a30f96200b24452c56d3d3f714c5dda9c}} 
+\index{RegularGrid@{RegularGrid}!getIJK@{getIJK}}
+\index{getIJK@{getIJK}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{getIJK()}{getIJK()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Integer Regular\+Grid\+::get\+IJK (\begin{DoxyParamCaption}\item[{Integer}]{i,  }\item[{Integer}]{j,  }\item[{Integer}]{k }\end{DoxyParamCaption}) const}
+
+
+
+Compute the cell number relative to its coordinate in the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Coordinate of the cell on the X axis \\
+\hline
+{\em j} & Coordinate of the cell on the Y axis \\
+\hline
+{\em k} & Coordinate of the cell on the Z axis\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Integer representing the cell number 
+\end{DoxyReturn}
+
+
+Definition at line 337 of file Regular\+Grid.\+cc.
+
+\mbox{\Hypertarget{classRegularGrid_ada83c357d345c0e9e257ce39edfdba32}\label{classRegularGrid_ada83c357d345c0e9e257ce39edfdba32}} 
+\index{RegularGrid@{RegularGrid}!initBoxes@{initBoxes}}
+\index{initBoxes@{initBoxes}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{initBoxes()}{initBoxes()}}
+{\footnotesize\ttfamily void Regular\+Grid\+::init\+Boxes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIBoundingBox}{IBounding\+Box}} \&}]{box }\end{DoxyParamCaption})}
+
+
+
+Retrieve the geometry bounding box and computes the increased bounding box (2\% more than the original) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box} & Bounding box of the geometry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 108 of file Regular\+Grid.\+cc.
+
+\mbox{\Hypertarget{classRegularGrid_a6c0587fb4c4f1cb272b45cd0ceaf9a27}\label{classRegularGrid_a6c0587fb4c4f1cb272b45cd0ceaf9a27}} 
+\index{RegularGrid@{RegularGrid}!initCellsSize@{initCellsSize}}
+\index{initCellsSize@{initCellsSize}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{initCellsSize()}{initCellsSize()}}
+{\footnotesize\ttfamily void Regular\+Grid\+::init\+Cells\+Size (\begin{DoxyParamCaption}\item[{int}]{nx,  }\item[{int}]{ny,  }\item[{int}]{nz,  }\item[{\mbox{\hyperlink{classRegularGrid_a8efe6e8a84f05cfd3550e0ba07455ed8}{Grid\+Type}}}]{gt,  }\item[{const \mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} \&}]{box }\end{DoxyParamCaption})}
+
+
+
+Compute the different parameters of the regular grid (isotropic or anisotropic case) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nx} & Number of cells on the X axis \\
+\hline
+{\em ny} & Number of cells on the Y axis \\
+\hline
+{\em nz} & Number of cells on the Z axis \\
+\hline
+{\em gt} & Grid type \\
+\hline
+{\em box} & Bounding box of the current geometry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 124 of file Regular\+Grid.\+cc.
+
+\mbox{\Hypertarget{classRegularGrid_a73e48be72d015d6580550a94e18dd0d9}\label{classRegularGrid_a73e48be72d015d6580550a94e18dd0d9}} 
+\index{RegularGrid@{RegularGrid}!initCellsSizeBasic@{initCellsSizeBasic}}
+\index{initCellsSizeBasic@{initCellsSizeBasic}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{initCellsSizeBasic()}{initCellsSizeBasic()}}
+{\footnotesize\ttfamily void Regular\+Grid\+::init\+Cells\+Size\+Basic (\begin{DoxyParamCaption}\item[{int}]{nx,  }\item[{int}]{ny,  }\item[{int}]{nz,  }\item[{const \mbox{\hyperlink{classOrthonormalBoundingBox}{Orthonormal\+Bounding\+Box}} \&}]{box }\end{DoxyParamCaption})}
+
+
+
+Compute the dimensions of a basic grid defined by the number of cells along each axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nx} & Number of cells on the X axis \\
+\hline
+{\em ny} & Number of cells on the Y axis \\
+\hline
+{\em nz} & Number of cells on the Z axis \\
+\hline
+{\em box} & Bounding box of the current geometry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 164 of file Regular\+Grid.\+cc.
+
+\mbox{\Hypertarget{classRegularGrid_af8a7b84d800c8ea81cf7c2d77759a566}\label{classRegularGrid_af8a7b84d800c8ea81cf7c2d77759a566}} 
+\index{RegularGrid@{RegularGrid}!insertAll@{insertAll}}
+\index{insertAll@{insertAll}!RegularGrid@{RegularGrid}}
+\doxysubsubsection{\texorpdfstring{insertAll()}{insertAll()}}
+{\footnotesize\ttfamily void Regular\+Grid\+::insert\+All (\begin{DoxyParamCaption}\item[{IMesh $\ast$}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Allocate the different structures used to index the elements. 
+
+Insert each element of the geometry into its corresponding cell. (Faster method) Number of elements from the geometry contained inside the grid
+
+Definition at line 415 of file Regular\+Grid.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Regular\+Grid.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/\+Mapping\+Tools/Regular\+Grid.\+cc\end{DoxyCompactItemize}

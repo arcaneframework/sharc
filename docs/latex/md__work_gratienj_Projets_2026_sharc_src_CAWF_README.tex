@@ -1,0 +1,445 @@
+CAWF is a collection of finite-\/element solvers and utilities built on top of Arcane\+FEM and the Arc\+Geo\+Sim/\+Arcane framework. It provides ready-\/to-\/use applications for scalar Poisson problems, linear elasticity, compaction simulations, and dynamic mesh management, plus shared FEM infrastructure ({\ttfamily FEMUtils}).
+
+CAWF is built as a library and linked into the main {\bfseries{Sh\+Arc}} executable.
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md61}{}\doxysection{Contents}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md61}
+
+\begin{DoxyItemize}
+\item \href{\#overview}{\texttt{ Overview}}
+\item \href{\#directory-layout}{\texttt{ Directory Layout}}
+\item \href{\#building-cawf}{\texttt{ Building CAWF}}
+\item \href{\#solvers-and-services}{\texttt{ Solvers and Services}}
+\begin{DoxyItemize}
+\item \href{\#poisson-solver}{\texttt{ Poisson Solver}}
+\item \href{\#linear-elasticity-solver}{\texttt{ Linear Elasticity Solver}}
+\item \href{\#compaction-solver}{\texttt{ Compaction Solver}}
+\item \href{\#dynamic-mesh-manager}{\texttt{ Dynamic Mesh Manager}}
+\end{DoxyItemize}
+\item \href{\#configuration-patterns}{\texttt{ Configuration Patterns}}
+\begin{DoxyItemize}
+\item \href{\#mesh-section}{\texttt{ Mesh section}}
+\item \href{\#fem-section}{\texttt{ FEM section}}
+\item \href{\#boundary-conditions}{\texttt{ Boundary conditions}}
+\item \href{\#post-processing}{\texttt{ Post-\/processing}}
+\end{DoxyItemize}
+\item \href{\#fem-utilities-femutils}{\texttt{ FEM Utilities (FEMUtils)}}
+\begin{DoxyItemize}
+\item \href{\#dof-linear-systems}{\texttt{ DoF linear systems}}
+\item \href{\#matrix-formats}{\texttt{ Matrix formats}}
+\item \href{\#boundary-conditions-helpers}{\texttt{ Boundary conditions helpers}}
+\item \href{\#gpu--sycl-backends}{\texttt{ GPU / SYCL backends}}
+\end{DoxyItemize}
+\item \href{\#extending-cawf}{\texttt{ Extending CAWF}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md63}{}\doxysection{Overview}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md63}
+CAWF groups several Arcane\+FEM-\/based modules\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Poisson}} – solves scalar Poisson equations on 2D/3D unstructured meshes using a Galerkin finite element method. Suitable for diffusion, heat conduction, and similar elliptic problems.
+\item {\bfseries{Elasticity}} – solves steady linear elasticity (Navier\textquotesingle{}s equations) for small deformations in solids, computing the displacement vector field.
+\item {\bfseries{Compaction}} – solves compaction / basin-\/like problems (e.\+g. synthetic basin tests, cube evolutions).
+\item {\bfseries{Dynamic\+Mesh\+Mng}} – service to manage evolving meshes (dynamic mesh management) within Arcane/\+Arc\+Geo\+Sim.
+\end{DoxyItemize}
+
+All solvers share {\bfseries{FEMUtils}}, which implements generic finite-\/element infrastructure\+: degree-\/of-\/freedom (DoF) linear systems, sparse matrix formats, boundary conditions, and support for various linear algebra backends.
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md65}{}\doxysection{Directory Layout}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md65}
+The CAWF module is configured in {\ttfamily src/\+CAWF/config.\+xml}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{makefile}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{needed-\/packages}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{package} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}arcane"{}} />}
+\DoxyCodeLine{    <\textcolor{keywordtype}{package} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}precice"{}} \textcolor{keyword}{optional}=\textcolor{stringliteral}{"{}true"{}} />}
+\DoxyCodeLine{  </\textcolor{keywordtype}{needed-\/packages}>}
+\DoxyCodeLine{}
+\DoxyCodeLine{  <\textcolor{keywordtype}{directories}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{directory}>\textcolor{keyword}{Compaction}</\textcolor{keywordtype}{directory}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{directory}>\textcolor{keyword}{Elasticity}</\textcolor{keywordtype}{directory}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{directory}>\textcolor{keyword}{Poisson}</\textcolor{keywordtype}{directory}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{directory}>\textcolor{keyword}{DynamicMeshMng}</\textcolor{keywordtype}{directory}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{directories}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{makefile}>}
+
+\end{DoxyCode}
+
+
+Key directories\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily src/\+CAWF/\+CMake\+Lists.\+txt} – builds the {\ttfamily CAWF} library and links FEMUtils.
+\item {\ttfamily src/\+CAWF/\+FEMUtils/} – shared FEM infrastructure.
+\item {\ttfamily src/\+CAWF/\+Poisson/} – Poisson solver, driver, config, and documentation.
+\item {\ttfamily src/\+CAWF/\+Elasticity/} – linear elasticity solver and documentation.
+\item {\ttfamily src/\+CAWF/\+Compaction/} – compaction solver.
+\item {\ttfamily src/\+CAWF/\+Dynamic\+Mesh\+Mng/} – dynamic mesh manager service.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md67}{}\doxysection{Building CAWF}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md67}
+CAWF is built as part of the main Sh\+Arc CMake project.
+
+From {\ttfamily src/\+CAWF/\+CMake\+Lists.\+txt}\+:
+
+
+\begin{DoxyItemize}
+\item The library is created and registered via Arc\+Geo\+Sim helpers\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{add\_subdirectory(FEMUtils)}
+\DoxyCodeLine{}
+\DoxyCodeLine{createLibrary(CAWF)}
+\DoxyCodeLine{generateCMakeLists(CAWF)}
+\DoxyCodeLine{}
+\DoxyCodeLine{target\_include\_directories(CAWF PUBLIC}
+\DoxyCodeLine{  \$<BUILD\_INTERFACE:\$\{CMAKE\_CURRENT\_SOURCE\_DIR\}>)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classOptional}{Optional}} GPU/\+SYCL support is enabled via Alien / SYCL options\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{if(ALIEN\_USE\_SYCL)}
+\DoxyCodeLine{  \# hipSYCL, Intel SYCL/DPCPP, AdaptiveCpp backends}
+\DoxyCodeLine{  addSources(CAWF Elasticity/FemModuleSYCL.cc)}
+\DoxyCodeLine{  target\_compile\_definitions(CAWF PUBLIC ALIEN\_USE\_SYCL USE\_SYCL2020)}
+\DoxyCodeLine{  add\_sycl\_to\_target(TARGET CAWF}
+\DoxyCodeLine{                     SOURCES Elasticity/FemModuleSYCL.cc)}
+\DoxyCodeLine{  \# additional flags depending on backend (HIP, CUDA, etc.)}
+\DoxyCodeLine{endif()}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item On Windows, CAWF links Arc\+Geo\+Sim physics and tests\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{linkLibraries(CAWF ArcGeoSim::ArcGeoSim\_physics}
+\DoxyCodeLine{                  ArcGeoSim::ArcGeoSim\_tests)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item CAWF always links FEMUtils when available\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{if(TARGET FEMUtils)}
+\DoxyCodeLine{  linkLibraries(CAWF FEMUtils)}
+\DoxyCodeLine{endif()}
+
+\end{DoxyCode}
+
+
+To build CAWF\+:
+
+
+\begin{DoxyEnumerate}
+\item Configure the main Sh\+Arc project as documented in the top-\/level README (ensure {\ttfamily \mbox{\hyperlink{namespaceArcane}{Arcane}}} / {\ttfamily Arc\+Geo\+Sim} and Alien are available).
+\item CMake will automatically build {\ttfamily FEMUtils} and {\ttfamily CAWF} as part of the root {\ttfamily CMake\+Lists.\+txt} (via {\ttfamily add\+\_\+subdirectory(src/\+CAWF)}).
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md69}{}\doxysection{Solvers and Services}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md69}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md70}{}\doxysubsection{Poisson Solver}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md70}
+Directory\+: {\ttfamily src/\+CAWF/\+Poisson/} ~\newline
+ Documentation\+: {\ttfamily src/\+CAWF/\+Poisson/\+Readme.\+md}
+
+The Poisson solver solves
+
+\mbox{[} \textbackslash{}nabla$^\wedge$2 u = \textbackslash{}mathcal\{f\} \textbackslash{}quad \textbackslash{}text\{in \} \textbackslash{}\+Omega$^\wedge$h \mbox{]}
+
+with Dirichlet and optional Neumann boundary conditions, on 2D/3D unstructured meshes.
+
+The dedicated Poisson README covers\+:
+
+
+\begin{DoxyItemize}
+\item Mathematical formulation of the Poisson problem.
+\item Example input file ({\ttfamily inputs/circle.\+arc}).
+\item Configuration snippets for\+:
+\begin{DoxyItemize}
+\item Mesh ({\ttfamily meshes/circle\+\_\+cut.\+msh}).
+\item Source term {\ttfamily $<$f$>$5.\+5$<$/f$>$}.
+\item Dirichlet / Neumann boundary conditions.
+\item Post-\/processing ({\ttfamily Vtk\+Hdf\+V2\+Post\+Processor}, variable {\ttfamily U}).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\begin{quote}
+For details, see $\ast$$\ast${\ttfamily src/\+CAWF/\+Poisson/\+Readme.\+md}$\ast$$\ast$. \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md71}{}\doxysection{$<$/blockquote$>$}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md71}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md72}{}\doxysubsection{Linear Elasticity Solver}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md72}
+Directory\+: {\ttfamily src/\+CAWF/\+Elasticity/} ~\newline
+ Documentation\+: {\ttfamily src/\+CAWF/\+Elasticity/\+Readme.\+md}
+
+The elasticity solver solves steady linear elasticity (Navier\textquotesingle{}s equation)\+:
+
+\mbox{[} -\/\textbackslash{}nabla\textbackslash{}cdot\textbackslash{}sigma(\textbackslash{}mathbf\{x\}) = \textbackslash{}mathbf\{f\}(\textbackslash{}mathbf\{x\}) \mbox{]}
+
+with isotropic stress\+:
+
+\mbox{[} \textbackslash{}sigma(\textbackslash{}mathbf\{x\}) = \textbackslash{}lambda (\textbackslash{}nabla\textbackslash{}cdot\textbackslash{}mathbf\{u\})\textbackslash{}mathbb\{I\} + \textbackslash{}mu(\textbackslash{}nabla\textbackslash{}mathbf\{u\} + (\textbackslash{}nabla\textbackslash{}mathbf\{u\})$^\wedge$\textbackslash{}mathrm\{T\}) \mbox{]}
+
+The solver is demonstrated on a 2D bar bending under its own weight, via {\ttfamily bar.\+2\+D.\+Dirichlet.\+body\+Force.\+arc}.
+
+The Elasticity README covers\+:
+
+
+\begin{DoxyItemize}
+\item Mathematical background (stress, strain, variational formulation).
+\item Example mesh ({\ttfamily meshes/bar.\+msh}).
+\item FEM configuration\+:
+\begin{DoxyItemize}
+\item Material properties\+: {\ttfamily $<$E$>$21.\+0e5$<$/E$>$}, {\ttfamily $<$nu$>$0.\+28$<$/nu$>$}.
+\item Body force\+: {\ttfamily $<$f$>$NULL -\/1.\+0$<$/f$>$}.
+\item Dirichlet BC\+: clamped end {\ttfamily $<$surface$>$left$<$/surface$>$}.
+\end{DoxyItemize}
+\item Post-\/processing configuration for {\ttfamily U} (displacement vector).
+\end{DoxyItemize}
+
+\begin{quote}
+For details, see $\ast$$\ast${\ttfamily src/\+CAWF/\+Elasticity/\+Readme.\+md}$\ast$$\ast$. \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md73}{}\doxysection{$<$/blockquote$>$}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md73}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md74}{}\doxysubsection{Compaction Solver}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md74}
+Directory\+: {\ttfamily src/\+CAWF/\+Compaction/}
+
+The compaction module provides examples such as\+:
+
+
+\begin{DoxyItemize}
+\item Cube evolution ({\ttfamily Compaction-\/cube-\/cawf-\/evol.\+arc}).
+\item Synthetic basin ({\ttfamily Compaction-\/synth-\/basin.\+arc}).
+\item Ring compaction ({\ttfamily Compaction-\/ring.\+arc}).
+\end{DoxyItemize}
+
+Configuration follows the same pattern as Poisson/\+Elasticity\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $<$meshes$>$} section for geometry.
+\item {\ttfamily $<$fem$>$} section for material and driving forces.
+\item {\ttfamily $<$arcane-\/post-\/processing$>$} for outputs.
+\end{DoxyItemize}
+
+\begin{quote}
+A dedicated {\ttfamily Compaction/\+Readme.\+md} can be added mirroring the Poisson and Elasticity documentation style. \end{quote}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md75}{}\doxysection{$<$/blockquote$>$}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md75}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md76}{}\doxysubsection{Dynamic Mesh Manager}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md76}
+Directory\+: {\ttfamily src/\+CAWF/\+Dynamic\+Mesh\+Mng/}
+
+Provides a service {\ttfamily Dynamic\+Mesh\+Mng} ({\ttfamily Dynamic\+Mesh\+Mng.\+axl}, {\ttfamily \mbox{\hyperlink{DynamicMeshMngService_8cc_source}{Dynamic\+Mesh\+Mng\+Service.\+cc}}}) to manage evolving meshes (refinement, motion, etc.) in Arcane/\+Arc\+Geo\+Sim.
+
+Configuration is service-\/based and can be included in case files to enable dynamic mesh management for CAWF solvers.
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md78}{}\doxysection{Configuration Patterns}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md78}
+Although each solver has its own {\ttfamily .arc} case file, they all follow a common structure.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md79}{}\doxysubsection{Mesh section}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md79}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{meshes}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{mesh}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{filename}>\textcolor{keyword}{meshes}/\&\textcolor{keyword}{lt};\textcolor{keyword}{mesh-\/file}\&\textcolor{keyword}{gt};.\textcolor{keyword}{msh}</\textcolor{keywordtype}{filename}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{subdivider}>}
+\DoxyCodeLine{      <\textcolor{keywordtype}{nb-\/subdivision}>0</\textcolor{keywordtype}{nb-\/subdivision}> \textcolor{comment}{<!-\/-\/ optional for mesh refinement -\/-\/>}}
+\DoxyCodeLine{    </\textcolor{keywordtype}{subdivider}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{mesh}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{meshes}>}
+
+\end{DoxyCode}
+
+
+Use Gmsh 4.\+1 {\ttfamily .msh} format. Physical groups (e.\+g. {\ttfamily left}, {\ttfamily horizontal}) must match the boundary names used in the {\ttfamily $<$boundary-\/conditions$>$} section.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md80}{}\doxysubsection{FEM section}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md80}
+Examples\+:
+
+
+\begin{DoxyItemize}
+\item Poisson\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{fem}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{f}>5.5</\textcolor{keywordtype}{f}> \textcolor{comment}{<!-\/-\/ scalar source term -\/-\/>}}
+\DoxyCodeLine{</\textcolor{keywordtype}{fem}>}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Elasticity\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{fem}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{E}>21.0\textcolor{keyword}{e5}</\textcolor{keywordtype}{E}>    \textcolor{comment}{<!-\/-\/ Young's modulus -\/-\/>}}
+\DoxyCodeLine{  <\textcolor{keywordtype}{nu}>0.28</\textcolor{keywordtype}{nu}>    \textcolor{comment}{<!-\/-\/ Poisson's ratio -\/-\/>}}
+\DoxyCodeLine{  <\textcolor{keywordtype}{f}>\textcolor{keyword}{NULL} -\/1.0</\textcolor{keywordtype}{f}> \textcolor{comment}{<!-\/-\/ body force vector (x, y or x, y, z) -\/-\/>}}
+\DoxyCodeLine{</\textcolor{keywordtype}{fem}>}
+
+\end{DoxyCode}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md81}{}\doxysubsection{Boundary conditions}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md81}
+Dirichlet (Poisson)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{boundary-\/conditions}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{surface}>\textcolor{keyword}{horizontal}</\textcolor{keywordtype}{surface}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{value}>0.5</\textcolor{keywordtype}{value}>}
+\DoxyCodeLine{  </\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{boundary-\/conditions}>}
+
+\end{DoxyCode}
+
+
+Dirichlet (Elasticity, vector displacement)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{boundary-\/conditions}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{surface}>\textcolor{keyword}{left}</\textcolor{keywordtype}{surface}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{value}>0.0 0.0</\textcolor{keywordtype}{value}> \textcolor{comment}{<!-\/-\/ u1, u2 -\/-\/>}}
+\DoxyCodeLine{  </\textcolor{keywordtype}{dirichlet}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{boundary-\/conditions}>}
+
+\end{DoxyCode}
+
+
+Neumann-\/like conditions can be added similarly, depending on the solver.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md82}{}\doxysubsection{Post-\/processing}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md82}
+Common pattern\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{arcane-\/post-\/processing}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{output-\/period}>1</\textcolor{keywordtype}{output-\/period}>}
+\DoxyCodeLine{  <\textcolor{keywordtype}{format} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}VtkHdfV2PostProcessor"{}} />}
+\DoxyCodeLine{  <\textcolor{keywordtype}{output}>}
+\DoxyCodeLine{    <\textcolor{keywordtype}{variable}>\textcolor{keyword}{U}</\textcolor{keywordtype}{variable}> \textcolor{comment}{<!-\/-\/ or other field -\/-\/>}}
+\DoxyCodeLine{  </\textcolor{keywordtype}{output}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{arcane-\/post-\/processing}>}
+
+\end{DoxyCode}
+
+
+Output files are typically {\ttfamily Mesh0.\+hdf} in {\ttfamily output/depouillement/vtkhdfv2}, and can be visualized with PARAVIS. Results are usually of (\textbackslash{}mathbb\{P\}\+\_\+1) finite element order (node-\/based).
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md84}{}\doxysection{FEM Utilities (\+FEMUtils)}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md84}
+Directory\+: {\ttfamily src/\+CAWF/\+FEMUtils/}
+
+FEMUtils contains shared infrastructure used by all CAWF solvers.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md85}{}\doxysubsection{Do\+F linear systems}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md85}
+Core types and interfaces\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{DoFLinearSystem_8h_source}{Do\+FLinear\+System.\+h}}}, {\ttfamily \mbox{\hyperlink{DoFLinearSystem_8cc_source}{Do\+FLinear\+System.\+cc}}}
+\item {\ttfamily \mbox{\hyperlink{IDoFLinearSystemFactory_8h_source}{IDo\+FLinear\+System\+Factory.\+h}}}
+\end{DoxyItemize}
+
+Backend-\/specific implementations\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{AlienDoFLinearSystem_8cc_source}{Alien\+Do\+FLinear\+System.\+cc}}}, {\ttfamily Alien\+Do\+FLinear\+System\+Factory.\+axl}
+\item {\ttfamily \mbox{\hyperlink{HypreDoFLinearSystem_8cc_source}{Hypre\+Do\+FLinear\+System.\+cc}}}, {\ttfamily Hypre\+Do\+FLinear\+System\+Factory.\+axl}
+\item {\ttfamily \mbox{\hyperlink{PETScDoFLinearSystem_8cc_source}{PETSc\+Do\+FLinear\+System.\+cc}}}, {\ttfamily PETSc\+Do\+FLinear\+System\+Factory.\+axl}
+\item {\ttfamily Sequential\+Basic\+Do\+FLinear\+System\+Factory.\+axl}
+\item {\ttfamily \mbox{\hyperlink{AlephDoFLinearSystem_8cc_source}{Aleph\+Do\+FLinear\+System.\+cc}}}, {\ttfamily Aleph\+Do\+FLinear\+System\+Factory.\+axl}
+\end{DoxyItemize}
+
+These provide a unified API for assembling and solving FEM linear systems with different linear algebra backends.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md86}{}\doxysubsection{Matrix formats}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md86}
+Sparse matrix infrastructure\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{CsrFormatMatrix_8h_source}{Csr\+Format\+Matrix.\+h}}}, {\ttfamily \mbox{\hyperlink{CsrFormatMatrix_8cc_source}{Csr\+Format\+Matrix.\+cc}}}
+\item {\ttfamily \mbox{\hyperlink{CsrFormatMatrixView_8h_source}{Csr\+Format\+Matrix\+View.\+h}}}, {\ttfamily \mbox{\hyperlink{CsrFormatMatrixView_8cc_source}{Csr\+Format\+Matrix\+View.\+cc}}}
+\item {\ttfamily \mbox{\hyperlink{BSRFormat_8h_source}{BSRFormat.\+h}}}, {\ttfamily \mbox{\hyperlink{BSRFormat_8cc_source}{BSRFormat.\+cc}}}
+\item {\ttfamily \mbox{\hyperlink{AlienBSRFormat_8h_source}{Alien\+BSRFormat.\+h}}}, {\ttfamily \mbox{\hyperlink{AlienBSRFormat_8cc_source}{Alien\+BSRFormat.\+cc}}}
+\item {\ttfamily \mbox{\hyperlink{CooFormatMatrix_8h_source}{Coo\+Format\+Matrix.\+h}}}
+\end{DoxyItemize}
+
+Different formats are used depending on the backend and solver requirements.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md87}{}\doxysubsection{Boundary conditions helpers}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md87}
+
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{FemBoundaryConditions_8cc_source}{Fem\+Boundary\+Conditions.\+cc}}}, {\ttfamily Fem\+Boundary\+Conditions.\+axl}
+\item {\ttfamily \mbox{\hyperlink{IArcaneFemBC_8h_source}{IArcane\+Fem\+BC.\+h}}}
+\end{DoxyItemize}
+
+These handle application of Dirichlet/\+Neumann boundary conditions on FEM systems, mapping configuration {\ttfamily $<$boundary-\/conditions$>$} to algebraic constraints.\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md88}{}\doxysubsection{GPU / SYCL backends}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md88}
+When {\ttfamily ALIEN\+\_\+\+USE\+\_\+\+SYCL} is enabled, FEMUtils provides SYCL-\/based implementations\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{AlienDoFLinearSystemSYCL_8cc_source}{Alien\+Do\+FLinear\+System\+SYCL.\+cc}}}
+\item {\ttfamily \mbox{\hyperlink{AlienBSRFormatSYCL_8cc_source}{Alien\+BSRFormat\+SYCL.\+cc}}}
+\item {\ttfamily \mbox{\hyperlink{ArcaneFemFunctionsGpu_8h_source}{Arcane\+Fem\+Functions\+Gpu.\+h}}}, {\ttfamily \mbox{\hyperlink{ArcaneFemFunctionsGpu_8cc_source}{Arcane\+Fem\+Functions\+Gpu.\+cc}}}
+\end{DoxyItemize}
+
+The Elasticity module additionally uses {\ttfamily \mbox{\hyperlink{FemModuleSYCL_8cc_source}{Fem\+Module\+SYCL.\+cc}}}. CMake configuration in {\ttfamily src/\+CAWF/\+CMake\+Lists.\+txt} controls which SYCL implementation (hip\+SYCL, Intel SYCL/\+DPCPP, Adaptive\+Cpp) is used and adds appropriate compile and link flags.
+
+\DoxyHorRuler{0}
+\hypertarget{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md90}{}\doxysection{Extending CAWF}\label{md__work_gratienj_Projets_2026_sharc_src_CAWF_README_autotoc_md90}
+To add a new FEM-\/based solver to CAWF\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Create a module directory}} under {\ttfamily src/\+CAWF/} (e.\+g. {\ttfamily New\+Physics/}).
+\item {\bfseries{Define the module AXL and C++ implementation}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily New\+Physics.\+axl} (\mbox{\hyperlink{namespaceArcane}{Arcane}} module/service declaration).
+\item {\ttfamily New\+Physics\+Module.\+h/.cc} (solver implementation using FEMUtils).
+\end{DoxyItemize}
+\item {\bfseries{Register the directory in {\ttfamily src/\+CAWF/config.\+xml}}}\+:
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{directory}>\textcolor{keyword}{NewPhysics}</\textcolor{keywordtype}{directory}>}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Update {\ttfamily src/\+CAWF/\+CMake\+Lists.\+txt}}} if special sources or backends are required (e.\+g. SYCL-\/specific code).
+\item {\bfseries{Add tests and example cases}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily .arc} files under {\ttfamily test/\+CAWF/\+New\+Physics/}.
+\item Meshes under {\ttfamily test/\+CAWF/\+New\+Physics/meshes/}.
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+Use the existing Poisson and Elasticity modules as templates for\+:
+
+
+\begin{DoxyItemize}
+\item Module lifecycle ({\ttfamily init}, {\ttfamily compute}, etc.).
+\item Configuration structure in {\ttfamily .arc} files.
+\item Post-\/processing setup. 
+\end{DoxyItemize}
