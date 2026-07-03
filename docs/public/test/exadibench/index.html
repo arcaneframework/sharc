@@ -1,2 +1,571 @@
-<!doctype html><html lang=fr dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/test/exadibench/"><meta property="og:site_name" content="sharc"><meta property="og:title" content="Tests ExaDiBench"><meta property="og:description" content="Documentation du projet"><meta property="og:locale" content="fr"><meta property="og:type" content="website"><meta itemprop=name content="Tests ExaDiBench"><meta itemprop=description content="Documentation du projet"><title>Tests ExaDiBench • sharc</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/test/exadibench/><link rel=stylesheet href=/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css integrity="sha256-mMg+TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin=anonymous><script defer type=module src=/fr.search.min.503dd1d02eb22ff5105df4882e58652983fc4157cb2c8641e7248f54bb1652e4.js integrity="sha256-UD3R0C6yL/UQXfSILlhlKYP8QVfLLIZB5ySPVLsWUuQ=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=http://localhost:1313/test/exadibench/index.xml title="Tests ExaDiBench"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],throwOnError:!1})'></script></head><body dir=ltr class="book-kind-section book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>sharc</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Rechercher aria-label=Rechercher maxlength=64><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>Tests ExaDiBench</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents></nav></aside></header><article class="markdown book-article"></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" 🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des cas .arc et le module ExaDiBench
+📋 Table des matières# Description Contenu Objectifs des tests Utilisation Ressources Description# Le répertoire test/ExaDiBench/ contient les cas de benchmark pour le module ExaDiBench. Ils exercent la chaîne :
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/test/exadibench/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="Tests ExaDiBench">
+	<meta property="og:description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des cas .arc et le module ExaDiBench
+📋 Table des matières# Description Contenu Objectifs des tests Utilisation Ressources Description# Le répertoire test/ExaDiBench/ contient les cas de benchmark pour le module ExaDiBench. Ils exercent la chaîne :">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="Tests ExaDiBench">
+	<meta itemprop="description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des cas .arc et le module ExaDiBench
+📋 Table des matières# Description Contenu Objectifs des tests Utilisation Ressources Description# Le répertoire test/ExaDiBench/ contient les cas de benchmark pour le module ExaDiBench. Ils exercent la chaîne :">
+	<meta itemprop="wordCount" content="308">
+
+<title>Tests ExaDiBench • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/test/exadibench/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/test/exadibench/index.xml" title="Tests ExaDiBench" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="active">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Tests ExaDiBench</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><blockquote class='book-hint '>
+<p>🧠 Cette page a été générée avec l&rsquo;aide de l&rsquo;IA à partir de l&rsquo;analyse du code source et de recherches web.</p>
+</blockquote><h1 id="tests-exadibench">Tests ExaDiBench<a class="anchor" href="#tests-exadibench">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur la liste des cas <code>.arc</code> et le module ExaDiBench</p>
+</blockquote><h2 id="-table-des-matières">📋 Table des matières<a class="anchor" href="#-table-des-mati%c3%a8res">#</a></h2>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#contenu">Contenu</a></li>
+<li><a href="#objectifs-des-tests">Objectifs des tests</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul>
+<h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
+<p>Le répertoire <code>test/ExaDiBench/</code> contient les cas de benchmark pour le module <code>ExaDiBench</code>. Ils exercent la chaîne :</p>
+<ul>
+<li>lecture et initialisation du maillage (cube 3D, SPE11c, anneaux),</li>
+<li>configuration de la géométrie (volumes, surfaces, centres),</li>
+<li>déformation des nœuds intérieurs,</li>
+<li>calcul et comparaison des mesures globales (volume, surface, centre).</li>
+</ul>
+<h2 id="contenu">Contenu<a class="anchor" href="#contenu">#</a></h2>
+<h3 id="maillages">Maillages<a class="anchor" href="#maillages">#</a></h3>
+<ul>
+<li><code>cube3D1.vt2</code> — maillage de référence pour le cas « cube 3D ».</li>
+<li><code>spe11c.vtk</code> — maillage/visualisation associée au cas SPE11c.</li>
+<li>Maillages supplémentaires référencés dans les <code>.arc</code> (via les blocs <code>&lt;mesh&gt;</code>).</li>
+</ul>
+<h3 id="cas-arc">Cas <code>.arc</code><a class="anchor" href="#cas-arc">#</a></h3>
+<ul>
+<li><code>bench-cube3d.arc</code> — benchmark de déformation sur le cube 3D (cas principal utilisé par la suite de tests).</li>
+<li><code>bench-pb.arc</code> / <code>bench-pb-msh.arc</code> — cas « pb » (problème générique) sur différents formats de maillage (VTK/MSH).</li>
+<li><code>bench-ring.arc</code> / <code>bench-ring-msh.arc</code> — benchmarks sur géométrie en anneau.</li>
+<li><code>bench-spe11c.arc</code> / <code>bench-spe11c-structured.arc</code> — cas basés sur le cas industriel SPE11c (versions structurée et non structurée).</li>
+<li><code>spe11c_structured.arc</code> — configuration SPE11c structurée.</li>
+</ul>
+<h3 id="configuration-sharc">Configuration ShArc<a class="anchor" href="#configuration-sharc">#</a></h3>
+<ul>
+<li><code>ShArc.config</code> — configuration ShArc/Arcane pour ces cas (time-loop, modules, points d’entrée).</li>
+</ul>
+<h2 id="objectifs-des-tests">Objectifs des tests<a class="anchor" href="#objectifs-des-tests">#</a></h2>
+<ul>
+<li>Vérifier la robustesse du calcul géométrique (volumes/surfaces/centres) sous perturbation.</li>
+<li>Tester la cohérence des groupes de bord (<code>OuterFaces</code>) sur des maillages variés.</li>
+<li>Garantir que les exports de maillage (VTK/MSH/IXM) restent fonctionnels avec le module <code>ExaDiBench</code>.</li>
+</ul>
+<h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
+<p>Depuis le répertoire de build :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Lancer les tests ExaDiBench via CTest</span>
+</span></span><span style="display:flex;"><span>ctest -R ExaDiBench</span></span></code></pre></div><p>Pour lancer un cas particulier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe test/ExaDiBench/bench-cube3d.arc</span></span></code></pre></div><p>Adapter MPI et les options de build selon votre configuration Arcane/ArcGeoSim.</p>
+<h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
+<ul>
+<li><code>src/ExaDiBench/README.md</code> — documentation du module de benchmark géométrique.</li>
+<li><code>src/ExaDiBench/ExaDiBench.axl</code> — descripteur complet (variables, options, points d’entrée).</li>
+<li>Documentation Arcane / ArcGeoSim — géométrie (<code>IGeometryMng</code>, <code>IGeometry</code>) et export de maillage (<code>IMeshWriter</code>).</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/test/cawf/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Tests CAWF</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/test/thermochemicalconvection/" class="flex align-center">
+        <span>Tests ThermoChemicalConvection</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

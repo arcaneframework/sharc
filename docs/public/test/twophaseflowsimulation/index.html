@@ -1,2 +1,694 @@
-<!doctype html><html lang=fr dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/test/twophaseflowsimulation/"><meta property="og:site_name" content="sharc"><meta property="og:title" content="Tests TwoPhaseFlowSimulation"><meta property="og:description" content="Documentation du projet"><meta property="og:locale" content="fr"><meta property="og:type" content="website"><meta itemprop=name content="Tests TwoPhaseFlowSimulation"><meta itemprop=description content="Documentation du projet"><title>Tests TwoPhaseFlowSimulation • sharc</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/test/twophaseflowsimulation/><link rel=stylesheet href=/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css integrity="sha256-mMg+TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin=anonymous><script defer type=module src=/fr.search.min.503dd1d02eb22ff5105df4882e58652983fc4157cb2c8641e7248f54bb1652e4.js integrity="sha256-UD3R0C6yL/UQXfSILlhlKYP8QVfLLIZB5ySPVLsWUuQ=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=http://localhost:1313/test/twophaseflowsimulation/index.xml title="Tests TwoPhaseFlowSimulation"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],throwOnError:!1})'></script></head><body dir=ltr class="book-kind-section book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>sharc</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Rechercher aria-label=Rechercher maxlength=64><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>Tests TwoPhaseFlowSimulation</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents></nav></aside></header><article class="markdown book-article"></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" 🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests TwoPhaseFlowSimulation# 🧠 Documentation enrichie par IA — basée sur l’analyse de la nomenclature des cas .arc, des maillages et du module TwoPhaseFlowSimulation
+📋 Table des matières# Description Contenu Objectifs des tests Utilisation Architecture Ressources Description# Le répertoire test/TwoPhaseFlowSimulation/ regroupe les cas de test de référence pour le module TwoPhaseFlowSimulation. Il couvre :
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/test/twophaseflowsimulation/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="Tests TwoPhaseFlowSimulation">
+	<meta property="og:description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests TwoPhaseFlowSimulation# 🧠 Documentation enrichie par IA — basée sur l’analyse de la nomenclature des cas .arc, des maillages et du module TwoPhaseFlowSimulation
+📋 Table des matières# Description Contenu Objectifs des tests Utilisation Architecture Ressources Description# Le répertoire test/TwoPhaseFlowSimulation/ regroupe les cas de test de référence pour le module TwoPhaseFlowSimulation. Il couvre :">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="Tests TwoPhaseFlowSimulation">
+	<meta itemprop="description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+Tests TwoPhaseFlowSimulation# 🧠 Documentation enrichie par IA — basée sur l’analyse de la nomenclature des cas .arc, des maillages et du module TwoPhaseFlowSimulation
+📋 Table des matières# Description Contenu Objectifs des tests Utilisation Architecture Ressources Description# Le répertoire test/TwoPhaseFlowSimulation/ regroupe les cas de test de référence pour le module TwoPhaseFlowSimulation. Il couvre :">
+	<meta itemprop="wordCount" content="595">
+
+<title>Tests TwoPhaseFlowSimulation • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/test/twophaseflowsimulation/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/test/twophaseflowsimulation/index.xml" title="Tests TwoPhaseFlowSimulation" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="active">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Tests TwoPhaseFlowSimulation</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><blockquote class='book-hint '>
+<p>🧠 Cette page a été générée avec l&rsquo;aide de l&rsquo;IA à partir de l&rsquo;analyse du code source et de recherches web.</p>
+</blockquote><h1 id="tests-twophaseflowsimulation">Tests TwoPhaseFlowSimulation<a class="anchor" href="#tests-twophaseflowsimulation">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse de la nomenclature des cas <code>.arc</code>, des maillages et du module TwoPhaseFlowSimulation</p>
+</blockquote><h2 id="-table-des-matières">📋 Table des matières<a class="anchor" href="#-table-des-mati%c3%a8res">#</a></h2>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#contenu">Contenu</a></li>
+<li><a href="#objectifs-des-tests">Objectifs des tests</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul>
+<h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
+<p>Le répertoire <code>test/TwoPhaseFlowSimulation/</code> regroupe les <strong>cas de test de référence</strong> pour le module <code>TwoPhaseFlowSimulation</code>. Il couvre :</p>
+<ul>
+<li>des cas synthétiques simples (maillage 10×1×1, variantes avec puits, pression capillaire),</li>
+<li>des cas de type <strong>SPE10</strong> (maillage hétérogène de grande taille),</li>
+<li>des variantes explorant différents solveurs et préconditionneurs linéaires (Hypre, PETSc, Trilinos/IFPS, MCGS, HTS, GPU/SYCL, etc.),</li>
+<li>des variantes physiques (avec/sans pression capillaire, avec/sans puits).</li>
+</ul>
+<p>Ces cas sont utilisés pour la <strong>validation physique</strong>, la <strong>comparaison numérique des solveurs</strong> et la <strong>détection de régressions</strong> dans l’assemblage du système non linéaire (Newton).</p>
+<h2 id="contenu">Contenu<a class="anchor" href="#contenu">#</a></h2>
+<h3 id="maillages-et-configuration">Maillages et configuration<a class="anchor" href="#maillages-et-configuration">#</a></h3>
+<ul>
+<li><code>mesh-10x1x1.vt2</code> — maillage simple 10×1×1 (cas de base).</li>
+<li><code>mesh-well.vt2</code> — maillage simple avec puits.</li>
+<li><code>SPE10-mesh-level0.vt2</code> — maillage SPE10 (niveau 0).</li>
+<li><code>SPE10-mesh-level0-well.vt2</code> — maillage SPE10 avec puits.</li>
+<li><code>ShArc.config</code> — configuration Arcane pour ces cas :
+<ul>
+<li>boucle de temps <code>ArcResTimeLoop</code>,</li>
+<li>modules : <code>ShArc</code>, <code>TwoPhaseFlowSimulation</code>, <code>PhysicalModel</code>,</li>
+<li>points d’entrée :
+<ul>
+<li><code>TwoPhaseFlowSimulation.Init</code>, <code>ShArc.Init</code> (phase init),</li>
+<li><code>TwoPhaseFlowSimulation.Compute</code> (compute-loop).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="cas-arc-principaux">Cas <code>.arc</code> principaux<a class="anchor" href="#cas-arc-principaux">#</a></h3>
+<ul>
+<li>
+<p><strong>Cas de base</strong> :</p>
+<ul>
+<li><code>use-case-two-phase-flow.arc</code><br>
+Cas standard deux phases sur un maillage simple.</li>
+<li><code>use-case-two-phase-flow-with-capillary-pressure.arc</code><br>
+Même cas avec pression capillaire activée.</li>
+<li><code>use-case-two-phase-flow-well.arc</code><br>
+Cas deux phases avec puits.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cas SPE10 (maillage hétérogène)</strong> :</p>
+<ul>
+<li><code>use-case-two-phase-flow-spe10.arc</code><br>
+Config de base SPE10 (sans puits).</li>
+<li><code>use-case-two-phase-flow-spe10-well.arc</code><br>
+SPE10 avec puits.</li>
+</ul>
+</li>
+</ul>
+<h3 id="variantes-solveurs--préconditionneurs-spe10">Variantes solveurs / préconditionneurs (SPE10)<a class="anchor" href="#variantes-solveurs--pr%c3%a9conditionneurs-spe10">#</a></h3>
+<p>Les suffixes des fichiers <code>.arc</code> indiquent le <strong>solveur linéaire</strong> et le <strong>préconditionneur</strong> utilisés dans le bloc <code>two-phase-flow-simulation &gt; numerics &gt; newton &gt; linear-solver</code>.</p>
+<p>Exemples (liste non exhaustive) :</p>
+<ul>
+<li>Hypre :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-hypre-bcgs-ilu0.arc</code></li>
+</ul>
+</li>
+<li>PETSc :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-petsc-bcgs-ilu0.arc</code></li>
+</ul>
+</li>
+<li>IFPS / Trilinos :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-ifps-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-ifps-bcgs-cpr.arc</code></li>
+</ul>
+</li>
+<li>MCGS :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-mcgs-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-mcgs-bcgs-cpr.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-mcgsgpu-bcgs-cpr.arc</code> (variante GPU)</li>
+</ul>
+</li>
+<li>HTS :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-hts-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-hts-bcgs-cpr.arc</code></li>
+</ul>
+</li>
+<li>Combinaisons « classiques » BCGS :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-bcgs-cxr.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-bcgs-cxr-sycl.arc</code> (variante SYCL)</li>
+</ul>
+</li>
+<li>TRI :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-tri-bcgs-ilu0.arc</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="fichiers-de-référence">Fichiers de référence<a class="anchor" href="#fichiers-de-r%c3%a9f%c3%a9rence">#</a></h3>
+<ul>
+<li><code>RefUseCaseTwoPhaseFlow_DebugNewtonMatrix_1_1.txt</code><br>
+Référence pour la matrice du système non linéaire (bloc Newton) pour un cas de base.</li>
+<li><code>RefUseCaseTwoPhaseFlow_DebugNewtonVector_1_1.txt</code><br>
+Référence pour le vecteur résidu correspondant.</li>
+</ul>
+<p>Ces fichiers sont utilisés pour vérifier que l’assemblage du système (jacobien + résidu) reste <strong>numériquement stable</strong> au fil des modifications du module.</p>
+<h2 id="objectifs-des-tests">Objectifs des tests<a class="anchor" href="#objectifs-des-tests">#</a></h2>
+<ul>
+<li>
+<p><strong>Validation physique</strong> :</p>
+<ul>
+<li>Vérifier la cohérence des résultats (pression, saturations) sur des maillages simples et SPE10.</li>
+<li>Tester l’effet des puits (cas <em>well</em>) et de la pression capillaire (cas <em>with-capillary-pressure</em>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Comparaison de solveurs</strong> :</p>
+<ul>
+<li>Comparer robustesse et performances de différentes combinaisons solveur/préconditionneur :
+<ul>
+<li>Hypre, PETSc, IFPS/Trilinos, MCGS, HTS, variantes GPU/SYCL, etc.</li>
+</ul>
+</li>
+<li>Évaluer l’impact du choix de solveur sur la convergence du Newton et le coût CPU.</li>
+</ul>
+</li>
+<li>
+<p><strong>Régression numérique</strong> :</p>
+<ul>
+<li>Utiliser les fichiers de référence Newton pour détecter les régressions dans l’assemblage du système :
+<ul>
+<li>structure de la matrice (profil, remplissage),</li>
+<li>valeurs du résidu.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
+<p>Depuis le répertoire de build :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Exécuter la suite de tests TwoPhaseFlowSimulation via CTest</span>
+</span></span><span style="display:flex;"><span>ctest -R TwoPhaseFlowSimulation</span></span></code></pre></div><p>Pour lancer un cas particulier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Exemple : cas SPE10 avec PETSc + BCGS + ILU0</span>
+</span></span><span style="display:flex;"><span>./ShArc.exe test/TwoPhaseFlowSimulation/use-case-two-phase-flow-spe10-petsc-bcgs-ilu0.arc</span></span></code></pre></div><p>Adapter le nombre de processus MPI et les options en fonction de votre configuration CMake (compilateur MPI, solveurs externes disponibles).</p>
+<h2 id="architecture">Architecture<a class="anchor" href="#architecture">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌────────────────────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│        test/TwoPhaseFlowSimulation/           │
+</span></span><span style="display:flex;"><span>├────────────────────────────────────────────────┤
+</span></span><span style="display:flex;"><span>│  ShArc.config                                 │
+</span></span><span style="display:flex;"><span>│  mesh-10x1x1.vt2                              │
+</span></span><span style="display:flex;"><span>│  mesh-well.vt2                                │
+</span></span><span style="display:flex;"><span>│  SPE10-mesh-level0.vt2                        │
+</span></span><span style="display:flex;"><span>│  SPE10-mesh-level0-well.vt2                   │
+</span></span><span style="display:flex;"><span>│  use-case-two-phase-flow*.arc                 │
+</span></span><span style="display:flex;"><span>│  RefUseCaseTwoPhaseFlow_DebugNewton*.txt      │
+</span></span><span style="display:flex;"><span>└────────────────────────────────────────────────┘
+</span></span><span style="display:flex;"><span>           │                       │
+</span></span><span style="display:flex;"><span>           ▼                       ▼
+</span></span><span style="display:flex;"><span>   src/TwoPhaseFlowSimulation   src/ShArc
+</span></span><span style="display:flex;"><span>   (module physique)           (orchestration)</span></span></code></pre></div><h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
+<ul>
+<li><code>src/TwoPhaseFlowSimulation/README.md</code> — documentation du module de simulation diphasique.</li>
+<li><code>test/LargeScaleTwoPhaseFlowSimulation/README.md</code> — documentation des cas XXL (SPE10 grande échelle).</li>
+<li>Documentation Arcane/ArcGeoSim — pour la syntaxe des cas <code>.arc</code> et la configuration des solveurs linéaires.</li>
+<li>Documentation ArcRes — pour la signification des propriétés physiques (<code>Pressure</code>, <code>Saturation</code>, <code>Density</code>, etc.).</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/test/thermochemicalconvection/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Tests ThermoChemicalConvection</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/api/" class="flex align-center">
+        <span>API</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

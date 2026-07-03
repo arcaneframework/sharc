@@ -1,2 +1,946 @@
-<!doctype html><html lang=fr dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/src/exadibench/"><meta property="og:site_name" content="sharc"><meta property="og:title" content="ExaDiBench"><meta property="og:description" content="Documentation du projet"><meta property="og:locale" content="fr"><meta property="og:type" content="website"><meta itemprop=name content="ExaDiBench"><meta itemprop=description content="Documentation du projet"><title>ExaDiBench • sharc</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/src/exadibench/><link rel=stylesheet href=/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css integrity="sha256-mMg+TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin=anonymous><script defer type=module src=/fr.search.min.503dd1d02eb22ff5105df4882e58652983fc4157cb2c8641e7248f54bb1652e4.js integrity="sha256-UD3R0C6yL/UQXfSILlhlKYP8QVfLLIZB5ySPVLsWUuQ=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=http://localhost:1313/src/exadibench/index.xml title=ExaDiBench><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],throwOnError:!1})'></script></head><body dir=ltr class="book-kind-section book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>sharc</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Rechercher aria-label=Rechercher maxlength=64><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>ExaDiBench</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents></nav></aside></header><article class="markdown book-article"></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" 🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+ExaDiBench# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et des cas de test associés
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module ExaDiBench fournit une batterie de benchmarks géométriques pour tester et valider les fonctionnalités de maillage et de géométrie d’ArcGeoSim/Arcane. Il s’agit principalement de :
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/src/exadibench/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="ExaDiBench">
+	<meta property="og:description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+ExaDiBench# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et des cas de test associés
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module ExaDiBench fournit une batterie de benchmarks géométriques pour tester et valider les fonctionnalités de maillage et de géométrie d’ArcGeoSim/Arcane. Il s’agit principalement de :">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="ExaDiBench">
+	<meta itemprop="description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
+ExaDiBench# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et des cas de test associés
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module ExaDiBench fournit une batterie de benchmarks géométriques pour tester et valider les fonctionnalités de maillage et de géométrie d’ArcGeoSim/Arcane. Il s’agit principalement de :">
+	<meta itemprop="wordCount" content="1200">
+
+<title>ExaDiBench • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/src/exadibench/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/src/exadibench/index.xml" title="ExaDiBench" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="active">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>ExaDiBench</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><blockquote class='book-hint '>
+<p>🧠 Cette page a été générée avec l&rsquo;aide de l&rsquo;IA à partir de l&rsquo;analyse du code source et de recherches web.</p>
+</blockquote><h1 id="exadibench">ExaDiBench<a class="anchor" href="#exadibench">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse du code source et des cas de test associés</p>
+</blockquote><h2 id="-table-des-matières">📋 Table des matières<a class="anchor" href="#-table-des-mati%c3%a8res">#</a></h2>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#fonctionnalit%c3%a9s">Fonctionnalités</a></li>
+<li><a href="#pr%c3%a9requis">Prérequis</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#api--interface">API / Interface</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#d%c3%a9pendances">Dépendances</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul>
+<h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
+<p>Le module <code>ExaDiBench</code> fournit une <strong>batterie de benchmarks géométriques</strong> pour tester et valider les fonctionnalités de maillage et de géométrie d&rsquo;ArcGeoSim/Arcane. Il s&rsquo;agit principalement de :</p>
+<ul>
+<li>déformer un maillage (déplacement aléatoire contrôlé des nœuds intérieurs),</li>
+<li>recalculer les grandeurs géométriques (volumes, surfaces, centres),</li>
+<li>vérifier la cohérence des groupes de bord (<code>OuterFaces</code>, groupes de nœuds/faces de bord),</li>
+<li>évaluer l&rsquo;impact des déformations sur des mesures globales (volume total, surface totale, centre global).</li>
+</ul>
+<p>Les cas de test correspondants se trouvent dans <code>test/ExaDiBench/</code> (cube 3D, géométrie SPE11c, anneaux, etc.).</p>
+<p>Le module s&rsquo;appuie sur le service <code>IGeometryMng</code> pour gérer les propriétés géométriques et sur les services de sortie <code>IMeshWriter</code> pour exporter le maillage dans différents formats.</p>
+<h2 id="fonctionnalités">Fonctionnalités<a class="anchor" href="#fonctionnalit%c3%a9s">#</a></h2>
+<p>À partir de <code>ExaDiBenchModule.cc</code> et <code>ExaDiBench.axl</code> :</p>
+<ul>
+<li>
+<p>✅ <strong>Export de maillage</strong> (optionnel) :</p>
+<ul>
+<li>VTK (<code>VtkLegacyMeshWriter</code>),</li>
+<li>MSH (<code>MshNewMeshWriter</code>),</li>
+<li>IXM (<code>IXMMeshWriter</code>),</li>
+<li>noms de fichiers dérivés de <code>mesh()-&gt;name()</code> avec suffixes <code>-vtk</code>, <code>-msh</code>, <code>-ixm</code>.</li>
+</ul>
+</li>
+<li>
+<p>✅ <strong>Construction des groupes de bord</strong> :</p>
+<ul>
+<li>Construction d&rsquo;un groupe de nœuds de bord (<code>BorderNodes</code>) et de faces de bord (<code>BorderFaces</code>) à partir des faces physiques de bord (<code>face.isSubDomainBoundary()</code>).</li>
+<li>Vérification de la cohérence avec le groupe <code>OuterFaces</code> :
+<ul>
+<li>sur versions anciennes d’Arcane : <code>mesh()-&gt;faceFamily()-&gt;findGroup(&quot;OuterFaces&quot;).own()</code>,</li>
+<li>sur versions récentes : <code>outerFaces().own()</code>.</li>
+</ul>
+</li>
+<li>Check strict : taille de <code>OuterFaces</code> == taille du groupe reconstruit, sinon <code>fatal()</code>.</li>
+</ul>
+</li>
+<li>
+<p>✅ <strong>Gestion de la géométrie</strong> :</p>
+<ul>
+<li>Initialisation du service <code>IGeometryMng</code> via l’option <code>geometry</code>.</li>
+<li>Création d’une politique <code>NoOptimizationGeometryPolicy</code>.</li>
+<li>Enregistrement des propriétés géométriques :
+<ul>
+<li><code>PArea</code> pour toutes les faces,</li>
+<li><code>PCenter</code> et <code>PVolume</code> pour les mailles (via groupe <code>m_cell_group</code>).</li>
+</ul>
+</li>
+<li>Support de <strong>stockage externe</strong> (<code>use-external-storage</code>) dans des variables explicites :
+<ul>
+<li><code>TestVolumes</code>, <code>TestSurfaces</code>, <code>TestCenters</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>✅ <strong>Benchmark de déformation</strong> :</p>
+<ul>
+<li>Sélection des nœuds intérieurs (n’appartenant pas au groupe <code>BorderNodes</code>).</li>
+<li>Perturbation pseudo‑aléatoire 3D des coordonnées des nœuds intérieurs :
+<ul>
+<li>rayon <code>r</code> contrôlé par l’option <code>factor</code>,</li>
+<li>angles aléatoires <code>theta</code>, <code>phi</code> (2π * aléa).</li>
+</ul>
+</li>
+<li>Synchronisation des coordonnées (<code>coords.synchronize()</code>).</li>
+<li>Mise à jour de la géométrie avec la politique définie.</li>
+<li>Re-calcul des mesures globales et réduction MPI (<code>ReduceSum</code>).</li>
+</ul>
+</li>
+<li>
+<p>✅ <strong>Mesures et vérifications</strong> :</p>
+<ul>
+<li><code>volumeCompute()</code> :
+<ul>
+<li>somme des volumes sur <code>ownCells()</code>,</li>
+<li>comparaison de chaque volume stocké avec <code>geom-&gt;computeMeasure(*icell)</code> (fatal en cas d’écart significatif),</li>
+<li>trace de l’amplitude des volumes locaux (min/max).</li>
+</ul>
+</li>
+<li><code>surfaceCompute()</code> :
+<ul>
+<li>somme de <code>PArea</code> sur les faces de bord <code>m_border_face_group</code>.</li>
+</ul>
+</li>
+<li><code>centerCompute()</code> :
+<ul>
+<li>somme pondérée des centres de chaque cellule, normalisation via réduction MPI.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>⚠️ <strong>Fonctions d’extension</strong> :</p>
+<ul>
+<li><code>refineMesh(Integer level)</code> : stub (affiche un message <em>not yet implemented</em>).</li>
+<li><code>restore()</code> : stub (traces uniquement).</li>
+</ul>
+</li>
+</ul>
+<h2 id="prérequis">Prérequis<a class="anchor" href="#pr%c3%a9requis">#</a></h2>
+<ul>
+<li>
+<p><strong>Langage / frameworks</strong> :</p>
+<ul>
+<li>C++ avec Arcane / ArcGeoSim (modules, services, maillage, géométrie).</li>
+<li>AXL (<code>ExaDiBench.axl</code>) pour décrire variables, options et points d’entrée.</li>
+</ul>
+</li>
+<li>
+<p><strong>Services utilisés</strong> :</p>
+<ul>
+<li><code>IGeometryMng</code> (service de géométrie),</li>
+<li><code>IMeshWriter</code> (services de sortie maillage : VTK, MSH, IXM),</li>
+<li><code>IParallelMng</code> (réductions globales),</li>
+<li><code>ItemGroupBuilder</code> (construction de groupes dynamiques de nœuds/faces).</li>
+</ul>
+</li>
+<li>
+<p><strong>Build</strong> :</p>
+<ul>
+<li>Le module est déclaré dans <code>src/ExaDiBench/config.xml</code> :
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;makefile&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;needed-packages&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;package</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;arcane&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/needed-packages&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;files</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;module&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;file&gt;</span>ExaDiBench<span style="color:#f92672">&lt;/file&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/files&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;files</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;c++&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;file</span> <span style="color:#a6e22e">header=</span><span style="color:#e6db74">&#39;false&#39;</span><span style="color:#f92672">&gt;</span>MeshbMeshReaderService<span style="color:#f92672">&lt;/file&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/files&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/makefile&gt;</span></span></span></code></pre></div></li>
+<li>Il est intégré à la bibliothèque <code>ShArc</code> via <code>src/CMakeLists.txt</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation<a class="anchor" href="#installation">#</a></h2>
+<p>Aucune étape dédiée pour <code>ExaDiBench</code> : il est compilé automatiquement lorsque la bibliothèque ShArc est construite.</p>
+<p>Rappel de la séquence globale (voir README racine pour les détails) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake -S sharc -B build-sharc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>Release <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DBUILD_SHARED_LIBS<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DARCANEFRAMEWORK_ROOT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>INSTALL_DIR<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DUSE_ARCANE_V3<span style="color:#f92672">=</span>ON
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cmake --build build-sharc</span></span></code></pre></div><p>L’exécutable <code>ShArc.exe</code> expose ensuite le module <code>ExaDiBench</code> utilisable dans les fichiers de cas <code>.arc</code>.</p>
+<h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
+<h3 id="cycle-de-vie-du-module">Cycle de vie du module<a class="anchor" href="#cycle-de-vie-du-module">#</a></h3>
+<p>Les points d’entrée sont définis dans <code>ExaDiBench.axl</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;entry-points&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;init&#34;</span>    <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Init&#34;</span>    <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;init&#34;</span>         <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;compute&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Compute&#34;</span> <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;compute-loop&#34;</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;restore&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Restore&#34;</span> <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;restore&#34;</span>      <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/entry-points&gt;</span></span></span></code></pre></div><p>Côté C++ :</p>
+<ul>
+<li>
+<p><code>init()</code> :</p>
+<ul>
+<li>export du maillage selon <code>export-vtk</code>, <code>export-msh</code>, <code>export-ixm</code>,</li>
+<li>appel éventuel à <code>refineMesh(refine-level)</code> (actuellement stub),</li>
+<li>construction des groupes de bord (<code>BorderNodes</code>, <code>BorderFaces</code>),</li>
+<li>initialisation de <code>IGeometryMng</code> et enregistrement des propriétés,</li>
+<li>calcul des mesures globales initiales (volume, surface, centre) + réductions MPI,</li>
+<li>initialisation de <code>m_localId</code> pour diagnostic.</li>
+</ul>
+</li>
+<li>
+<p><code>compute()</code> :</p>
+<ul>
+<li>re‑validation du checker de nœuds de bord,</li>
+<li>perturbation pseudo‑aléatoire des nœuds intérieurs (amplitude <code>factor</code>),</li>
+<li>synchronisation des coordonnées,</li>
+<li>mise à jour de la géométrie,</li>
+<li>recalcul des mesures globales (volume, surface, centre) et affichage.</li>
+</ul>
+</li>
+</ul>
+<h3 id="exemple-dexécution">Exemple d’exécution<a class="anchor" href="#exemple-dex%c3%a9cution">#</a></h3>
+<p>Depuis le répertoire de build, avec les cas de test :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Lancer la suite de tests ExaDiBench via CTest</span>
+</span></span><span style="display:flex;"><span>ctest -R ExaDiBench
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lancer un cas particulier</span>
+</span></span><span style="display:flex;"><span>./ShArc.exe test/ExaDiBench/bench-cube3d.arc</span></span></code></pre></div><p>Les options (export, niveau de raffinement, facteur de perturbation) se configurent dans le fichier <code>.arc</code> via le bloc d’options du module <code>ExaDiBench</code>.</p>
+<h2 id="api--interface">API / Interface<a class="anchor" href="#api--interface">#</a></h2>
+<h3 id="classe-principale">Classe principale<a class="anchor" href="#classe-principale">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>ExaDiBenchModule</code></td>
+					<td>classe</td>
+					<td>Module Arcane de benchmark géométrique. Pilote export, déformation et mesures globales du maillage.</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="méthodes-clés-extrait">Méthodes clés (extrait)<a class="anchor" href="#m%c3%a9thodes-cl%c3%a9s-extrait">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Méthode</th>
+					<th>Type / rôle</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>void init()</code></td>
+					<td>Point d’entrée <code>Init</code>. Initialise le benchmark : export éventuel, groupes de bord, géométrie, mesures initiales.</td>
+			</tr>
+			<tr>
+					<td><code>void compute()</code></td>
+					<td>Point d’entrée <code>Compute</code>. Applique la perturbation aux nœuds intérieurs, met à jour la géométrie et recalcule les mesures globales.</td>
+			</tr>
+			<tr>
+					<td><code>void refineMesh(Integer level)</code></td>
+					<td>Helper pour le raffinement du maillage (actuellement non implémenté, message d’avertissement).</td>
+			</tr>
+			<tr>
+					<td><code>void restore()</code></td>
+					<td>Point d’entrée <code>Restore</code> (stub, trace un message).</td>
+			</tr>
+			<tr>
+					<td><code>Real volumeCompute()</code></td>
+					<td>Calcule le volume total et vérifie la cohérence avec <code>IGeometry::computeMeasure()</code>.</td>
+			</tr>
+			<tr>
+					<td><code>Real surfaceCompute()</code></td>
+					<td>Calcule la surface totale sur les faces de bord.</td>
+			</tr>
+			<tr>
+					<td><code>Real3 centerCompute()</code></td>
+					<td>Calcule le centre de masse géométrique global du maillage.</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="variables-géométriques-exadibenchaxl">Variables géométriques (ExaDiBench.axl)<a class="anchor" href="#variables-g%c3%a9om%c3%a9triques-exadibenchaxl">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Nom logique</th>
+					<th>Champ interne</th>
+					<th>Type</th>
+					<th>Support</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>TestVolumes</code></td>
+					<td><code>volumes</code></td>
+					<td>real</td>
+					<td>cell</td>
+					<td>Volume par maille (stockage optionnel de <code>PVolume</code>).</td>
+			</tr>
+			<tr>
+					<td><code>TestCenters</code></td>
+					<td><code>centers</code></td>
+					<td>real3</td>
+					<td>cell</td>
+					<td>Centre par maille (stockage optionnel de <code>PCenter</code>).</td>
+			</tr>
+			<tr>
+					<td><code>TestSurfaces</code></td>
+					<td><code>surfaces</code></td>
+					<td>real</td>
+					<td>face</td>
+					<td>Surface par face de bord (stockage optionnel de <code>PArea</code>).</td>
+			</tr>
+			<tr>
+					<td><code>LocalId</code></td>
+					<td><code>localId</code></td>
+					<td>integer</td>
+					<td>cell</td>
+					<td>Identifiant local de la maille (diagnostic).</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="architecture">Architecture<a class="anchor" href="#architecture">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌────────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│          src/ExaDiBench           │
+</span></span><span style="display:flex;"><span>├────────────────────────────────────┤
+</span></span><span style="display:flex;"><span>│ ExaDiBenchModule.cc / .h          │
+</span></span><span style="display:flex;"><span>│ ExaDiBench.axl                    │
+</span></span><span style="display:flex;"><span>│ MeshbMeshReaderService.cc         │
+</span></span><span style="display:flex;"><span>│ config.xml                        │
+</span></span><span style="display:flex;"><span>└────────────────────────────────────┘
+</span></span><span style="display:flex;"><span>          │                │
+</span></span><span style="display:flex;"><span>          ▼                ▼
+</span></span><span style="display:flex;"><span>   IGeometryMng        Cas .arc
+</span></span><span style="display:flex;"><span>   (géométrie)        (test/ExaDiBench)</span></span></code></pre></div><ul>
+<li><code>config.xml</code> déclare le module et le service <code>MeshbMeshReaderService</code>.</li>
+<li><code>ExaDiBench.axl</code> définit les variables, options et points d’entrée.</li>
+<li><code>ExaDiBenchModule</code> implémente la logique de benchmark.</li>
+<li><code>MeshbMeshReaderService</code> fournit un point d’extension pour la lecture de maillages Meshb (implémentation actuelle minimale).</li>
+</ul>
+<h2 id="dépendances">Dépendances<a class="anchor" href="#d%c3%a9pendances">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>Dépendance</th>
+					<th>Usage</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>IGeometryMng</code></td>
+					<td>Gestion des propriétés géométriques (volumes, surfaces, centres) et mise à jour.</td>
+			</tr>
+			<tr>
+					<td><code>IGeometry</code></td>
+					<td>Calcul de mesures géométriques de référence (<code>computeMeasure</code>).</td>
+			</tr>
+			<tr>
+					<td><code>IMeshWriter</code></td>
+					<td>Export du maillage en VTK, MSH et IXM.</td>
+			</tr>
+			<tr>
+					<td><code>ItemGroupBuilder</code></td>
+					<td>Construction dynamique de groupes de nœuds/faces de bord.</td>
+			</tr>
+			<tr>
+					<td><code>IParallelMng</code></td>
+					<td>Réductions globales MPI (somme de volumes, surfaces, centres).</td>
+			</tr>
+			<tr>
+					<td>Arcane / ArcGeoSim</td>
+					<td>Infrastructure de module, maillage, parallélisme.</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="configuration">Configuration<a class="anchor" href="#configuration">#</a></h2>
+<p>Les principales options sont définies dans <code>ExaDiBench.axl</code> :</p>
+<table>
+	<thead>
+			<tr>
+					<th>Option</th>
+					<th>Type</th>
+					<th>Défaut</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>export-vtk</code></td>
+					<td>bool</td>
+					<td><code>false</code></td>
+					<td>Export du maillage au format VTK.</td>
+			</tr>
+			<tr>
+					<td><code>export-msh</code></td>
+					<td>bool</td>
+					<td><code>false</code></td>
+					<td>Export MSH.</td>
+			</tr>
+			<tr>
+					<td><code>export-ixm</code></td>
+					<td>bool</td>
+					<td><code>false</code></td>
+					<td>Export IXM.</td>
+			</tr>
+			<tr>
+					<td><code>refine-level</code></td>
+					<td>integer</td>
+					<td><code>0</code></td>
+					<td>Niveau de raffinement du maillage (fonctionnalité à implémenter).</td>
+			</tr>
+			<tr>
+					<td><code>factor</code></td>
+					<td>real</td>
+					<td><code>0.5</code></td>
+					<td>Amplitude de perturbation géométrique des nœuds intérieurs.</td>
+			</tr>
+			<tr>
+					<td><code>use-external-storage</code></td>
+					<td>bool</td>
+					<td><code>false</code></td>
+					<td>Stocker mesures géométriques dans les variables explicites (<code>TestVolumes</code>, etc.) plutôt que dans le stockage interne.</td>
+			</tr>
+			<tr>
+					<td><code>geometry</code></td>
+					<td>service</td>
+					<td>(à fournir)</td>
+					<td>Instance de service <code>IGeometryMng</code> à utiliser.</td>
+			</tr>
+	</tbody>
+</table>
+<p>Exemple d’extrait <code>.arc</code> (schématique) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;module</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ExaDiBench&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;options&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;export-vtk&gt;</span>true<span style="color:#f92672">&lt;/export-vtk&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;factor&gt;</span>0.5<span style="color:#f92672">&lt;/factor&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;use-external-storage&gt;</span>false<span style="color:#f92672">&lt;/use-external-storage&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;geometry&gt;</span>GeometryService<span style="color:#f92672">&lt;/geometry&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/options&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/module&gt;</span></span></span></code></pre></div><h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
+<ul>
+<li><code>src/ExaDiBench/ExaDiBench.axl</code> — descripteur complet du module.</li>
+<li><code>test/ExaDiBench/*.arc</code> — cas de benchmark (cube 3D, SPE11c, anneaux, etc.).</li>
+<li>Documentation Arcane / ArcGeoSim — sections sur :
+<ul>
+<li>la géométrie (<code>IGeometryMng</code>, <code>IGeometry</code>, propriétés d’éléments),</li>
+<li>les services d’export de maillage (<code>IMeshWriter</code>),</li>
+<li>les groupes d’items (<code>ItemGroup</code>, <code>ItemGroupBuilder</code>).</li>
+</ul>
+</li>
+<li><code>docs/content/test/ExaDiBench/</code> (si présent) — documentation Hugo associée aux tests ExaDiBench.</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/src/cawf/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>CAWF</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/src/main/" class="flex align-center">
+        <span>Main</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
