@@ -4,10 +4,20 @@ theme: hugo-book
 disableKinds: ["taxonomy", "term"]
 defaultContentLanguage: "fr"
 
+# IMPORTANT: on traite le dépôt racine comme projet Hugo, et la doc
+# vit dans le sous-répertoire `docs/`. Cela permet à Hugo de lire
+# les fichiers Markdown dans `src/` et `test/` via `readFile`.
+
+contentDir: docs/content
+staticDir: ["docs/static"]
+layoutDir: docs/layouts
+themesDir: docs/themes
+publishDir: docs/public
+
 params:
   description: "Documentation du projet"
   BookSearch: true
   BookComments: false
   BookToC: true
   BookTheme: "auto"
-  BookSection: ""
+  BookSection: "*"

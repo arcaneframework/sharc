@@ -8,4 +8,19 @@
 */}}
 
 {{- $path := .Get 0 -}}
+
+{{/*
+  Si le chemin fourni commence par '/', on le considère relatif à la racine du projet
+  et on préfixe avec .Site.BaseURL pour rester portable dans un site statique / GitHub Pages.
+
+  Exemple dans le contenu :
+    {{< include "ARCHITECTURE.md" >}}             # relatif au fichier courant
+    {{< include "src/README.md" >}}               # relatif au fichier courant
+    {{< include "content/src/README.md" >}}       # relatif à docs/
+*/}}
+
+{{- if hasPrefix $path "/" -}}
+  {{- $path = (substr $path 1) -}}
+{{- end -}}
+
 {{- readFile $path | markdownify -}}

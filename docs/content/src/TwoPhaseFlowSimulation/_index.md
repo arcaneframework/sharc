@@ -6,4 +6,4 @@ weight: 21
 
 # TwoPhaseFlowSimulation
 
-{{< include "/work/gratienj/Projets/2026/sharc/src/TwoPhaseFlowSimulation/README.md" >}}
+{{< include "src/TwoPhaseFlowSimulation/README.md" >}}

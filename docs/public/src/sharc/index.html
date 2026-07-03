@@ -1,2 +1,874 @@
-<!doctype html><html lang=fr dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/src/sharc/"><meta property="og:site_name" content="sharc"><meta property="og:title" content="ShArc"><meta property="og:description" content="Documentation du projet"><meta property="og:locale" content="fr"><meta property="og:type" content="website"><meta itemprop=name content="ShArc"><meta itemprop=description content="Documentation du projet"><title>ShArc • sharc</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/src/sharc/><link rel=stylesheet href=/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css integrity="sha256-mMg+TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin=anonymous><script defer type=module src=/fr.search.min.503dd1d02eb22ff5105df4882e58652983fc4157cb2c8641e7248f54bb1652e4.js integrity="sha256-UD3R0C6yL/UQXfSILlhlKYP8QVfLLIZB5ySPVLsWUuQ=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=http://localhost:1313/src/sharc/index.xml title=ShArc><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],throwOnError:!1})'></script></head><body dir=ltr class="book-kind-section book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>sharc</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Rechercher aria-label=Rechercher maxlength=64><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>ShArc</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents></nav></aside></header><article class="markdown book-article"></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ShArc (module d’orchestration)# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et des descripteurs Arcane
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module ShArc est le module d’orchestration global de l’application ShArc. Il ne résout pas lui‑même d’équations physiques : il pilote le cycle de vie de la simulation Arcane/ArcGeoSim et centralise :
+l’initialisation des services d’application (gestion du temps, politique de pas de temps, géométrie, unités, expressions), la préparation du maillage (connectivité, edges), le post‑traitement (sorties périodiques, formats de sortie, statistiques), la validation de la simulation en fin de calcul via des services de type IServiceValidator, les conditions d’arrêt (nombre maximum d’itérations, fin de timeline). ShArcModule est enregistré comme module Arcane via ARCANE_REGISTER_MODULE_SHARC(ShArcModule) et ses points d’entrée sont décrits dans ShArc.axl (build/init/compute‑loop/exit).
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/src/sharc/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="ShArc">
+	<meta property="og:description" content="ShArc (module d’orchestration)# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et des descripteurs Arcane
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module ShArc est le module d’orchestration global de l’application ShArc. Il ne résout pas lui‑même d’équations physiques : il pilote le cycle de vie de la simulation Arcane/ArcGeoSim et centralise :
+l’initialisation des services d’application (gestion du temps, politique de pas de temps, géométrie, unités, expressions), la préparation du maillage (connectivité, edges), le post‑traitement (sorties périodiques, formats de sortie, statistiques), la validation de la simulation en fin de calcul via des services de type IServiceValidator, les conditions d’arrêt (nombre maximum d’itérations, fin de timeline). ShArcModule est enregistré comme module Arcane via ARCANE_REGISTER_MODULE_SHARC(ShArcModule) et ses points d’entrée sont décrits dans ShArc.axl (build/init/compute‑loop/exit).">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="ShArc">
+	<meta itemprop="description" content="ShArc (module d’orchestration)# 🧠 Documentation enrichie par IA — basée sur l’analyse du code source et des descripteurs Arcane
+📋 Table des matières# Description Fonctionnalités Prérequis Installation Utilisation API / Interface Architecture Dépendances Configuration Ressources Description# Le module ShArc est le module d’orchestration global de l’application ShArc. Il ne résout pas lui‑même d’équations physiques : il pilote le cycle de vie de la simulation Arcane/ArcGeoSim et centralise :
+l’initialisation des services d’application (gestion du temps, politique de pas de temps, géométrie, unités, expressions), la préparation du maillage (connectivité, edges), le post‑traitement (sorties périodiques, formats de sortie, statistiques), la validation de la simulation en fin de calcul via des services de type IServiceValidator, les conditions d’arrêt (nombre maximum d’itérations, fin de timeline). ShArcModule est enregistré comme module Arcane via ARCANE_REGISTER_MODULE_SHARC(ShArcModule) et ses points d’entrée sont décrits dans ShArc.axl (build/init/compute‑loop/exit).">
+	<meta itemprop="wordCount" content="1079">
+
+<title>ShArc • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/src/sharc/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/src/sharc/index.xml" title="ShArc" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="active">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>ShArc</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="sharc-module-dorchestration">ShArc (module d&rsquo;orchestration)<a class="anchor" href="#sharc-module-dorchestration">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse du code source et des descripteurs Arcane</p>
+</blockquote><h2 id="-table-des-matières">📋 Table des matières<a class="anchor" href="#-table-des-mati%c3%a8res">#</a></h2>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#fonctionnalit%c3%a9s">Fonctionnalités</a></li>
+<li><a href="#pr%c3%a9requis">Prérequis</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#api--interface">API / Interface</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#d%c3%a9pendances">Dépendances</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul>
+<h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
+<p>Le module <code>ShArc</code> est le <strong>module d’orchestration global</strong> de l’application ShArc. Il ne résout pas lui‑même d’équations physiques : il pilote le <strong>cycle de vie de la simulation</strong> Arcane/ArcGeoSim et centralise :</p>
+<ul>
+<li>l’initialisation des services d’application (gestion du temps, politique de pas de temps, géométrie, unités, expressions),</li>
+<li>la préparation du maillage (connectivité, edges),</li>
+<li>le <strong>post‑traitement</strong> (sorties périodiques, formats de sortie, statistiques),</li>
+<li>la <strong>validation</strong> de la simulation en fin de calcul via des services de type <code>IServiceValidator</code>,</li>
+<li>les conditions d’arrêt (nombre maximum d’itérations, fin de timeline).</li>
+</ul>
+<p><code>ShArcModule</code> est enregistré comme module Arcane via <code>ARCANE_REGISTER_MODULE_SHARC(ShArcModule)</code> et ses points d’entrée sont décrits dans <code>ShArc.axl</code> (build/init/compute‑loop/exit).</p>
+<h2 id="fonctionnalités">Fonctionnalités<a class="anchor" href="#fonctionnalit%c3%a9s">#</a></h2>
+<ul>
+<li>
+<p>✅ Gestion des services d’application ArcGeoSim :</p>
+<ul>
+<li><code>IUnitsSystem</code> (système d’unités),</li>
+<li><code>ArcGeoSim::ITimeLine</code> (gestionnaire de temps),</li>
+<li><code>ArcGeoSim::TimeStep::IComputer</code> (politique de pas de temps),</li>
+<li><code>IGeometryMng</code> (gestionnaire de géométrie),</li>
+<li><code>IExpressionMng</code> (gestionnaire d’expressions).</li>
+</ul>
+</li>
+<li>
+<p>✅ Initialisation de la simulation :</p>
+<ul>
+<li>Détection du mode <code>ForecastCompute</code> (prévision) via le <code>TimeLoop</code>.</li>
+<li>Préparation de la connectivité du maillage (activation des edges si nécessaire).</li>
+<li>Initialisation de la politique de pas de temps et enregistrement auprès du <code>TimeLine</code>.</li>
+<li>Mise à jour initiale de la géométrie.</li>
+</ul>
+</li>
+<li>
+<p>✅ Pilotage du cycle temporel :</p>
+<ul>
+<li><code>beginTimeStep()</code> / <code>endTimeStep()</code> exécutés à chaque itération.</li>
+<li>Traces de <strong>time report</strong> détaillées (T(n), T(n+1), Δt) via <code>timeStepInformation()</code>.</li>
+</ul>
+</li>
+<li>
+<p>✅ Post‑traitement :</p>
+<ul>
+<li>Configuration d’un ou plusieurs post‑processeurs (<code>IPostProcessorWriter</code>) via <code>postProcessing</code>.</li>
+<li>Gestion de la fréquence de sortie (<code>outputPeriod</code>) et du chemin de sortie (<code>outputPath</code>).</li>
+<li>Sauvegarde des champs à des instants donnés et génération de statistiques en fin de simulation.</li>
+<li>Fermeture propre des writers de post‑traitement.</li>
+</ul>
+</li>
+<li>
+<p>✅ Validation en fin de simulation :</p>
+<ul>
+<li>Appel des services <code>IServiceValidator</code> configurés.</li>
+<li>Arrêt de la boucle de calcul avec succès ou échec explicite :
+<ul>
+<li>message <code>STOP PERFECT</code> en cas de succès,</li>
+<li><code>STOP FAILED</code> et <code>fatal()</code> en cas d’échec de validation.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>✅ Conditions d’arrêt :</p>
+<ul>
+<li>Arrêt après <code>max-iteration</code> itérations si la timeline n’est pas disponible.</li>
+<li>Arrêt basé sur la timeline (<code>ITimeLine</code>) si disponible et <code>max-iteration &lt;= 0</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="prérequis">Prérequis<a class="anchor" href="#pr%c3%a9requis">#</a></h2>
+<ul>
+<li>
+<p>Langage / frameworks :</p>
+<ul>
+<li>C++ (Arcane, ArcGeoSim),</li>
+<li>Module Arcane décrit via <code>ShArc.axl</code>.</li>
+</ul>
+</li>
+<li>
+<p>Services ArcGeoSim utilisés :</p>
+<ul>
+<li><code>IUnitsSystem</code>,</li>
+<li><code>ArcGeoSim::ITimeLine</code>,</li>
+<li><code>ArcGeoSim::TimeStep::IComputer</code>,</li>
+<li><code>IGeometryMng</code>,</li>
+<li><code>IExpressionMng</code>,</li>
+<li><code>IServiceValidator</code>,</li>
+<li><code>ArcGeoSimPostProcessingBase</code>.</li>
+</ul>
+</li>
+<li>
+<p>Build :</p>
+<ul>
+<li>Le module est déclaré dans <code>config.xml</code> :
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;files</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;module&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;file&gt;</span>ShArc<span style="color:#f92672">&lt;/file&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/files&gt;</span></span></span></code></pre></div></li>
+<li>Il est intégré à la bibliothèque principale ShArc via les CMakeLists de <code>src/</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation<a class="anchor" href="#installation">#</a></h2>
+<p>Aucune étape spécifique pour ce module : il est compilé automatiquement lorsque la bibliothèque ShArc est construite, via la configuration CMake globale (voir README racine).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake -S sharc -B build-sharc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>Release <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DBUILD_SHARED_LIBS<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DARCANEFRAMEWORK_ROOT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>INSTALL_DIR<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DUSE_ARCANE_V3<span style="color:#f92672">=</span>ON
+</span></span><span style="display:flex;"><span>cmake --build build-sharc</span></span></code></pre></div><p>Le module est disponible dans <code>ShArc.exe</code> et auto‑chargé selon les points d’entrée définis dans <code>ShArc.axl</code>.</p>
+<h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
+<p><code>ShArc</code> est généralement utilisé comme <strong>module d’infrastructure</strong> : il est activé dans les fichiers <code>.arc</code> pour fournir les services communs de temps, géométrie, post‑traitement et validation, tandis que les modules physiques (par exemple <code>TwoPhaseFlowSimulation</code>, <code>ThermoChemicalConvection</code>) gèrent la physique.</p>
+<h3 id="cycle-de-vie">Cycle de vie<a class="anchor" href="#cycle-de-vie">#</a></h3>
+<p>Les points d’entrée sont définis dans <code>ShArc.axl</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;entry-points&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;build&#34;</span>         <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Build&#34;</span>         <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;build&#34;</span>         <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;auto-load-begin&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;prepareInit&#34;</span>   <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;PrepareInit&#34;</span>   <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;init&#34;</span>          <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;auto-load-begin&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;init&#34;</span>          <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Init&#34;</span>          <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;init&#34;</span>          <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;continueInit&#34;</span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ContinueInit&#34;</span>  <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;continue-init&#34;</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;endInit&#34;</span>       <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;EndInit&#34;</span>       <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;init&#34;</span>          <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;auto-load-end&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;beginTimeStep&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;BeginTimeStep&#34;</span> <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;compute-loop&#34;</span>  <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;auto-load-begin&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;endTimeStep&#34;</span>   <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;EndTimeStep&#34;</span>   <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;compute-loop&#34;</span>  <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;auto-load-end&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entry-point</span> <span style="color:#a6e22e">method-name=</span><span style="color:#e6db74">&#34;endSimulation&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;EndSimulation&#34;</span> <span style="color:#a6e22e">where=</span><span style="color:#e6db74">&#34;exit&#34;</span>          <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;auto-load-begin&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/entry-points&gt;</span></span></span></code></pre></div><p>En pratique :</p>
+<ul>
+<li><code>build()</code> prépare le maillage (connectivité, edges) et détecte le mode Forecast.</li>
+<li><code>prepareInit()</code> et <code>init()</code> initialisent services et géométrie, ainsi que la politique de pas de temps.</li>
+<li><code>endInit()</code> peut déclencher un post‑traitement initial si <code>save-init</code> est <code>true</code>.</li>
+<li><code>beginTimeStep()</code> / <code>endTimeStep()</code> entourent chaque itération de la boucle de calcul.</li>
+<li><code>endSimulation()</code> lance le post‑traitement final et la validation.</li>
+</ul>
+<h2 id="api--interface">API / Interface<a class="anchor" href="#api--interface">#</a></h2>
+<h3 id="classe-principale">Classe principale<a class="anchor" href="#classe-principale">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>ShArcModule</code></td>
+					<td>classe</td>
+					<td>Module Arcane d’orchestration ShArc. Hérite de <code>ArcaneShArcObject</code>, <code>IAppServiceMng</code>, <code>ArcGeoSim::Delegate&lt;IIterationInformation&gt;</code>.</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="méthodes-clés">Méthodes clés<a class="anchor" href="#m%c3%a9thodes-cl%c3%a9s">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>void build()</code></td>
+					<td>point d’entrée</td>
+					<td>Prépare la connectivité du maillage, détecte le mode <code>ForecastCompute</code>, active les edges si nécessaire.</td>
+			</tr>
+			<tr>
+					<td><code>void prepareInit()</code></td>
+					<td>point d’entrée</td>
+					<td>Initialise les services d’application, récupère <code>IGeometryMng</code> et installe une politique de géométrie (<code>NoOptimizationGeometryPolicy</code>).</td>
+			</tr>
+			<tr>
+					<td><code>void init()</code></td>
+					<td>point d’entrée</td>
+					<td>Initialise la politique de pas de temps, enregistre <code>ITimeStepComputer</code> dans la <code>ITimeLine</code>, met à jour la géométrie, initialise post‑processing et validateurs.</td>
+			</tr>
+			<tr>
+					<td><code>void continueInit()</code></td>
+					<td>point d’entrée</td>
+					<td>Étape optionnelle pour compléter l’initialisation (actuellement simple rappel d’<code>initializeAppServiceMng()</code>).</td>
+			</tr>
+			<tr>
+					<td><code>void endInit()</code></td>
+					<td>point d’entrée</td>
+					<td>Sauvegarde optionnelle d’un état initial de post‑traitement (<code>save-init</code>).</td>
+			</tr>
+			<tr>
+					<td><code>void beginTimeStep()</code></td>
+					<td>point d’entrée</td>
+					<td>Vérifie que <code>ShArcModule</code> a bien été initialisé.</td>
+			</tr>
+			<tr>
+					<td><code>void endTimeStep()</code></td>
+					<td>point d’entrée</td>
+					<td>Gère la sortie de post‑traitement périodique et les conditions d’arrêt (itérations, timeline).</td>
+			</tr>
+			<tr>
+					<td><code>void endSimulation()</code></td>
+					<td>point d’entrée</td>
+					<td>Exécute la séquence de post‑traitement final puis appelle <code>_validate()</code>.</td>
+			</tr>
+			<tr>
+					<td><code>void timeStepInformation(Integer nb_loop)</code></td>
+					<td>méthode</td>
+					<td>Affiche un rapport temporel détaillé (T(n), T(n+1), Δt) pour le pas courant.</td>
+			</tr>
+			<tr>
+					<td><code>VersionInfo versionInfo() const</code></td>
+					<td>méthode</td>
+					<td>Retourne la version du module (<code>1.0.0</code>).</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="validation-et-posttraitement">Validation et post‑traitement<a class="anchor" href="#validation-et-posttraitement">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>void postProcessingInit()</code></td>
+					<td>méthode privée</td>
+					<td>Initialise le <code>ArcGeoSimPostProcessingBase</code>, configure les writers et les variables à sortir, calcule <code>m_next_iteration</code>.</td>
+			</tr>
+			<tr>
+					<td><code>void postProcessingExit()</code></td>
+					<td>méthode privée</td>
+					<td>Sauvegarde finale des données, affichage des stats, fermeture des writers.</td>
+			</tr>
+			<tr>
+					<td><code>void _validate()</code></td>
+					<td>méthode privée</td>
+					<td>Parcourt les services <code>validator</code>, exécute <code>validate()</code> et arrête la boucle de calcul avec statut succès/échec.</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="architecture">Architecture<a class="anchor" href="#architecture">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌───────────────────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│                src/ShArc                     │
+</span></span><span style="display:flex;"><span>├───────────────────────────────────────────────┤
+</span></span><span style="display:flex;"><span>│   ShArcModule.cc / ShArcModule.h             │
+</span></span><span style="display:flex;"><span>│   ShArc.axl                                   │
+</span></span><span style="display:flex;"><span>│   config.xml                                  │
+</span></span><span style="display:flex;"><span>└───────────────────────────────────────────────┘
+</span></span><span style="display:flex;"><span>            │                 │
+</span></span><span style="display:flex;"><span>            ▼                 ▼
+</span></span><span style="display:flex;"><span>   Arcane (TimeLoop,      ArcGeoSim
+</span></span><span style="display:flex;"><span>   subDomain, mesh)       (services, post-processing,
+</span></span><span style="display:flex;"><span>                           time line, validators)</span></span></code></pre></div><ul>
+<li><code>ShArc.axl</code> décrit les points d’entrée et les options de cas.</li>
+<li><code>config.xml</code> déclare le module et ses dépendances (packages <code>arcane</code>, <code>alien</code>).</li>
+<li><code>ShArcModule</code> fait le lien entre infrastructure Arcane et services ArcGeoSim.</li>
+</ul>
+<h2 id="dépendances">Dépendances<a class="anchor" href="#d%c3%a9pendances">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>Dépendance</th>
+					<th>Usage</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>arcane</code></td>
+					<td>Module de base (time loop, sous‑domaines, maillages, I/O).</td>
+			</tr>
+			<tr>
+					<td><code>alien</code> (optionnel)</td>
+					<td>Gestion de systèmes linéaires (via la stack ArcGeoSim / autres modules).</td>
+			</tr>
+			<tr>
+					<td><code>ArcGeoSim</code></td>
+					<td>Services de temps (<code>ITimeLine</code>, <code>ITimeStepComputer</code>), géométrie, post‑traitement, validation, unités, expressions.</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="configuration">Configuration<a class="anchor" href="#configuration">#</a></h2>
+<p>Les options principales sont définies dans <code>ShArc.axl</code> :</p>
+<table>
+	<thead>
+			<tr>
+					<th>Option</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>units-system</code></td>
+					<td>service <code>IUnitsSystem</code></td>
+					<td>Système d’unités pour la simulation.</td>
+			</tr>
+			<tr>
+					<td><code>time-manager</code></td>
+					<td>service <code>ArcGeoSim::ITimeLine</code></td>
+					<td>Gestionnaire de temps (nouvelle version).</td>
+			</tr>
+			<tr>
+					<td><code>time-step-policy</code></td>
+					<td>service <code>ArcGeoSim::TimeStep::IComputer</code></td>
+					<td>Politique de calcul du pas de temps (par défaut <code>TimeStepEvolutionPolicy</code>).</td>
+			</tr>
+			<tr>
+					<td><code>geometry</code></td>
+					<td>service <code>IGeometryMng</code></td>
+					<td>Gestionnaire de géométrie.</td>
+			</tr>
+			<tr>
+					<td><code>expression-mng</code></td>
+					<td>service <code>IExpressionMng</code></td>
+					<td>Gestionnaire d’expressions.</td>
+			</tr>
+			<tr>
+					<td><code>max-iteration</code></td>
+					<td>entier</td>
+					<td>Nombre d’itérations maximum (0 pour illimité).</td>
+			</tr>
+			<tr>
+					<td><code>post-processing</code></td>
+					<td>bloc complexe</td>
+					<td>Configuration du post‑traitement (période, chemin, sauvegarde initiale, writers, variables).</td>
+			</tr>
+			<tr>
+					<td><code>has-edges</code></td>
+					<td>booléen</td>
+					<td>Indique si des propriétés/groupes sont associés aux edges (active la connectivité edges).</td>
+			</tr>
+			<tr>
+					<td><code>validator</code></td>
+					<td>services <code>IServiceValidator</code></td>
+					<td>Validateurs appelés en fin de simulation.</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
+<ul>
+<li><code>src/ShArc/ShArc.axl</code> — définition complète des options et points d’entrée du module.</li>
+<li>Documentation ArcGeoSim / Arcane — pour les concepts :
+<ul>
+<li>Time loops, services d’application, post‑processing.</li>
+<li><code>ArcGeoSimPostProcessingBase</code>, <code>ITimeLine</code>, <code>IServiceValidator</code>.</li>
+</ul>
+</li>
+<li>Cas de test ShArc (sous <code>test/</code>) — exemples d’activation de <code>ShArc</code> avec différents scénarios physiques et options de post‑traitement.</li>
+</ul>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/src/main/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Main</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/src/twophaseflowsimulation/" class="flex align-center">
+        <span>TwoPhaseFlowSimulation</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

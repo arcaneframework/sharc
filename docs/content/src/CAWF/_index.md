@@ -4,4 +4,4 @@ type: docs
 weight: 21
 ---
 
-{{< include "/work/gratienj/Projets/2026/sharc/src/CAWF/README.md" >}}
+{{< include "src/CAWF/README.md" >}}

@@ -1,2 +1,985 @@
-<!doctype html><html lang=fr dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/src/main/"><meta property="og:site_name" content="sharc"><meta property="og:title" content="Main"><meta property="og:description" content="Documentation du projet"><meta property="og:locale" content="fr"><meta property="og:type" content="website"><meta itemprop=name content="Main"><meta itemprop=description content="Documentation du projet"><title>Main • sharc</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/src/main/><link rel=stylesheet href=/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css integrity="sha256-mMg+TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin=anonymous><script defer type=module src=/fr.search.min.503dd1d02eb22ff5105df4882e58652983fc4157cb2c8641e7248f54bb1652e4.js integrity="sha256-UD3R0C6yL/UQXfSILlhlKYP8QVfLLIZB5ySPVLsWUuQ=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=http://localhost:1313/src/main/index.xml title=Main><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],throwOnError:!1})'></script></head><body dir=ltr class="book-kind-section book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>sharc</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Rechercher aria-label=Rechercher maxlength=64><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>Main</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents></nav></aside></header><article class="markdown book-article"></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Main (ShArc.exe)# 🧠 Documentation enrichie par IA — basée sur l’analyse du point d’entrée C&#43;&#43; et du CMake
+Description# Le répertoire src/Main/ contient le point d’entrée exécutable de l’application ShArc. Il ne porte aucune logique métier : il instancie simplement l’application Arcane/ArcGeoSim et démarre la boucle de calcul en chargeant les modules (notamment ShArc, TwoPhaseFlowSimulation, ThermoChemicalConvection, etc.) décrits dans le fichier de cas .arc.
+Fonctionnalités# ✅ Création de l’exécutable ShArc.exe. ✅ Intégration avec le lanceur générique ArcGeoSim (ArcGeoSimMain). ✅ Liaison avec la bibliothèque ShArc et les composants ArcGeoSim nécessaires. Prérequis# Frameworks : Arcane / ArcGeoSim (modules, services, time loops). Bibliothèque ShArc construite (voir src/ et README racine). Installation / Build# La définition CMake est donnée par src/Main/CMakeLists.txt :
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/src/main/">
+	<meta property="og:site_name" content="sharc">
+	<meta property="og:title" content="Main">
+	<meta property="og:description" content="Main (ShArc.exe)# 🧠 Documentation enrichie par IA — basée sur l’analyse du point d’entrée C&#43;&#43; et du CMake
+Description# Le répertoire src/Main/ contient le point d’entrée exécutable de l’application ShArc. Il ne porte aucune logique métier : il instancie simplement l’application Arcane/ArcGeoSim et démarre la boucle de calcul en chargeant les modules (notamment ShArc, TwoPhaseFlowSimulation, ThermoChemicalConvection, etc.) décrits dans le fichier de cas .arc.
+Fonctionnalités# ✅ Création de l’exécutable ShArc.exe. ✅ Intégration avec le lanceur générique ArcGeoSim (ArcGeoSimMain). ✅ Liaison avec la bibliothèque ShArc et les composants ArcGeoSim nécessaires. Prérequis# Frameworks : Arcane / ArcGeoSim (modules, services, time loops). Bibliothèque ShArc construite (voir src/ et README racine). Installation / Build# La définition CMake est donnée par src/Main/CMakeLists.txt :">
+	<meta property="og:locale" content="fr">
+	<meta property="og:type" content="website">
+
+
+	<meta itemprop="name" content="Main">
+	<meta itemprop="description" content="Main (ShArc.exe)# 🧠 Documentation enrichie par IA — basée sur l’analyse du point d’entrée C&#43;&#43; et du CMake
+Description# Le répertoire src/Main/ contient le point d’entrée exécutable de l’application ShArc. Il ne porte aucune logique métier : il instancie simplement l’application Arcane/ArcGeoSim et démarre la boucle de calcul en chargeant les modules (notamment ShArc, TwoPhaseFlowSimulation, ThermoChemicalConvection, etc.) décrits dans le fichier de cas .arc.
+Fonctionnalités# ✅ Création de l’exécutable ShArc.exe. ✅ Intégration avec le lanceur générique ArcGeoSim (ArcGeoSimMain). ✅ Liaison avec la bibliothèque ShArc et les composants ArcGeoSim nécessaires. Prérequis# Frameworks : Arcane / ArcGeoSim (modules, services, time loops). Bibliothèque ShArc construite (voir src/ et README racine). Installation / Build# La définition CMake est donnée par src/Main/CMakeLists.txt :">
+	<meta itemprop="wordCount" content="1710">
+
+<title>Main • sharc</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/src/main/">
+<link rel="stylesheet" href="/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
+
+
+  <script defer type="module" src="/fr.search.min.82a75c690351c998fc20be88fb7271f17457708ec2cd694bf7fe49fd04920d56.js" integrity="sha256-gqdcaQNRyZj8IL6I&#43;3Jx8XRXcI7CzWlL9/5J/QSSDVY=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/src/main/index.xml" title="Main" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>sharc</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Rechercher"
+    aria-label="Rechercher"
+    maxlength="64" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      Documentation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/architecture/" class="">
+      Architecture</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/" class="">
+      src</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/cawf/" class="">
+      CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/exadibench/" class="">
+      ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/main/" class="active">
+      Main</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/sharc/" class="">
+      ShArc</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/src/twophaseflowsimulation/" class="">
+      TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/" class="">
+      test</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/cawf/" class="">
+      Tests CAWF</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/exadibench/" class="">
+      Tests ExaDiBench</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/thermochemicalconvection/" class="">
+      Tests ThermoChemicalConvection</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/test/twophaseflowsimulation/" class="">
+      Tests TwoPhaseFlowSimulation</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/api/" class="">
+      API</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Main</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="main-sharcexe">Main (ShArc.exe)<a class="anchor" href="#main-sharcexe">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse du point d&rsquo;entrée C++ et du CMake</p>
+</blockquote><h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
+<p>Le répertoire <code>src/Main/</code> contient le <strong>point d&rsquo;entrée exécutable</strong> de l&rsquo;application ShArc. Il ne porte aucune logique métier : il instancie simplement l&rsquo;application Arcane/ArcGeoSim et démarre la boucle de calcul en chargeant les modules (notamment <code>ShArc</code>, <code>TwoPhaseFlowSimulation</code>, <code>ThermoChemicalConvection</code>, etc.) décrits dans le fichier de cas <code>.arc</code>.</p>
+<h2 id="fonctionnalités">Fonctionnalités<a class="anchor" href="#fonctionnalit%c3%a9s">#</a></h2>
+<ul>
+<li>✅ Création de l&rsquo;exécutable <code>ShArc.exe</code>.</li>
+<li>✅ Intégration avec le lanceur générique ArcGeoSim (<code>ArcGeoSimMain</code>).</li>
+<li>✅ Liaison avec la bibliothèque <code>ShArc</code> et les composants ArcGeoSim nécessaires.</li>
+</ul>
+<h2 id="prérequis">Prérequis<a class="anchor" href="#pr%c3%a9requis">#</a></h2>
+<ul>
+<li>Frameworks :
+<ul>
+<li>Arcane / ArcGeoSim (modules, services, time loops).</li>
+<li>Bibliothèque ShArc construite (voir <code>src/</code> et README racine).</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation--build">Installation / Build<a class="anchor" href="#installation--build">#</a></h2>
+<p>La définition CMake est donnée par <code>src/Main/CMakeLists.txt</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span>createExecutable(<span style="color:#e6db74">ShArc.exe</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>addSources(<span style="color:#e6db74">ShArc.exe</span> <span style="color:#e6db74">main.cc</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>if(<span style="color:#e6db74">TARGET</span> <span style="color:#e6db74">ArcGeoSim::arcgeosim</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  linkLibraries(<span style="color:#e6db74">ShArc.exe</span> <span style="color:#e6db74">ShArc</span> <span style="color:#e6db74">ArcGeoSim::arcgeosim</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>else()<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  linkLibraries(<span style="color:#e6db74">ShArc.exe</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ShArc</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_appli</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_utils</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_mesh</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_numerics</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_time</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_physics</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">ArcGeoSim::ArcGeoSim_tests</span>
+</span></span><span style="display:flex;"><span>               )<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>endif()<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>if(<span style="color:#e6db74">TARGET</span> <span style="color:#e6db74">alien</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  linkLibraries(<span style="color:#e6db74">ShArc.exe</span> <span style="color:#e6db74">alien</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>endif()<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>if(<span style="color:#e6db74">TARGET</span> <span style="color:#e6db74">intel</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>  linkLibraries(<span style="color:#e6db74">ShArc.exe</span> <span style="color:#e6db74">intel</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>endif()<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span>commit(<span style="color:#e6db74">ShArc.exe</span>)</span></span></code></pre></div><p>L&rsquo;exécutable est donc construit automatiquement lors du build global :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake -S sharc -B build-sharc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>Release <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DBUILD_SHARED_LIBS<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DARCANEFRAMEWORK_ROOT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>INSTALL_DIR<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>cmake --build build-sharc</span></span></code></pre></div><h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
+<p>Le <code>main()</code> est minimal :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> argv[])
+</span></span><span style="display:flex;"><span>{ 
+</span></span><span style="display:flex;"><span>  Arcane<span style="color:#f92672">::</span>ApplicationInfo info(<span style="color:#f92672">&amp;</span>argc,<span style="color:#f92672">&amp;</span>argv,
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;ShArc&#34;</span>,
+</span></span><span style="display:flex;"><span>                               Arcane<span style="color:#f92672">::</span>VersionInfo(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>));
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> ArcGeoSim<span style="color:#f92672">::</span>main(info);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div><p>Pour lancer une simulation, il suffit d&rsquo;exécuter <code>ShArc.exe</code> avec un fichier de cas <code>.arc</code> approprié :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe use-case-two-phase-flow.arc</span></span></code></pre></div><p>Le fichier <code>.arc</code> référence les modules à charger (par exemple <code>ShArc</code>, <code>TwoPhaseFlowSimulation</code>, <code>ThermoChemicalConvection</code>) et les services associés.</p>
+<p>*** Add File: src/ExaDiBench/README.md</p>
+<h1 id="exadibench">ExaDiBench<a class="anchor" href="#exadibench">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse du code source et des cas de test associés</p>
+</blockquote><h2 id="description-1">Description<a class="anchor" href="#description-1">#</a></h2>
+<p>Le module <code>ExaDiBench</code> fournit une <strong>batterie de benchmarks géométriques</strong> pour tester et valider les fonctionnalités de maillage et de géométrie d&rsquo;ArcGeoSim/Arcane. Il s&rsquo;agit principalement de :</p>
+<ul>
+<li>déformer un maillage (déplacement aléatoire contrôlé des nœuds intérieurs),</li>
+<li>recalculer les grandeurs géométriques (volumes, surfaces, centres),</li>
+<li>vérifier la cohérence des groupes de bord (<code>OuterFaces</code>, nœuds de bord),</li>
+<li>évaluer l&rsquo;impact des déformations sur les mesures globales (volume total, surface totale, centre global).</li>
+</ul>
+<p>Les cas de test correspondants se trouvent dans <code>test/ExaDiBench/</code> (cube 3D, géométrie SPE11c, anneaux, etc.).</p>
+<h2 id="fonctionnalités-1">Fonctionnalités<a class="anchor" href="#fonctionnalit%c3%a9s-1">#</a></h2>
+<p>Basé sur <code>ExaDiBenchModule.cc</code> et le descripteur <code>.axl</code> :</p>
+<ul>
+<li>
+<p>✅ Export de maillage dans différents formats (optionnel) :</p>
+<ul>
+<li>VTK (<code>VtkLegacyMeshWriter</code>),</li>
+<li>MSH (<code>MshNewMeshWriter</code>),</li>
+<li>IXM (<code>IXMMeshWriter</code>).</li>
+</ul>
+</li>
+<li>
+<p>✅ Construction des groupes de bord :</p>
+<ul>
+<li>Construction d&rsquo;un groupe de nœuds de bord (<code>BorderNodes</code>) et de faces de bord (<code>BorderFaces</code>).</li>
+<li>Vérification de la cohérence avec le groupe <code>OuterFaces</code> de la famille de faces.</li>
+</ul>
+</li>
+<li>
+<p>✅ Gestion de la géométrie :</p>
+<ul>
+<li>Initialisation du service <code>IGeometryMng</code>.</li>
+<li>Ajout de propriétés géométriques : volumes, surfaces, centres pour les mailles et faces de bord.</li>
+<li>Mise à jour de la géométrie avec une politique <code>NoOptimizationGeometryPolicy</code>.</li>
+</ul>
+</li>
+<li>
+<p>✅ Benchmark de déformation :</p>
+<ul>
+<li>Sélection des nœuds intérieurs (non de bord).</li>
+<li>Déplacement aléatoire des coordonnées (rayon contrôlé par <code>factor</code>).</li>
+<li>Synchronisation des coordonnées et mise à jour géométrique.</li>
+<li>Re-calcul et affichage des mesures globales (volume, surface, centre).</li>
+</ul>
+</li>
+<li>
+<p>✅ Mesures et vérifications :</p>
+<ul>
+<li>Calcul du volume total via <code>volumeCompute()</code> et vérification contre <code>IGeometry::computeMeasure()</code> cellule par cellule.</li>
+<li>Calcul de la surface totale de bord via <code>surfaceCompute()</code>.</li>
+<li>Calcul du centre global via <code>centerCompute()</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="prérequis-1">Prérequis<a class="anchor" href="#pr%c3%a9requis-1">#</a></h2>
+<ul>
+<li>
+<p>Arcane / ArcGeoSim :</p>
+<ul>
+<li><code>IGeometryMng</code>, <code>IGeometry</code>, <code>PolyhedralGeometry</code>.</li>
+<li>Gestion des groupes (<code>ItemGroupBuilder</code>).</li>
+<li>Services de sortie maillage (<code>IMeshWriter</code>).</li>
+</ul>
+</li>
+<li>
+<p>Fichiers de configuration et maillages :</p>
+<ul>
+<li><code>.arc</code> de benchmark (voir <code>test/ExaDiBench/bench-*.arc</code>).</li>
+<li>Maillages <code>.vt2</code> (ex. <code>cube3D1.vt2</code>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation<a class="anchor" href="#installation">#</a></h2>
+<p>Le module <code>ExaDiBench</code> est déclaré dans <code>src/ExaDiBench/config.xml</code> et intégré dans la bibliothèque ShArc par la configuration CMake globale. Il n&rsquo;y a pas de CMakeLists dédié dans ce répertoire.</p>
+<h2 id="utilisation-1">Utilisation<a class="anchor" href="#utilisation-1">#</a></h2>
+<p>Le cycle principal est :</p>
+<ol>
+<li>
+<p><strong>init()</strong></p>
+<ul>
+<li>Export optionnel du maillage en VTK/MSH/IXM selon les options (<code>exportVtk</code>, <code>exportMsh</code>, <code>exportIxm</code>).</li>
+<li>Affinage du maillage si <code>refineLevel &gt; 0</code> (fonctionnalité marquée &ldquo;not yet implemented&rdquo;).</li>
+<li>Construction des groupes de bord (nœuds/faces).</li>
+<li>Initialisation de <code>IGeometryMng</code> et ajout des propriétés géométriques.</li>
+<li>Mise à jour de la géométrie et calcul des mesures initiales (volume, surface, centre).</li>
+</ul>
+</li>
+<li>
+<p><strong>compute()</strong></p>
+<ul>
+<li>Déformation des nœuds intérieurs par un bruit pseudo‑aléatoire 3D.</li>
+<li>Synchronisation des coordonnées.</li>
+<li>Mise à jour de la géométrie.</li>
+<li>Recalcul et affichage des mesures globales.</li>
+</ul>
+</li>
+<li>
+<p>(optionnel) <strong>restore()</strong> / <strong>refineMesh()</strong></p>
+<ul>
+<li>Points d&rsquo;extension prévus pour restaurer un état de référence ou affiner le maillage.</li>
+</ul>
+</li>
+</ol>
+<p>Les fichiers <code>.arc</code> de <code>test/ExaDiBench/</code> sélectionnent le maillage, le niveau de raffinement, le facteur de perturbation des nœuds, et les éventuels exports.</p>
+<h2 id="api--interface">API / Interface<a class="anchor" href="#api--interface">#</a></h2>
+<h3 id="classe-principale">Classe principale<a class="anchor" href="#classe-principale">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Symbole</th>
+					<th>Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>ExaDiBenchModule</code></td>
+					<td>classe</td>
+					<td>Module Arcane de benchmark géométrique. Pilote export, déformation et mesures globales du maillage.</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="méthodes-clés-extrait">Méthodes clés (extrait)<a class="anchor" href="#m%c3%a9thodes-cl%c3%a9s-extrait">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Méthode</th>
+					<th>Rôle</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>void init()</code></td>
+					<td>Initialise l&rsquo;état du benchmark (geometry, groupes, mesures initiales, export éventuel).</td>
+			</tr>
+			<tr>
+					<td><code>void compute()</code></td>
+					<td>Applique la déformation sur les nœuds intérieurs, met à jour la géométrie et recalcule les mesures globales.</td>
+			</tr>
+			<tr>
+					<td><code>void refineMesh(Integer level)</code></td>
+					<td>Point d&rsquo;extension pour raffiner le maillage (actuellement non implémenté, message d&rsquo;avertissement).</td>
+			</tr>
+			<tr>
+					<td><code>Real volumeCompute()</code></td>
+					<td>Calcule et vérifie le volume total du maillage sur les mailles propres.</td>
+			</tr>
+			<tr>
+					<td><code>Real surfaceCompute()</code></td>
+					<td>Calcule la surface totale des faces de bord.</td>
+			</tr>
+			<tr>
+					<td><code>Real3 centerCompute()</code></td>
+					<td>Calcule le centre de masse géométrique du maillage.</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="architecture">Architecture<a class="anchor" href="#architecture">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌────────────────────────────┐
+</span></span><span style="display:flex;"><span>│        src/ExaDiBench      │
+</span></span><span style="display:flex;"><span>├────────────────────────────┤
+</span></span><span style="display:flex;"><span>│ ExaDiBenchModule.cc/.h     │
+</span></span><span style="display:flex;"><span>│ ExaDiBench.axl             │
+</span></span><span style="display:flex;"><span>│ MeshbMeshReaderService.cc  │
+</span></span><span style="display:flex;"><span>│ config.xml                 │
+</span></span><span style="display:flex;"><span>└────────────────────────────┘
+</span></span><span style="display:flex;"><span>          │          │
+</span></span><span style="display:flex;"><span>          ▼          ▼
+</span></span><span style="display:flex;"><span>     IGeometryMng   Cas .arc
+</span></span><span style="display:flex;"><span>     (géométrie)    (test/ExaDiBench)</span></span></code></pre></div><p><code>MeshbMeshReaderService.cc</code> est actuellement un service de lecture Meshb minimal/stub, principalement utilisé pour des tests ou extensions futures.</p>
+<h2 id="dépendances">Dépendances<a class="anchor" href="#d%c3%a9pendances">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>Dépendance</th>
+					<th>Usage</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>IGeometryMng</code>, <code>IGeometry</code></td>
+					<td>Gestion et calcul des propriétés géométriques.</td>
+			</tr>
+			<tr>
+					<td><code>IMeshWriter</code></td>
+					<td>Export VTK/MSH/IXM du maillage.</td>
+			</tr>
+			<tr>
+					<td><code>ItemGroupBuilder</code></td>
+					<td>Construction des groupes de nœuds/faces de bord.</td>
+			</tr>
+			<tr>
+					<td>Arcane ParallelMng</td>
+					<td>Réductions globales (somme des volumes, surfaces, centres).</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
+<ul>
+<li><code>src/ExaDiBench/ExaDiBench.axl</code> — descripteur du module (points d&rsquo;entrée, options, services).</li>
+<li><code>test/ExaDiBench/*.arc</code> — cas de benchmark (cube 3D, SPE11c, anneaux, etc.).</li>
+</ul>
+<p>*** Add File: test/TwoPhaseFlowSimulation/README.md</p>
+<h1 id="tests-twophaseflowsimulation">Tests TwoPhaseFlowSimulation<a class="anchor" href="#tests-twophaseflowsimulation">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse de la nomenclature des cas <code>.arc</code> et des maillages</p>
+</blockquote><h2 id="description-2">Description<a class="anchor" href="#description-2">#</a></h2>
+<p>Le répertoire <code>test/TwoPhaseFlowSimulation/</code> regroupe les <strong>cas de test de référence</strong> pour le module <code>TwoPhaseFlowSimulation</code>.
+On y trouve à la fois :</p>
+<ul>
+<li>des cas synthétiques simples (maillage 10×1×1, puits),</li>
+<li>des cas de type <strong>SPE10</strong> (maillage hétérogène de grande taille),</li>
+<li>des variantes explorant différents solveurs et préconditionneurs linéaires (Hypre, PETSc, Trilinos/IFPS, MCGS, GPU/SYCL, etc.),</li>
+<li>des variantes physiques (avec/ sans pression capillaire, avec/ sans puits).</li>
+</ul>
+<h2 id="contenu">Contenu<a class="anchor" href="#contenu">#</a></h2>
+<h3 id="maillages-et-configuration">Maillages et configuration<a class="anchor" href="#maillages-et-configuration">#</a></h3>
+<ul>
+<li><code>mesh-10x1x1.vt2</code> — maillage simple 10×1×1 (cas de base).</li>
+<li><code>mesh-well.vt2</code> — maillage avec puits.</li>
+<li><code>SPE10-mesh-level0.vt2</code> — maillage SPE10 niveau 0.</li>
+<li><code>SPE10-mesh-level0-well.vt2</code> — maillage SPE10 avec puits.</li>
+<li><code>ShArc.config</code> — configuration ShArc/Arcane pour ces cas.</li>
+</ul>
+<h3 id="cas-arc-principaux">Cas <code>.arc</code> principaux<a class="anchor" href="#cas-arc-principaux">#</a></h3>
+<ul>
+<li>
+<p><strong>Cas de base</strong> :</p>
+<ul>
+<li><code>use-case-two-phase-flow.arc</code> — cas standard deux phases sur un maillage simple.</li>
+<li><code>use-case-two-phase-flow-with-capillary-pressure.arc</code> — même cas avec pression capillaire activée.</li>
+<li><code>use-case-two-phase-flow-well.arc</code> — cas deux phases avec puits.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cas SPE10 (maillage hétérogène)</strong> :</p>
+<ul>
+<li><code>use-case-two-phase-flow-spe10.arc</code> — configuration de base SPE10.</li>
+<li><code>use-case-two-phase-flow-spe10-well.arc</code> — SPE10 avec puits.</li>
+</ul>
+</li>
+<li>
+<p><strong>Variantes solveurs / préconditionneurs</strong> (SPE10) :</p>
+<ul>
+<li>Hypre :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-hypre-bcgs-ilu0.arc</code></li>
+</ul>
+</li>
+<li>PETSc :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-petsc-bcgs-ilu0.arc</code></li>
+</ul>
+</li>
+<li>IFPS / Trilinos :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-ifps-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-ifps-bcgs-cpr.arc</code></li>
+</ul>
+</li>
+<li>MCGS :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-mcgs-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-mcgs-bcgs-cpr.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-mcgsgpu-bcgs-cpr.arc</code> (variante GPU)</li>
+</ul>
+</li>
+<li>HTS :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-hts-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-hts-bcgs-cpr.arc</code></li>
+</ul>
+</li>
+<li>Solutions &ldquo;classiques&rdquo; BCGS :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-bcgs-ilu0.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-bcgs-cxr.arc</code></li>
+<li><code>use-case-two-phase-flow-spe10-bcgs-cxr-sycl.arc</code></li>
+</ul>
+</li>
+<li>TRI (Trilinos) :
+<ul>
+<li><code>use-case-two-phase-flow-spe10-tri-bcgs-ilu0.arc</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="fichiers-de-référence">Fichiers de référence<a class="anchor" href="#fichiers-de-r%c3%a9f%c3%a9rence">#</a></h3>
+<ul>
+<li><code>RefUseCaseTwoPhaseFlow_DebugNewtonMatrix_1_1.txt</code> — référence pour la matrice du système non linéaire (diagnostic Newton).</li>
+<li><code>RefUseCaseTwoPhaseFlow_DebugNewtonVector_1_1.txt</code> — référence pour le vecteur résidu.</li>
+</ul>
+<h2 id="objectifs-des-tests">Objectifs des tests<a class="anchor" href="#objectifs-des-tests">#</a></h2>
+<ul>
+<li>
+<p><strong>Validation physique</strong> :</p>
+<ul>
+<li>Vérifier la cohérence des résultats (pression, saturations) sur des maillages simples et SPE10.</li>
+<li>Tester l&rsquo;effet des puits et de la pression capillaire.</li>
+</ul>
+</li>
+<li>
+<p><strong>Comparaison de solveurs</strong> :</p>
+<ul>
+<li>Comparer la robustesse et les performances de différentes combinaisons solveur/préconditionneur (Hypre, PETSc, IFPS, MCGS, HTS, GPU/SYCL, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Régression numérique</strong> :</p>
+<ul>
+<li>Utiliser les fichiers de référence Newton pour détecter les régressions dans l’assemblage du système.</li>
+</ul>
+</li>
+</ul>
+<h2 id="utilisation-2">Utilisation<a class="anchor" href="#utilisation-2">#</a></h2>
+<p>Depuis le répertoire de build :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ctest -R TwoPhaseFlowSimulation</span></span></code></pre></div><p>Ou directement :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe use-case-two-phase-flow-spe10-petsc-bcgs-ilu0.arc</span></span></code></pre></div><p>Adapter le nombre de processus MPI et les options en fonction de la configuration CMake.</p>
+<p>*** Add File: test/ExaDiBench/README.md</p>
+<h1 id="tests-exadibench">Tests ExaDiBench<a class="anchor" href="#tests-exadibench">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur la liste des cas <code>.arc</code> et le module ExaDiBench</p>
+</blockquote><h2 id="description-3">Description<a class="anchor" href="#description-3">#</a></h2>
+<p>Le répertoire <code>test/ExaDiBench/</code> contient les cas de benchmark pour le module <code>ExaDiBench</code>. Ils exercent la chaîne :</p>
+<ul>
+<li>lecture et initialisation du maillage (cube 3D, SPE11c, anneaux),</li>
+<li>configuration de la géométrie (volumes, surfaces, centres),</li>
+<li>déformation des nœuds intérieurs,</li>
+<li>calcul et comparaison des mesures globales (volume, surface, centre).</li>
+</ul>
+<h2 id="contenu-1">Contenu<a class="anchor" href="#contenu-1">#</a></h2>
+<h3 id="maillages">Maillages<a class="anchor" href="#maillages">#</a></h3>
+<ul>
+<li><code>cube3D1.vt2</code> — maillage de référence pour le cas &ldquo;cube 3D&rdquo;.</li>
+</ul>
+<h3 id="cas-arc">Cas <code>.arc</code><a class="anchor" href="#cas-arc">#</a></h3>
+<ul>
+<li><code>bench-cube3d.arc</code> — benchmark de déformation sur le cube 3D (cas principal utilisé par la suite de tests).</li>
+<li><code>bench-pb.arc</code> / <code>bench-pb-msh.arc</code> — cas &ldquo;pb&rdquo; (problème générique) sur différents formats de maillage (VTK/MSH).</li>
+<li><code>bench-ring.arc</code> / <code>bench-ring-msh.arc</code> — benchmarks sur géométrie en anneau.</li>
+<li><code>bench-spe11c.arc</code> / <code>bench-spe11c-structured.arc</code> — cas basés sur le cas industriel SPE11c (versions structurée et non structurée).</li>
+<li><code>spe11c_structured.arc</code> — configuration SPE11c structurée.</li>
+</ul>
+<h3 id="configuration-sharc">Configuration ShArc<a class="anchor" href="#configuration-sharc">#</a></h3>
+<ul>
+<li><code>ShArc.config</code> — configuration ShArc/Arcane pour ces cas.</li>
+</ul>
+<h2 id="objectifs-des-tests-1">Objectifs des tests<a class="anchor" href="#objectifs-des-tests-1">#</a></h2>
+<ul>
+<li>Vérifier la robustesse du calcul géométrique (volumes/surfaces/centres) sous perturbation.</li>
+<li>Tester la cohérence des groupes de bord (<code>OuterFaces</code>) sur des maillages variés.</li>
+<li>Garantir que les exports de maillage (VTK/MSH/IXM) restent fonctionnels.</li>
+</ul>
+<h2 id="utilisation-3">Utilisation<a class="anchor" href="#utilisation-3">#</a></h2>
+<p>Depuis le répertoire de build :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ctest -R ExaDiBench</span></span></code></pre></div><p>Pour lancer un cas particulier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe bench-cube3d.arc</span></span></code></pre></div><p>*** Add File: test/ThermoChemicalConvection/README.md</p>
+<h1 id="tests-thermochemicalconvection">Tests ThermoChemicalConvection<a class="anchor" href="#tests-thermochemicalconvection">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur l&rsquo;analyse des fichiers de cas et du module ThermoChemicalConvection</p>
+</blockquote><h2 id="description-4">Description<a class="anchor" href="#description-4">#</a></h2>
+<p>Le répertoire <code>test/ThermoChemicalConvection/</code> contient un cas de test pour le module <code>ThermoChemicalConvection</code>, qui résout un système couplé pression–concentration–température en milieu poreux.</p>
+<p>Le cas met en jeu :</p>
+<ul>
+<li>un maillage 3D <code>mesh-10x1x10.vt2</code>,</li>
+<li>un fichier de cas <code>use-case-thermal.arc</code> configurant le système ArcRes et les services (conditions initiales, lois, conditions aux limites),</li>
+<li>un fichier <code>ShArc.config</code> pour l&rsquo;infrastructure ShArc/Arcane.</li>
+</ul>
+<h2 id="objectifs">Objectifs<a class="anchor" href="#objectifs">#</a></h2>
+<ul>
+<li>Valider la construction de l&rsquo;accumulation et des flux (advection, diffusion, conduction) définis dans <code>ThermoChemicalConvectionModule</code>.</li>
+<li>Vérifier la cohérence thermique (capacité et conductivité des phases fluide et solide) sur un cas simple.</li>
+</ul>
+<h2 id="utilisation-4">Utilisation<a class="anchor" href="#utilisation-4">#</a></h2>
+<p>Depuis le répertoire de build :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ctest -R ThermoChemicalConvection</span></span></code></pre></div><p>Ou directement :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe use-case-thermal.arc</span></span></code></pre></div><p>*** Add File: test/CAWF/README.md</p>
+<h1 id="tests-cawf">Tests CAWF<a class="anchor" href="#tests-cawf">#</a></h1>
+<blockquote class='book-hint '>
+<p>🧠 Documentation enrichie par IA — basée sur le README CAWF et la structure des tests</p>
+</blockquote><h2 id="description-5">Description<a class="anchor" href="#description-5">#</a></h2>
+<p>Le répertoire <code>test/CAWF/</code> regroupe les cas de test pour le module CAWF (solveurs FEM Poisson, Elasticity, Compaction, DynamicMeshMng). Les cas détaillés (fichiers <code>.arc</code>, maillages, configurations) sont organisés dans des sous‑répertoires (par exemple <code>Compaction/</code>, <code>MecaFEM/</code>, <code>Poisson/</code>), en cohérence avec la structure décrite dans <code>src/CAWF/README.md</code>.</p>
+<p>Ce dossier contient également des fichiers de configuration pour le couplage éventuel avec preCICE (<code>precice-config-*.xml</code>).</p>
+<h2 id="contenu-2">Contenu<a class="anchor" href="#contenu-2">#</a></h2>
+<ul>
+<li><code>precice-config-v3.xml</code> / <code>precice-config-iter-v3.xml</code> — configurations preCICE pour des scénarios de couplage (itératif ou non).</li>
+<li>Sous‑répertoires contenant :
+<ul>
+<li>des maillages VTU/VTK/VT2,</li>
+<li>des fichiers <code>.arc</code> pour les solveurs Poisson/Elasticity/Compaction,</li>
+<li>des fichiers <code>ShArc.config</code> spécifiques.</li>
+</ul>
+</li>
+</ul>
+<h2 id="objectifs-des-tests-2">Objectifs des tests<a class="anchor" href="#objectifs-des-tests-2">#</a></h2>
+<ul>
+<li>Vérifier les solveurs FEM sur des cas unitaires et multi‑physiques (Poisson, élasticité, compaction).</li>
+<li>Tester les différents backends linéaires (Hypre, PETSc, etc.) tels que configurés dans les <code>.arc</code>.</li>
+<li>Valider (le cas échéant) l&rsquo;intégration avec preCICE pour les cas couplés.</li>
+</ul>
+<h2 id="utilisation-5">Utilisation<a class="anchor" href="#utilisation-5">#</a></h2>
+<p>Depuis le répertoire de build :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ctest -R CAWF</span></span></code></pre></div><p>Ou exécuter directement l&rsquo;un des cas dans les sous‑répertoires, par exemple :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe Poisson/use-case-poisson.arc</span></span></code></pre></div>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/src/exadibench/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>ExaDiBench</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/src/sharc/" class="flex align-center">
+        <span>ShArc</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents"></nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
