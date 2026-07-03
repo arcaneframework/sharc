@@ -1,0 +1,52 @@
+name: Build and publish docs
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write  # nécessaire pour pousser sur main
+
+jobs:
+  build-and-publish-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.163.3'
+          extended: true
+
+      - name: Build Hugo site
+        run: |
+          # Build à partir de la racine, avec la config docs/hugo.yaml
+          hugo --config docs/hugo.yaml
+
+      - name: Prepare docs/ for GitHub Pages
+        run: |
+          # Désactiver Jekyll pour servir les fichiers tels quels
+          touch docs/.nojekyll
+
+          # Copier le contenu généré de docs/public/ vers docs/
+          # (docs/content, docs/layouts, etc. ne sont pas écrasés)
+          cp -a docs/public/* docs/
+
+      - name: Commit and push updated docs
+        run: |
+          # Vérifier s'il y a des changements dans docs/
+          if git status --porcelain docs | grep .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add docs
+            git commit -m "chore: update generated docs [skip ci]" || echo "Rien à committer"
+            git push origin HEAD:main
+          else
+            echo "Aucun changement de documentation à pousser."
+          fi
