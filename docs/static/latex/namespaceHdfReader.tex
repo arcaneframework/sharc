@@ -1,0 +1,46 @@
+\hypertarget{namespaceHdfReader}{}\doxysection{Hdf\+Reader Namespace Reference}
+\label{namespaceHdfReader}\index{HdfReader@{HdfReader}}
+
+
+Lecture d\textquotesingle{}un tableau dans un fichier Hdf5.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a56deb6768373aaeb51e628a6cd8f3701}\label{namespaceHdfReader_a56deb6768373aaeb51e628a6cd8f3701}} 
+{\footnotesize template$<$typename Data\+Type $>$ }\\void {\bfseries read\+Base} (Arcane\+::\+Array$<$ Data\+Type $>$ \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a5c89754441c8b1666f2431436342ab2f}\label{namespaceHdfReader_a5c89754441c8b1666f2431436342ab2f}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Real\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a4d3b85d08c66a7dcc72ac7e43f5f6558}\label{namespaceHdfReader_a4d3b85d08c66a7dcc72ac7e43f5f6558}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Int64\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a62cc9457998ce062f55330fe22930bd6}\label{namespaceHdfReader_a62cc9457998ce062f55330fe22930bd6}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Int32\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a6eac3850608e65342ef9928e46e3807a}\label{namespaceHdfReader_a6eac3850608e65342ef9928e46e3807a}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Real3\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a7918376dc56bbbbda80c12ed824ab181}\label{namespaceHdfReader_a7918376dc56bbbbda80c12ed824ab181}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Real3x3\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_ad1ab9a7e36a7a720451042d46d569dbc}\label{namespaceHdfReader_ad1ab9a7e36a7a720451042d46d569dbc}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Real2\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a973c0730f46119b3fb73d166e05bd82a}\label{namespaceHdfReader_a973c0730f46119b3fb73d166e05bd82a}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Real2x2\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_a52db2f0aee019a327e3b83229185c0c5}\label{namespaceHdfReader_a52db2f0aee019a327e3b83229185c0c5}} 
+template$<$$>$ void {\bfseries read} (Arcane\+::\+Byte\+Array \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\item 
+\mbox{\Hypertarget{namespaceHdfReader_ae9c7439ccd0e68e2d36324219f4676d9}\label{namespaceHdfReader_ae9c7439ccd0e68e2d36324219f4676d9}} 
+{\footnotesize template$<$typename Data\+Type $>$ }\\void {\bfseries read} (Arcane\+::\+Array$<$ Data\+Type $>$ \&data, const Arcane\+::\+String \&filename, const String \&file\+\_\+position)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Lecture d\textquotesingle{}un tableau dans un fichier Hdf5. 
+
+Cette fonction permet de manipuler simplement les outils hdf5 et en ayant mis les include hdf arcane dans le .cc ce qui evite d\textquotesingle{}etre contamine par des \char`\"{}use hdf\char`\"{} et \char`\"{}use mpi\char`\"{} partout. 

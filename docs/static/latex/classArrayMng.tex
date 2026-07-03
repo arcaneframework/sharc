@@ -1,0 +1,93 @@
+\hypertarget{classArrayMng}{}\doxysection{Array\+Mng Class Reference}
+\label{classArrayMng}\index{ArrayMng@{ArrayMng}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}\label{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}} 
+typedef String \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}}
+\begin{DoxyCompactList}\small\item\em Cl{\ucr} pour manipuler le tableau typ{\ucr}e depuis l\textquotesingle{}ext{\ucr}rieur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_accaa41b162539b462e25d5721bd8db49}\label{classArrayMng_accaa41b162539b462e25d5721bd8db49}} 
+typedef std\+::pair$<$ \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}}, Real $>$ \mbox{\hyperlink{classArrayMng_accaa41b162539b462e25d5721bd8db49}{Data\+Interpolation\+Point}}
+\begin{DoxyCompactList}\small\item\em Point d\textquotesingle{}interpolation Data\+Key =$>$ cl{\ucr} du tableau de valeur pour l\textquotesingle{}interpolation (doit {\ucr}tre de type r{\ucr}el \+: Real, Real2, ...) Real =$>$ point d\textquotesingle{}interpolation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_a35deed09bbea5dfb280d2d925c225ed1}\label{classArrayMng_a35deed09bbea5dfb280d2d925c225ed1}} 
+typedef std\+::pair$<$ \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}}, \mbox{\hyperlink{classArrayMng}{Array\+Mng}} $\ast$ $>$ {\bfseries Data\+Interpolated\+Point}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classArrayMng_ac1ab010ade8d46eecf27b832d3e07210}{$\sim$\+Array\+Mng}} ()
+\begin{DoxyCompactList}\small\item\em Interface de manipulation de tableaux de donn{\ucr}es template Les tableaux peuvent {\ucr}tre cr{\ucr}{\ucr}s {\ucr} partir d\textquotesingle{}une IData ou d\textquotesingle{}un string Les tableaux permettent de remplir une IData. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_aa68138a8723a31ce4968c3a116703caf}\label{classArrayMng_aa68138a8723a31ce4968c3a116703caf}} 
+virtual \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \mbox{\hyperlink{classArrayMng_aa68138a8723a31ce4968c3a116703caf}{extract\+Data}} (Arcane\+::\+IData $\ast$const data, const Int32\+Const\+Array\+View \&data\+\_\+item\+\_\+indexes)=0
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction des valeurs d\textquotesingle{}une IData {\itshape data}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_a918210079ed3b940abfe1d6f16ba9369}\label{classArrayMng_a918210079ed3b940abfe1d6f16ba9369}} 
+virtual void {\bfseries extract\+Data} (\mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \&data\+\_\+key, Arcane\+::\+IData $\ast$const data, const Int32\+Const\+Array\+View \&data\+\_\+item\+\_\+indexes)=0
+\item 
+\mbox{\Hypertarget{classArrayMng_af4dcae5e02fee471fa2445b96daeba13}\label{classArrayMng_af4dcae5e02fee471fa2445b96daeba13}} 
+virtual \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \mbox{\hyperlink{classArrayMng_af4dcae5e02fee471fa2445b96daeba13}{extract\+Data\+From\+String}} (const String \&data\+\_\+string)=0
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction des valeurs d\textquotesingle{}un string {\itshape data\+\_\+string}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_abde84b6fcf8653beda7922d1bcffd933}\label{classArrayMng_abde84b6fcf8653beda7922d1bcffd933}} 
+virtual \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \mbox{\hyperlink{classArrayMng_abde84b6fcf8653beda7922d1bcffd933}{collective\+Extract\+Data\+From\+File}} (const String \&filename, const String \&file\+\_\+position, Arc\+Geo\+Sim\+::\+Parallel\+Utils \&parallel\+\_\+utils)=0
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction des valeurs d\textquotesingle{}un fichier HDF5 {\itshape filename}. La position dans le fichier est donnee par {\itshape file\+\_\+position} Cette operation est parallele. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_a66090976006858cfc51fea73f91b59bb}\label{classArrayMng_a66090976006858cfc51fea73f91b59bb}} 
+virtual \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \mbox{\hyperlink{classArrayMng_a66090976006858cfc51fea73f91b59bb}{extract\+Sub\+Data}} (const \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \&data\+\_\+key, const \mbox{\hyperlink{classArray}{Array}}$<$ Integer $>$ \&extracted\+\_\+value\+\_\+indexes)=0
+\begin{DoxyCompactList}\small\item\em Cr{\ucr}ation du tableau par extraction d\textquotesingle{}un sous tableau pr{\ucr}cedemment cr{\ucr}{\ucr} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_a9ebf209fb4f98df215db69bd926b20fa}\label{classArrayMng_a9ebf209fb4f98df215db69bd926b20fa}} 
+virtual void \mbox{\hyperlink{classArrayMng_a9ebf209fb4f98df215db69bd926b20fa}{fill\+Data}} (Arcane\+::\+IData $\ast$const data, const Int32\+Const\+Array\+View \&data\+\_\+item\+\_\+indexes, const \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \&source\+\_\+value\+\_\+key) const =0
+\begin{DoxyCompactList}\small\item\em Copie les valeurs du tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape source\+\_\+value\+\_\+key} dans l\textquotesingle{}IData {\itshape data} aux positions {\itshape data\+\_\+indexes} La taille du tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape source\+\_\+value\+\_\+key} doit {\ucr}tre {\ucr}gale {\ucr} la taille de {\itshape data\+\_\+indexes}. \end{DoxyCompactList}\item 
+virtual Data\+Interpolated\+Point \mbox{\hyperlink{classArrayMng_aa16207da65a401a33063b8636bdbfc2b}{interpolate\+Data}} (const Real \&interpolation\+\_\+point, const \mbox{\hyperlink{classArrayMng_accaa41b162539b462e25d5721bd8db49}{Data\+Interpolation\+Point}} \&first\+\_\+point, const \mbox{\hyperlink{classArrayMng_accaa41b162539b462e25d5721bd8db49}{Data\+Interpolation\+Point}} \&second\+\_\+point)=0
+\begin{DoxyCompactList}\small\item\em Interpole deux tableaux stock{\ucr}s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_ac85c8ee88d4f3621eeb0a9d5ba2ac70e}\label{classArrayMng_ac85c8ee88d4f3621eeb0a9d5ba2ac70e}} 
+virtual void \mbox{\hyperlink{classArrayMng_ac85c8ee88d4f3621eeb0a9d5ba2ac70e}{delete\+Data}} (const \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \&data\+\_\+key)=0
+\begin{DoxyCompactList}\small\item\em D{\ucr}truit le tableau r{\ucr}f{\ucr}renc{\ucr} par la cl{\ucr} {\itshape data\+\_\+key}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_a3c1794190696e35b1641b6d7c64ef4ad}\label{classArrayMng_a3c1794190696e35b1641b6d7c64ef4ad}} 
+virtual Integer \mbox{\hyperlink{classArrayMng_a3c1794190696e35b1641b6d7c64ef4ad}{data\+Size}} (const \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \&data\+\_\+key) const =0
+\begin{DoxyCompactList}\small\item\em Donne la taille d\textquotesingle{}un tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape data\+\_\+key}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_aa457680b81be176cb1d7023048cecda7}\label{classArrayMng_aa457680b81be176cb1d7023048cecda7}} 
+virtual void \mbox{\hyperlink{classArrayMng_aa457680b81be176cb1d7023048cecda7}{print}} (std\+::ostream \&o, const \mbox{\hyperlink{classArrayMng_a3b6d4612f303d3cb9d95df7bfcd86e04}{Data\+Key}} \&data\+\_\+key) const =0
+\begin{DoxyCompactList}\small\item\em Affiche la taille et le contenu du tableau r{\ucr}f{\ucr}renc{\ucr} par {\itshape data\+\_\+key}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrayMng_a0a43d39d77a3eebc263523f9717ee69b}\label{classArrayMng_a0a43d39d77a3eebc263523f9717ee69b}} 
+virtual Arcane\+::e\+Data\+Type \mbox{\hyperlink{classArrayMng_a0a43d39d77a3eebc263523f9717ee69b}{data\+Type}} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne le type de la donnee. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 19 of file Array\+Mng.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArrayMng_ac1ab010ade8d46eecf27b832d3e07210}\label{classArrayMng_ac1ab010ade8d46eecf27b832d3e07210}} 
+\index{ArrayMng@{ArrayMng}!````~ArrayMng@{$\sim$ArrayMng}}
+\index{````~ArrayMng@{$\sim$ArrayMng}!ArrayMng@{ArrayMng}}
+\doxysubsubsection{\texorpdfstring{$\sim$ArrayMng()}{~ArrayMng()}}
+{\footnotesize\ttfamily virtual Array\+Mng\+::$\sim$\+Array\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Interface de manipulation de tableaux de donn{\ucr}es template Les tableaux peuvent {\ucr}tre cr{\ucr}{\ucr}s {\ucr} partir d\textquotesingle{}une IData ou d\textquotesingle{}un string Les tableaux permettent de remplir une IData. 
+
+Il est possible d\textquotesingle{}interpoler deux tableaux cr{\ucr}es. Destructeur de la classe 
+
+Definition at line 29 of file Array\+Mng.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArrayMng_aa16207da65a401a33063b8636bdbfc2b}\label{classArrayMng_aa16207da65a401a33063b8636bdbfc2b}} 
+\index{ArrayMng@{ArrayMng}!interpolateData@{interpolateData}}
+\index{interpolateData@{interpolateData}!ArrayMng@{ArrayMng}}
+\doxysubsubsection{\texorpdfstring{interpolateData()}{interpolateData()}}
+{\footnotesize\ttfamily virtual Data\+Interpolated\+Point Array\+Mng\+::interpolate\+Data (\begin{DoxyParamCaption}\item[{const Real \&}]{interpolation\+\_\+point,  }\item[{const \mbox{\hyperlink{classArrayMng_accaa41b162539b462e25d5721bd8db49}{Data\+Interpolation\+Point}} \&}]{first\+\_\+point,  }\item[{const \mbox{\hyperlink{classArrayMng_accaa41b162539b462e25d5721bd8db49}{Data\+Interpolation\+Point}} \&}]{second\+\_\+point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Interpole deux tableaux stock{\ucr}s. 
+
+Les points {\itshape first\+\_\+point} et {\itshape second\+\_\+point} fournissent, par l\textquotesingle{}interm{\ucr}diaire des cl{\ucr}s deux tableux de valeurs ainsi que l\textquotesingle{}abscisse correspondant {\ucr} ces valeurs. L\textquotesingle{}interpolation est r{\ucr}alis{\ucr}e au point {\itshape interpolation\+\_\+point}. Un nouveau tableau contenant les donn{\ucr}es interpol{\ucr}es est cr{\ucr}{\ucr}. Sa cl{\ucr} est retourn{\ucr}e 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Utils/Array\+Mng.\+h\end{DoxyCompactItemize}

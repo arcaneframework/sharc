@@ -1,0 +1,94 @@
+\hypertarget{classBiLinearInterpolator}{}\doxysection{Bi\+Linear\+Interpolator Class Reference}
+\label{classBiLinearInterpolator}\index{BiLinearInterpolator@{BiLinearInterpolator}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBiLinearInterpolator_a0df7c42475f8f7139e0502bbe9a1ccbd}\label{classBiLinearInterpolator_a0df7c42475f8f7139e0502bbe9a1ccbd}} 
+enum \mbox{\hyperlink{classBiLinearInterpolator_a0df7c42475f8f7139e0502bbe9a1ccbd}{e\+Prolongation\+Type}} \{ {\bfseries Constant\+Prolongation}
+, {\bfseries Linear\+Prolongation}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of outside-\/bound prolongation allowed by the interpolator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBiLinearInterpolator_ac4c486c3875c366f66d648ddf52a4350}\label{classBiLinearInterpolator_ac4c486c3875c366f66d648ddf52a4350}} 
+typedef Real \mbox{\hyperlink{classBiLinearInterpolator_ac4c486c3875c366f66d648ddf52a4350}{Interval\+Data}}
+\begin{DoxyCompactList}\small\item\em Interpolator interval data type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBiLinearInterpolator_a73219d9110e2f823772dea098081c5aa}\label{classBiLinearInterpolator_a73219d9110e2f823772dea098081c5aa}} 
+\mbox{\hyperlink{classBiLinearInterpolator_a73219d9110e2f823772dea098081c5aa}{Bi\+Linear\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBiLinearInterpolator_a34aac03382cf38e8106fc8ba09ec4a45}\label{classBiLinearInterpolator_a34aac03382cf38e8106fc8ba09ec4a45}} 
+virtual \mbox{\hyperlink{classBiLinearInterpolator_a34aac03382cf38e8106fc8ba09ec4a45}{$\sim$\+Bi\+Linear\+Interpolator}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Real \mbox{\hyperlink{classBiLinearInterpolator_acd9f4df1e3048c65df146d23c6ad7605}{interpolate}} (const Real $\ast$const x00, const Real $\ast$const x01, const Real $\ast$const x10, const Real $\ast$const x11, const Real $\ast$const y00, const Real $\ast$const y01, const Real $\ast$const y10, const Real $\ast$const y11, const Real $\ast$const x0, const Real $\ast$const x1)
+\begin{DoxyCompactList}\small\item\em Static inline linear interpolation method. \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classBiLinearInterpolator_a991b66635a6035a1af351ca274abf783}{differentiate0}} (const Real $\ast$const x00, const Real $\ast$const x01, const Real $\ast$const x10, const Real $\ast$const x11, const Real $\ast$const y00, const Real $\ast$const y01, const Real $\ast$const y10, const Real $\ast$const y11, const Real $\ast$x1)
+\begin{DoxyCompactList}\small\item\em Static inline linear interpolation \+: get derivative vs var0. \end{DoxyCompactList}\item 
+static Real \mbox{\hyperlink{classBiLinearInterpolator_a37498fd5bebf40c02250e1938d4197d1}{differentiate1}} (const Real $\ast$const x00, const Real $\ast$const x01, const Real $\ast$const x10, const Real $\ast$const x11, const Real $\ast$const y00, const Real $\ast$const y01, const Real $\ast$const y10, const Real $\ast$const y11, const Real $\ast$x0)
+\begin{DoxyCompactList}\small\item\em Static inline linear interpolation \+: get derivative vs Var1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBiLinearInterpolator_ae4285541d581c9cef358dcba281533de}\label{classBiLinearInterpolator_ae4285541d581c9cef358dcba281533de}} 
+static void \mbox{\hyperlink{classBiLinearInterpolator_ae4285541d581c9cef358dcba281533de}{update\+Ghost\+Points}} (const \mbox{\hyperlink{classBiLinearInterpolator_a0df7c42475f8f7139e0502bbe9a1ccbd}{e\+Prolongation\+Type}} \&prolongation\+\_\+type, Real $\ast$const x\+\_\+begin, Real $\ast$const x\+\_\+end, Real $\ast$const y\+\_\+begin, Real $\ast$const y\+\_\+end, Real $\ast$const x, Real $\ast$y)
+\begin{DoxyCompactList}\small\item\em Static inline update ghost cells value method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBiLinearInterpolator_a75d497a743308800b4749997260a6f52}\label{classBiLinearInterpolator_a75d497a743308800b4749997260a6f52}} 
+static void \mbox{\hyperlink{classBiLinearInterpolator_a75d497a743308800b4749997260a6f52}{get\+Interpolator\+Type}} (Piece\+Wise\+Function\+Type\+::e\+Interpolator\+Type \&interpolator\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Static method giving type of interpolator using enumeration defined in \mbox{\hyperlink{IPieceWiseFunction_8h_source}{IPiece\+Wise\+Function.\+h}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file Bi\+Linear\+Interpolator.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBiLinearInterpolator_a991b66635a6035a1af351ca274abf783}\label{classBiLinearInterpolator_a991b66635a6035a1af351ca274abf783}} 
+\index{BiLinearInterpolator@{BiLinearInterpolator}!differentiate0@{differentiate0}}
+\index{differentiate0@{differentiate0}!BiLinearInterpolator@{BiLinearInterpolator}}
+\doxysubsubsection{\texorpdfstring{differentiate0()}{differentiate0()}}
+{\footnotesize\ttfamily static Real Bi\+Linear\+Interpolator\+::differentiate0 (\begin{DoxyParamCaption}\item[{const Real $\ast$const}]{x00,  }\item[{const Real $\ast$const}]{x01,  }\item[{const Real $\ast$const}]{x10,  }\item[{const Real $\ast$const}]{x11,  }\item[{const Real $\ast$const}]{y00,  }\item[{const Real $\ast$const}]{y01,  }\item[{const Real $\ast$const}]{y10,  }\item[{const Real $\ast$const}]{y11,  }\item[{const Real $\ast$}]{x1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline linear interpolation \+: get derivative vs var0. 
+
+Return Bilinear interpolate derivative wrt x0
+
+Definition at line 60 of file Bi\+Linear\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classBiLinearInterpolator_a37498fd5bebf40c02250e1938d4197d1}\label{classBiLinearInterpolator_a37498fd5bebf40c02250e1938d4197d1}} 
+\index{BiLinearInterpolator@{BiLinearInterpolator}!differentiate1@{differentiate1}}
+\index{differentiate1@{differentiate1}!BiLinearInterpolator@{BiLinearInterpolator}}
+\doxysubsubsection{\texorpdfstring{differentiate1()}{differentiate1()}}
+{\footnotesize\ttfamily static Real Bi\+Linear\+Interpolator\+::differentiate1 (\begin{DoxyParamCaption}\item[{const Real $\ast$const}]{x00,  }\item[{const Real $\ast$const}]{x01,  }\item[{const Real $\ast$const}]{x10,  }\item[{const Real $\ast$const}]{x11,  }\item[{const Real $\ast$const}]{y00,  }\item[{const Real $\ast$const}]{y01,  }\item[{const Real $\ast$const}]{y10,  }\item[{const Real $\ast$const}]{y11,  }\item[{const Real $\ast$}]{x0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline linear interpolation \+: get derivative vs Var1. 
+
+Return Bilinear interpolate derivative wrt x0
+
+Definition at line 74 of file Bi\+Linear\+Interpolator.\+h.
+
+\mbox{\Hypertarget{classBiLinearInterpolator_acd9f4df1e3048c65df146d23c6ad7605}\label{classBiLinearInterpolator_acd9f4df1e3048c65df146d23c6ad7605}} 
+\index{BiLinearInterpolator@{BiLinearInterpolator}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!BiLinearInterpolator@{BiLinearInterpolator}}
+\doxysubsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily static Real Bi\+Linear\+Interpolator\+::interpolate (\begin{DoxyParamCaption}\item[{const Real $\ast$const}]{x00,  }\item[{const Real $\ast$const}]{x01,  }\item[{const Real $\ast$const}]{x10,  }\item[{const Real $\ast$const}]{x11,  }\item[{const Real $\ast$const}]{y00,  }\item[{const Real $\ast$const}]{y01,  }\item[{const Real $\ast$const}]{y10,  }\item[{const Real $\ast$const}]{y11,  }\item[{const Real $\ast$const}]{x0,  }\item[{const Real $\ast$const}]{x1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Static inline linear interpolation method. 
+
+Return Bilinear interpolate
+
+Definition at line 45 of file Bi\+Linear\+Interpolator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/\+Bi\+Linear\+Piece\+Wise\+Function/Bi\+Linear\+Interpolator.\+h\end{DoxyCompactItemize}

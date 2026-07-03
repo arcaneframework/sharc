@@ -1,0 +1,193 @@
+\hypertarget{classArcaneFemFunctions_1_1FeOperation2D}{}\doxysection{Arcane\+Fem\+Functions\+::Fe\+Operation2D Class Reference}
+\label{classArcaneFemFunctions_1_1FeOperation2D}\index{ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}}
+
+
+Provides methods for finite element operations in 2D.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation2D_1_1Quad4GaussPointInfo}{Quad4\+Gauss\+Point\+Info}}
+\begin{DoxyCompactList}\small\item\em Holds information for a Quad4 element at a single Gauss point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation2D_ad59dfc10bf0ff2df6cefb3366c6efbfb}{compute\+Gradient\+Tria3}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Node\+Real u)
+\begin{DoxyCompactList}\small\item\em Computes the gradients of given function U for P1 triangles. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation2D_ac409be566c382b69d3107b719a1f688b}{compute\+Gradient\+XTria3}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the 𝑥 gradients of basis functions 𝐍 for ℙ1 triangles. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation2D_aa09b12c670700a10bd61408c983b7412}{compute\+Gradient\+YTria3}} (Cell cell, Variable\+Node\+Real3 node\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Computes the 𝑦 gradients of basis functions 𝐍 for ℙ1 triangles. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation2D_1_1Quad4GaussPointInfo}{Quad4\+Gauss\+Point\+Info}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation2D_aabb86aa038cacbd4cf61718234fcdfb7}{compute\+Gradients\+And\+Jacobian\+Quad4}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord, Real xi, Real eta)
+\begin{DoxyCompactList}\small\item\em Computes shape function gradients and the Jacobian determinant for a Quad4 element. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structReal3}{Real3}} \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation2D_a0ad6ffa5ee8b19be36db90e526e9f0e3}{compute\+Gradient\+Quad4}} (Cell cell, const Variable\+Node\+Real3 \&node\+\_\+coord, const Variable\+Node\+Real \&u)
+\begin{DoxyCompactList}\small\item\em Computes the gradient of a scalar field \textquotesingle{}u\textquotesingle{} for a Quad4 element. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$ 4 $>$ \mbox{\hyperlink{classArcaneFemFunctions_1_1FeOperation2D_a2d7060b48619129a1b16bf7f59b0aab0}{compute\+Shape\+Functions\+Quad4}} (Real xi, Real eta)
+\begin{DoxyCompactList}\small\item\em Computes the shape functions for a Quad4 element at a given point (ξ, η). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for finite element operations in 2D. 
+
+This class includes static methods for calculating gradients of basis functions and integrals for P1 triangles in 2D finite element analysis.
+
+Reference Tri3 and Quad4 element in \mbox{\hyperlink{namespaceArcane}{Arcane}} \begin{DoxyVerb}          0 o                    1 o . . . . o 0
+           . .                     .         .
+          .   .                    .         .
+         .     .                   .         .
+      1 o  . .  o 2              2 o . . . . o 3
+\end{DoxyVerb}
+ 
+
+Definition at line 536 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation2D_a0ad6ffa5ee8b19be36db90e526e9f0e3}\label{classArcaneFemFunctions_1_1FeOperation2D_a0ad6ffa5ee8b19be36db90e526e9f0e3}} 
+\index{ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}!computeGradientQuad4@{computeGradientQuad4}}
+\index{computeGradientQuad4@{computeGradientQuad4}!ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}}
+\doxysubsubsection{\texorpdfstring{computeGradientQuad4()}{computeGradientQuad4()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fe\+Operation2\+D\+::compute\+Gradient\+Quad4 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{const Variable\+Node\+Real \&}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the gradient of a scalar field \textquotesingle{}u\textquotesingle{} for a Quad4 element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The Quad4 cell entity. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the mesh nodes. \\
+\hline
+{\em u} & The scalar variable 𝑢 defined at the nodes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{structReal3}{Real3}} vector of the gradient ∇𝑢 = \{∂𝑢/∂𝑥, ∂𝑢/∂𝑦, 0\} at the cell center. 
+\end{DoxyReturn}
+
+
+Definition at line 716 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation2D_aabb86aa038cacbd4cf61718234fcdfb7}\label{classArcaneFemFunctions_1_1FeOperation2D_aabb86aa038cacbd4cf61718234fcdfb7}} 
+\index{ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}!computeGradientsAndJacobianQuad4@{computeGradientsAndJacobianQuad4}}
+\index{computeGradientsAndJacobianQuad4@{computeGradientsAndJacobianQuad4}!ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}}
+\doxysubsubsection{\texorpdfstring{computeGradientsAndJacobianQuad4()}{computeGradientsAndJacobianQuad4()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation2D_1_1Quad4GaussPointInfo}{Quad4\+Gauss\+Point\+Info}} Arcane\+Fem\+Functions\+::\+Fe\+Operation2\+D\+::compute\+Gradients\+And\+Jacobian\+Quad4 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Real}]{xi,  }\item[{Real}]{eta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes shape function gradients and the Jacobian determinant for a Quad4 element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The Quad4 cell entity. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the mesh nodes. \\
+\hline
+{\em xi} & The ξ coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+{\em eta} & The η coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{structArcaneFemFunctions_1_1FeOperation2D_1_1Quad4GaussPointInfo}{Quad4\+Gauss\+Point\+Info}} struct containing \{∂𝐍/∂𝑥, ∂𝐍/∂𝑦, det(𝑱)\}. 
+\end{DoxyReturn}
+
+
+Definition at line 652 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation2D_ad59dfc10bf0ff2df6cefb3366c6efbfb}\label{classArcaneFemFunctions_1_1FeOperation2D_ad59dfc10bf0ff2df6cefb3366c6efbfb}} 
+\index{ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}!computeGradientTria3@{computeGradientTria3}}
+\index{computeGradientTria3@{computeGradientTria3}!ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}}
+\doxysubsubsection{\texorpdfstring{computeGradientTria3()}{computeGradientTria3()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fe\+Operation2\+D\+::compute\+Gradient\+Tria3 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Node\+Real}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the gradients of given function U for P1 triangles. 
+
+This method calculates gradient operator ∇ Ui for a given P1 cell with i = 1,..,3 for the three values of Ui hence at cell nodes. The output is ∇ Ui is P0 (piece-\/wise constant) hence \mbox{\hyperlink{structReal3}{Real3}} value per cell \begin{DoxyVerb}    ∇ Ui = [ ∂U/∂𝑥   ∂U/∂𝑦   ∂U/∂𝑧 ]
+
+    ∂U/∂𝑥 = ( u1*(y2 − y3) + u2*(y3 − y1) + u3*(y1 − y2) ) / (2*A)
+    ∂U/∂𝑦 = ( u1*(x3 − x2) + u2*(x1 − x3) + u3*(x2 − x1) ) / (2*A)
+    ∂U/∂𝑧 = 0
+\end{DoxyVerb}
+ \begin{DoxyNote}{Note}
+we can adapt the same for 3D by filling the third component 
+\end{DoxyNote}
+
+
+Definition at line 560 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation2D_ac409be566c382b69d3107b719a1f688b}\label{classArcaneFemFunctions_1_1FeOperation2D_ac409be566c382b69d3107b719a1f688b}} 
+\index{ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}!computeGradientXTria3@{computeGradientXTria3}}
+\index{computeGradientXTria3@{computeGradientXTria3}!ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}}
+\doxysubsubsection{\texorpdfstring{computeGradientXTria3()}{computeGradientXTria3()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fe\+Operation2\+D\+::compute\+Gradient\+XTria3 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the 𝑥 gradients of basis functions 𝐍 for ℙ1 triangles. 
+
+This method calculates gradient operator ∂/∂𝑥 of 𝑁ᵢ for a given ℙ1 cell with i = 1,..,3 for the three shape function 𝑁ᵢ hence output is a vector of size 3 \begin{DoxyVerb}    ∂𝐍/∂𝑥 = [ ∂𝑁₁/∂𝑥  ∂𝑁₂/∂𝑥  ∂𝑁₃/∂𝑥 ]
+
+    ∂𝐍/∂𝑥 = 1/(2𝐴) [ 𝑦₂-𝑦₃  𝑦₃-𝑦₁  𝑦₁-𝑦₂ ]
+\end{DoxyVerb}
+ 
+
+Definition at line 589 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation2D_aa09b12c670700a10bd61408c983b7412}\label{classArcaneFemFunctions_1_1FeOperation2D_aa09b12c670700a10bd61408c983b7412}} 
+\index{ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}!computeGradientYTria3@{computeGradientYTria3}}
+\index{computeGradientYTria3@{computeGradientYTria3}!ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}}
+\doxysubsubsection{\texorpdfstring{computeGradientYTria3()}{computeGradientYTria3()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structReal3}{Real3}} Arcane\+Fem\+Functions\+::\+Fe\+Operation2\+D\+::compute\+Gradient\+YTria3 (\begin{DoxyParamCaption}\item[{Cell}]{cell,  }\item[{Variable\+Node\+Real3}]{node\+\_\+coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the 𝑦 gradients of basis functions 𝐍 for ℙ1 triangles. 
+
+This method calculates gradient operator ∂/∂𝑦 of 𝑁ᵢ for a given ℙ1 cell with i = 1,..,3 for the three shape function 𝑁ᵢ hence output is a vector of size 3 \begin{DoxyVerb}    ∂𝐍/∂𝑦 = [ ∂𝑁₁/∂𝑦  ∂𝑁₂/∂𝑦  ∂𝑁₃/∂𝑦 ]
+
+    ∂𝐍/∂𝑦 = 1/(2𝐴) [ 𝑥₃−𝑥₂  𝑥₁−𝑥₃  𝑥₂−𝑥₁ ]
+\end{DoxyVerb}
+ 
+
+Definition at line 614 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1FeOperation2D_a2d7060b48619129a1b16bf7f59b0aab0}\label{classArcaneFemFunctions_1_1FeOperation2D_a2d7060b48619129a1b16bf7f59b0aab0}} 
+\index{ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}!computeShapeFunctionsQuad4@{computeShapeFunctionsQuad4}}
+\index{computeShapeFunctionsQuad4@{computeShapeFunctionsQuad4}!ArcaneFemFunctions::FeOperation2D@{ArcaneFemFunctions::FeOperation2D}}
+\doxysubsubsection{\texorpdfstring{computeShapeFunctionsQuad4()}{computeShapeFunctionsQuad4()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector}}$<$4$>$ Arcane\+Fem\+Functions\+::\+Fe\+Operation2\+D\+::compute\+Shape\+Functions\+Quad4 (\begin{DoxyParamCaption}\item[{Real}]{xi,  }\item[{Real}]{eta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Computes the shape functions for a Quad4 element at a given point (ξ, η). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & The ξ coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+{\em eta} & The η coordinate of the evaluation point (-\/1 to 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealVector}{Real\+Vector$<$4$>$}} containing the shape functions \{𝑁₁, 𝑁₂, 𝑁₃, 𝑁₄\}. 
+\end{DoxyReturn}
+
+
+Definition at line 753 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

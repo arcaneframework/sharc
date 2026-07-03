@@ -1,0 +1,69 @@
+\hypertarget{namespaceArcane}{}\doxysection{Arcane Namespace Reference}
+\label{namespaceArcane}\index{Arcane@{Arcane}}
+
+
+Interface permettant de definir les services uniques d\textquotesingle{}une application.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableScalarRefT}{Mesh\+Variable\+Scalar\+RefT}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableScalarTensor2}{Mesh\+Variable\+Scalar\+Tensor2}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableArrayTensor2}{Mesh\+Variable\+Array\+Tensor2}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Node_00_01Arcane_1_1FemUtils_1_1Tensor2_00_010_01_4}{Mesh\+Variable\+Info\+T$<$ Node, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 0 $>$}}
+\begin{DoxyCompactList}\small\item\em Classe de base d\textquotesingle{}une variable type Tensor2 sur des entités du maillage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Node_00_01Arcane_1_1FemUtils_1_1Tensor2_00_011_01_4}{Mesh\+Variable\+Info\+T$<$ Node, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 1 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Edge_00_01Arcane_1_1FemUtils_1_1Tensor2_00_010_01_4}{Mesh\+Variable\+Info\+T$<$ Edge, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 0 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Edge_00_01Arcane_1_1FemUtils_1_1Tensor2_00_011_01_4}{Mesh\+Variable\+Info\+T$<$ Edge, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 1 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Face_00_01Arcane_1_1FemUtils_1_1Tensor2_00_010_01_4}{Mesh\+Variable\+Info\+T$<$ Face, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 0 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Face_00_01Arcane_1_1FemUtils_1_1Tensor2_00_011_01_4}{Mesh\+Variable\+Info\+T$<$ Face, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 1 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Cell_00_01Arcane_1_1FemUtils_1_1Tensor2_00_010_01_4}{Mesh\+Variable\+Info\+T$<$ Cell, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 0 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01Cell_00_01Arcane_1_1FemUtils_1_1Tensor2_00_011_01_4}{Mesh\+Variable\+Info\+T$<$ Cell, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 1 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01DoF_00_01Arcane_1_1FemUtils_1_1Tensor2_00_010_01_4}{Mesh\+Variable\+Info\+T$<$ Do\+F, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 0 $>$}}
+\item 
+class \mbox{\hyperlink{classArcane_1_1MeshVariableInfoT_3_01DoF_00_01Arcane_1_1FemUtils_1_1Tensor2_00_011_01_4}{Mesh\+Variable\+Info\+T$<$ Do\+F, Arcane\+::\+Fem\+Utils\+::\+Tensor2, 1 $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceArcane_a79e0829050298d93a4e8853a847c84f5}\label{namespaceArcane_a79e0829050298d93a4e8853a847c84f5}} 
+typedef \mbox{\hyperlink{classArcane_1_1MeshVariableArrayTensor2}{Mesh\+Variable\+Array\+Tensor2}}$<$ Arcane\+::\+DoF $>$ {\bfseries Variable\+Do\+FArray\+Tensor2}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceArcane_aa4060ba244dfb66ea5d4bc996c35ed0d}\label{namespaceArcane_aa4060ba244dfb66ea5d4bc996c35ed0d}} 
+IArcane\+Main $\ast$ {\bfseries create\+Arcane\+Main\+Batch} (const Application\+Info \&exe\+\_\+info, IMain\+Factory $\ast$)
+\item 
+\mbox{\Hypertarget{namespaceArcane_af6d97a264170334e157a894d365f8956}\label{namespaceArcane_af6d97a264170334e157a894d365f8956}} 
+bool {\bfseries \+\_\+case\+Option\+Convert} (const Arcane\+::\+Case\+Option\+Base \&co, const String \&value, Xml\+Node \&obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface permettant de definir les services uniques d\textquotesingle{}une application. 
+
+\begin{DoxyAuthor}{Author}
+Jean-\/\+Marc GRATIEN 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+Exemple d\textquotesingle{}utilisation \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classIAppServiceMng}{IAppServiceMng}}* app\_service\_mng = \mbox{\hyperlink{classIAppServiceMng_a1266192d357a4541a064eed215340b22}{IAppServiceMng::instance}}(subDomain()-\/>serviceMng());}
+\DoxyCodeLine{\mbox{\hyperlink{classIGeometryMng}{IGeometryMng}} * \mbox{\hyperlink{namespaceXmlToCMake_a88f339a1dc24c63f2180daadd3e36098aaaabf0d39951f3e6c3e8a7911df524c2}{service}} = app\_service\_mng-\/>\mbox{\hyperlink{classIAppServiceMng_a4b2441c5848967310f6a7616d2678b7a}{find}}<\mbox{\hyperlink{classIGeometryMng}{IGeometryMng}}>(\textcolor{keyword}{true}) ;}
+
+\end{DoxyCode}
+ 

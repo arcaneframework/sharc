@@ -1,0 +1,259 @@
+\hypertarget{classHat}{}\doxysection{Hat$<$ fct\+Type $>$ Class Template Reference}
+\label{classHat}\index{Hat$<$ fctType $>$@{Hat$<$ fctType $>$}}
+
+
+\mbox{\hyperlink{classHat}{Hat}} \+: Evaluation conditionnelle de fonctions.  
+
+
+
+
+{\ttfamily \#include $<$Hat.\+h$>$}
+
+
+
+Inherits \mbox{\hyperlink{classIFunctor}{IFunctor$<$ Var\+Vect $>$}}, and \mbox{\hyperlink{classFadd_1_1IFunctor}{Fadd\+::\+IFunctor$<$ Fadd\+::\+Var\+Vect $>$}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHat_af6ee6d3020c86b7429470878fefb40b3}\label{classHat_af6ee6d3020c86b7429470878fefb40b3}} 
+typedef double \mbox{\hyperlink{classHat_af6ee6d3020c86b7429470878fefb40b3}{value\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type de valeurs manipulees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHat_ae9579fa7017844905f136505ca302f01}\label{classHat_ae9579fa7017844905f136505ca302f01}} 
+{\bfseries Hat} (int size, int nb\+Var)
+\item 
+\mbox{\Hypertarget{classHat_a8a74b7d691a98e0994d0bf4c687715a9}\label{classHat_a8a74b7d691a98e0994d0bf4c687715a9}} 
+void {\bfseries compute\+Bounds} ()
+\item 
+\mbox{\Hypertarget{classHat_a79be40db08fdcf1de7e965d136fc5e48}\label{classHat_a79be40db08fdcf1de7e965d136fc5e48}} 
+void {\bfseries init\+Parameter} (Point\+Type minB, Point\+Type maxB, Point\+Type left\+Ext, Point\+Type right\+Ext)
+\item 
+\mbox{\Hypertarget{classHat_aec95be369eb91e635dd2e71c5124289f}\label{classHat_aec95be369eb91e635dd2e71c5124289f}} 
+void {\bfseries set\+Key\+Val} (value\+\_\+type $\ast$key\+Val)
+\item 
+\mbox{\Hypertarget{classHat_a90737391e93a2e5c3cb761ee4dce6936}\label{classHat_a90737391e93a2e5c3cb761ee4dce6936}} 
+void \mbox{\hyperlink{classHat_a90737391e93a2e5c3cb761ee4dce6936}{eval}} (\mbox{\hyperlink{classVarVect}{Var\+Vect}} \&var)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_afddf8fc4c54833117881b99c76597670}\label{classHat_afddf8fc4c54833117881b99c76597670}} 
+value\+\_\+type \mbox{\hyperlink{classHat_afddf8fc4c54833117881b99c76597670}{eval}} (value\+\_\+type val)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a5882c0e3c94d7c4ecad23b2047b9c759}\label{classHat_a5882c0e3c94d7c4ecad23b2047b9c759}} 
+value\+\_\+type \mbox{\hyperlink{classHat_a5882c0e3c94d7c4ecad23b2047b9c759}{eval}} (value\+\_\+type val1, value\+\_\+type val2)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_af978021a986d55bb2d0277e855df1c7a}\label{classHat_af978021a986d55bb2d0277e855df1c7a}} 
+value\+\_\+type \mbox{\hyperlink{classHat_af978021a986d55bb2d0277e855df1c7a}{eval}} (value\+\_\+type val1, value\+\_\+type val2, value\+\_\+type val3)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a97ed188d66bb19a99ad5bf86ca28152c}\label{classHat_a97ed188d66bb19a99ad5bf86ca28152c}} 
+void \mbox{\hyperlink{classHat_a97ed188d66bb19a99ad5bf86ca28152c}{eval\+Diff}} (\mbox{\hyperlink{classDiff}{Diff}}$<$ \mbox{\hyperlink{classVarVect}{Var\+Vect}} $>$ \&dv)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a1a30c4799e701df1390fd9d13e89ccfe}\label{classHat_a1a30c4799e701df1390fd9d13e89ccfe}} 
+void \mbox{\hyperlink{classHat_a1a30c4799e701df1390fd9d13e89ccfe}{eval\+Diff}} (value\+\_\+type \&val\+Out, value\+\_\+type $\ast$dval\+Out, value\+\_\+type val\+In)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_abfc33b130a418f6fc47e6a0c708d6edc}\label{classHat_abfc33b130a418f6fc47e6a0c708d6edc}} 
+void \mbox{\hyperlink{classHat_abfc33b130a418f6fc47e6a0c708d6edc}{eval\+Diff}} (value\+\_\+type \&val\+Out, value\+\_\+type $\ast$dval\+Out, value\+\_\+type val\+In, value\+\_\+type val\+In1)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a6f46246b73d18e7a666548fa82e2bd14}\label{classHat_a6f46246b73d18e7a666548fa82e2bd14}} 
+void \mbox{\hyperlink{classHat_a6f46246b73d18e7a666548fa82e2bd14}{eval\+Diff}} (value\+\_\+type \&val\+Out, value\+\_\+type $\ast$dval\+Out, value\+\_\+type val\+In, value\+\_\+type val\+In1, value\+\_\+type val\+In2)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_ae4de042f97ca309469bb7011b508f44d}\label{classHat_ae4de042f97ca309469bb7011b508f44d}} 
+virtual void {\bfseries set\+Default\+Cte} (value\+\_\+type cte)
+\item 
+\mbox{\Hypertarget{classHat_a285fc7ac4b41c593b62497fe624f6058}\label{classHat_a285fc7ac4b41c593b62497fe624f6058}} 
+virtual void {\bfseries set\+Default\+Exposant} (value\+\_\+type exp)
+\item 
+\mbox{\Hypertarget{classHat_a23025ec6011911c3c1062397a858e58d}\label{classHat_a23025ec6011911c3c1062397a858e58d}} 
+virtual bool {\bfseries eval\+Norm} ()
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Constructeur}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHat_ae9579fa7017844905f136505ca302f01}{Hat}} (int size, int nb\+Var)
+\begin{DoxyCompactList}\small\item\em Construit un \char`\"{}\+Hat\char`\"{} de type fct\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Destructeur}\par
+{\em Destructeur }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHat_a0f6df939b899b64e87aacfdd9c798f8c}\label{classHat_a0f6df939b899b64e87aacfdd9c798f8c}} 
+{\bfseries $\sim$\+Hat} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Autres}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classHat_a8a74b7d691a98e0994d0bf4c687715a9}{compute\+Bounds}} ()
+\begin{DoxyCompactList}\small\item\em Calcul des pentes des droites entre les bornes et les points d\textquotesingle{}extension. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHat_a79be40db08fdcf1de7e965d136fc5e48}{init\+Parameter}} (Point\+Type minB, Point\+Type maxB, Point\+Type left\+Ext, Point\+Type right\+Ext)
+\begin{DoxyCompactList}\small\item\em Initialisation des bornes et des points limites. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHat_aec95be369eb91e635dd2e71c5124289f}{set\+Key\+Val}} (value\+\_\+type $\ast$key\+Val)
+\begin{DoxyCompactList}\small\item\em Permet de setter la valeur cle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a90737391e93a2e5c3cb761ee4dce6936}\label{classHat_a90737391e93a2e5c3cb761ee4dce6936}} 
+void \mbox{\hyperlink{classHat_a90737391e93a2e5c3cb761ee4dce6936}{eval}} (\mbox{\hyperlink{classVarVect}{Var\+Vect}} \&var)
+\begin{DoxyCompactList}\small\item\em Methode pour evaluer une fonction (vectorielle) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_afddf8fc4c54833117881b99c76597670}\label{classHat_afddf8fc4c54833117881b99c76597670}} 
+value\+\_\+type \mbox{\hyperlink{classHat_afddf8fc4c54833117881b99c76597670}{eval}} (value\+\_\+type val)
+\begin{DoxyCompactList}\small\item\em Methode pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a5882c0e3c94d7c4ecad23b2047b9c759}\label{classHat_a5882c0e3c94d7c4ecad23b2047b9c759}} 
+value\+\_\+type \mbox{\hyperlink{classHat_a5882c0e3c94d7c4ecad23b2047b9c759}{eval}} (value\+\_\+type val1, value\+\_\+type val2)
+\begin{DoxyCompactList}\small\item\em Methode pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_af978021a986d55bb2d0277e855df1c7a}\label{classHat_af978021a986d55bb2d0277e855df1c7a}} 
+value\+\_\+type \mbox{\hyperlink{classHat_af978021a986d55bb2d0277e855df1c7a}{eval}} (value\+\_\+type val1, value\+\_\+type val2, value\+\_\+type val3)
+\begin{DoxyCompactList}\small\item\em Methode pour l\textquotesingle{}evaluation de fonction scalaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a97ed188d66bb19a99ad5bf86ca28152c}\label{classHat_a97ed188d66bb19a99ad5bf86ca28152c}} 
+void \mbox{\hyperlink{classHat_a97ed188d66bb19a99ad5bf86ca28152c}{eval\+Diff}} (\mbox{\hyperlink{classDiff}{Diff}}$<$ \mbox{\hyperlink{classVarVect}{Var\+Vect}} $>$ \&dv)
+\begin{DoxyCompactList}\small\item\em Methode virtuelle pour evaluer une fonction et ses derivees (vectorielle) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a1a30c4799e701df1390fd9d13e89ccfe}\label{classHat_a1a30c4799e701df1390fd9d13e89ccfe}} 
+void \mbox{\hyperlink{classHat_a1a30c4799e701df1390fd9d13e89ccfe}{eval\+Diff}} (value\+\_\+type \&val\+Out, value\+\_\+type $\ast$dval\+Out, value\+\_\+type val\+In)
+\begin{DoxyCompactList}\small\item\em Methode pour evaluer une fonction et ses derivees (scalaire) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_abfc33b130a418f6fc47e6a0c708d6edc}\label{classHat_abfc33b130a418f6fc47e6a0c708d6edc}} 
+void \mbox{\hyperlink{classHat_abfc33b130a418f6fc47e6a0c708d6edc}{eval\+Diff}} (value\+\_\+type \&val\+Out, value\+\_\+type $\ast$dval\+Out, value\+\_\+type val\+In, value\+\_\+type val\+In1)
+\begin{DoxyCompactList}\small\item\em Methode pour evaluer une fonction et ses derivees (scalaire) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a6f46246b73d18e7a666548fa82e2bd14}\label{classHat_a6f46246b73d18e7a666548fa82e2bd14}} 
+void \mbox{\hyperlink{classHat_a6f46246b73d18e7a666548fa82e2bd14}{eval\+Diff}} (value\+\_\+type \&val\+Out, value\+\_\+type $\ast$dval\+Out, value\+\_\+type val\+In, value\+\_\+type val\+In1, value\+\_\+type val\+In2)
+\begin{DoxyCompactList}\small\item\em Methode pour evaluer une fonction et ses derivees (scalaire) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_ae4de042f97ca309469bb7011b508f44d}\label{classHat_ae4de042f97ca309469bb7011b508f44d}} 
+virtual void \mbox{\hyperlink{classHat_ae4de042f97ca309469bb7011b508f44d}{set\+Default\+Cte}} (value\+\_\+type cte)
+\begin{DoxyCompactList}\small\item\em Methode pour setter la constante de l\textquotesingle{}equation normale. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a285fc7ac4b41c593b62497fe624f6058}\label{classHat_a285fc7ac4b41c593b62497fe624f6058}} 
+virtual void \mbox{\hyperlink{classHat_a285fc7ac4b41c593b62497fe624f6058}{set\+Default\+Exposant}} (value\+\_\+type exp)
+\begin{DoxyCompactList}\small\item\em Methode pour setter l\textquotesingle{}exposant de l\textquotesingle{}equation normale. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHat_a23025ec6011911c3c1062397a858e58d}\label{classHat_a23025ec6011911c3c1062397a858e58d}} 
+virtual bool \mbox{\hyperlink{classHat_a23025ec6011911c3c1062397a858e58d}{eval\+Norm}} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de savoir quel type d\textquotesingle{}evaluation a ete effectue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename fct\+Type$>$\newline
+class Hat$<$ fct\+Type $>$}
+
+\mbox{\hyperlink{classHat}{Hat}} \+: Evaluation conditionnelle de fonctions. 
+
+Cette classe permet d\textquotesingle{}evaluer une fonction et ses derivees, en fonction d\textquotesingle{}une valeur cle et de bornes. ~\newline
+Si la valeur cle est comprise entre les bornes, la fonction est evaluee normalement. ~\newline
+Sinon, une interpolation lineaire est etablit entre les bornes et les points d\textquotesingle{}extension, et sa valeur est evaluee. ~\newline
+Cette classe implemente une methode init\+Parameter() permettant de specifier les bornes et les points d\textquotesingle{}extension. Il est necessaire d\textquotesingle{}appeler cette methode et d\textquotesingle{}initialiser les bornes avant d\textquotesingle{}evaluer la fonction. ~\newline
+La methode compute\+Bounds() permet de calculer la pente entre les bornes et les points d\textquotesingle{}extension. ~\newline
+La methode set\+Key\+Val() permet de specifier la valeur cle du programme. ~\newline
+ Les methodes set\+Default\+Cte() et set\+Default\+Exposant() permettent de specifier la constante et l\textquotesingle{}exposant de la fonction \char`\"{}normale\char`\"{}. ~\newline
+La methode eval\+Norm() permet de savoir si l\textquotesingle{}evaluation a ete \char`\"{}normale\char`\"{} ou si l\textquotesingle{}on a evaluer la partie gauche ou droite de la courbe. Cette methode est necessaire pour assurer l\textquotesingle{}exactitude du calcul de la derivee dans le cas d\textquotesingle{}une composition de fonction .~\newline
+Enfin, cette classe heritant de la classe \mbox{\hyperlink{classIFunctor}{IFunctor}}, elle implemente les differentes methodes d\textquotesingle{}evaluation d\textquotesingle{}une fonction et/ou de ses derivees. ~\newline
+
+
+Definition at line 5 of file Hat.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHat_ae9579fa7017844905f136505ca302f01}\label{classHat_ae9579fa7017844905f136505ca302f01}} 
+\index{Hat$<$ fctType $>$@{Hat$<$ fctType $>$}!Hat@{Hat}}
+\index{Hat@{Hat}!Hat$<$ fctType $>$@{Hat$<$ fctType $>$}}
+\doxysubsubsection{\texorpdfstring{Hat()}{Hat()}}
+{\footnotesize\ttfamily template$<$typename fct\+Type $>$ \\
+\mbox{\hyperlink{classHat}{Hat}}$<$ fct\+Type $>$\+::\mbox{\hyperlink{classHat}{Hat}} (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{nb\+Var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construit un \char`\"{}\+Hat\char`\"{} de type fct\+Type. 
+
+Fait appel au constructeur de la fonction fct\+Type avecpour taille 1 (evaluation scalaire) et nb\+Var. ~\newline
+m\+\_\+key\+\_\+val est initialise a 0. ~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Taille de l\textquotesingle{}equation \\
+\hline
+{\em nb\+Var} & Nombre de variables de l\textquotesingle{}equation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Les bornes et les points d\textquotesingle{}extension ne sont pas initialises 
+\end{DoxyWarning}
+
+
+Definition at line 66 of file Hat.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHat_a8a74b7d691a98e0994d0bf4c687715a9}\label{classHat_a8a74b7d691a98e0994d0bf4c687715a9}} 
+\index{Hat$<$ fctType $>$@{Hat$<$ fctType $>$}!computeBounds@{computeBounds}}
+\index{computeBounds@{computeBounds}!Hat$<$ fctType $>$@{Hat$<$ fctType $>$}}
+\doxysubsubsection{\texorpdfstring{computeBounds()}{computeBounds()}}
+{\footnotesize\ttfamily template$<$typename fct\+Type $>$ \\
+void \mbox{\hyperlink{classHat}{Hat}}$<$ fct\+Type $>$\+::compute\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calcul des pentes des droites entre les bornes et les points d\textquotesingle{}extension. 
+
+Methode appelee automatiquement dans la methode init\+Parameter(). ~\newline
+Necessite d\textquotesingle{}avoir initialiser les bornes et les points critiques. 
+
+Definition at line 89 of file Hat.\+h.
+
+\mbox{\Hypertarget{classHat_a79be40db08fdcf1de7e965d136fc5e48}\label{classHat_a79be40db08fdcf1de7e965d136fc5e48}} 
+\index{Hat$<$ fctType $>$@{Hat$<$ fctType $>$}!initParameter@{initParameter}}
+\index{initParameter@{initParameter}!Hat$<$ fctType $>$@{Hat$<$ fctType $>$}}
+\doxysubsubsection{\texorpdfstring{initParameter()}{initParameter()}}
+{\footnotesize\ttfamily template$<$typename fct\+Type $>$ \\
+void \mbox{\hyperlink{classHat}{Hat}}$<$ fct\+Type $>$\+::init\+Parameter (\begin{DoxyParamCaption}\item[{Point\+Type}]{minB,  }\item[{Point\+Type}]{maxB,  }\item[{Point\+Type}]{left\+Ext,  }\item[{Point\+Type}]{right\+Ext }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Initialisation des bornes et des points limites. 
+
+Cette methode initialise les attributs m\+\_\+left\+\_\+bound, m\+\_\+right\+\_\+bound, m\+\_\+left\+\_\+ext\+\_\+bound et m\+\_\+right\+\_\+ext\+\_\+bound. ~\newline
+Ses parametres sont de type std\+::pair$<$double,double$>$ ~\newline
+Fait appel a la methode compute\+Bounds(). ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em minB} & Borne inferieure (gauche) \\
+\hline
+{\em maxB} & Borne superieure (droite) \\
+\hline
+{\em left\+Ext} & Point d\textquotesingle{}extension inferieur (gauche) \\
+\hline
+{\em right\+Ext} & Point d\textquotesingle{}extension superieur (droite) \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classIFunctor}{IFunctor$<$ Var\+Vect $>$}}.
+
+
+
+Definition at line 106 of file Hat.\+h.
+
+\mbox{\Hypertarget{classHat_aec95be369eb91e635dd2e71c5124289f}\label{classHat_aec95be369eb91e635dd2e71c5124289f}} 
+\index{Hat$<$ fctType $>$@{Hat$<$ fctType $>$}!setKeyVal@{setKeyVal}}
+\index{setKeyVal@{setKeyVal}!Hat$<$ fctType $>$@{Hat$<$ fctType $>$}}
+\doxysubsubsection{\texorpdfstring{setKeyVal()}{setKeyVal()}}
+{\footnotesize\ttfamily template$<$typename fct\+Type $>$ \\
+void \mbox{\hyperlink{classHat}{Hat}}$<$ fct\+Type $>$\+::set\+Key\+Val (\begin{DoxyParamCaption}\item[{value\+\_\+type $\ast$}]{key\+Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Permet de setter la valeur cle. 
+
+Permet de setter la valeur cle. ~\newline
+C\textquotesingle{}est cette valeur qui est testee par rapport aux bornes afin d\textquotesingle{}evaluer soir la partie normale, soit une des parties lineaire de la courbe. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em key\+Val} & Pointeur sur la valeur cle \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classIFunctor}{IFunctor$<$ Var\+Vect $>$}}.
+
+
+
+Definition at line 121 of file Hat.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Utils/Hat.\+h\end{DoxyCompactItemize}

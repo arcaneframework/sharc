@@ -1,0 +1,52 @@
+\hypertarget{classPUMADataWriter}{}\doxysection{PUMAData\+Writer Class Reference}
+\label{classPUMADataWriter}\index{PUMADataWriter@{PUMADataWriter}}
+
+
+Inherits Arcane\+::\+IData\+Writer.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPUMADataWriter_a4f7170de39e9a35ae43cee341e2d1084}\label{classPUMADataWriter_a4f7170de39e9a35ae43cee341e2d1084}} 
+\mbox{\hyperlink{classPUMADataWriter_a4f7170de39e9a35ae43cee341e2d1084}{PUMAData\+Writer}} (IMesh $\ast$mesh, const String \&directory\+\_\+name, const Integer event\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPUMADataWriter_ae4d61f8f9ed52b08c83b66169f249bd5}\label{classPUMADataWriter_ae4d61f8f9ed52b08c83b66169f249bd5}} 
+virtual \mbox{\hyperlink{classPUMADataWriter_ae4d61f8f9ed52b08c83b66169f249bd5}{$\sim$\+PUMAData\+Writer}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPUMADataWriter_a016f0bcc682df457c2f8b9a42b96f418}\label{classPUMADataWriter_a016f0bcc682df457c2f8b9a42b96f418}} 
+void \mbox{\hyperlink{classPUMADataWriter_a016f0bcc682df457c2f8b9a42b96f418}{begin\+Mesh\+Write}} (const String \&file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Add current event to global events file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPUMADataWriter_a5931339066eb87aa9ce0ac1b84a7cb2d}\label{classPUMADataWriter_a5931339066eb87aa9ce0ac1b84a7cb2d}} 
+void {\bfseries write\+Event\+To\+File} ()
+\item 
+\mbox{\Hypertarget{classPUMADataWriter_ac9170e64c361d8d6a94dbed7d499c977}\label{classPUMADataWriter_ac9170e64c361d8d6a94dbed7d499c977}} 
+void {\bfseries end\+Mesh\+Write} ()
+\item 
+\mbox{\Hypertarget{classPUMADataWriter_a5af684c543912b6d6120b002058e5988}\label{classPUMADataWriter_a5af684c543912b6d6120b002058e5988}} 
+void \mbox{\hyperlink{classPUMADataWriter_a5af684c543912b6d6120b002058e5988}{begin\+Write}} (const Variable\+Collection \&vars)
+\begin{DoxyCompactList}\small\item\em Ecrivain des variables \+: appel par IVariable\+Mng (\mbox{\hyperlink{classPUMADataWriter_a5af684c543912b6d6120b002058e5988}{begin\+Write()}}, write(ivar,idata), end\+Write()) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPUMADataWriter_a0b70f90b22f61476219c0cd96882169e}\label{classPUMADataWriter_a0b70f90b22f61476219c0cd96882169e}} 
+void {\bfseries end\+Write} ()
+\item 
+\mbox{\Hypertarget{classPUMADataWriter_a67c59b681c543d7b4400bf40b849628f}\label{classPUMADataWriter_a67c59b681c543d7b4400bf40b849628f}} 
+void \mbox{\hyperlink{classPUMADataWriter_a67c59b681c543d7b4400bf40b849628f}{set\+Meta\+Data}} (const String \&meta\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Positionne les infos des méta-\/données \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPUMADataWriter_a0f88e7ab44b72e8eee30d9e161db8d78}\label{classPUMADataWriter_a0f88e7ab44b72e8eee30d9e161db8d78}} 
+void \mbox{\hyperlink{classPUMADataWriter_a0f88e7ab44b72e8eee30d9e161db8d78}{write}} (Arcane\+::\+IVariable $\ast$var, Arcane\+::\+IData $\ast$data)
+\begin{DoxyCompactList}\small\item\em Ecrit les données {\itshape data} de la variable {\itshape var}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPUMADataWriter_af260c1a21a2a64ab62547debb19b15e7}\label{classPUMADataWriter_af260c1a21a2a64ab62547debb19b15e7}} 
+void {\bfseries \+\_\+get\+Array\+Size} (Arcane\+::\+IVariable $\ast$var, Arcane\+::\+Integer \&array\+\_\+size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 117 of file PUMAData\+Writer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+PUMA/PUMAData\+Writer.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Exporters/\+PUMA/PUMAData\+Writer.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,80 @@
+\hypertarget{classArcane_1_1FemUtils_1_1RealMatrix}{}\doxysection{Arcane\+::Fem\+Utils\+::Real\+Matrix$<$ N, M $>$ Class Template Reference}
+\label{classArcane_1_1FemUtils_1_1RealMatrix}\index{Arcane::FemUtils::RealMatrix$<$ N, M $>$@{Arcane::FemUtils::RealMatrix$<$ N, M $>$}}
+
+
+Matrix of size NxM.  
+
+
+
+
+{\ttfamily \#include $<$Fem\+Utils.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a3954b63d4f4946dda6aa7972d9031b0d}\label{classArcane_1_1FemUtils_1_1RealMatrix_a3954b63d4f4946dda6aa7972d9031b0d}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE {\bfseries Real\+Matrix} (std\+::initializer\+\_\+list$<$ Real $>$ init\+\_\+list)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a6e7b50a9adf54b10a02643adc6995a1f}\label{classArcane_1_1FemUtils_1_1RealMatrix_a6e7b50a9adf54b10a02643adc6995a1f}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE {\bfseries Real\+Matrix} (std\+::initializer\+\_\+list$<$ std\+::initializer\+\_\+list$<$ Real $>$$>$ init\+\_\+list)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a8198d1b9ed8de73ef494f0bed7d95894}\label{classArcane_1_1FemUtils_1_1RealMatrix_a8198d1b9ed8de73ef494f0bed7d95894}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_a8198d1b9ed8de73ef494f0bed7d95894}{fill}} (Arcane\+::\+Real value)
+\begin{DoxyCompactList}\small\item\em Fill all elements with a given value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a5e71ba602f871e66ee9361ab3c83637e}\label{classArcane_1_1FemUtils_1_1RealMatrix_a5e71ba602f871e66ee9361ab3c83637e}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Arcane\+::\+Real \& {\bfseries operator()} (Arcane\+::\+Int32 i, Arcane\+::\+Int32 j)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_aa11d187cc94c51878b9cfaa891a5768d}\label{classArcane_1_1FemUtils_1_1RealMatrix_aa11d187cc94c51878b9cfaa891a5768d}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE Arcane\+::\+Real {\bfseries operator()} (Arcane\+::\+Int32 i, Arcane\+::\+Int32 j) const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a24e44e0c87cc8c12c5841bc94cc2ec4a}\label{classArcane_1_1FemUtils_1_1RealMatrix_a24e44e0c87cc8c12c5841bc94cc2ec4a}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_a24e44e0c87cc8c12c5841bc94cc2ec4a}{mult\+In\+Place}} (Arcane\+::\+Real v)
+\begin{DoxyCompactList}\small\item\em Multiply all the components by {\itshape v}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_ae6c936b73ac9e115aa27d766f31ab910}\label{classArcane_1_1FemUtils_1_1RealMatrix_ae6c936b73ac9e115aa27d766f31ab910}} 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_ae6c936b73ac9e115aa27d766f31ab910}{dump}} (std\+::ostream \&o) const
+\begin{DoxyCompactList}\small\item\em Dump matrix values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a6ea3dd013f1c624961f2ce7336301e83}\label{classArcane_1_1FemUtils_1_1RealMatrix_a6ea3dd013f1c624961f2ce7336301e83}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_a6ea3dd013f1c624961f2ce7336301e83}{operator+}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Define the addition operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_adcfc04f50ebc88e73aabfb4971407573}\label{classArcane_1_1FemUtils_1_1RealMatrix_adcfc04f50ebc88e73aabfb4971407573}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \& \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_adcfc04f50ebc88e73aabfb4971407573}{operator+=}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Define the addition-\/assignment operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_abbca238669a64adfd50b527ae2582d29}\label{classArcane_1_1FemUtils_1_1RealMatrix_abbca238669a64adfd50b527ae2582d29}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_abbca238669a64adfd50b527ae2582d29}{operator-\/}} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Define the subtraction operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_aba060bed3ad37e6e16d055b4a1f0347a}\label{classArcane_1_1FemUtils_1_1RealMatrix_aba060bed3ad37e6e16d055b4a1f0347a}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_aba060bed3ad37e6e16d055b4a1f0347a}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Define the unary negation operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a631fe2497ca308cc5a8b32f719f0e812}\label{classArcane_1_1FemUtils_1_1RealMatrix_a631fe2497ca308cc5a8b32f719f0e812}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_a631fe2497ca308cc5a8b32f719f0e812}{operator$\ast$}} (Real scalar) const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structScalar}{Scalar}} multiplication\+: \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}} $\ast$ scalar. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_abdd96e88b0fbe4713a7df225358138a5}\label{classArcane_1_1FemUtils_1_1RealMatrix_abdd96e88b0fbe4713a7df225358138a5}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_abdd96e88b0fbe4713a7df225358138a5}{operator/}} (Real scalar) const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structScalar}{Scalar}} division\+: \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}} / scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_a424990559221c6f3d8de451ad284bf14}\label{classArcane_1_1FemUtils_1_1RealMatrix_a424990559221c6f3d8de451ad284bf14}} 
+static constexpr Arcane\+::\+Int32 {\bfseries total\+Nb\+Element} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1RealMatrix_ab9e01a436dc59dbd004df7072eb52171}\label{classArcane_1_1FemUtils_1_1RealMatrix_ab9e01a436dc59dbd004df7072eb52171}} 
+ARCCORE\+\_\+\+HOST\+\_\+\+DEVICE friend \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix_ab9e01a436dc59dbd004df7072eb52171}{operator$\ast$}} (Real scalar, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}$<$ N, M $>$ \&matrix)
+\begin{DoxyCompactList}\small\item\em Friend function for scalar multiplication\+: scalar $\ast$ \mbox{\hyperlink{classArcane_1_1FemUtils_1_1RealMatrix}{Real\+Matrix}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$int N, int M$>$\newline
+class Arcane\+::\+Fem\+Utils\+::\+Real\+Matrix$<$ N, M $>$}
+
+Matrix of size NxM. 
+
+Definition at line 90 of file Fem\+Utils.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Fem\+Utils.\+h\end{DoxyCompactItemize}

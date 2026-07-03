@@ -1,0 +1,81 @@
+\hypertarget{classEventBasics}{}\doxysection{Event\+Basics Class Reference}
+\label{classEventBasics}\index{EventBasics@{EventBasics}}
+
+
+Inherits \mbox{\hyperlink{classIEvent}{IEvent}}, Arcane\+::\+Trace\+Accessor, and \mbox{\hyperlink{classTimeVariables}{Time\+Variables}}.
+
+
+
+Inherited by \mbox{\hyperlink{classEvent}{Event}}, and \mbox{\hyperlink{classRecurrentEvent}{Recurrent\+Event}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEventBasics_a9ac1e7bcdfaf7bff752e8c58123b47e7}\label{classEventBasics_a9ac1e7bcdfaf7bff752e8c58123b47e7}} 
+{\bfseries Event\+Basics} (Arcane\+::\+String name, Arcane\+::\+Real date, Arcane\+::\+Integer entry\+\_\+points, Arcane\+::\+Integer types=0)
+\item 
+\mbox{\Hypertarget{classEventBasics_a155b2610b18ef3314475b0859b5f489c}\label{classEventBasics_a155b2610b18ef3314475b0859b5f489c}} 
+{\bfseries Event\+Basics} (Arcane\+::\+String name, Arcane\+::\+Real start\+\_\+date, Arcane\+::\+Real end\+\_\+date, Arcane\+::\+Integer entry\+\_\+points, Arcane\+::\+Integer types=0)
+\item 
+\mbox{\Hypertarget{classEventBasics_abf5530c103a62ea732f2f8ddb53fe353}\label{classEventBasics_abf5530c103a62ea732f2f8ddb53fe353}} 
+Arcane\+::\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{classEventBasics_ad1d58763d9cb9a68c4aa29d8ea065f21}\label{classEventBasics_ad1d58763d9cb9a68c4aa29d8ea065f21}} 
+Arcane\+::\+Real {\bfseries start\+Date} () const
+\item 
+\mbox{\Hypertarget{classEventBasics_a1be31c80f916066d1389b636c3502739}\label{classEventBasics_a1be31c80f916066d1389b636c3502739}} 
+Arcane\+::\+Real {\bfseries end\+Date} () const
+\item 
+\mbox{\Hypertarget{classEventBasics_aa3431e7857871360e7617138d1482d46}\label{classEventBasics_aa3431e7857871360e7617138d1482d46}} 
+void {\bfseries attach\+Observable} (\mbox{\hyperlink{classTimeStep_1_1IObservable}{Time\+Step\+::\+IObservable}} $\ast$observable)
+\item 
+\mbox{\Hypertarget{classEventBasics_a7d1beb6018443faa52366c30e8e52a0d}\label{classEventBasics_a7d1beb6018443faa52366c30e8e52a0d}} 
+void {\bfseries notify} (const \mbox{\hyperlink{classTimeStep_1_1EntryPoint}{Time\+Step\+::\+Entry\+Point}} \&entry\+\_\+point)
+\item 
+\mbox{\Hypertarget{classEventBasics_aec3656bd7638f0979f534aeff90e7e3a}\label{classEventBasics_aec3656bd7638f0979f534aeff90e7e3a}} 
+virtual void {\bfseries execute} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEventBasics_ab043952cf8f5fd059029c43fb8021ac5}\label{classEventBasics_ab043952cf8f5fd059029c43fb8021ac5}} 
+Arcane\+::\+Integer {\bfseries entry\+Points} () const
+\item 
+\mbox{\Hypertarget{classEventBasics_ad9d8acfdf19e3b20bc28e9fce1b3e959}\label{classEventBasics_ad9d8acfdf19e3b20bc28e9fce1b3e959}} 
+Arcane\+::\+Integer {\bfseries types} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEventBasics_abef72985348e6cadf06e3f4edede8089}\label{classEventBasics_abef72985348e6cadf06e3f4edede8089}} 
+Arcane\+::\+String {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{classEventBasics_a17b87e33877cbde51701380fb7e6bdbb}\label{classEventBasics_a17b87e33877cbde51701380fb7e6bdbb}} 
+Arcane\+::\+Real {\bfseries m\+\_\+start\+\_\+date}
+\item 
+\mbox{\Hypertarget{classEventBasics_af58a64e7315130e62fe7be0c354b4439}\label{classEventBasics_af58a64e7315130e62fe7be0c354b4439}} 
+Arcane\+::\+Real {\bfseries m\+\_\+end\+\_\+date}
+\item 
+\mbox{\Hypertarget{classEventBasics_a43e1019592d2b177eebc24ae6484ba68}\label{classEventBasics_a43e1019592d2b177eebc24ae6484ba68}} 
+Arcane\+::\+Integer {\bfseries m\+\_\+entry\+\_\+points}
+\item 
+\mbox{\Hypertarget{classEventBasics_a61022ad78bbc92c04eb74557914f0554}\label{classEventBasics_a61022ad78bbc92c04eb74557914f0554}} 
+Arcane\+::\+Integer {\bfseries m\+\_\+types}
+\item 
+\mbox{\Hypertarget{classEventBasics_aeb1b0b3a52d4c7c82f9c98b7ea7c0ced}\label{classEventBasics_aeb1b0b3a52d4c7c82f9c98b7ea7c0ced}} 
+\mbox{\hyperlink{classTimeStep_1_1IObservable}{Time\+Step\+::\+IObservable}} $\ast$ {\bfseries m\+\_\+observable}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 27 of file Event\+Basics.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/\+Defaults/Event\+Basics.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/\+Defaults/Event\+Basics.\+cc\end{DoxyCompactItemize}

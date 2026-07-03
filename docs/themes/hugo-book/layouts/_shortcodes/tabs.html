@@ -1,0 +1,11 @@
+{{- .Store.Set "id" (partial "docs/text/shortcode-id" .) -}}
+{{- $attributes := partial "docs/text/mapper" (dict
+  "attributes" (cond .IsNamedParams .Params dict)
+  "merge" (dict
+    "class" "book-tabs"
+  )
+) -}}
+<div {{ partial "docs/html-attrs" $attributes | safeHTMLAttr }}>
+{{- .Inner -}}
+</div>
+{{- /* remove whitespaces */ -}}

@@ -1,0 +1,36 @@
+\hypertarget{classIAdvectionOperator}{}\doxysection{IAdvection\+Operator Class Reference}
+\label{classIAdvectionOperator}\index{IAdvectionOperator@{IAdvectionOperator}}
+
+
+Inherits \mbox{\hyperlink{classIDiscreteOperator}{IDiscrete\+Operator}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIAdvectionOperator_a938dd2e47595c54eef5967311702e59e}\label{classIAdvectionOperator_a938dd2e47595c54eef5967311702e59e}} 
+typedef Variable\+Face\+Real \mbox{\hyperlink{classIAdvectionOperator_a938dd2e47595c54eef5967311702e59e}{Velocity\+Flux\+Type}}
+\begin{DoxyCompactList}\small\item\em Velocity flux type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIAdvectionOperator_aad678c8fe8928f359e8f56010e6d99de}\label{classIAdvectionOperator_aad678c8fe8928f359e8f56010e6d99de}} 
+virtual void {\bfseries set\+Cells} (const Cell\+Group \&\mbox{\hyperlink{classIDiscreteOperator_aa1982c8ec0ae2f459c22fad5c4ae82b5}{cells}})=0
+\item 
+\mbox{\Hypertarget{classIAdvectionOperator_a3c11ac4af7add0cbf7f7ee4f76058c31}\label{classIAdvectionOperator_a3c11ac4af7add0cbf7f7ee4f76058c31}} 
+virtual void {\bfseries set\+Faces} (const Face\+Group \&\mbox{\hyperlink{classIDiscreteOperator_a516f131ccf4f5e304093c51a456d4de3}{faces}})=0
+\item 
+\mbox{\Hypertarget{classIAdvectionOperator_af90e52a8ec181d43767f521b07d04108}\label{classIAdvectionOperator_af90e52a8ec181d43767f521b07d04108}} 
+virtual void \mbox{\hyperlink{classIAdvectionOperator_af90e52a8ec181d43767f521b07d04108}{form\+Discrete\+Operator}} (const \mbox{\hyperlink{classIAdvectionOperator_a938dd2e47595c54eef5967311702e59e}{Velocity\+Flux\+Type}} \&v)=0
+\begin{DoxyCompactList}\small\item\em Form the discrete operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file IAdvection\+Operator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Discrete\+Operator/IAdvection\+Operator.\+h\end{DoxyCompactItemize}

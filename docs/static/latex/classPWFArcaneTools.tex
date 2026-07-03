@@ -1,0 +1,59 @@
+\hypertarget{classPWFArcaneTools}{}\doxysection{PWFArcane\+Tools Class Reference}
+\label{classPWFArcaneTools}\index{PWFArcaneTools@{PWFArcaneTools}}
+
+
+Inherited by \mbox{\hyperlink{classPieceWiseFunctionR2vR1T}{Piece\+Wise\+Function\+R2v\+R1\+T$<$ Bi\+Linear\+Interpolator $>$}}, and \mbox{\hyperlink{classPieceWiseFunctionR2vR1T}{Piece\+Wise\+Function\+R2v\+R1\+T$<$ T $>$}}.
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPWFArcaneTools_1_1PWFArray2View}{PWFArray2\+View}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_a5b87a31d01c725fe45b2f82eeb1d764a}\label{classPWFArcaneTools_a5b87a31d01c725fe45b2f82eeb1d764a}} 
+typedef Arcane\+::\+Real\+Shared\+Array2 {\bfseries PWFArray2}
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_ad53b9a0496a59f8072e2d9bfc1a7b717}\label{classPWFArcaneTools_ad53b9a0496a59f8072e2d9bfc1a7b717}} 
+typedef Arcane\+::\+Real\+Array\+View {\bfseries PWFArray\+View}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_a690db3e0e1175df88508d562120640ea}\label{classPWFArcaneTools_a690db3e0e1175df88508d562120640ea}} 
+Arcane\+::\+Integer {\bfseries dim1\+Size} (PWFArray2 \&data)
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_a551be23e86068ec21b149c285cb02637}\label{classPWFArcaneTools_a551be23e86068ec21b149c285cb02637}} 
+Arcane\+::\+Integer {\bfseries dim2\+Size} (PWFArray2 \&data)
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_a2e29ada2e783a9f43494a343feed4760}\label{classPWFArcaneTools_a2e29ada2e783a9f43494a343feed4760}} 
+void {\bfseries resize} (PWFArray2 \&data, const Arcane\+::\+Integer row\+\_\+size, const Arcane\+::\+Integer column\+\_\+size)
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_a10d9e86af3e40916a6fef86ae5f9e9bf}\label{classPWFArcaneTools_a10d9e86af3e40916a6fef86ae5f9e9bf}} 
+\mbox{\hyperlink{classPWFArcaneTools_1_1PWFArray2View}{PWFArray2\+View}} {\bfseries view} (PWFArray2 \&data, const Arcane\+::\+Integer dim1\+\_\+first\+\_\+index, const Arcane\+::\+Integer dim1\+\_\+bound\+\_\+index, const Arcane\+::\+Integer dim2\+\_\+first\+\_\+index, const Arcane\+::\+Integer dim2\+\_\+bound\+\_\+index)
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_ab6707b1d6848e975b1c4ae4f6b6014c0}\label{classPWFArcaneTools_ab6707b1d6848e975b1c4ae4f6b6014c0}} 
+void {\bfseries fill\+Dim1} (PWFArray2 \&data, const Arcane\+::\+Integer dim2\+\_\+index, const Arcane\+::\+Real value)
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_aaa233259487a85309c217a3e24e06dc0}\label{classPWFArcaneTools_aaa233259487a85309c217a3e24e06dc0}} 
+void {\bfseries fill\+Dim2} (PWFArray2 \&data, const Arcane\+::\+Integer dim1\+\_\+index, const Arcane\+::\+Real value)
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_a8ce196f8e01447b56d748add738fe156}\label{classPWFArcaneTools_a8ce196f8e01447b56d748add738fe156}} 
+void {\bfseries print} (PWFArray2 \&data, ostream \&o) const
+\item 
+\mbox{\Hypertarget{classPWFArcaneTools_aae5d0020288f5fd3fb844dd29c030d2b}\label{classPWFArcaneTools_aae5d0020288f5fd3fb844dd29c030d2b}} 
+void {\bfseries fill} (PWFArray2 \&data, const Arcane\+::\+Real value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 29 of file Piece\+Wise\+Function\+R2v\+R1.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/Piece\+Wise\+Function\+R2v\+R1.\+h\end{DoxyCompactItemize}

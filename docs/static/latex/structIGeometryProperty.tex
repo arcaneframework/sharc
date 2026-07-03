@@ -1,0 +1,78 @@
+\hypertarget{structIGeometryProperty}{}\doxysection{IGeometry\+Property Struct Reference}
+\label{structIGeometryProperty}\index{IGeometryProperty@{IGeometryProperty}}
+
+
+Geometric properties.  
+
+
+
+
+{\ttfamily \#include $<$IGeometry\+Mng.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classIGeometryProperty_1_1Enumerator}{Enumerator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_a2eeedd4e2e3b2a2cccbb07644e8cb2b1}\label{structIGeometryProperty_a2eeedd4e2e3b2a2cccbb07644e8cb2b1}} 
+enum {\bfseries e\+Property} \{ \newline
+{\bfseries PNone} = 0
+, {\bfseries PMeasure} = (1 $<$$<$ 0)
+, {\bfseries PLength} = (1 $<$$<$ 1)
+, {\bfseries PArea} = (1 $<$$<$ 2)
+, \newline
+{\bfseries PVolume} = (1 $<$$<$ 3)
+, {\bfseries PCenter} = (1 $<$$<$ 4)
+, {\bfseries PMass\+Center} = (1 $<$$<$ 5)
+, {\bfseries PNormal} = (1 $<$$<$ 6)
+, \newline
+{\bfseries PVolume\+Surface\+Ratio} = (1 $<$$<$ 7)
+, {\bfseries PEnd} = (1 $<$$<$ 8)
+ \}
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_a421f1ab9b86f3ded9b4c9e9374acbac8}\label{structIGeometryProperty_a421f1ab9b86f3ded9b4c9e9374acbac8}} 
+enum {\bfseries e\+Storage} \{ {\bfseries PNo\+Storage} = 0
+, {\bfseries PVariable} = (1 $<$$<$ 0)
+, {\bfseries PItem\+Group\+Map} = (1 $<$$<$ 1)
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_af85a32210f07d28a74e8f8b8d065aea2}\label{structIGeometryProperty_af85a32210f07d28a74e8f8b8d065aea2}} 
+static bool {\bfseries is\+Scalar} (const e\+Property p)
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_acac118b4fcdc870fdefc55bf5773111f}\label{structIGeometryProperty_acac118b4fcdc870fdefc55bf5773111f}} 
+static bool {\bfseries is\+Vectorial} (const e\+Property p)
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_aa88a31554e81955dfac4cc2b042d34c7}\label{structIGeometryProperty_aa88a31554e81955dfac4cc2b042d34c7}} 
+static bool {\bfseries is\+Kind\+Independent} (const e\+Property p)
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_a8ee4db29c93c183df22353fc097e0a32}\label{structIGeometryProperty_a8ee4db29c93c183df22353fc097e0a32}} 
+static bool {\bfseries is\+Surface\+Only\+Property} (const e\+Property p)
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_a10411dd6c481cac1e2db238cefaffbfb}\label{structIGeometryProperty_a10411dd6c481cac1e2db238cefaffbfb}} 
+static String {\bfseries name} (const e\+Property p)
+\item 
+\mbox{\Hypertarget{structIGeometryProperty_a2b414fd2c8dd8275fb3e6ceb24be948c}\label{structIGeometryProperty_a2b414fd2c8dd8275fb3e6ceb24be948c}} 
+static String {\bfseries name} (const e\+Storage p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Geometric properties. 
+
+Some of them are contextual. For example, the PMeasure of a 3D cell is its PVolume.
+
+Technical notes\+: A external container given by the user cannot be used for anything except the given property. An internal Item\+Group\+Map cannot be allocated for a group different of the group wished by the user. 
+
+Definition at line 37 of file IGeometry\+Mng.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Geometry/IGeometry\+Mng.\+h\end{DoxyCompactItemize}

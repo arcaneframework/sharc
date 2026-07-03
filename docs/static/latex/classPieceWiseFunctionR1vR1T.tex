@@ -1,0 +1,316 @@
+\hypertarget{classPieceWiseFunctionR1vR1T}{}\doxysection{Piece\+Wise\+Function\+R1v\+R1T$<$ T $>$ Class Template Reference}
+\label{classPieceWiseFunctionR1vR1T}\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{classIPieceWiseFunction}{IPiece\+Wise\+Function}}, and \mbox{\hyperlink{classIFunctionR1vR1}{IFunction\+R1v\+R1}}.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a5d2f814af652247026a5ef60eb2b3a91}\label{classPieceWiseFunctionR1vR1T_a5d2f814af652247026a5ef60eb2b3a91}} 
+typedef T \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a5d2f814af652247026a5ef60eb2b3a91}{TypeT}}
+\begin{DoxyCompactList}\small\item\em Template parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a9bde98f7a1ef29e14c96ceb2ff842065}\label{classPieceWiseFunctionR1vR1T_a9bde98f7a1ef29e14c96ceb2ff842065}} 
+typedef T\+::e\+Prolongation\+Type {\bfseries Prolongation\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ac83c8b66a765b35ec637b7ce6820e2a0}\label{classPieceWiseFunctionR1vR1T_ac83c8b66a765b35ec637b7ce6820e2a0}} 
+\mbox{\hyperlink{classPieceWiseFunctionR1vR1T_ac83c8b66a765b35ec637b7ce6820e2a0}{Piece\+Wise\+Function\+R1v\+R1T}} (ITrace\+Mng $\ast$trace\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Constructeurs de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a7df6fd4df60d5cff64575a38f79c931f}\label{classPieceWiseFunctionR1vR1T_a7df6fd4df60d5cff64575a38f79c931f}} 
+virtual \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a7df6fd4df60d5cff64575a38f79c931f}{$\sim$\+Piece\+Wise\+Function\+R1v\+R1T}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a730e8c5fe4c47c8e89c867352fb29458}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ad12aeeba90b3005b128c420dc7193162}\label{classPieceWiseFunctionR1vR1T_ad12aeeba90b3005b128c420dc7193162}} 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_ad12aeeba90b3005b128c420dc7193162}{set\+Parameter}} (const String \&name, const Real \&parameter)
+\begin{DoxyCompactList}\small\item\em Setting parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ad7912a4214c58416b1d4c9ec3475392f}\label{classPieceWiseFunctionR1vR1T_ad7912a4214c58416b1d4c9ec3475392f}} 
+void {\bfseries set\+Parameter} (Integer index, const Real \&parameter)
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_adc1a578f49cd2fb4602f11ab32f49143}\label{classPieceWiseFunctionR1vR1T_adc1a578f49cd2fb4602f11ab32f49143}} 
+Integer \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_adc1a578f49cd2fb4602f11ab32f49143}{nb\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a5d8c56ba697ac456fe77a399fcdf638e}\label{classPieceWiseFunctionR1vR1T_a5d8c56ba697ac456fe77a399fcdf638e}} 
+String \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a5d8c56ba697ac456fe77a399fcdf638e}{parameter\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a3066b2ac79f8b9bffe03caad77bcebae}\label{classPieceWiseFunctionR1vR1T_a3066b2ac79f8b9bffe03caad77bcebae}} 
+Integer \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a3066b2ac79f8b9bffe03caad77bcebae}{nb\+Variable}} () const
+\begin{DoxyCompactList}\small\item\em Getting number of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a8bc172cc6db5a3c9093145c0c9d5c7b6}\label{classPieceWiseFunctionR1vR1T_a8bc172cc6db5a3c9093145c0c9d5c7b6}} 
+String \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a8bc172cc6db5a3c9093145c0c9d5c7b6}{variable\+Name}} (Integer index) const
+\begin{DoxyCompactList}\small\item\em Getting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a369ce0796fdacaa96ef82732624db4d3}\label{classPieceWiseFunctionR1vR1T_a369ce0796fdacaa96ef82732624db4d3}} 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a369ce0796fdacaa96ef82732624db4d3}{set\+Variable\+Name}} (const String \&name)
+\begin{DoxyCompactList}\small\item\em Setting name of variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_abd86a69e17beefa7dce1c010091d3555}\label{classPieceWiseFunctionR1vR1T_abd86a69e17beefa7dce1c010091d3555}} 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_abd86a69e17beefa7dce1c010091d3555}{set\+Variable}} (const String \&name, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\begin{DoxyCompactList}\small\item\em Setting vectorized variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a7b233551282843298dc91c5a94c20565}\label{classPieceWiseFunctionR1vR1T_a7b233551282843298dc91c5a94c20565}} 
+void {\bfseries set\+Variable} (Integer index, const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable)
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ac3451f7eca1290d7204b906c7c77d9c4}\label{classPieceWiseFunctionR1vR1T_ac3451f7eca1290d7204b906c7c77d9c4}} 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_ac3451f7eca1290d7204b906c7c77d9c4}{set\+Evaluation\+Result}} (\mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\begin{DoxyCompactList}\small\item\em Setting evaluation vectorized result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{di variable}
+\label{_amgrp9b891d0d476eb766c3bec3466e651596}%
+Setting derivation vectorized result
+
+Derivation following \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a648c17bf24f7e2b1f8dbe3dbbc535cc4}\label{classPieceWiseFunctionR1vR1T_a648c17bf24f7e2b1f8dbe3dbbc535cc4}} 
+void {\bfseries set\+Derivation\+Result} (Integer di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_aeb0b649c47ffb894eb3e76a1c950400f}\label{classPieceWiseFunctionR1vR1T_aeb0b649c47ffb894eb3e76a1c950400f}} 
+void {\bfseries set\+Derivation\+Result} (const String \&di, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a4029e727d9a4cd78690986f22006b5e3}\label{classPieceWiseFunctionR1vR1T_a4029e727d9a4cd78690986f22006b5e3}} 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a4029e727d9a4cd78690986f22006b5e3}{eval}} ()
+\begin{DoxyCompactList}\small\item\em Eval vectorized data service function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a67c1a29de2c162cfe54b88236e013ae5}\label{classPieceWiseFunctionR1vR1T_a67c1a29de2c162cfe54b88236e013ae5}} 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a67c1a29de2c162cfe54b88236e013ae5}{cleanup}} ()
+\begin{DoxyCompactList}\small\item\em Cleanup after evaluation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a00deb6893b6b33031340b54f0190ef7a}\label{classPieceWiseFunctionR1vR1T_a00deb6893b6b33031340b54f0190ef7a}} 
+Real \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a00deb6893b6b33031340b54f0190ef7a}{eval}} (const Real \&variable)
+\begin{DoxyCompactList}\small\item\em Point eval service function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a95928116856528c7e068a28c2d506e0b}\label{classPieceWiseFunctionR1vR1T_a95928116856528c7e068a28c2d506e0b}} 
+void {\bfseries eval} (const Real \&variable, Real \&result)
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ab60908b3dd9be0116e65328acb801607}\label{classPieceWiseFunctionR1vR1T_ab60908b3dd9be0116e65328acb801607}} 
+void {\bfseries eval} (const \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&variable, \mbox{\hyperlink{classArray}{Array}}$<$ Real $>$ \&result)
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_acd3661e848a9f4b687721e953eb07cde}\label{classPieceWiseFunctionR1vR1T_acd3661e848a9f4b687721e953eb07cde}} 
+void {\bfseries eval} (const Const\+Array\+View$<$ Real $>$ variable, Array\+View$<$ Real $>$ result)
+\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a9d6ff52a2c9bf8e604f8246746ab1175}{eval}} (const Real \&variable, Real \&result, Real \&diffresult)
+\begin{DoxyCompactList}\small\item\em Coupled function and derivative scalar evaluation (temporary\+: derivation handling in \mbox{\hyperlink{classIFunction}{IFunction}} still to be defined) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a54cee47fd071cab088b202d686367353}\label{classPieceWiseFunctionR1vR1T_a54cee47fd071cab088b202d686367353}} 
+Real {\bfseries diff\+Eval} (const Real \&variable)
+\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_af09604647b947931dd39401353efcb41}{set\+Point}} (const Real \&x, const Real \&y)
+\begin{DoxyCompactList}\small\item\em Setting point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a8b02478f0079d6a33578d47f5d2b3f59}{print\+Points}} () const
+\begin{DoxyCompactList}\small\item\em Printing point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_ad2ab37fb358c65e67b1859650a46d540}{init\+Border\+Condition}} (const Border\+Type\+::e\+Border\+Type \&border\+\_\+type, const Prolongation\+Type \&prolongation\+\_\+type, const Real \&lower\+\_\+limit, const Real \&upper\+\_\+limit, const Border\+Type\+::e\+Cut\+Type \&cut\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Set boundary behavior. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a7e3386549399e3a7aeee18feae741b0e}{init\+Border\+Condition}} ()
+\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a1c049e6e98057d76b09b1a519a92c22b}{set\+Limit\+Derivation\+Strategy}} (const Limit\+Derivation\+Strategy\+::e\+Limit\+Derivation\+Strategy \&derivation\+\_\+strategy)
+\begin{DoxyCompactList}\small\item\em Default behavior\+: infinite constant prolongation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_ad1da6851c07a57a07a4a66b8887d43fb}{shift\+Rescale}} (const Real new\+\_\+xmin, const Real new\+\_\+xmax, const Real new\+\_\+ymin, const Real new\+\_\+ymax)
+\begin{DoxyCompactList}\small\item\em Shift and rescale the \mbox{\hyperlink{classTable}{Table}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_ac8902b917e0ece394709b292aad85c17}{clone}} (const \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$ \&original\+\_\+piecewisefunction)
+\item 
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a8843a15220b3c2a421aba79ec49eb37f}\label{classPieceWiseFunctionR1vR1T_a8843a15220b3c2a421aba79ec49eb37f}} 
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a8843a15220b3c2a421aba79ec49eb37f}{get\+Piece\+Wise\+Function\+Type}} (\mbox{\hyperlink{structPieceWiseFunctionType}{Piece\+Wise\+Function\+Type}} \&type) const
+\begin{DoxyCompactList}\small\item\em Get Piece\+Wise\+Function type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Piece\+Wise\+Function\+R1v\+R1\+T$<$ T $>$}
+
+
+
+Definition at line 20 of file Piece\+Wise\+Function\+R1v\+R1.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ac8902b917e0ece394709b292aad85c17}\label{classPieceWiseFunctionR1vR1T_ac8902b917e0ece394709b292aad85c17}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!clone@{clone}}
+\index{clone@{clone}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::clone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$ \&}]{original\+\_\+piecewisefunction }\end{DoxyParamCaption})}
+
+Clone scalar
+
+Clone \mbox{\hyperlink{classArray}{Array}} For std\+::vector (if Arcane\+::\+Array use \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_ac8902b917e0ece394709b292aad85c17}{clone()}} method instead) \mbox{\hyperlink{classTable}{Table}} Data
+
+Interval Data
+
+Definition at line 547 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a9d6ff52a2c9bf8e604f8246746ab1175}\label{classPieceWiseFunctionR1vR1T_a9d6ff52a2c9bf8e604f8246746ab1175}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!eval@{eval}}
+\index{eval@{eval}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::eval (\begin{DoxyParamCaption}\item[{const Real \&}]{variable,  }\item[{Real \&}]{result,  }\item[{Real \&}]{diffresult }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Coupled function and derivative scalar evaluation (temporary\+: derivation handling in \mbox{\hyperlink{classIFunction}{IFunction}} still to be defined) 
+
+Coupled evaluation of f and its derivative
+
+Check initialization in debug mode only
+
+Find lower point x index \+: 3 search types available (linear most efficient)
+
+Compute interpolated value \+: done by Interpolator T
+
+Compute derivative\+: done by Interpolator T Left derivative
+
+Right derivative
+
+Return right or left derivative or mean (for table point only), otherwise right derivative
+
+Definition at line 361 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a730e8c5fe4c47c8e89c867352fb29458}\label{classPieceWiseFunctionR1vR1T_a730e8c5fe4c47c8e89c867352fb29458}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!init@{init}}
+\index{init@{init}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initialisation. 
+
+Check \mbox{\hyperlink{classTable}{Table}} is filled \+: table must be filled before \mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a730e8c5fe4c47c8e89c867352fb29458}{init()}} done either by the Service (data read from mydata.\+arc) \+: My\+Interpolation\+Piece\+Wise\+Function\+Service-\/$>$\mbox{\hyperlink{classPieceWiseFunctionR1vR1T_a730e8c5fe4c47c8e89c867352fb29458}{init()}} either manually \+: Piece\+Wise\+Function\+R1v\+R1\+T$<$\+My\+Interpolator$>$ my\+\_\+pwf(trace\+Mng()); my\+\_\+pwf.\+set\+Border\+Condition(); my\+\_\+pwf.\+set\+Point(x,y);... my\+\_\+pwf.\+init(); // Object ready for use
+
+Implements \mbox{\hyperlink{classIIFunction_a07c537911764b7f9ced64127f031b60a}{IIFunction}}.
+
+
+
+Definition at line 18 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a7e3386549399e3a7aeee18feae741b0e}\label{classPieceWiseFunctionR1vR1T_a7e3386549399e3a7aeee18feae741b0e}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!initBorderCondition@{initBorderCondition}}
+\index{initBorderCondition@{initBorderCondition}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{initBorderCondition()}{initBorderCondition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::init\+Border\+Condition}
+
+Default behavior for boundary \+: Infinite constant Prolongation
+
+Init Ghost points and intervals
+
+Definition at line 667 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ad2ab37fb358c65e67b1859650a46d540}\label{classPieceWiseFunctionR1vR1T_ad2ab37fb358c65e67b1859650a46d540}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!initBorderCondition@{initBorderCondition}}
+\index{initBorderCondition@{initBorderCondition}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{initBorderCondition()}{initBorderCondition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::init\+Border\+Condition (\begin{DoxyParamCaption}\item[{const Border\+Type\+::e\+Border\+Type \&}]{border\+\_\+type,  }\item[{const Prolongation\+Type \&}]{prolongation\+\_\+type,  }\item[{const Real \&}]{lower\+\_\+limit,  }\item[{const Real \&}]{upper\+\_\+limit,  }\item[{const Border\+Type\+::e\+Cut\+Type \&}]{cut\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Set boundary behavior. 
+
+Set border type
+
+Init Ghost points and intervals
+
+Definition at line 643 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a8b02478f0079d6a33578d47f5d2b3f59}\label{classPieceWiseFunctionR1vR1T_a8b02478f0079d6a33578d47f5d2b3f59}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!printPoints@{printPoints}}
+\index{printPoints@{printPoints}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{printPoints()}{printPoints()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::print\+Points\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Printing point. 
+
+Check initialization
+
+Debug print
+
+Implements \mbox{\hyperlink{classIPieceWiseFunction_a66cb4a75a78a6a8b7a7ad1818af18b86}{IPiece\+Wise\+Function}}.
+
+
+
+Definition at line 205 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_a1c049e6e98057d76b09b1a519a92c22b}\label{classPieceWiseFunctionR1vR1T_a1c049e6e98057d76b09b1a519a92c22b}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!setLimitDerivationStrategy@{setLimitDerivationStrategy}}
+\index{setLimitDerivationStrategy@{setLimitDerivationStrategy}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setLimitDerivationStrategy()}{setLimitDerivationStrategy()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::set\+Limit\+Derivation\+Strategy (\begin{DoxyParamCaption}\item[{const Limit\+Derivation\+Strategy\+::e\+Limit\+Derivation\+Strategy \&}]{derivation\+\_\+strategy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Default behavior\+: infinite constant prolongation. 
+
+Set limit point derivative choice (default = right derivative) Derivative computation given by\+:
+
+Implements \mbox{\hyperlink{classIPieceWiseFunction_ad89f039be31ee7463ef3d1f477d9e40f}{IPiece\+Wise\+Function}}.
+
+
+
+Definition at line 712 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_af09604647b947931dd39401353efcb41}\label{classPieceWiseFunctionR1vR1T_af09604647b947931dd39401353efcb41}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!setPoint@{setPoint}}
+\index{setPoint@{setPoint}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setPoint()}{setPoint()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::set\+Point (\begin{DoxyParamCaption}\item[{const Real \&}]{x,  }\item[{const Real \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Setting point. 
+
+Tests
+
+Store x and y min and max values
+
+Add point in data m\+\_\+x m\+\_\+y and create a new interval in m\+\_\+interval
+
+Sort
+
+Update table point ghost cells \+: boundary for interval coefficient evaluation
+
+obtain intervals created or modified with point insertion
+
+Compute interval coefficient(s) for both intervals
+
+Definition at line 144 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+\mbox{\Hypertarget{classPieceWiseFunctionR1vR1T_ad1da6851c07a57a07a4a66b8887d43fb}\label{classPieceWiseFunctionR1vR1T_ad1da6851c07a57a07a4a66b8887d43fb}} 
+\index{PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}!shiftRescale@{shiftRescale}}
+\index{shiftRescale@{shiftRescale}!PieceWiseFunctionR1vR1T$<$ T $>$@{PieceWiseFunctionR1vR1T$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{shiftRescale()}{shiftRescale()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classPieceWiseFunctionR1vR1T}{Piece\+Wise\+Function\+R1v\+R1T}}$<$ T $>$\+::shift\+Rescale (\begin{DoxyParamCaption}\item[{const Real}]{new\+\_\+xmin,  }\item[{const Real}]{new\+\_\+xmax,  }\item[{const Real}]{new\+\_\+ymin,  }\item[{const Real}]{new\+\_\+ymax }\end{DoxyParamCaption})}
+
+
+
+Shift and rescale the \mbox{\hyperlink{classTable}{Table}}. 
+
+Notice that arguments are y\+\_\+min and y\+\_\+max and NOT f(x\+\_\+min)
+
+The shape of the function is not modified, therefore no need to recompute interval coefficients Check Arguments
+
+Abscissas
+
+Ordinates
+
+Shift and rescale
+
+Update table point ghost cells
+
+Shift and rescale upper and lower limit if Finite\+Prolongation mode
+
+Change upper\+\_\+limit and lower\+\_\+limit values in the table
+
+Piece\+Wise\+Function shape modified =$>$ need to recompute all interval coefficients
+
+Definition at line 484 of file Piece\+Wise\+Function\+R1v\+R1\+T.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/Piece\+Wise\+Function\+R1v\+R1.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Piece\+Wise\+Function/Piece\+Wise\+Function\+R1v\+R1\+T.\+h\end{DoxyCompactItemize}

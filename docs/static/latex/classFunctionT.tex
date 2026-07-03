@@ -1,0 +1,70 @@
+\hypertarget{classFunctionT}{}\doxysection{FunctionT$<$ T $>$ Class Template Reference}
+\label{classFunctionT}\index{FunctionT$<$ T $>$@{FunctionT$<$ T $>$}}
+
+
+Inherits \mbox{\hyperlink{classIFunction}{IFunction}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFunctionT_a630cb25d1eae586550f5a2e4c0318399}\label{classFunctionT_a630cb25d1eae586550f5a2e4c0318399}} 
+{\bfseries FunctionT} (Integer \mbox{\hyperlink{classFunctionT_a82fcd6bf69611624afb4e018a9bbd9b3}{id}}, const T \&algo, const \mbox{\hyperlink{classSignature}{Signature}} \&signature, bool is\+\_\+parameter)
+\item 
+\mbox{\Hypertarget{classFunctionT_a82fcd6bf69611624afb4e018a9bbd9b3}\label{classFunctionT_a82fcd6bf69611624afb4e018a9bbd9b3}} 
+Integer \mbox{\hyperlink{classFunctionT_a82fcd6bf69611624afb4e018a9bbd9b3}{id}} () const
+\begin{DoxyCompactList}\small\item\em Identifiant unique de la fonction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a694e7ab313fe686c5dbb7d195a790a04}\label{classFunctionT_a694e7ab313fe686c5dbb7d195a790a04}} 
+bool \mbox{\hyperlink{classFunctionT_a694e7ab313fe686c5dbb7d195a790a04}{is\+Parameter}} () const
+\begin{DoxyCompactList}\small\item\em Test si la fonction est un param{\ucr}tre. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a44309436d1f18291906eda920ef3a7d3}\label{classFunctionT_a44309436d1f18291906eda920ef3a7d3}} 
+bool \mbox{\hyperlink{classFunctionT_a44309436d1f18291906eda920ef3a7d3}{is\+Differentiable}} () const
+\begin{DoxyCompactList}\small\item\em Test si la fonction est d{\ucr}rivable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_acc9ebceb3a9b7cb6a702e0192207cc27}\label{classFunctionT_acc9ebceb3a9b7cb6a702e0192207cc27}} 
+void \mbox{\hyperlink{classFunctionT_acc9ebceb3a9b7cb6a702e0192207cc27}{evaluate}} (const \mbox{\hyperlink{classState}{State}} \&s, \mbox{\hyperlink{classState}{State}} \&r) const
+\begin{DoxyCompactList}\small\item\em Evaluation sans d{\ucr}riv{\ucr}e avec state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a86d6c087bbb616fce6a4ea4b7b350070}\label{classFunctionT_a86d6c087bbb616fce6a4ea4b7b350070}} 
+void \mbox{\hyperlink{classFunctionT_a86d6c087bbb616fce6a4ea4b7b350070}{eval}} (const \mbox{\hyperlink{classState}{State}} \&s, \mbox{\hyperlink{classState}{State}} \&r) const
+\begin{DoxyCompactList}\small\item\em Evaluation sans d{\ucr}riv{\ucr}e pour les states. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_ab28ee097c0d96f1f9b09d1bf734a0827}\label{classFunctionT_ab28ee097c0d96f1f9b09d1bf734a0827}} 
+void \mbox{\hyperlink{classFunctionT_ab28ee097c0d96f1f9b09d1bf734a0827}{evaluate}} (const \mbox{\hyperlink{classState}{State}} \&s, \mbox{\hyperlink{classState}{State}} \&r, \mbox{\hyperlink{classDerivativeT}{Derivative}} \&d) const
+\begin{DoxyCompactList}\small\item\em Evaluation avec d{\ucr}riv{\ucr}e avec state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a9a5f2aa010fc6e8217d62325e2fa1cc7}\label{classFunctionT_a9a5f2aa010fc6e8217d62325e2fa1cc7}} 
+void \mbox{\hyperlink{classFunctionT_a9a5f2aa010fc6e8217d62325e2fa1cc7}{eval}} (const \mbox{\hyperlink{classState}{State}} \&s, \mbox{\hyperlink{classState}{State}} \&r, \mbox{\hyperlink{classDerivativeT}{Derivative}} \&d) const
+\begin{DoxyCompactList}\small\item\em Evaluation avec d{\ucr}riv{\ucr}e pour les states. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a44093206b5dac0548bef2af30769992c}\label{classFunctionT_a44093206b5dac0548bef2af30769992c}} 
+void \mbox{\hyperlink{classFunctionT_a44093206b5dac0548bef2af30769992c}{evaluate}} (const \mbox{\hyperlink{structVariableAccessor}{Variable\+Accessor}} \&v, const Arcane\+::\+Item\+Group \&group, Evaluation\+Mode mode, Arcane\+::\+Integer max\+\_\+nb\+\_\+unknowns) const
+\begin{DoxyCompactList}\small\item\em Evaluation pour variables sur le maillage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a232baf5738af76679b3fcc2009f50a8e}\label{classFunctionT_a232baf5738af76679b3fcc2009f50a8e}} 
+void \mbox{\hyperlink{classFunctionT_a232baf5738af76679b3fcc2009f50a8e}{evaluate}} (const \mbox{\hyperlink{structPartialVariableAccessor}{Partial\+Variable\+Accessor}} \&v, const Arcane\+::\+Item\+Group \&group, Evaluation\+Mode mode, Arcane\+::\+Integer max\+\_\+nb\+\_\+unknowns) const
+\begin{DoxyCompactList}\small\item\em Evaluation sans d{\ucr}riv{\ucr}e pour variables partielles sur le maillage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a5f906eb30898cf577c0de33695d02988}\label{classFunctionT_a5f906eb30898cf577c0de33695d02988}} 
+void \mbox{\hyperlink{classFunctionT_a5f906eb30898cf577c0de33695d02988}{evaluate}} (const \mbox{\hyperlink{structArrayAccessor}{Array\+Accessor}} \&v, const Arcane\+::\+Integer \&begin, const Arcane\+::\+Integer \&end, Evaluation\+Mode mode, Arcane\+::\+Integer max\+\_\+nb\+\_\+unknowns) const
+\begin{DoxyCompactList}\small\item\em Evaluation sans d{\ucr}riv{\ucr}e pour tableaux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a8b825acd015c77768d00b40a25b3ed64}\label{classFunctionT_a8b825acd015c77768d00b40a25b3ed64}} 
+void \mbox{\hyperlink{classFunctionT_a8b825acd015c77768d00b40a25b3ed64}{evaluate}} (const \mbox{\hyperlink{structScalarAccessor}{Scalar\+Accessor}} \&v, Evaluation\+Mode mode, Arcane\+::\+Integer max\+\_\+nb\+\_\+unknowns) const
+\begin{DoxyCompactList}\small\item\em Evaluation sans d{\ucr}riv{\ucr}e pour scalaires. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_ad8388e3081d27d97d6e14258441d7ce9}\label{classFunctionT_ad8388e3081d27d97d6e14258441d7ce9}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \mbox{\hyperlink{classFunctionT_ad8388e3081d27d97d6e14258441d7ce9}{in}} () const
+\begin{DoxyCompactList}\small\item\em Propri{\ucr}t{\ucr}s in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_acd964a542a2b2d5fbe2833f84ad953b9}\label{classFunctionT_acd964a542a2b2d5fbe2833f84ad953b9}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \mbox{\hyperlink{classFunctionT_acd964a542a2b2d5fbe2833f84ad953b9}{out}} () const
+\begin{DoxyCompactList}\small\item\em Propri{\ucr}t{\ucr}s out. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFunctionT_a203e55b1dc1e92703a826d7ca442deba}\label{classFunctionT_a203e55b1dc1e92703a826d7ca442deba}} 
+\mbox{\hyperlink{classPropertyVector}{Property\+Vector}} \mbox{\hyperlink{classFunctionT_a203e55b1dc1e92703a826d7ca442deba}{parameters}} () const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structParameters}{Parameters}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Function\+T$<$ T $>$}
+
+
+
+Definition at line 42 of file Function.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Physics/\+Law1/Function.\+h\end{DoxyCompactItemize}

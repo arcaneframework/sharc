@@ -1,0 +1,48 @@
+\hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper}{}\doxysection{Arcane\+::Fem\+Utils\+::Do\+FLinear\+System\+Row\+Elimination\+Helper Class Reference}
+\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper}\index{Arcane::FemUtils::DoFLinearSystemRowEliminationHelper@{Arcane::FemUtils::DoFLinearSystemRowEliminationHelper}}
+
+
+Helper class to handle Row elimination.  
+
+
+
+
+{\ttfamily \#include $<$Do\+FLinear\+System.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper_a4d5cb4c5014962fe5500c90baa3324a1}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper_a4d5cb4c5014962fe5500c90baa3324a1}} 
+void {\bfseries add\+Elimination} (Do\+FLocal\+Id row, Real value)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper_abe94cb228b09c860879417a95b113685}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper_abe94cb228b09c860879417a95b113685}} 
+Variable\+Do\+FByte \& {\bfseries get\+Elimination\+Info} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper_a9c05fb4e0048d5d5694e5553a2ca62d6}\label{classArcane_1_1FemUtils_1_1DoFLinearSystemRowEliminationHelper_a9c05fb4e0048d5d5694e5553a2ca62d6}} 
+Variable\+Do\+FReal \& {\bfseries get\+Elimination\+Value} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper class to handle Row elimination. 
+
+Instances of this class are temporary and are created via a call to Do\+FLinear\+System\+::row\+Elimination\+Helper().
+
+There is two ways to use this class.
+
+
+\begin{DoxyEnumerate}
+\item use the method add\+Elimination() and specify the row and the value
+\item get the variables handling elimination info (get\+Elimination\+Info()) and elimination value (get\+Elimination\+Value()) and set the corresponding row with ELIMINATION\+\_\+\+ROW and the value of the elimination.
+\end{DoxyEnumerate}
+
+Only the method 2 is available on accelerator. 
+
+Definition at line 47 of file Do\+FLinear\+System.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Do\+FLinear\+System.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Do\+FLinear\+System.\+cc\end{DoxyCompactItemize}

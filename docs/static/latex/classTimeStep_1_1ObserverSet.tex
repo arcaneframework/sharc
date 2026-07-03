@@ -1,0 +1,57 @@
+\hypertarget{classTimeStep_1_1ObserverSet}{}\doxysection{Time\+Step\+::Observer\+Set Class Reference}
+\label{classTimeStep_1_1ObserverSet}\index{TimeStep::ObserverSet@{TimeStep::ObserverSet}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a5b30fec109e2685a236e0134b9a70758}\label{classTimeStep_1_1ObserverSet_a5b30fec109e2685a236e0134b9a70758}} 
+typedef std\+::vector$<$ \mbox{\hyperlink{classTimeStep_1_1IObserver}{Time\+Step\+::\+IObserver}} $\ast$ $>$\+::iterator {\bfseries iterator}
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a5a4950fd12e056d25828b8dde5a8525d}\label{classTimeStep_1_1ObserverSet_a5a4950fd12e056d25828b8dde5a8525d}} 
+typedef std\+::vector$<$ \mbox{\hyperlink{classTimeStep_1_1IObserver}{Time\+Step\+::\+IObserver}} $\ast$ $>$\+::const\+\_\+iterator {\bfseries const\+\_\+iterator}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a96155f52db77b0798e1af9ac49443cef}\label{classTimeStep_1_1ObserverSet_a96155f52db77b0798e1af9ac49443cef}} 
+{\bfseries Observer\+Set} (\mbox{\hyperlink{classTimeStep_1_1IObservable}{IObservable}} $\ast$observable)
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_af9d8c38ffbeb1f6f8604ef1b44e79c89}\label{classTimeStep_1_1ObserverSet_af9d8c38ffbeb1f6f8604ef1b44e79c89}} 
+void {\bfseries attach\+Observer} (\mbox{\hyperlink{classTimeStep_1_1IObserver}{IObserver}} $\ast$observer)
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_afcbbda05e072eadc8847c39b3deb4bea}\label{classTimeStep_1_1ObserverSet_afcbbda05e072eadc8847c39b3deb4bea}} 
+void {\bfseries detach\+Observer} (\mbox{\hyperlink{classTimeStep_1_1IObserver}{IObserver}} $\ast$observer)
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a7f66d70bc26612ef02d5464bb913dc00}\label{classTimeStep_1_1ObserverSet_a7f66d70bc26612ef02d5464bb913dc00}} 
+void {\bfseries notify\+Observers} (const \mbox{\hyperlink{classTimeStep_1_1EntryPoint}{Entry\+Point}} \&entry\+\_\+point)
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_ae9d0b7f090be4acc81bde8ec39aeb163}\label{classTimeStep_1_1ObserverSet_ae9d0b7f090be4acc81bde8ec39aeb163}} 
+void {\bfseries notify\+Observers} (e\+Time\+Step\+State state)
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a30982c02cbd9bba3d017d8812feb5792}\label{classTimeStep_1_1ObserverSet_a30982c02cbd9bba3d017d8812feb5792}} 
+iterator {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a74868a70b601e173b295cfc887e28489}\label{classTimeStep_1_1ObserverSet_a74868a70b601e173b295cfc887e28489}} 
+iterator {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a65c626d94e540dca562b2488ba898ee3}\label{classTimeStep_1_1ObserverSet_a65c626d94e540dca562b2488ba898ee3}} 
+const\+\_\+iterator {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a48d5856559dc0908fadd5eab53f975a4}\label{classTimeStep_1_1ObserverSet_a48d5856559dc0908fadd5eab53f975a4}} 
+const\+\_\+iterator {\bfseries end} () const
+\item 
+\mbox{\Hypertarget{classTimeStep_1_1ObserverSet_a1657978b4f07fb2be2e149f50f3153a6}\label{classTimeStep_1_1ObserverSet_a1657978b4f07fb2be2e149f50f3153a6}} 
+Arcane\+::\+Integer {\bfseries size} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 32 of file Observer\+Set.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/\+Observer/Observer\+Set.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Time/\+Observer/Observer\+Set.\+cc\end{DoxyCompactItemize}

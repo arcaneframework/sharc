@@ -1,0 +1,89 @@
+\hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}{}\doxysection{Arcane\+::Fem\+Utils\+::Gauss\+Do\+Fs\+On\+Cells Class Reference}
+\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}\index{Arcane::FemUtils::GaussDoFsOnCells@{Arcane::FemUtils::GaussDoFsOnCells}}
+
+
+Manage one or more Gauss Points on Cells through the \mbox{\hyperlink{namespaceArcane}{Arcane}} Do\+Fs mechanism.  
+
+
+
+
+{\ttfamily \#include $<$Gauss\+Do\+Fs\+On\+Cells.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ac3c2835d1e4ba9c74c92daef56b187cc}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ac3c2835d1e4ba9c74c92daef56b187cc}} 
+{\bfseries Gauss\+Do\+Fs\+On\+Cells} (Arcane\+::\+ITrace\+Mng $\ast$tm)
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a16954b8237d6bf047cd4c9f96911ddd8}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a16954b8237d6bf047cd4c9f96911ddd8}} 
+{\bfseries Gauss\+Do\+Fs\+On\+Cells} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}{Gauss\+Do\+Fs\+On\+Cells}} \&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ae2f667e988281ae06fb52a65be593276}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ae2f667e988281ae06fb52a65be593276}} 
+{\bfseries Gauss\+Do\+Fs\+On\+Cells} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}{Gauss\+Do\+Fs\+On\+Cells}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a5b3d6291659803ecad07ec6a2210cd91}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a5b3d6291659803ecad07ec6a2210cd91}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}{Gauss\+Do\+Fs\+On\+Cells}} \& {\bfseries operator=} (\mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}{Gauss\+Do\+Fs\+On\+Cells}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a2cc2465cc7219ce977ae3edfcafbecf8}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a2cc2465cc7219ce977ae3edfcafbecf8}} 
+\mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}{Gauss\+Do\+Fs\+On\+Cells}} \& {\bfseries operator=} (const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells}{Gauss\+Do\+Fs\+On\+Cells}} \&)=delete
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a24c9e9f42c1cea9564dc8e81b59b9248}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a24c9e9f42c1cea9564dc8e81b59b9248}} 
+void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a24c9e9f42c1cea9564dc8e81b59b9248}{initialize}} (Arcane\+::\+IMesh $\ast$mesh, Arcane\+::\+Int32 max\+\_\+nb\+\_\+gauss\+\_\+per\+\_\+cell)
+\begin{DoxyCompactList}\small\item\em Initialize the instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a0d6f7221482149b32c11832a4d2af492}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a0d6f7221482149b32c11832a4d2af492}} 
+Arcane\+::\+Indexed\+Cell\+Do\+FConnectivity\+View {\bfseries gauss\+Cell\+Connectivity\+View} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a0345b28dea13565e29b38104dc301486}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a0345b28dea13565e29b38104dc301486}} 
+Arcane\+::\+IItem\+Family $\ast$ {\bfseries gauss\+Family} () const
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_aae6619cdbfce173b0fcb6f972c65dbc3}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_aae6619cdbfce173b0fcb6f972c65dbc3}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real \& {\bfseries gauss\+Shape} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a3688093fe59f2545e1d19c1d389f9bc9}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a3688093fe59f2545e1d19c1d389f9bc9}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real3 \& {\bfseries gauss\+Shape\+Deriv} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a44df47ebc0b37f2c83e98245e07b9718}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a44df47ebc0b37f2c83e98245e07b9718}} 
+Arcane\+::\+Variable\+Do\+FReal3 \& {\bfseries gauss\+Ref\+Position} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a09cce673b7d58b42acd208f4d2b2d79a}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a09cce673b7d58b42acd208f4d2b2d79a}} 
+Arcane\+::\+Variable\+Do\+FReal3x3 \& {\bfseries gauss\+Jacob\+Mat} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a226441983117ed4a0a5dfd765a5632ad}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a226441983117ed4a0a5dfd765a5632ad}} 
+Arcane\+::\+Variable\+Do\+FReal \& {\bfseries gauss\+Weight} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ae76eb60e6992afe9ea6689140bb966a9}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ae76eb60e6992afe9ea6689140bb966a9}} 
+Arcane\+::\+Variable\+Do\+FReal \& {\bfseries gauss\+Jacobian} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ad9a25a30c001c4747d53f5bf7cdf3936}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ad9a25a30c001c4747d53f5bf7cdf3936}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real \& {\bfseries gauss\+Law\+Param} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a1f8e58eaeb8de0ee11968cdba0265ec2}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a1f8e58eaeb8de0ee11968cdba0265ec2}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real \& {\bfseries gauss\+Law\+History\+Param} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_acbbd605c1b4908fa5ddb2e4f566f2846}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_acbbd605c1b4908fa5ddb2e4f566f2846}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real3x3 \& {\bfseries gauss\+Stress} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ae5d24bdd9d05c85e93f288b65856c54e}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ae5d24bdd9d05c85e93f288b65856c54e}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real3x3 \& {\bfseries gauss\+Strain} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ac25369de56f79c7e213c12cf1046b2a7}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_ac25369de56f79c7e213c12cf1046b2a7}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real3x3 \& {\bfseries gauss\+Strain\+Plastic} ()
+\item 
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a40bbadc262695a4feb25ca056be66049}\label{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a40bbadc262695a4feb25ca056be66049}} 
+Arcane\+::\+Variable\+Do\+FArray\+Real3x3 \& {\bfseries gauss\+Tangent\+Operator} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manage one or more Gauss Points on Cells through the \mbox{\hyperlink{namespaceArcane}{Arcane}} Do\+Fs mechanism. 
+
+Before using an instance of this class you need to call method \mbox{\hyperlink{classArcane_1_1FemUtils_1_1GaussDoFsOnCells_a24c9e9f42c1cea9564dc8e81b59b9248}{initialize()}}. 
+
+Definition at line 39 of file Gauss\+Do\+Fs\+On\+Cells.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Gauss\+Do\+Fs\+On\+Cells.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Gauss\+Do\+Fs\+On\+Cells.\+cc\end{DoxyCompactItemize}

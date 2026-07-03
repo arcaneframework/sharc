@@ -1,0 +1,59 @@
+\hypertarget{classIPatchGenerator}{}\doxysection{IPatch\+Generator Class Reference}
+\label{classIPatchGenerator}\index{IPatchGenerator@{IPatchGenerator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_afdb3afd280bc519b3af053a64f29476a}\label{classIPatchGenerator_afdb3afd280bc519b3af053a64f29476a}} 
+\mbox{\hyperlink{classIPatchGenerator_afdb3afd280bc519b3af053a64f29476a}{IPatch\+Generator}} ()
+\begin{DoxyCompactList}\small\item\em constructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPatchGenerator_a6b8be9725efca324e9db5c7a3f63f9a8}\label{classIPatchGenerator_a6b8be9725efca324e9db5c7a3f63f9a8}} 
+virtual \mbox{\hyperlink{classIPatchGenerator_a6b8be9725efca324e9db5c7a3f63f9a8}{$\sim$\+IPatch\+Generator}} ()
+\begin{DoxyCompactList}\small\item\em destructeur de la classe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPatchGenerator_a0980e9b3eb42e1bbb6eafd8fe36a5495}\label{classIPatchGenerator_a0980e9b3eb42e1bbb6eafd8fe36a5495}} 
+virtual Shared\+Array$<$ \mbox{\hyperlink{classPatch}{Patch}} $\ast$ $>$ {\bfseries Patches\+List} ()=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_a996909bb849add404f149c050679535e}\label{classIPatchGenerator_a996909bb849add404f149c050679535e}} 
+virtual void \mbox{\hyperlink{classIPatchGenerator_a996909bb849add404f149c050679535e}{init}} (ISub\+Domain $\ast$sd, IMesh $\ast$mesh, Integer\+Const\+Array\+View mesh\+\_\+limiters, Integer\+Const\+Array\+View axis\+\_\+cells\+\_\+nb)=0
+\begin{DoxyCompactList}\small\item\em initialisation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPatchGenerator_a22bb682cdff8784929f5c743efb92f7a}\label{classIPatchGenerator_a22bb682cdff8784929f5c743efb92f7a}} 
+virtual void {\bfseries settle\+Patch} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_abdf81120746e1513e33335f4b12d4da9}\label{classIPatchGenerator_abdf81120746e1513e33335f4b12d4da9}} 
+virtual bool {\bfseries check\+Patch} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch, Real\+Const\+Array\+View flagged\+\_\+cells\+\_\+ids)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_a442a5749088e6d3b0d6b3936db3c7e75}\label{classIPatchGenerator_a442a5749088e6d3b0d6b3936db3c7e75}} 
+virtual Real {\bfseries get\+Efficiency} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch, Real\+Const\+Array\+View flagged\+\_\+cells\+\_\+ids)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_a2b5ce8eb08054efc914b860ca2ba7e5d}\label{classIPatchGenerator_a2b5ce8eb08054efc914b860ca2ba7e5d}} 
+virtual Integer\+Shared\+Array {\bfseries compute\+Signature} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch, const Integer \&axis\+\_\+id, Real\+Const\+Array\+View flagged\+\_\+cells\+\_\+ids)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_ac81cb1ee9a1ac30dbbcb5fbe647072c6}\label{classIPatchGenerator_ac81cb1ee9a1ac30dbbcb5fbe647072c6}} 
+virtual void {\bfseries split\+Patch} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch, const Integer \&axis\+\_\+id, const Integer \&cut\+\_\+index, Shared\+Array$<$ \mbox{\hyperlink{classPatch}{Patch}} $\ast$ $>$ \&tmp\+\_\+patches\+\_\+list)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_acc522fe65938c8fbbd1bbb7174deaed3}\label{classIPatchGenerator_acc522fe65938c8fbbd1bbb7174deaed3}} 
+virtual bool {\bfseries find\+Hole} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch, const Integer \&axis\+\_\+id, Integer \&cut\+\_\+index, Real\+Const\+Array\+View flagged\+\_\+cells\+\_\+ids)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_ab30ba45703a908e4842f42ac5e0cb62a}\label{classIPatchGenerator_ab30ba45703a908e4842f42ac5e0cb62a}} 
+virtual bool {\bfseries find\+Inflection} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch, Integer \&axis\+\_\+id, Integer \&cut\+\_\+index, Real\+Const\+Array\+View flagged\+\_\+cells\+\_\+ids)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_a32b8ba0bb5dd713e1351de37ed34c8a0}\label{classIPatchGenerator_a32b8ba0bb5dd713e1351de37ed34c8a0}} 
+virtual bool {\bfseries test\+Efficiency} (\mbox{\hyperlink{classPatch}{Patch}} $\ast$patch, const Integer \&max\+\_\+length, const Integer \&axis\+\_\+id, Integer \&cut\+\_\+index, Real\+Const\+Array\+View flagged\+\_\+cells\+\_\+ids)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_a7fe4555b73240409c32b536668ec9669}\label{classIPatchGenerator_a7fe4555b73240409c32b536668ec9669}} 
+virtual void {\bfseries create\+Patches\+From\+Criteria} (Real\+Const\+Array\+View flagged\+\_\+cells\+\_\+ids)=0
+\item 
+\mbox{\Hypertarget{classIPatchGenerator_af9148b4c613ec614bb2d0d35d950850b}\label{classIPatchGenerator_af9148b4c613ec614bb2d0d35d950850b}} 
+virtual void {\bfseries compute\+Groups} (IItem\+Family $\ast$current\+\_\+family, IItem\+Family $\ast$new\+\_\+family)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 22 of file IPatch\+Generator.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Mesh/\+Patch\+Generator/IPatch\+Generator.\+h\end{DoxyCompactItemize}

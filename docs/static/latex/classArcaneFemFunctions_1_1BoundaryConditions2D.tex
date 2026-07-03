@@ -1,0 +1,293 @@
+\hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D}{}\doxysection{Arcane\+Fem\+Functions\+::Boundary\+Conditions2D Class Reference}
+\label{classArcaneFemFunctions_1_1BoundaryConditions2D}\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+
+
+Provides methods for applying boundary conditions in 3D FEM problems.  
+
+
+
+
+{\ttfamily \#include $<$Arcane\+Fem\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_af999a73fb5289a4246c479a98951719a}{apply\+Constant\+Source\+To\+Rhs}} (Real qdot, IMesh $\ast$mesh, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies a constant source term to the RHS vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_a1d27ec2354c37e4508f1d980eaef3f94}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_a1d27ec2354c37e4508f1d980eaef3f94}} 
+static void {\bfseries apply\+Constant\+Source\+To\+Rhs\+Quad4} (Real qdot, IMesh $\ast$mesh, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_adefb34784fbb703562d59e52e1e94f74}{integrate\+Nodal\+Field\+To\+Rhs\+Tria3}} (Variable\+Node\+Real \&field, IMesh $\ast$mesh, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies a nodal field to the RHS vector. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_a7f5516612c34f2e92c10f6bd2e6a8dd3}{integrate\+Nodal\+Field\+To\+Rhs\+Quad4}} (Variable\+Node\+Real \&field, IMesh $\ast$mesh, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies a nodal field to the RHS vector. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_a921bd154e309821e48804984b1d72786}{apply\+Manufactured\+Source\+To\+Rhs}} (IBinary\+Math\+Functor$<$ Real, \mbox{\hyperlink{structReal3}{Real3}}, Real $>$ $\ast$manufactured\+\_\+source, IMesh $\ast$mesh, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies a manufactured source term to the RHS vector. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_a2469d9cdc550e18002d0a33f470c4c2e}{apply\+Neumann\+To\+Rhs}} (\mbox{\hyperlink{classBC_1_1INeumannBoundaryCondition}{BC\+::\+INeumann\+Boundary\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies Neumann conditions to the right-\/hand side (RHS) values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_aa8fc8ff3df2da5f034ae4ed7dea9adc9}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_aa8fc8ff3df2da5f034ae4ed7dea9adc9}} 
+static void {\bfseries apply\+Neumann\+To\+Rhs\+Quad4} (\mbox{\hyperlink{classBC_1_1INeumannBoundaryCondition}{BC\+::\+INeumann\+Boundary\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_ac90625a16009dd606b532870d5492c1b}{apply\+Traction\+To\+Rhs\+Tria3}} (\mbox{\hyperlink{classBC_1_1ITractionBoundaryCondition}{BC\+::\+ITraction\+Boundary\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies traction conditions to the right-\/hand side (RHS) values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_aef85472cfdffec9b81da0c069dabb88f}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_aef85472cfdffec9b81da0c069dabb88f}} 
+static void {\bfseries apply\+Traction\+To\+Rhs\+Quad4} (\mbox{\hyperlink{classBC_1_1ITractionBoundaryCondition}{BC\+::\+ITraction\+Boundary\+Condition}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_a927b89ce46315021aeb1c9d68ce5b2ef}{apply\+Traction\+Table\+To\+Rhs\+Tria3}} (\mbox{\hyperlink{classBC_1_1ITractionBoundaryCondition}{BC\+::\+ITraction\+Boundary\+Condition}} $\ast$bs, const Real t, Int32 boundary\+\_\+condition\+\_\+index, const Unique\+Array$<$ \mbox{\hyperlink{structArcane_1_1FemUtils_1_1CaseTableInfo}{Arcane\+::\+Fem\+Utils\+::\+Case\+Table\+Info}} $>$ \&traction\+\_\+case\+\_\+table\+\_\+list, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies trasient traction conditions to the right-\/hand side (RHS) values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_a6eb991a9e1839af975733de15cc3866f}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_a6eb991a9e1839af975733de15cc3866f}} 
+static void {\bfseries apply\+Traction\+Table\+To\+Rhs\+Quad4} (\mbox{\hyperlink{classBC_1_1ITractionBoundaryCondition}{BC\+::\+ITraction\+Boundary\+Condition}} $\ast$bs, const Real t, Int32 boundary\+\_\+condition\+\_\+index, const Unique\+Array$<$ \mbox{\hyperlink{structArcane_1_1FemUtils_1_1CaseTableInfo}{Case\+Table\+Info}} $>$ \&traction\+\_\+case\+\_\+table\+\_\+list, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, Variable\+Do\+FReal \&rhs\+\_\+values)
+\item 
+static void \mbox{\hyperlink{classArcaneFemFunctions_1_1BoundaryConditions2D_af93bac84cf37940d0dc055a969bf27c6}{apply\+Manufactured\+Dirichlet\+To\+Lhs\+And\+Rhs}} (IBinary\+Math\+Functor$<$ Real, \mbox{\hyperlink{structReal3}{Real3}}, Real $>$ $\ast$manufactured\+\_\+dirichlet, Real, const Face\+Group \&group, \mbox{\hyperlink{classBC_1_1IManufacturedSolution}{BC\+::\+IManufactured\+Solution}} $\ast$bs, const Indexed\+Node\+Do\+FConnectivity\+View \&node\+\_\+dof, const Variable\+Node\+Real3 \&node\+\_\+coord, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&m\+\_\+linear\+\_\+system, Variable\+Do\+FReal \&rhs\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Applies Manufactured Dirichlet boundary conditions to RHS and LHS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for applying boundary conditions in 3D FEM problems. 
+
+This class includes static methods for applying Neumann boundary conditions to the right-\/hand side (RHS) of finite element method equations in 3D. 
+
+Definition at line 2281 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_af999a73fb5289a4246c479a98951719a}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_af999a73fb5289a4246c479a98951719a}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!applyConstantSourceToRhs@{applyConstantSourceToRhs}}
+\index{applyConstantSourceToRhs@{applyConstantSourceToRhs}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyConstantSourceToRhs()}{applyConstantSourceToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::apply\+Constant\+Source\+To\+Rhs (\begin{DoxyParamCaption}\item[{Real}]{qdot,  }\item[{IMesh $\ast$}]{mesh,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies a constant source term to the RHS vector. 
+
+This method adds a constant source term {\ttfamily qdot} to the RHS vector for each node in the mesh. The contribution to each node is weighted by the area of the cell and evenly distributed among the number of nodes of the cell.
+
+
+\begin{DoxyParams}{Parameters}
+{\em qdot} & The constant source term. \\
+\hline
+{\em mesh} & The mesh containing all cells. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the nodes. \\
+\hline
+{\em rhs\+\_\+values} & The RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2301 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_af93bac84cf37940d0dc055a969bf27c6}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_af93bac84cf37940d0dc055a969bf27c6}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!applyManufacturedDirichletToLhsAndRhs@{applyManufacturedDirichletToLhsAndRhs}}
+\index{applyManufacturedDirichletToLhsAndRhs@{applyManufacturedDirichletToLhsAndRhs}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyManufacturedDirichletToLhsAndRhs()}{applyManufacturedDirichletToLhsAndRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::apply\+Manufactured\+Dirichlet\+To\+Lhs\+And\+Rhs (\begin{DoxyParamCaption}\item[{IBinary\+Math\+Functor$<$ Real, \mbox{\hyperlink{structReal3}{Real3}}, Real $>$ $\ast$}]{manufactured\+\_\+dirichlet,  }\item[{Real}]{,  }\item[{const Face\+Group \&}]{group,  }\item[{\mbox{\hyperlink{classBC_1_1IManufacturedSolution}{BC\+::\+IManufactured\+Solution}} $\ast$}]{bs,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{m\+\_\+linear\+\_\+system,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies Manufactured Dirichlet boundary conditions to RHS and LHS. 
+
+Updates the LHS matrix and RHS vector to enforce the Dirichlet.
+
+
+\begin{DoxyItemize}
+\item For LHS matrix {\ttfamily 𝐀}, the diagonal term for the Dirichlet DOF is set to {\ttfamily 𝑃}.
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em manufactured\+\_\+dirichlet} & External function for Dirichlet. \\
+\hline
+{\em group} & Group of all external faces. \\
+\hline
+{\em bs} & Boundary condition values. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & Node coordinates. \\
+\hline
+{\em m\+\_\+linear\+\_\+system} & Linear system for LHS. \\
+\hline
+{\em rhs\+\_\+values} & RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2921 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_a921bd154e309821e48804984b1d72786}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_a921bd154e309821e48804984b1d72786}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!applyManufacturedSourceToRhs@{applyManufacturedSourceToRhs}}
+\index{applyManufacturedSourceToRhs@{applyManufacturedSourceToRhs}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyManufacturedSourceToRhs()}{applyManufacturedSourceToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::apply\+Manufactured\+Source\+To\+Rhs (\begin{DoxyParamCaption}\item[{IBinary\+Math\+Functor$<$ Real, \mbox{\hyperlink{structReal3}{Real3}}, Real $>$ $\ast$}]{manufactured\+\_\+source,  }\item[{IMesh $\ast$}]{mesh,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies a manufactured source term to the RHS vector. 
+
+This method adds a manufactured source term to the RHS vector for each node in the mesh. The contribution to each node is weighted by the area of the cell and evenly distributed among the nodes of the cell.
+
+
+\begin{DoxyParams}{Parameters}
+{\em qdot} & The constant source term. \\
+\hline
+{\em mesh} & The mesh containing all cells. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the nodes. \\
+\hline
+{\em rhs\+\_\+values} & The RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2532 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_a2469d9cdc550e18002d0a33f470c4c2e}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_a2469d9cdc550e18002d0a33f470c4c2e}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!applyNeumannToRhs@{applyNeumannToRhs}}
+\index{applyNeumannToRhs@{applyNeumannToRhs}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyNeumannToRhs()}{applyNeumannToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::apply\+Neumann\+To\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1INeumannBoundaryCondition}{BC\+::\+INeumann\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies Neumann conditions to the right-\/hand side (RHS) values. 
+
+This method updates the RHS values of the finite element method equations based on the provided Neumann boundary condition. The boundary condition can specify a value or its components along the x and y directions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & The Neumann boundary condition values. \\
+\hline
+{\em node\+\_\+dof} & Connectivity view for degrees of freedom at nodes. \\
+\hline
+{\em node\+\_\+coord} & Coordinates of the nodes in the mesh. \\
+\hline
+{\em rhs\+\_\+values} & The right-\/hand side values to be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2561 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_a927b89ce46315021aeb1c9d68ce5b2ef}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_a927b89ce46315021aeb1c9d68ce5b2ef}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!applyTractionTableToRhsTria3@{applyTractionTableToRhsTria3}}
+\index{applyTractionTableToRhsTria3@{applyTractionTableToRhsTria3}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyTractionTableToRhsTria3()}{applyTractionTableToRhsTria3()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::apply\+Traction\+Table\+To\+Rhs\+Tria3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1ITractionBoundaryCondition}{BC\+::\+ITraction\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const Real}]{t,  }\item[{Int32}]{boundary\+\_\+condition\+\_\+index,  }\item[{const Unique\+Array$<$ \mbox{\hyperlink{structArcane_1_1FemUtils_1_1CaseTableInfo}{Arcane\+::\+Fem\+Utils\+::\+Case\+Table\+Info}} $>$ \&}]{traction\+\_\+case\+\_\+table\+\_\+list,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies trasient traction conditions to the right-\/hand side (RHS) values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & The traction boundary condition values. \\
+\hline
+{\em t} & Time at which traction is applied. \\
+\hline
+{\em boundary\+\_\+condition\+\_\+index} & Boundary condition index iterator. \\
+\hline
+{\em traction\+\_\+case\+\_\+table\+\_\+list} & Traction case table list. \\
+\hline
+{\em node\+\_\+dof} & Connectivity view for dof at nodes. \\
+\hline
+{\em node\+\_\+coord} & Coordinates of the nodes in the mesh. \\
+\hline
+{\em rhs\+\_\+values} & The right-\/hand side values to be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2796 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_ac90625a16009dd606b532870d5492c1b}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_ac90625a16009dd606b532870d5492c1b}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!applyTractionToRhsTria3@{applyTractionToRhsTria3}}
+\index{applyTractionToRhsTria3@{applyTractionToRhsTria3}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{applyTractionToRhsTria3()}{applyTractionToRhsTria3()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::apply\+Traction\+To\+Rhs\+Tria3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1ITractionBoundaryCondition}{BC\+::\+ITraction\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies traction conditions to the right-\/hand side (RHS) values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & The traction boundary condition values. \\
+\hline
+{\em node\+\_\+dof} & Connectivity view for degrees of freedom at nodes. \\
+\hline
+{\em node\+\_\+coord} & Coordinates of the nodes in the mesh. \\
+\hline
+{\em rhs\+\_\+values} & The right-\/hand side values to be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2689 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_a7f5516612c34f2e92c10f6bd2e6a8dd3}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_a7f5516612c34f2e92c10f6bd2e6a8dd3}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!integrateNodalFieldToRhsQuad4@{integrateNodalFieldToRhsQuad4}}
+\index{integrateNodalFieldToRhsQuad4@{integrateNodalFieldToRhsQuad4}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{integrateNodalFieldToRhsQuad4()}{integrateNodalFieldToRhsQuad4()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::integrate\+Nodal\+Field\+To\+Rhs\+Quad4 (\begin{DoxyParamCaption}\item[{Variable\+Node\+Real \&}]{field,  }\item[{IMesh $\ast$}]{mesh,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies a nodal field to the RHS vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The field term defined on nodes. \\
+\hline
+{\em mesh} & The mesh containing all cells. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the nodes. \\
+\hline
+{\em rhs\+\_\+values} & The RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2451 of file Arcane\+Fem\+Functions.\+h.
+
+\mbox{\Hypertarget{classArcaneFemFunctions_1_1BoundaryConditions2D_adefb34784fbb703562d59e52e1e94f74}\label{classArcaneFemFunctions_1_1BoundaryConditions2D_adefb34784fbb703562d59e52e1e94f74}} 
+\index{ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}!integrateNodalFieldToRhsTria3@{integrateNodalFieldToRhsTria3}}
+\index{integrateNodalFieldToRhsTria3@{integrateNodalFieldToRhsTria3}!ArcaneFemFunctions::BoundaryConditions2D@{ArcaneFemFunctions::BoundaryConditions2D}}
+\doxysubsubsection{\texorpdfstring{integrateNodalFieldToRhsTria3()}{integrateNodalFieldToRhsTria3()}}
+{\footnotesize\ttfamily static void Arcane\+Fem\+Functions\+::\+Boundary\+Conditions2\+D\+::integrate\+Nodal\+Field\+To\+Rhs\+Tria3 (\begin{DoxyParamCaption}\item[{Variable\+Node\+Real \&}]{field,  }\item[{IMesh $\ast$}]{mesh,  }\item[{const Indexed\+Node\+Do\+FConnectivity\+View \&}]{node\+\_\+dof,  }\item[{const Variable\+Node\+Real3 \&}]{node\+\_\+coord,  }\item[{Variable\+Do\+FReal \&}]{rhs\+\_\+values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Applies a nodal field to the RHS vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The field term defined on nodes. \\
+\hline
+{\em mesh} & The mesh containing all cells. \\
+\hline
+{\em node\+\_\+dof} & DOF connectivity view. \\
+\hline
+{\em node\+\_\+coord} & The coordinates of the nodes. \\
+\hline
+{\em rhs\+\_\+values} & The RHS values to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2400 of file Arcane\+Fem\+Functions.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions.\+h\end{DoxyCompactItemize}

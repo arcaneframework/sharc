@@ -1,0 +1,168 @@
+\hypertarget{classParallel_1_1MCKernel}{}\doxysection{Parallel\+::MCKernel$<$ stdscheduler $>$ Class Template Reference}
+\label{classParallel_1_1MCKernel}\index{Parallel::MCKernel$<$ stdscheduler $>$@{Parallel::MCKernel$<$ stdscheduler $>$}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classParallel_1_1MCKernel_1_1AssertNullTask}{Assert\+Null\+Task}}
+\item 
+class \mbox{\hyperlink{classParallel_1_1MCKernel_1_1BaseOperator}{Base\+Operator}}
+\item 
+class \mbox{\hyperlink{classParallel_1_1MCKernel_1_1ExecException}{Exec\+Exception}}
+\item 
+class \mbox{\hyperlink{classParallel_1_1MCKernel_1_1Future}{Future}}
+\item 
+class \mbox{\hyperlink{classParallel_1_1MCKernel_1_1ItemTask}{Item\+Task}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a4b417ba6fa111130d20bb41d825e9976}\label{classParallel_1_1MCKernel_a4b417ba6fa111130d20bb41d825e9976}} 
+typedef Arcane\+::\+Item\+Vector\+View {\bfseries Vector\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aae8dd5ed3f327f5fa09aa565adf38cf2}\label{classParallel_1_1MCKernel_aae8dd5ed3f327f5fa09aa565adf38cf2}} 
+typedef Run\+Time\+System\+::\+Data\+Handler {\bfseries Data\+Handler\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aba204b75b9f0c37de5f5a322d5d1b132}\label{classParallel_1_1MCKernel_aba204b75b9f0c37de5f5a322d5d1b132}} 
+typedef Run\+Time\+System\+::\+Data\+Args$<$ Data\+Handler\+Type $>$ {\bfseries Data\+Args\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aec8932d7aad758d5617e9105710dc67e}\label{classParallel_1_1MCKernel_aec8932d7aad758d5617e9105710dc67e}} 
+typedef Run\+Time\+System\+::\+Std\+Driver {\bfseries STDDriver\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a5d761b2d718a87438ecc39a3a5bba65e}\label{classParallel_1_1MCKernel_a5d761b2d718a87438ecc39a3a5bba65e}} 
+typedef Run\+Time\+System\+::\+TBBDriver {\bfseries TBBDriver\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a95b77b357eca224c847ce025a4d6a198}\label{classParallel_1_1MCKernel_a95b77b357eca224c847ce025a4d6a198}} 
+typedef Run\+Time\+System\+::\+PThread\+Driver {\bfseries PTHDriver\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aff24fc74d9fa41d4931c1a8940af5f48}\label{classParallel_1_1MCKernel_aff24fc74d9fa41d4931c1a8940af5f48}} 
+typedef Run\+Time\+System\+::\+PTHDriverN {\bfseries BTHDriver\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a6ebb9339180dade5161d2d05f053b9f0}\label{classParallel_1_1MCKernel_a6ebb9339180dade5161d2d05f053b9f0}} 
+typedef Run\+Time\+System\+::\+Task\+Mng\+::\+Fork\+Join$<$ STDDriver\+Type $>$ {\bfseries STDFork\+Join\+Task\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a8c1529333065381a75e1f1404d0013cf}\label{classParallel_1_1MCKernel_a8c1529333065381a75e1f1404d0013cf}} 
+typedef Run\+Time\+System\+::\+Task\+Mng\+::\+Fork\+Join$<$ TBBDriver\+Type $>$ {\bfseries TBBFork\+Join\+Task\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a93d6e0b41d3e5648bd65bf247e03e169}\label{classParallel_1_1MCKernel_a93d6e0b41d3e5648bd65bf247e03e169}} 
+typedef Run\+Time\+System\+::\+Task\+Mng\+::\+Fork\+Join$<$ PTHDriver\+Type $>$ {\bfseries PTHFork\+Join\+Task\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_ab6aa4ec4e2948775f131136a1225f2ab}\label{classParallel_1_1MCKernel_ab6aa4ec4e2948775f131136a1225f2ab}} 
+typedef Run\+Time\+System\+::\+Task\+Mng\+::\+Fork\+Join$<$ BTHDriver\+Type $>$ {\bfseries BTHFork\+Join\+Task\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aef02919b33df96137902ff04470b583a}\label{classParallel_1_1MCKernel_aef02919b33df96137902ff04470b583a}} 
+typedef Run\+Time\+System\+::\+Data\+Mng {\bfseries Data\+Mng\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a7e46d3345446c9508ea184c8ce782f47}\label{classParallel_1_1MCKernel_a7e46d3345446c9508ea184c8ce782f47}} 
+typedef Arcane\+::\+ITrace\+Mng {\bfseries ITrace\+Mng}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a8151fabb8121e8fcae93efb545867901}\label{classParallel_1_1MCKernel_a8151fabb8121e8fcae93efb545867901}} 
+typedef Run\+Time\+System\+::\+Task\+Mng {\bfseries Task\+Mng\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a76d000a7435c8e3b87333d9b56864622}\label{classParallel_1_1MCKernel_a76d000a7435c8e3b87333d9b56864622}} 
+typedef Task\+Mng\+Type\+::\+Task\+List\+Type {\bfseries Task\+List\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a4398858389fbdc818fadc689a31cd06c}\label{classParallel_1_1MCKernel_a4398858389fbdc818fadc689a31cd06c}} 
+typedef Task\+Mng\+Type\+::\+Task\+Ptr\+Type {\bfseries Task\+Ptr\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_abd13d59a85a8c07be8a0319f872e8b1e}\label{classParallel_1_1MCKernel_abd13d59a85a8c07be8a0319f872e8b1e}} 
+typedef Task\+Mng\+Type\+::\+Queue\+Type {\bfseries Queue\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aad1bee203ae6aafe09c63f5732bb66d5}\label{classParallel_1_1MCKernel_aad1bee203ae6aafe09c63f5732bb66d5}} 
+typedef Run\+Time\+System\+::\+Task\+Mng\+::\+ITask\+::uid\+\_\+type {\bfseries Task\+Uid\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aff2d33ebc96de53351eab51e9c78f01c}\label{classParallel_1_1MCKernel_aff2d33ebc96de53351eab51e9c78f01c}} 
+typedef Task\+Mng\+Type\+::\+DAGType {\bfseries DAGType}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a4f1f04fb3b5683be59a4ae3d41bfdbd2}\label{classParallel_1_1MCKernel_a4f1f04fb3b5683be59a4ae3d41bfdbd2}} 
+typedef std\+::vector$<$ Task\+Uid\+Type $>$ {\bfseries DAGInfo\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aa74565ab719ffde7c71c418e3187649a}\label{classParallel_1_1MCKernel_aa74565ab719ffde7c71c418e3187649a}} 
+typedef std\+::size\+\_\+t {\bfseries Seq\+Uid\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a0a2093c5af8067a287c6be3985d1fe42}\label{classParallel_1_1MCKernel_a0a2093c5af8067a287c6be3985d1fe42}} 
+typedef Run\+Time\+System\+::\+Thread\+Env {\bfseries Thread\+Env\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_affff5f146b4e288b8d7c7d1cab040a0c}\label{classParallel_1_1MCKernel_affff5f146b4e288b8d7c7d1cab040a0c}} 
+typedef PTHDriver\+Type {\bfseries Fork\+Join\+Driver\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a88029e8869b8813e9fe3680ccfe2a457}\label{classParallel_1_1MCKernel_a88029e8869b8813e9fe3680ccfe2a457}} 
+typedef PTHFork\+Join\+Task\+Type {\bfseries Fork\+Join\+Task\+Type}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a1abaa730f63d90d95ba647e52753c869}\label{classParallel_1_1MCKernel_a1abaa730f63d90d95ba647e52753c869}} 
+typedef Run\+Time\+System\+::\+PTHScheduler {\bfseries Par\+Scheduler\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aa18792ae720608da5b8d5762dbb403a1}\label{classParallel_1_1MCKernel_aa18792ae720608da5b8d5762dbb403a1}} 
+{\bfseries MCKernel} (Thread\+Env\+Type $\ast$thread\+\_\+env)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a46ab1c011c7339a152d6346a380b87ae}\label{classParallel_1_1MCKernel_a46ab1c011c7339a152d6346a380b87ae}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries free} (std\+::vector$<$ T $>$ \&v)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_ac9a142d20ac9069c977c48ae468d16d8}\label{classParallel_1_1MCKernel_ac9a142d20ac9069c977c48ae468d16d8}} 
+Task\+Mng\+Type \& {\bfseries get\+Task\+Mng} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a1353b6b79fcf111968f4261e90d96aff}\label{classParallel_1_1MCKernel_a1353b6b79fcf111968f4261e90d96aff}} 
+Data\+Mng\+Type \& {\bfseries get\+Data\+Mng} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_af6a342678362e8db6e636c29039cc369}\label{classParallel_1_1MCKernel_af6a342678362e8db6e636c29039cc369}} 
+Fork\+Join\+Driver\+Type $\ast$ {\bfseries get\+Fork\+Join\+Driver} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a751f6e42503e0f9862a9333cacc28dc0}\label{classParallel_1_1MCKernel_a751f6e42503e0f9862a9333cacc28dc0}} 
+void {\bfseries start} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a85b2ee53e8978a1882ac2d1a947c4e2d}\label{classParallel_1_1MCKernel_a85b2ee53e8978a1882ac2d1a947c4e2d}} 
+void {\bfseries start} (DAGType \&dag)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a2f67a11e443c431a67873796bb8919cf}\label{classParallel_1_1MCKernel_a2f67a11e443c431a67873796bb8919cf}} 
+void {\bfseries process} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a7d2057cf40ece2cacc98e77dc7b9afd2}\label{classParallel_1_1MCKernel_a7d2057cf40ece2cacc98e77dc7b9afd2}} 
+{\footnotesize template$<$typename SchedulerT $>$ }\\void {\bfseries process} (SchedulerT \&scheduler)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aea643dd9371ab3f0f2def042eeb7211d}\label{classParallel_1_1MCKernel_aea643dd9371ab3f0f2def042eeb7211d}} 
+{\footnotesize template$<$typename PartitionT , typename InstanceT , typename ItemT $>$ }\\void \mbox{\hyperlink{classParallel_1_1MCKernel_aea643dd9371ab3f0f2def042eeb7211d}{Foreach}} (const Item\+GroupT$<$ \mbox{\hyperlink{classItemT}{ItemT}} $>$ \&group, PartitionT $\ast$partition, InstanceT $\ast$instance, void(Instance\+T\+::$\ast$function)(Item\+Vector\+ViewT$<$ \mbox{\hyperlink{classItemT}{ItemT}} $>$ items))
+\begin{DoxyCompactList}\small\item\em Applique en concurrence la m{\ucr}thode {\itshape function} de l\textquotesingle{}instance {\itshape instance} sur le groupe {\itshape items}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a14b781dc1e6972b63c83d71f0e2480a9}\label{classParallel_1_1MCKernel_a14b781dc1e6972b63c83d71f0e2480a9}} 
+void {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_aaada8d2ea79768449be86374442dab22}\label{classParallel_1_1MCKernel_aaada8d2ea79768449be86374442dab22}} 
+void {\bfseries print\+Perf\+Info} ()
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a4bbcdc689ee97902921dbe337f24751a}\label{classParallel_1_1MCKernel_a4bbcdc689ee97902921dbe337f24751a}} 
+{\footnotesize template$<$typename OpT $>$ }\\void {\bfseries \+\_\+print\+Perf\+Info} (std\+::vector$<$ OpT $\ast$ $>$ const \&ops)
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a9df0c14b5743c55f0a9f61b9d8b96486}\label{classParallel_1_1MCKernel_a9df0c14b5743c55f0a9f61b9d8b96486}} 
+ITrace\+Mng const  $\ast$ {\bfseries get\+Trace\+Mng} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a7935cf5d8097b69b7e770c480b2214eb}\label{classParallel_1_1MCKernel_a7935cf5d8097b69b7e770c480b2214eb}} 
+static Run\+Time\+System\+::\+Task\+Mng\+::\+ITask\+::uid\+\_\+type {\bfseries null\+Task\+Uid} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_ac111142195e319d5cc8e18c171229a82}\label{classParallel_1_1MCKernel_ac111142195e319d5cc8e18c171229a82}} 
+static bool const {\bfseries sequential} = stdscheduler
+\item 
+\mbox{\Hypertarget{classParallel_1_1MCKernel_a7074ca405b1556015d6c2d515132eb76}\label{classParallel_1_1MCKernel_a7074ca405b1556015d6c2d515132eb76}} 
+static int const {\bfseries null\+Seq\+Uid} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$bool stdscheduler = false$>$\newline
+class Parallel\+::\+MCKernel$<$ stdscheduler $>$}
+
+
+
+Definition at line 17 of file MCKernel.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/\+Run\+Time\+System/MCKernel.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,45 @@
+\hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2Expr_8h}{}\doxysection{/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Numerics/\+Expressions/\+Function\+Parser/\+Functor\+Utils/\+Utils/\+Expr.h File Reference}
+\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2Expr_8h}\index{/work/gratienj/Projets/2026/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Expressions/FunctionParser/FunctorUtils/Utils/Expr.h@{/work/gratienj/Projets/2026/sharc/common/ArcGeoSim/src/ArcGeoSim/Numerics/Expressions/FunctionParser/FunctorUtils/Utils/Expr.h}}
+
+
+Manipulation des expressions.  
+
+
+{\ttfamily \#include \char`\"{}../../rdtsc.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classIExpr}{IExpr$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classExpr}{Expr$<$ L, OP, R $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classExpr}{Expr}} \+: Manipulation des expressions. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classExprG}{Expr\+G$<$ L, OP, R $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classExprG}{ExprG}} \+: Manipulation des expressions quand l\textquotesingle{}operande de gauche est un scalaire. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classExprD}{Expr\+D$<$ L, OP, R $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classExprD}{ExprD}} \+: Manipulation des expressions quand l\textquotesingle{}operande de droite est un scalaire. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classIExprProxy}{IExpr\+Proxy$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2Expr_8h_a2bda5a5fad360c3b45c8ff44d5675b8e}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2Expr_8h_a2bda5a5fad360c3b45c8ff44d5675b8e}} 
+\#define {\bfseries maxx}(A,  B)~((A)$>$(B)?(A)\+:(B))
+\item 
+\mbox{\Hypertarget{Expressions_2FunctionParser_2FunctorUtils_2Utils_2Expr_8h_afb95a3efa92e78fcaa944a04521eb0ad}\label{Expressions_2FunctionParser_2FunctorUtils_2Utils_2Expr_8h_afb95a3efa92e78fcaa944a04521eb0ad}} 
+\#define {\bfseries minn}(A,  B)~((A)$<$(B)?(A)\+:(B))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manipulation des expressions. 
+
+\begin{DoxyDate}{Date}
+01/04/2008 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Xavier TUNC
+\end{DoxyAuthor}
+Definition de trois types generiques pour encapsuler toutes les operations. ~\newline
+La classe \mbox{\hyperlink{classExpr}{Expr}} est la classe \char`\"{}normale\char`\"{}, elle reference les operandes ainsi que les operations. ~\newline
+La classe \mbox{\hyperlink{classExprG}{ExprG}} sert dans le cas ou l\textquotesingle{}operande de gauche est un scalaire \+: elle copie l\textquotesingle{}operande de gauche et reference l\textquotesingle{}operande de droite. ~\newline
+La classe \mbox{\hyperlink{classExprD}{ExprD}} est le pendant de la classe \mbox{\hyperlink{classExprG}{ExprG}} mais a droite. Elle copie l\textquotesingle{}operande de droite, cette derniere etant un scalaire, et reference l\textquotesingle{}operande de gauche. ~\newline

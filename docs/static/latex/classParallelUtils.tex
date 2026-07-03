@@ -1,0 +1,58 @@
+\hypertarget{classParallelUtils}{}\doxysection{Parallel\+Utils Class Reference}
+\label{classParallelUtils}\index{ParallelUtils@{ParallelUtils}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classParallelUtils_af7e6465beb786a23cec5e850c6919006}{Parallel\+Utils}} (Arcane\+::\+IParallel\+Mng $\ast$parallel\+\_\+mng)
+\begin{DoxyCompactList}\small\item\em Classe d\textquotesingle{}outils pour le parallelisme complementaires des outils arcane. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classParallelUtils_a56d1f076d5b144e05ac8646df92b50e1}\label{classParallelUtils_a56d1f076d5b144e05ac8646df92b50e1}} 
+virtual \mbox{\hyperlink{classParallelUtils_a56d1f076d5b144e05ac8646df92b50e1}{$\sim$\+Parallel\+Utils}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classParallelUtils_afb7d90f57c165708dc85fc83f5393563}\label{classParallelUtils_afb7d90f57c165708dc85fc83f5393563}} 
+Arcane\+::\+IParallel\+Mng $\ast$ {\bfseries parallel\+Mng} ()
+\item 
+\mbox{\Hypertarget{classParallelUtils_ac3a3e62e0b148a89612e503993fc38cf}\label{classParallelUtils_ac3a3e62e0b148a89612e503993fc38cf}} 
+bool \mbox{\hyperlink{classParallelUtils_ac3a3e62e0b148a89612e503993fc38cf}{collective\+Or}} (const bool value)
+\begin{DoxyCompactList}\small\item\em Operateur logique Ou parallele. Renseigne si la valeur du booleen est vrai sur au moins un processus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classParallelUtils_a01a674c1fd242a52f2f8c80260bb94d5}\label{classParallelUtils_a01a674c1fd242a52f2f8c80260bb94d5}} 
+bool \mbox{\hyperlink{classParallelUtils_a01a674c1fd242a52f2f8c80260bb94d5}{collective\+Order}} (const bool value, const Arcane\+::\+Integer master)
+\begin{DoxyCompactList}\small\item\em Operation de broadcast du booleen {\itshape value}. Renvoie sur tous les processus la valeur prise par {\itshape value} sur le maitre. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classParallelUtils_abe2f79f4764e2c40c586fa0448e0f720}\label{classParallelUtils_abe2f79f4764e2c40c586fa0448e0f720}} 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classParallelUtils_abe2f79f4764e2c40c586fa0448e0f720}{multi\+Broadcast}} (Arcane\+::\+Array$<$ T $>$ \&v, const Arcane\+::\+Integer master\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Operation de broadcast \+: la methode decoupe {\itshape v} en tableau de 1000 octets. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classParallelUtils_adbd1d20f08b57b0793fd91eddc03d972}\label{classParallelUtils_adbd1d20f08b57b0793fd91eddc03d972}} 
+Arcane\+::\+Integer \mbox{\hyperlink{classParallelUtils_adbd1d20f08b57b0793fd91eddc03d972}{master\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Rang du processur maitre en lecture. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classParallelUtils_a7a1be031b31f9230470e36372c5340f1}\label{classParallelUtils_a7a1be031b31f9230470e36372c5340f1}} 
+bool \mbox{\hyperlink{classParallelUtils_a7a1be031b31f9230470e36372c5340f1}{is\+Master}} ()
+\begin{DoxyCompactList}\small\item\em Bouleen indiquant le processus maitre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 25 of file Parallel\+Utils.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classParallelUtils_af7e6465beb786a23cec5e850c6919006}\label{classParallelUtils_af7e6465beb786a23cec5e850c6919006}} 
+\index{ParallelUtils@{ParallelUtils}!ParallelUtils@{ParallelUtils}}
+\index{ParallelUtils@{ParallelUtils}!ParallelUtils@{ParallelUtils}}
+\doxysubsubsection{\texorpdfstring{ParallelUtils()}{ParallelUtils()}}
+{\footnotesize\ttfamily Parallel\+Utils\+::\+Parallel\+Utils (\begin{DoxyParamCaption}\item[{Arcane\+::\+IParallel\+Mng $\ast$}]{parallel\+\_\+mng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Classe d\textquotesingle{}outils pour le parallelisme complementaires des outils arcane. 
+
+Constructeur de la classe 
+
+Definition at line 33 of file Parallel\+Utils.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Parallel\+Utils.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/common/\+Arc\+Geo\+Sim/src/\+Arc\+Geo\+Sim/\+Utils/Parallel\+Utils.\+cc\end{DoxyCompactItemize}

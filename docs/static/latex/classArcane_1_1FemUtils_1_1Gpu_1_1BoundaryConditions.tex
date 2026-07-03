@@ -1,0 +1,87 @@
+\hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions}{}\doxysection{Arcane\+::Fem\+Utils\+::Gpu\+::Boundary\+Conditions Class Reference}
+\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions}\index{Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_ad34d6724765c7d82e23615449f617cb4}{apply\+Dirichlet\+To\+Lhs\+And\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$bs, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, IMesh $\ast$mesh, Accelerator\+::\+Run\+Queue $\ast$queue)
+\begin{DoxyCompactList}\small\item\em Applies Dirichlet boundary conditions to RHS and LHS. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a67eda03119c334c2d6d444a9e0a2bbcc}{apply\+Point\+Dirichlet\+To\+Lhs\+And\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$bs, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, IMesh $\ast$mesh, Run\+Queue $\ast$queue)
+\begin{DoxyCompactList}\small\item\em Applies Point Dirichlet boundary conditions to RHS and LHS. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a6458f487f02367f604a854c1d9129ffd}{apply\+Dirichlet\+To\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$bs, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, IMesh $\ast$mesh, Accelerator\+::\+Run\+Queue $\ast$queue)
+\begin{DoxyCompactList}\small\item\em Applies Dirichlet boundary conditions to RHS. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a60697a7257badf745f15aa215c929166}{apply\+Point\+Dirichlet\+To\+Rhs}} (\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$bs, const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&dofs\+\_\+on\+\_\+nodes, \mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&linear\+\_\+system, IMesh $\ast$mesh, Accelerator\+::\+Run\+Queue $\ast$queue)
+\begin{DoxyCompactList}\small\item\em Applies Point Dirichlet boundary conditions to RHS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 701 of file Arcane\+Fem\+Functions\+Gpu.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_ad34d6724765c7d82e23615449f617cb4}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_ad34d6724765c7d82e23615449f617cb4}} 
+\index{Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}!applyDirichletToLhsAndRhs@{applyDirichletToLhsAndRhs}}
+\index{applyDirichletToLhsAndRhs@{applyDirichletToLhsAndRhs}!Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyDirichletToLhsAndRhs()}{applyDirichletToLhsAndRhs()}}
+{\footnotesize\ttfamily static void Arcane\+::\+Fem\+Utils\+::\+Gpu\+::\+Boundary\+Conditions\+::apply\+Dirichlet\+To\+Lhs\+And\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&}]{dofs\+\_\+on\+\_\+nodes,  }\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{linear\+\_\+system,  }\item[{IMesh $\ast$}]{mesh,  }\item[{Accelerator\+::\+Run\+Queue $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies Dirichlet boundary conditions to RHS and LHS. 
+
+
+\begin{DoxyItemize}
+\item For LHS matrix {\ttfamily 𝐀}, the diagonal term for the Dirichlet DOF is set to {\ttfamily 𝑃}.
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}. 
+\end{DoxyItemize}\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a6458f487f02367f604a854c1d9129ffd}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a6458f487f02367f604a854c1d9129ffd}} 
+\index{Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}!applyDirichletToRhs@{applyDirichletToRhs}}
+\index{applyDirichletToRhs@{applyDirichletToRhs}!Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyDirichletToRhs()}{applyDirichletToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+::\+Fem\+Utils\+::\+Gpu\+::\+Boundary\+Conditions\+::apply\+Dirichlet\+To\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletBoundaryCondition}{BC\+::\+IDirichlet\+Boundary\+Condition}} $\ast$}]{bs,  }\item[{const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&}]{dofs\+\_\+on\+\_\+nodes,  }\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{linear\+\_\+system,  }\item[{IMesh $\ast$}]{mesh,  }\item[{Accelerator\+::\+Run\+Queue $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies Dirichlet boundary conditions to RHS. 
+
+
+\begin{DoxyItemize}
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}. 
+\end{DoxyItemize}\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a67eda03119c334c2d6d444a9e0a2bbcc}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a67eda03119c334c2d6d444a9e0a2bbcc}} 
+\index{Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}!applyPointDirichletToLhsAndRhs@{applyPointDirichletToLhsAndRhs}}
+\index{applyPointDirichletToLhsAndRhs@{applyPointDirichletToLhsAndRhs}!Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyPointDirichletToLhsAndRhs()}{applyPointDirichletToLhsAndRhs()}}
+{\footnotesize\ttfamily void Arcane\+::\+Fem\+Utils\+::\+Gpu\+::\+Boundary\+Conditions\+::apply\+Point\+Dirichlet\+To\+Lhs\+And\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$}]{bs,  }\item[{const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&}]{dofs\+\_\+on\+\_\+nodes,  }\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{linear\+\_\+system,  }\item[{IMesh $\ast$}]{mesh,  }\item[{Run\+Queue $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies Point Dirichlet boundary conditions to RHS and LHS. 
+
+
+\begin{DoxyItemize}
+\item For LHS matrix {\ttfamily 𝐀}, the diagonal term for the Dirichlet DOF is set to {\ttfamily 𝑃}.
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}. 
+\end{DoxyItemize}
+
+Definition at line 157 of file Arcane\+Fem\+Functions\+Gpu.\+cc.
+
+\mbox{\Hypertarget{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a60697a7257badf745f15aa215c929166}\label{classArcane_1_1FemUtils_1_1Gpu_1_1BoundaryConditions_a60697a7257badf745f15aa215c929166}} 
+\index{Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}!applyPointDirichletToRhs@{applyPointDirichletToRhs}}
+\index{applyPointDirichletToRhs@{applyPointDirichletToRhs}!Arcane::FemUtils::Gpu::BoundaryConditions@{Arcane::FemUtils::Gpu::BoundaryConditions}}
+\doxysubsubsection{\texorpdfstring{applyPointDirichletToRhs()}{applyPointDirichletToRhs()}}
+{\footnotesize\ttfamily static void Arcane\+::\+Fem\+Utils\+::\+Gpu\+::\+Boundary\+Conditions\+::apply\+Point\+Dirichlet\+To\+Rhs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBC_1_1IDirichletPointCondition}{BC\+::\+IDirichlet\+Point\+Condition}} $\ast$}]{bs,  }\item[{const \mbox{\hyperlink{classArcane_1_1FemUtils_1_1FemDoFsOnNodes}{Fem\+Do\+Fs\+On\+Nodes}} \&}]{dofs\+\_\+on\+\_\+nodes,  }\item[{\mbox{\hyperlink{classArcane_1_1FemUtils_1_1DoFLinearSystem}{Do\+FLinear\+System}} \&}]{linear\+\_\+system,  }\item[{IMesh $\ast$}]{mesh,  }\item[{Accelerator\+::\+Run\+Queue $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies Point Dirichlet boundary conditions to RHS. 
+
+
+\begin{DoxyItemize}
+\item For RHS vector {\ttfamily 𝐛}, the Dirichlet DOF term is scaled by {\ttfamily 𝑃}. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions\+Gpu.\+h\item 
+/work/gratienj/\+Projets/2026/sharc/src/\+CAWF/\+FEMUtils/Arcane\+Fem\+Functions\+Gpu.\+cc\end{DoxyCompactItemize}

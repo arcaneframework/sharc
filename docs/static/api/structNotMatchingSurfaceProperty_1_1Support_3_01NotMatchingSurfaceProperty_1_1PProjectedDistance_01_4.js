@@ -1,0 +1,4 @@
+var structNotMatchingSurfaceProperty_1_1Support_3_01NotMatchingSurfaceProperty_1_1PProjectedDistance_01_4 =
+[
+    [ "type", "structNotMatchingSurfaceProperty_1_1Support_3_01NotMatchingSurfaceProperty_1_1PProjectedDistance_01_4.html#a9c296871995ca7ba3cd042fbc417f395", null ]
+];

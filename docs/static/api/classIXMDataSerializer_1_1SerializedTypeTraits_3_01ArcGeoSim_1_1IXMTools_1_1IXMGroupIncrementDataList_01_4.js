@@ -1,0 +1,4 @@
+var classIXMDataSerializer_1_1SerializedTypeTraits_3_01ArcGeoSim_1_1IXMTools_1_1IXMGroupIncrementDataList_01_4 =
+[
+    [ "IXMDataType", "classIXMDataSerializer_1_1SerializedTypeTraits_3_01ArcGeoSim_1_1IXMTools_1_1IXMGroupIncrementDataList_01_4.html#a6f4c7be299684c5bed1be002e8caa1bf", null ]
+];
