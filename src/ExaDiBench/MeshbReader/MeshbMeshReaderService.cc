@@ -57,6 +57,26 @@
 
 using namespace Arcane;
 
+// Add every elements from a specific types (tetra, hexa, ...) to cells_infos.
+template <typename ElementT>
+Integer appendBlockElements(
+    const ElementT& elts,
+    Int64 arcane_type,
+    Integer nb_nodes_per_elt,
+    SharedArray<Int64>& cells_infos,
+    Integer uid_offset)
+{
+  Integer nb = elts.nbr();
+  cells_infos.reserve(cells_infos.size() + nb * (nb_nodes_per_elt + 2));
+  for (Integer i = 0; i < nb; ++i) {
+    cells_infos.add(arcane_type);
+    cells_infos.add(uid_offset + i);
+    for (Integer j = 0; j < nb_nodes_per_elt; ++j)
+      cells_infos.add(elts.con()[i + 1][j]);
+  }
+  return nb;
+}
+
 class MeshbMeshReader
 : public BasicService
 , public IMeshReader
@@ -91,74 +111,188 @@ readMeshFromFile(IPrimaryMesh* mesh,
                  const String& dir_name,
                  bool use_internal_partition)
 {
+
   Arcane::Trace::Setter setter(traceMng(),"IXMMeshReader");
+ 
+  using metis_t = Ouranos::Mesh::Partitioning::Metis;
+  
 
-  info() << "=== READING Meshb MESH ===";
+  Integer sid = subDomain()->subDomainId();
+  IParallelMng* pm = subDomain()->parallelMng();
+  auto pcom = pm->communicator();
+  MPI_Comm mpi_com = (pcom.isValid())  ? static_cast<const MPI_Comm>(pcom) : MPI_COMM_WORLD;
+  
+  bool master = sid == 0 ;
+  
+  if (use_internal_partition)
+  {
+      Integer nb_cells = 0;
+      Integer dim = 0;
+      SharedArray<Int64> cells_infos;
+      SharedArray<Real3> node_coords_master;
 
-  info () << "Testing ouranos linking " << Ouranos::Kernel::version();
-  auto rns = std::make_shared<Ouranos::Kernel::Ouranos>();
-  Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
-  msh.read(file_name.localstr());
+      if (master)
+      {
+          info() << "=== READING Meshb MESH ===";
+          info() << "Testing ouranos linking " << Ouranos::Kernel::version();
+          MPI_Comm seq_com = MPI_COMM_SELF;
+          Ouranos::Kernel::MPI::Com com(seq_com);
+          auto rns = std::make_shared<Ouranos::Kernel::Ouranos>(com);
+          dim = Ouranos::Mesh::read_mesh_dimension(rns, file_name.localstr());
+          info() << "Mesh dimension : " << dim;
 
-  const auto& vertices = msh.ver();
-  Integer nb_nodes = vertices.nbr();
+          if (dim == 3)
+          {
+              Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
+              msh.read(file_name.localstr());
 
-  info() << "Ouranos version: " << Ouranos::Kernel::version();
-  info() << "Mesh read: " << nb_nodes << " nodes, "
-         << msh.tet().nbr() << " tetrahedra " ;
+              const auto& vertices = msh.ver();
+              Integer nb_nodes = vertices.nbr();
+              info() << "Mesh read: " << nb_nodes << " nodes";
 
-  // Arcane mesh
-  mesh->setDimension(3);
+              Integer uid_offset = 0;
+              Integer nb_tets = appendBlockElements(msh.tet(), IT_Tetraedron4, 4, cells_infos, uid_offset);
+              uid_offset += nb_tets;
+              Integer nb_hex = appendBlockElements(msh.hex(), IT_Hexaedron8, 8, cells_infos, uid_offset);
+              uid_offset += nb_hex;
+              nb_cells = uid_offset;
+              info() << "Mesh read: " << nb_tets << " tetrahedra, " << nb_hex << " hexahedra";
 
-  // Get tetras
-  const auto& tets = msh.tet();
-  Integer nb_tets = tets.nbr();
+              const auto& coords = vertices.crd();
+              node_coords_master.resize(nb_nodes + 1);
+              for (Integer i = 1; i <= nb_nodes; ++i)
+                  node_coords_master[i] = Real3(coords[i][0], coords[i][1], coords[i][2]);
+          }
+          else if (dim == 2)
+          {
+              Ouranos::Mesh::Mesh<2, Ouranos::Kernel::Block> msh(rns);
+              msh.read(file_name.localstr());
 
-  // Build cells_infos array
-  SharedArray<Int64> cells_infos;
-  cells_infos.reserve(nb_tets * 6);
+              const auto& vertices = msh.ver();
+              Integer nb_nodes = vertices.nbr();
+              info() << "Mesh read: " << nb_nodes << " nodes";
 
-  // Adding tetra
-  for (Integer i = 0; i < nb_tets; ++i) {
-      cells_infos.add(IT_Tetraedron4);
-      cells_infos.add(i);
-      for (Integer j = 0; j < 4; ++j) {
-          cells_infos.add(tets.con()[i + 1][j]);
+              Integer uid_offset = 0;
+              Integer nb_tri = appendBlockElements(msh.tri(), IT_Triangle3, 3, cells_infos, uid_offset);
+              uid_offset += nb_tri;
+              nb_cells = uid_offset;
+              info() << "Mesh read: " << nb_tri << " triangles";
+
+              const auto& coords = vertices.crd();
+              node_coords_master.resize(nb_nodes + 1);
+              for (Integer i = 1; i <= nb_nodes; ++i)
+                  node_coords_master[i] = Real3(coords[i][0], coords[i][1], 0.0);
+          }
+          else
+          {
+              fatal() << "Dimension " << dim << " not supported by Ouranos";
+          }
       }
-   }
 
+      pm->broadcast(ArrayView<Integer>(1, &dim), 0);
 
-  // Allocate cells
-  mesh->allocateCells(nb_tets, cells_infos, false);
-  mesh->endAllocate();
+      mesh->setDimension(dim);
+      mesh->allocateCells(nb_cells, cells_infos, false);
+      mesh->endAllocate();
 
-  info() << "Arcane mesh created: " << mesh->nbNode() << " nodes, "
-         << mesh->nbCell() << " cells";
-
-  // Assign coords to nodes
-  const auto& coords = vertices.crd();
-  VariableNodeReal3& nodes_coord = mesh->nodesCoordinates();
-
-  ENUMERATE_NODE (inode, mesh->allNodes()) {
-      const Node& node = *inode;
-      Int64 uid = node.uniqueId().asInt64();
-      rns_real_t x = coords[uid][0];
-      rns_real_t y = coords[uid][1];
-      rns_real_t z = coords[uid][2];
-      nodes_coord[inode] = Real3(x, y, z);
+      {
+          VariableNodeReal3& nodes_coord = mesh->nodesCoordinates();
+          ENUMERATE_NODE (inode, mesh->allNodes()) {
+              const Node& node = *inode;
+              Int64 uid = node.uniqueId().asInt64();
+              nodes_coord[inode] = node_coords_master[uid];
+          }
+      }
   }
+else
+{
+  // Every mpi process reads the mesh -> Ouranos read the mesh and partition all the data 
+  //Collective routine
+  info() << "Ouranos versions: " << Ouranos::Kernel::version();
 
-// Mesh into vtk for debug
-IMeshWriter* writer = Arcane::ServiceBuilder<IMeshWriter>::createInstance(
-    mesh->subDomain(), "VtkLegacyMeshWriter"
-);
-if (writer) {
-    writer->writeMeshToFile(mesh, file_name + ".vtk");
-    info() << "Mesh saved to " << file_name << ".vtk";
-} else {
-    info() << "Writer not found";
+  Ouranos::Kernel::MPI::Com com(mpi_com);
+  auto rns = std::make_shared<Ouranos::Kernel::Ouranos>(com);
+  int dim = Ouranos::Mesh::read_mesh_dimension(rns,file_name.localstr()) ;
+
+  switch(dim)
+  {
+    case 3:
+    {
+      Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
+      msh.read(file_name.localstr());
+      int nb_ghost_layer = 0 ; 
+      auto part_mesh = msh.to_part<metis_t>(nb_ghost_layer) ; 
+
+      auto& vertices = part_mesh.ver();
+      Integer nb_nodes = vertices.nbr();
+
+      info() << "Ouranos version: " << Ouranos::Kernel::version();
+      info() << "Mesh read: " << nb_nodes << " nodes, "
+            << part_mesh.tet().nbr() << " tetrahedra " ;
+
+      // Arcane mesh
+      mesh->setDimension(3);
+
+      // Get tetras
+      auto& tets = part_mesh.tet();
+      Integer nb_tets = tets.nbr();
+
+      //info() << "nb_tets local (with duplicated) = " << nb_tets;
+
+      auto vertex_part = vertices.location();
+      const auto& tet_gids = tets.location()->gid();
+
+      SharedArray<Int64> cells_infos;
+      cells_infos.reserve(nb_tets * 6);
+
+      for (Integer i = 0; i < nb_tets; ++i) {
+          cells_infos.add(IT_Tetraedron4);
+          cells_infos.add(tet_gids[i]);
+          for (Integer j = 0; j < 4; ++j) {
+              rns_int_t lid = tets.con()(i + 1)[j];
+              rns_int_t node_gid = vertex_part->lid_to_gid(lid);
+              cells_infos.add(node_gid);
+          }
+      }
+
+      mesh->setDimension(3);
+      mesh->allocateCells(nb_tets, cells_infos, false);
+      mesh->endAllocate();
+
+      auto& coords = vertices.crd();
+      VariableNodeReal3& nodes_coord = mesh->nodesCoordinates();
+
+      ENUMERATE_NODE (inode, mesh->allNodes()) {
+          const Node& node = *inode;
+          Int64 uid = node.uniqueId().asInt64();
+          nodes_coord[inode] = Real3(coords[uid][0], coords[uid][1], coords[uid][2]);
+      }
+    }
+    break ;
+    case 2:
+    {
+      fatal()<<"NOT YET IMPLEMENTED" ;
+    }
+    break ; 
+    default:
+    {
+      fatal()<<"Dimension" << dim << "not supported by Ouranos" ;
+    }
+  }
 }
-  // auto refined_msh = Ouranos::Mesh::refine(rns, msh);
+
+
+// // Mesh into vtk for debug
+// IMeshWriter* writer = Arcane::ServiceBuilder<IMeshWriter>::createInstance(
+//     mesh->subDomain(), "VtkLegacyMeshWriter"
+// );
+// if (writer) {
+//     writer->writeMeshToFile(mesh, file_name + ".vtk");
+//     info() << "Mesh saved to " << file_name << ".vtk";
+// } else {
+//     info() << "Writer not found";
+// }
+//   // auto refined_msh = Ouranos::Mesh::refine(rns, msh);
 
   return RTOk;
 };
