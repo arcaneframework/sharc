@@ -138,6 +138,8 @@ init()
 
   Real3 center = centerCompute();
   center = subDomain()->parallelMng()->reduce(Parallel::ReduceSum,center);
+  Integer nb_cells_global = subDomain()->parallelMng()->reduce(Parallel::ReduceSum, ownCells().size());
+  center = center / nb_cells_global;
   pinfo() << "Initial Total center =  " << center[0] << " " << center[1] << " " << center[2];
 
   ENUMERATE_CELL(icell,allCells()) {
@@ -197,6 +199,8 @@ compute()
   pinfo() << "Total measure : volume = " << volume << ", area = " << area;
   Real3 center = centerCompute();
   center = subDomain()->parallelMng()->reduce(Parallel::ReduceSum,center);
+  Integer nb_cells_global = subDomain()->parallelMng()->reduce(Parallel::ReduceSum, ownCells().size());
+  center = center / nb_cells_global;
   pinfo() << "Total center = " << center[0] << " " << center[1] << " " << center[2];
 }
 
@@ -277,7 +281,7 @@ centerCompute()
     center += lcenter;
   }
 
-  return center/ownCells().size();
+  return center;
 }
 
 
