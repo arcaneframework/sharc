@@ -237,26 +237,45 @@ else
       auto& tets = part_mesh.tet();
       Integer nb_tets = tets.nbr();
 
-      //info() << "nb_tets local (with duplicated) = " << nb_tets;
+      info() << "nb_tets local (with duplicated) = " << nb_tets;
 
       auto vertex_part = vertices.location();
+      // Ghost/None flag per local vertex (a vertex always has exactly one owner)
+      auto& vertex_flags = vertices.flg();
       const auto& tet_gids = tets.location()->gid();
 
       SharedArray<Int64> cells_infos;
       cells_infos.reserve(nb_tets * 6);
 
+      // Number of tets this rank actually keeps, after filtering
+      Integer nb_owned_tets = 0;
       for (Integer i = 0; i < nb_tets; ++i) {
-          cells_infos.add(IT_Tetraedron4);
-          cells_infos.add(tet_gids[i]);
+          std::array<rns_int_t, 4> node_gids;
           for (Integer j = 0; j < 4; ++j) {
               rns_int_t lid = tets.con()(i + 1)[j];
-              rns_int_t node_gid = vertex_part->lid_to_gid(lid);
-              cells_infos.add(node_gid);
+              node_gids[j] = vertex_part->lid_to_gid(lid);
           }
+
+          // Only the owner of the smallest-gid vertex keeps the tet
+          rns_int_t min_gid = *std::min_element(node_gids.begin(), node_gids.end());
+          bool keep = !Ouranos::Kernel::Flag::is(vertex_flags[min_gid][0], Ouranos::Kernel::Flag::Ghost);
+
+          if (!keep)
+              // Another rank owns (or will own) this tet
+              continue;
+
+          cells_infos.add(IT_Tetraedron4);
+          cells_infos.add(tet_gids[i]);
+          for (Integer j = 0; j < 4; ++j)
+              cells_infos.add(node_gids[j]);
+          ++nb_owned_tets;
       }
 
+      info() << "Tetrahedra: " << nb_tets << " local (with ghosts), " << nb_owned_tets << " owned";
+
       mesh->setDimension(3);
-      mesh->allocateCells(nb_tets, cells_infos, false);
+      // nb_owned_tets (filtered), not nb_tets (with duplicates)
+      mesh->allocateCells(nb_owned_tets, cells_infos, false);
       mesh->endAllocate();
 
       auto& coords = vertices.crd();
