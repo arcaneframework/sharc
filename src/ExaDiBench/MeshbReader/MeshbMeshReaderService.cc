@@ -77,6 +77,46 @@ Integer appendBlockElements(
   return nb;
 }
 
+// Add every locally-visible element of a specific type (tetra, hexa, ...) that this rank
+// owns (smallest-gid vertex rule) to cells_infos, converting local ids to global ids.
+template <typename ElementT>
+Integer appendOwnedPartElements(
+    ElementT& elts,
+    Int64 arcane_type,
+    Integer nb_nodes_per_elt,
+    SharedArray<Int64>& cells_infos,
+    Ouranos::Mesh::Vertex<3, Ouranos::Kernel::Part>& vertices)
+{
+  auto vertex_part = vertices.location();
+  auto& vertex_flags = vertices.flg();
+
+  Integer nb = elts.nbr();
+  const auto& elt_gids = elts.location()->gid();
+  cells_infos.reserve(cells_infos.size() + nb * (nb_nodes_per_elt + 2));
+
+  Integer nb_owned = 0;
+  for (Integer i = 0; i < nb; ++i) {
+    SharedArray<rns_int_t> node_gids(nb_nodes_per_elt);
+    for (Integer j = 0; j < nb_nodes_per_elt; ++j) {
+      rns_int_t lid = elts.con()(i + 1)[j];
+      node_gids[j] = vertex_part->lid_to_gid(lid);
+    }
+
+    // Only the owner of the smallest-gid vertex keeps the element (works for any number of ranks)
+    rns_int_t min_gid = *std::min_element(node_gids.begin(), node_gids.end());
+    bool keep = !Ouranos::Kernel::Flag::is(vertex_flags[min_gid][0], Ouranos::Kernel::Flag::Ghost);
+    if (!keep)
+      continue;
+
+    cells_infos.add(arcane_type);
+    cells_infos.add(elt_gids[i]);
+    for (Integer j = 0; j < nb_nodes_per_elt; ++j)
+      cells_infos.add(node_gids[j]);
+    ++nb_owned;
+  }
+  return nb_owned;
+}
+
 class MeshbMeshReader
 : public BasicService
 , public IMeshReader
@@ -150,10 +190,13 @@ readMeshFromFile(IPrimaryMesh* mesh,
               Integer nb_nodes = vertices.nbr();
               info() << "Mesh read: " << nb_nodes << " nodes";
 
+              auto& tets = msh.tet();
+              auto& hexes = msh.hex();
+
               Integer uid_offset = 0;
-              Integer nb_tets = appendBlockElements(msh.tet(), IT_Tetraedron4, 4, cells_infos, uid_offset);
+              Integer nb_tets = appendBlockElements(tets, IT_Tetraedron4, 4, cells_infos, uid_offset);
               uid_offset += nb_tets;
-              Integer nb_hex = appendBlockElements(msh.hex(), IT_Hexaedron8, 8, cells_infos, uid_offset);
+              Integer nb_hex = appendBlockElements(hexes, IT_Hexaedron8, 8, cells_infos, uid_offset);
               uid_offset += nb_hex;
               nb_cells = uid_offset;
               info() << "Mesh read: " << nb_tets << " tetrahedra, " << nb_hex << " hexahedra";
@@ -220,8 +263,9 @@ else
     {
       Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
       msh.read(file_name.localstr());
-      int nb_ghost_layer = 0 ; 
-      auto part_mesh = msh.to_part<metis_t>(nb_ghost_layer) ; 
+      // hex needs more ghost layers than tet, or cells get dropped 
+      int nb_ghost_layer = (msh.hex().nbr() > 0) ? 3 : 0;
+      auto part_mesh = msh.to_part<metis_t>(nb_ghost_layer) ;
 
       auto& vertices = part_mesh.ver();
       Integer nb_nodes = vertices.nbr();
@@ -233,49 +277,24 @@ else
       // Arcane mesh
       mesh->setDimension(3);
 
-      // Get tetras
+      // Get tetrahedra and hexahedra
       auto& tets = part_mesh.tet();
-      Integer nb_tets = tets.nbr();
+      auto& hexes = part_mesh.hex();
 
-      info() << "nb_tets local (with duplicated) = " << nb_tets;
-
-      auto vertex_part = vertices.location();
-      // Ghost/None flag per local vertex (a vertex always has exactly one owner)
-      auto& vertex_flags = vertices.flg();
-      const auto& tet_gids = tets.location()->gid();
+      info() << "nb_tets local (with duplicated) = " << tets.nbr();
+      info() << "nb_hex local (with duplicated) = " << hexes.nbr();
 
       SharedArray<Int64> cells_infos;
-      cells_infos.reserve(nb_tets * 6);
 
-      // Number of tets this rank actually keeps, after filtering
-      Integer nb_owned_tets = 0;
-      for (Integer i = 0; i < nb_tets; ++i) {
-          std::array<rns_int_t, 4> node_gids;
-          for (Integer j = 0; j < 4; ++j) {
-              rns_int_t lid = tets.con()(i + 1)[j];
-              node_gids[j] = vertex_part->lid_to_gid(lid);
-          }
+      Integer nb_owned_tets = appendOwnedPartElements(tets, IT_Tetraedron4, 4, cells_infos, vertices);
+      Integer nb_owned_hex = appendOwnedPartElements(hexes, IT_Hexaedron8, 8, cells_infos, vertices);
+      Integer nb_owned_cells = nb_owned_tets + nb_owned_hex;
 
-          // Only the owner of the smallest-gid vertex keeps the tet
-          rns_int_t min_gid = *std::min_element(node_gids.begin(), node_gids.end());
-          bool keep = !Ouranos::Kernel::Flag::is(vertex_flags[min_gid][0], Ouranos::Kernel::Flag::Ghost);
-
-          if (!keep)
-              // Another rank owns (or will own) this tet
-              continue;
-
-          cells_infos.add(IT_Tetraedron4);
-          cells_infos.add(tet_gids[i]);
-          for (Integer j = 0; j < 4; ++j)
-              cells_infos.add(node_gids[j]);
-          ++nb_owned_tets;
-      }
-
-      info() << "Tetrahedra: " << nb_tets << " local (with ghosts), " << nb_owned_tets << " owned";
+      info() << "Tetrahedra: " << tets.nbr() << " local (with ghosts), " << nb_owned_tets << " owned";
+      info() << "Hexahedra: " << hexes.nbr() << " local (with ghosts), " << nb_owned_hex << " owned";
 
       mesh->setDimension(3);
-      // nb_owned_tets (filtered), not nb_tets (with duplicates)
-      mesh->allocateCells(nb_owned_tets, cells_infos, false);
+      mesh->allocateCells(nb_owned_cells, cells_infos, false);
       mesh->endAllocate();
 
       auto& coords = vertices.crd();
@@ -286,6 +305,8 @@ else
           Int64 uid = node.uniqueId().asInt64();
           nodes_coord[inode] = Real3(coords[uid][0], coords[uid][1], coords[uid][2]);
       }
+
+      nodes_coord.synchronize();
     }
     break ;
     case 2:
