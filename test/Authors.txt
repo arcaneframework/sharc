@@ -12,3 +12,6 @@ ExaDiBench-pb-msh::jean-marc.gratien
 ExaDiBench-ring::jean-marc.gratien
 ExaDiBench-ring-msh::jean-marc.gratien
 ExaDiBench-meshb::jean-marc.gratien
+ExaDiBench-meshb-ouranos::jean-marc.gratien
+ExaDiBench-meshb-hexa::jean-marc.gratien
+ExaDiBench-meshb-hexa-ouranos::jean-marc.gratien
