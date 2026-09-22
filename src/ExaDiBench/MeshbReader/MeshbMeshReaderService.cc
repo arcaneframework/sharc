@@ -271,18 +271,13 @@ else
       Integer nb_nodes = vertices.nbr();
 
       info() << "Ouranos version: " << Ouranos::Kernel::version();
-      info() << "Mesh read: " << nb_nodes << " nodes, "
-            << part_mesh.tet().nbr() << " tetrahedra " ;
+      info() << "Mesh read: " << nb_nodes << " nodes";
 
-      // Arcane mesh
       mesh->setDimension(3);
 
       // Get tetrahedra and hexahedra
       auto& tets = part_mesh.tet();
       auto& hexes = part_mesh.hex();
-
-      info() << "nb_tets local (with duplicated) = " << tets.nbr();
-      info() << "nb_hex local (with duplicated) = " << hexes.nbr();
 
       SharedArray<Int64> cells_infos;
 
@@ -293,7 +288,12 @@ else
       info() << "Tetrahedra: " << tets.nbr() << " local (with ghosts), " << nb_owned_tets << " owned";
       info() << "Hexahedra: " << hexes.nbr() << " local (with ghosts), " << nb_owned_hex << " owned";
 
-      mesh->setDimension(3);
+      Integer min_owned = pm->reduce(Parallel::ReduceMin, nb_owned_cells);
+      Integer max_owned = pm->reduce(Parallel::ReduceMax, nb_owned_cells);
+      Integer total_owned = pm->reduce(Parallel::ReduceSum, nb_owned_cells);
+      if (master)
+          info() << "Load balance: min=" << min_owned << " max=" << max_owned << " total=" << total_owned;
+
       mesh->allocateCells(nb_owned_cells, cells_infos, false);
       mesh->endAllocate();
 
