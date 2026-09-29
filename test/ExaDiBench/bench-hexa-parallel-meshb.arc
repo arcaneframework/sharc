@@ -5,7 +5,7 @@
 		<timeloop>TimeLoop</timeloop>
 	</arcane>
   <mesh>
-    <file internal-partition='true'>unit_cube_1k.meshb</file>
+    <file internal-partition='false' unique='true'>unit_cube_hexa.meshb</file>
   </mesh>
 
   <sharc>

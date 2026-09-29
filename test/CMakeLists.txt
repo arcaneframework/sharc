@@ -53,8 +53,28 @@ ARCANE_ADD_TEST_SEQUENTIAL(ExaDiBench-meshb
         ShArc
         test/ExaDiBench
         bench-meshb.arc
-        WILL_FAIL
         )
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb
+        ShArc
+        test/ExaDiBench
+        bench-meshb.arc
+        2)
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb-ouranos
+        ShArc
+        test/ExaDiBench
+        bench-parallel-meshb.arc
+        2)
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb-hexa-ouranos
+        ShArc
+        test/ExaDiBench
+        bench-hexa-parallel-meshb.arc
+        2)
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb-hexa
+        ShArc
+        test/ExaDiBench
+        bench-hexa-meshb.arc
+        2)
+
 endif()
 
 #ARCANE_ADD_TEST(ExaDiBench-spe11c
