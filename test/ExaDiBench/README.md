@@ -1,69 +1,114 @@
-# Tests ExaDiBench
+# EXADI BENCHMARCK
 
-> 🧠 Documentation enrichie par IA — basée sur la liste des cas `.arc` et le module ExaDiBench
+## Objectives
 
-## 📋 Table des matières
+This directory is aimed at benchmarcking efficient Arcane Mesh reader for exascale meshes, in particular
 
-- [Description](#description)
-- [Contenu](#contenu)
-- [Objectifs des tests](#objectifs-des-tests)
-- [Utilisation](#utilisation)
-- [Ressources](#ressources)
+the msh and meshb reader are in particular
 
-## Description
+## Tools to generate unit cube and sphere meshes
 
-Le répertoire `test/ExaDiBench/` contient les cas de benchmark pour le module `ExaDiBench`. Ils exercent la chaîne :
-
-- lecture et initialisation du maillage (cube 3D, SPE11c, anneaux),
-- configuration de la géométrie (volumes, surfaces, centres),
-- déformation des nœuds intérieurs,
-- calcul et comparaison des mesures globales (volume, surface, centre).
-
-## Contenu
-
-### Maillages
-
-- `cube3D1.vt2` — maillage de référence pour le cas « cube 3D ».
-- `spe11c.vtk` — maillage/visualisation associée au cas SPE11c.
-- Maillages supplémentaires référencés dans les `.arc` (via les blocs `<mesh>`).
-
-### Cas `.arc`
-
-- `bench-cube3d.arc` — benchmark de déformation sur le cube 3D (cas principal utilisé par la suite de tests).
-- `bench-pb.arc` / `bench-pb-msh.arc` — cas « pb » (problème générique) sur différents formats de maillage (VTK/MSH).
-- `bench-ring.arc` / `bench-ring-msh.arc` — benchmarks sur géométrie en anneau.
-- `bench-spe11c.arc` / `bench-spe11c-structured.arc` — cas basés sur le cas industriel SPE11c (versions structurée et non structurée).
-- `spe11c_structured.arc` — configuration SPE11c structurée.
-
-### Configuration ShArc
-
-- `ShArc.config` — configuration ShArc/Arcane pour ces cas (time-loop, modules, points d’entrée).
-
-## Objectifs des tests
-
-- Vérifier la robustesse du calcul géométrique (volumes/surfaces/centres) sous perturbation.
-- Tester la cohérence des groupes de bord (`OuterFaces`) sur des maillages variés.
-- Garantir que les exports de maillage (VTK/MSH/IXM) restent fonctionnels avec le module `ExaDiBench`.
-
-## Utilisation
-
-Depuis le répertoire de build :
-
+### Generate Unit cube meshes
 ```bash
-# Lancer les tests ExaDiBench via CTest
-ctest -R ExaDiBench
+uv init cube-meshing
+cd cube-meshing
+uv add gmsh meshio
+uv run python ../cube_meshes.py
 ```
 
-Pour lancer un cas particulier :
-
+### generate Unit sphere meshes
 ```bash
-./ShArc.exe test/ExaDiBench/bench-cube3d.arc
+uv init sphere-meshing
+cd sphere-meshing
+uv add gmsh meshio
+uv run python ../sphere_meshes.py
 ```
 
-Adapter MPI et les options de build selon votre configuration Arcane/ArcGeoSim.
+## Get meshes from ZENODO with git-annex
 
-## Ressources
 
-- `src/ExaDiBench/README.md` — documentation du module de benchmark géométrique.
-- `src/ExaDiBench/ExaDiBench.axl` — descripteur complet (variables, options, points d’entrée).
-- Documentation Arcane / ArcGeoSim — géométrie (`IGeometryMng`, `IGeometry`) et export de maillage (`IMeshWriter`).
+### Install GIT-ANNEX
+Some commands to install git-annex with guix, conda or uv
+
+```bash
+# GUIX
+guix install git-annex
+
+#CONDA
+conda install -c conda-forge git-annex
+
+#UV
+uv tool install git-annex
+```
+
+For more details please refer to the Git [Annex installation guide](https://git-annex.branchable.com/install/).
+
+
+### Retreving meshes files
+
+```bash
+cd /path_to/sharc
+git annex init 'SHARC on My local computer'
+cd ./test/ExaDIxaDiBench/meshes
+git annex get .
+```
+
+### Check mesh file list
+
+```bash
+git annex list
+
+here
+|origin
+||web
+|||bittorrent
+||||
+X_X_ unit_cube_hex_1m.meshb
+X_X_ unit_cube_hex_1m.msh
+X_X_ unit_cube_hex_212k.meshb
+X_X_ unit_cube_hex_212k.msh
+X_X_ unit_cube_hex_24m.msh
+X_X_ unit_cube_hex_28k.meshb
+X_X_ unit_cube_hex_28k.msh
+X_X_ unit_cube_tet_1m.meshb
+X_X_ unit_cube_tet_1m.msh
+X_X_ unit_cube_tet_212k.meshb
+X_X_ unit_cube_tet_212k.msh
+X_X_ unit_cube_tet_24m.meshb
+X_X_ unit_cube_tet_24m.msh
+X_X_ unit_cube_tet_28k.meshb
+X_X_ unit_cube_tet_28k.msh
+
+```
+
+```bash
+git annex whereis
+
+whereis unit_cube_hex_1m.meshb (2 copies) 
+    00000000-0000-0000-0000-000000000001 -- web
+    bcc01c6b-a038-4932-abef-ee0f90321e8e -- LocalLaptop [here]
+
+  web: https://zenodo.org/records/23000296/files/unit_cube_hex_1m.meshb?download=1
+ok
+whereis unit_cube_hex_1m.msh (2 copies) 
+    00000000-0000-0000-0000-000000000001 -- web
+    bcc01c6b-a038-4932-abef-ee0f90321e8e -- LocalLaptop [here]
+
+  web: https://zenodo.org/records/23000296/files/unit_cube_hex_1m.msh?download=1
+ok
+whereis unit_cube_hex_212k.meshb (2 copies) 
+    00000000-0000-0000-0000-000000000001 -- web
+    bcc01c6b-a038-4932-abef-ee0f90321e8e -- LocalLaptop [here]
+
+  web: https://zenodo.org/records/23000296/files/unit_cube_hex_212k.meshb?download=1
+ok
+
+```
+
+### Drop mesh files
+
+```bash
+cd /path_to/sharc/test/ExaDIBench/meshes
+git annex drop *.msh
+git annex drop *.meshb
+```

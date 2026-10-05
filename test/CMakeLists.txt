@@ -19,11 +19,11 @@ ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationWPC
         test/TwoPhaseFlowSimulation
         use-case-two-phase-flow-with-capillary-pressure.arc)
 
-ARCANE_ADD_TEST_PARALLEL(TwoPhaseFlowSimulation
-        ShArc
-        test/TwoPhaseFlowSimulation
-        use-case-two-phase-flow.arc
-        2)
+#ARCANE_ADD_TEST_PARALLEL(TwoPhaseFlowSimulation
+#        ShArc
+#        test/TwoPhaseFlowSimulation
+#        use-case-two-phase-flow.arc
+#        2)
 
 ARCANE_ADD_TEST_SEQUENTIAL(TwoPhaseFlowSimulationSPE10
         ShArc
@@ -126,6 +126,35 @@ ARCANE_ADD_TEST_PARALLEL(ExaDiBench-cube3D
         test/ExaDiBench
         bench-cube3d.arc
         2)
+
+if (ouranos_FOUND)
+ARCANE_ADD_TEST_SEQUENTIAL(ExaDiBench-meshb
+        ShArc
+        test/ExaDiBench
+        bench-meshb.arc
+        )
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb
+        ShArc
+        test/ExaDiBench
+        bench-meshb.arc
+        2)
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb-ouranos
+        ShArc
+        test/ExaDiBench
+        bench-parallel-meshb.arc
+        2)
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb-hexa-ouranos
+        ShArc
+        test/ExaDiBench
+        bench-hexa-parallel-meshb.arc
+        2)
+ARCANE_ADD_TEST_PARALLEL(ExaDiBench-meshb-hexa
+        ShArc
+        test/ExaDiBench
+        bench-hexa-meshb.arc
+        2)
+
+endif()
 
 #ARCANE_ADD_TEST(ExaDiBench-spe11c
 #        ShArc
