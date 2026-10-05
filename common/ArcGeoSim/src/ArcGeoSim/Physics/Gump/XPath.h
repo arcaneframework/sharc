@@ -13,7 +13,7 @@
 #include "ArcGeoSim/Physics/Gump/Entity.h"
 #include "ArcGeoSim/Physics/Gump/Property.h"
 #include "ArcGeoSim/Physics/Gump/IConverter.h"
-
+#include <memory>
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
