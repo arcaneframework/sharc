@@ -130,7 +130,6 @@ virtual IMeshReader::eReturnType readMeshFromFile(IPrimaryMesh* mesh,
                                      const String& file_name,
                                      const String& dir_name,
                                      bool use_internal_partition);
-
 };
 
 MeshbMeshReader::MeshbMeshReader(const ServiceBuildInfo& sbi)
