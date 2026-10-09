@@ -43,6 +43,12 @@ loadMeta(NAME alien20)
 loadMeta(NAME arcane3)
 add_definitions(-DUSE_ARCANE_V3)
 
+find_package(ouranos)
+if (ouranos_FOUND)
+    loadMeta(NAME ouranos)
+    add_definitions(-DUSE_OURANOS)
+endif()
+
 # affichage des informations
 include(PrintArcGeoSimInformations)
 
@@ -59,7 +65,7 @@ if(ARCGEOSIM_EXTERNAL)
 loadPackage(NAME ArcGeoSim)
 endif()
 if(ArcGeoSim_FOUND)
-  message(status "TARGET ARCGEOSIM_FULL FOUND")
+    message(status "TARGET ARCGEOSIM_FULL FOUND")
 else()
   message(status "COMPILE ARCGEOSIM TARGET")
   if (NOT ARCGEOSIM_EXPORT_TARGET)

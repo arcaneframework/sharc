@@ -9,8 +9,9 @@ https://github.com/alex-shpak/hugo-book
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content=" 🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
-Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des cas .arc et le module ExaDiBench
-📋 Table des matières# Description Contenu Objectifs des tests Utilisation Ressources Description# Le répertoire test/ExaDiBench/ contient les cas de benchmark pour le module ExaDiBench. Ils exercent la chaîne :
+EXADI BENCHMARCK# Objectives# This directory is aimed at benchmarcking efficient Arcane Mesh reader for exascale meshes, in particular
+the msh and meshb reader are in particular
+Tools to generate unit cube and sphere meshes# Generate Unit cube meshes# uv init cube-meshing cd cube-meshing uv add gmsh meshio uv run python ../cube_meshes.pygenerate Unit sphere meshes# uv init sphere-meshing cd sphere-meshing uv add gmsh meshio uv run python ../sphere_meshes.pyGet meshes from ZENODO with git-annex# Install GIT-ANNEX# Some commands to install git-annex with guix, conda or uv
 ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
@@ -18,17 +19,19 @@ Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des
 	<meta property="og:site_name" content="sharc">
 	<meta property="og:title" content="Tests ExaDiBench">
 	<meta property="og:description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
-Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des cas .arc et le module ExaDiBench
-📋 Table des matières# Description Contenu Objectifs des tests Utilisation Ressources Description# Le répertoire test/ExaDiBench/ contient les cas de benchmark pour le module ExaDiBench. Ils exercent la chaîne :">
+EXADI BENCHMARCK# Objectives# This directory is aimed at benchmarcking efficient Arcane Mesh reader for exascale meshes, in particular
+the msh and meshb reader are in particular
+Tools to generate unit cube and sphere meshes# Generate Unit cube meshes# uv init cube-meshing cd cube-meshing uv add gmsh meshio uv run python ../cube_meshes.pygenerate Unit sphere meshes# uv init sphere-meshing cd sphere-meshing uv add gmsh meshio uv run python ../sphere_meshes.pyGet meshes from ZENODO with git-annex# Install GIT-ANNEX# Some commands to install git-annex with guix, conda or uv">
 	<meta property="og:locale" content="fr">
 	<meta property="og:type" content="website">
 
 
 	<meta itemprop="name" content="Tests ExaDiBench">
 	<meta itemprop="description" content="🧠 Cette page a été générée avec l’aide de l’IA à partir de l’analyse du code source et de recherches web.
-Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des cas .arc et le module ExaDiBench
-📋 Table des matières# Description Contenu Objectifs des tests Utilisation Ressources Description# Le répertoire test/ExaDiBench/ contient les cas de benchmark pour le module ExaDiBench. Ils exercent la chaîne :">
-	<meta itemprop="wordCount" content="308">
+EXADI BENCHMARCK# Objectives# This directory is aimed at benchmarcking efficient Arcane Mesh reader for exascale meshes, in particular
+the msh and meshb reader are in particular
+Tools to generate unit cube and sphere meshes# Generate Unit cube meshes# uv init cube-meshing cd cube-meshing uv add gmsh meshio uv run python ../cube_meshes.pygenerate Unit sphere meshes# uv init sphere-meshing cd sphere-meshing uv add gmsh meshio uv run python ../sphere_meshes.pyGet meshes from ZENODO with git-annex# Install GIT-ANNEX# Some commands to install git-annex with guix, conda or uv">
+	<meta itemprop="wordCount" content="247">
 
 <title>Tests ExaDiBench • sharc</title>
 <link rel="icon" href="https://arcaneframework.github.io/sharc/favicon.png" >
@@ -37,7 +40,7 @@ Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des
 <link rel="stylesheet" href="https://arcaneframework.github.io/sharc/book.min.98c83e4c8e1c8661368bcb29bbaf4dcc9d31b8164f76aae322d82d86a9750c65.css" integrity="sha256-mMg&#43;TI4chmE2i8spu69NzJ0xuBZPdqrjItgthql1DGU=" crossorigin="anonymous">
 
 
-  <script defer type="module" src="https://arcaneframework.github.io/sharc/fr.search.min.7c6ed2e0c014d5c79d3c8c54b307cb49561af63f3e18d0930c74e11645699b49.js" integrity="sha256-fG7S4MAU1cedPIxUswfLSVYa9j8&#43;GNCTDHThFkVpm0k=" crossorigin="anonymous"></script>
+  <script defer type="module" src="https://arcaneframework.github.io/sharc/fr.search.min.dff95cf651f00ea60bc153afd0a39372566f90426626cad8d8555c19777c0c9b.js" integrity="sha256-3/lc9lHwDqYLwVOv0KOTclZvkEJmJsrY2FVcGXd8DJs=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://arcaneframework.github.io/sharc/test/exadibench/index.xml" title="Tests ExaDiBench" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -419,62 +422,79 @@ Tests ExaDiBench# 🧠 Documentation enrichie par IA — basée sur la liste des
       
   <article class="markdown book-article"><blockquote class='book-hint '>
 <p>🧠 Cette page a été générée avec l&rsquo;aide de l&rsquo;IA à partir de l&rsquo;analyse du code source et de recherches web.</p>
-</blockquote><h1 id="tests-exadibench">Tests ExaDiBench<a class="anchor" href="#tests-exadibench">#</a></h1>
-<blockquote class='book-hint '>
-<p>🧠 Documentation enrichie par IA — basée sur la liste des cas <code>.arc</code> et le module ExaDiBench</p>
-</blockquote><h2 id="-table-des-matières">📋 Table des matières<a class="anchor" href="#-table-des-mati%c3%a8res">#</a></h2>
-<ul>
-<li><a href="#description">Description</a></li>
-<li><a href="#contenu">Contenu</a></li>
-<li><a href="#objectifs-des-tests">Objectifs des tests</a></li>
-<li><a href="#utilisation">Utilisation</a></li>
-<li><a href="#ressources">Ressources</a></li>
-</ul>
-<h2 id="description">Description<a class="anchor" href="#description">#</a></h2>
-<p>Le répertoire <code>test/ExaDiBench/</code> contient les cas de benchmark pour le module <code>ExaDiBench</code>. Ils exercent la chaîne :</p>
-<ul>
-<li>lecture et initialisation du maillage (cube 3D, SPE11c, anneaux),</li>
-<li>configuration de la géométrie (volumes, surfaces, centres),</li>
-<li>déformation des nœuds intérieurs,</li>
-<li>calcul et comparaison des mesures globales (volume, surface, centre).</li>
-</ul>
-<h2 id="contenu">Contenu<a class="anchor" href="#contenu">#</a></h2>
-<h3 id="maillages">Maillages<a class="anchor" href="#maillages">#</a></h3>
-<ul>
-<li><code>cube3D1.vt2</code> — maillage de référence pour le cas « cube 3D ».</li>
-<li><code>spe11c.vtk</code> — maillage/visualisation associée au cas SPE11c.</li>
-<li>Maillages supplémentaires référencés dans les <code>.arc</code> (via les blocs <code>&lt;mesh&gt;</code>).</li>
-</ul>
-<h3 id="cas-arc">Cas <code>.arc</code><a class="anchor" href="#cas-arc">#</a></h3>
-<ul>
-<li><code>bench-cube3d.arc</code> — benchmark de déformation sur le cube 3D (cas principal utilisé par la suite de tests).</li>
-<li><code>bench-pb.arc</code> / <code>bench-pb-msh.arc</code> — cas « pb » (problème générique) sur différents formats de maillage (VTK/MSH).</li>
-<li><code>bench-ring.arc</code> / <code>bench-ring-msh.arc</code> — benchmarks sur géométrie en anneau.</li>
-<li><code>bench-spe11c.arc</code> / <code>bench-spe11c-structured.arc</code> — cas basés sur le cas industriel SPE11c (versions structurée et non structurée).</li>
-<li><code>spe11c_structured.arc</code> — configuration SPE11c structurée.</li>
-</ul>
-<h3 id="configuration-sharc">Configuration ShArc<a class="anchor" href="#configuration-sharc">#</a></h3>
-<ul>
-<li><code>ShArc.config</code> — configuration ShArc/Arcane pour ces cas (time-loop, modules, points d’entrée).</li>
-</ul>
-<h2 id="objectifs-des-tests">Objectifs des tests<a class="anchor" href="#objectifs-des-tests">#</a></h2>
-<ul>
-<li>Vérifier la robustesse du calcul géométrique (volumes/surfaces/centres) sous perturbation.</li>
-<li>Tester la cohérence des groupes de bord (<code>OuterFaces</code>) sur des maillages variés.</li>
-<li>Garantir que les exports de maillage (VTK/MSH/IXM) restent fonctionnels avec le module <code>ExaDiBench</code>.</li>
-</ul>
-<h2 id="utilisation">Utilisation<a class="anchor" href="#utilisation">#</a></h2>
-<p>Depuis le répertoire de build :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Lancer les tests ExaDiBench via CTest</span>
-</span></span><span style="display:flex;"><span>ctest -R ExaDiBench</span></span></code></pre></div><p>Pour lancer un cas particulier :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ShArc.exe test/ExaDiBench/bench-cube3d.arc</span></span></code></pre></div><p>Adapter MPI et les options de build selon votre configuration Arcane/ArcGeoSim.</p>
-<h2 id="ressources">Ressources<a class="anchor" href="#ressources">#</a></h2>
-<ul>
-<li><code>src/ExaDiBench/README.md</code> — documentation du module de benchmark géométrique.</li>
-<li><code>src/ExaDiBench/ExaDiBench.axl</code> — descripteur complet (variables, options, points d’entrée).</li>
-<li>Documentation Arcane / ArcGeoSim — géométrie (<code>IGeometryMng</code>, <code>IGeometry</code>) et export de maillage (<code>IMeshWriter</code>).</li>
-</ul>
-
+</blockquote><h1 id="exadi-benchmarck">EXADI BENCHMARCK<a class="anchor" href="#exadi-benchmarck">#</a></h1>
+<h2 id="objectives">Objectives<a class="anchor" href="#objectives">#</a></h2>
+<p>This directory is aimed at benchmarcking efficient Arcane Mesh reader for exascale meshes, in particular</p>
+<p>the msh and meshb reader are in particular</p>
+<h2 id="tools-to-generate-unit-cube-and-sphere-meshes">Tools to generate unit cube and sphere meshes<a class="anchor" href="#tools-to-generate-unit-cube-and-sphere-meshes">#</a></h2>
+<h3 id="generate-unit-cube-meshes">Generate Unit cube meshes<a class="anchor" href="#generate-unit-cube-meshes">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv init cube-meshing
+</span></span><span style="display:flex;"><span>cd cube-meshing
+</span></span><span style="display:flex;"><span>uv add gmsh meshio
+</span></span><span style="display:flex;"><span>uv run python ../cube_meshes.py</span></span></code></pre></div><h3 id="generate-unit-sphere-meshes">generate Unit sphere meshes<a class="anchor" href="#generate-unit-sphere-meshes">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv init sphere-meshing
+</span></span><span style="display:flex;"><span>cd sphere-meshing
+</span></span><span style="display:flex;"><span>uv add gmsh meshio
+</span></span><span style="display:flex;"><span>uv run python ../sphere_meshes.py</span></span></code></pre></div><h2 id="get-meshes-from-zenodo-with-git-annex">Get meshes from ZENODO with git-annex<a class="anchor" href="#get-meshes-from-zenodo-with-git-annex">#</a></h2>
+<h3 id="install-git-annex">Install GIT-ANNEX<a class="anchor" href="#install-git-annex">#</a></h3>
+<p>Some commands to install git-annex with guix, conda or uv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># GUIX</span>
+</span></span><span style="display:flex;"><span>guix install git-annex
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#CONDA</span>
+</span></span><span style="display:flex;"><span>conda install -c conda-forge git-annex
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#UV</span>
+</span></span><span style="display:flex;"><span>uv tool install git-annex</span></span></code></pre></div><p>For more details please refer to the Git <a href="https://git-annex.branchable.com/install/">Annex installation guide</a>.</p>
+<h3 id="retreving-meshes-files">Retreving meshes files<a class="anchor" href="#retreving-meshes-files">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /path_to/sharc
+</span></span><span style="display:flex;"><span>git annex init <span style="color:#e6db74">&#39;SHARC on My local computer&#39;</span>
+</span></span><span style="display:flex;"><span>cd ./test/ExaDIxaDiBench/meshes
+</span></span><span style="display:flex;"><span>git annex get .</span></span></code></pre></div><h3 id="check-mesh-file-list">Check mesh file list<a class="anchor" href="#check-mesh-file-list">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git annex list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>here
+</span></span><span style="display:flex;"><span>|origin
+</span></span><span style="display:flex;"><span><span style="color:#f92672">||</span>web
+</span></span><span style="display:flex;"><span><span style="color:#f92672">||</span>|bittorrent
+</span></span><span style="display:flex;"><span><span style="color:#f92672">||||</span>
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_hex_1m.meshb
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_hex_1m.msh
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_hex_212k.meshb
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_hex_212k.msh
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_hex_24m.msh
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_hex_28k.meshb
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_hex_28k.msh
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_1m.meshb
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_1m.msh
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_212k.meshb
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_212k.msh
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_24m.meshb
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_24m.msh
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_28k.meshb
+</span></span><span style="display:flex;"><span>X_X_ unit_cube_tet_28k.msh</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git annex whereis
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>whereis unit_cube_hex_1m.meshb <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span> copies<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span>    00000000-0000-0000-0000-000000000001 -- web
+</span></span><span style="display:flex;"><span>    bcc01c6b-a038-4932-abef-ee0f90321e8e -- LocalLaptop <span style="color:#f92672">[</span>here<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  web: https://zenodo.org/records/23000296/files/unit_cube_hex_1m.meshb?download<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>ok
+</span></span><span style="display:flex;"><span>whereis unit_cube_hex_1m.msh <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span> copies<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span>    00000000-0000-0000-0000-000000000001 -- web
+</span></span><span style="display:flex;"><span>    bcc01c6b-a038-4932-abef-ee0f90321e8e -- LocalLaptop <span style="color:#f92672">[</span>here<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  web: https://zenodo.org/records/23000296/files/unit_cube_hex_1m.msh?download<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>ok
+</span></span><span style="display:flex;"><span>whereis unit_cube_hex_212k.meshb <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span> copies<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span>    00000000-0000-0000-0000-000000000001 -- web
+</span></span><span style="display:flex;"><span>    bcc01c6b-a038-4932-abef-ee0f90321e8e -- LocalLaptop <span style="color:#f92672">[</span>here<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  web: https://zenodo.org/records/23000296/files/unit_cube_hex_212k.meshb?download<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>ok</span></span></code></pre></div><h3 id="drop-mesh-files">Drop mesh files<a class="anchor" href="#drop-mesh-files">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /path_to/sharc/test/ExaDIBench/meshes
+</span></span><span style="display:flex;"><span>git annex drop *.msh
+</span></span><span style="display:flex;"><span>git annex drop *.meshb</span></span></code></pre></div>
 </article>
  
       

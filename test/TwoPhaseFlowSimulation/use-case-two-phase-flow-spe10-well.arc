@@ -86,14 +86,19 @@
         <debug-dump-matlab>false</debug-dump-matlab>
         <!--linear-solver name="HypreSolver">
           <num-iterations-max>1000</num-iterations-max>
-          <stop-criteria-value>1e-3</stop-criteria-value>
+          <stop-criteria-value>1e-12</stop-criteria-value>
           <solver>BiCGStab</solver>
           <preconditioner>Euclid</preconditioner>
           <verbose>true</verbose>
         </linear-solver-->
-         <linear-solver name="PETScSolver">
+        <linear-solver name="PETScSolver">
              <solver name="SuperLU" />
-          <verbose>low</verbose>
+             <solver name="BiCGStab">
+               <num-iterations-max>1000</num-iterations-max>
+               <stop-criteria-value>1e-12</stop-criteria-value>
+               <preconditioner name="ILU"/>
+             </solver>
+             <verbose>low</verbose>
         </linear-solver>
       </newton>
     </numerics>

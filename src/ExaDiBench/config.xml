@@ -10,8 +10,7 @@
     <file>ExaDiBench</file>
   </files>
 
-  <files language="c++">
-    <file header='false'>MeshbMeshReaderService</file>
-  </files>
-  
+  <directories>
+    <directory depend='ouranos'>MeshbReader</directory>
+  </directories>
 </makefile>
