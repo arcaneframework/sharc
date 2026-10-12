@@ -156,7 +156,7 @@ std::set<int> setNodeIds;
 // declaration map of face ids
 std::map<unsigned,unsigned> mapFaceIds;
 
-Arcane::ItemTypeMng * _typeMng;
+std::unique_ptr<Arcane::ItemTypeMng> _typeMng;
 
 };
 

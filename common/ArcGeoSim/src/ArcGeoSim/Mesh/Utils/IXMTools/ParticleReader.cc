@@ -44,9 +44,9 @@ collectiveRead()
       m_parallel_mng->broadcast(ArrayView<Integer>(1,&use_particles),m_parallel_mng->masterIORank()) ;
     if(use_particles==0) return ;
     // Get managers
-    ItemTypeMng * typeMng = ItemTypeMng::singleton();
+    auto typeMng = ItemTypeMng::createStandalone();
     { // Handle created particles
-      _readParticleInfos(rootNode.children("particles"), "particles", typeMng);
+      _readParticleInfos(rootNode.children("particles"), "particles", typeMng.get());
     }
   }
   else

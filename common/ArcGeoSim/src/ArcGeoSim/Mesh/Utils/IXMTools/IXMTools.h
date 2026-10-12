@@ -83,7 +83,7 @@ public:
       : m_dimension(dimension), m_check(check)
     {
       // Construct ItemType dimension table
-      Arcane::ItemTypeMng * typeMng = Arcane::ItemTypeMng::singleton();
+      auto typeMng = Arcane::ItemTypeMng::createStandalone();
       const Arcane::Integer nb_type = typeMng->nbBasicItemType();
       m_type_dimension.resize(nb_type);
       for(Arcane::Integer i_type=0;i_type<nb_type;++i_type)
