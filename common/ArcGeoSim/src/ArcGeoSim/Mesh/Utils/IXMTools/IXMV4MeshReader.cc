@@ -309,11 +309,11 @@ readCellData(ArcGeoSim::IXMTools::IXMCellData& cell_data, const ArcGeoSim::IXMTo
   Arcane::XmlNode rootNode = m_mesh_data.child("topology");
 
   // Get managers
-  ItemTypeMng * typeMng = ItemTypeMng::singleton();
+  auto typeMng = ItemTypeMng::createStandalone();
   { // Handle created cells
     _readCellInfos(rootNode.children("cells"),
         "cells",
-        typeMng,
+        typeMng.get(),
         cell_data.item_ids,
         cell_data.item_infos,
         check_mesh_info);
@@ -333,11 +333,11 @@ readEdgeData(ArcGeoSim::IXMTools::IXMEdgeData& edge_data, const ArcGeoSim::IXMTo
   _getTopologyNode(rootNode);
 
   // Get managers
-  ItemTypeMng * typeMng = ItemTypeMng::singleton();
+  auto typeMng = ItemTypeMng::createStandalone();
   { // Handle created cells
     _readEdgeInfos(rootNode.children("edges"),
         "edges",
-        typeMng,
+        typeMng.get(),
         edge_data.item_ids,
         edge_data.item_infos,
         check_mesh_info);
@@ -358,7 +358,7 @@ readCellIncrementData(ArcGeoSim::IXMTools::IXMCellIncrementData& cell_increment_
   Arcane::XmlNode rootNode = *(m_mesh_increment_xml_node->topology_node.get());
 
   // Get managers
-  ItemTypeMng * typeMng = ItemTypeMng::singleton();
+  auto typeMng = ItemTypeMng::createStandalone();
 
   { // Handle deleted cells
     Arcane::XmlNodeList delete_cell_list = rootNode.children("delete-cells");
@@ -375,7 +375,7 @@ readCellIncrementData(ArcGeoSim::IXMTools::IXMCellIncrementData& cell_increment_
   { // Handle created cells
       _readCellInfos(rootNode.children("create-cells"),
                        "create-cells",
-                       typeMng,
+                       typeMng.get(),
                        cell_increment_data.new_cell_data.item_ids,
                        cell_increment_data.new_cell_data.item_infos,
                        check_mesh_info);
@@ -384,7 +384,7 @@ readCellIncrementData(ArcGeoSim::IXMTools::IXMCellIncrementData& cell_increment_
     {// Handle modified cells
       _readCellInfos(rootNode.children("change-cells"),
                        "change-cells",
-                       typeMng,
+                       typeMng.get(),
                        cell_increment_data.changed_cell_data.item_ids,
                        cell_increment_data.changed_cell_data.item_infos,
                        check_mesh_info);

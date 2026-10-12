@@ -18,7 +18,7 @@ ArcGeoSim::IXMStaticMeshChecker::IXMStaticMeshChecker(IXMCellData& cell_data, IX
 , _groupdatalist(group_data_list)
 , _trace_mng(trace_mng)
 {
-  _typeMng = Arcane::ItemTypeMng::singleton();
+  _typeMng = Arcane::ItemTypeMng::createStandalone();
   initialize();
 
 

@@ -2924,7 +2924,7 @@ _addCells(Arcane::IPrimaryMesh * mesh,
       ARCANE_ASSERT((not cell_connectivity_owners.empty()),("Incompatible parallel data"));
 
       // Gestionnaire de types pour mapper les sous-items des cellules a construire
-      Arcane::ItemTypeMng* itm = Arcane::ItemTypeMng::singleton();
+      Arcane::ItemTypeMng* itm = mesh->itemTypeMng();
 
       // ne gere pas la non-duplication des items crees
       Arcane::Int64SharedArray node_infos;
