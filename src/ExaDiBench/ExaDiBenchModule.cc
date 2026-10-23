@@ -12,6 +12,7 @@
 #include <arcane/utils/Limits.h>
 #include <arcane/ArcaneVersion.h>
 #include <arcane/IMeshSubMeshTransition.h>
+#include <arcane/Timer.h>
 
 #include <stdlib.h> // pour *rand48
 
@@ -178,7 +179,13 @@ compute()
 
   coords.synchronize();
 
-  options()->geometry()->update(m_geometry_policy);
+  // compute: geometric quantities (face areas, cell volumes and centers) of all the cells
+  Arcane::Timer timer(subDomain(), "ExaDiBenchTimer", Arcane::Timer::TimerReal);
+  {
+    Arcane::Timer::Action action(subDomain(), "GeometryUpdate", true);
+    Arcane::Timer::Sentry sentry(&timer);
+    options()->geometry()->update(m_geometry_policy);
+  }
 
 //   ENUMERATE_NODE(inode,ownNodes()) {
 //     if (m_border_node_checker.hasKey(*inode)) {

@@ -30,6 +30,7 @@
 #include <arcane/ItemEnumerator.h>
 #include <arcane/VariableTypes.h>
 #include <arcane/IParallelMng.h>
+#include <arcane/Timer.h>
 
 #include <arcane/IIOMng.h>
 #include <arcane/IXmlDocumentHolder.h>
@@ -163,7 +164,9 @@ readMeshFromFile(IPrimaryMesh* mesh,
   MPI_Comm mpi_com = (pcom.isValid())  ? static_cast<const MPI_Comm>(pcom) : MPI_COMM_WORLD;
   
   bool master = sid == 0 ;
-  
+
+  Timer timer(subDomain(), "MeshbTimer", Timer::TimerReal);
+
   if (use_internal_partition)
   {
       Integer nb_cells = 0;
@@ -184,7 +187,12 @@ readMeshFromFile(IPrimaryMesh* mesh,
           if (dim == 3)
           {
               Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
-              msh.read(file_name.localstr());
+              // read: rank 0 reads the whole file
+              {
+                  Timer::Action action(subDomain(), "MeshbRead", true);
+                  Timer::Sentry sentry(&timer);
+                  msh.read(file_name.localstr());
+              }
 
               const auto& vertices = msh.ver();
               Integer nb_nodes = vertices.nbr();
@@ -193,18 +201,23 @@ readMeshFromFile(IPrimaryMesh* mesh,
               auto& tets = msh.tet();
               auto& hexes = msh.hex();
 
-              Integer uid_offset = 0;
-              Integer nb_tets = appendBlockElements(tets, IT_Tetraedron4, 4, cells_infos, uid_offset);
-              uid_offset += nb_tets;
-              Integer nb_hex = appendBlockElements(hexes, IT_Hexaedron8, 8, cells_infos, uid_offset);
-              uid_offset += nb_hex;
-              nb_cells = uid_offset;
-              info() << "Mesh read: " << nb_tets << " tetrahedra, " << nb_hex << " hexahedra";
+              // convert: rank 0 fills cells_infos with all the cells
+              {
+                  Timer::Action action(subDomain(), "MeshbConvert", true);
+                  Timer::Sentry sentry(&timer);
+                  Integer uid_offset = 0;
+                  Integer nb_tets = appendBlockElements(tets, IT_Tetraedron4, 4, cells_infos, uid_offset);
+                  uid_offset += nb_tets;
+                  Integer nb_hex = appendBlockElements(hexes, IT_Hexaedron8, 8, cells_infos, uid_offset);
+                  uid_offset += nb_hex;
+                  nb_cells = uid_offset;
+                  info() << "Mesh read: " << nb_tets << " tetrahedra, " << nb_hex << " hexahedra";
 
-              const auto& coords = vertices.crd();
-              node_coords_master.resize(nb_nodes + 1);
-              for (Integer i = 1; i <= nb_nodes; ++i)
-                  node_coords_master[i] = Real3(coords[i][0], coords[i][1], coords[i][2]);
+                  const auto& coords = vertices.crd();
+                  node_coords_master.resize(nb_nodes + 1);
+                  for (Integer i = 1; i <= nb_nodes; ++i)
+                      node_coords_master[i] = Real3(coords[i][0], coords[i][1], coords[i][2]);
+              }
           }
           else if (dim == 2)
           {
@@ -234,16 +247,21 @@ readMeshFromFile(IPrimaryMesh* mesh,
 
       pm->broadcast(ArrayView<Integer>(1, &dim), 0);
 
-      mesh->setDimension(dim);
-      mesh->allocateCells(nb_cells, cells_infos, false);
-      mesh->endAllocate();
-
+      // build: Arcane mesh and node coordinates
       {
-          VariableNodeReal3& nodes_coord = mesh->nodesCoordinates();
-          ENUMERATE_NODE (inode, mesh->allNodes()) {
-              const Node& node = *inode;
-              Int64 uid = node.uniqueId().asInt64();
-              nodes_coord[inode] = node_coords_master[uid];
+          Timer::Action action(subDomain(), "MeshbBuild", true);
+          Timer::Sentry sentry(&timer);
+          mesh->setDimension(dim);
+          mesh->allocateCells(nb_cells, cells_infos, false);
+          mesh->endAllocate();
+
+          {
+              VariableNodeReal3& nodes_coord = mesh->nodesCoordinates();
+              ENUMERATE_NODE (inode, mesh->allNodes()) {
+                  const Node& node = *inode;
+                  Int64 uid = node.uniqueId().asInt64();
+                  nodes_coord[inode] = node_coords_master[uid];
+              }
           }
       }
   }
@@ -262,10 +280,22 @@ else
     case 3:
     {
       Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Block> msh(rns);
-      msh.read(file_name.localstr());
-      // hex needs more ghost layers than tet, or cells get dropped 
+      // read: each rank reads its block of the file
+      {
+          Timer::Action action(subDomain(), "MeshbRead", true);
+          Timer::Sentry sentry(&timer);
+          msh.read(file_name.localstr());
+      }
+
+      // hex needs more ghost layers than tet, or cells get dropped
       int nb_ghost_layer = (msh.hex().nbr() > 0) ? 3 : 0;
-      auto part_mesh = msh.to_part<metis_t>(nb_ghost_layer) ;
+      Ouranos::Mesh::Mesh<3, Ouranos::Kernel::Part> part_mesh;
+      // partition: ParMETIS on the node graph, ghost layers, data sent to its rank
+      {
+          Timer::Action action(subDomain(), "MeshbPartition", true);
+          Timer::Sentry sentry(&timer);
+          part_mesh = msh.to_part<metis_t>(nb_ghost_layer);
+      }
 
       auto& vertices = part_mesh.ver();
       Integer nb_nodes = vertices.nbr();
@@ -273,16 +303,21 @@ else
       info() << "Ouranos version: " << Ouranos::Kernel::version();
       info() << "Mesh read: " << nb_nodes << " nodes";
 
-      mesh->setDimension(3);
-
       // Get tetrahedra and hexahedra
       auto& tets = part_mesh.tet();
       auto& hexes = part_mesh.hex();
 
       SharedArray<Int64> cells_infos;
 
-      Integer nb_owned_tets = appendOwnedPartElements(tets, IT_Tetraedron4, 4, cells_infos, vertices);
-      Integer nb_owned_hex = appendOwnedPartElements(hexes, IT_Hexaedron8, 8, cells_infos, vertices);
+      Integer nb_owned_tets = 0;
+      Integer nb_owned_hex = 0;
+      // convert: keep the cells owned by this rank (smallest gid rule), fill cells_infos
+      {
+          Timer::Action action(subDomain(), "MeshbConvert", true);
+          Timer::Sentry sentry(&timer);
+          nb_owned_tets = appendOwnedPartElements(tets, IT_Tetraedron4, 4, cells_infos, vertices);
+          nb_owned_hex = appendOwnedPartElements(hexes, IT_Hexaedron8, 8, cells_infos, vertices);
+      }
       Integer nb_owned_cells = nb_owned_tets + nb_owned_hex;
 
       info() << "Tetrahedra: " << tets.nbr() << " local (with ghosts), " << nb_owned_tets << " owned";
@@ -294,19 +329,25 @@ else
       if (master)
           info() << "Load balance: min=" << min_owned << " max=" << max_owned << " total=" << total_owned;
 
-      mesh->allocateCells(nb_owned_cells, cells_infos, false);
-      mesh->endAllocate();
+      // build: Arcane mesh, node coordinates, ghost nodes update
+      {
+          Timer::Action action(subDomain(), "MeshbBuild", true);
+          Timer::Sentry sentry(&timer);
+          mesh->setDimension(3);
+          mesh->allocateCells(nb_owned_cells, cells_infos, false);
+          mesh->endAllocate();
 
-      auto& coords = vertices.crd();
-      VariableNodeReal3& nodes_coord = mesh->nodesCoordinates();
+          auto& coords = vertices.crd();
+          VariableNodeReal3& nodes_coord = mesh->nodesCoordinates();
 
-      ENUMERATE_NODE (inode, mesh->allNodes()) {
-          const Node& node = *inode;
-          Int64 uid = node.uniqueId().asInt64();
-          nodes_coord[inode] = Real3(coords[uid][0], coords[uid][1], coords[uid][2]);
+          ENUMERATE_NODE (inode, mesh->allNodes()) {
+              const Node& node = *inode;
+              Int64 uid = node.uniqueId().asInt64();
+              nodes_coord[inode] = Real3(coords[uid][0], coords[uid][1], coords[uid][2]);
+          }
+
+          nodes_coord.synchronize();
       }
-
-      nodes_coord.synchronize();
     }
     break ;
     case 2:
