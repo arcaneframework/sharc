@@ -2,3 +2,8 @@
 *~
 /build/
 /out/*
+#eclipse
+.cproject
+.project
+.settings
+.pydevproject
