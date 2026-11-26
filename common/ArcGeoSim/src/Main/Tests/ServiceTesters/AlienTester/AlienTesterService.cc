@@ -828,7 +828,8 @@ checkDotProductWithManyAlgebra(const Alien::Vector& vectorB,
   if (dot1 != dot2)
     fatal() << "SimpleCSR vs PETSc : Not equal dot product";
 #endif
-#if (defined(USE_ALIEN_V1) || defined(USE_ALIEN_V2) ) && defined(ALIEN_USE_MTL4)
+  /*
+#if (defined(USE_ALIEN_V1) || defined(USE_ALIEN_V2) )&& defined(ALIEN_USE_MTL)
   /*
   if (m_parallel_mng->commSize() == 1) {
     Alien::MTLLinearAlgebra alg3;
@@ -837,8 +838,8 @@ checkDotProductWithManyAlgebra(const Alien::Vector& vectorB,
     info() << "MTL dot product : " << dot3;
     if (dot1 != dot3)
       fatal() << "SimpleCSR vs MTL : Not equal dot product";
-  }*/
-#endif
+  }
+#endif */
 }
 
 /*---------------------------------------------------------------------------*/

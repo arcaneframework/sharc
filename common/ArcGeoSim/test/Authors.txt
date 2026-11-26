@@ -14,7 +14,7 @@ Expressions_XDMF_ascii::jean-louis.pajon
 Expressions_XDMF_binary::jean-louis.pajon
 ObservableProperty::daniele-antonio.di-pietro
 MonoPhasiqueModel-Unit-NumModel-LinearSolver::j-marc.gratien
-MeshUtils::j-marc.gratien
+MeshUtils::stephane.de-chaisemartin
 NonLinearSolverLocalProblem::j-marc.gratien
 MultiThreadNonLinearTest::j-marc.gratien
 Partitioner::youssef.mesri

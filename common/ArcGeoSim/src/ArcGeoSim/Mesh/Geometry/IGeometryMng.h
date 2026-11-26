@@ -19,6 +19,7 @@
 #include "ArcGeoSim/Utils/ItemGroupMap.h"
 #include "ArcGeoSim/Mesh/Geometry/IGeometryPolicy.h"
 #include "ArcGeoSim/Mesh/Geometry/NoOptimizationGeometryPolicy.h"
+#include "ArcGeoSim/Mesh/Geometry/PlanarSubFaceInfo.h"
 
 using namespace Arcane;
 
@@ -47,7 +48,9 @@ struct IGeometryProperty
       PMassCenter         = (1 << 5),
       PNormal             = (1 << 6),
       PVolumeSurfaceRatio = (1 << 7),
-      PEnd                = (1 << 8) //! Marqueur de dernier type
+      // -- ADD: property enabling computations on planar sub-faces
+      PPlanarSubFaces     = (1 << 8),
+      PEnd                = (1 << 9) //! Last type marker (updated)
     };
 
   enum eStorage
@@ -57,12 +60,12 @@ struct IGeometryProperty
       PItemGroupMap = (1 << 1)
     };
 
-  static bool isScalar(const eProperty p) 
+  static bool isScalar(const eProperty p)
   {
     return (p & (PMeasure|PLength|PArea|PVolume|PVolumeSurfaceRatio)) != 0;
   }
 
-  static bool isVectorial(const eProperty p) 
+  static bool isVectorial(const eProperty p)
   {
     return (p & (PCenter|PMassCenter|PNormal)) != 0;
   }
@@ -99,7 +102,7 @@ struct IGeometryProperty
     case PArea:
       return "Area";
     case PVolume:
-      return "Volume";        
+      return "Volume";
     case PCenter:
       return "Center";
     case PMassCenter:
@@ -108,6 +111,9 @@ struct IGeometryProperty
       return "Normal";
     case PVolumeSurfaceRatio:
       return "VolumeSurfaceRatio";
+    // -- ADD: name of the new property
+    case PPlanarSubFaces:
+      return "PlanarSubFaces";
     case PEnd:
     default:
       throw FatalErrorException(A_FUNCINFO,"Undefined property");
@@ -150,17 +156,51 @@ public:
 
 public:
   /** Constructeur de la classe */
-  IGeometryMng() 
+  IGeometryMng()
     {
       ;
     }
-  
+
   /** Destructeur de la classe */
   virtual ~IGeometryMng() {};
-  
+
 public:
   //! Initialisation
   virtual void init() = 0;
+
+  // -- ADD: interface to access planar sub-faces of non-planar faces.
+  //@{ @name Planar sub-faces of non-planar Arcane faces
+
+  /*! Returns true if the Arcane face \a f is non-planar and has an internal
+   *  decomposition into planar sub-faces known by this geometry manager.
+   *
+   *  It returns true when the face is handled as non-planar and a planar
+   *  sub-face decomposition is available; false otherwise.
+   */
+  virtual bool hasPlanarSubFaces(const Arcane::Face& f) const = 0;
+
+  /*! Returns the number of planar sub-faces associated to the Arcane face \a f.
+   *
+   *  If the face is planar or if the geometry does not provide any decomposition,
+   *  this method must return 0.
+   */
+  virtual Arcane::Integer nbPlanarSubFaces(const Arcane::Face& f) const = 0;
+
+  /*! Fills the array \a infos with the geometric information of the planar
+   *  sub-faces of the Arcane face \a f:
+   *    - area of each sub-face,
+   *    - unit normal of each sub-face,
+   *    - center (barycenter) of each sub-face.
+   *
+   *  The array passed as argument must have a size at least equal to
+   *  nbPlanarSubFaces(f).
+   *  For planar or unmanaged faces, the implementation may leave \a infos
+   *  unchanged or empty it, depending on the chosen policy.
+   */
+  virtual void planarSubFacesInfos(const Arcane::Face& f,
+                                   Arcane::ArrayView<PlanarSubFaceInfo> infos) const = 0;
+
+  //@}
 
   //@{ @name Geometric property management for ItemGroup 
 
@@ -210,7 +250,7 @@ public:
 
   //! Reset property for all ItemGroups
   virtual void reset() = 0;
-  
+
   //@}
 
   //! Get underlying geometry

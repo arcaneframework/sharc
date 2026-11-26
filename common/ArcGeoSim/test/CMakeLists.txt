@@ -26,6 +26,10 @@ include(${PROJECT_SOURCE_DIR}/test/MakeDelegatedPtr.txt)
 include(${PROJECT_SOURCE_DIR}/test/ModuleMaster.txt)
 include(${PROJECT_SOURCE_DIR}/test/StrongOptions.txt)
 include(${PROJECT_SOURCE_DIR}/test/NNInference.txt)
+if (UNIX OR ${ARCANE_VERSION} VERSION_GREATER "4.1.16")
+  include(${PROJECT_SOURCE_DIR}/test/Mesh.txt)
+endif()
+
 
 # To remove when NumericalModel along with TimeUtils has moved from ArcGeoSim 
 #include(${PROJECT_SOURCE_DIR}/test/MultiThreadNonLinearTest.txt)

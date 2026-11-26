@@ -81,7 +81,7 @@ public:
 
     void initLinearSystemProfile(Arcane::CellGroup cells,
                                Alien::MatrixProfiler& blockProfiler,
-                               Arcane::ConstArray2View<Arcane::Integer> indexes,
+                               Arcane::ConstArrayView<Arcane::Integer> indexes,
                                Arcane::Integer block_size) ;
 
     void setSolutionVariables(Arcane::SharedArray<Arcane::VariableCellReal*>& solutions) ;
@@ -130,7 +130,7 @@ private:
 
     void _twoPointsProfiler(Arcane::CellGroup cells,
                           Alien::MatrixProfiler& blockProfiler,
-                          Arcane::ConstArray2View<Arcane::Integer> indexes,
+                          Arcane::ConstArrayView<Arcane::Integer> indexes,
                           Arcane::Integer block_size) const
     {
       Arcane::CellGroup group = cells;
@@ -138,7 +138,7 @@ private:
 
       ENUMERATE_CELL(icell, group.own()) {
         const Arcane::Integer lid = icell->localId();
-        blockProfiler.addMatrixEntry(indexes[lid][0]/block_size, indexes[lid][0]/block_size);
+        blockProfiler.addMatrixEntry(indexes[lid], indexes[lid]);
       }
 
       ENUMERATE_FACE(iface, group.innerActiveFaceGroup()) {
@@ -147,9 +147,9 @@ private:
         const Arcane::Cell front_cell = iface->frontCell();
         const Arcane::Integer front_lid = front_cell.localId();
         if(back_cell->isOwn())
-          blockProfiler.addMatrixEntry(indexes[back_lid][0]/block_size, indexes[front_lid][0]/block_size);
+          blockProfiler.addMatrixEntry(indexes[back_lid], indexes[front_lid]);
         if(front_cell->isOwn())
-          blockProfiler.addMatrixEntry(indexes[front_lid][0]/block_size, indexes[back_lid][0]/block_size);
+          blockProfiler.addMatrixEntry(indexes[front_lid], indexes[back_lid]);
         }
 
       info() << "OK Define profil";
@@ -157,7 +157,7 @@ private:
 
     void _multiPointsProfiler(Arcane::CellGroup cells,
                             Alien::MatrixProfiler& blockProfiler,
-                            Arcane::ConstArray2View<Arcane::Integer> indexes,
+                            Arcane::ConstArrayView<Arcane::Integer> indexes,
                             Arcane::Integer block_size) const {
       Arcane::CellGroup group = cells;
 
@@ -166,7 +166,7 @@ private:
       ENUMERATE_CELL(icell, group.own()) {
         const Arcane::Integer lid = icell->localId();
         //profiler(indexes[lid], indexes[lid]);
-        blockProfiler.addMatrixEntry(indexes[lid][0]/block_size,indexes[lid][0]/block_size);
+        blockProfiler.addMatrixEntry(indexes[lid],indexes[lid]);
       }
 
       ENUMERATE_FACE(iface, group.innerActiveFaceGroup()) {
@@ -180,7 +180,7 @@ private:
             const auto& lawCell(m_schemeStencil->cell()) ;
             const auto cellLId(lawCell.localId()) ;
             //profiler(indexes[backLid], indexes[cellLId]);
-            blockProfiler.addMatrixEntry(indexes[backLid][0]/block_size, indexes[cellLId][0]/block_size);
+            blockProfiler.addMatrixEntry(indexes[backLid], indexes[cellLId]);
           }
         }
 
@@ -192,7 +192,7 @@ private:
             const auto& lawCell(m_schemeStencil->cell()) ;
             const auto cellLId(lawCell.localId()) ;
             //profiler(indexes[frontLid], indexes[cellLId]);
-            blockProfiler.addMatrixEntry(indexes[frontLid][0]/block_size, indexes[cellLId][0]/block_size);
+            blockProfiler.addMatrixEntry(indexes[frontLid], indexes[cellLId]);
           }
         }
       }
@@ -208,7 +208,7 @@ private:
             const auto& lawCell(m_schemeStencil->cell()) ;
             const auto cellLId(lawCell.localId()) ;
             //profiler(indexes[boundLid], indexes[cellLId]);
-            blockProfiler.addMatrixEntry(indexes[boundLid][0]/block_size, indexes[cellLId][0]/block_size);
+            blockProfiler.addMatrixEntry(indexes[boundLid], indexes[cellLId]);
           }
         }
       }
@@ -306,7 +306,7 @@ void
 TwoPhaseFlowSimulationModule::
 initLinearSystemProfile(Arcane::CellGroup cells,
                         Alien::MatrixProfiler& blockProfiler,
-                        Arcane::ConstArray2View<Arcane::Integer> indexes,
+                        Arcane::ConstArrayView<Arcane::Integer> indexes,
                         Integer block_size)
 {
 

@@ -96,7 +96,7 @@ private:
     auto offset = solution.distribution().offset();
 
     ENUMERATE_CELL(icell, cells.own()) {
-      Arcane::Integer id = indexes[icell->localId()][0]/nb_equations - offset;
+      Arcane::Integer id = indexes[icell->localId()] - offset;
       Alien::LocalBlockVectorReader vr(solution);
       ConstArrayView<Real> values = vr[id];
       //ARCANE_ASSERT((block.size() == nb_equations),("number of equations and size block not matching"));

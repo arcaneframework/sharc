@@ -1,0 +1,6 @@
+AddTest(NAME MeshUtils
+  FILE ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/MeshUtils/TestMeshUtils-polyhedral.arc)
+
+AddTest(NAME MeshUtils
+  FILE ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/MeshUtils/TestMeshUtils-polyhedral.arc
+  MPI 4)

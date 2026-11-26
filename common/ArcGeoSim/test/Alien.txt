@@ -9,15 +9,10 @@ ARCANE_ADD_TEST(Alien
   ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
   TestAlien.arc)
 
-AddTest(NAME Alien-Block
-    FILE ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien/TestAlienBlock.arc
-)
-
-AddTest(NAME Alien-Block_MPI
-    FILE ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien/TestAlienBlock.arc
-    LABELS ToFix
-    MPI 4
-)
+ARCANE_ADD_TEST(Alien-Block
+  ArcGeoSim
+  ${ARCGEOSIM_TEST_DIR}/ArcGeoSim/test/ServiceTests/Alien
+  TestAlienBlock.arc)
 
 ARCANE_ADD_TEST(Alien-VBlock
   ArcGeoSim

@@ -34,9 +34,9 @@ ArcNum::LinearSystem::
 LinearSystem(const LinearSystem& system)
   : m_trace(_arcaneGetDefaultSubDomain()->traceMng())
   , m_alien_space(system.m_alien_space)
-  , m_alien_vector_index_manager(system.m_alien_vector_index_manager)
-  , m_alien_vector_index_set(system.m_alien_vector_index_set)
-  , m_alien_vector_indexes(system.m_alien_vector_indexes)
+  , m_alien_scalar_index_manager(system.m_alien_scalar_index_manager)
+  , m_alien_scalar_index_set(system.m_alien_scalar_index_set)
+  , m_alien_scalar_indexes(system.m_alien_scalar_indexes)
   , m_mdist(system.m_mdist)
   , m_vdist(system.m_vdist)
   , m_alien_block(system.m_alien_block)
@@ -53,9 +53,9 @@ operator=(const LinearSystem& system)
   m_normalize_opt = system.m_normalize_opt;
   m_trace = _arcaneGetDefaultSubDomain()->traceMng();
   m_alien_space = system.m_alien_space;
-  m_alien_vector_index_manager = system.m_alien_vector_index_manager;
-  m_alien_vector_index_set = system.m_alien_vector_index_set;
-  m_alien_vector_indexes = system.m_alien_vector_indexes;
+  m_alien_scalar_index_manager = system.m_alien_scalar_index_manager;
+  m_alien_scalar_index_set = system.m_alien_scalar_index_set;
+  m_alien_scalar_indexes = system.m_alien_scalar_indexes;
   m_mdist = system.m_mdist;
   m_vdist = system.m_vdist;
   m_alien_block = system.m_alien_block;
@@ -71,7 +71,7 @@ ArcNum::LinearSystem::
 LinearSystem(const MeshGroupBlock& group,
              bool is_reduced)
   : m_trace(_arcaneGetDefaultSubDomain()->traceMng())
-  , m_alien_vector_index_manager(new Alien::ArcaneTools::BasicIndexManager(_arcaneGetDefaultSubDomain()->parallelMng()))
+  , m_alien_scalar_index_manager(new Alien::ArcaneTools::BasicIndexManager(_arcaneGetDefaultSubDomain()->parallelMng()))
 {
   this->_init(group);
 }
@@ -82,14 +82,12 @@ void
 ArcNum::LinearSystem::
 _init(const MeshGroupBlock& group)
 {
-  m_alien_vector_index_manager->setTraceMng(m_trace);
+  m_alien_scalar_index_manager->setTraceMng(m_trace);
+  m_alien_scalar_index_set = m_alien_scalar_index_manager->buildScalarIndexSet(group.name, group.group);
+  m_alien_scalar_index_manager->prepare();
+  m_alien_scalar_indexes = m_alien_scalar_index_manager->getIndexes(m_alien_scalar_index_set);
 
-  m_alien_vector_index_set = m_alien_vector_index_manager->buildVectorIndexSet(group.name, group.group, group.nbEquations);
   m_alien_block.reset(new Alien::Block(group.nbEquations));
-
-  m_alien_vector_index_manager->prepare();
-  m_alien_vector_indexes.resize(m_alien_vector_index_set.size());
-  m_alien_vector_indexes = m_alien_vector_index_manager->getIndexes(m_alien_vector_index_set);
 
   this->_prepareAlien();
 }
@@ -100,9 +98,10 @@ void
 ArcNum::LinearSystem::
 _prepareAlien()
 {
-  m_alien_space = new Alien::ArcaneTools::Space(m_alien_vector_index_manager.get(), m_alien_block->size());
-  m_mdist = Alien::ArcaneTools::createMatrixDistribution(*m_alien_space, m_alien_block->size());
-  m_vdist = Alien::ArcaneTools::createVectorDistribution(*m_alien_space, m_alien_block->size());
+  m_alien_space = new Alien::ArcaneTools::Space(m_alien_scalar_index_manager.get(), "space");
+
+  m_mdist = Alien::ArcaneTools::createMatrixDistribution(*m_alien_space);
+  m_vdist = Alien::ArcaneTools::createVectorDistribution(*m_alien_space);
 
   m_alien_rhs.reset(new Alien::BlockVector(*m_alien_block, m_vdist));
   m_alien_solution.reset(new Alien::BlockVector(*m_alien_block, m_vdist));
