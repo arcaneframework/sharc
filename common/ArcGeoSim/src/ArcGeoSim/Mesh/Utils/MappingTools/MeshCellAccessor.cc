@@ -1,9 +1,15 @@
+// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
+//-----------------------------------------------------------------------------
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// See the top-level COPYRIGHT file for details.
+// SPDX-License-Identifier: Apache-2.0
+//-----------------------------------------------------------------------------
 #include "MeshCellAccessor.h"
 
 #include <arcane/ItemEnumerator.h>
 #include <arcane/utils/FatalErrorException.h>
 #include <arcane/VariableTypes.h>
-
+#include <arcane/core/IItemFamily.h>
 
 
 /*---------------------------------------------------------------------------*/
@@ -60,10 +66,10 @@ void MeshCellAccessor::getCellBoundingBox(Integer elt_idx, OrthonormalBoundingBo
   bbox.reset();
 
   // Index checking
-  if (elt_idx >= m_mesh->nbCell() || elt_idx < 0)
+  if (elt_idx > m_mesh->cellFamily()->maxLocalId() || elt_idx < 0)
   {
     throw FatalErrorException(
-        String::format("CellBoundingBox - index of cell out of bounds: {0} (max: {1})", elt_idx, m_mesh->nbCell() - 1));
+        String::format("CellBoundingBox - index of cell out of bounds: {0} (max: {1})", elt_idx, m_mesh->cellFamily()->maxLocalId()));
   }
 
   const Cell& myCell = m_mesh->meshItemInternalList()->cells.item(elt_idx);

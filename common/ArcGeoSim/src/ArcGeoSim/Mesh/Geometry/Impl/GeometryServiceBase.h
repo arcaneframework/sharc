@@ -1,3 +1,9 @@
+// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-
+//-----------------------------------------------------------------------------
+// Copyright 2000-2025 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)
+// See the top-level COPYRIGHT file for details.
+// SPDX-License-Identifier: Apache-2.0
+//-----------------------------------------------------------------------------
 #ifndef ARCGEOSIM_GEOMETRY_GEOMETRYSERVICEBASE_H
 #define ARCGEOSIM_GEOMETRY_GEOMETRYSERVICEBASE_H
 /* Author : havep at Thu Apr  3 09:09:09 2008
@@ -61,6 +67,32 @@ public:
 
   //! Get geometric property values for a Real3 field
   const Real3GroupMap & getReal3GroupMapProperty(ItemGroup group, IGeometryProperty::eProperty property);
+
+  //@}
+
+  //@{ @name Planar sub-faces default implementation
+
+  //! Default implementation: no planar sub-faces are available
+  virtual bool hasPlanarSubFaces(const Arcane::Face& f) const override
+  {
+    ARCANE_UNUSED(f);
+    return false;
+  }
+
+  //! Default implementation: no planar sub-faces are available
+  virtual Arcane::Integer nbPlanarSubFaces(const Arcane::Face& f) const override
+  {
+    ARCANE_UNUSED(f);
+    return 0;
+  }
+
+  //! Default implementation: do nothing and leave infos unchanged
+  virtual void planarSubFacesInfos(const Arcane::Face& f,
+                                   Arcane::ArrayView<PlanarSubFaceInfo> infos) const override
+  {
+    ARCANE_UNUSED(f);
+    ARCANE_UNUSED(infos);
+  }
 
   //@}
 

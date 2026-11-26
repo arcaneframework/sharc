@@ -26,5 +26,6 @@
     <directory>GumpTester</directory>
     <directory depend="strong_options,linux">StrongOptionsTester</directory>
     <directory>NNInferenceTester</directory>
+    <directory>MeshUtilsTester</directory>
   </directories>
 </makefile>

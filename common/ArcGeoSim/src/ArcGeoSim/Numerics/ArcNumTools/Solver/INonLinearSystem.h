@@ -80,7 +80,7 @@ public:
 
   virtual void initLinearSystemProfile(Arcane::CellGroup cells,
                                        Alien::MatrixProfiler& blockProfiler,
-                                       Arcane::ConstArray2View<Arcane::Integer> indexes,
+                                       Arcane::ConstArrayView<Arcane::Integer> indexes,
                                        Arcane::Integer block_size ) = 0 ;
 
   virtual void setSolutionVariables(Arcane::SharedArray<Arcane::VariableCellReal*>& solutions) = 0 ;

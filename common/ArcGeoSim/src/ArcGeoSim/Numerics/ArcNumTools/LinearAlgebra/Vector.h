@@ -33,19 +33,19 @@ namespace ArcNum {
     struct InternalData
     { 
       InternalData(Alien::BlockVector& alien_block_vector,
-		   Arcane::ConstArray2View<Arcane::Integer> all_indexes)
+		   Arcane::ConstArrayView<Arcane::Integer> all_indexes)
 	: m_trace(_arcaneGetDefaultSubDomain()->traceMng())
 	, m_i(-1)
 	, m_equation(-1)
 	, m_alien_block_vector(alien_block_vector)
 	, m_all_indexes(all_indexes)
-  , m_block_vw(alien_block_vector)
+    , m_block_vw(alien_block_vector)
       {}
     Arcane::ITraceMng* m_trace;
     Arcane::Integer m_i;
     Arcane::Integer m_equation;
     Alien::BlockVector& m_alien_block_vector;
-    Arcane::ConstArray2View<Arcane::Integer> m_all_indexes;
+    Arcane::ConstArrayView<Arcane::Integer> m_all_indexes;
     Alien::BlockVectorWriter m_block_vw;
   };
   
@@ -104,19 +104,19 @@ public:
     
     VectorAdder operator[](const Arcane::Item& i) 
     {
-      m_data.m_i = m_data.m_all_indexes[i.localId()][0]/m_data.m_alien_block_vector.block().size();
+      m_data.m_i = m_data.m_all_indexes[i.localId()];
       return VectorAdder(m_data);
     }
     
     VectorAdder operator[](const Arcane::ItemEnumerator& i) 
     {
-      m_data.m_i = m_data.m_all_indexes[i->localId()][0]/m_data.m_alien_block_vector.block().size();
+      m_data.m_i = m_data.m_all_indexes[i->localId()];
       return VectorAdder(m_data);
     }
    
     VectorAdder operator[](const Stencil::Cell& i)
     {
-      m_data.m_i = m_data.m_all_indexes[i.localId()][0]/m_data.m_alien_block_vector.block().size();
+      m_data.m_i = m_data.m_all_indexes[i.localId()];
       return VectorAdder(m_data);
     }
    
@@ -125,7 +125,7 @@ public:
     InternalData& m_data;
   };
   Vector(Alien::BlockVector& alien_block_vector,
-	 Arcane::ConstArray2View<Arcane::Integer> indexes)
+	 Arcane::ConstArrayView<Arcane::Integer> indexes)
     : m_data(alien_block_vector, indexes) {}
 
   VectorElementProxy operator[](Arcane::Integer equation)

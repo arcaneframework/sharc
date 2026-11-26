@@ -102,8 +102,8 @@ public:
   Alien::ArcaneTools::Space& space() { return *m_alien_space; }
   const Alien::MatrixDistribution& matrixDistribution() const { return m_mdist; }
   Alien::MatrixDistribution& matrixDistribution() { return m_mdist; }
-  const Alien::ArcaneTools::IIndexManager::VectorIndexSet indexSet() const { return m_alien_vector_index_set; }
-  Arcane::ConstArray2View<Arcane::Integer> indexes() const { return m_alien_vector_indexes; }
+  const Alien::ArcaneTools::IIndexManager::ScalarIndexSet indexSet() const { return m_alien_scalar_index_set; }
+  Arcane::ConstArrayView<Arcane::Integer> indexes() const { return m_alien_scalar_indexes; }
 
   bool solve(Alien::ILinearSolver* solver);
 
@@ -129,10 +129,10 @@ private:
   bool m_diag_scaling_opt                  = false ;
   Arcane::ITraceMng* m_trace               = nullptr;
   Alien::ArcaneTools::Space* m_alien_space = nullptr;
-  std::shared_ptr<Alien::ArcaneTools::BasicIndexManager> m_alien_vector_index_manager;
-  typedef Alien::ArcaneTools::IIndexManager::VectorIndexSet VectorIndexSet;
-  VectorIndexSet m_alien_vector_index_set;
-  Arcane::IntegerSharedArray2 m_alien_vector_indexes;
+  std::shared_ptr<Alien::ArcaneTools::BasicIndexManager> m_alien_scalar_index_manager;
+  typedef Alien::ArcaneTools::IIndexManager::ScalarIndexSet ScalarIndexSet;
+  ScalarIndexSet m_alien_scalar_index_set;
+  Arcane::IntegerSharedArray m_alien_scalar_indexes;
   Alien::MatrixDistribution m_mdist;
   Alien::VectorDistribution m_vdist;
   std::shared_ptr<Alien::Block> m_alien_block;

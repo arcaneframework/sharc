@@ -34,9 +34,13 @@ set(USE_LANGUAGE_LAW ON)
 
 # chargement du systeme de compilation
 include(LoadArcGeoSim)
-
+get_property(ARCANE_VERSION GLOBAL PROPERTY ARCANE_VERSION)
 # ici on met les packages, langages, metas, options...
 
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  # meta is created to disables directories and sources that cannot compile with clang because of old register keywords
+  loadMeta(NAME clang)
+endif()
 # activation des strong options (uniquement avec le nouveau systeme de compilation)
 loadMeta(NAME strong_options)
 loadMeta(NAME alien20)

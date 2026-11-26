@@ -38,8 +38,10 @@
 #ifdef USE_PRECICE
 #ifdef USE_PRECICE_V3
 #include "precice/precice.hpp"
+#ifdef USE_FORK_IFPEN_PRECICE
 #include "precice/UserAppTools.hpp"
-#else
+#endif
+#else // USE_PRECICE_V3
 #include "precice/SolverInterface.hpp"
 #endif
 #endif
@@ -48,7 +50,7 @@
 
 #include "PreCICE_axl.h"
 
-#ifdef USE_PRECICE_V3
+#if defined(USE_PRECICE_V3) && defined(USE_FORK_IFPEN_PRECICE)
 class UserConvergenceOp
 : public precice::IUserAppConvergenceOp
 {
@@ -220,7 +222,7 @@ private:
 
   ICAWFMng::ITimeIterStateOp* m_state_op = nullptr ;
 
-#ifdef USE_PRECICE_V3
+#if defined(USE_PRECICE_V3) && defined(USE_FORK_IFPEN_PRECICE)
   std::unique_ptr<precice::IUserAppConvergenceOp> m_user_convergence_op ;
 #endif
 
@@ -290,7 +292,7 @@ PreCICEService ::baseInit()
       m_write_datas.add(Var{opt->name(),opt->varName(),opt->itemKind(),id}) ;
   }
 
-#ifdef USE_PRECICE_V3
+#if defined(USE_PRECICE_V3) && defined(USE_FORK_IFPEN_PRECICE)
   if(options()->appConvCrit.size()>0)
   {
       auto max_iter  = options()->appConvCrit[0]->maxIter() ;
@@ -800,7 +802,7 @@ bool PreCICEService::validateCurrentTimeStep()
 
 void PreCICEService::setConvergence(bool values)
 {
-#ifdef USE_PRECICE_V3
+#if defined(USE_PRECICE_V3) && defined(USE_FORK_IFPEN_PRECICE)
     if(m_user_convergence_op.get())
         static_cast<UserConvergenceOp*>(m_user_convergence_op.get())->setConvergence(values) ;
 #endif
